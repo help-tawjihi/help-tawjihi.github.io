@@ -1,0 +1,4368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>لوحة التحكم | مساعد توجيهي</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    :root {
+
+      --bg: #f5f7f8;
+      --surface: #ffffff;
+      --surface2: #f0f4f3;
+
+      --text: #17211f;
+      --muted: #71807c;
+
+      --primary: #0f766e;
+      --primary2: #14b8a6;
+
+      --soft: #e5f6f3;
+
+      --border: #e1e8e6;
+
+      --danger: #dc2626;
+      --warning: #d97706;
+
+      --success: #16a34a;
+
+      --shadow:
+        0 12px 35px rgba(15,118,110,.08);
+
+      --radius: 20px;
+
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+
+      font-family:
+        "IBM Plex Sans Arabic",
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      min-height: 100vh;
+
+    }
+
+
+    button,
+    input,
+    select,
+    textarea {
+
+      font-family: inherit;
+
+    }
+
+
+    button {
+
+      cursor: pointer;
+
+    }
+
+
+    /* =================================================
+       LOGIN
+       ================================================= */
+
+    #loginScreen {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(20,184,166,.13),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(15,118,110,.10),
+          transparent 30%
+        ),
+
+        var(--bg);
+
+    }
+
+
+    .login-card {
+
+      width: 100%;
+
+      max-width: 430px;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+
+      border-radius: 28px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.08);
+
+    }
+
+
+    .login-logo {
+
+      width: 65px;
+
+      height: 65px;
+
+      border-radius: 19px;
+
+      display: grid;
+
+      place-items: center;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      margin: 0 auto 18px;
+
+    }
+
+
+    .login-logo svg {
+
+      width: 32px;
+
+      height: 32px;
+
+    }
+
+
+    .login-card h1 {
+
+      text-align: center;
+
+      font-size: 25px;
+
+      margin-bottom: 6px;
+
+    }
+
+
+    .login-card > p {
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .field {
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .field label {
+
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .field input,
+    .field select,
+    .field textarea {
+
+      width: 100%;
+
+      border: 1px solid var(--border);
+
+      background: var(--surface);
+
+      color: var(--text);
+
+      border-radius: 13px;
+
+      padding: 13px 14px;
+
+      outline: none;
+
+      transition: .2s;
+
+      font-size: 14px;
+
+    }
+
+
+    .field textarea {
+
+      min-height: 100px;
+
+      resize: vertical;
+
+    }
+
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+
+      border-color: var(--primary2);
+
+      box-shadow:
+        0 0 0 3px rgba(20,184,166,.10);
+
+    }
+
+
+    .primary-btn {
+
+      width: 100%;
+
+      height: 48px;
+
+      border: 0;
+
+      border-radius: 13px;
+
+      color: white;
+
+      font-weight: 700;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      transition: .2s;
+
+    }
+
+
+    .primary-btn:hover {
+
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 10px 25px rgba(15,118,110,.18);
+
+    }
+
+
+    .error {
+
+      background: #fef2f2;
+
+      color: #b91c1c;
+
+      border: 1px solid #fecaca;
+
+      border-radius: 12px;
+
+      padding: 10px;
+
+      font-size: 13px;
+
+      margin-bottom: 14px;
+
+      display: none;
+
+    }
+
+
+    /* =================================================
+       APP
+       ================================================= */
+
+    #app {
+
+      display: none;
+
+      min-height: 100vh;
+
+    }
+
+
+    /* =================================================
+       SIDEBAR
+       ================================================= */
+
+    .sidebar {
+
+      position: fixed;
+
+      right: 0;
+
+      top: 0;
+
+      bottom: 0;
+
+      width: 260px;
+
+      background: var(--surface);
+
+      border-left: 1px solid var(--border);
+
+      padding: 22px 15px;
+
+      z-index: 100;
+
+    }
+
+
+    .side-brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 5px 8px 25px;
+
+    }
+
+
+    .side-logo {
+
+      width: 43px;
+
+      height: 43px;
+
+      border-radius: 13px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      color: white;
+
+    }
+
+
+    .side-logo svg {
+
+      width: 22px;
+
+      height: 22px;
+
+    }
+
+
+    .side-brand strong {
+
+      font-size: 15px;
+
+    }
+
+
+    .side-brand span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-top: 2px;
+
+    }
+
+
+    .nav-title {
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      padding: 0 10px 8px;
+
+      margin-top: 10px;
+
+    }
+
+
+    .nav-btn {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      padding: 12px;
+
+      border: 0;
+
+      background: transparent;
+
+      color: var(--muted);
+
+      border-radius: 13px;
+
+      text-align: right;
+
+      margin-bottom: 4px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+    }
+
+
+    .nav-btn svg {
+
+      width: 19px;
+
+      height: 19px;
+
+    }
+
+
+    .nav-btn:hover,
+    .nav-btn.active {
+
+      background: var(--soft);
+
+      color: var(--primary);
+
+    }
+
+
+    .side-bottom {
+
+      position: absolute;
+
+      left: 15px;
+
+      right: 15px;
+
+      bottom: 18px;
+
+    }
+
+
+    .logout {
+
+      color: var(--danger);
+
+    }
+
+
+    /* =================================================
+       CONTENT
+       ================================================= */
+
+    .content {
+
+      margin-right: 260px;
+
+      min-height: 100vh;
+
+    }
+
+
+    .topbar {
+
+      height: 72px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0 28px;
+
+      background: rgba(255,255,255,.78);
+
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid var(--border);
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 50;
+
+    }
+
+
+    .topbar h2 {
+
+      font-size: 19px;
+
+    }
+
+
+    .admin-user {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+    .page {
+
+      padding: 28px;
+
+      max-width: 1400px;
+
+      margin: auto;
+
+    }
+
+
+    /* =================================================
+       DASHBOARD CARDS
+       ================================================= */
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .stat {
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+
+    }
+
+
+    .stat-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .stat-icon {
+
+      width: 42px;
+
+      height: 42px;
+
+      border-radius: 13px;
+
+      background: var(--soft);
+
+      color: var(--primary);
+
+      display: grid;
+
+      place-items: center;
+
+    }
+
+
+    .stat-icon svg {
+
+      width: 21px;
+
+      height: 21px;
+
+    }
+
+
+    .stat-number {
+
+      font-size: 27px;
+
+      font-weight: 700;
+
+    }
+
+
+    .stat-title {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+    /* =================================================
+       SECTION
+       ================================================= */
+
+    .panel {
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .panel-head {
+
+      padding: 18px 20px;
+
+      border-bottom: 1px solid var(--border);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+    }
+
+
+    .panel-head h3 {
+
+      font-size: 17px;
+
+    }
+
+
+    .panel-head p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 3px;
+
+    }
+
+
+    .panel-body {
+
+      padding: 20px;
+
+    }
+
+
+    /* =================================================
+       BUTTONS
+       ================================================= */
+
+    .btn {
+
+      height: 40px;
+
+      padding: 0 14px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 11px;
+
+      background: var(--surface);
+
+      color: var(--text);
+
+      font-weight: 600;
+
+      font-size: 12px;
+
+    }
+
+
+    .btn:hover {
+
+      border-color: var(--primary2);
+
+    }
+
+
+    .btn-primary {
+
+      background: var(--primary);
+
+      color: white;
+
+      border-color: var(--primary);
+
+    }
+
+
+    .btn-danger {
+
+      background: #fef2f2;
+
+      color: var(--danger);
+
+      border-color: #fecaca;
+
+    }
+
+
+    .btn-success {
+
+      background: #f0fdf4;
+
+      color: var(--success);
+
+      border-color: #bbf7d0;
+
+    }
+
+
+    .actions {
+
+      display: flex;
+
+      gap: 7px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    /* =================================================
+       FORM GRID
+       ================================================= */
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 15px;
+
+    }
+
+
+    .full {
+
+      grid-column: 1 / -1;
+
+    }
+
+
+    .form-actions {
+
+      display: flex;
+
+      justify-content: flex-start;
+
+      gap: 8px;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =================================================
+       TABLE
+       ================================================= */
+
+    .table-wrap {
+
+      overflow-x: auto;
+
+    }
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      min-width: 700px;
+
+    }
+
+
+    th {
+
+      text-align: right;
+
+      background: var(--surface2);
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      padding: 12px;
+
+      white-space: nowrap;
+
+    }
+
+
+    td {
+
+      padding: 13px 12px;
+
+      border-top: 1px solid var(--border);
+
+      font-size: 12px;
+
+      vertical-align: middle;
+
+    }
+
+
+    .badge {
+
+      display: inline-flex;
+
+      padding: 5px 9px;
+
+      border-radius: 999px;
+
+      background: var(--soft);
+
+      color: var(--primary);
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+    }
+
+
+    .url {
+
+      max-width: 250px;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: var(--primary);
+
+      direction: ltr;
+
+      text-align: right;
+
+    }
+
+
+    /* =================================================
+       EMPTY
+       ================================================= */
+
+    .empty {
+
+      text-align: center;
+
+      color: var(--muted);
+
+      padding: 40px 20px;
+
+      font-size: 13px;
+
+    }
+
+
+    /* =================================================
+       TOAST
+       ================================================= */
+
+    #toast {
+
+      position: fixed;
+
+      left: 22px;
+
+      bottom: 22px;
+
+      z-index: 1000;
+
+      min-width: 240px;
+
+      max-width: 380px;
+
+      padding: 13px 16px;
+
+      border-radius: 14px;
+
+      background: #17211f;
+
+      color: white;
+
+      box-shadow: 0 15px 40px rgba(0,0,0,.18);
+
+      font-size: 13px;
+
+      transform: translateY(120px);
+
+      opacity: 0;
+
+      transition: .25s;
+
+    }
+
+
+    #toast.show {
+
+      transform: translateY(0);
+
+      opacity: 1;
+
+    }
+
+
+    #toast.success {
+
+      background: #166534;
+
+    }
+
+
+    #toast.error {
+
+      background: #991b1b;
+
+    }
+
+
+    /* =================================================
+       MOBILE
+       ================================================= */
+
+    .mobile-menu {
+
+      display: none;
+
+    }
+
+
+    @media(max-width: 900px) {
+
+      .sidebar {
+
+        transform: translateX(100%);
+
+        transition: .25s;
+
+        box-shadow: -20px 0 50px rgba(0,0,0,.08);
+
+      }
+
+
+      .sidebar.open {
+
+        transform: translateX(0);
+
+      }
+
+
+      .content {
+
+        margin-right: 0;
+
+      }
+
+
+      .mobile-menu {
+
+        display: grid;
+
+        place-items: center;
+
+        width: 40px;
+
+        height: 40px;
+
+        border: 1px solid var(--border);
+
+        background: var(--surface);
+
+        border-radius: 11px;
+
+      }
+
+
+      .mobile-menu svg {
+
+        width: 19px;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+    }
+
+
+    @media(max-width: 600px) {
+
+      .page {
+
+        padding: 18px 14px;
+
+      }
+
+
+      .topbar {
+
+        padding: 0 14px;
+
+      }
+
+
+      .topbar h2 {
+
+        font-size: 16px;
+
+      }
+
+
+      .admin-user {
+
+        display: none;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+
+      }
+
+
+      .stat {
+
+        padding: 15px;
+
+      }
+
+
+      .stat-number {
+
+        font-size: 23px;
+
+      }
+
+
+      .form-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .full {
+
+        grid-column: auto;
+
+      }
+
+
+      .panel-head {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN
+     ===================================================== -->
+
+<section id="loginScreen">
+
+  <div class="login-card">
+
+    <div class="login-logo">
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+
+      </svg>
+
+    </div>
+
+
+    <h1>لوحة إدارة مساعد توجيهي</h1>
+
+    <p>
+      سجل الدخول لإدارة محتوى المنصة
+    </p>
+
+
+    <div id="loginError" class="error"></div>
+
+
+    <form id="loginForm">
+
+      <div class="field">
+
+        <label>البريد الإلكتروني</label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="admin@example.com"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>كلمة المرور</label>
+
+        <input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          required
+        >
+
+      </div>
+
+
+      <button
+        class="primary-btn"
+        type="submit"
+      >
+        تسجيل الدخول
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APP
+     ===================================================== -->
+
+<div id="app">
+
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+
+    <div class="side-brand">
+
+      <div class="side-logo">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+
+        </svg>
+
+      </div>
+
+
+      <div>
+
+        <strong>مساعد توجيهي</strong>
+
+        <span>لوحة الإدارة</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="nav-title">
+      الإدارة
+    </div>
+
+
+    <button
+      class="nav-btn active"
+      data-page="dashboard"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <rect x="3" y="3" width="7" height="7"/>
+
+        <rect x="14" y="3" width="7" height="7"/>
+
+        <rect x="3" y="14" width="7" height="7"/>
+
+        <rect x="14" y="14" width="7" height="7"/>
+
+      </svg>
+
+      لوحة التحكم
+
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-page="generations"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+
+      </svg>
+
+      الأجيال
+
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-page="subjects"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <path d="M4 5h16"/>
+
+        <path d="M4 12h16"/>
+
+        <path d="M4 19h16"/>
+
+      </svg>
+
+      المواد
+
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-page="sections"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <path d="M4 6h16"/>
+
+        <path d="M4 12h16"/>
+
+        <path d="M4 18h16"/>
+
+      </svg>
+
+      أقسام المواد
+
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-page="resources"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+
+        <path d="M4 4h16v16H4z"/>
+
+        <path d="M8 8h8"/>
+
+        <path d="M8 12h8"/>
+
+        <path d="M8 16h5"/>
+
+      </svg>
+
+      الملفات والروابط
+
+    </button>
+
+
+    <div class="side-bottom">
+
+      <button
+        class="nav-btn logout"
+        id="logoutBtn"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+
+          <path d="M10 17l5-5-5-5"/>
+
+          <path d="M15 12H3"/>
+
+          <path d="M21 19V5a2 2 0 0 0-2-2h-5"/>
+
+        </svg>
+
+        تسجيل الخروج
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+
+    <header class="topbar">
+
+      <div style="display:flex;align-items:center;gap:10px;">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+
+            <path d="M4 6h16"/>
+
+            <path d="M4 12h16"/>
+
+            <path d="M4 18h16"/>
+
+          </svg>
+
+        </button>
+
+
+        <h2 id="pageTitle">
+          لوحة التحكم
+        </h2>
+
+      </div>
+
+
+      <div
+        class="admin-user"
+        id="adminEmail"
+      ></div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD
+         ================================================= -->
+
+    <main
+      class="page"
+      id="page-dashboard"
+    >
+
+      <div class="stats">
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <div class="stat-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div
+            class="stat-number"
+            id="statGenerations"
+          >
+            0
+          </div>
+
+          <div class="stat-title">
+            الأجيال
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <div class="stat-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+
+                <path d="M4 5h16"/>
+
+                <path d="M4 12h16"/>
+
+                <path d="M4 19h16"/>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div
+            class="stat-number"
+            id="statSubjects"
+          >
+            0
+          </div>
+
+          <div class="stat-title">
+            المواد
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <div class="stat-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+
+                <path d="M4 6h16"/>
+
+                <path d="M4 12h16"/>
+
+                <path d="M4 18h16"/>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div
+            class="stat-number"
+            id="statSections"
+          >
+            0
+          </div>
+
+          <div class="stat-title">
+            أقسام المواد
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <div class="stat-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+
+                <path d="M4 4h16v16H4z"/>
+
+                <path d="M8 8h8"/>
+
+                <path d="M8 12h8"/>
+
+                <path d="M8 16h5"/>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div
+            class="stat-number"
+            id="statResources"
+          >
+            0
+          </div>
+
+          <div class="stat-title">
+            الملفات والروابط
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h3>
+              آخر الملفات والروابط
+            </h3>
+
+            <p>
+              آخر المحتويات التي أضافها الأدمن
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary"
+            onclick="openPage('resources')"
+          >
+            إدارة المحتوى
+          </button>
+
+        </div>
+
+
+        <div
+          id="recentResources"
+          class="empty"
+        >
+          جاري التحميل...
+        </div>
+
+      </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         GENERATIONS
+         ================================================= -->
+
+    <main
+      class="page"
+      id="page-generations"
+      style="display:none"
+    >
+
+      <div class="panel">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h3>
+              إدارة الأجيال
+            </h3>
+
+            <p>
+              أضف أو عدّل الأجيال الموجودة في المنصة
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary"
+            onclick="showGenerationForm()"
+          >
+            + إضافة جيل
+          </button>
+
+        </div>
+
+
+        <div
+          id="generationForm"
+          class="panel-body"
+          style="display:none"
+        >
+
+          <form
+            id="generationAddForm"
+            class="form-grid"
+          >
+
+            <div class="field">
+
+              <label>
+                اسم الجيل
+              </label>
+
+              <input
+                id="generationName"
+                placeholder="مثال: جيل 2010"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                رقم الجيل
+              </label>
+
+              <input
+                id="generationYear"
+                placeholder="2010"
+                required
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                وصف الجيل
+              </label>
+
+              <textarea
+                id="generationDescription"
+                placeholder="وصف مختصر..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-actions full">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                حفظ الجيل
+              </button>
+
+              <button
+                class="btn"
+                type="button"
+                onclick="hideGenerationForm()"
+              >
+                إلغاء
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div
+          id="generationsList"
+          class="table-wrap"
+        ></div>
+
+      </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         SUBJECTS
+         ================================================= -->
+
+    <main
+      class="page"
+      id="page-subjects"
+      style="display:none"
+    >
+
+      <div class="panel">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h3>
+              إدارة المواد
+            </h3>
+
+            <p>
+              كل مادة مرتبطة بجيل معين
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary"
+            onclick="showSubjectForm()"
+          >
+            + إضافة مادة
+          </button>
+
+        </div>
+
+
+        <div
+          id="subjectForm"
+          class="panel-body"
+          style="display:none"
+        >
+
+          <form
+            id="subjectAddForm"
+            class="form-grid"
+          >
+
+            <div class="field">
+
+              <label>
+                الجيل
+              </label>
+
+              <select
+                id="subjectGeneration"
+                required
+              >
+
+                <option value="">
+                  اختر الجيل
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                اسم المادة
+              </label>
+
+              <input
+                id="subjectName"
+                placeholder="مثال: الرياضيات"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                المعرف
+              </label>
+
+              <input
+                id="subjectSlug"
+                placeholder="math"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                الترتيب
+              </label>
+
+              <input
+                id="subjectOrder"
+                type="number"
+                value="1"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                وصف المادة
+              </label>
+
+              <textarea
+                id="subjectDescription"
+                placeholder="وصف مختصر للمادة..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-actions full">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                حفظ المادة
+              </button>
+
+              <button
+                class="btn"
+                type="button"
+                onclick="hideSubjectForm()"
+              >
+                إلغاء
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div
+          id="subjectsList"
+          class="table-wrap"
+        ></div>
+
+      </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         SECTIONS
+         ================================================= -->
+
+    <main
+      class="page"
+      id="page-sections"
+      style="display:none"
+    >
+
+      <div class="panel">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h3>
+              أقسام المواد
+            </h3>
+
+            <p>
+              أنشئ أي قسم تريده داخل أي مادة
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary"
+            onclick="showSectionForm()"
+          >
+            + إضافة قسم
+          </button>
+
+        </div>
+
+
+        <div
+          id="sectionForm"
+          class="panel-body"
+          style="display:none"
+        >
+
+          <form
+            id="sectionAddForm"
+            class="form-grid"
+          >
+
+            <div class="field full">
+
+              <label>
+                المادة
+              </label>
+
+              <select
+                id="sectionSubject"
+                required
+              >
+
+                <option value="">
+                  اختر المادة
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                اسم القسم
+              </label>
+
+              <input
+                id="sectionName"
+                placeholder="مثال: أسئلة سنوات سابقة"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                الترتيب
+              </label>
+
+              <input
+                id="sectionOrder"
+                type="number"
+                value="1"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                وصف القسم
+              </label>
+
+              <textarea
+                id="sectionDescription"
+                placeholder="وصف القسم..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-actions full">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                حفظ القسم
+              </button>
+
+              <button
+                class="btn"
+                type="button"
+                onclick="hideSectionForm()"
+              >
+                إلغاء
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div
+          id="sectionsList"
+          class="table-wrap"
+        ></div>
+
+      </div>
+
+    </main>
+
+
+
+    <!-- =================================================
+         RESOURCES
+         ================================================= -->
+
+    <main
+      class="page"
+      id="page-resources"
+      style="display:none"
+    >
+
+      <div class="panel">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h3>
+              الملفات والروابط
+            </h3>
+
+            <p>
+              أضف PDF أو رابط Google Drive أو أي رابط خارجي
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary"
+            onclick="showResourceForm()"
+          >
+            + إضافة محتوى
+          </button>
+
+        </div>
+
+
+        <div
+          id="resourceForm"
+          class="panel-body"
+          style="display:none"
+        >
+
+          <form
+            id="resourceAddForm"
+            class="form-grid"
+          >
+
+            <div class="field">
+
+              <label>
+                المادة
+              </label>
+
+              <select
+                id="resourceSubject"
+                required
+              >
+
+                <option value="">
+                  اختر المادة
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                القسم
+              </label>
+
+              <select
+                id="resourceSection"
+                required
+              >
+
+                <option value="">
+                  اختر القسم
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                اسم المحتوى
+              </label>
+
+              <input
+                id="resourceTitle"
+                placeholder="مثال: ملخص الوحدة الأولى"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                نوع المحتوى
+              </label>
+
+              <select id="resourceType">
+
+                <option value="pdf">
+                  PDF
+                </option>
+
+                <option value="drive">
+                  Google Drive
+                </option>
+
+                <option value="link">
+                  رابط خارجي
+                </option>
+
+                <option value="exam">
+                  امتحان إلكتروني
+                </option>
+
+                <option value="book">
+                  كتاب رسمي
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                الرابط
+              </label>
+
+              <input
+                id="resourceUrl"
+                type="url"
+                placeholder="https://drive.google.com/..."
+                required
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                وصف المحتوى
+              </label>
+
+              <textarea
+                id="resourceDescription"
+                placeholder="وصف اختياري..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                الترتيب
+              </label>
+
+              <input
+                id="resourceOrder"
+                type="number"
+                value="1"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                الحالة
+              </label>
+
+              <select id="resourcePublished">
+
+                <option value="true">
+                  منشور
+                </option>
+
+                <option value="false">
+                  مخفي
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-actions full">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                حفظ المحتوى
+              </button>
+
+              <button
+                class="btn"
+                type="button"
+                onclick="hideResourceForm()"
+              >
+                إلغاء
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div
+          id="resourcesList"
+          class="table-wrap"
+        ></div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+
+<script type="module">
+
+  import {
+
+    auth,
+    db,
+
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut,
+
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    query,
+    orderBy,
+    serverTimestamp
+
+  } from "./firebase-config.js";
+
+
+  /* =====================================================
+     GLOBAL DATA
+     ===================================================== */
+
+  let generations = [];
+  let subjects = [];
+  let sections = [];
+  let resources = [];
+
+
+  /* =====================================================
+     ELEMENTS
+     ===================================================== */
+
+  const loginScreen =
+    document.getElementById("loginScreen");
+
+  const app =
+    document.getElementById("app");
+
+  const loginForm =
+    document.getElementById("loginForm");
+
+  const loginError =
+    document.getElementById("loginError");
+
+  const adminEmail =
+    document.getElementById("adminEmail");
+
+
+  /* =====================================================
+     AUTH
+     ===================================================== */
+
+  onAuthStateChanged(auth, async (user) => {
+
+    if (user) {
+
+      loginScreen.style.display = "none";
+
+      app.style.display = "block";
+
+      adminEmail.textContent =
+        user.email || "";
+
+      await loadAll();
+
+    } else {
+
+      loginScreen.style.display = "flex";
+
+      app.style.display = "none";
+
+    }
+
+  });
+
+
+  loginForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    loginError.style.display = "none";
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const password =
+      document.getElementById("password").value;
+
+
+    try {
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    } catch (error) {
+
+      console.error(error);
+
+      loginError.textContent =
+        "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+
+      loginError.style.display = "block";
+
+    }
+
+  });
+
+
+  document
+    .getElementById("logoutBtn")
+    .addEventListener("click", async () => {
+
+      await signOut(auth);
+
+    });
+
+
+  /* =====================================================
+     LOAD ALL
+     ===================================================== */
+
+  async function loadAll() {
+
+    try {
+
+      await Promise.all([
+
+        loadGenerations(),
+        loadSubjects(),
+        loadSections(),
+        loadResources()
+
+      ]);
+
+      updateStats();
+
+    } catch (error) {
+
+      console.error(error);
+
+      toast(
+        "حدث خطأ أثناء تحميل البيانات",
+        "error"
+      );
+
+    }
+
+  }
+
+
+  /* =====================================================
+     GENERATIONS
+     ===================================================== */
+
+  async function loadGenerations() {
+
+    const snapshot =
+      await getDocs(
+        collection(db, "generations")
+      );
+
+    generations =
+      snapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+
+    generations.sort(
+      (a,b) =>
+        Number(a.year || 0) -
+        Number(b.year || 0)
+    );
+
+
+    renderGenerations();
+
+    fillGenerationSelects();
+
+  }
+
+
+  function renderGenerations() {
+
+    const container =
+      document.getElementById(
+        "generationsList"
+      );
+
+
+    if (!generations.length) {
+
+      container.innerHTML =
+        `<div class="empty">
+          لا يوجد أجيال حتى الآن.
+        </div>`;
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>الاسم</th>
+
+            <th>العام</th>
+
+            <th>الوصف</th>
+
+            <th>الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${generations.map(g => `
+
+            <tr>
+
+              <td>
+                <strong>
+                  ${escapeHtml(g.name || "")}
+                </strong>
+              </td>
+
+              <td>
+                <span class="badge">
+                  ${escapeHtml(g.year || "")}
+                </span>
+              </td>
+
+              <td>
+                ${escapeHtml(
+                  g.description || "—"
+                )}
+              </td>
+
+              <td>
+
+                <div class="actions">
+
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteGeneration('${g.id}')"
+                  >
+                    حذف
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          `).join("")}
+
+        </tbody>
+
+      </table>
+
+    `;
+
+  }
+
+
+  document
+    .getElementById("generationAddForm")
+    .addEventListener("submit", async (e) => {
+
+      e.preventDefault();
+
+
+      try {
+
+        await addDoc(
+          collection(db, "generations"),
+          {
+
+            name:
+              document
+                .getElementById("generationName")
+                .value
+                .trim(),
+
+            year:
+              document
+                .getElementById("generationYear")
+                .value
+                .trim(),
+
+            description:
+              document
+                .getElementById(
+                  "generationDescription"
+                )
+                .value
+                .trim(),
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        e.target.reset();
+
+        hideGenerationForm();
+
+        await loadGenerations();
+
+        updateStats();
+
+        toast(
+          "تمت إضافة الجيل بنجاح",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر إضافة الجيل",
+          "error"
+        );
+
+      }
+
+    });
+
+
+  window.deleteGeneration =
+    async function(id) {
+
+      if (
+        !confirm(
+          "هل أنت متأكد من حذف هذا الجيل؟"
+        )
+      ) return;
+
+
+      try {
+
+        await deleteDoc(
+          doc(db, "generations", id)
+        );
+
+        await loadGenerations();
+
+        updateStats();
+
+        toast(
+          "تم حذف الجيل",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر حذف الجيل",
+          "error"
+        );
+
+      }
+
+    };
+
+
+  /* =====================================================
+     SUBJECTS
+     ===================================================== */
+
+  async function loadSubjects() {
+
+    const snapshot =
+      await getDocs(
+        collection(db, "subjects")
+      );
+
+
+    subjects =
+      snapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+
+    subjects.sort(
+      (a,b) =>
+        Number(a.order || 0) -
+        Number(b.order || 0)
+    );
+
+
+    renderSubjects();
+
+    fillSubjectSelects();
+
+  }
+
+
+  function renderSubjects() {
+
+    const container =
+      document.getElementById(
+        "subjectsList"
+      );
+
+
+    if (!subjects.length) {
+
+      container.innerHTML =
+        `<div class="empty">
+          لا توجد مواد حتى الآن.
+        </div>`;
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>المادة</th>
+
+            <th>الجيل</th>
+
+            <th>المعرف</th>
+
+            <th>الترتيب</th>
+
+            <th>الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${subjects.map(s => {
+
+            const generation =
+              generations.find(
+                g =>
+                  g.id ===
+                  s.generationId
+              );
+
+
+            return `
+
+              <tr>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(
+                      s.name || ""
+                    )}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    generation?.name ||
+                    "غير معروف"
+                  )}
+                </td>
+
+                <td>
+                  <span class="badge">
+                    ${escapeHtml(
+                      s.slug || ""
+                    )}
+                  </span>
+                </td>
+
+                <td>
+                  ${s.order ?? 1}
+                </td>
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="deleteSubject('${s.id}')"
+                    >
+                      حذف
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            `;
+
+          }).join("")}
+
+        </tbody>
+
+      </table>
+
+    `;
+
+  }
+
+
+  document
+    .getElementById("subjectAddForm")
+    .addEventListener("submit", async (e) => {
+
+      e.preventDefault();
+
+
+      try {
+
+        await addDoc(
+          collection(db, "subjects"),
+          {
+
+            generationId:
+              document
+                .getElementById(
+                  "subjectGeneration"
+                )
+                .value,
+
+            name:
+              document
+                .getElementById(
+                  "subjectName"
+                )
+                .value
+                .trim(),
+
+            slug:
+              document
+                .getElementById(
+                  "subjectSlug"
+                )
+                .value
+                .trim(),
+
+            description:
+              document
+                .getElementById(
+                  "subjectDescription"
+                )
+                .value
+                .trim(),
+
+            order:
+              Number(
+                document
+                  .getElementById(
+                    "subjectOrder"
+                  )
+                  .value
+              ) || 1,
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        e.target.reset();
+
+        hideSubjectForm();
+
+        await loadSubjects();
+
+        updateStats();
+
+        toast(
+          "تمت إضافة المادة بنجاح",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر إضافة المادة",
+          "error"
+        );
+
+      }
+
+    });
+
+
+  window.deleteSubject =
+    async function(id) {
+
+      if (
+        !confirm(
+          "هل أنت متأكد من حذف هذه المادة؟"
+        )
+      ) return;
+
+
+      try {
+
+        await deleteDoc(
+          doc(db, "subjects", id)
+        );
+
+        await loadSubjects();
+
+        updateStats();
+
+        toast(
+          "تم حذف المادة",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر حذف المادة",
+          "error"
+        );
+
+      }
+
+    };
+
+
+  /* =====================================================
+     SECTIONS
+     ===================================================== */
+
+  async function loadSections() {
+
+    const snapshot =
+      await getDocs(
+        collection(db, "sections")
+      );
+
+
+    sections =
+      snapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+
+    sections.sort(
+      (a,b) =>
+        Number(a.order || 0) -
+        Number(b.order || 0)
+    );
+
+
+    renderSections();
+
+    fillSectionSelect();
+
+  }
+
+
+  function renderSections() {
+
+    const container =
+      document.getElementById(
+        "sectionsList"
+      );
+
+
+    if (!sections.length) {
+
+      container.innerHTML =
+        `<div class="empty">
+          لا توجد أقسام حتى الآن.
+        </div>`;
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>القسم</th>
+
+            <th>المادة</th>
+
+            <th>الترتيب</th>
+
+            <th>الوصف</th>
+
+            <th>الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${sections.map(s => {
+
+            const subject =
+              subjects.find(
+                x =>
+                  x.id ===
+                  s.subjectId
+              );
+
+
+            return `
+
+              <tr>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(
+                      s.name || ""
+                    )}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    subject?.name ||
+                    "غير معروف"
+                  )}
+                </td>
+
+                <td>
+                  ${s.order ?? 1}
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    s.description ||
+                    "—"
+                  )}
+                </td>
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="deleteSection('${s.id}')"
+                    >
+                      حذف
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            `;
+
+          }).join("")}
+
+        </tbody>
+
+      </table>
+
+    `;
+
+  }
+
+
+  document
+    .getElementById("sectionAddForm")
+    .addEventListener("submit", async (e) => {
+
+      e.preventDefault();
+
+
+      try {
+
+        await addDoc(
+          collection(db, "sections"),
+          {
+
+            subjectId:
+              document
+                .getElementById(
+                  "sectionSubject"
+                )
+                .value,
+
+            name:
+              document
+                .getElementById(
+                  "sectionName"
+                )
+                .value
+                .trim(),
+
+            description:
+              document
+                .getElementById(
+                  "sectionDescription"
+                )
+                .value
+                .trim(),
+
+            order:
+              Number(
+                document
+                  .getElementById(
+                    "sectionOrder"
+                  )
+                  .value
+              ) || 1,
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        e.target.reset();
+
+        hideSectionForm();
+
+        await loadSections();
+
+        updateStats();
+
+        toast(
+          "تمت إضافة القسم بنجاح",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر إضافة القسم",
+          "error"
+        );
+
+      }
+
+    });
+
+
+  window.deleteSection =
+    async function(id) {
+
+      if (
+        !confirm(
+          "هل أنت متأكد من حذف هذا القسم؟"
+        )
+      ) return;
+
+
+      try {
+
+        await deleteDoc(
+          doc(db, "sections", id)
+        );
+
+        await loadSections();
+
+        updateStats();
+
+        toast(
+          "تم حذف القسم",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر حذف القسم",
+          "error"
+        );
+
+      }
+
+    };
+
+
+  /* =====================================================
+     RESOURCES
+     ===================================================== */
+
+  async function loadResources() {
+
+    const snapshot =
+      await getDocs(
+        collection(db, "resources")
+      );
+
+
+    resources =
+      snapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+
+    resources.sort(
+      (a,b) =>
+        Number(b.createdAt?.seconds || 0) -
+        Number(a.createdAt?.seconds || 0)
+    );
+
+
+    renderResources();
+
+    renderRecentResources();
+
+    updateStats();
+
+  }
+
+
+  function renderResources() {
+
+    const container =
+      document.getElementById(
+        "resourcesList"
+      );
+
+
+    if (!resources.length) {
+
+      container.innerHTML =
+        `<div class="empty">
+          لا توجد ملفات أو روابط حتى الآن.
+        </div>`;
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>المحتوى</th>
+
+            <th>المادة</th>
+
+            <th>القسم</th>
+
+            <th>النوع</th>
+
+            <th>الحالة</th>
+
+            <th>الرابط</th>
+
+            <th>الإجراءات</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${resources.map(r => {
+
+            const subject =
+              subjects.find(
+                x =>
+                  x.id ===
+                  r.subjectId
+              );
+
+
+            const section =
+              sections.find(
+                x =>
+                  x.id ===
+                  r.sectionId
+              );
+
+
+            return `
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    ${escapeHtml(
+                      r.title || ""
+                    )}
+                  </strong>
+
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    subject?.name ||
+                    "—"
+                  )}
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    section?.name ||
+                    "—"
+                  )}
+                </td>
+
+                <td>
+
+                  <span class="badge">
+                    ${escapeHtml(
+                      resourceTypeName(
+                        r.type
+                      )
+                    )}
+                  </span>
+
+                </td>
+
+                <td>
+
+                  ${
+                    r.published
+                      ? `<span class="badge">منشور</span>`
+                      : `<span
+                          class="badge"
+                          style="
+                            background:#fff7ed;
+                            color:#c2410c;
+                          "
+                        >
+                          مخفي
+                        </span>`
+                  }
+
+                </td>
+
+                <td>
+
+                  <a
+                    class="url"
+                    href="${escapeAttribute(
+                      r.url || "#"
+                    )}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ${escapeHtml(
+                      r.url || "—"
+                    )}
+                  </a>
+
+                </td>
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="deleteResource('${r.id}')"
+                    >
+                      حذف
+                    </button>
+
+                    <button
+                      class="btn"
+                      onclick="toggleResource('${r.id}', ${!r.published})"
+                    >
+                      ${
+                        r.published
+                          ? "إخفاء"
+                          : "نشر"
+                      }
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            `;
+
+          }).join("")}
+
+        </tbody>
+
+      </table>
+
+    `;
+
+  }
+
+
+  document
+    .getElementById("resourceAddForm")
+    .addEventListener("submit", async (e) => {
+
+      e.preventDefault();
+
+
+      try {
+
+        await addDoc(
+          collection(db, "resources"),
+          {
+
+            subjectId:
+              document
+                .getElementById(
+                  "resourceSubject"
+                )
+                .value,
+
+            sectionId:
+              document
+                .getElementById(
+                  "resourceSection"
+                )
+                .value,
+
+            title:
+              document
+                .getElementById(
+                  "resourceTitle"
+                )
+                .value
+                .trim(),
+
+            type:
+              document
+                .getElementById(
+                  "resourceType"
+                )
+                .value,
+
+            url:
+              document
+                .getElementById(
+                  "resourceUrl"
+                )
+                .value
+                .trim(),
+
+            description:
+              document
+                .getElementById(
+                  "resourceDescription"
+                )
+                .value
+                .trim(),
+
+            order:
+              Number(
+                document
+                  .getElementById(
+                    "resourceOrder"
+                  )
+                  .value
+              ) || 1,
+
+            published:
+              document
+                .getElementById(
+                  "resourcePublished"
+                )
+                .value === "true",
+
+            createdAt:
+              serverTimestamp(),
+
+            updatedAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        e.target.reset();
+
+        hideResourceForm();
+
+        await loadResources();
+
+        toast(
+          "تمت إضافة المحتوى بنجاح",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر إضافة المحتوى",
+          "error"
+        );
+
+      }
+
+    });
+
+
+  window.toggleResource =
+    async function(id, published) {
+
+      try {
+
+        await updateDoc(
+          doc(db, "resources", id),
+          {
+
+            published,
+
+            updatedAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        await loadResources();
+
+        toast(
+          published
+            ? "تم نشر المحتوى"
+            : "تم إخفاء المحتوى",
+
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر تعديل الحالة",
+          "error"
+        );
+
+      }
+
+    };
+
+
+  window.deleteResource =
+    async function(id) {
+
+      if (
+        !confirm(
+          "هل أنت متأكد من حذف هذا المحتوى؟"
+        )
+      ) return;
+
+
+      try {
+
+        await deleteDoc(
+          doc(db, "resources", id)
+        );
+
+        await loadResources();
+
+        toast(
+          "تم حذف المحتوى",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "تعذر حذف المحتوى",
+          "error"
+        );
+
+      }
+
+    };
+
+
+  /* =====================================================
+     SELECTS
+     ===================================================== */
+
+  function fillGenerationSelects() {
+
+    const select =
+      document.getElementById(
+        "subjectGeneration"
+      );
+
+
+    select.innerHTML =
+      `<option value="">
+        اختر الجيل
+      </option>`;
+
+
+    generations.forEach(g => {
+
+      select.innerHTML += `
+
+        <option value="${g.id}">
+          ${escapeHtml(g.name)}
+        </option>
+
+      `;
+
+    });
+
+  }
+
+
+  function fillSubjectSelects() {
+
+    const sectionSelect =
+      document.getElementById(
+        "sectionSubject"
+      );
+
+    const resourceSelect =
+      document.getElementById(
+        "resourceSubject"
+      );
+
+
+    const html = `
+      <option value="">
+        اختر المادة
+      </option>
+
+      ${
+        subjects.map(s => `
+
+          <option value="${s.id}">
+            ${escapeHtml(s.name)}
+          </option>
+
+        `).join("")
+      }
+    `;
+
+
+    sectionSelect.innerHTML = html;
+
+    resourceSelect.innerHTML = html;
+
+  }
+
+
+  function fillSectionSelect() {
+
+    const select =
+      document.getElementById(
+        "resourceSection"
+      );
+
+
+    select.innerHTML = `
+      <option value="">
+        اختر القسم
+      </option>
+    `;
+
+
+    sections.forEach(s => {
+
+      const subject =
+        subjects.find(
+          x =>
+            x.id ===
+            s.subjectId
+        );
+
+
+      select.innerHTML += `
+
+        <option value="${s.id}">
+
+          ${escapeHtml(
+            subject?.name || ""
+          )}
+          — 
+          ${escapeHtml(
+            s.name
+          )}
+
+        </option>
+
+      `;
+
+    });
+
+  }
+
+
+  /* =====================================================
+     FORMS SHOW/HIDE
+     ===================================================== */
+
+  window.showGenerationForm =
+    function() {
+
+      document
+        .getElementById(
+          "generationForm"
+        )
+        .style.display = "block";
+
+    };
+
+
+  window.hideGenerationForm =
+    function() {
+
+      document
+        .getElementById(
+          "generationForm"
+        )
+        .style.display = "none";
+
+    };
+
+
+  window.showSubjectForm =
+    function() {
+
+      document
+        .getElementById(
+          "subjectForm"
+        )
+        .style.display = "block";
+
+    };
+
+
+  window.hideSubjectForm =
+    function() {
+
+      document
+        .getElementById(
+          "subjectForm"
+        )
+        .style.display = "none";
+
+    };
+
+
+  window.showSectionForm =
+    function() {
+
+      document
+        .getElementById(
+          "sectionForm"
+        )
+        .style.display = "block";
+
+    };
+
+
+  window.hideSectionForm =
+    function() {
+
+      document
+        .getElementById(
+          "sectionForm"
+        )
+        .style.display = "none";
+
+    };
+
+
+  window.showResourceForm =
+    function() {
+
+      document
+        .getElementById(
+          "resourceForm"
+        )
+        .style.display = "block";
+
+    };
+
+
+  window.hideResourceForm =
+    function() {
+
+      document
+        .getElementById(
+          "resourceForm"
+        )
+        .style.display = "none";
+
+    };
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  const pageNames = {
+
+    dashboard:
+      "لوحة التحكم",
+
+    generations:
+      "الأجيال",
+
+    subjects:
+      "المواد",
+
+    sections:
+      "أقسام المواد",
+
+    resources:
+      "الملفات والروابط"
+
+  };
+
+
+  document
+    .querySelectorAll(".nav-btn[data-page]")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          openPage(
+            button.dataset.page
+          );
+
+        }
+      );
+
+    });
+
+
+  window.openPage =
+    function(page) {
+
+      document
+        .querySelectorAll(".page")
+        .forEach(p => {
+
+          p.style.display =
+            "none";
+
+        });
+
+
+      const target =
+        document.getElementById(
+          "page-" + page
+        );
+
+
+      if (target) {
+
+        target.style.display =
+          "block";
+
+      }
+
+
+      document
+        .querySelectorAll(
+          ".nav-btn[data-page]"
+        )
+        .forEach(btn => {
+
+          btn.classList.toggle(
+            "active",
+            btn.dataset.page === page
+          );
+
+        });
+
+
+      document
+        .getElementById(
+          "pageTitle"
+        )
+        .textContent =
+        pageNames[page] ||
+        "لوحة التحكم";
+
+
+      document
+        .getElementById(
+          "sidebar"
+        )
+        .classList.remove("open");
+
+    };
+
+
+  /* =====================================================
+     MOBILE MENU
+     ===================================================== */
+
+  document
+    .getElementById("mobileMenu")
+    .addEventListener(
+      "click",
+      () => {
+
+        document
+          .getElementById(
+            "sidebar"
+          )
+          .classList.toggle("open");
+
+      }
+    );
+
+
+  /* =====================================================
+     STATS
+     ===================================================== */
+
+  function updateStats() {
+
+    document
+      .getElementById(
+        "statGenerations"
+      )
+      .textContent =
+      generations.length;
+
+
+    document
+      .getElementById(
+        "statSubjects"
+      )
+      .textContent =
+      subjects.length;
+
+
+    document
+      .getElementById(
+        "statSections"
+      )
+      .textContent =
+      sections.length;
+
+
+    document
+      .getElementById(
+        "statResources"
+      )
+      .textContent =
+      resources.length;
+
+  }
+
+
+  /* =====================================================
+     RECENT
+     ===================================================== */
+
+  function renderRecentResources() {
+
+    const container =
+      document.getElementById(
+        "recentResources"
+      );
+
+
+    const recent =
+      resources.slice(0, 8);
+
+
+    if (!recent.length) {
+
+      container.innerHTML =
+        "لا يوجد محتوى حتى الآن.";
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>المحتوى</th>
+
+              <th>المادة</th>
+
+              <th>القسم</th>
+
+              <th>الحالة</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            ${recent.map(r => {
+
+              const subject =
+                subjects.find(
+                  s =>
+                    s.id ===
+                    r.subjectId
+                );
+
+
+              const section =
+                sections.find(
+                  s =>
+                    s.id ===
+                    r.sectionId
+                );
+
+
+              return `
+
+                <tr>
+
+                  <td>
+                    ${escapeHtml(
+                      r.title || ""
+                    )}
+                  </td>
+
+                  <td>
+                    ${escapeHtml(
+                      subject?.name ||
+                      "—"
+                    )}
+                  </td>
+
+                  <td>
+                    ${escapeHtml(
+                      section?.name ||
+                      "—"
+                    )}
+                  </td>
+
+                  <td>
+
+                    ${
+                      r.published
+                        ? `<span class="badge">
+                            منشور
+                          </span>`
+                        : `<span
+                            class="badge"
+                            style="
+                              background:#fff7ed;
+                              color:#c2410c;
+                            "
+                          >
+                            مخفي
+                          </span>`
+                    }
+
+                  </td>
+
+                </tr>
+
+              `;
+
+            }).join("")}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =====================================================
+     RESOURCE TYPE
+     ===================================================== */
+
+  function resourceTypeName(type) {
+
+    const names = {
+
+      pdf:
+        "PDF",
+
+      drive:
+        "Google Drive",
+
+      link:
+        "رابط",
+
+      exam:
+        "امتحان إلكتروني",
+
+      book:
+        "كتاب رسمي"
+
+    };
+
+
+    return names[type] ||
+      "محتوى";
+
+  }
+
+
+  /* =====================================================
+     TOAST
+     ===================================================== */
+
+  let toastTimer;
+
+
+  function toast(message, type = "") {
+
+    const element =
+      document.getElementById(
+        "toast"
+      );
+
+
+    element.textContent =
+      message;
+
+
+    element.className =
+      "";
+
+
+    element.id = "toast";
+
+
+    if (type) {
+
+      element.classList.add(type);
+
+    }
+
+
+    requestAnimationFrame(() => {
+
+      element.classList.add("show");
+
+    });
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+      setTimeout(() => {
+
+        element.classList.remove(
+          "show"
+        );
+
+      }, 3000);
+
+  }
+
+
+  /* =====================================================
+     SECURITY / HTML
+     ===================================================== */
+
+  function escapeHtml(value) {
+
+    return String(value ?? "")
+
+      .replaceAll("&", "&amp;")
+
+      .replaceAll("<", "&lt;")
+
+      .replaceAll(">", "&gt;")
+
+      .replaceAll('"', "&quot;")
+
+      .replaceAll("'", "&#039;");
+
+  }
+
+
+  function escapeAttribute(value) {
+
+    return escapeHtml(value);
+
+  }
+
+
+</script>
+
+
+</body>
+
+</html>
