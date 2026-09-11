@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>2010 | مساعد توجيهي</title>
+  <title>جيل 2010 | مساعد توجيهي</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#f5f8f7;
-      --surface:#ffffff;
+      --surface:#fff;
       --surface-2:#eef6f4;
       --text:#14201e;
       --muted:#6b7975;
@@ -56,7 +57,7 @@
       background:var(--bg);
       color:var(--text);
       min-height:100vh;
-      transition:.25s;
+      transition:.25s ease;
     }
 
     button,
@@ -65,6 +66,7 @@
     }
 
     button{
+      border:0;
       cursor:pointer;
     }
 
@@ -74,181 +76,143 @@
     }
 
     .container{
-      width:min(1120px,calc(100% - 30px));
+      width:min(1120px,calc(100% - 32px));
       margin:auto;
     }
 
-    /* Header */
+    /* HEADER */
 
     header{
       position:sticky;
       top:0;
       z-index:100;
-      padding:12px 0;
-      background:rgba(245,248,247,.78);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
+      height:76px;
+      background:color-mix(in srgb,var(--surface) 82%,transparent);
       border-bottom:1px solid var(--border);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
     }
 
-    body.dark header{
-      background:rgba(9,16,15,.78);
-    }
-
-    .nav{
+    .header-inner{
+      height:100%;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:15px;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:11px;
-      min-width:0;
+      font-weight:700;
+      font-size:18px;
     }
 
     .brand-icon{
       width:43px;
       height:43px;
       border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      display:grid;
-      place-items:center;
       color:white;
-      flex-shrink:0;
-      box-shadow:0 9px 25px rgba(15,118,110,.2);
+      box-shadow:0 10px 25px rgba(20,184,166,.2);
     }
 
     .brand-icon svg{
-      width:22px;
-      height:22px;
+      width:23px;
+      height:23px;
     }
 
-    .brand-text{
-      line-height:1.15;
-    }
-
-    .brand-text strong{
-      display:block;
-      font-size:16px;
-      font-weight:700;
-    }
-
-    .brand-text span{
-      color:var(--muted);
-      font-size:11px;
-    }
-
-    .nav-actions{
+    .header-actions{
       display:flex;
       align-items:center;
       gap:8px;
     }
 
     .icon-btn{
-      width:43px;
-      height:43px;
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--surface-2);
       border:1px solid var(--border);
-      border-radius:14px;
-      background:var(--surface);
       color:var(--text);
-      display:grid;
-      place-items:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       transition:.2s;
     }
 
     .icon-btn:hover{
-      border-color:var(--primary);
+      transform:translateY(-2px);
+      border-color:var(--primary-2);
       color:var(--primary);
-      transform:translateY(-1px);
     }
 
     .icon-btn svg{
-      width:19px;
-      height:19px;
+      width:20px;
+      height:20px;
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero{
-      padding:38px 0 22px;
-    }
-
-    .back-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:20px;
-      transition:.2s;
-    }
-
-    .back-btn:hover{
-      color:var(--primary);
-    }
-
-    .back-btn svg{
-      width:17px;
-      height:17px;
+      padding:55px 0 30px;
     }
 
     .hero-box{
       position:relative;
       overflow:hidden;
-      border:1px solid var(--border);
+      padding:42px;
       border-radius:32px;
       background:
-        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 35%),
+        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 32%),
+        radial-gradient(circle at 10% 90%,rgba(15,118,110,.08),transparent 30%),
         var(--surface);
-      padding:32px;
+      border:1px solid var(--border);
       box-shadow:var(--shadow);
     }
 
-    .hero-box::after{
+    .hero-box:before{
       content:"";
       position:absolute;
-      width:180px;
-      height:180px;
-      left:-80px;
-      bottom:-90px;
+      width:230px;
+      height:230px;
       border-radius:50%;
-      background:rgba(20,184,166,.07);
-      pointer-events:none;
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
+      background:rgba(20,184,166,.06);
+      left:-90px;
+      bottom:-120px;
     }
 
     .badge{
+      width:max-content;
       display:inline-flex;
       align-items:center;
-      gap:7px;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
       background:var(--soft);
       color:var(--primary);
-      padding:7px 12px;
-      border-radius:999px;
-      font-size:13px;
+      font-size:14px;
       font-weight:600;
-      margin-bottom:14px;
+      margin-bottom:18px;
     }
 
     .badge-dot{
-      width:7px;
-      height:7px;
+      width:8px;
+      height:8px;
       border-radius:50%;
       background:var(--primary-2);
     }
 
     .hero h1{
-      font-size:clamp(29px,5vw,45px);
-      line-height:1.15;
+      position:relative;
+      font-size:clamp(30px,5vw,48px);
+      line-height:1.25;
+      margin-bottom:12px;
       letter-spacing:-1px;
-      margin-bottom:10px;
     }
 
     .hero h1 span{
@@ -256,258 +220,119 @@
     }
 
     .hero p{
-      color:var(--muted);
-      line-height:1.8;
-      max-width:650px;
-      font-size:15px;
-    }
-
-    /* Search */
-
-    .search-wrap{
-      margin-top:18px;
       position:relative;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.9;
+      max-width:700px;
     }
 
-    .search{
-      width:100%;
-      height:54px;
-      border:1px solid var(--border);
-      border-radius:17px;
-      background:var(--surface);
-      color:var(--text);
-      outline:none;
-      padding:0 49px 0 16px;
-      font-size:14px;
+    .hero-buttons{
+      position:relative;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:25px;
+    }
+
+    .btn{
+      min-height:48px;
+      padding:0 19px;
+      border-radius:15px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      font-size:15px;
+      font-weight:600;
       transition:.2s;
     }
 
-    .search:focus{
-      border-color:var(--primary);
-      box-shadow:0 0 0 4px var(--soft);
-    }
-
-    .search-icon{
-      position:absolute;
-      right:17px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--muted);
-      pointer-events:none;
-    }
-
-    .search-icon svg{
+    .btn svg{
       width:19px;
       height:19px;
     }
 
-    /* Stats row */
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      box-shadow:0 12px 25px rgba(20,184,166,.18);
+    }
 
-    .quick-info{
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:var(--surface-2);
+      color:var(--text);
+      border:1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--primary-2);
+      color:var(--primary);
+    }
+
+    /* STATS */
+
+    .mini-stats{
+      position:relative;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:12px;
-      margin-top:18px;
+      margin-top:28px;
     }
 
-    .quick-card{
-      background:var(--surface);
+    .mini-stat{
+      background:rgba(255,255,255,.45);
+      background:var(--surface-2);
       border:1px solid var(--border);
-      border-radius:18px;
-      padding:14px;
-      display:flex;
-      align-items:center;
-      gap:11px;
+      border-radius:19px;
+      padding:17px;
     }
 
-    .quick-icon{
-      width:38px;
-      height:38px;
-      flex-shrink:0;
-      border-radius:12px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-    }
-
-    .quick-icon svg{
-      width:18px;
-      height:18px;
-    }
-
-    .quick-card strong{
+    .mini-stat strong{
       display:block;
-      font-size:17px;
-      line-height:1.1;
+      font-size:25px;
+      color:var(--text);
+      margin-bottom:2px;
     }
 
-    .quick-card span{
+    .mini-stat span{
       color:var(--muted);
-      font-size:11px;
+      font-size:13px;
     }
 
-    /* Sections */
+    /* CONTENT */
 
-    section{
-      padding:20px 0;
+    main{
+      padding:25px 0 70px;
     }
 
     .section-head{
       display:flex;
-      align-items:center;
+      align-items:end;
       justify-content:space-between;
-      gap:12px;
-      margin-bottom:15px;
+      gap:15px;
+      margin-bottom:20px;
     }
 
     .section-title{
-      display:flex;
-      align-items:center;
-      gap:9px;
+      font-size:25px;
+      font-weight:700;
+      margin-bottom:5px;
     }
 
-    .section-title-icon{
-      width:35px;
-      height:35px;
-      border-radius:11px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-    }
-
-    .section-title-icon svg{
-      width:17px;
-      height:17px;
-    }
-
-    .section-head h2{
-      font-size:20px;
-    }
-
-    .section-head p{
+    .section-desc{
       color:var(--muted);
-      font-size:12px;
+      font-size:14px;
     }
-
-    .count{
-      color:var(--muted);
-      font-size:12px;
-      white-space:nowrap;
-    }
-
-    /* Favorites */
-
-    .favorites-section{
-      display:none;
-    }
-
-    .favorites-section.show{
-      display:block;
-    }
-
-    .favorites-box{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-
-    .favorites-tabs{
-      display:flex;
-      gap:8px;
-      margin-bottom:15px;
-      overflow-x:auto;
-      padding-bottom:2px;
-    }
-
-    .fav-tab{
-      border:1px solid var(--border);
-      background:var(--surface-2);
-      color:var(--muted);
-      border-radius:999px;
-      padding:8px 13px;
-      font-size:12px;
-      white-space:nowrap;
-    }
-
-    .fav-tab.active{
-      background:var(--primary);
-      border-color:var(--primary);
-      color:#fff;
-    }
-
-    .favorite-list{
-      display:grid;
-      gap:9px;
-    }
-
-    .favorite-item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:12px;
-      border:1px solid var(--border);
-      background:var(--surface-2);
-      border-radius:15px;
-    }
-
-    .favorite-main{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-
-    .favorite-icon{
-      width:37px;
-      height:37px;
-      border-radius:11px;
-      display:grid;
-      place-items:center;
-      background:var(--soft);
-      color:var(--primary);
-      flex-shrink:0;
-    }
-
-    .favorite-icon svg{
-      width:17px;
-      height:17px;
-    }
-
-    .favorite-name{
-      font-size:13px;
-      font-weight:600;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .favorite-sub{
-      color:var(--muted);
-      font-size:11px;
-      margin-top:2px;
-    }
-
-    .favorite-open{
-      border:0;
-      background:var(--primary);
-      color:#fff;
-      border-radius:10px;
-      padding:7px 11px;
-      font-size:11px;
-      flex-shrink:0;
-    }
-
-    /* Subjects */
 
     .subjects-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:15px;
+      gap:16px;
     }
 
     .subject-card{
@@ -516,60 +341,435 @@
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:20px;
-      min-height:190px;
+      padding:24px;
       box-shadow:var(--shadow);
       transition:.25s;
     }
 
     .subject-card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(20,184,166,.35);
+      transform:translateY(-4px);
+      border-color:rgba(20,184,166,.4);
     }
 
     .subject-top{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:10px;
+      gap:15px;
     }
 
     .subject-icon{
-      width:49px;
-      height:49px;
-      border-radius:15px;
-      display:grid;
-      place-items:center;
+      width:54px;
+      height:54px;
+      border-radius:17px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:var(--soft);
       color:var(--primary);
+      flex-shrink:0;
     }
 
     .subject-icon svg{
-      width:23px;
-      height:23px;
+      width:26px;
+      height:26px;
     }
 
-    .favorite-btn{
-      width:39px;
-      height:39px;
-      border-radius:13px;
-      border:1px solid var(--border);
-      background:var(--surface);
+    .subject-card h3{
+      color:var(--text);
+      font-size:20px;
+      margin-top:17px;
+      margin-bottom:7px;
+    }
+
+    .subject-card p{
       color:var(--muted);
-      display:grid;
-      place-items:center;
+      font-size:14px;
+      line-height:1.8;
+      min-height:50px;
+    }
+
+    .subject-action{
+      margin-top:20px;
+      width:100%;
+    }
+
+    .subject-action svg{
+      width:18px;
+    }
+
+    /* LOADING */
+
+    .loading-box{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:40px 20px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .loader{
+      width:35px;
+      height:35px;
+      margin:0 auto 15px;
+      border:3px solid var(--border);
+      border-top-color:var(--primary);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    .empty-box{
+      background:var(--surface);
+      border:1px dashed var(--border);
+      border-radius:var(--radius);
+      padding:45px 20px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .empty-icon{
+      width:60px;
+      height:60px;
+      margin:0 auto 15px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:18px;
+      background:var(--surface-2);
+      color:var(--primary);
+    }
+
+    .empty-icon svg{
+      width:28px;
+      height:28px;
+    }
+
+    .empty-box h3{
+      color:var(--text);
+      margin-bottom:6px;
+    }
+
+    /* MODAL */
+
+    .modal-overlay{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:15px;
+    }
+
+    .modal-overlay.active{
+      display:flex;
+    }
+
+    .modal{
+      width:min(850px,100%);
+      max-height:90vh;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:0 30px 80px rgba(0,0,0,.25);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      animation:modalIn .2s ease;
+    }
+
+    @keyframes modalIn{
+      from{
+        opacity:0;
+        transform:translateY(15px) scale(.98);
+      }
+      to{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    .modal-header{
+      padding:20px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .modal-title-area{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .modal-icon{
+      width:48px;
+      height:48px;
+      border-radius:15px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--soft);
+      color:var(--primary);
+      flex-shrink:0;
+    }
+
+    .modal-icon svg{
+      width:24px;
+      height:24px;
+    }
+
+    .modal-title{
+      font-size:20px;
+      font-weight:700;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .modal-subtitle{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:2px;
+    }
+
+    .close-btn{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .close-btn svg{
+      width:20px;
+      height:20px;
+    }
+
+    .modal-body{
+      overflow-y:auto;
+      padding:20px;
+    }
+
+    /* FILE CONTROLS */
+
+    .file-controls{
+      display:flex;
+      gap:10px;
+      margin-bottom:15px;
+      flex-wrap:wrap;
+    }
+
+    .search-box{
+      flex:1;
+      min-width:220px;
+      position:relative;
+    }
+
+    .search-box svg{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      width:19px;
+      color:var(--muted);
+    }
+
+    .search-box input{
+      width:100%;
+      height:47px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      padding:0 43px 0 14px;
+      outline:none;
+      font-size:14px;
+    }
+
+    .search-box input:focus{
+      border-color:var(--primary-2);
+    }
+
+    .filter-btn{
+      min-height:47px;
+      padding:0 15px;
+      border-radius:14px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .filter-btn.active{
+      background:var(--soft);
+      color:var(--primary);
+      border-color:rgba(20,184,166,.25);
+    }
+
+    .filter-btn svg{
+      width:18px;
+    }
+
+    /* SECTIONS */
+
+    .sections-wrap{
+      margin-bottom:20px;
+    }
+
+    .small-title{
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:10px;
+      color:var(--text);
+    }
+
+    .sections-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .section-chip{
+      padding:9px 13px;
+      border-radius:12px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      font-size:13px;
+      cursor:pointer;
       transition:.2s;
     }
 
-    .favorite-btn:hover{
-      color:var(--primary);
+    .section-chip:hover{
+      border-color:var(--primary-2);
+    }
+
+    .section-chip.active{
+      background:var(--primary);
+      color:#fff;
       border-color:var(--primary);
+    }
+
+    /* FILES */
+
+    .files-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .file-card{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px;
+      border-radius:17px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      transition:.2s;
+    }
+
+    .file-card:hover{
+      border-color:rgba(20,184,166,.4);
+    }
+
+    .file-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:var(--surface);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .file-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .file-info{
+      flex:1;
+      min-width:0;
+    }
+
+    .file-info h4{
+      color:var(--text);
+      font-size:15px;
+      margin-bottom:3px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .file-info span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .file-actions{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      flex-shrink:0;
+    }
+
+    .file-btn{
+      height:40px;
+      padding:0 12px;
+      border-radius:12px;
+      background:var(--primary);
+      color:white;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .file-btn svg{
+      width:17px;
+    }
+
+    .favorite-btn{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--surface);
+      color:var(--muted);
+      border:1px solid var(--border);
     }
 
     .favorite-btn.active{
       color:var(--primary);
       background:var(--soft);
-      border-color:rgba(20,184,166,.25);
+      border-color:rgba(20,184,166,.3);
     }
 
     .favorite-btn svg{
@@ -577,472 +777,195 @@
       height:18px;
     }
 
-    .subject-card h3{
-      margin-top:17px;
-      font-size:19px;
-      color:var(--text);
+    .file-empty{
+      padding:35px 15px;
+      text-align:center;
+      border:1px dashed var(--border);
+      border-radius:18px;
+      color:var(--muted);
+    }
+
+    .file-empty svg{
+      width:32px;
+      height:32px;
+      color:var(--primary);
+      margin-bottom:8px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid var(--border);
+      background:var(--surface);
+      padding:30px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .footer-brand{
       font-weight:700;
     }
 
-    .subject-card p{
+    .footer-text{
       color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
-      margin-top:4px;
+      font-size:13px;
+      margin-top:3px;
     }
 
-    .subject-footer{
-      margin-top:17px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:8px;
-    }
-
-    .sections-count{
-      color:var(--muted);
-      font-size:11px;
-    }
-
-    .open-subject{
-      border:0;
-      background:var(--primary);
-      color:#fff;
-      padding:9px 13px;
-      border-radius:11px;
-      font-size:12px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-
-    .open-subject svg{
-      width:14px;
-      height:14px;
-    }
-
-    /* Subject detail */
-
-    .detail{
-      display:none;
-      margin-top:20px;
-    }
-
-    .detail.show{
-      display:block;
-    }
-
-    .detail-box{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .detail-head{
-      padding:20px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .detail-title{
-      display:flex;
-      align-items:center;
-      gap:11px;
-    }
-
-    .detail-title-icon{
-      width:43px;
-      height:43px;
+    .back-top{
+      width:42px;
+      height:42px;
       border-radius:13px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-    }
-
-    .detail-title-icon svg{
-      width:20px;
-      height:20px;
-    }
-
-    .detail-title h2{
-      font-size:18px;
-    }
-
-    .detail-title p{
-      color:var(--muted);
-      font-size:11px;
-    }
-
-    .close-detail{
-      width:39px;
-      height:39px;
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--muted);
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-    }
-
-    .close-detail svg{
-      width:17px;
-      height:17px;
-    }
-
-    .sections-list{
-      padding:18px;
-      display:grid;
-      gap:11px;
-    }
-
-    .section-card{
-      border:1px solid var(--border);
-      border-radius:17px;
       background:var(--surface-2);
-      padding:15px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      transition:.2s;
-    }
-
-    .section-card:hover{
-      border-color:rgba(20,184,166,.35);
-    }
-
-    .section-info{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      min-width:0;
-    }
-
-    .section-icon{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      background:var(--surface);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-      flex-shrink:0;
-    }
-
-    .section-icon svg{
-      width:18px;
-      height:18px;
-    }
-
-    .section-info h3{
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .section-info p{
-      color:var(--muted);
-      font-size:10px;
-      margin-top:2px;
-    }
-
-    .open-section{
-      border:0;
-      background:var(--primary);
-      color:#fff;
-      border-radius:10px;
-      padding:8px 11px;
-      font-size:11px;
-      flex-shrink:0;
-    }
-
-    /* Resources */
-
-    .resources{
-      display:none;
-      margin-top:15px;
-      padding:18px;
-      border-top:1px solid var(--border);
-      background:var(--surface-2);
-    }
-
-    .resources.show{
-      display:block;
-    }
-
-    .resources-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:11px;
-      gap:10px;
-    }
-
-    .resources-head strong{
-      font-size:14px;
-    }
-
-    .resources-head span{
-      color:var(--muted);
-      font-size:10px;
-    }
-
-    .resources-list{
-      display:grid;
-      gap:9px;
-    }
-
-    .resource-card{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:var(--surface);
       border:1px solid var(--border);
-      border-radius:15px;
-      padding:11px;
-    }
-
-    .resource-icon{
-      width:39px;
-      height:39px;
-      border-radius:11px;
-      background:var(--soft);
       color:var(--primary);
-      display:grid;
-      place-items:center;
-      flex-shrink:0;
-    }
-
-    .resource-icon svg{
-      width:17px;
-      height:17px;
-    }
-
-    .resource-info{
-      flex:1;
-      min-width:0;
-    }
-
-    .resource-info strong{
-      display:block;
-      font-size:12px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .resource-info span{
-      color:var(--muted);
-      font-size:10px;
-    }
-
-    .resource-actions{
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-
-    .resource-fav{
-      width:34px;
-      height:34px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--muted);
-      display:grid;
-      place-items:center;
-    }
-
-    .resource-fav.active{
-      color:var(--primary);
-      background:var(--soft);
-    }
-
-    .resource-fav svg{
-      width:16px;
-      height:16px;
-    }
-
-    .resource-open{
-      width:34px;
-      height:34px;
-      border-radius:10px;
-      border:0;
-      background:var(--primary);
-      color:#fff;
-      display:grid;
-      place-items:center;
-    }
-
-    .resource-open svg{
-      width:16px;
-      height:16px;
-    }
-
-    /* Empty */
-
-    .empty{
-      border:1px dashed var(--border);
-      background:var(--surface);
-      border-radius:22px;
-      padding:38px 20px;
-      text-align:center;
-      grid-column:1/-1;
-    }
-
-    .empty-icon{
-      width:53px;
-      height:53px;
-      margin:0 auto 12px;
-      border-radius:16px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-    }
-
-    .empty-icon svg{
-      width:23px;
-      height:23px;
-    }
-
-    .empty h3{
-      font-size:16px;
-      margin-bottom:5px;
-    }
-
-    .empty p{
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
-    }
-
-    /* Loading */
-
-    .loading{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:9px;
-      padding:45px 0;
-      color:var(--muted);
-      font-size:13px;
-      grid-column:1/-1;
     }
 
-    .spinner{
+    .back-top svg{
       width:19px;
-      height:19px;
-      border:2px solid var(--border);
-      border-top-color:var(--primary);
-      border-radius:50%;
-      animation:spin .8s linear infinite;
     }
 
-    @keyframes spin{
-      to{transform:rotate(360deg)}
-    }
-
-    /* Toast */
+    /* TOAST */
 
     .toast{
       position:fixed;
-      left:50%;
-      bottom:22px;
-      transform:translate(-50%,20px);
-      background:var(--text);
-      color:var(--surface);
-      padding:11px 16px;
-      border-radius:13px;
-      font-size:12px;
+      left:20px;
+      bottom:20px;
+      z-index:2000;
+      background:var(--surface);
+      color:var(--text);
+      border:1px solid var(--border);
+      box-shadow:0 18px 50px rgba(0,0,0,.18);
+      border-radius:15px;
+      padding:13px 16px;
+      font-size:14px;
+      transform:translateY(100px);
       opacity:0;
       pointer-events:none;
       transition:.25s;
-      z-index:500;
-      white-space:nowrap;
-      box-shadow:0 12px 30px rgba(0,0,0,.18);
     }
 
     .toast.show{
+      transform:translateY(0);
       opacity:1;
-      transform:translate(-50%,0);
     }
 
-    footer{
-      padding:40px 0 30px;
-      text-align:center;
-      color:var(--muted);
-      font-size:11px;
-    }
+    /* RESPONSIVE */
 
-    @media(max-width:700px){
+    @media(max-width:760px){
+
+      header{
+        height:68px;
+      }
+
       .container{
-        width:min(100% - 20px,1120px);
+        width:min(100% - 22px,1120px);
       }
 
       .hero{
-        padding-top:25px;
+        padding:25px 0 20px;
       }
 
       .hero-box{
-        padding:23px 18px;
-        border-radius:25px;
+        padding:25px 20px;
+        border-radius:24px;
       }
 
       .hero h1{
-        font-size:30px;
+        font-size:32px;
       }
 
-      .quick-info{
+      .hero p{
+        font-size:15px;
+      }
+
+      .mini-stats{
         grid-template-columns:1fr;
       }
 
-      .quick-card{
-        padding:11px;
+      .mini-stat{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+      }
+
+      .mini-stat strong{
+        font-size:21px;
       }
 
       .subjects-grid{
         grid-template-columns:1fr;
       }
 
-      .subject-card{
-        min-height:175px;
-      }
-
-      .section-card{
+      .section-head{
         align-items:flex-start;
       }
 
-      .section-info{
-        align-items:flex-start;
+      .modal{
+        max-height:94vh;
+        border-radius:22px;
       }
 
-      .resource-card{
-        padding:9px;
-      }
-
-      .resource-info strong{
-        max-width:145px;
-      }
-
-      .detail-head{
+      .modal-body{
         padding:15px;
       }
 
-      .sections-list{
-        padding:12px;
+      .file-card{
+        align-items:flex-start;
+      }
+
+      .file-actions{
+        flex-direction:column;
+      }
+
+      .file-btn{
+        width:40px;
+        padding:0;
+        justify-content:center;
+      }
+
+      .file-btn span{
+        display:none;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
       }
     }
 
-    @media(min-width:701px){
-      .resource-info strong{
-        max-width:500px;
+    @media(max-width:450px){
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .hero-buttons .btn{
+        width:100%;
+      }
+
+      .subject-card{
+        padding:20px;
+      }
+
+      .modal-header{
+        padding:15px;
+      }
+
+      .modal-title{
+        font-size:17px;
+      }
+
+      .file-info h4{
+        white-space:normal;
       }
     }
   </style>
@@ -1050,1167 +973,1120 @@
 
 <body>
 
-<header>
-  <div class="container nav">
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
 
-    <a href="index.html" class="brand">
-      <div class="brand-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/>
-          <path d="m8.5 12 2.2 2.2 4.8-5"/>
-        </svg>
-      </div>
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3 4 7l8 4 8-4-8-4Z"/>
+            <path d="m6 9v5c0 1.7 2.7 4 6 4s6-2.3 6-4V9"/>
+            <path d="M20 8v6"/>
+          </svg>
+        </div>
 
-      <div class="brand-text">
-        <strong>مساعد توجيهي</strong>
-        <span>منصة الطالب الأردني</span>
-      </div>
-    </a>
-
-    <div class="nav-actions">
-
-      <button class="icon-btn" id="themeBtn" title="تغيير المظهر">
-        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
-        </svg>
-      </button>
-
-    </div>
-  </div>
-</header>
-
-
-<main>
-
-  <div class="container">
-
-    <div class="hero">
-
-      <a href="index.html" class="back-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="m15 18-6-6 6-6"/>
-        </svg>
-        العودة للرئيسية
+        <span>مساعد توجيهي</span>
       </a>
+
+      <div class="header-actions">
+
+        <button class="icon-btn" id="themeBtn" aria-label="تغيير المظهر">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
 
       <div class="hero-box">
 
-        <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          جيل 2010
+        </div>
 
-          <div class="badge">
-            <span class="badge-dot"></span>
-            جيل 2010
-          </div>
+        <h1>
+          موادك وملفاتك
+          <span>بمكان واحد</span>
+        </h1>
 
-          <h1>
-            مواد <span>2010</span>
-          </h1>
+        <p>
+          اختر المادة التي تريدها وشاهد الأقسام والملفات المنشورة
+          من لوحة الإدارة، واحفظ الملفات المهمة لديك في المفضلة.
+        </p>
 
-          <p>
-            كل موادك وأقسامك وملفاتك الدراسية في مكان واحد.
-            اختر المادة للانتقال إلى أقسامها والملفات المتوفرة من لوحة الأدمن.
-          </p>
+        <div class="hero-buttons">
 
-          <div class="search-wrap">
+          <a href="index.html" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            العودة للرئيسية
+          </a>
 
-            <span class="search-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="7"/>
-                <path d="m20 20-4-4"/>
-              </svg>
-            </span>
-
-            <input
-              id="searchInput"
-              class="search"
-              type="search"
-              placeholder="ابحث عن مادة أو قسم أو ملف..."
-              autocomplete="off"
-            >
-
-          </div>
+          <button class="btn btn-primary" id="allFavoritesBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m12 17.3-5.4 3 1.5-6.1-4.7-4.1 6.2-.5L12 4l2.4 5.6 6.2.5-4.7 4.1 1.5 6.1-5.4-3Z"/>
+            </svg>
+            الملفات المفضلة
+          </button>
 
         </div>
 
-      </div>
+        <div class="mini-stats">
 
+          <div class="mini-stat">
+            <div>
+              <strong id="subjectsCount">0</strong>
+              <span>المواد الدراسية</span>
+            </div>
+          </div>
 
-      <div class="quick-info">
+          <div class="mini-stat">
+            <div>
+              <strong id="resourcesCount">0</strong>
+              <span>الملفات المنشورة</span>
+            </div>
+          </div>
 
-        <div class="quick-card">
-          <div class="quick-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            </svg>
+          <div class="mini-stat">
+            <div>
+              <strong id="favoritesCount">0</strong>
+              <span>الملفات المفضلة</span>
+            </div>
           </div>
-          <div>
-            <strong id="subjectCount">0</strong>
-            <span>مادة</span>
-          </div>
-        </div>
 
-        <div class="quick-card">
-          <div class="quick-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 7h5l2 2h11v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
-              <path d="M3 7V5a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v2"/>
-            </svg>
-          </div>
-          <div>
-            <strong id="sectionCount">0</strong>
-            <span>قسم</span>
-          </div>
-        </div>
-
-        <div class="quick-card">
-          <div class="quick-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
-            </svg>
-          </div>
-          <div>
-            <strong id="resourceCount">0</strong>
-            <span>ملف منشور</span>
-          </div>
         </div>
 
       </div>
 
     </div>
+  </section>
 
 
-    <!-- المفضلة -->
-
-    <section class="favorites-section" id="favoritesSection">
-
-      <div class="section-head">
-
-        <div class="section-title">
-
-          <div class="section-title-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/>
-            </svg>
-          </div>
-
-          <div>
-            <h2>المفضلة</h2>
-            <p>موادك وملفاتك المحفوظة</p>
-          </div>
-
-        </div>
-
-        <span class="count" id="favoritesCount">0</span>
-
-      </div>
-
-
-      <div class="favorites-box">
-
-        <div class="favorites-tabs">
-
-          <button class="fav-tab active" data-tab="subjects">
-            المواد
-          </button>
-
-          <button class="fav-tab" data-tab="resources">
-            الملفات
-          </button>
-
-        </div>
-
-        <div class="favorite-list" id="favoriteList"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- المواد -->
-
-    <section>
+  <!-- MAIN -->
+  <main>
+    <div class="container">
 
       <div class="section-head">
 
-        <div class="section-title">
-
-          <div class="section-title-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            </svg>
+        <div>
+          <div class="section-title">المواد الدراسية</div>
+          <div class="section-desc">
+            اختر المادة لعرض الأقسام والملفات الخاصة بها
           </div>
-
-          <div>
-            <h2>المواد الدراسية</h2>
-            <p>اختر المادة للوصول إلى محتواها</p>
-          </div>
-
         </div>
-
-        <span class="count" id="visibleCount">جاري التحميل...</span>
 
       </div>
 
 
-      <div class="subjects-grid" id="subjectsGrid">
+      <div id="subjectsContainer">
 
-        <div class="loading">
-          <span class="spinner"></span>
+        <div class="loading-box">
+          <div class="loader"></div>
           جاري تحميل المواد...
         </div>
 
       </div>
 
-    </section>
+    </div>
+  </main>
 
 
-    <!-- تفاصيل المادة -->
+  <!-- FILE MODAL -->
+  <div class="modal-overlay" id="filesModal">
 
-    <section class="detail" id="subjectDetail">
+    <div class="modal">
 
-      <div class="detail-box">
+      <div class="modal-header">
 
-        <div class="detail-head">
+        <div class="modal-title-area">
 
-          <div class="detail-title">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h7l2 2h7v14H4z"/>
+              <path d="M8 12h8"/>
+              <path d="M8 16h6"/>
+            </svg>
+          </div>
 
-            <div class="detail-title-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-              </svg>
+          <div>
+            <div class="modal-title" id="modalTitle">الملفات</div>
+            <div class="modal-subtitle" id="modalSubtitle">
+              الأقسام والملفات
             </div>
+          </div>
 
-            <div>
-              <h2 id="detailSubjectName">المادة</h2>
-              <p>أقسام المادة والملفات المتوفرة</p>
-            </div>
+        </div>
+
+        <button class="close-btn" id="closeModalBtn" aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <div class="file-controls">
+
+          <div class="search-box">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m20 20-4-4"/>
+            </svg>
+
+            <input
+              type="search"
+              id="fileSearch"
+              placeholder="ابحث عن ملف..."
+              autocomplete="off"
+            >
 
           </div>
 
-          <button class="close-detail" id="closeDetail">
+          <button class="filter-btn active" id="allFilesFilter">
 
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6 6 18M6 6l12 12"/>
+              <path d="M4 4h16v4H4z"/>
+              <path d="M6 12h12"/>
+              <path d="M8 20h8"/>
             </svg>
+
+            كل الملفات
+
+          </button>
+
+          <button class="filter-btn" id="favoriteFilesFilter">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m12 17.3-5.4 3 1.5-6.1-4.7-4.1 6.2-.5L12 4l2.4-5.6L14.4 9l6.2.5-4.7 4.1 1.5 6.1-5.4-3Z"/>
+            </svg>
+
+            المفضلة
 
           </button>
 
         </div>
 
-        <div class="sections-list" id="sectionsList"></div>
+
+        <div class="sections-wrap" id="sectionsWrap" style="display:none;">
+
+          <div class="small-title">أقسام المادة</div>
+
+          <div class="sections-list" id="sectionsList"></div>
+
+        </div>
+
+
+        <div id="filesContainer"></div>
 
       </div>
 
-    </section>
-
+    </div>
 
   </div>
 
-</main>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
 
-<footer>
-  مساعد توجيهي — منصة الطالب الأردني
-</footer>
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        <div class="footer-brand">مساعد توجيهي</div>
+        <div class="footer-text">
+          منصة مساعدة لطلاب التوجيهي
+        </div>
+      </div>
+
+      <button class="back-top" id="backTop" aria-label="العودة للأعلى">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m18 15-6-6-6 6"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+  </footer>
 
 
-<div class="toast" id="toast"></div>
+  <!-- FIREBASE -->
+  <script type="module">
+
+    import {
+      db,
+      collection,
+      getDocs
+    } from "./admin/firebase-config.js";
+
+    import {
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-<script type="module">
+    /* =========================
+       CONSTANTS
+    ========================= */
 
-  import {
-    db,
-    collection,
-    getDocs
-  } from "./admin/firebase-config.js";
-
-  import {
-    query,
-    where
-  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+    const FAVORITES_KEY = "tawjihi-favorite-resources";
 
 
-  /* =========================
-     Theme
-  ========================= */
+    /* =========================
+       DATA
+    ========================= */
 
-  const savedTheme = localStorage.getItem("tawjihi-theme");
+    let generationsData = [];
+    let subjectsData = [];
+    let sectionsData = [];
+    let resourcesData = [];
 
-  if(savedTheme === "dark"){
-    document.body.classList.add("dark");
-  }
+    let currentSubject = null;
+    let currentSubjectResources = [];
+    let currentSubjectSections = [];
 
-  const themeBtn = document.getElementById("themeBtn");
-
-  themeBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-      "tawjihi-theme",
-      document.body.classList.contains("dark") ? "dark" : "light"
-    );
-
-  });
+    let activeSectionId = "all";
+    let favoriteOnly = false;
 
 
-  /* =========================
-     State
-  ========================= */
+    /* =========================
+       DOM
+    ========================= */
 
-  let generations = [];
-  let subjects = [];
-  let sections = [];
-  let resources = [];
+    const subjectsContainer =
+      document.getElementById("subjectsContainer");
 
-  let currentSubject = null;
-  let currentFavoriteTab = "subjects";
+    const subjectsCount =
+      document.getElementById("subjectsCount");
+
+    const resourcesCount =
+      document.getElementById("resourcesCount");
+
+    const favoritesCount =
+      document.getElementById("favoritesCount");
+
+    const filesModal =
+      document.getElementById("filesModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalSubtitle =
+      document.getElementById("modalSubtitle");
+
+    const filesContainer =
+      document.getElementById("filesContainer");
+
+    const sectionsWrap =
+      document.getElementById("sectionsWrap");
+
+    const sectionsList =
+      document.getElementById("sectionsList");
+
+    const fileSearch =
+      document.getElementById("fileSearch");
+
+    const allFilesFilter =
+      document.getElementById("allFilesFilter");
+
+    const favoriteFilesFilter =
+      document.getElementById("favoriteFilesFilter");
+
+    const closeModalBtn =
+      document.getElementById("closeModalBtn");
+
+    const allFavoritesBtn =
+      document.getElementById("allFavoritesBtn");
+
+    const toast =
+      document.getElementById("toast");
 
 
-  /* =========================
-     Favorites
-  ========================= */
+    /* =========================
+       HELPERS
+    ========================= */
 
-  function getFavoriteSubjects(){
+    function getGenerationName(generation){
 
-    try{
-      return JSON.parse(
-        localStorage.getItem("tawjihi-2010-favorite-subjects") || "[]"
+      return (
+        generation?.year ??
+        generation?.name ??
+        generation?.title ??
+        generation?.label ??
+        ""
       );
-    }catch{
-      return [];
+
     }
 
-  }
 
+    function getSubjectName(subject){
 
-  function getFavoriteResources(){
-
-    try{
-      return JSON.parse(
-        localStorage.getItem("tawjihi-2010-favorite-resources") || "[]"
+      return (
+        subject?.name ??
+        subject?.title ??
+        subject?.subjectName ??
+        subject?.label ??
+        "مادة بدون اسم"
       );
-    }catch{
-      return [];
-    }
-
-  }
-
-
-  function saveFavoriteSubjects(list){
-
-    localStorage.setItem(
-      "tawjihi-2010-favorite-subjects",
-      JSON.stringify(list)
-    );
-
-  }
-
-
-  function saveFavoriteResources(list){
-
-    localStorage.setItem(
-      "tawjihi-2010-favorite-resources",
-      JSON.stringify(list)
-    );
-
-  }
-
-
-  function isSubjectFavorite(id){
-
-    return getFavoriteSubjects().includes(id);
-
-  }
-
-
-  function isResourceFavorite(id){
-
-    return getFavoriteResources().includes(id);
-
-  }
-
-
-  function toggleSubjectFavorite(id){
-
-    let list = getFavoriteSubjects();
-
-    if(list.includes(id)){
-
-      list = list.filter(x => x !== id);
-      showToast("تمت إزالة المادة من المفضلة");
-
-    }else{
-
-      list.push(id);
-      showToast("تمت إضافة المادة إلى المفضلة");
 
     }
 
-    saveFavoriteSubjects(list);
 
-    renderSubjects();
-    renderFavorites();
+    function getSectionName(section){
 
-  }
-
-
-  function toggleResourceFavorite(id){
-
-    let list = getFavoriteResources();
-
-    if(list.includes(id)){
-
-      list = list.filter(x => x !== id);
-      showToast("تمت إزالة الملف من المفضلة");
-
-    }else{
-
-      list.push(id);
-      showToast("تمت إضافة الملف إلى المفضلة");
+      return (
+        section?.name ??
+        section?.title ??
+        section?.sectionName ??
+        section?.label ??
+        "قسم"
+      );
 
     }
 
-    saveFavoriteResources(list);
 
-    renderResourcesForCurrentSection();
-    renderFavorites();
+    function getResourceName(resource){
 
-  }
+      return (
+        resource?.title ??
+        resource?.name ??
+        resource?.resourceName ??
+        "ملف"
+      );
+
+    }
 
 
-  /* =========================
-     Helpers
-  ========================= */
+    function getRelationId(value){
 
-  function textValue(obj, fields){
+      if(value === null || value === undefined){
+        return "";
+      }
 
-    for(const field of fields){
+      if(typeof value === "object"){
+        return String(
+          value.id ??
+          value.uid ??
+          value.value ??
+          ""
+        );
+      }
 
-      const value = obj?.[field];
+      return String(value);
+    }
 
-      if(value !== undefined && value !== null && String(value).trim() !== ""){
-        return String(value).trim();
+
+    function getSubjectGenerationRelation(subject){
+
+      return getRelationId(
+        subject?.generationId ??
+        subject?.generationID ??
+        subject?.generation ??
+        subject?.year ??
+        ""
+      );
+    }
+
+
+    function getSectionSubjectRelation(section){
+
+      return getRelationId(
+        section?.subjectId ??
+        section?.subjectID ??
+        section?.subject ??
+        ""
+      );
+    }
+
+
+    function getResourceSubjectRelation(resource){
+
+      return getRelationId(
+        resource?.subjectId ??
+        resource?.subjectID ??
+        resource?.subject ??
+        ""
+      );
+    }
+
+
+    function getResourceSectionRelation(resource){
+
+      return getRelationId(
+        resource?.sectionId ??
+        resource?.sectionID ??
+        resource?.section ??
+        ""
+      );
+    }
+
+
+    function escapeHTML(value){
+
+      return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+
+    function getFavoriteResources(){
+
+      try{
+
+        const data =
+          JSON.parse(
+            localStorage.getItem(FAVORITES_KEY) || "[]"
+          );
+
+        return Array.isArray(data)
+          ? data.map(String)
+          : [];
+
+      }catch{
+
+        return [];
+
       }
 
     }
 
-    return "";
 
-  }
+    function isFavorite(id){
 
+      return getFavoriteResources()
+        .includes(String(id));
 
-  function normalize(value){
-
-    return String(value || "")
-      .trim()
-      .toLowerCase()
-      .replace(/[أإآ]/g,"ا")
-      .replace(/ة/g,"ه")
-      .replace(/\s+/g," ");
-
-  }
+    }
 
 
-  function getSubjectName(subject){
+    function toggleFavorite(id){
 
-    return textValue(subject,[
-      "name",
-      "title",
-      "subjectName",
-      "label"
-    ]) || "مادة بدون اسم";
+      const resourceId = String(id);
 
-  }
+      let favorites =
+        getFavoriteResources();
 
+      if(favorites.includes(resourceId)){
 
-  function getSectionName(section){
+        favorites =
+          favorites.filter(
+            item => item !== resourceId
+          );
 
-    return textValue(section,[
-      "name",
-      "title",
-      "sectionName",
-      "label"
-    ]) || "قسم بدون اسم";
+        showToast("تمت إزالة الملف من المفضلة");
 
-  }
+      }else{
 
+        favorites.push(resourceId);
 
-  function getResourceName(resource){
+        showToast("تمت إضافة الملف إلى المفضلة");
 
-    return textValue(resource,[
-      "title",
-      "name",
-      "resourceName"
-    ]) || "ملف بدون اسم";
+      }
 
-  }
+      localStorage.setItem(
+        FAVORITES_KEY,
+        JSON.stringify(favorites)
+      );
 
+      updateFavoriteCount();
 
-  function getResourceUrl(resource){
+      renderFiles();
 
-    return textValue(resource,[
-      "url",
-      "link",
-      "driveUrl",
-      "fileUrl"
-    ]);
-
-  }
+    }
 
 
-  function showToast(message){
+    function updateFavoriteCount(){
 
-    const toast = document.getElementById("toast");
+      const favorites =
+        getFavoriteResources();
 
-    toast.textContent = message;
-    toast.classList.add("show");
+      favoritesCount.textContent =
+        favorites.length;
 
-    clearTimeout(window.__toastTimer);
-
-    window.__toastTimer = setTimeout(() => {
-      toast.classList.remove("show");
-    },2200);
-
-  }
+    }
 
 
-  function escapeHtml(value){
+    function showToast(message){
 
-    return String(value ?? "")
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;")
-      .replace(/'/g,"&#039;");
+      toast.textContent = message;
 
-  }
+      toast.classList.add("show");
 
+      clearTimeout(window.toastTimer);
 
-  /* =========================
-     Find Generation 2010
-  ========================= */
+      window.toastTimer =
+        setTimeout(() => {
 
-  function is2010Generation(generation){
+          toast.classList.remove("show");
 
-    const values = [
-      generation?.year,
-      generation?.name,
-      generation?.title,
-      generation?.label,
-      generation?.page,
-      generation?.pageUrl,
-      generation?.url,
-      generation?.slug,
-      generation?.id
-    ]
-    .filter(Boolean)
-    .map(normalize);
+        },2200);
 
-    return values.some(value => {
-
-      return value === "2010" ||
-             value.includes("2010") ||
-             value.includes("جيل 2010");
-
-    });
-
-  }
+    }
 
 
-  /* =========================
-     Check Subject belongs to 2010
-  ========================= */
+    function getGeneration2010(){
 
-  function belongsTo2010(subject, generation){
+      const generation =
+        generationsData.find(generation => {
 
-    const generationId = generation?.id;
+          const id =
+            String(generation.id || "")
+              .trim()
+              .toLowerCase();
 
-    const relationValues = [
-      subject?.generationId,
-      subject?.generationID,
-      subject?.generation,
-      subject?.year
-    ]
-    .filter(v => v !== undefined && v !== null)
-    .map(normalize);
+          const name =
+            String(getGenerationName(generation))
+              .trim()
+              .toLowerCase();
 
-    if(generationId){
+          return (
+            id === "2010" ||
+            name === "2010" ||
+            name.includes("2010")
+          );
 
-      const gid = normalize(generationId);
+        });
 
-      if(relationValues.includes(gid)){
+      return generation || null;
+
+    }
+
+
+    function subjectBelongsTo2010(subject){
+
+      const generation2010 =
+        getGeneration2010();
+
+      const relation =
+        getSubjectGenerationRelation(subject);
+
+      if(generation2010){
+
+        const generationId =
+          String(generation2010.id || "");
+
+        const generationName =
+          String(getGenerationName(generation2010));
+
+        if(
+          relation === generationId ||
+          relation === generationName ||
+          relation === "2010"
+        ){
+
+          return true;
+
+        }
+
+      }
+
+      if(relation === "2010"){
         return true;
       }
 
+      return false;
+
     }
 
-    return relationValues.some(value => {
 
-      return value === "2010" ||
-             value.includes("2010") ||
-             value.includes("جيل 2010");
+    function subjectMatchesResource(resource,subject){
 
-    });
+      const relation =
+        getResourceSubjectRelation(resource);
 
-  }
-
-
-  /* =========================
-     Check Section
-  ========================= */
-
-  function belongsToSubject(section, subject){
-
-    const subjectId = subject?.id;
-
-    const relationValues = [
-      section?.subjectId,
-      section?.subjectID,
-      section?.subject
-    ]
-    .filter(v => v !== undefined && v !== null)
-    .map(normalize);
-
-    if(subjectId){
-
-      const sid = normalize(subjectId);
-
-      if(relationValues.includes(sid)){
-        return true;
+      if(!relation){
+        return false;
       }
 
+      return (
+        relation === String(subject.id) ||
+        relation === getSubjectName(subject)
+      );
+
     }
 
-    const subjectName = normalize(getSubjectName(subject));
 
-    return relationValues.some(value => {
+    function sectionBelongsToSubject(section,subject){
 
-      return value === subjectName ||
-             value.includes(subjectName) ||
-             subjectName.includes(value);
+      const relation =
+        getSectionSubjectRelation(section);
 
-    });
-
-  }
-
-
-  /* =========================
-     Check Resource
-  ========================= */
-
-  function belongsToSection(resource, section){
-
-    const sectionId = section?.id;
-
-    const relationValues = [
-      resource?.sectionId,
-      resource?.sectionID,
-      resource?.section
-    ]
-    .filter(v => v !== undefined && v !== null)
-    .map(normalize);
-
-    if(sectionId){
-
-      const sid = normalize(sectionId);
-
-      if(relationValues.includes(sid)){
-        return true;
+      if(!relation){
+        return false;
       }
 
+      return (
+        relation === String(subject.id) ||
+        relation === getSubjectName(subject)
+      );
+
     }
 
-    const sectionName = normalize(getSectionName(section));
 
-    return relationValues.some(value => {
+    function resourceBelongsToSection(resource,section){
 
-      return value === sectionName ||
-             value.includes(sectionName) ||
-             sectionName.includes(value);
+      const relation =
+        getResourceSectionRelation(resource);
 
-    });
-
-  }
-
-
-  /* =========================
-     Firebase
-  ========================= */
-
-  async function loadData(){
-
-    try{
-
-      const [
-        generationsSnap,
-        subjectsSnap,
-        sectionsSnap,
-        resourcesSnap
-      ] = await Promise.all([
-
-        getDocs(collection(db,"generations")),
-
-        getDocs(collection(db,"subjects")),
-
-        getDocs(collection(db,"sections")),
-
-        getDocs(
-          query(
-            collection(db,"resources"),
-            where("published","==",true)
-          )
-        )
-
-      ]);
-
-
-      generations = generationsSnap.docs.map(doc => ({
-        id:doc.id,
-        ...doc.data()
-      }));
-
-      const generation = generations.find(is2010Generation);
-
-
-      if(!generation){
-
-        renderGenerationMissing();
-        return;
-
+      if(!relation){
+        return false;
       }
 
-
-      subjects = subjectsSnap.docs
-        .map(doc => ({
-          id:doc.id,
-          ...doc.data()
-        }))
-        .filter(subject => belongsTo2010(subject,generation));
-
-
-      sections = sectionsSnap.docs.map(doc => ({
-        id:doc.id,
-        ...doc.data()
-      }));
-
-
-      resources = resourcesSnap.docs
-        .map(doc => ({
-          id:doc.id,
-          ...doc.data()
-        }))
-        .filter(resource => getResourceUrl(resource));
-
-
-      updateStats();
-
-      renderSubjects();
-
-      renderFavorites();
-
-    }catch(error){
-
-      console.error(error);
-
-      document.getElementById("subjectsGrid").innerHTML = `
-        <div class="empty">
-          <div class="empty-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 8v4M12 16h.01"/>
-            </svg>
-          </div>
-
-          <h3>حدث خطأ أثناء تحميل الصفحة</h3>
-
-          <p>
-            تأكد من اتصال Firebase وقواعد Firestore ثم حاول تحديث الصفحة.
-          </p>
-        </div>
-      `;
-
-    }
-
-  }
-
-
-  /* =========================
-     Stats
-  ========================= */
-
-  function updateStats(){
-
-    let sectionTotal = 0;
-    let resourceTotal = 0;
-
-    subjects.forEach(subject => {
-
-      const subjectSections = sections.filter(
-        section => belongsToSubject(section,subject)
+      return (
+        relation === String(section.id) ||
+        relation === getSectionName(section)
       );
-
-      sectionTotal += subjectSections.length;
-
-      subjectSections.forEach(section => {
-
-        resourceTotal += resources.filter(
-          resource => belongsToSection(resource,section)
-        ).length;
-
-      });
-
-    });
-
-
-    document.getElementById("subjectCount").textContent =
-      subjects.length;
-
-    document.getElementById("sectionCount").textContent =
-      sectionTotal;
-
-    document.getElementById("resourceCount").textContent =
-      resourceTotal;
-
-  }
-
-
-  /* =========================
-     Subject Icon
-  ========================= */
-
-  function subjectIcon(){
-
-    return `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-      </svg>
-    `;
-
-  }
-
-
-  function starIcon(filled=false){
-
-    return `
-      <svg
-        viewBox="0 0 24 24"
-        fill="${filled ? "currentColor" : "none"}"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/>
-      </svg>
-    `;
-
-  }
-
-
-  /* =========================
-     Render Subjects
-  ========================= */
-
-  function renderSubjects(){
-
-    const grid = document.getElementById("subjectsGrid");
-
-    const search = normalize(
-      document.getElementById("searchInput").value
-    );
-
-
-    let filtered = subjects.filter(subject => {
-
-      if(!search) return true;
-
-      const name = normalize(getSubjectName(subject));
-
-      const subjectSections = sections.filter(
-        section => belongsToSubject(section,subject)
-      );
-
-      const sectionNames = subjectSections
-        .map(getSectionName)
-        .map(normalize);
-
-      const resourceNames = [];
-
-      subjectSections.forEach(section => {
-
-        resources
-          .filter(resource => belongsToSection(resource,section))
-          .forEach(resource => {
-            resourceNames.push(normalize(getResourceName(resource)));
-          });
-
-      });
-
-
-      return name.includes(search) ||
-             sectionNames.some(x => x.includes(search)) ||
-             resourceNames.some(x => x.includes(search));
-
-    });
-
-
-    document.getElementById("visibleCount").textContent =
-      `${filtered.length} مادة`;
-
-
-    if(!subjects.length){
-
-      grid.innerHTML = `
-        <div class="empty">
-
-          <div class="empty-icon">
-            ${subjectIcon()}
-          </div>
-
-          <h3>لا توجد مواد مضافة حاليًا</h3>
-
-          <p>
-            لم تتم إضافة مواد جيل 2010 من لوحة الأدمن بعد.
-            أضف المواد من لوحة الأدمن وستظهر هنا تلقائيًا.
-          </p>
-
-        </div>
-      `;
-
-      return;
 
     }
 
 
-    if(!filtered.length){
+    /* =========================
+       ICONS
+    ========================= */
 
-      grid.innerHTML = `
-        <div class="empty">
-
-          <div class="empty-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="7"/>
-              <path d="m20 20-4-4"/>
-            </svg>
-          </div>
-
-          <h3>لا توجد نتائج</h3>
-
-          <p>
-            جرّب البحث باسم مادة أو قسم أو ملف آخر.
-          </p>
-
-        </div>
-      `;
-
-      return;
-
-    }
-
-
-    grid.innerHTML = filtered.map(subject => {
-
-      const name = getSubjectName(subject);
-
-      const subjectSections = sections.filter(
-        section => belongsToSubject(section,subject)
-      );
-
-      const favorite = isSubjectFavorite(subject.id);
+    function subjectIcon(){
 
       return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        </svg>
+      `;
 
-        <article class="subject-card">
+    }
 
-          <div class="subject-top">
 
-            <div class="subject-icon">
+    function fileIcon(){
+
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <path d="M14 2v6h6"/>
+          <path d="M8 13h8"/>
+          <path d="M8 17h6"/>
+        </svg>
+      `;
+
+    }
+
+
+    function starIcon(filled = false){
+
+      if(filled){
+
+        return `
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5">
+            <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z"/>
+          </svg>
+        `;
+
+      }
+
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z"/>
+        </svg>
+      `;
+
+    }
+
+
+    /* =========================
+       LOAD FIREBASE
+    ========================= */
+
+    async function loadData(){
+
+      try{
+
+        const [
+          generationsSnapshot,
+          subjectsSnapshot,
+          sectionsSnapshot,
+          resourcesSnapshot
+        ] = await Promise.all([
+
+          getDocs(
+            collection(db,"generations")
+          ),
+
+          getDocs(
+            collection(db,"subjects")
+          ),
+
+          getDocs(
+            collection(db,"sections")
+          ),
+
+          getDocs(
+            query(
+              collection(db,"resources"),
+              where("published","==",true)
+            )
+          )
+
+        ]);
+
+
+        generationsData =
+          generationsSnapshot.docs.map(doc => ({
+            id:doc.id,
+            ...doc.data()
+          }));
+
+
+        subjectsData =
+          subjectsSnapshot.docs.map(doc => ({
+            id:doc.id,
+            ...doc.data()
+          }));
+
+
+        sectionsData =
+          sectionsSnapshot.docs.map(doc => ({
+            id:doc.id,
+            ...doc.data()
+          }));
+
+
+        resourcesData =
+          resourcesSnapshot.docs.map(doc => ({
+            id:doc.id,
+            ...doc.data()
+          }));
+
+
+        renderSubjects();
+
+        updateFavoriteCount();
+
+      }catch(error){
+
+        console.error(error);
+
+        subjectsContainer.innerHTML = `
+
+          <div class="empty-box">
+
+            <div class="empty-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 8v4"/>
+                <path d="M12 16h.01"/>
+              </svg>
+            </div>
+
+            <h3>حدث خطأ أثناء تحميل البيانات</h3>
+
+            <p>
+              تأكد من اتصال Firebase وقواعد البيانات ثم حاول مرة أخرى.
+            </p>
+
+          </div>
+
+        `;
+
+      }
+
+    }
+
+
+    /* =========================
+       RENDER SUBJECTS
+    ========================= */
+
+    function renderSubjects(){
+
+      const generation2010 =
+        getGeneration2010();
+
+      const subjects =
+        subjectsData.filter(
+          subject => subjectBelongsTo2010(subject)
+        );
+
+
+      subjectsCount.textContent =
+        subjects.length;
+
+
+      resourcesCount.textContent =
+        resourcesData.filter(resource => {
+
+          return subjects.some(
+            subject =>
+              subjectMatchesResource(resource,subject)
+          );
+
+        }).length;
+
+
+      if(!generation2010 && subjects.length === 0){
+
+        subjectsContainer.innerHTML = `
+
+          <div class="empty-box">
+
+            <div class="empty-icon">
               ${subjectIcon()}
             </div>
 
-            <button
-              class="favorite-btn ${favorite ? "active" : ""}"
-              data-favorite-subject="${escapeHtml(subject.id)}"
-              title="${favorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}"
-            >
-              ${starIcon(favorite)}
-            </button>
+            <h3>لم يتم العثور على جيل 2010</h3>
+
+            <p>
+              لم تتم إضافة بيانات جيل 2010 من لوحة الإدارة حتى الآن.
+            </p>
 
           </div>
-
-
-          <h3>${escapeHtml(name)}</h3>
-
-          <p>
-            ${subjectSections.length
-              ? `يوجد ${subjectSections.length} قسم${subjectSections.length === 1 ? "" : "ًا"} متاحًا`
-              : "لا توجد أقسام مضافة حاليًا"}
-          </p>
-
-
-          <div class="subject-footer">
-
-            <span class="sections-count">
-              ${subjectSections.length} قسم
-            </span>
-
-            <button
-              class="open-subject"
-              data-open-subject="${escapeHtml(subject.id)}"
-            >
-              فتح المادة
-
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-
-            </button>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-
-    document.querySelectorAll("[data-favorite-subject]")
-      .forEach(button => {
-
-        button.addEventListener("click",event => {
-
-          event.stopPropagation();
-
-          toggleSubjectFavorite(
-            button.dataset.favoriteSubject
-          );
-
-        });
-
-      });
-
-
-    document.querySelectorAll("[data-open-subject]")
-      .forEach(button => {
-
-        button.addEventListener("click",() => {
-
-          openSubject(
-            button.dataset.openSubject
-          );
-
-        });
-
-      });
-
-  }
-
-
-  /* =========================
-     Open Subject
-  ========================= */
-
-  function openSubject(subjectId){
-
-    const subject = subjects.find(
-      item => item.id === subjectId
-    );
-
-    if(!subject) return;
-
-    currentSubject = subject;
-
-    document.getElementById("detailSubjectName").textContent =
-      getSubjectName(subject);
-
-
-    const subjectSections = sections.filter(
-      section => belongsToSubject(section,subject)
-    );
-
-
-    const list = document.getElementById("sectionsList");
-
-
-    if(!subjectSections.length){
-
-      list.innerHTML = `
-        <div class="empty">
-
-          <div class="empty-icon">
-            ${subjectIcon()}
-          </div>
-
-          <h3>لا توجد أقسام حاليًا</h3>
-
-          <p>
-            لم تتم إضافة أقسام لهذه المادة من لوحة الأدمن بعد.
-          </p>
-
-        </div>
-      `;
-
-    }else{
-
-      list.innerHTML = subjectSections.map(section => {
-
-        const sectionResources = resources.filter(
-          resource => belongsToSection(resource,section)
-        );
-
-        return `
-
-          <div class="section-card">
-
-            <div class="section-info">
-
-              <div class="section-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 7h5l2 2h11v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
-                  <path d="M3 7V5a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </div>
-
-              <div>
-                <h3>${escapeHtml(getSectionName(section))}</h3>
-                <p>${sectionResources.length} ملف منشور</p>
-              </div>
-
-            </div>
-
-            <button
-              class="open-section"
-              data-open-section="${escapeHtml(section.id)}"
-            >
-              عرض الملفات
-            </button>
-
-          </div>
-
-          <div
-            class="resources"
-            id="resources-${escapeHtml(section.id)}"
-          ></div>
 
         `;
 
-      }).join("");
+        return;
+
+      }
 
 
-      document.querySelectorAll("[data-open-section]")
+      if(subjects.length === 0){
+
+        subjectsContainer.innerHTML = `
+
+          <div class="empty-box">
+
+            <div class="empty-icon">
+              ${subjectIcon()}
+            </div>
+
+            <h3>لا توجد مواد حالياً</h3>
+
+            <p>
+              لم تتم إضافة مواد دراسية لجيل 2010 حتى الآن.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      subjectsContainer.innerHTML = `
+
+        <div class="subjects-grid">
+
+          ${subjects.map(subject => {
+
+            const name =
+              getSubjectName(subject);
+
+            return `
+
+              <article
+                class="subject-card"
+                data-subject-id="${escapeHTML(subject.id)}"
+              >
+
+                <div class="subject-top">
+
+                  <div class="subject-icon">
+                    ${subjectIcon()}
+                  </div>
+
+                </div>
+
+                <h3>
+                  ${escapeHTML(name)}
+                </h3>
+
+                <p>
+                  ملفات وأقسام المادة الدراسية
+                </p>
+
+                <button
+                  class="btn btn-primary subject-action"
+                  data-action="open-files"
+                  data-subject-id="${escapeHTML(subject.id)}"
+                >
+
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  </svg>
+
+                  عرض الملفات
+
+                </button>
+
+              </article>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       OPEN SUBJECT
+    ========================= */
+
+    function openSubjectFiles(subjectId){
+
+      const subject =
+        subjectsData.find(
+          item => String(item.id) === String(subjectId)
+        );
+
+      if(!subject){
+        return;
+      }
+
+
+      currentSubject =
+        subject;
+
+
+      currentSubjectResources =
+        resourcesData.filter(resource =>
+          subjectMatchesResource(resource,subject)
+        );
+
+
+      currentSubjectSections =
+        sectionsData.filter(section =>
+          sectionBelongsToSubject(section,subject)
+        );
+
+
+      activeSectionId = "all";
+
+      favoriteOnly = false;
+
+      fileSearch.value = "";
+
+
+      modalTitle.textContent =
+        getSubjectName(subject);
+
+      modalSubtitle.textContent =
+        "الأقسام والملفات المنشورة";
+
+
+      allFilesFilter.classList.add("active");
+
+      favoriteFilesFilter.classList.remove("active");
+
+
+      renderSections();
+
+      renderFiles();
+
+
+      filesModal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    /* =========================
+       RENDER SECTIONS
+    ========================= */
+
+    function renderSections(){
+
+      if(!currentSubjectSections.length){
+
+        sectionsWrap.style.display = "none";
+
+        sectionsList.innerHTML = "";
+
+        return;
+
+      }
+
+
+      sectionsWrap.style.display = "block";
+
+
+      sectionsList.innerHTML = `
+
+        <button
+          class="section-chip active"
+          data-section-id="all"
+        >
+          كل الأقسام
+        </button>
+
+        ${currentSubjectSections.map(section => `
+
+          <button
+            class="section-chip"
+            data-section-id="${escapeHTML(section.id)}"
+          >
+            ${escapeHTML(getSectionName(section))}
+          </button>
+
+        `).join("")}
+
+      `;
+
+
+      sectionsList
+        .querySelectorAll(".section-chip")
         .forEach(button => {
 
           button.addEventListener("click",() => {
 
-            openSection(
-              button.dataset.openSection
-            );
+            activeSectionId =
+              button.dataset.sectionId;
+
+
+            sectionsList
+              .querySelectorAll(".section-chip")
+              .forEach(item =>
+                item.classList.remove("active")
+              );
+
+
+            button.classList.add("active");
+
+            renderFiles();
 
           });
 
@@ -2219,320 +2095,345 @@
     }
 
 
-    const detail = document.getElementById("subjectDetail");
+    /* =========================
+       RENDER FILES
+    ========================= */
 
-    detail.classList.add("show");
+    function renderFiles(){
 
-    setTimeout(() => {
-
-      detail.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-
-    },50);
-
-  }
+      if(!currentSubject){
+        return;
+      }
 
 
-  /* =========================
-     Open Section
-  ========================= */
-
-  function openSection(sectionId){
-
-    const box = document.getElementById(
-      `resources-${CSS.escape(sectionId)}`
-    );
-
-    if(!box) return;
+      let files =
+        [...currentSubjectResources];
 
 
-    if(box.classList.contains("show")){
+      /* SECTION FILTER */
 
-      box.classList.remove("show");
-      return;
+      if(activeSectionId !== "all"){
+
+        const section =
+          currentSubjectSections.find(
+            item =>
+              String(item.id) ===
+              String(activeSectionId)
+          );
+
+
+        if(section){
+
+          files =
+            files.filter(resource =>
+              resourceBelongsToSection(
+                resource,
+                section
+              )
+            );
+
+        }
+
+      }
+
+
+      /* FAVORITE FILTER */
+
+      if(favoriteOnly){
+
+        files =
+          files.filter(resource =>
+            isFavorite(resource.id)
+          );
+
+      }
+
+
+      /* SEARCH */
+
+      const search =
+        fileSearch.value
+          .trim()
+          .toLowerCase();
+
+
+      if(search){
+
+        files =
+          files.filter(resource => {
+
+            const resourceName =
+              getResourceName(resource)
+                .toLowerCase();
+
+            const section =
+              getResourceSectionRelation(resource)
+                .toLowerCase();
+
+            return (
+              resourceName.includes(search) ||
+              section.includes(search)
+            );
+
+          });
+
+      }
+
+
+      if(!files.length){
+
+        filesContainer.innerHTML = `
+
+          <div class="file-empty">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M8 13h8"/>
+              <path d="M8 17h5"/>
+            </svg>
+
+            <div>
+              ${
+                favoriteOnly
+                  ? "لا توجد ملفات مفضلة في هذه المادة."
+                  : "لا توجد ملفات منشورة في هذا القسم حالياً."
+              }
+            </div>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      filesContainer.innerHTML = `
+
+        <div class="files-list">
+
+          ${files.map(resource => {
+
+            const resourceName =
+              getResourceName(resource);
+
+            const url =
+              resource.url ??
+              resource.link ??
+              resource.driveUrl ??
+              resource.fileUrl ??
+              "";
+
+
+            const sectionRelation =
+              getResourceSectionRelation(resource);
+
+
+            let sectionName = "ملف المادة";
+
+
+            if(sectionRelation){
+
+              const section =
+                currentSubjectSections.find(
+                  item =>
+                    String(item.id) ===
+                    String(sectionRelation) ||
+                    getSectionName(item) ===
+                    String(sectionRelation)
+                );
+
+
+              if(section){
+
+                sectionName =
+                  getSectionName(section);
+
+              }else{
+
+                sectionName =
+                  sectionRelation;
+
+              }
+
+            }
+
+
+            const favorite =
+              isFavorite(resource.id);
+
+
+            return `
+
+              <article class="file-card">
+
+                <div class="file-icon">
+                  ${fileIcon()}
+                </div>
+
+                <div class="file-info">
+
+                  <h4>
+                    ${escapeHTML(resourceName)}
+                  </h4>
+
+                  <span>
+                    ${escapeHTML(sectionName)}
+                  </span>
+
+                </div>
+
+
+                <div class="file-actions">
+
+                  <button
+                    class="favorite-btn ${favorite ? "active" : ""}"
+                    data-action="favorite"
+                    data-resource-id="${escapeHTML(resource.id)}"
+                    aria-label="المفضلة"
+                    title="${favorite ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}"
+                  >
+                    ${starIcon(favorite)}
+                  </button>
+
+
+                  ${
+                    url
+                      ? `
+                        <a
+                          class="file-btn"
+                          href="${escapeHTML(url)}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 3h7v7"/>
+                            <path d="M10 14 21 3"/>
+                            <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+                          </svg>
+
+                          <span>فتح الملف</span>
+
+                        </a>
+                      `
+                      : `
+                        <button
+                          class="file-btn"
+                          disabled
+                          style="opacity:.5;cursor:not-allowed;"
+                        >
+                          <span>الرابط غير متوفر</span>
+                        </button>
+                      `
+                  }
+
+                </div>
+
+              </article>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
 
     }
 
 
-    document.querySelectorAll(".resources.show")
-      .forEach(item => {
-
-        item.classList.remove("show");
-
-      });
-
-
-    box.classList.add("show");
-
-    renderResourcesForSection(sectionId);
-
-  }
-
-
-  /* =========================
-     Render Resources
-  ========================= */
-
-  function renderResourcesForSection(sectionId){
-
-    const box = document.getElementById(
-      `resources-${CSS.escape(sectionId)}`
-    );
-
-    if(!box) return;
-
-
-    const section = sections.find(
-      item => item.id === sectionId
-    );
-
-    if(!section) return;
-
-
-    const sectionResources = resources.filter(
-      resource => belongsToSection(resource,section)
-    );
-
-
-    box.innerHTML = `
-
-      <div class="resources-head">
-
-        <strong>
-          ملفات ${escapeHtml(getSectionName(section))}
-        </strong>
-
-        <span>
-          ${sectionResources.length} ملف
-        </span>
-
-      </div>
-
-      <div class="resources-list">
-
-        ${
-          sectionResources.length
-
-          ? sectionResources.map(resource => {
-
-              const favorite =
-                isResourceFavorite(resource.id);
-
-              return `
-
-                <div class="resource-card">
-
-                  <div class="resource-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                      <path d="M14 2v6h6"/>
-                      <path d="M8 13h8M8 17h6"/>
-                    </svg>
-                  </div>
-
-
-                  <div class="resource-info">
-
-                    <strong>
-                      ${escapeHtml(getResourceName(resource))}
-                    </strong>
-
-                    <span>
-                      ملف منشور
-                    </span>
-
-                  </div>
-
-
-                  <div class="resource-actions">
-
-                    <button
-                      class="resource-fav ${favorite ? "active" : ""}"
-                      data-favorite-resource="${escapeHtml(resource.id)}"
-                      title="${favorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}"
-                    >
-                      ${starIcon(favorite)}
-                    </button>
-
-
-                    <a
-                      class="resource-open"
-                      href="${escapeHtml(getResourceUrl(resource))}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="فتح الملف"
-                    >
-
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 3h7v7"/>
-                        <path d="M10 14 21 3"/>
-                        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
-                      </svg>
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-              `;
-
-            }).join("")
-
-          : `
-
-            <div class="empty">
-
-              <div class="empty-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                  <path d="M14 2v6h6"/>
-                </svg>
-              </div>
-
-              <h3>لا توجد ملفات منشورة</h3>
-
-              <p>
-                لم تتم إضافة ملفات منشورة لهذا القسم حاليًا.
-              </p>
-
-            </div>
-
-          `
-        }
-
-      </div>
-
-    `;
-
-
-    box.querySelectorAll("[data-favorite-resource]")
-      .forEach(button => {
-
-        button.addEventListener("click",() => {
-
-          toggleResourceFavorite(
-            button.dataset.favoriteResource
-          );
-
-        });
-
-      });
-
-  }
-
-
-  /* =========================
-     Re-render current resources
-  ========================= */
-
-  function renderResourcesForCurrentSection(){
-
-    document.querySelectorAll(".resources.show")
-      .forEach(box => {
-
-        const id = box.id.replace("resources-","");
-
-        renderResourcesForSection(id);
-
-      });
-
-  }
-
-
-  /* =========================
-     Close Subject
-  ========================= */
-
-  document.getElementById("closeDetail")
-    .addEventListener("click",() => {
-
-      document.getElementById("subjectDetail")
-        .classList.remove("show");
+    /* =========================
+       ALL FAVORITES
+    ========================= */
+
+    function openAllFavorites(){
 
       currentSubject = null;
 
-    });
+      currentSubjectResources =
+        resourcesData.filter(resource =>
+          isFavorite(resource.id)
+        );
+
+      currentSubjectSections = [];
+
+      activeSectionId = "all";
+
+      favoriteOnly = true;
+
+      fileSearch.value = "";
+
+      modalTitle.textContent =
+        "الملفات المفضلة";
+
+      modalSubtitle.textContent =
+        "كل الملفات التي حفظتها";
 
 
-  /* =========================
-     Favorites Render
-  ========================= */
-
-  function renderFavorites(){
-
-    const favoriteSubjectIds =
-      getFavoriteSubjects();
-
-    const favoriteResourceIds =
-      getFavoriteResources();
+      sectionsWrap.style.display =
+        "none";
 
 
-    const total =
-      favoriteSubjectIds.length +
-      favoriteResourceIds.length;
+      allFilesFilter.classList.remove("active");
+
+      favoriteFilesFilter.classList.add("active");
 
 
-    const section =
-      document.getElementById("favoritesSection");
+      renderGlobalFavorites();
 
 
-    document.getElementById("favoritesCount")
-      .textContent = `${total} محفوظ`;
+      filesModal.classList.add("active");
 
-
-    if(total === 0){
-
-      section.classList.remove("show");
-      return;
+      document.body.style.overflow = "hidden";
 
     }
 
 
-    section.classList.add("show");
+    function renderGlobalFavorites(){
+
+      let files =
+        [...currentSubjectResources];
 
 
-    renderFavoriteTab();
-
-  }
-
-
-  function renderFavoriteTab(){
-
-    const list =
-      document.getElementById("favoriteList");
+      const search =
+        fileSearch.value
+          .trim()
+          .toLowerCase();
 
 
-    if(currentFavoriteTab === "subjects"){
+      if(search){
 
-      const favoriteIds =
-        getFavoriteSubjects();
+        files =
+          files.filter(resource =>
+            getResourceName(resource)
+              .toLowerCase()
+              .includes(search)
+          );
+
+      }
 
 
-      const favoriteSubjects =
-        subjects.filter(subject =>
-          favoriteIds.includes(subject.id)
-        );
+      if(!files.length){
 
+        filesContainer.innerHTML = `
 
-      if(!favoriteSubjects.length){
+          <div class="file-empty">
 
-        list.innerHTML = `
-          <div class="empty">
+            ${starIcon(false)}
 
-            <div class="empty-icon">
-              ${starIcon()}
+            <div>
+              ${
+                search
+                  ? "لا توجد نتائج مطابقة للبحث."
+                  : "لم تقم بإضافة أي ملف إلى المفضلة حتى الآن."
+              }
             </div>
 
-            <h3>لا توجد مواد مفضلة</h3>
-
-            <p>
-              اضغط على النجمة بجانب أي مادة لإضافتها هنا.
-            </p>
-
           </div>
+
         `;
 
         return;
@@ -2540,190 +2441,393 @@
       }
 
 
-      list.innerHTML =
-        favoriteSubjects.map(subject => {
+      filesContainer.innerHTML = `
 
-          return `
+        <div class="files-list">
 
-            <div class="favorite-item">
+          ${files.map(resource => {
 
-              <div class="favorite-main">
+            const resourceName =
+              getResourceName(resource);
 
-                <div class="favorite-icon">
-                  ${subjectIcon()}
+            const url =
+              resource.url ??
+              resource.link ??
+              resource.driveUrl ??
+              resource.fileUrl ??
+              "";
+
+
+            let subjectName =
+              "مادة دراسية";
+
+
+            const subject =
+              subjectsData.find(
+                item =>
+                  subjectMatchesResource(
+                    resource,
+                    item
+                  )
+              );
+
+
+            if(subject){
+
+              subjectName =
+                getSubjectName(subject);
+
+            }
+
+
+            return `
+
+              <article class="file-card">
+
+                <div class="file-icon">
+                  ${fileIcon()}
                 </div>
 
-                <div>
+                <div class="file-info">
 
-                  <div class="favorite-name">
-                    ${escapeHtml(getSubjectName(subject))}
-                  </div>
+                  <h4>
+                    ${escapeHTML(resourceName)}
+                  </h4>
 
-                  <div class="favorite-sub">
-                    مادة دراسية
-                  </div>
+                  <span>
+                    ${escapeHTML(subjectName)}
+                  </span>
 
                 </div>
 
-              </div>
+                <div class="file-actions">
+
+                  <button
+                    class="favorite-btn active"
+                    data-action="favorite"
+                    data-resource-id="${escapeHTML(resource.id)}"
+                    title="إزالة من المفضلة"
+                  >
+                    ${starIcon(true)}
+                  </button>
 
 
-              <button
-                class="favorite-open"
-                data-fav-open-subject="${escapeHtml(subject.id)}"
-              >
-                فتح
-              </button>
+                  ${
+                    url
+                      ? `
+                        <a
+                          class="file-btn"
+                          href="${escapeHTML(url)}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
 
-            </div>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 3h7v7"/>
+                            <path d="M10 14 21 3"/>
+                            <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+                          </svg>
 
-          `;
+                          <span>فتح الملف</span>
 
-        }).join("");
+                        </a>
+                      `
+                      : ""
+                  }
+
+                </div>
+
+              </article>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
+
+    }
 
 
-      list.querySelectorAll("[data-fav-open-subject]")
-        .forEach(button => {
+    /* =========================
+       EVENTS
+    ========================= */
 
-          button.addEventListener("click",() => {
+    subjectsContainer.addEventListener(
+      "click",
+      event => {
 
-            openSubject(
-              button.dataset.favOpenSubject
-            );
+        const button =
+          event.target.closest(
+            '[data-action="open-files"]'
+          );
 
+        if(!button){
+          return;
+        }
+
+        openSubjectFiles(
+          button.dataset.subjectId
+        );
+
+      }
+    );
+
+
+    filesContainer.addEventListener(
+      "click",
+      event => {
+
+        const button =
+          event.target.closest(
+            '[data-action="favorite"]'
+          );
+
+        if(!button){
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        toggleFavorite(
+          button.dataset.resourceId
+        );
+
+        if(favoriteOnly){
+
+          renderGlobalFavorites();
+
+        }
+
+      }
+    );
+
+
+    fileSearch.addEventListener(
+      "input",
+      () => {
+
+        if(favoriteOnly){
+
+          renderGlobalFavorites();
+
+        }else{
+
+          renderFiles();
+
+        }
+
+      }
+    );
+
+
+    allFilesFilter.addEventListener(
+      "click",
+      () => {
+
+        favoriteOnly = false;
+
+        allFilesFilter.classList.add("active");
+
+        favoriteFilesFilter.classList.remove("active");
+
+        if(currentSubject){
+
+          renderFiles();
+
+        }else{
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    favoriteFilesFilter.addEventListener(
+      "click",
+      () => {
+
+        if(currentSubject){
+
+          favoriteOnly = true;
+
+          allFilesFilter.classList.remove("active");
+
+          favoriteFilesFilter.classList.add("active");
+
+          renderFiles();
+
+        }else{
+
+          openAllFavorites();
+
+        }
+
+      }
+    );
+
+
+    allFavoritesBtn.addEventListener(
+      "click",
+      openAllFavorites
+    );
+
+
+    function closeModal(){
+
+      filesModal.classList.remove("active");
+
+      document.body.style.overflow = "";
+
+      currentSubject = null;
+
+      currentSubjectResources = [];
+
+      currentSubjectSections = [];
+
+    }
+
+
+    closeModalBtn.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    filesModal.addEventListener(
+      "click",
+      event => {
+
+        if(event.target === filesModal){
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if(event.key === "Escape"){
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       THEME
+    ========================= */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+    const themeIcon =
+      document.getElementById("themeIcon");
+
+
+    function updateThemeIcon(){
+
+      const dark =
+        document.body.classList.contains("dark");
+
+
+      if(dark){
+
+        themeIcon.innerHTML = `
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8Z"/>
+        `;
+
+      }else{
+
+        themeIcon.innerHTML = `
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/>
+          <path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="m6.34 17.66-1.41 1.41"/>
+          <path d="m19.07 4.93-1.41 1.41"/>
+        `;
+
+      }
+
+    }
+
+
+    const savedTheme =
+      localStorage.getItem("tawjihi-theme");
+
+
+    if(savedTheme === "dark"){
+
+      document.body.classList.add("dark");
+
+    }
+
+
+    updateThemeIcon();
+
+
+    themeBtn.addEventListener(
+      "click",
+      () => {
+
+        const isDark =
+          document.body.classList.toggle("dark");
+
+
+        localStorage.setItem(
+          "tawjihi-theme",
+          isDark ? "dark" : "light"
+        );
+
+
+        updateThemeIcon();
+
+      }
+    );
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    document
+      .getElementById("backTop")
+      .addEventListener(
+        "click",
+        () => {
+
+          window.scrollTo({
+            top:0,
+            behavior:"smooth"
           });
 
-        });
-
-    }else{
-
-      const favoriteIds =
-        getFavoriteResources();
+        }
+      );
 
 
-      const favoriteResources =
-        resources.filter(resource =>
-          favoriteIds.includes(resource.id)
-        );
+    /* =========================
+       START
+    ========================= */
 
+    loadData();
 
-      if(!favoriteResources.length){
-
-        list.innerHTML = `
-          <div class="empty">
-
-            <div class="empty-icon">
-              ${starIcon()}
-            </div>
-
-            <h3>لا توجد ملفات مفضلة</h3>
-
-            <p>
-              اضغط على النجمة بجانب أي ملف لحفظه هنا.
-            </p>
-
-          </div>
-        `;
-
-        return;
-
-      }
-
-
-      list.innerHTML =
-        favoriteResources.map(resource => {
-
-          return `
-
-            <div class="favorite-item">
-
-              <div class="favorite-main">
-
-                <div class="favorite-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                    <path d="M14 2v6h6"/>
-                  </svg>
-                </div>
-
-                <div>
-
-                  <div class="favorite-name">
-                    ${escapeHtml(getResourceName(resource))}
-                  </div>
-
-                  <div class="favorite-sub">
-                    ملف منشور
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <a
-                class="favorite-open"
-                href="${escapeHtml(getResourceUrl(resource))}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                فتح
-              </a>
-
-            </div>
-
-          `;
-
-        }).join("");
-
-    }
-
-  }
-
-
-  /* =========================
-     Favorite Tabs
-  ========================= */
-
-  document.querySelectorAll(".fav-tab")
-    .forEach(tab => {
-
-      tab.addEventListener("click",() => {
-
-        document.querySelectorAll(".fav-tab")
-          .forEach(item => item.classList.remove("active"));
-
-        tab.classList.add("active");
-
-        currentFavoriteTab =
-          tab.dataset.tab;
-
-        renderFavoriteTab();
-
-      });
-
-    });
-
-
-  /* =========================
-     Search
-  ========================= */
-
-  document.getElementById("searchInput")
-    .addEventListener("input",() => {
-
-      renderSubjects();
-
-    });
-
-
-  /* =========================
-     Start
-  ========================= */
-
-  loadData();
-
-</script>
+  </script>
 
 </body>
 </html>
