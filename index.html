@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>مساعد توجيهي | طريقك إلى التفوق</title>
+  <title>مساعد توجيهي | كل ما يلزمك</title>
+
   <meta
     name="description"
     content="مساعد توجيهي - منصة تعليمية لطلاب التوجيهي 2009 و2010، تشمل الملفات والملخصات والأسئلة والاختبارات."
@@ -12,40 +13,53 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
   <style>
+
     :root {
       --bg: #f6f8fa;
       --surface: #ffffff;
       --surface-2: #f1f5f4;
       --text: #17211f;
       --muted: #6d7b77;
+
       --primary: #0f766e;
       --primary-2: #14b8a6;
+
       --soft: #e7f6f3;
       --border: #e3e9e7;
+
       --success: #16a34a;
       --danger: #dc2626;
+
       --shadow: 0 15px 45px rgba(15, 118, 110, 0.08);
+
       --radius: 24px;
     }
+
 
     body.dark {
       --bg: #0b1110;
       --surface: #111918;
       --surface-2: #17211f;
+
       --text: #f1f5f4;
       --muted: #9baaa6;
+
       --primary: #2dd4bf;
       --primary-2: #14b8a6;
+
       --soft: rgba(20, 184, 166, 0.12);
       --border: #263431;
+
       --shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
     }
+
 
     * {
       box-sizing: border-box;
@@ -53,648 +67,1215 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
       font-family: "IBM Plex Sans Arabic", sans-serif;
+
       background: var(--bg);
       color: var(--text);
+
       line-height: 1.7;
-      transition: background .25s, color .25s;
+
+      transition:
+        background .25s,
+        color .25s;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+
     button,
     input {
       font-family: inherit;
     }
+
 
     .container {
       width: min(1150px, calc(100% - 32px));
       margin: auto;
     }
 
-    /* Header */
+
+    /* =========================
+       Header
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
+
       z-index: 100;
+
       backdrop-filter: blur(18px);
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--bg) 85%,
+          transparent
+        );
+
       border-bottom: 1px solid var(--border);
     }
 
+
     .nav {
       min-height: 72px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
+
 
     .brand {
       display: flex;
       align-items: center;
+
       gap: 12px;
+
       font-weight: 700;
       font-size: 19px;
     }
 
+
     .brand-icon {
       width: 42px;
       height: 42px;
+
       border-radius: 14px;
+
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
       color: white;
-      box-shadow: 0 10px 25px rgba(20, 184, 166, .22);
+
+      box-shadow:
+        0 10px 25px
+        rgba(20, 184, 166, .22);
     }
+
 
     .brand-icon svg {
       width: 23px;
       height: 23px;
     }
 
+
     .nav-actions {
       display: flex;
       align-items: center;
+
       gap: 10px;
     }
+
 
     .theme-btn {
       width: 42px;
       height: 42px;
+
       border: 1px solid var(--border);
+
       background: var(--surface);
       color: var(--text);
+
       border-radius: 13px;
+
       cursor: pointer;
+
       display: grid;
       place-items: center;
+
+      transition: .2s;
     }
+
+
+    .theme-btn:hover {
+      border-color: var(--primary);
+
+      transform: translateY(-1px);
+    }
+
 
     .theme-btn svg {
       width: 19px;
       height: 19px;
     }
 
-    /* Hero */
+
+    /* =========================
+       Hero
+    ========================= */
 
     .hero {
       padding: 75px 0 35px;
     }
 
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+
+      grid-template-columns:
+        1.25fr .75fr;
+
       gap: 30px;
+
       align-items: center;
     }
 
+
     .hero h1 {
-      font-size: clamp(34px, 5vw, 58px);
+      font-size:
+        clamp(34px, 5vw, 58px);
+
       line-height: 1.15;
+
       letter-spacing: -1.5px;
+
       margin-bottom: 20px;
     }
+
 
     .hero h1 span {
       color: var(--primary);
     }
 
+
     .hero p {
       color: var(--muted);
+
       font-size: 18px;
+
       max-width: 650px;
+
       margin-bottom: 28px;
     }
 
+
+    /* =========================
+       Search
+    ========================= */
+
     .search {
       max-width: 650px;
+
       position: relative;
     }
+
 
     .search input {
       width: 100%;
       height: 60px;
-      border: 1px solid var(--border);
+
+      border:
+        1px solid
+        var(--border);
+
       background: var(--surface);
+
       color: var(--text);
+
       border-radius: 18px;
-      padding: 0 55px 0 20px;
+
+      padding:
+        0 55px
+        0 20px;
+
       outline: none;
+
       font-size: 16px;
+
       box-shadow: var(--shadow);
+
       transition: .2s;
     }
 
+
     .search input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 4px var(--soft);
+
+      box-shadow:
+        0 0 0 4px var(--soft);
     }
+
 
     .search-icon {
       position: absolute;
+
       right: 19px;
       top: 50%;
-      transform: translateY(-50%);
+
+      transform:
+        translateY(-50%);
+
       color: var(--primary);
+
+      z-index: 2;
     }
+
 
     .search-icon svg {
       width: 21px;
       height: 21px;
     }
 
+
+    /* =========================
+       Search Results
+    ========================= */
+
+    .search-results {
+      display: none;
+
+      position: absolute;
+
+      right: 0;
+      left: 0;
+
+      top: calc(100% + 10px);
+
+      background: var(--surface);
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, .12);
+
+      z-index: 50;
+
+      max-height: 390px;
+
+      overflow-y: auto;
+    }
+
+
+    .search-result {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      padding: 13px 16px;
+
+      border-bottom:
+        1px solid
+        var(--border);
+
+      transition: .15s;
+    }
+
+
+    .search-result:last-child {
+      border-bottom: 0;
+    }
+
+
+    .search-result:hover {
+      background: var(--soft);
+    }
+
+
+    .search-result-icon {
+      width: 38px;
+      height: 38px;
+
+      flex: 0 0 38px;
+
+      border-radius: 11px;
+
+      display: grid;
+      place-items: center;
+
+      background: var(--soft);
+
+      color: var(--primary);
+    }
+
+
+    .search-result-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+
+    .search-result-content {
+      min-width: 0;
+      flex: 1;
+    }
+
+
+    .search-result strong {
+      display: block;
+
+      margin-bottom: 2px;
+
+      font-size: 14px;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+
+
+    .search-result span {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+
+    .search-loading {
+      padding: 18px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       Hero Card
+    ========================= */
+
     .hero-card {
-      background: linear-gradient(145deg, var(--surface), var(--surface-2));
-      border: 1px solid var(--border);
+      background:
+        linear-gradient(
+          145deg,
+          var(--surface),
+          var(--surface-2)
+        );
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 30px;
+
       padding: 30px;
+
       box-shadow: var(--shadow);
     }
+
 
     .hero-card-icon {
       width: 58px;
       height: 58px;
+
       border-radius: 18px;
+
       display: grid;
       place-items: center;
+
       background: var(--soft);
+
       color: var(--primary);
+
       margin-bottom: 20px;
     }
+
 
     .hero-card-icon svg {
       width: 29px;
       height: 29px;
     }
 
+
     .hero-card h3 {
       font-size: 22px;
+
       margin-bottom: 8px;
     }
 
+
     .hero-card p {
       font-size: 15px;
+
       margin: 0;
     }
 
-    /* Stats */
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin: 25px 0 75px;
-    }
-
-    .stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 27px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 3px;
-    }
-
-    /* Sections */
+    /* =========================
+       Sections
+    ========================= */
 
     section {
       margin-bottom: 75px;
     }
 
+
     .section-head {
       display: flex;
+
       align-items: end;
+
       justify-content: space-between;
+
       gap: 15px;
+
       margin-bottom: 22px;
     }
 
+
     .section-title {
       font-size: 28px;
+
       margin-bottom: 4px;
     }
 
+
     .section-subtitle {
       color: var(--muted);
+
       font-size: 14px;
     }
 
-    /* Daily */
+
+    /* =========================
+       Daily
+    ========================= */
 
     .daily-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap: 18px;
     }
 
+
     .daily-card {
       background: var(--surface);
-      border: 1px solid var(--border);
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: var(--radius);
+
       padding: 26px;
+
       box-shadow: var(--shadow);
+
+      min-height: 190px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
     }
+
 
     .daily-label {
       display: flex;
+
       align-items: center;
+
       gap: 8px;
+
       color: var(--primary);
+
       font-weight: 600;
+
       margin-bottom: 13px;
     }
+
 
     .daily-label svg {
       width: 19px;
       height: 19px;
     }
 
+
     .verse {
       font-size: 21px;
+
       line-height: 2;
+
       margin-bottom: 10px;
+
+      transition: opacity .25s,
+        transform .25s;
     }
+
 
     .daily-card small {
       color: var(--muted);
     }
 
-    /* Generations */
+
+    .daily-text {
+      color: var(--text);
+
+      font-size: 16px;
+
+      line-height: 1.9;
+    }
+
+
+    .fade {
+      opacity: 0;
+
+      transform:
+        translateY(5px);
+    }
+
+
+    /* =========================
+       Generations
+    ========================= */
 
     .generations {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 20px;
     }
 
+
     .generation-card {
       background: var(--surface);
-      border: 1px solid var(--border);
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 27px;
+
       padding: 27px;
+
       box-shadow: var(--shadow);
-      transition: .2s;
+
+      transition:
+        transform .2s,
+        border-color .2s,
+        box-shadow .2s;
+
       cursor: pointer;
     }
 
+
     .generation-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--primary);
+
+      box-shadow:
+        0 20px 50px
+        rgba(15, 118, 110, .12);
     }
+
 
     .generation-top {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 15px;
+
       margin-bottom: 20px;
     }
+
 
     .generation-icon {
       width: 54px;
       height: 54px;
+
       border-radius: 17px;
+
       display: grid;
       place-items: center;
+
       background: var(--soft);
+
       color: var(--primary);
     }
+
 
     .generation-icon svg {
       width: 27px;
       height: 27px;
     }
 
+
     .arrow {
       color: var(--muted);
+
+      transition: .2s;
     }
+
+
+    .generation-card:hover .arrow {
+      color: var(--primary);
+
+      transform:
+        translateX(-3px);
+    }
+
 
     .generation-card h3 {
       font-size: 23px;
+
       margin-bottom: 4px;
     }
 
+
     .generation-card p {
       color: var(--muted);
+
       font-size: 14px;
+
       margin-bottom: 20px;
     }
 
+
     .subject-count {
       display: inline-flex;
+
       align-items: center;
+
       gap: 7px;
-      padding: 8px 12px;
+
+      padding:
+        8px 12px;
+
       border-radius: 12px;
+
       background: var(--soft);
+
       color: var(--primary);
+
       font-size: 13px;
+
       font-weight: 600;
     }
 
-    /* Features */
+
+    /* =========================
+       Features
+    ========================= */
 
     .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 17px;
     }
 
+
     .feature {
       background: var(--surface);
-      border: 1px solid var(--border);
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 22px;
+
       padding: 25px;
+
+      transition: .2s;
     }
+
+
+    .feature:hover {
+      transform:
+        translateY(-3px);
+
+      border-color:
+        var(--primary);
+    }
+
 
     .feature-icon {
       width: 46px;
       height: 46px;
+
       display: grid;
       place-items: center;
+
       border-radius: 14px;
+
       background: var(--soft);
+
       color: var(--primary);
+
       margin-bottom: 17px;
     }
+
 
     .feature-icon svg {
       width: 22px;
       height: 22px;
     }
 
+
     .feature h3 {
       font-size: 18px;
+
       margin-bottom: 6px;
     }
 
+
     .feature p {
       color: var(--muted);
+
       font-size: 14px;
     }
 
-    /* Loading */
+
+    /* =========================
+       Loading / Empty
+    ========================= */
 
     .loading {
-      grid-column: 1 / -1;
+      grid-column:
+        1 / -1;
+
       text-align: center;
+
       padding: 45px 20px;
+
       color: var(--muted);
+
       background: var(--surface);
-      border: 1px solid var(--border);
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 22px;
     }
+
 
     .loader {
       width: 28px;
       height: 28px;
-      border: 3px solid var(--border);
-      border-top-color: var(--primary);
+
+      border:
+        3px solid
+        var(--border);
+
+      border-top-color:
+        var(--primary);
+
       border-radius: 50%;
-      animation: spin .8s linear infinite;
-      margin: 0 auto 12px;
+
+      animation:
+        spin .8s linear infinite;
+
+      margin:
+        0 auto 12px;
     }
+
 
     @keyframes spin {
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
 
+
     .empty {
-      grid-column: 1 / -1;
+      grid-column:
+        1 / -1;
+
       text-align: center;
+
       padding: 40px;
+
       color: var(--muted);
+
       background: var(--surface);
-      border: 1px dashed var(--border);
+
+      border:
+        1px dashed
+        var(--border);
+
       border-radius: 22px;
     }
 
-    /* CTA */
+
+    .error-message {
+      color: var(--danger);
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
 
     .cta {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
       color: white;
+
       border-radius: 30px;
+
       padding: 38px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 25px;
     }
 
+
     .cta h2 {
       font-size: 28px;
+
       margin-bottom: 6px;
     }
+
 
     .cta p {
       opacity: .88;
     }
 
+
     .cta-button {
       background: white;
+
       color: #0f766e;
+
       border: 0;
-      padding: 13px 21px;
+
+      padding:
+        13px 21px;
+
       border-radius: 14px;
+
       font-weight: 700;
+
       white-space: nowrap;
     }
 
-    /* Footer */
+
+    /* =========================
+       Grade Button
+    ========================= */
+
+    .grade-float {
+      position: fixed;
+
+      left: 18px;
+      bottom: 18px;
+
+      z-index: 120;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding:
+        12px 17px;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color: white;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 12px 30px
+        rgba(15, 118, 110, .25);
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      transition: .2s;
+    }
+
+
+    .grade-float:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 17px 35px
+        rgba(15, 118, 110, .32);
+    }
+
+
+    .grade-float svg {
+      width: 19px;
+      height: 19px;
+    }
+
+
+    /* =========================
+       Footer
+    ========================= */
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 0;
+      border-top:
+        1px solid
+        var(--border);
+
+      padding:
+        30px 0;
+
       color: var(--muted);
+
       text-align: center;
+
       font-size: 13px;
     }
 
-    /* Search results */
 
-    .search-results {
-      display: none;
-      margin-top: 15px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .search-result {
-      display: block;
-      padding: 14px 17px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .search-result:last-child {
-      border-bottom: 0;
-    }
-
-    .search-result:hover {
-      background: var(--soft);
-    }
-
-    .search-result strong {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .search-result span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Responsive */
+    /* =========================
+       Responsive
+    ========================= */
 
     @media (max-width: 850px) {
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
+
 
       .hero-card {
         display: none;
       }
 
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .daily-grid,
       .generations {
         grid-template-columns: 1fr;
       }
 
+
       .features {
         grid-template-columns: 1fr;
       }
 
+
       .cta {
         flex-direction: column;
+
         align-items: flex-start;
       }
+
     }
 
+
     @media (max-width: 550px) {
+
       .container {
-        width: min(100% - 22px, 1150px);
+        width:
+          min(
+            100% - 22px,
+            1150px
+          );
       }
+
 
       .hero {
         padding-top: 45px;
       }
 
+
       .hero h1 {
         font-size: 36px;
       }
+
 
       .hero p {
         font-size: 16px;
       }
 
-      .stats {
-        gap: 9px;
-      }
-
-      .stat {
-        padding: 17px 10px;
-      }
-
-      .stat-number {
-        font-size: 23px;
-      }
 
       .section-title {
         font-size: 24px;
       }
 
+
       .cta {
         padding: 27px;
+
         border-radius: 23px;
       }
+
 
       .cta h2 {
         font-size: 23px;
       }
+
+
+      .grade-float {
+        left: 12px;
+        bottom: 12px;
+
+        padding:
+          11px 14px;
+
+        border-radius: 14px;
+
+        font-size: 13px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- Header -->
+
+  <!-- =========================
+       Header
+  ========================= -->
+
   <header>
+
     <div class="container nav">
 
       <a href="index.html" class="brand">
+
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
             <path d="M8 6h8"/>
             <path d="M8 10h8"/>
           </svg>
+
         </div>
+
         <span>مساعد توجيهي</span>
+
       </a>
 
+
       <div class="nav-actions">
-        <button class="theme-btn" id="themeBtn" aria-label="تغيير المظهر"></button>
+
+        <button
+          class="theme-btn"
+          id="themeBtn"
+          aria-label="تغيير المظهر"
+        ></button>
+
       </div>
 
     </div>
+
   </header>
+
 
   <main>
 
-    <!-- Hero -->
+
+    <!-- =========================
+         Hero
+    ========================= -->
+
     <section class="hero">
+
       <div class="container hero-grid">
 
+
         <div>
+
           <h1>
             طريقك إلى<br>
             <span>التفوق يبدأ هنا</span>
           </h1>
+
 
           <p>
             منصة تجمع لك مواد التوجيهي والملخصات والملفات
             والأسئلة والاختبارات في مكان واحد وبطريقة مرتبة.
           </p>
 
+
           <div class="search">
+
             <span class="search-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="7"></circle>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                ></circle>
+
                 <path d="m20 20-4-4"></path>
               </svg>
+
             </span>
+
 
             <input
               id="searchInput"
@@ -703,21 +1284,39 @@
               autocomplete="off"
             >
 
-            <div class="search-results" id="searchResults"></div>
+
+            <div
+              class="search-results"
+              id="searchResults"
+            ></div>
+
           </div>
+
         </div>
+
 
         <div class="hero-card">
 
           <div class="hero-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z"/>
               <path d="M5 10v5.5c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5V10"/>
               <path d="M21 8v7"/>
             </svg>
+
           </div>
 
-          <h3>كل دراستك بمكان واحد</h3>
+
+          <h3>
+            كل دراستك بمكان واحد
+          </h3>
+
 
           <p>
             اختار جيلك، ثم المادة، ووصل لكل الملفات
@@ -727,68 +1326,90 @@
         </div>
 
       </div>
+
     </section>
 
-    <!-- Stats -->
-    <div class="container">
-      <div class="stats">
 
-        <div class="stat">
-          <div class="stat-number" id="generationsCount">—</div>
-          <div class="stat-label">الأجيال</div>
-        </div>
 
-        <div class="stat">
-          <div class="stat-number" id="subjectsCount">—</div>
-          <div class="stat-label">المواد</div>
-        </div>
+    <!-- =========================
+         Daily
+    ========================= -->
 
-        <div class="stat">
-          <div class="stat-number" id="resourcesCount">—</div>
-          <div class="stat-label">ملفات وروابط</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">متاح للطلاب</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Daily -->
     <section>
+
       <div class="container">
 
+
         <div class="section-head">
+
           <div>
-            <h2 class="section-title">اليوم في مساعد توجيهي</h2>
-            <p class="section-subtitle">شيء بسيط يساعدك تكمل.</p>
+
+            <h2 class="section-title">
+              اليوم في مساعد توجيهي
+            </h2>
+
+            <p class="section-subtitle">
+              شيء بسيط يساعدك تكمل.
+            </p>
+
           </div>
+
         </div>
+
 
         <div class="daily-grid">
 
+
+          <!-- آية -->
+
           <div class="daily-card">
+
             <div class="daily-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M12 3v18"/>
                 <path d="M5 7c2.5-1.7 5-1.7 7 0 2-1.7 4.5-1.7 7 0"/>
                 <path d="M5 17c2.5-1.7 5-1.7 7 0 2-1.7 4.5-1.7 7 0"/>
               </svg>
+
               آية اليوم
+
             </div>
 
-            <div class="verse">
+
+            <div
+              class="verse"
+              id="dailyVerse"
+            >
               ﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾
             </div>
 
-            <small>سورة طه، الآية 114</small>
+
+            <small id="dailyVerseSource">
+              سورة طه، الآية 114
+            </small>
+
           </div>
 
+
+
+          <!-- نصيحة -->
+
           <div class="daily-card">
+
             <div class="daily-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M12 2v4"/>
                 <path d="M12 18v4"/>
                 <path d="m4.93 4.93 2.83 2.83"/>
@@ -798,152 +1419,332 @@
                 <path d="m4.93 19.07 2.83-2.83"/>
                 <path d="m16.24 7.76 2.83-2.83"/>
               </svg>
+
               نصيحة اليوم
+
             </div>
 
-            <p>
-              لا تنتظر الحماس حتى تبدأ. ابدأ بخطوة صغيرة،
-              ومع الاستمرار ستجد نفسك قطعت شوطًا كبيرًا.
+
+            <p
+              class="daily-text"
+              id="dailyTip"
+            >
+              لا تنتظر الحماس حتى تبدأ.
+              ابدأ بخطوة صغيرة، ومع الاستمرار ستجد نفسك قطعت شوطًا كبيرًا.
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- Generations -->
+
+
+    <!-- =========================
+         Generations
+    ========================= -->
+
     <section id="generationsSection">
+
       <div class="container">
 
+
         <div class="section-head">
+
           <div>
-            <h2 class="section-title">اختر جيلك</h2>
+
+            <h2 class="section-title">
+              اختر جيلك
+            </h2>
+
             <p class="section-subtitle">
-              المحتوى الموجود هنا يتم جلبه من لوحة الأدمن.
+              الأجيال والمواد يتم التحكم بها من لوحة الأدمن.
             </p>
+
           </div>
+
         </div>
 
-        <div class="generations" id="generations">
+
+        <div
+          class="generations"
+          id="generations"
+        >
 
           <div class="loading">
+
             <div class="loader"></div>
+
             جاري تحميل المحتوى...
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- Features -->
+
+
+    <!-- =========================
+         Features
+    ========================= -->
+
     <section>
+
       <div class="container">
 
+
         <div class="section-head">
+
           <div>
-            <h2 class="section-title">كل ما تحتاجه</h2>
+
+            <h2 class="section-title">
+              كل ما تحتاجه
+            </h2>
+
             <p class="section-subtitle">
               محتوى مرتب يساعدك تدرس بطريقة أفضل.
             </p>
+
           </div>
+
         </div>
+
 
         <div class="features">
 
+
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
               </svg>
+
             </div>
 
-            <h3>ملخصات وملفات</h3>
+
+            <h3>
+              ملخصات وملفات
+            </h3>
+
+
             <p>
               الوصول للملفات والملخصات والمواد التعليمية بسهولة.
             </p>
+
           </div>
 
+
+
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M9 11l3 3L22 4"/>
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
               </svg>
+
             </div>
 
-            <h3>أسئلة وتدريب</h3>
+
+            <h3>
+              أسئلة وتدريب
+            </h3>
+
+
             <p>
               بنوك أسئلة وأوراق عمل وأسئلة سنوات سابقة.
             </p>
+
           </div>
 
+
+
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect
+                  x="3"
+                  y="4"
+                  width="18"
+                  height="16"
+                  rx="2"
+                />
+
                 <path d="M8 9h8"/>
                 <path d="M8 13h5"/>
               </svg>
+
             </div>
 
-            <h3>اختبارات ونماذج</h3>
+
+            <h3>
+              اختبارات ونماذج
+            </h3>
+
+
             <p>
               اختبارات إلكترونية ونماذج تساعدك تقيس مستواك.
             </p>
+
           </div>
+
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- CTA -->
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
     <section>
+
       <div class="container">
 
+
         <div class="cta">
+
           <div>
-            <h2>ابدأ دراستك الآن</h2>
+
+            <h2>
+              ابدأ دراستك الآن
+            </h2>
+
             <p>
               اختار جيلك وابدأ بتنظيم دراستك خطوة بخطوة.
             </p>
+
           </div>
 
-          <a href="#generationsSection" class="cta-button">
+
+          <a
+            href="#generationsSection"
+            class="cta-button"
+          >
             عرض الأجيال
           </a>
+
         </div>
 
       </div>
+
     </section>
+
 
   </main>
 
+
+
+  <!-- =========================
+       Grade Calculator Button
+  ========================= -->
+
+  <a
+    href="calculator.html"
+    class="grade-float"
+    title="احسب معدلك"
+  >
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <rect
+        x="5"
+        y="2"
+        width="14"
+        height="20"
+        rx="2"
+      />
+
+      <path d="M8 6h8"/>
+
+      <path d="M8 10h2"/>
+      <path d="M14 10h2"/>
+
+      <path d="M8 14h2"/>
+      <path d="M14 14h2"/>
+
+      <path d="M8 18h2"/>
+      <path d="M14 18h2"/>
+    </svg>
+
+    <span>
+      احسب معدلك
+    </span>
+
+  </a>
+
+
+
+  <!-- =========================
+       Footer
+  ========================= -->
+
   <footer>
+
     <div class="container">
+
       © 2026 مساعد توجيهي — جميع الحقوق محفوظة
+
     </div>
+
   </footer>
 
 
-  <!-- Firebase + JavaScript -->
+
+  <!-- =========================
+       Firebase + JavaScript
+  ========================= -->
+
   <script type="module">
 
     /*
-      نستخدم ملف Firebase الموجود داخل admin.
-
-      ترتيب الملفات لازم يكون:
+      ترتيب الملفات:
 
       index.html
       2009.html
       2010.html
+      calculator.html
+
       admin/
         index.html
         firebase-config.js
     */
+
 
     import {
       db,
@@ -952,19 +1753,48 @@
     } from "./admin/firebase-config.js";
 
 
+    /*
+      نحتاج where فقط للموارد المنشورة.
+      نستورده مباشرة من Firebase.
+    */
+
+    import {
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+
     /* =========================
        الوضع الليلي
     ========================= */
 
-    const themeBtn = document.getElementById("themeBtn");
+    const themeBtn =
+      document.getElementById("themeBtn");
+
 
     function setThemeIcon() {
-      const isDark = document.body.classList.contains("dark");
 
-      themeBtn.innerHTML = isDark
+      const isDark =
+        document.body.classList.contains("dark");
+
+
+      themeBtn.innerHTML =
+        isDark
+
         ? `
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4"/>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            />
+
             <path d="M12 2v2"/>
             <path d="M12 20v2"/>
             <path d="m4.93 4.93 1.41 1.41"/>
@@ -975,34 +1805,67 @@
             <path d="m19.07 4.93-1.41 1.41"/>
           </svg>
         `
+
         : `
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3
+              7 7 0 0 0 21 12.79Z"
+            />
           </svg>
         `;
     }
 
-    const savedTheme = localStorage.getItem("tawjihi-theme");
+
+    const savedTheme =
+      localStorage.getItem(
+        "tawjihi-theme"
+      );
+
 
     if (savedTheme === "dark") {
+
       document.body.classList.add("dark");
+
     }
+
 
     setThemeIcon();
 
-    themeBtn.addEventListener("click", () => {
 
-      document.body.classList.toggle("dark");
+    themeBtn.addEventListener(
+      "click",
+      () => {
 
-      const isDark = document.body.classList.contains("dark");
+        document.body.classList.toggle(
+          "dark"
+        );
 
-      localStorage.setItem(
-        "tawjihi-theme",
-        isDark ? "dark" : "light"
-      );
 
-      setThemeIcon();
-    });
+        const isDark =
+          document.body.classList.contains(
+            "dark"
+          );
+
+
+        localStorage.setItem(
+          "tawjihi-theme",
+          isDark
+            ? "dark"
+            : "light"
+        );
+
+
+        setThemeIcon();
+
+      }
+    );
+
 
 
     /* =========================
@@ -1011,87 +1874,447 @@
 
     let generationsData = [];
     let subjectsData = [];
+    let sectionsData = [];
     let resourcesData = [];
 
 
+
     /* =========================
-       تحميل البيانات من Firebase
+       أسماء الحقول
+       تجعل الكود مرنًا مع الأدمن
+    ========================= */
+
+    function getGenerationName(
+      generation
+    ) {
+
+      return (
+        generation.year ||
+        generation.name ||
+        generation.title ||
+        generation.label ||
+        "جيل"
+      );
+
+    }
+
+
+    function getSubjectName(
+      subject
+    ) {
+
+      return (
+        subject.name ||
+        subject.title ||
+        subject.subjectName ||
+        subject.label ||
+        "مادة"
+      );
+
+    }
+
+
+    function getSectionName(
+      section
+    ) {
+
+      return (
+        section.name ||
+        section.title ||
+        section.sectionName ||
+        section.label ||
+        "قسم"
+      );
+
+    }
+
+
+    function getResourceName(
+      resource
+    ) {
+
+      return (
+        resource.title ||
+        resource.name ||
+        resource.resourceName ||
+        "ملف"
+      );
+
+    }
+
+
+
+    /* =========================
+       إيجاد الجيل المرتبط
+    ========================= */
+
+    function findGenerationForSubject(
+      subject
+    ) {
+
+      const generationId =
+        subject.generationId ||
+        subject.generationID ||
+        subject.generation ||
+        subject.year;
+
+
+      return generationsData.find(
+        generation => {
+
+          return (
+            generation.id ===
+              generationId ||
+
+            String(
+              getGenerationName(
+                generation
+              )
+            ) ===
+              String(generationId)
+          );
+
+        }
+      );
+
+    }
+
+
+
+    function findSubjectForSection(
+      section
+    ) {
+
+      const subjectId =
+        section.subjectId ||
+        section.subjectID ||
+        section.subject;
+
+
+      return subjectsData.find(
+        subject =>
+          subject.id === subjectId
+      );
+
+    }
+
+
+
+    function findSubjectForResource(
+      resource
+    ) {
+
+      const subjectId =
+        resource.subjectId ||
+        resource.subjectID ||
+        resource.subject;
+
+
+      if (subjectId) {
+
+        return subjectsData.find(
+          subject =>
+            subject.id === subjectId
+        );
+
+      }
+
+
+      const sectionId =
+        resource.sectionId ||
+        resource.sectionID ||
+        resource.section;
+
+
+      if (sectionId) {
+
+        const section =
+          sectionsData.find(
+            section =>
+              section.id === sectionId
+          );
+
+
+        if (section) {
+
+          return findSubjectForSection(
+            section
+          );
+
+        }
+
+      }
+
+
+      return null;
+
+    }
+
+
+
+    /* =========================
+       رابط الجيل
+    ========================= */
+
+    function getGenerationLink(
+      generation
+    ) {
+
+      const name =
+        String(
+          getGenerationName(
+            generation
+          )
+        );
+
+
+      /*
+        إذا الأدمن عنده حقل page أو slug
+        نستخدمه أولًا.
+      */
+
+      if (generation.page) {
+
+        return generation.page;
+
+      }
+
+
+      if (generation.slug) {
+
+        if (
+          generation.slug
+            .endsWith(".html")
+        ) {
+
+          return generation.slug;
+
+        }
+
+        return generation.slug +
+          ".html";
+
+      }
+
+
+      if (name.includes("2010")) {
+
+        return "2010.html";
+
+      }
+
+
+      if (name.includes("2009")) {
+
+        return "2009.html";
+
+      }
+
+
+      return "#";
+
+    }
+
+
+
+    /* =========================
+       تحميل البيانات
     ========================= */
 
     async function loadData() {
 
       const generationsContainer =
-        document.getElementById("generations");
+        document.getElementById(
+          "generations"
+        );
+
 
       try {
 
-        const [
-          generationsSnapshot,
-          subjectsSnapshot,
-          resourcesSnapshot
-        ] = await Promise.all([
-
-          getDocs(collection(db, "generations")),
-
-          getDocs(collection(db, "subjects")),
-
-          getDocs(collection(db, "resources"))
-
-        ]);
+        generationsContainer.innerHTML = `
+          <div class="loading">
+            <div class="loader"></div>
+            جاري تحميل المحتوى...
+          </div>
+        `;
 
 
-        generationsData = generationsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+        /*
+          الأجيال
+        */
 
-        subjectsData = subjectsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-
-        resourcesData = resourcesSnapshot.docs
-          .map(doc => ({
-            id: doc.id,
-            ...doc.data()
-          }))
-          .filter(resource => resource.published === true);
+        const generationsSnapshot =
+          await getDocs(
+            collection(
+              db,
+              "generations"
+            )
+          );
 
 
-        /* الإحصائيات */
-
-        document.getElementById("generationsCount").textContent =
-          generationsData.length;
-
-        document.getElementById("subjectsCount").textContent =
-          subjectsData.length;
-
-        document.getElementById("resourcesCount").textContent =
-          resourcesData.length;
+        generationsData =
+          generationsSnapshot.docs.map(
+            doc => ({
+              id: doc.id,
+              ...doc.data()
+            })
+          );
 
 
-        /* عرض الأجيال */
+        /*
+          المواد
+        */
+
+        const subjectsSnapshot =
+          await getDocs(
+            collection(
+              db,
+              "subjects"
+            )
+          );
+
+
+        subjectsData =
+          subjectsSnapshot.docs.map(
+            doc => ({
+              id: doc.id,
+              ...doc.data()
+            })
+          );
+
+
+        /*
+          الأقسام
+
+          مثال:
+          ملخصات
+          أسئلة
+          وزاري
+          اختبارات
+        */
+
+        try {
+
+          const sectionsSnapshot =
+            await getDocs(
+              collection(
+                db,
+                "sections"
+              )
+            );
+
+
+          sectionsData =
+            sectionsSnapshot.docs.map(
+              doc => ({
+                id: doc.id,
+                ...doc.data()
+              })
+            );
+
+        } catch (sectionError) {
+
+          console.warn(
+            "Sections unavailable:",
+            sectionError
+          );
+
+          sectionsData = [];
+
+        }
+
+
+
+        /*
+          الموارد المنشورة فقط
+
+          هذا مهم مع Firestore Rules
+        */
+
+        try {
+
+          const resourcesQuery =
+            query(
+              collection(
+                db,
+                "resources"
+              ),
+              where(
+                "published",
+                "==",
+                true
+              )
+            );
+
+
+          const resourcesSnapshot =
+            await getDocs(
+              resourcesQuery
+            );
+
+
+          resourcesData =
+            resourcesSnapshot.docs.map(
+              doc => ({
+                id: doc.id,
+                ...doc.data()
+              })
+            );
+
+        } catch (resourceError) {
+
+          console.warn(
+            "Resources unavailable:",
+            resourceError
+          );
+
+          resourcesData = [];
+
+        }
+
+
+        /*
+          عرض الأجيال
+        */
 
         renderGenerations();
 
 
+        /*
+          تجهيز البحث
+        */
+
+        prepareSearchData();
+
+
       } catch (error) {
 
-        console.error("Firebase Error:", error);
+        console.error(
+          "Firebase Error:",
+          error
+        );
+
 
         generationsContainer.innerHTML = `
           <div class="empty">
-            <strong>تعذر تحميل المحتوى</strong>
+
+            <strong class="error-message">
+              تعذر تحميل المحتوى
+            </strong>
+
             <br>
+
             <span>
               تأكد من اتصال Firebase وقواعد Firestore.
             </span>
+
           </div>
         `;
 
       }
 
     }
+
 
 
     /* =========================
@@ -1101,137 +2324,529 @@
     function renderGenerations() {
 
       const container =
-        document.getElementById("generations");
+        document.getElementById(
+          "generations"
+        );
+
 
       if (!generationsData.length) {
 
         container.innerHTML = `
           <div class="empty">
+
             لا يوجد أجيال مضافة حاليًا.
+
             <br>
-            أضف جيلًا من لوحة الأدمن ليظهر هنا.
+
+            أضف جيلًا من لوحة الأدمن
+            ليظهر هنا.
+
           </div>
         `;
 
         return;
+
       }
 
 
-      container.innerHTML = generationsData
-        .map((generation, index) => {
+      container.innerHTML =
+        generationsData
+          .map(
+            (generation, index) => {
 
-          const year =
-            generation.year ||
-            generation.name ||
-            generation.title ||
-            generation.label ||
-            `جيل ${index + 1}`;
-
-
-          const subjects =
-            subjectsData.filter(subject => {
-
-              return (
-                subject.generationId === generation.id ||
-                subject.generationID === generation.id
-              );
-
-            });
+              const name =
+                getGenerationName(
+                  generation
+                );
 
 
-          /*
-            روابط الجيلين الموجودين حاليًا.
+              /*
+                المواد التابعة للجيل
+              */
 
-            2010 → 2010.html
-            2009 → 2009.html
+              const subjects =
+                subjectsData.filter(
+                  subject => {
 
-            إذا أضفت أجيال أخرى لاحقًا سنعمل لها صفحة
-            ديناميكية واحدة.
-          */
-
-          let link = "#";
-
-          const yearText = String(year);
-
-          if (yearText.includes("2010")) {
-            link = "2010.html";
-          }
-
-          if (yearText.includes("2009")) {
-            link = "2009.html";
-          }
+                    const generationId =
+                      subject.generationId ||
+                      subject.generationID ||
+                      subject.generation;
 
 
-          return `
-            <a
-              href="${link}"
-              class="generation-card"
-              ${link === "#" ? 'onclick="return false;"' : ""}
-            >
+                    return (
+                      generationId ===
+                      generation.id
+                    );
 
-              <div class="generation-top">
-
-                <div class="generation-icon">
-
-                  <svg viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
-
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
-                  </svg>
-
-                </div>
-
-                <div class="arrow">
-
-                  <svg width="21" height="21"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
-
-                    <path d="m9 18 6-6-6-6"/>
-
-                  </svg>
-
-                </div>
-
-              </div>
+                  }
+                );
 
 
-              <h3>${escapeHTML(yearText)}</h3>
+              const link =
+                getGenerationLink(
+                  generation
+                );
 
-              <p>
-                المحتوى والمواد التعليمية الخاصة بهذا الجيل.
-              </p>
 
-              <span class="subject-count">
+              const safeName =
+                escapeHTML(
+                  String(name)
+                );
 
-                <svg width="16" height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2">
 
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              return `
 
-                </svg>
+                <a
+                  href="${escapeAttribute(link)}"
+                  class="generation-card"
+                  ${
+                    link === "#"
+                      ? 'onclick="return false;"'
+                      : ""
+                  }
+                >
 
-                ${subjects.length} مواد
 
-              </span>
+                  <div class="generation-top">
 
-            </a>
-          `;
 
-        })
-        .join("");
+                    <div
+                      class="generation-icon"
+                    >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path
+                          d="M4 19.5A2.5 2.5 0 0 1
+                          6.5 17H20"
+                        />
+
+                        <path
+                          d="M6.5 2H20v20H6.5
+                          A2.5 2.5 0 0 1 4
+                          19.5v-15A2.5 2.5
+                          0 0 1 6.5 2Z"
+                        />
+
+                      </svg>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                      <svg
+                        width="21"
+                        height="21"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path
+                          d="m9 18 6-6-6-6"
+                        />
+
+                      </svg>
+
+                    </div>
+
+
+                  </div>
+
+
+                  <h3>
+                    ${safeName}
+                  </h3>
+
+
+                  <p>
+                    المحتوى والمواد التعليمية
+                    الخاصة بهذا الجيل.
+                  </p>
+
+
+                  <span
+                    class="subject-count"
+                  >
+
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+
+                      <path
+                        d="M4 19.5A2.5 2.5 0 0 1
+                        6.5 17H20"
+                      />
+
+                      <path
+                        d="M6.5 2H20v20H6.5
+                        A2.5 2.5 0 0 1 4
+                        19.5v-15A2.5 2.5
+                        0 0 1 6.5 2Z"
+                      />
+
+                    </svg>
+
+
+                    ${subjects.length}
+                    مواد
+
+                  </span>
+
+
+                </a>
+
+              `;
+
+            }
+          )
+          .join("");
 
     }
+
+
+
+    /* =========================
+       بيانات البحث
+    ========================= */
+
+    let searchData = [];
+
+
+    function prepareSearchData() {
+
+      searchData = [];
+
+
+      /*
+        الأجيال
+      */
+
+      generationsData.forEach(
+        generation => {
+
+          const name =
+            getGenerationName(
+              generation
+            );
+
+
+          searchData.push({
+
+            title:
+              String(name),
+
+            type:
+              "جيل",
+
+            icon:
+              "generation",
+
+            link:
+              getGenerationLink(
+                generation
+              )
+
+          });
+
+        }
+      );
+
+
+
+      /*
+        المواد
+      */
+
+      subjectsData.forEach(
+        subject => {
+
+          const name =
+            getSubjectName(
+              subject
+            );
+
+
+          const generation =
+            findGenerationForSubject(
+              subject
+            );
+
+
+          searchData.push({
+
+            title:
+              String(name),
+
+            type:
+              generation
+                ? String(
+                    getGenerationName(
+                      generation
+                    )
+                  )
+                : "مادة",
+
+            icon:
+              "subject",
+
+            link:
+              generation
+                ? getGenerationLink(
+                    generation
+                  )
+                : "#"
+
+          });
+
+        }
+      );
+
+
+
+      /*
+        الأقسام
+      */
+
+      sectionsData.forEach(
+        section => {
+
+          const name =
+            getSectionName(
+              section
+            );
+
+
+          const subject =
+            findSubjectForSection(
+              section
+            );
+
+
+          const generation =
+            subject
+              ? findGenerationForSubject(
+                  subject
+                )
+              : null;
+
+
+          searchData.push({
+
+            title:
+              String(name),
+
+            type:
+              subject
+                ? String(
+                    getSubjectName(
+                      subject
+                    )
+                  )
+                : "قسم",
+
+            icon:
+              "section",
+
+            link:
+              generation
+                ? getGenerationLink(
+                    generation
+                  )
+                : "#"
+
+          });
+
+        }
+      );
+
+
+
+      /*
+        الملفات والروابط
+      */
+
+      resourcesData.forEach(
+        resource => {
+
+          const name =
+            getResourceName(
+              resource
+            );
+
+
+          const subject =
+            findSubjectForResource(
+              resource
+            );
+
+
+          const generation =
+            subject
+              ? findGenerationForSubject(
+                  subject
+                )
+              : null;
+
+
+          const resourceURL =
+            resource.url ||
+            resource.link ||
+            resource.driveUrl ||
+            resource.fileUrl ||
+            "";
+
+
+          searchData.push({
+
+            title:
+              String(name),
+
+            type:
+              subject
+                ? String(
+                    getSubjectName(
+                      subject
+                    )
+                  )
+                : "ملف",
+
+            icon:
+              "resource",
+
+            link:
+              resourceURL ||
+              (
+                generation
+                  ? getGenerationLink(
+                      generation
+                    )
+                  : "#"
+              ),
+
+            external:
+              Boolean(resourceURL)
+
+          });
+
+        }
+      );
+
+    }
+
+
+
+    /* =========================
+       أيقونات البحث
+    ========================= */
+
+    function getSearchIcon(
+      type
+    ) {
+
+      if (type === "generation") {
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M4 19.5A2.5 2.5 0 0 1
+              6.5 17H20"
+            />
+
+            <path
+              d="M6.5 2H20v20H6.5
+              A2.5 2.5 0 0 1 4
+              19.5v-15A2.5 2.5
+              0 0 1 6.5 2Z"
+            />
+          </svg>
+        `;
+
+      }
+
+
+      if (type === "subject") {
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 5h16"/>
+            <path d="M4 12h16"/>
+            <path d="M4 19h10"/>
+          </svg>
+        `;
+
+      }
+
+
+      if (type === "section") {
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 5h16"/>
+            <path d="M7 9h10"/>
+            <path d="M9 13h6"/>
+            <path d="M11 17h2"/>
+          </svg>
+        `;
+
+      }
+
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M6 2h9l4 4v16H6z"
+          />
+
+          <path
+            d="M14 2v5h5"
+          />
+
+          <path
+            d="M9 13h6"
+          />
+
+          <path
+            d="M9 17h6"
+          />
+        </svg>
+      `;
+
+    }
+
 
 
     /* =========================
@@ -1239,192 +2854,491 @@
     ========================= */
 
     const searchInput =
-      document.getElementById("searchInput");
+      document.getElementById(
+        "searchInput"
+      );
+
 
     const searchResults =
-      document.getElementById("searchResults");
+      document.getElementById(
+        "searchResults"
+      );
 
 
-    searchInput.addEventListener("input", () => {
+    searchInput.addEventListener(
+      "input",
+      () => {
 
-      const value =
-        searchInput.value.trim().toLowerCase();
-
-
-      if (!value) {
-
-        searchResults.style.display = "none";
-        searchResults.innerHTML = "";
-
-        return;
-      }
+        const value =
+          searchInput.value
+            .trim()
+            .toLowerCase();
 
 
-      const results = [];
+        if (!value) {
 
+          searchResults.style.display =
+            "none";
 
-      /* بحث في الأجيال */
+          searchResults.innerHTML =
+            "";
 
-      generationsData.forEach(generation => {
-
-        const name =
-          generation.year ||
-          generation.name ||
-          generation.title ||
-          generation.label ||
-          "";
-
-        if (
-          String(name)
-            .toLowerCase()
-            .includes(value)
-        ) {
-
-          let link = "#";
-
-          if (String(name).includes("2010")) {
-            link = "2010.html";
-          }
-
-          if (String(name).includes("2009")) {
-            link = "2009.html";
-          }
-
-          results.push({
-            title: name,
-            type: "جيل",
-            link
-          });
+          return;
 
         }
 
-      });
 
+        if (!searchData.length) {
 
-      /* بحث في المواد */
+          searchResults.innerHTML = `
+            <div class="search-loading">
+              جاري تجهيز البحث...
+            </div>
+          `;
 
-      subjectsData.forEach(subject => {
+          searchResults.style.display =
+            "block";
 
-        const name =
-          subject.name ||
-          subject.title ||
-          subject.subjectName ||
-          "";
-
-        if (
-          String(name)
-            .toLowerCase()
-            .includes(value)
-        ) {
-
-          let generationName = "مادة";
-
-          const generation =
-            generationsData.find(g =>
-              g.id === subject.generationId
-            );
-
-          if (generation) {
-
-            generationName =
-              generation.year ||
-              generation.name ||
-              generation.title ||
-              "مادة";
-
-          }
-
-          let link = "#";
-
-          if (String(generationName).includes("2010")) {
-            link = "2010.html";
-          }
-
-          if (String(generationName).includes("2009")) {
-            link = "2009.html";
-          }
-
-          results.push({
-            title: name,
-            type: generationName,
-            link
-          });
+          return;
 
         }
 
-      });
+
+        const results =
+          searchData
+            .filter(item => {
+
+              return (
+                item.title
+                  .toLowerCase()
+                  .includes(value) ||
+
+                item.type
+                  .toLowerCase()
+                  .includes(value)
+              );
+
+            })
+            .slice(0, 10);
 
 
-      /* عرض النتائج */
 
-      if (!results.length) {
+        if (!results.length) {
 
-        searchResults.innerHTML = `
-          <div class="search-result">
-            <strong>لا توجد نتائج</strong>
-            <span>جرب كلمة بحث مختلفة.</span>
-          </div>
-        `;
+          searchResults.innerHTML = `
+            <div class="search-result">
 
-      } else {
+              <div
+                class="search-result-icon"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                  />
 
-        searchResults.innerHTML =
-          results.slice(0, 8)
-            .map(result => `
+                  <path
+                    d="m20 20-4-4"
+                  />
+                </svg>
+              </div>
 
-              <a
-                href="${result.link}"
-                class="search-result"
+              <div
+                class="search-result-content"
               >
 
                 <strong>
-                  ${escapeHTML(String(result.title))}
+                  لا توجد نتائج
                 </strong>
 
                 <span>
-                  ${escapeHTML(String(result.type))}
+                  جرب كلمة بحث مختلفة.
                 </span>
 
-              </a>
+              </div>
 
-            `)
-            .join("");
+            </div>
+          `;
+
+        } else {
+
+          searchResults.innerHTML =
+            results
+              .map(
+                result => {
+
+                  const target =
+                    result.external
+                      ? 'target="_blank" rel="noopener noreferrer"'
+                      : "";
+
+
+                  return `
+
+                    <a
+                      href="${escapeAttribute(
+                        result.link
+                      )}"
+                      class="search-result"
+                      ${target}
+                    >
+
+                      <div
+                        class="search-result-icon"
+                      >
+
+                        ${getSearchIcon(
+                          result.icon
+                        )}
+
+                      </div>
+
+
+                      <div
+                        class="search-result-content"
+                      >
+
+                        <strong>
+                          ${escapeHTML(
+                            result.title
+                          )}
+                        </strong>
+
+                        <span>
+                          ${escapeHTML(
+                            result.type
+                          )}
+                        </span>
+
+                      </div>
+
+                    </a>
+
+                  `;
+
+                }
+              )
+              .join("");
+
+        }
+
+
+        searchResults.style.display =
+          "block";
 
       }
+    );
 
-
-      searchResults.style.display = "block";
-
-    });
-
-
-    /* إخفاء نتائج البحث عند الضغط خارجها */
-
-    document.addEventListener("click", event => {
-
-      if (!event.target.closest(".search")) {
-
-        searchResults.style.display = "none";
-
-      }
-
-    });
 
 
     /* =========================
-       حماية عرض النصوص
+       Enter في البحث
     ========================= */
 
-    function escapeHTML(value) {
+    searchInput.addEventListener(
+      "keydown",
+      event => {
 
-      return value
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        if (
+          event.key === "Enter"
+        ) {
+
+          const firstResult =
+            searchResults.querySelector(
+              "a"
+            );
+
+
+          if (firstResult) {
+
+            firstResult.click();
+
+          }
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       إخفاء البحث
+    ========================= */
+
+    document.addEventListener(
+      "click",
+      event => {
+
+        if (
+          !event.target.closest(
+            ".search"
+          )
+        ) {
+
+          searchResults.style.display =
+            "none";
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       الآيات
+    ========================= */
+
+    const verses = [
+
+      {
+        text:
+          "﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾",
+
+        source:
+          "سورة طه، الآية 114"
+      },
+
+      {
+        text:
+          "﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾",
+
+        source:
+          "سورة الشرح، الآية 5"
+      },
+
+      {
+        text:
+          "﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾",
+
+        source:
+          "سورة الشرح، الآية 6"
+      },
+
+      {
+        text:
+          "﴿ وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ ﴾",
+
+        source:
+          "سورة النجم، الآية 39"
+      },
+
+      {
+        text:
+          "﴿ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ﴾",
+
+        source:
+          "سورة الطلاق، الآية 3"
+      },
+
+      {
+        text:
+          "﴿ رَبِّ اشْرَحْ لِي صَدْرِي ﴾",
+
+        source:
+          "سورة طه، الآية 25"
+      },
+
+      {
+        text:
+          "﴿ فَاذْكُرُونِي أَذْكُرْكُمْ ﴾",
+
+        source:
+          "سورة البقرة، الآية 152"
+      }
+
+    ];
+
+
+
+    /* =========================
+       نصائح الدراسة
+    ========================= */
+
+    const tips = [
+
+      "قسّم المادة إلى جلسات قصيرة بدل جلسة طويلة.",
+
+      "حل الأسئلة بعد كل درس، ولا تؤجل التدريب إلى نهاية الوحدة.",
+
+      "راجع أخطاءك؛ الخطأ الذي تفهم سببه غالبًا لا يتكرر.",
+
+      "استخدم الاسترجاع النشط: أغلق الكتاب وحاول تذكر النقاط من نفسك.",
+
+      "خصص وقتًا يوميًا ثابتًا للمراجعة حتى لو كان قصيرًا.",
+
+      "النوم الكافي جزء من الدراسة، وليس وقتًا ضائعًا.",
+
+      "ابدأ بالأصعب عندما يكون تركيزك في أعلى مستوياته.",
+
+      "كل يوم قليل أفضل من يوم واحد كثير ثم انقطاع.",
+
+      "بعد كل جلسة دراسة، اختبر نفسك بدون النظر إلى الكتاب.",
+
+      "لا تقيس إنجازك بعدد الساعات فقط؛ قِسه بما تعلمته فعلًا.",
+
+      "إذا أخطأت في سؤال، لا تكتفِ بمعرفة الجواب الصحيح، افهم سبب الخطأ.",
+
+      "المراجعة المتباعدة أفضل من حفظ المادة مرة واحدة ثم تركها."
+
+    ];
+
+
+
+    /* =========================
+       تغيير الآية
+    ========================= */
+
+    let verseIndex =
+      Math.floor(
+        Math.random() *
+        verses.length
+      );
+
+
+    let tipIndex =
+      Math.floor(
+        Math.random() *
+        tips.length
+      );
+
+
+    function changeDailyContent() {
+
+      const verseElement =
+        document.getElementById(
+          "dailyVerse"
+        );
+
+
+      const sourceElement =
+        document.getElementById(
+          "dailyVerseSource"
+        );
+
+
+      const tipElement =
+        document.getElementById(
+          "dailyTip"
+        );
+
+
+      verseElement.classList.add(
+        "fade"
+      );
+
+      tipElement.classList.add(
+        "fade"
+      );
+
+
+      setTimeout(() => {
+
+        verseIndex =
+          (
+            verseIndex + 1
+          ) %
+          verses.length;
+
+
+        tipIndex =
+          (
+            tipIndex + 1
+          ) %
+          tips.length;
+
+
+        verseElement.textContent =
+          verses[verseIndex].text;
+
+
+        sourceElement.textContent =
+          verses[verseIndex].source;
+
+
+        tipElement.textContent =
+          tips[tipIndex];
+
+
+        verseElement.classList.remove(
+          "fade"
+        );
+
+        tipElement.classList.remove(
+          "fade"
+        );
+
+      }, 250);
 
     }
+
+
+    /*
+      تتغير كل 10 ثوانٍ
+    */
+
+    setInterval(
+      changeDailyContent,
+      10000
+    );
+
+
+
+    /* =========================
+       حماية النصوص
+    ========================= */
+
+    function escapeHTML(
+      value
+    ) {
+
+      return String(value)
+
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    function escapeAttribute(
+      value
+    ) {
+
+      return escapeHTML(
+        String(value)
+      );
+
+    }
+
 
 
     /* =========================
