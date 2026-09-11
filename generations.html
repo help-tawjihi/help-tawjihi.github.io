@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مساعد توجيهي</title>
-  <meta name="description" content="مساعد توجيهي - المواد والملفات الدراسية">
+  <title>الجيل | مساعد توجيهي</title>
+  <meta
+    name="description"
+    content="مساعد توجيهي - المواد والملفات الدراسية"
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,14 +91,13 @@
     }
 
     button{
-      cursor:pointer;
+      border:0;
     }
 
     .container{
       width:min(1120px,calc(100% - 32px));
       margin:auto;
     }
-
 
     /* =========================
        Header
@@ -112,7 +114,8 @@
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
 
-      border-bottom:1px solid rgba(223,233,230,.7);
+      border-bottom:
+        1px solid rgba(223,233,230,.7);
     }
 
     body.dark header{
@@ -173,13 +176,6 @@
       margin-top:1px;
     }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:9px;
-    }
-
-    .back-btn,
     .theme-btn{
       width:44px;
       height:44px;
@@ -194,236 +190,141 @@
       display:grid;
       place-items:center;
 
+      cursor:pointer;
+
       transition:.2s;
     }
 
-    .back-btn:hover,
     .theme-btn:hover{
       transform:translateY(-2px);
       border-color:var(--primary-2);
     }
 
-    .back-btn svg,
     .theme-btn svg{
       width:20px;
       height:20px;
     }
 
-
     /* =========================
-       Page Hero
+       Hero
     ========================= */
 
-    .page-hero{
-      padding:50px 0 35px;
+    .hero{
+      padding:55px 0 25px;
+      text-align:center;
     }
 
-    .page-hero-card{
-      position:relative;
-      overflow:hidden;
-
-      padding:30px;
-
-      background:var(--surface);
-
-      border:1px solid var(--border);
-
-      border-radius:var(--radius);
-
-      box-shadow:var(--shadow);
-    }
-
-    .page-hero-card::before{
-      content:"";
-
-      position:absolute;
-
-      width:220px;
-      height:220px;
-
-      border-radius:50%;
-
-      background:var(--soft);
-
-      left:-90px;
-      top:-110px;
-    }
-
-    .page-hero-content{
-      position:relative;
-      z-index:1;
-    }
-
-    .back-link{
+    .hero-badge{
       display:inline-flex;
       align-items:center;
-      gap:7px;
+      gap:8px;
 
+      padding:8px 14px;
+
+      border-radius:999px;
+
+      background:var(--soft);
       color:var(--primary);
 
       font-size:13px;
       font-weight:600;
 
-      margin-bottom:22px;
+      border:
+        1px solid rgba(20,184,166,.12);
+
+      margin-bottom:18px;
     }
 
-    .back-link svg{
-      width:17px;
-      height:17px;
+    .hero-badge svg{
+      width:16px;
+      height:16px;
     }
 
-    .page-title-row{
-      display:flex;
-      align-items:center;
-      gap:15px;
+    .hero h1{
+      font-size:clamp(30px,6vw,50px);
+      line-height:1.2;
+      letter-spacing:-1px;
+      margin-bottom:15px;
     }
 
-    .page-icon{
-      width:58px;
-      height:58px;
-
-      border-radius:18px;
-
-      display:grid;
-      place-items:center;
-
-      color:#fff;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-2)
-        );
-
-      box-shadow:
-        0 12px 28px rgba(15,118,110,.2);
-
-      flex:none;
-    }
-
-    .page-icon svg{
-      width:27px;
-      height:27px;
-    }
-
-    .page-title h1{
-      font-size:clamp(25px,5vw,34px);
-      margin-bottom:4px;
-    }
-
-    .page-title p{
-      color:var(--muted);
-      font-size:13px;
-    }
-
-
-    /* =========================
-       Stats
-    ========================= */
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:13px;
-
-      margin-top:22px;
-    }
-
-    .stat{
-      background:var(--surface-2);
-
-      border:1px solid var(--border);
-
-      border-radius:18px;
-
-      padding:17px;
-    }
-
-    .stat strong{
-      display:block;
+    .hero h1 span{
       color:var(--primary);
-
-      font-size:21px;
-      margin-bottom:3px;
     }
 
-    .stat span{
+    .hero p{
+      max-width:650px;
+      margin:auto;
+
       color:var(--muted);
-      font-size:11px;
-    }
 
+      line-height:1.9;
+      font-size:15px;
+    }
 
     /* =========================
-       Search
+       Navigation
     ========================= */
 
-    .search-section{
-      margin-bottom:32px;
+    .navigation{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+
+      margin:5px 0 42px;
+
+      flex-wrap:wrap;
     }
 
-    .search-box{
-      position:relative;
-    }
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
 
-    .search-box input{
-      width:100%;
-      height:56px;
+      padding:11px 16px;
 
-      border:1px solid var(--border);
+      border-radius:14px;
 
       background:var(--surface);
+
+      border:1px solid var(--border);
+
       color:var(--text);
 
-      border-radius:18px;
+      font-size:13px;
+      font-weight:600;
 
-      padding:
-        0
-        18px
-        0
-        50px;
-
-      outline:none;
-
-      font-size:14px;
-
-      box-shadow:var(--shadow);
+      cursor:pointer;
 
       transition:.2s;
+
+      box-shadow:var(--shadow);
     }
 
-    .search-box input:focus{
+    .nav-btn:hover{
+      transform:translateY(-2px);
       border-color:var(--primary-2);
-      box-shadow:
-        0 15px 40px rgba(15,118,110,.12);
     }
 
-    .search-icon{
-      position:absolute;
-
-      left:18px;
-      top:50%;
-
-      transform:translateY(-50%);
-
-      width:21px;
-      height:21px;
-
-      color:var(--primary);
-
-      pointer-events:none;
+    .nav-btn.primary{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
     }
 
+    .nav-btn svg{
+      width:18px;
+      height:18px;
+    }
 
     /* =========================
-       Section Header
+       Section Head
     ========================= */
 
     .section-head{
       display:flex;
       align-items:end;
       justify-content:space-between;
-
       gap:15px;
 
       margin-bottom:20px;
@@ -439,13 +340,12 @@
       font-size:13px;
     }
 
-    .files-count{
+    .subject-count{
       padding:7px 12px;
 
       border-radius:999px;
 
       background:var(--soft);
-
       color:var(--primary);
 
       font-size:12px;
@@ -453,7 +353,6 @@
 
       white-space:nowrap;
     }
-
 
     /* =========================
        Subjects
@@ -475,9 +374,9 @@
 
       display:block;
 
-      min-height:170px;
+      padding:24px;
 
-      padding:23px;
+      min-height:175px;
 
       background:var(--surface);
 
@@ -508,8 +407,8 @@
 
       position:absolute;
 
-      width:105px;
-      height:105px;
+      width:110px;
+      height:110px;
 
       border-radius:50%;
 
@@ -523,8 +422,8 @@
       position:relative;
       z-index:1;
 
-      width:49px;
-      height:49px;
+      width:50px;
+      height:50px;
 
       border-radius:16px;
 
@@ -540,25 +439,25 @@
 
       color:#fff;
 
-      margin-bottom:18px;
-
       box-shadow:
         0 10px 22px
         rgba(15,118,110,.18);
+
+      margin-bottom:18px;
     }
 
     .subject-icon svg{
-      width:23px;
-      height:23px;
+      width:24px;
+      height:24px;
     }
 
     .subject-card h3{
       position:relative;
       z-index:1;
 
-      font-size:18px;
+      font-size:19px;
 
-      margin-bottom:5px;
+      margin-bottom:7px;
     }
 
     .subject-card p{
@@ -568,448 +467,50 @@
       color:var(--muted);
 
       font-size:12px;
+
+      line-height:1.8;
     }
 
     .subject-arrow{
       position:absolute;
 
-      left:19px;
-      top:22px;
+      left:20px;
+      top:25px;
 
-      width:19px;
-      height:19px;
+      width:20px;
+      height:20px;
 
       color:var(--muted);
 
       z-index:2;
     }
 
-
-    /* =========================
-       Files Modal
-    ========================= */
-
-    .modal-overlay{
-      position:fixed;
-
-      inset:0;
-
-      z-index:500;
-
-      display:none;
-
-      align-items:center;
-      justify-content:center;
-
-      padding:18px;
-
-      background:
-        rgba(0,0,0,.32);
-
-      backdrop-filter:blur(5px);
-      -webkit-backdrop-filter:blur(5px);
-    }
-
-    .modal-overlay.show{
-      display:flex;
-    }
-
-    .files-modal{
-      width:min(850px,100%);
-      max-height:min(760px,92vh);
-
-      display:flex;
-      flex-direction:column;
-
-      background:var(--surface);
-
-      border:1px solid var(--border);
-
-      border-radius:25px;
-
-      box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.25);
-
-      overflow:hidden;
-
-      animation:
-        modalIn .22s ease;
-    }
-
-    @keyframes modalIn{
-      from{
-        opacity:0;
-        transform:translateY(15px) scale(.98);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-      }
-    }
-
-    .modal-header{
-      display:flex;
-
-      align-items:center;
-      justify-content:space-between;
-
-      gap:12px;
-
-      padding:18px 20px;
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-    .modal-heading{
-      display:flex;
-      align-items:center;
-
-      gap:11px;
-    }
-
-    .modal-heading-icon{
-      width:42px;
-      height:42px;
-
-      border-radius:13px;
-
-      display:grid;
-      place-items:center;
-
-      background:var(--soft);
-
-      color:var(--primary);
-    }
-
-    .modal-heading-icon svg{
-      width:21px;
-      height:21px;
-    }
-
-    .modal-heading strong{
-      display:block;
-
-      font-size:16px;
-
-      margin-bottom:2px;
-    }
-
-    .modal-heading span{
-      display:block;
-
-      color:var(--muted);
-
-      font-size:11px;
-    }
-
-    .modal-close{
-      width:38px;
-      height:38px;
-
-      border:1px solid var(--border);
-
-      background:var(--surface-2);
-
-      color:var(--text);
-
-      border-radius:12px;
-
-      display:grid;
-      place-items:center;
-    }
-
-    .modal-close svg{
-      width:18px;
-      height:18px;
-    }
-
-
-    /* =========================
-       Modal Search
-    ========================= */
-
-    .modal-tools{
-      padding:15px 18px;
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-    .modal-search{
+    .subject-files-count{
       position:relative;
-    }
+      z-index:2;
 
-    .modal-search input{
-      width:100%;
-      height:46px;
-
-      border:1px solid var(--border);
-
-      background:var(--surface-2);
-
-      color:var(--text);
-
-      border-radius:14px;
-
-      outline:none;
-
-      padding:
-        0
-        16px
-        0
-        45px;
-
-      font-size:13px;
-    }
-
-    .modal-search input:focus{
-      border-color:var(--primary-2);
-    }
-
-    .modal-search svg{
-      position:absolute;
-
-      left:15px;
-      top:50%;
-
-      transform:translateY(-50%);
-
-      width:19px;
-      height:19px;
-
-      color:var(--primary);
-    }
-
-
-    /* =========================
-       Filters
-    ========================= */
-
-    .filters{
-      display:flex;
+      display:inline-flex;
 
       align-items:center;
 
-      gap:8px;
+      gap:5px;
 
-      overflow-x:auto;
+      margin-top:12px;
 
-      padding:13px 18px;
-
-      border-bottom:
-        1px solid var(--border);
-
-      scrollbar-width:none;
-    }
-
-    .filters::-webkit-scrollbar{
-      display:none;
-    }
-
-    .filter-btn{
-      flex:none;
-
-      border:1px solid var(--border);
-
-      background:var(--surface);
-
-      color:var(--muted);
-
-      padding:8px 13px;
-
-      border-radius:999px;
+      color:var(--primary);
 
       font-size:11px;
 
-      transition:.2s;
+      font-weight:600;
     }
 
-    .filter-btn:hover{
-      border-color:var(--primary-2);
-      color:var(--primary);
+    .subject-files-count svg{
+      width:14px;
+      height:14px;
     }
-
-    .filter-btn.active{
-      background:var(--primary);
-
-      border-color:var(--primary);
-
-      color:#fff;
-    }
-
 
     /* =========================
-       Resources
-    ========================= */
-
-    .resources-list{
-      overflow-y:auto;
-
-      padding:14px 18px 20px;
-    }
-
-    .resource-section{
-      margin-bottom:22px;
-    }
-
-    .resource-section:last-child{
-      margin-bottom:0;
-    }
-
-    .resource-section-title{
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      gap:10px;
-
-      margin-bottom:9px;
-
-      padding:0 3px;
-    }
-
-    .resource-section-title strong{
-      font-size:14px;
-    }
-
-    .resource-section-title span{
-      color:var(--muted);
-
-      font-size:10px;
-    }
-
-    .resource-card{
-      display:flex;
-
-      align-items:center;
-
-      gap:12px;
-
-      padding:12px;
-
-      background:var(--surface);
-
-      border:1px solid var(--border);
-
-      border-radius:15px;
-
-      margin-bottom:8px;
-
-      transition:.2s;
-    }
-
-    .resource-card:hover{
-      background:var(--surface-2);
-
-      border-color:
-        rgba(20,184,166,.3);
-    }
-
-    .resource-icon{
-      width:40px;
-      height:40px;
-
-      border-radius:12px;
-
-      display:grid;
-      place-items:center;
-
-      background:var(--soft);
-
-      color:var(--primary);
-
-      flex:none;
-    }
-
-    .resource-icon svg{
-      width:19px;
-      height:19px;
-    }
-
-    .resource-info{
-      min-width:0;
-
-      flex:1;
-    }
-
-    .resource-info strong{
-      display:block;
-
-      font-size:13px;
-
-      margin-bottom:3px;
-
-      overflow:hidden;
-
-      white-space:nowrap;
-
-      text-overflow:ellipsis;
-    }
-
-    .resource-info span{
-      display:block;
-
-      color:var(--muted);
-
-      font-size:10px;
-    }
-
-    .resource-actions{
-      display:flex;
-
-      align-items:center;
-
-      gap:6px;
-
-      flex:none;
-    }
-
-    .resource-btn{
-      width:36px;
-      height:36px;
-
-      border:1px solid var(--border);
-
-      background:var(--surface-2);
-
-      color:var(--text);
-
-      border-radius:11px;
-
-      display:grid;
-      place-items:center;
-
-      transition:.2s;
-    }
-
-    .resource-btn:hover{
-      border-color:var(--primary-2);
-
-      color:var(--primary);
-    }
-
-    .resource-btn.favorite.active{
-      color:var(--primary);
-
-      background:var(--soft);
-
-      border-color:
-        rgba(20,184,166,.25);
-    }
-
-    .resource-btn svg{
-      width:18px;
-      height:18px;
-    }
-
-
-    /* =========================
-       Empty / Loading
+       Loading
     ========================= */
 
     .loading{
@@ -1050,16 +551,488 @@
       }
     }
 
+    /* =========================
+       Modal
+    ========================= */
+
+    .modal-overlay{
+      position:fixed;
+
+      inset:0;
+
+      z-index:1000;
+
+      display:none;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:18px;
+
+      background:
+        rgba(0,0,0,.45);
+
+      backdrop-filter:blur(7px);
+      -webkit-backdrop-filter:blur(7px);
+    }
+
+    .modal-overlay.active{
+      display:flex;
+    }
+
+    .modal{
+      width:min(800px,100%);
+
+      max-height:
+        min(850px,90vh);
+
+      overflow:hidden;
+
+      display:flex;
+      flex-direction:column;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      border-radius:27px;
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.25);
+
+      animation:
+        modalIn .22s ease;
+    }
+
+    @keyframes modalIn{
+      from{
+        opacity:0;
+        transform:translateY(15px) scale(.98);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    .modal-header{
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:15px;
+
+      padding:21px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .modal-title-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .modal-icon{
+      width:45px;
+      height:45px;
+
+      border-radius:14px;
+
+      display:grid;
+      place-items:center;
+
+      flex:none;
+
+      background:var(--soft);
+
+      color:var(--primary);
+    }
+
+    .modal-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .modal-title h2{
+      font-size:19px;
+      margin-bottom:3px;
+    }
+
+    .modal-title p{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .close-btn{
+      width:42px;
+      height:42px;
+
+      border-radius:13px;
+
+      background:var(--surface-2);
+
+      color:var(--text);
+
+      display:grid;
+      place-items:center;
+
+      cursor:pointer;
+
+      flex:none;
+
+      transition:.2s;
+    }
+
+    .close-btn:hover{
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .close-btn svg{
+      width:19px;
+      height:19px;
+    }
+
+    .modal-body{
+      overflow:auto;
+
+      padding:20px;
+    }
+
+    /* =========================
+       Search
+    ========================= */
+
+    .search-box{
+      position:relative;
+
+      margin-bottom:15px;
+    }
+
+    .search-box input{
+      width:100%;
+
+      height:48px;
+
+      padding:
+        0 45px
+        0 15px;
+
+      border-radius:15px;
+
+      border:1px solid var(--border);
+
+      background:var(--surface-2);
+
+      color:var(--text);
+
+      outline:none;
+
+      font-size:13px;
+
+      transition:.2s;
+    }
+
+    .search-box input:focus{
+      border-color:var(--primary-2);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(20,184,166,.10);
+    }
+
+    .search-box input::placeholder{
+      color:var(--muted);
+    }
+
+    .search-icon{
+      position:absolute;
+
+      right:15px;
+      top:50%;
+
+      transform:translateY(-50%);
+
+      width:18px;
+      height:18px;
+
+      color:var(--muted);
+
+      pointer-events:none;
+    }
+
+    /* =========================
+       Filters
+    ========================= */
+
+    .filters{
+      display:flex;
+
+      align-items:center;
+
+      gap:8px;
+
+      overflow-x:auto;
+
+      padding-bottom:4px;
+
+      margin-bottom:18px;
+
+      scrollbar-width:none;
+    }
+
+    .filters::-webkit-scrollbar{
+      display:none;
+    }
+
+    .filter-btn{
+      flex:none;
+
+      padding:8px 13px;
+
+      border-radius:999px;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      color:var(--muted);
+
+      font-size:11px;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:.2s;
+    }
+
+    .filter-btn:hover{
+      border-color:var(--primary-2);
+      color:var(--primary);
+    }
+
+    .filter-btn.active{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+    }
+
+    /* =========================
+       Sections
+    ========================= */
+
+    .file-section{
+      margin-bottom:22px;
+    }
+
+    .file-section:last-child{
+      margin-bottom:0;
+    }
+
+    .file-section-title{
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:10px;
+
+      margin-bottom:10px;
+
+      padding:0 3px;
+    }
+
+    .file-section-title strong{
+      font-size:14px;
+    }
+
+    .file-section-title span{
+      color:var(--muted);
+      font-size:10px;
+    }
+
+    /* =========================
+       Files
+    ========================= */
+
+    .files-list{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+
+    .file-item{
+      display:flex;
+
+      align-items:center;
+
+      gap:11px;
+
+      padding:13px;
+
+      background:var(--surface-2);
+
+      border:1px solid var(--border);
+
+      border-radius:16px;
+
+      transition:.2s;
+    }
+
+    .file-item:hover{
+      border-color:
+        rgba(20,184,166,.35);
+
+      transform:translateY(-1px);
+    }
+
+    .file-icon{
+      width:40px;
+      height:40px;
+
+      border-radius:12px;
+
+      display:grid;
+      place-items:center;
+
+      background:var(--soft);
+
+      color:var(--primary);
+
+      flex:none;
+    }
+
+    .file-icon svg{
+      width:19px;
+      height:19px;
+    }
+
+    .file-info{
+      min-width:0;
+      flex:1;
+    }
+
+    .file-name{
+      font-size:13px;
+      font-weight:600;
+
+      white-space:nowrap;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+    }
+
+    .file-type{
+      color:var(--muted);
+
+      font-size:10px;
+
+      margin-top:3px;
+    }
+
+    .file-actions{
+      display:flex;
+
+      align-items:center;
+
+      gap:6px;
+
+      flex:none;
+    }
+
+    .file-action{
+      width:37px;
+      height:37px;
+
+      border-radius:11px;
+
+      display:grid;
+      place-items:center;
+
+      cursor:pointer;
+
+      transition:.2s;
+    }
+
+    .file-action svg{
+      width:18px;
+      height:18px;
+    }
+
+    .favorite-btn{
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      color:var(--muted);
+    }
+
+    .favorite-btn:hover{
+      color:var(--primary);
+
+      border-color:
+        var(--primary-2);
+    }
+
+    .favorite-btn.active{
+      color:var(--primary);
+
+      background:var(--soft);
+
+      border-color:
+        rgba(20,184,166,.3);
+    }
+
+    .open-btn{
+      background:var(--primary);
+
+      color:#fff;
+    }
+
+    .open-btn:hover{
+      background:var(--primary-2);
+    }
+
+    /* =========================
+       Empty
+    ========================= */
+
     .empty{
+      padding:35px 20px;
+
       text-align:center;
 
-      padding:40px 20px;
+      background:var(--surface-2);
+
+      border:1px dashed var(--border);
+
+      border-radius:17px;
 
       color:var(--muted);
 
       font-size:13px;
+
+      line-height:1.8;
     }
 
+    .empty svg{
+      width:30px;
+      height:30px;
+
+      margin-bottom:9px;
+
+      color:var(--primary);
+    }
 
     /* =========================
        Footer
@@ -1068,8 +1041,7 @@
     footer{
       margin-top:70px;
 
-      border-top:
-        1px solid var(--border);
+      border-top:1px solid var(--border);
 
       padding:30px 0 25px;
 
@@ -1078,7 +1050,6 @@
 
     .footer-brand{
       font-size:16px;
-
       font-weight:700;
 
       margin-bottom:7px;
@@ -1120,7 +1091,6 @@
       text-decoration:underline;
     }
 
-
     /* =========================
        Responsive
     ========================= */
@@ -1133,7 +1103,6 @@
       }
 
     }
-
 
     @media(max-width:650px){
 
@@ -1148,56 +1117,16 @@
         padding:10px 0;
       }
 
+      .hero{
+        padding:42px 0 20px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
       .brand-text span{
         display:none;
-      }
-
-      .page-hero{
-        padding:32px 0 25px;
-      }
-
-      .page-hero-card{
-        padding:22px;
-      }
-
-      .page-title-row{
-        align-items:flex-start;
-      }
-
-      .page-icon{
-        width:50px;
-        height:50px;
-        border-radius:15px;
-      }
-
-      .page-icon svg{
-        width:23px;
-        height:23px;
-      }
-
-      .page-title h1{
-        font-size:25px;
-      }
-
-      .stats-grid{
-        grid-template-columns:
-          repeat(3,1fr);
-
-        gap:8px;
-      }
-
-      .stat{
-        padding:13px 8px;
-
-        text-align:center;
-      }
-
-      .stat strong{
-        font-size:18px;
-      }
-
-      .stat span{
-        font-size:9px;
       }
 
       .section-head{
@@ -1213,25 +1142,37 @@
       }
 
       .subject-card{
-        min-height:140px;
+        min-height:150px;
       }
 
       .modal-overlay{
         padding:10px;
       }
 
-      .files-modal{
+      .modal{
         max-height:94vh;
-
-        border-radius:22px;
+        border-radius:23px;
       }
 
-      .resource-card{
-        align-items:flex-start;
+      .modal-header{
+        padding:17px;
       }
 
-      .resource-actions{
-        align-self:center;
+      .modal-body{
+        padding:15px;
+      }
+
+      .file-item{
+        padding:11px;
+      }
+
+      .file-action{
+        width:35px;
+        height:35px;
+      }
+
+      .file-name{
+        font-size:12px;
       }
 
     }
@@ -1239,13 +1180,11 @@
   </style>
 </head>
 
-
 <body>
-
 
   <!-- =========================
        Header
-  ========================= -->
+  ========================== -->
 
   <header>
 
@@ -1261,23 +1200,16 @@
             stroke="currentColor"
             stroke-width="2"
           >
-
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
             <path d="M8 6h8M8 10h8"/>
-
           </svg>
 
         </div>
 
-
         <div class="brand-text">
 
-          <strong>
-            مساعد توجيهي
-          </strong>
+          <strong>مساعد توجيهي</strong>
 
           <span>
             رفيقك في طريق التوجيهي
@@ -1287,37 +1219,11 @@
 
       </a>
 
-
-      <div class="header-actions">
-
-        <a
-          href="index.html"
-          class="back-btn"
-          aria-label="العودة"
-          title="العودة"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-
-            <path d="M15 18l-6-6 6-6"/>
-
-          </svg>
-
-        </a>
-
-
-        <button
-          class="theme-btn"
-          id="themeBtn"
-          aria-label="تغيير المظهر"
-        ></button>
-
-      </div>
+      <button
+        class="theme-btn"
+        id="themeBtn"
+        aria-label="تغيير المظهر"
+      ></button>
 
     </div>
 
@@ -1326,170 +1232,36 @@
 
   <main>
 
-
     <!-- =========================
-         Page Hero
-    ========================= -->
+         Hero
+    ========================== -->
 
-    <section class="page-hero">
+    <section class="hero">
 
       <div class="container">
 
-        <div class="page-hero-card">
-
-          <div class="page-hero-content">
-
-
-            <a
-              href="index.html"
-              class="back-link"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-
-                <path d="M15 18l-6-6 6-6"/>
-
-              </svg>
-
-              العودة للأجيال
-
-            </a>
-
-
-            <div class="page-title-row">
-
-
-              <div class="page-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 6.5 2Z"/>
-
-                  <path d="M8 6h8"/>
-
-                  <path d="M8 10h6"/>
-
-                </svg>
-
-              </div>
-
-
-              <div class="page-title">
-
-                <h1 id="generationTitle">
-                  جاري التحميل...
-                </h1>
-
-                <p id="generationSubtitle">
-                  جاري تحميل المواد الدراسية
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="stats-grid">
-
-              <div class="stat">
-
-                <strong id="subjectsCount">
-                  0
-                </strong>
-
-                <span>
-                  مادة
-                </span>
-
-              </div>
-
-
-              <div class="stat">
-
-                <strong id="resourcesCount">
-                  0
-                </strong>
-
-                <span>
-                  ملف
-                </span>
-
-              </div>
-
-
-              <div class="stat">
-
-                <strong id="favoritesCount">
-                  0
-                </strong>
-
-                <span>
-                  مفضل
-                </span>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         Search
-    ========================= -->
-
-    <section class="search-section">
-
-      <div class="container">
-
-        <div class="search-box">
+        <div class="hero-badge">
 
           <svg
-            class="search-icon"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
           >
-
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-            />
-
-            <path d="m20 20-4-4"/>
-
+            <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
           </svg>
 
-
-          <input
-            type="search"
-            id="generationSearch"
-            placeholder="ابحث عن مادة أو ملف..."
-            autocomplete="off"
-          >
+          <span>الجيل الدراسي</span>
 
         </div>
+
+        <h1 id="generationTitle">
+          جاري تحميل <span>الجيل...</span>
+        </h1>
+
+        <p id="generationDescription">
+          جاري تحميل المواد الدراسية والملفات...
+        </p>
 
       </div>
 
@@ -1497,13 +1269,62 @@
 
 
     <!-- =========================
+         Navigation
+    ========================== -->
+
+    <div class="container">
+
+      <div class="navigation">
+
+        <a
+          href="index.html"
+          class="nav-btn"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5"/>
+            <path d="M12 19l-7-7 7-7"/>
+          </svg>
+
+          العودة للأجيال
+
+        </a>
+
+        <button
+          class="nav-btn"
+          id="favoritesBtn"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
+          </svg>
+
+          الملفات المفضلة
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
          Subjects
-    ========================= -->
+    ========================== -->
 
     <section>
 
       <div class="container">
-
 
         <div class="section-head">
 
@@ -1514,15 +1335,14 @@
             </h2>
 
             <p>
-              اختر المادة للوصول إلى الملفات
+              اختر المادة للوصول إلى ملفاتها وملخصاتها
             </p>
 
           </div>
 
-
           <div
-            class="files-count"
-            id="displayCount"
+            class="subject-count"
+            id="subjectCount"
           >
             جاري التحميل
           </div>
@@ -1545,32 +1365,33 @@
 
         </div>
 
-
       </div>
 
     </section>
-
 
   </main>
 
 
   <!-- =========================
        Files Modal
-  ========================= -->
+  ========================== -->
 
   <div
     class="modal-overlay"
     id="modalOverlay"
   >
 
-    <div class="files-modal">
-
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+    >
 
       <div class="modal-header">
 
-        <div class="modal-heading">
+        <div class="modal-title-wrap">
 
-          <div class="modal-heading-icon">
+          <div class="modal-icon">
 
             <svg
               viewBox="0 0 24 24"
@@ -1578,23 +1399,22 @@
               stroke="currentColor"
               stroke-width="2"
             >
-
-              <path d="M4 5a2 2 0 0 1 2-2h6l2 2h6v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"/>
-
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              <path d="M8 6h8M8 10h6"/>
             </svg>
 
           </div>
 
+          <div class="modal-title">
 
-          <div>
+            <h2 id="modalTitle">
+              المادة
+            </h2>
 
-            <strong id="modalSubjectTitle">
-              الملفات
-            </strong>
-
-            <span id="modalSubjectSubtitle">
-              الملفات المنشورة
-            </span>
+            <p id="modalSubtitle">
+              الملفات الدراسية
+            </p>
 
           </div>
 
@@ -1602,8 +1422,8 @@
 
 
         <button
-          class="modal-close"
-          id="modalClose"
+          class="close-btn"
+          id="closeModal"
           aria-label="إغلاق"
         >
 
@@ -1613,11 +1433,8 @@
             stroke="currentColor"
             stroke-width="2"
           >
-
             <path d="M6 6l12 12"/>
-
             <path d="M18 6L6 18"/>
-
           </svg>
 
         </button>
@@ -1625,57 +1442,46 @@
       </div>
 
 
-      <!-- Modal Search -->
+      <div class="modal-body">
 
-      <div class="modal-tools">
+        <!-- Search -->
 
-        <div class="modal-search">
+        <div class="search-box">
 
           <svg
+            class="search-icon"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
           >
-
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-            />
-
+            <circle cx="11" cy="11" r="7"/>
             <path d="m20 20-4-4"/>
-
           </svg>
-
 
           <input
             type="search"
             id="fileSearch"
-            placeholder="ابحث داخل الملفات..."
+            placeholder="ابحث عن ملف..."
             autocomplete="off"
           >
 
         </div>
 
+
+        <!-- Filters -->
+
+        <div
+          class="filters"
+          id="filters"
+        ></div>
+
+
+        <!-- Files -->
+
+        <div id="filesContainer"></div>
+
       </div>
-
-
-      <!-- Filters -->
-
-      <div
-        class="filters"
-        id="filters"
-      ></div>
-
-
-      <!-- Resources -->
-
-      <div
-        class="resources-list"
-        id="resourcesList"
-      ></div>
-
 
     </div>
 
@@ -1684,7 +1490,7 @@
 
   <!-- =========================
        Footer
-  ========================= -->
+  ========================== -->
 
   <footer>
 
@@ -1719,31 +1525,22 @@
   </footer>
 
 
+  <!-- =========================
+       JavaScript
+  ========================== -->
+
   <script type="module">
 
-
-    /* =========================
-       Firebase
-    ========================= */
-
     import {
-
       db,
-
       collection,
-
-      getDocs,
-
-      query,
-
-      where
-
+      getDocs
     } from "./admin/firebase-config.js";
 
 
-    /* =========================
-       URL
-    ========================= */
+    /* =====================================
+       المتغيرات
+    ===================================== */
 
     const params =
       new URLSearchParams(
@@ -1754,18 +1551,14 @@
       params.get("year");
 
 
-    /* =========================
-       Elements
-    ========================= */
-
     const generationTitle =
       document.getElementById(
         "generationTitle"
       );
 
-    const generationSubtitle =
+    const generationDescription =
       document.getElementById(
-        "generationSubtitle"
+        "generationDescription"
       );
 
     const subjectsGrid =
@@ -1773,24 +1566,9 @@
         "subjectsGrid"
       );
 
-    const subjectsCount =
+    const subjectCount =
       document.getElementById(
-        "subjectsCount"
-      );
-
-    const resourcesCount =
-      document.getElementById(
-        "resourcesCount"
-      );
-
-    const favoritesCount =
-      document.getElementById(
-        "favoritesCount"
-      );
-
-    const displayCount =
-      document.getElementById(
-        "displayCount"
+        "subjectCount"
       );
 
     const modalOverlay =
@@ -1798,29 +1576,19 @@
         "modalOverlay"
       );
 
-    const modalClose =
+    const closeModal =
       document.getElementById(
-        "modalClose"
+        "closeModal"
       );
 
-    const modalSubjectTitle =
+    const modalTitle =
       document.getElementById(
-        "modalSubjectTitle"
+        "modalTitle"
       );
 
-    const modalSubjectSubtitle =
+    const modalSubtitle =
       document.getElementById(
-        "modalSubjectSubtitle"
-      );
-
-    const filters =
-      document.getElementById(
-        "filters"
-      );
-
-    const resourcesList =
-      document.getElementById(
-        "resourcesList"
+        "modalSubtitle"
       );
 
     const fileSearch =
@@ -1828,28 +1596,60 @@
         "fileSearch"
       );
 
-    const generationSearch =
+    const filters =
       document.getElementById(
-        "generationSearch"
+        "filters"
+      );
+
+    const filesContainer =
+      document.getElementById(
+        "filesContainer"
+      );
+
+    const favoritesBtn =
+      document.getElementById(
+        "favoritesBtn"
       );
 
 
-    /* =========================
-       Favorites
-    ========================= */
+    /* =====================================
+       المفضلة
+    ===================================== */
 
     const FAVORITES_KEY =
       "tawjihi-favorite-resources";
 
-    let favorites =
-      JSON.parse(
-        localStorage.getItem(
-          FAVORITES_KEY
-        ) || "[]"
-      );
+
+    function getFavorites(){
+
+      try{
+
+        const saved =
+          localStorage.getItem(
+            FAVORITES_KEY
+          );
+
+        if(!saved){
+          return [];
+        }
+
+        const parsed =
+          JSON.parse(saved);
+
+        return Array.isArray(parsed)
+          ? parsed
+          : [];
+
+      }catch(error){
+
+        return [];
+
+      }
+
+    }
 
 
-    function saveFavorites(){
+    function saveFavorites(favorites){
 
       localStorage.setItem(
         FAVORITES_KEY,
@@ -1861,14 +1661,17 @@
 
     function isFavorite(id){
 
-      return favorites.includes(id);
+      return getFavorites().includes(id);
 
     }
 
 
     function toggleFavorite(id){
 
-      if(isFavorite(id)){
+      let favorites =
+        getFavorites();
+
+      if(favorites.includes(id)){
 
         favorites =
           favorites.filter(
@@ -1881,29 +1684,14 @@
 
       }
 
-      saveFavorites();
-
-      updateFavoritesCount();
-
-      renderResources();
+      saveFavorites(favorites);
 
     }
 
 
-    function updateFavoritesCount(){
-
-      favoritesCount.textContent =
-        favorites.length;
-
-    }
-
-
-    updateFavoritesCount();
-
-
-    /* =========================
-       Theme
-    ========================= */
+    /* =====================================
+       الوضع الليلي
+    ===================================== */
 
     const themeBtn =
       document.getElementById(
@@ -1914,20 +1702,13 @@
     function sunIcon(){
 
       return `
-
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
         >
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          />
-
+          <circle cx="12" cy="12" r="4"/>
           <path d="M12 2v2"/>
           <path d="M12 20v2"/>
           <path d="M4.93 4.93l1.41 1.41"/>
@@ -1936,9 +1717,7 @@
           <path d="M20 12h2"/>
           <path d="M4.93 19.07l1.41-1.41"/>
           <path d="M17.66 6.34l1.41-1.41"/>
-
         </svg>
-
       `;
 
     }
@@ -1947,20 +1726,14 @@
     function moonIcon(){
 
       return `
-
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
         >
-
-          <path
-            d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"
-          />
-
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
         </svg>
-
       `;
 
     }
@@ -2025,100 +1798,34 @@
     );
 
 
-    /* =========================
-       Data
-    ========================= */
-
-    let generation = null;
-
-    let subjects = [];
-
-    let sections = [];
-
-    let resources = [];
-
-    let selectedSubject = null;
-
-    let selectedSection = "all";
-
-    let selectedFileFilter = "all";
-
-
-    /* =========================
+    /* =====================================
        Helpers
-    ========================= */
+    ===================================== */
 
-    function getGenerationName(
-      data,
-      id
-    ){
+    function escapeHtml(value){
 
-      return (
-        data.year ??
-        data.name ??
-        data.title ??
-        data.label ??
-        id
-      );
-
-    }
-
-
-    function getSubjectName(
-      data,
-      id
-    ){
-
-      return (
-        data.name ??
-        data.title ??
-        data.subjectName ??
-        data.label ??
-        id
-      );
-
-    }
-
-
-    function getSectionName(
-      data,
-      id
-    ){
-
-      return (
-        data.name ??
-        data.title ??
-        data.sectionName ??
-        data.label ??
-        id
-      );
-
-    }
-
-
-    function getResourceName(
-      data,
-      id
-    ){
-
-      return (
-        data.title ??
-        data.name ??
-        data.resourceName ??
-        id
-      );
-
-    }
-
-
-    function getResourceUrl(data){
-
-      return (
-        data.url ??
-        data.link ??
-        data.driveUrl ??
-        data.fileUrl ??
-        ""
+      return String(
+        value ?? ""
+      )
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
+      .replaceAll(
+        '"',
+        "&quot;"
+      )
+      .replaceAll(
+        "'",
+        "&#039;"
       );
 
     }
@@ -2129,32 +1836,28 @@
       return String(
         value ?? ""
       )
-      .toLowerCase()
-      .replace(/[أإآ]/g,"ا")
-      .replace(/ة/g,"ه")
-      .replace(/ى/g,"ي")
-      .replace(/ؤ/g,"و")
-      .replace(/ئ/g,"ي")
-      .trim();
+      .trim()
+      .toLowerCase();
 
     }
 
 
-    function getRelation(
+    function getFirstValue(
       data,
       fields
     ){
 
-      for(const field of fields){
+      for(
+        const field of fields
+      ){
 
         if(
           data[field] !== undefined &&
-          data[field] !== null
+          data[field] !== null &&
+          String(data[field]).trim() !== ""
         ){
 
-          return String(
-            data[field]
-          );
+          return data[field];
 
         }
 
@@ -2165,95 +1868,341 @@
     }
 
 
-    function relationMatches(
-      value,
-      possibleValues
+    function getGenerationYear(
+      data,
+      id
     ){
 
-      if(!value){
-        return false;
-      }
+      return getFirstValue(
+        data,
+        [
+          "year",
+          "name",
+          "title",
+          "label"
+        ]
+      ) || id;
 
-      const normalizedValue =
-        normalize(value);
+    }
 
-      return possibleValues.some(
-        item =>
-          normalize(item) ===
-          normalizedValue
+
+    function getSubjectName(
+      data,
+      id
+    ){
+
+      return getFirstValue(
+        data,
+        [
+          "name",
+          "title",
+          "subjectName",
+          "label"
+        ]
+      ) || id;
+
+    }
+
+
+    function getSectionName(
+      data,
+      id
+    ){
+
+      return getFirstValue(
+        data,
+        [
+          "name",
+          "title",
+          "sectionName",
+          "label"
+        ]
+      ) || id;
+
+    }
+
+
+    function getResourceName(
+      data,
+      id
+    ){
+
+      return getFirstValue(
+        data,
+        [
+          "title",
+          "name",
+          "resourceName"
+        ]
+      ) || "ملف بدون اسم";
+
+    }
+
+
+    function getResourceUrl(
+      data
+    ){
+
+      return getFirstValue(
+        data,
+        [
+          "url",
+          "link",
+          "driveUrl",
+          "fileUrl"
+        ]
       );
 
     }
 
 
-    function escapeHtml(value){
+    function numericYear(value){
 
-      return String(value)
-        .replaceAll(
-          "&",
-          "&amp;"
-        )
-        .replaceAll(
-          "<",
-          "&lt;"
-        )
-        .replaceAll(
-          ">",
-          "&gt;"
-        )
-        .replaceAll(
-          '"',
-          "&quot;"
-        )
-        .replaceAll(
-          "'",
-          "&#039;"
-        );
+      const match =
+        String(value)
+          .match(/\d{4}/);
+
+      return match
+        ? Number(match[0])
+        : 0;
 
     }
 
 
-    /* =========================
-       Load All Data
-    ========================= */
+    /*
+      مقارنة مرنة بين القيم.
+
+      هذا يسمح مثلاً أن تكون العلاقة في Firebase:
+      generationId = "abc123"
+
+      أو:
+      generation = "2010"
+
+      أو:
+      year = 2010
+    */
+
+    function matchesValue(
+      value,
+      candidates
+    ){
+
+      if(
+        value === undefined ||
+        value === null
+      ){
+
+        return false;
+
+      }
+
+      const normalized =
+        normalize(value);
+
+      return candidates.some(
+        candidate =>
+          normalize(candidate) ===
+          normalized
+      );
+
+    }
+
+
+    /* =====================================
+       أيقونات
+    ===================================== */
+
+    function bookIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+          <path d="M8 6h8"/>
+          <path d="M8 10h6"/>
+        </svg>
+      `;
+
+    }
+
+
+    function arrowIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      `;
+
+    }
+
+
+    function fileIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+          <path d="M14 2v6h6"/>
+          <path d="M8 13h8"/>
+          <path d="M8 17h6"/>
+        </svg>
+      `;
+
+    }
+
+
+    function searchEmptyIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-4-4"/>
+        </svg>
+      `;
+
+    }
+
+
+    function heartIcon(
+      filled = false
+    ){
+
+      return filled
+
+        ? `
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
+          </svg>
+        `
+
+        : `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
+          </svg>
+        `;
+
+    }
+
+
+    function externalIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M14 4h6v6"/>
+          <path d="M10 14L20 4"/>
+          <path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"/>
+        </svg>
+      `;
+
+    }
+
+
+    /* =====================================
+       البيانات
+    ===================================== */
+
+    let currentGeneration = null;
+
+    let allSubjects = [];
+
+    let allSections = [];
+
+    let allResources = [];
+
+    let currentSubject = null;
+
+    let currentFilter = "all";
+
+
+    /* =====================================
+       التحقق من الجيل
+    ===================================== */
+
+    if(!selectedYear){
+
+      generationTitle.innerHTML =
+        `لم يتم تحديد <span>الجيل</span>`;
+
+      generationDescription.textContent =
+        "ارجع إلى صفحة الأجيال واختر الجيل الذي تريده.";
+
+      subjectsGrid.innerHTML = `
+        <div class="loading">
+
+          لم يتم تحديد جيل.
+
+          <br>
+
+          <br>
+
+          <a
+            href="index.html"
+            class="nav-btn primary"
+          >
+            العودة إلى الأجيال
+          </a>
+
+        </div>
+      `;
+
+      subjectCount.textContent =
+        "لا يوجد";
+
+    }
+
+
+    /* =====================================
+       تحميل كل البيانات
+    ===================================== */
 
     async function loadPage(){
 
       if(!selectedYear){
-
-        generationTitle.textContent =
-          "لم يتم تحديد الجيل";
-
-        generationSubtitle.textContent =
-          "ارجع إلى الصفحة الرئيسية واختر جيلك";
-
-        subjectsGrid.innerHTML = `
-
-          <div class="loading">
-
-            لم يتم تحديد جيل دراسي.
-
-          </div>
-
-        `;
-
         return;
-
       }
-
 
       try{
 
         const [
-
           generationsSnapshot,
-
           subjectsSnapshot,
-
           sectionsSnapshot,
-
           resourcesSnapshot
-
         ] = await Promise.all([
 
           getDocs(
@@ -2278,16 +2227,9 @@
           ),
 
           getDocs(
-            query(
-              collection(
-                db,
-                "resources"
-              ),
-              where(
-                "published",
-                "==",
-                true
-              )
+            collection(
+              db,
+              "resources"
             )
           )
 
@@ -2298,7 +2240,7 @@
            Generations
         ========================= */
 
-        const allGenerations =
+        const generations =
           generationsSnapshot.docs.map(
             docSnap => {
 
@@ -2312,7 +2254,7 @@
                 ...data,
 
                 year:
-                  getGenerationName(
+                  getGenerationYear(
                     data,
                     docSnap.id
                   )
@@ -2323,65 +2265,79 @@
           );
 
 
-        generation =
-          allGenerations.find(
-            item => {
+        /*
+          نحاول أولاً مطابقة ID
+          ثم السنة/الاسم
+        */
 
-              return (
-
-                String(item.id) ===
-                  String(selectedYear)
-
-                ||
-
-                normalize(item.year) ===
-                  normalize(selectedYear)
-
-              );
-
-            }
+        currentGeneration =
+          generations.find(
+            generation =>
+              matchesValue(
+                selectedYear,
+                [
+                  generation.id,
+                  generation.year,
+                  generation.name,
+                  generation.title,
+                  generation.label
+                ]
+              )
           );
 
 
-        if(!generation){
+        if(!currentGeneration){
 
-          generationTitle.textContent =
-            `جيل ${selectedYear}`;
+          generationTitle.innerHTML =
+            `الجيل <span>${escapeHtml(selectedYear)}</span>`;
 
-          generationSubtitle.textContent =
-            "هذا الجيل غير موجود حالياً";
+          generationDescription.textContent =
+            "لم يتم العثور على هذا الجيل في المنصة.";
 
           subjectsGrid.innerHTML = `
-
             <div class="loading">
 
-              لا توجد بيانات لهذا الجيل حالياً.
+              لا يوجد جيل بهذا الاسم حالياً.
+
+              <br><br>
+
+              <a
+                href="index.html"
+                class="nav-btn primary"
+              >
+                العودة إلى الأجيال
+              </a>
 
             </div>
-
           `;
+
+          subjectCount.textContent =
+            "0 مادة";
 
           return;
 
         }
 
 
-        const generationName =
-          generation.year;
+        /* =========================
+           معلومات الجيل
+        ========================= */
 
+        const year =
+          currentGeneration.year;
 
-        generationTitle.textContent =
-          `جيل ${generationName}`;
+        generationTitle.innerHTML =
+          `جيل <span>${escapeHtml(year)}</span>`;
 
-        generationSubtitle.textContent =
-          "اختر المادة للوصول إلى الملفات الدراسية";
+        generationDescription.textContent =
+          "اختر المادة للوصول إلى الملفات والملخصات والموارد الدراسية.";
 
 
         /* =========================
            Subjects
         ========================= */
 
-        const allSubjects =
+        allSubjects =
           subjectsSnapshot.docs.map(
             docSnap => {
 
@@ -2406,58 +2362,7 @@
           );
 
 
-        const generationValues = [
-
-          generation.id,
-
-          generation.year,
-
-          generation.name,
-
-          generation.title,
-
-          generation.label,
-
-          selectedYear
-
-        ]
-        .filter(
-          value =>
-            value !== undefined &&
-            value !== null &&
-            String(value).trim() !== ""
-        );
-
-
-        subjects =
-          allSubjects.filter(
-            subject => {
-
-              const relation =
-                getRelation(
-                  subject,
-                  [
-                    "generationId",
-                    "generationID",
-                    "generation",
-                    "year"
-                  ]
-                );
-
-              return relationMatches(
-                relation,
-                generationValues
-              );
-
-            }
-          );
-
-
-        /* =========================
-           Sections
-        ========================= */
-
-        sections =
+        allSections =
           sectionsSnapshot.docs.map(
             docSnap => {
 
@@ -2482,216 +2387,196 @@
           );
 
 
+        /*
+          نعرض فقط الملفات المنشورة.
+          
+          لا نستخدم where هنا حتى يبقى
+          الملف متوافقاً مع firebase-config
+          الحالي عندك.
+        */
+
+        allResources =
+          resourcesSnapshot.docs
+
+            .map(
+              docSnap => {
+
+                const data =
+                  docSnap.data();
+
+                return {
+
+                  id:docSnap.id,
+
+                  ...data,
+
+                  name:
+                    getResourceName(
+                      data,
+                      docSnap.id
+                    ),
+
+                  url:
+                    getResourceUrl(
+                      data
+                    )
+
+                };
+
+              }
+            )
+
+            .filter(
+              resource =>
+                resource.published === true
+            );
+
+
         /* =========================
-           Resources
+           ربط المواد بالجيل
         ========================= */
 
-        resources =
-          resourcesSnapshot.docs.map(
-            docSnap => {
+        const generationCandidates = [
 
-              const data =
-                docSnap.data();
+          currentGeneration.id,
 
-              return {
+          currentGeneration.year,
 
-                id:docSnap.id,
+          currentGeneration.name,
 
-                ...data,
+          currentGeneration.title,
 
-                name:
-                  getResourceName(
-                    data,
-                    docSnap.id
-                  ),
+          currentGeneration.label,
 
-                url:
-                  getResourceUrl(
-                    data
+          selectedYear
+
+        ];
+
+
+        allSubjects =
+          allSubjects.filter(
+            subject => {
+
+              const values = [
+
+                subject.generationId,
+                subject.generationID,
+                subject.generation,
+                subject.year
+
+              ];
+
+              return values.some(
+                value =>
+                  matchesValue(
+                    value,
+                    generationCandidates
                   )
-
-              };
+              );
 
             }
           );
 
 
         /*
-          فقط الملفات المرتبطة بمواد
-          هذا يمنع ظهور ملفات جيل آخر.
+          ترتيب المواد حسب order إذا كان موجوداً
         */
 
-        resources =
-          resources.filter(
-            resource => {
+        allSubjects.sort(
+          (a,b)=>{
 
-              const subjectRelation =
-                getRelation(
-                  resource,
-                  [
-                    "subjectId",
-                    "subjectID",
-                    "subject"
-                  ]
-                );
+            const orderA =
+              Number(
+                a.order ??
+                a.sortOrder ??
+                999999
+              );
 
-              const matchingSubject =
-                subjects.some(
-                  subject => {
+            const orderB =
+              Number(
+                b.order ??
+                b.sortOrder ??
+                999999
+              );
 
-                    return relationMatches(
-                      subjectRelation,
-                      [
-                        subject.id,
-                        subject.name,
-                        subject.title,
-                        subject.label
-                      ]
-                    );
-
-                  }
-                );
-
-              return matchingSubject;
-
-            }
-          );
-
-
-        subjectsCount.textContent =
-          subjects.length;
-
-        resourcesCount.textContent =
-          resources.length;
-
-        displayCount.textContent =
-          `${subjects.length} مواد`;
-
-        updateFavoritesCount();
-
-        renderSubjects();
-
-      }catch(error){
-
-        console.error(error);
-
-        generationTitle.textContent =
-          `جيل ${selectedYear}`;
-
-        generationSubtitle.textContent =
-          "حدث خطأ أثناء تحميل البيانات";
-
-        subjectsGrid.innerHTML = `
-
-          <div class="loading">
-
-            تعذر تحميل المواد حالياً.<br>
-
-            حاول تحديث الصفحة مرة أخرى.
-
-          </div>
-
-        `;
-
-      }
-
-    }
-
-
-    /* =========================
-       Subject Icon
-    ========================= */
-
-    function subjectIcon(){
-
-      return `
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
-          <path d="M8 6h8"/>
-
-          <path d="M8 10h6"/>
-
-        </svg>
-
-      `;
-
-    }
-
-
-    /* =========================
-       Render Subjects
-    ========================= */
-
-    function renderSubjects(){
-
-      const search =
-        normalize(
-          generationSearch.value
-        );
-
-
-      const filtered =
-        subjects.filter(
-          subject => {
-
-            if(!search){
-
-              return true;
-
-            }
-
-            return normalize(
-              subject.name
-            ).includes(search);
+            return orderA - orderB;
 
           }
         );
 
 
-      if(!filtered.length){
+        subjectCount.textContent =
+          `${allSubjects.length} مواد`;
+
+
+        if(!allSubjects.length){
+
+          subjectsGrid.innerHTML = `
+            <div class="loading">
+
+              لا توجد مواد مضافة لهذا الجيل حالياً.
+
+            </div>
+          `;
+
+          return;
+
+        }
+
+
+        renderSubjects();
+
+
+      }catch(error){
+
+        console.error(
+          "Firebase Error:",
+          error
+        );
+
+        subjectCount.textContent =
+          "خطأ";
 
         subjectsGrid.innerHTML = `
-
           <div class="loading">
 
-            لا توجد مواد مطابقة للبحث.
+            تعذر تحميل المواد والملفات حالياً.
+
+            <br>
+
+            حاول تحديث الصفحة مرة أخرى.
+
+            <br><br>
+
+            <small>
+              ${escapeHtml(
+                error?.message ||
+                "حدث خطأ غير معروف"
+              )}
+            </small>
 
           </div>
-
         `;
-
-        return;
 
       }
 
+    }
+
+
+    /* =====================================
+       عرض المواد
+    ===================================== */
+
+    function renderSubjects(){
 
       subjectsGrid.innerHTML =
-        filtered.map(
+        allSubjects.map(
           subject => {
 
-            const subjectName =
-              subject.name;
-
-
-            const subjectResourceCount =
-              resources.filter(
-                resource =>
-                  resourceBelongsToSubject(
-                    resource,
-                    subject
-                  )
-              ).length;
-
+            const count =
+              getSubjectResourceCount(
+                subject
+              );
 
             return `
 
@@ -2702,33 +2587,43 @@
 
                 <div class="subject-icon">
 
-                  ${subjectIcon()}
+                  ${bookIcon()}
 
                 </div>
 
 
                 <h3>
-                  ${escapeHtml(subjectName)}
+                  ${escapeHtml(
+                    subject.name
+                  )}
                 </h3>
 
 
                 <p>
-                  ${subjectResourceCount}
-                  ملف منشور
+                  عرض الملفات والملخصات
+                  الخاصة بالمادة
                 </p>
 
 
-                <svg
-                  class="subject-arrow"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <div
+                  class="subject-files-count"
                 >
 
-                  <path d="M9 18l6-6-6-6"/>
+                  ${fileIcon()}
 
-                </svg>
+                  ${count}
+                  ملف
+
+                </div>
+
+
+                <div
+                  class="subject-arrow"
+                >
+
+                  ${arrowIcon()}
+
+                </div>
 
               </div>
 
@@ -2749,9 +2644,20 @@
               "click",
               ()=>{
 
-                openSubject(
-                  card.dataset.subjectId
-                );
+                const subject =
+                  allSubjects.find(
+                    item =>
+                      item.id ===
+                      card.dataset.subjectId
+                  );
+
+                if(subject){
+
+                  openSubject(
+                    subject
+                  );
+
+                }
 
               }
             );
@@ -2762,77 +2668,226 @@
     }
 
 
-    /* =========================
-       Resource Relation
-    ========================= */
+    /* =====================================
+       عدد ملفات المادة
+    ===================================== */
 
-    function resourceBelongsToSubject(
-      resource,
+    function getSubjectResourceCount(
       subject
     ){
 
-      const relation =
-        getRelation(
-          resource,
-          [
-            "subjectId",
-            "subjectID",
-            "subject"
-          ]
+      const sections =
+        getSubjectSections(
+          subject
         );
 
+      const subjectCandidates = [
 
-      return relationMatches(
-        relation,
-        [
-          subject.id,
-          subject.name,
-          subject.title,
-          subject.label
-        ]
+        subject.id,
+
+        subject.name
+
+      ];
+
+
+      const count =
+        allResources.filter(
+          resource => {
+
+            const directMatch = [
+
+              resource.subjectId,
+              resource.subjectID,
+              resource.subject
+
+            ].some(
+              value =>
+                matchesValue(
+                  value,
+                  subjectCandidates
+                )
+            );
+
+
+            const sectionMatch = [
+
+              resource.sectionId,
+              resource.sectionID,
+              resource.section
+
+            ].some(
+              value =>
+                sections.some(
+                  section =>
+                    matchesValue(
+                      value,
+                      [
+                        section.id,
+                        section.name
+                      ]
+                    )
+                )
+            );
+
+
+            return (
+              directMatch ||
+              sectionMatch
+            );
+
+          }
+        ).length;
+
+
+      return count;
+
+    }
+
+
+    /* =====================================
+       أقسام المادة
+    ===================================== */
+
+    function getSubjectSections(
+      subject
+    ){
+
+      const subjectCandidates = [
+
+        subject.id,
+        subject.name
+
+      ];
+
+
+      return allSections.filter(
+        section => {
+
+          return [
+
+            section.subjectId,
+            section.subjectID,
+            section.subject
+
+          ].some(
+            value =>
+              matchesValue(
+                value,
+                subjectCandidates
+              )
+          );
+
+        }
       );
 
     }
 
 
-    /* =========================
-       Open Subject
-    ========================= */
+    /* =====================================
+       ملفات المادة
+    ===================================== */
 
-    function openSubject(
-      subjectId
+    function getSubjectResources(
+      subject
     ){
 
-      selectedSubject =
-        subjects.find(
-          subject =>
-            String(subject.id) ===
-            String(subjectId)
+      const sections =
+        getSubjectSections(
+          subject
         );
 
 
-      if(!selectedSubject){
+      const subjectCandidates = [
 
-        return;
+        subject.id,
+        subject.name
 
-      }
+      ];
 
 
-      selectedSection = "all";
+      return allResources.filter(
+        resource => {
 
-      selectedFileFilter = "all";
+          const directMatch = [
+
+            resource.subjectId,
+            resource.subjectID,
+            resource.subject
+
+          ].some(
+            value =>
+              matchesValue(
+                value,
+                subjectCandidates
+              )
+          );
+
+
+          const sectionMatch = [
+
+            resource.sectionId,
+            resource.sectionID,
+            resource.section
+
+          ].some(
+            value =>
+              sections.some(
+                section =>
+                  matchesValue(
+                    value,
+                    [
+                      section.id,
+                      section.name
+                    ]
+                  )
+              )
+          );
+
+
+          return (
+            directMatch ||
+            sectionMatch
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================
+       فتح المادة
+    ===================================== */
+
+    function openSubject(
+      subject
+    ){
+
+      currentSubject =
+        subject;
+
+      currentFilter =
+        "all";
+
+
+      modalTitle.textContent =
+        subject.name;
+
+
+      modalSubtitle.textContent =
+        `ملفات ${subject.name}`;
+
 
       fileSearch.value = "";
 
-      modalSubjectTitle.textContent =
-        selectedSubject.name;
 
-      modalSubjectSubtitle.textContent =
-        "الملفات المنشورة الخاصة بالمادة";
+      renderFilters();
+
+      renderFiles();
 
 
       modalOverlay.classList.add(
-        "show"
+        "active"
       );
 
 
@@ -2840,34 +2895,38 @@
         "hidden";
 
 
-      buildFilters();
-
-      renderResources();
+      setTimeout(
+        ()=>{
+          fileSearch.focus();
+        },
+        100
+      );
 
     }
 
 
-    /* =========================
-       Close Modal
-    ========================= */
+    /* =====================================
+       إغلاق المودال
+    ===================================== */
 
-    function closeModal(){
+    function closeFilesModal(){
 
       modalOverlay.classList.remove(
-        "show"
+        "active"
       );
 
       document.body.style.overflow =
         "";
 
-      selectedSubject = null;
+      currentSubject =
+        null;
 
     }
 
 
-    modalClose.addEventListener(
+    closeModal.addEventListener(
       "click",
-      closeModal
+      closeFilesModal
     );
 
 
@@ -2880,7 +2939,7 @@
           modalOverlay
         ){
 
-          closeModal();
+          closeFilesModal();
 
         }
 
@@ -2893,13 +2952,11 @@
       event => {
 
         if(
-          event.key === "Escape" &&
-          modalOverlay.classList.contains(
-            "show"
-          )
+          event.key ===
+          "Escape"
         ){
 
-          closeModal();
+          closeFilesModal();
 
         }
 
@@ -2907,108 +2964,20 @@
     );
 
 
-    /* =========================
-       Get Subject Resources
-    ========================= */
+    /* =====================================
+       الفلاتر
+    ===================================== */
 
-    function getSubjectResources(){
+    function renderFilters(){
 
-      if(!selectedSubject){
-
-        return [];
-
-      }
-
-
-      return resources.filter(
-        resource =>
-          resourceBelongsToSubject(
-            resource,
-            selectedSubject
-          )
-      );
-
-    }
-
-
-    /* =========================
-       Get Section Relation
-    ========================= */
-
-    function resourceBelongsToSection(
-      resource,
-      section
-    ){
-
-      const relation =
-        getRelation(
-          resource,
-          [
-            "sectionId",
-            "sectionID",
-            "section"
-          ]
-        );
-
-
-      return relationMatches(
-        relation,
-        [
-          section.id,
-          section.name,
-          section.title,
-          section.label
-        ]
-      );
-
-    }
-
-
-    /* =========================
-       Build Filters
-    ========================= */
-
-    function buildFilters(){
-
-      if(!selectedSubject){
-
-        filters.innerHTML = "";
-
+      if(!currentSubject){
         return;
-
       }
 
 
-      const subjectResources =
-        getSubjectResources();
-
-
-      const subjectSections =
-        sections.filter(
-          section => {
-
-            const subjectRelation =
-              getRelation(
-                section,
-                [
-                  "subjectId",
-                  "subjectID",
-                  "subject"
-                ]
-              );
-
-
-            return relationMatches(
-              subjectRelation,
-              [
-                selectedSubject.id,
-                selectedSubject.name,
-                selectedSubject.title,
-                selectedSubject.label
-              ]
-            );
-
-          }
+      const sections =
+        getSubjectSections(
+          currentSubject
         );
 
 
@@ -3029,20 +2998,16 @@
         </button>
 
         ${
-          subjectSections
-            .map(
-              section => `
-
-                <button
-                  class="filter-btn"
-                  data-section-id="${escapeHtml(section.id)}"
-                >
-                  ${escapeHtml(section.name)}
-                </button>
-
-              `
-            )
-            .join("")
+          sections.map(
+            section => `
+              <button
+                class="filter-btn"
+                data-filter="${escapeHtml(section.id)}"
+              >
+                ${escapeHtml(section.name)}
+              </button>
+            `
+          ).join("")
         }
 
       `;
@@ -3058,6 +3023,10 @@
             button.addEventListener(
               "click",
               ()=>{
+
+                currentFilter =
+                  button.dataset.filter;
+
 
                 filters
                   .querySelectorAll(
@@ -3076,30 +3045,7 @@
                 );
 
 
-                if(
-                  button.dataset.filter ===
-                  "favorites"
-                ){
-
-                  selectedFileFilter =
-                    "favorites";
-
-                  selectedSection =
-                    "all";
-
-                }else{
-
-                  selectedFileFilter =
-                    "all";
-
-                  selectedSection =
-                    button.dataset.sectionId ||
-                    "all";
-
-                }
-
-
-                renderResources();
+                renderFiles();
 
               }
             );
@@ -3110,163 +3056,21 @@
     }
 
 
-    /* =========================
-       Resource Icon
-    ========================= */
+    /* =====================================
+       عرض الملفات
+    ===================================== */
 
-    function resourceIcon(){
+    function renderFiles(){
 
-      return `
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
-          <path d="M6 2h9l5 5v15H6z"/>
-
-          <path d="M14 2v6h6"/>
-
-          <path d="M9 13h6"/>
-
-          <path d="M9 17h6"/>
-
-        </svg>
-
-      `;
-
-    }
-
-
-    function heartIcon(
-      active
-    ){
-
-      return `
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="${active ? "currentColor" : "none"}"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
-          <path
-            d="M20.8 8.7c0 5.5-8.8 10.2-8.8 10.2S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"
-          />
-
-        </svg>
-
-      `;
-
-    }
-
-
-    function openIcon(){
-
-      return `
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
-          <path d="M14 3h7v7"/>
-
-          <path d="M10 14L21 3"/>
-
-          <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
-
-        </svg>
-
-      `;
-
-    }
-
-
-    /* =========================
-       Get Section Name
-    ========================= */
-
-    function getResourceSection(
-      resource
-    ){
-
-      const relation =
-        getRelation(
-          resource,
-          [
-            "sectionId",
-            "sectionID",
-            "section"
-          ]
-        );
-
-
-      if(!relation){
-
-        return {
-          id:"none",
-          name:"ملفات عامة"
-        };
-
-      }
-
-
-      const section =
-        sections.find(
-          item =>
-            relationMatches(
-              relation,
-              [
-                item.id,
-                item.name,
-                item.title,
-                item.label
-              ]
-            )
-        );
-
-
-      if(section){
-
-        return {
-          id:section.id,
-          name:section.name
-        };
-
-      }
-
-
-      return {
-        id:relation,
-        name:relation
-      };
-
-    }
-
-
-    /* =========================
-       Render Resources
-    ========================= */
-
-    function renderResources(){
-
-      if(!selectedSubject){
-
-        resourcesList.innerHTML = "";
-
+      if(!currentSubject){
         return;
-
       }
 
 
-      let subjectResources =
-        getSubjectResources();
+      let resources =
+        getSubjectResources(
+          currentSubject
+        );
 
 
       const search =
@@ -3275,55 +3079,19 @@
         );
 
 
-      if(selectedFileFilter === "favorites"){
-
-        subjectResources =
-          subjectResources.filter(
-            resource =>
-              isFavorite(resource.id)
-          );
-
-      }
-
-
-      if(
-        selectedSection !== "all"
-      ){
-
-        subjectResources =
-          subjectResources.filter(
-            resource => {
-
-              const section =
-                getResourceSection(
-                  resource
-                );
-
-              return String(
-                section.id
-              ) === String(
-                selectedSection
-              );
-
-            }
-          );
-
-      }
-
+      /*
+        البحث
+      */
 
       if(search){
 
-        subjectResources =
-          subjectResources.filter(
+        resources =
+          resources.filter(
             resource => {
 
-              const content =
-                normalize(
-                  resource.name
-                );
-
-
-              return content.includes(
+              return normalize(
+                resource.name
+              ).includes(
                 search
               );
 
@@ -3333,13 +3101,92 @@
       }
 
 
-      if(!subjectResources.length){
+      /*
+        الفلتر
+      */
 
-        resourcesList.innerHTML = `
+      if(
+        currentFilter ===
+        "favorites"
+      ){
+
+        resources =
+          resources.filter(
+            resource =>
+              isFavorite(
+                resource.id
+              )
+          );
+
+      }else if(
+        currentFilter !==
+        "all"
+      ){
+
+        const selectedSection =
+          allSections.find(
+            section =>
+              section.id ===
+              currentFilter
+          );
+
+
+        if(selectedSection){
+
+          resources =
+            resources.filter(
+              resource => {
+
+                const sectionValues = [
+
+                  resource.sectionId,
+                  resource.sectionID,
+                  resource.section
+
+                ];
+
+
+                return sectionValues.some(
+                  value =>
+                    matchesValue(
+                      value,
+                      [
+                        selectedSection.id,
+                        selectedSection.name
+                      ]
+                    )
+                );
+
+              }
+            );
+
+        }
+
+      }
+
+
+      if(!resources.length){
+
+        filesContainer.innerHTML = `
 
           <div class="empty">
 
-            لا توجد ملفات مطابقة.
+            ${searchEmptyIcon()}
+
+            <br>
+
+            ${
+              currentFilter ===
+              "favorites"
+
+                ? "لا توجد ملفات مفضلة حالياً."
+
+                : search
+
+                  ? "لم نجد أي ملف يطابق بحثك."
+
+                  : "لا توجد ملفات متاحة حالياً."
+            }
 
           </div>
 
@@ -3351,173 +3198,333 @@
 
 
       /*
-        تجميع الملفات حسب القسم
+        إذا لم نستخدم فلتر قسم محدد
+        نقسم الملفات حسب الأقسام.
       */
 
-      const grouped = {};
+      if(
+        currentFilter ===
+        "all" ||
+        currentFilter ===
+        "favorites"
+      ){
+
+        renderGroupedFiles(
+          resources
+        );
+
+      }else{
+
+        renderSimpleFiles(
+          resources
+        );
+
+      }
+
+    }
 
 
-      subjectResources.forEach(
-        resource => {
+    /* =====================================
+       عرض الملفات حسب الأقسام
+    ===================================== */
 
-          const section =
-            getResourceSection(
-              resource
+    function renderGroupedFiles(
+      resources
+    ){
+
+      const sections =
+        getSubjectSections(
+          currentSubject
+        );
+
+
+      const groups = [];
+
+
+      /*
+        أضف الأقسام المعرفة
+      */
+
+      sections.forEach(
+        section => {
+
+          const sectionResources =
+            resources.filter(
+              resource => {
+
+                return [
+
+                  resource.sectionId,
+                  resource.sectionID,
+                  resource.section
+
+                ].some(
+                  value =>
+                    matchesValue(
+                      value,
+                      [
+                        section.id,
+                        section.name
+                      ]
+                    )
+                );
+
+              }
             );
 
 
-          if(!grouped[section.id]){
+          if(
+            sectionResources.length
+          ){
 
-            grouped[section.id] = {
+            groups.push({
 
               name:section.name,
 
-              resources:[]
+              resources:
+                sectionResources
 
-            };
+            });
 
           }
 
+        }
+      );
 
-          grouped[
-            section.id
-          ].resources.push(
-            resource
+
+      /*
+        الملفات التي لا تملك قسم
+      */
+
+      const groupedIds =
+        new Set();
+
+
+      groups.forEach(
+        group => {
+
+          group.resources.forEach(
+            resource =>
+              groupedIds.add(
+                resource.id
+              )
           );
 
         }
       );
 
 
-      resourcesList.innerHTML =
-        Object.values(grouped)
-          .map(
-            group => `
+      const ungrouped =
+        resources.filter(
+          resource =>
+            !groupedIds.has(
+              resource.id
+            )
+        );
+
+
+      if(ungrouped.length){
+
+        groups.push({
+
+          name:"ملفات أخرى",
+
+          resources:ungrouped
+
+        });
+
+      }
+
+
+      filesContainer.innerHTML =
+        groups.map(
+          group => `
+
+            <div class="file-section">
 
               <div
-                class="resource-section"
+                class="file-section-title"
               >
 
-                <div
-                  class="resource-section-title"
-                >
+                <strong>
+                  ${escapeHtml(
+                    group.name
+                  )}
+                </strong>
 
-                  <strong>
-                    ${escapeHtml(group.name)}
-                  </strong>
+                <span>
+                  ${group.resources.length}
+                  ملفات
+                </span>
 
-                  <span>
-                    ${group.resources.length} ملفات
-                  </span>
-
-                </div>
-
-
-                ${
-
-                  group.resources
-                    .map(
-                      resource => {
-
-                        const active =
-                          isFavorite(
-                            resource.id
-                          );
+              </div>
 
 
-                        return `
+              <div class="files-list">
 
-                          <div
-                            class="resource-card"
-                          >
-
-                            <div
-                              class="resource-icon"
-                            >
-
-                              ${resourceIcon()}
-
-                            </div>
-
-
-                            <div
-                              class="resource-info"
-                            >
-
-                              <strong
-                                title="${escapeHtml(resource.name)}"
-                              >
-                                ${escapeHtml(resource.name)}
-                              </strong>
-
-                              <span>
-                                ملف منشور
-                              </span>
-
-                            </div>
-
-
-                            <div
-                              class="resource-actions"
-                            >
-
-                              <button
-                                class="resource-btn favorite ${active ? "active" : ""}"
-                                data-favorite="${escapeHtml(resource.id)}"
-                                aria-label="المفضلة"
-                                title="المفضلة"
-                              >
-
-                                ${heartIcon(active)}
-
-                              </button>
-
-
-                              ${
-                                resource.url
-                                ?
-                                `
-
-                                  <a
-                                    class="resource-btn"
-                                    href="${escapeHtml(resource.url)}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="فتح الملف"
-                                    title="فتح الملف"
-                                  >
-
-                                    ${openIcon()}
-
-                                  </a>
-
-                                `
-                                :
-                                ""
-                              }
-
-                            </div>
-
-                          </div>
-
-                        `;
-
-                      }
-                    )
-                    .join("")
-
+                ${group.resources
+                  .map(
+                    resource =>
+                      renderFile(
+                        resource
+                      )
+                  )
+                  .join("")
                 }
 
               </div>
 
-            `
-          )
-          .join("");
+            </div>
+
+          `
+        ).join("");
 
 
-      resourcesList
+      attachFileEvents();
+
+    }
+
+
+    /* =====================================
+       عرض ملفات بدون تقسيم
+    ===================================== */
+
+    function renderSimpleFiles(
+      resources
+    ){
+
+      filesContainer.innerHTML = `
+
+        <div class="files-list">
+
+          ${resources
+            .map(
+              resource =>
+                renderFile(
+                  resource
+                )
+            )
+            .join("")
+          }
+
+        </div>
+
+      `;
+
+
+      attachFileEvents();
+
+    }
+
+
+    /* =====================================
+       كرت الملف
+    ===================================== */
+
+    function renderFile(
+      resource
+    ){
+
+      const favorite =
+        isFavorite(
+          resource.id
+        );
+
+
+      const url =
+        resource.url;
+
+
+      return `
+
+        <div
+          class="file-item"
+          data-resource-id="${escapeHtml(resource.id)}"
+        >
+
+          <div class="file-icon">
+
+            ${fileIcon()}
+
+          </div>
+
+
+          <div class="file-info">
+
+            <div class="file-name">
+
+              ${escapeHtml(
+                resource.name
+              )}
+
+            </div>
+
+            <div class="file-type">
+
+              ملف دراسي
+
+            </div>
+
+          </div>
+
+
+          <div class="file-actions">
+
+            <button
+              class="file-action favorite-btn ${
+                favorite
+                  ? "active"
+                  : ""
+              }"
+              data-action="favorite"
+              data-id="${escapeHtml(resource.id)}"
+              aria-label="المفضلة"
+            >
+
+              ${heartIcon(
+                favorite
+              )}
+
+            </button>
+
+
+            ${
+              url
+                ? `
+
+                  <button
+                    class="file-action open-btn"
+                    data-action="open"
+                    data-url="${escapeHtml(url)}"
+                    aria-label="فتح الملف"
+                  >
+
+                    ${externalIcon()}
+
+                  </button>
+
+                `
+                : ""
+            }
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =====================================
+       أحداث الملفات
+    ===================================== */
+
+    function attachFileEvents(){
+
+      document
         .querySelectorAll(
-          "[data-favorite]"
+          '[data-action="favorite"]'
         )
         .forEach(
           button => {
@@ -3526,12 +3533,57 @@
               "click",
               event => {
 
-                event.preventDefault();
+                event.stopPropagation();
+
+
+                const id =
+                  button.dataset.id;
+
+
+                toggleFavorite(id);
+
+
+                /*
+                  إعادة رسم الملفات
+                  حتى تتحدث أيقونة المفضلة.
+                */
+
+                renderFiles();
+
+              }
+            );
+
+          }
+        );
+
+
+      document
+        .querySelectorAll(
+          '[data-action="open"]'
+        )
+        .forEach(
+          button => {
+
+            button.addEventListener(
+              "click",
+              event => {
 
                 event.stopPropagation();
 
-                toggleFavorite(
-                  button.dataset.favorite
+
+                const url =
+                  button.dataset.url;
+
+
+                if(!url){
+                  return;
+                }
+
+
+                window.open(
+                  url,
+                  "_blank",
+                  "noopener,noreferrer"
                 );
 
               }
@@ -3543,33 +3595,133 @@
     }
 
 
-    /* =========================
-       Searches
-    ========================= */
-
-    generationSearch.addEventListener(
-      "input",
-      ()=>{
-
-        renderSubjects();
-
-      }
-    );
-
+    /* =====================================
+       البحث
+    ===================================== */
 
     fileSearch.addEventListener(
       "input",
       ()=>{
 
-        renderResources();
+        renderFiles();
 
       }
     );
 
 
-    /* =========================
-       Start
-    ========================= */
+    /* =====================================
+       زر المفضلة
+    ===================================== */
+
+    favoritesBtn.addEventListener(
+      "click",
+      ()=>{
+
+        if(!currentSubject){
+
+          /*
+            إذا لم نفتح مادة بعد،
+            نفتح أول مادة فيها ملفات مفضلة.
+          */
+
+          const favoriteIds =
+            getFavorites();
+
+
+          const subject =
+            allSubjects.find(
+              item =>
+                getSubjectResources(
+                  item
+                ).some(
+                  resource =>
+                    favoriteIds.includes(
+                      resource.id
+                    )
+                )
+            );
+
+
+          if(subject){
+
+            openSubject(
+              subject
+            );
+
+
+            currentFilter =
+              "favorites";
+
+
+            renderFilters();
+
+
+            filters
+              .querySelectorAll(
+                ".filter-btn"
+              )
+              .forEach(
+                button => {
+
+                  button.classList.toggle(
+                    "active",
+                    button.dataset.filter ===
+                    "favorites"
+                  );
+
+                }
+              );
+
+
+            renderFiles();
+
+          }else{
+
+            alert(
+              "لا توجد ملفات مفضلة حالياً."
+            );
+
+          }
+
+
+          return;
+
+        }
+
+
+        currentFilter =
+          "favorites";
+
+
+        renderFilters();
+
+
+        filters
+          .querySelectorAll(
+            ".filter-btn"
+          )
+          .forEach(
+            button => {
+
+              button.classList.toggle(
+                "active",
+                button.dataset.filter ===
+                "favorites"
+              );
+
+            }
+          );
+
+
+        renderFiles();
+
+      }
+    );
+
+
+    /* =====================================
+       تشغيل الصفحة
+    ===================================== */
 
     loadPage();
 
