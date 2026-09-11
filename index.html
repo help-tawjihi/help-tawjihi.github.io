@@ -1,3148 +1,952 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>مساعد توجيهي | كل ما يلزمك</title>
-
-<meta name="description"
-content="مساعد توجيهي - منصة تعليمية لطلاب التوجيهي 2009 و2010، تشمل الملفات والملخصات والأسئلة والاختبارات.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---bg:#f5f8f7;
---surface:#fff;
---surface-2:#eef6f4;
---text:#14201e;
---muted:#6b7975;
---primary:#0f766e;
---primary-2:#14b8a6;
---soft:#e5f6f2;
---border:#dfe9e6;
---success:#16a34a;
---danger:#dc2626;
---warning:#d97706;
---shadow:0 18px 55px rgba(15,118,110,.09);
---radius:25px;
-}
-
-body.dark{
---bg:#09100f;
---surface:#101817;
---surface-2:#16211f;
---text:#f1f5f4;
---muted:#9aa9a5;
---primary:#2dd4bf;
---primary-2:#14b8a6;
---soft:rgba(20,184,166,.12);
---border:#253430;
---shadow:0 18px 55px rgba(0,0,0,.28);
-}
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:"IBM Plex Sans Arabic",sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.7;
-transition:.25s;
-}
-
-body.modal-open{
-overflow:hidden;
-}
-
-a{
-color:inherit;
-text-decoration:none;
-}
-
-button,input{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-.container{
-width:min(1150px,calc(100% - 30px));
-margin:auto;
-}
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:100;
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-background:color-mix(in srgb,var(--bg) 84%,transparent);
-border-bottom:1px solid var(--border);
-}
-
-.nav{
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-font-weight:700;
-font-size:19px;
-}
-
-.brand-icon{
-width:43px;
-height:43px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-box-shadow:0 10px 28px rgba(20,184,166,.22);
-}
-
-.brand-icon svg{
-width:23px;
-height:23px;
-}
-
-.nav-actions{
-display:flex;
-gap:10px;
-}
-
-.theme-btn{
-width:42px;
-height:42px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-border-radius:13px;
-display:grid;
-place-items:center;
-transition:.2s;
-}
-
-.theme-btn:hover{
-border-color:var(--primary);
-transform:translateY(-1px);
-}
-
-.theme-btn svg{
-width:19px;
-height:19px;
-}
-
-/* HERO */
-
-.hero{
-padding:72px 0 50px;
-position:relative;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-width:360px;
-height:360px;
-background:var(--primary);
-opacity:.055;
-filter:blur(80px);
-border-radius:50%;
-top:0;
-right:5%;
-pointer-events:none;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:30px;
-align-items:center;
-position:relative;
-}
-
-.hero-badge{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 13px;
-border-radius:999px;
-background:var(--soft);
-color:var(--primary);
-font-size:13px;
-font-weight:700;
-margin-bottom:18px;
-}
-
-.hero-badge span{
-width:7px;
-height:7px;
-border-radius:50%;
-background:var(--primary);
-box-shadow:0 0 0 5px color-mix(in srgb,var(--primary) 12%,transparent);
-}
-
-.hero h1{
-font-size:clamp(36px,5vw,61px);
-line-height:1.13;
-letter-spacing:-1.8px;
-margin-bottom:19px;
-}
-
-.hero h1 span{
-color:var(--primary);
-}
-
-.hero p{
-color:var(--muted);
-font-size:18px;
-max-width:650px;
-margin-bottom:28px;
-}
-
-/* SEARCH */
-
-.search{
-max-width:680px;
-position:relative;
-}
-
-.search input{
-width:100%;
-height:62px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-border-radius:19px;
-padding:0 56px 0 20px;
-outline:none;
-font-size:16px;
-box-shadow:var(--shadow);
-transition:.2s;
-}
-
-.search input:focus{
-border-color:var(--primary);
-box-shadow:0 0 0 4px var(--soft),var(--shadow);
-}
-
-.search-icon{
-position:absolute;
-right:19px;
-top:50%;
-transform:translateY(-50%);
-color:var(--primary);
-z-index:2;
-}
-
-.search-icon svg{
-width:21px;
-height:21px;
-}
-
-.search-results{
-display:none;
-position:absolute;
-right:0;
-left:0;
-top:calc(100% + 10px);
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 20px 55px rgba(0,0,0,.14);
-z-index:80;
-max-height:390px;
-overflow-y:auto;
-}
-
-.search-result{
-display:flex;
-align-items:center;
-gap:13px;
-padding:13px 16px;
-border-bottom:1px solid var(--border);
-transition:.15s;
-}
-
-.search-result:last-child{
-border-bottom:0;
-}
-
-.search-result:hover{
-background:var(--soft);
-}
-
-.search-result-icon{
-width:38px;
-height:38px;
-flex:0 0 38px;
-border-radius:11px;
-display:grid;
-place-items:center;
-background:var(--soft);
-color:var(--primary);
-}
-
-.search-result-icon svg{
-width:18px;
-height:18px;
-}
-
-.search-result-content{
-min-width:0;
-flex:1;
-}
-
-.search-result strong{
-display:block;
-font-size:14px;
-margin-bottom:2px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-.search-result span{
-color:var(--muted);
-font-size:12px;
-}
-
-.search-loading{
-padding:18px;
-text-align:center;
-color:var(--muted);
-font-size:13px;
-}
-
-/* HERO CARD */
-
-.hero-card{
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(145deg,var(--surface),var(--surface-2));
-border:1px solid var(--border);
-border-radius:31px;
-padding:31px;
-box-shadow:var(--shadow);
-}
-
-.hero-card::after{
-content:"";
-position:absolute;
-width:150px;
-height:150px;
-background:var(--primary);
-opacity:.06;
-border-radius:50%;
-left:-50px;
-bottom:-60px;
-}
-
-.hero-card-icon{
-width:59px;
-height:59px;
-border-radius:18px;
-display:grid;
-place-items:center;
-background:var(--soft);
-color:var(--primary);
-margin-bottom:20px;
-}
-
-.hero-card-icon svg{
-width:29px;
-height:29px;
-}
-
-.hero-card h3{
-font-size:23px;
-margin-bottom:8px;
-}
-
-.hero-card p{
-font-size:15px;
-margin:0;
-}
-
-.hero-mini{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-top:23px;
-}
-
-.hero-mini-item{
-padding:13px;
-border:1px solid var(--border);
-background:color-mix(in srgb,var(--surface) 75%,transparent);
-border-radius:15px;
-}
-
-.hero-mini-item strong{
-display:block;
-font-size:18px;
-color:var(--primary);
-}
-
-.hero-mini-item span{
-display:block;
-font-size:12px;
-color:var(--muted);
-}
-
-/* SECTIONS */
-
-section{
-margin-bottom:75px;
-}
-
-.section-head{
-display:flex;
-align-items:end;
-justify-content:space-between;
-gap:15px;
-margin-bottom:22px;
-}
-
-.section-title{
-font-size:28px;
-margin-bottom:4px;
-}
-
-.section-subtitle{
-color:var(--muted);
-font-size:14px;
-}
-
-/* DAILY */
-
-.daily-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-}
-
-.daily-card{
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:27px;
-box-shadow:var(--shadow);
-min-height:205px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-overflow:hidden;
-position:relative;
-}
-
-.daily-card::after{
-content:"";
-position:absolute;
-width:130px;
-height:130px;
-border-radius:50%;
-background:var(--primary);
-opacity:.035;
-left:-45px;
-bottom:-55px;
-}
-
-.daily-label{
-display:flex;
-align-items:center;
-gap:8px;
-color:var(--primary);
-font-weight:600;
-margin-bottom:13px;
-}
-
-.daily-label svg{
-width:19px;
-height:19px;
-}
-
-.verse{
-font-size:21px;
-line-height:2;
-margin-bottom:10px;
-transition:.25s;
-}
-
-.daily-card small{
-color:var(--muted);
-}
-
-.daily-text{
-color:var(--text);
-font-size:16px;
-line-height:1.9;
-transition:.25s;
-}
-
-.fade{
-opacity:0;
-transform:translateY(5px);
-}
-
-/* GENERATIONS */
-
-.generations{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-}
-
-.generation-card{
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:27px;
-padding:27px;
-box-shadow:var(--shadow);
-transition:.2s;
-cursor:pointer;
-}
-
-.generation-card:hover{
-transform:translateY(-4px);
-border-color:var(--primary);
-box-shadow:0 20px 50px rgba(15,118,110,.12);
-}
-
-.generation-top{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-margin-bottom:20px;
-}
-
-.generation-icon{
-width:54px;
-height:54px;
-border-radius:17px;
-display:grid;
-place-items:center;
-background:var(--soft);
-color:var(--primary);
-}
-
-.generation-icon svg{
-width:27px;
-height:27px;
-}
-
-.arrow{
-color:var(--muted);
-transition:.2s;
-}
-
-.generation-card:hover .arrow{
-color:var(--primary);
-transform:translateX(-3px);
-}
-
-.generation-card h3{
-font-size:23px;
-margin-bottom:4px;
-}
-
-.generation-card p{
-color:var(--muted);
-font-size:14px;
-margin-bottom:20px;
-}
-
-.subject-count{
-display:inline-flex;
-align-items:center;
-gap:7px;
-padding:8px 12px;
-border-radius:12px;
-background:var(--soft);
-color:var(--primary);
-font-size:13px;
-font-weight:600;
-}
-
-/* FEATURES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:17px;
-}
-
-.feature{
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:22px;
-padding:25px;
-transition:.2s;
-}
-
-.feature:hover{
-transform:translateY(-3px);
-border-color:var(--primary);
-}
-
-.feature-icon{
-width:46px;
-height:46px;
-display:grid;
-place-items:center;
-border-radius:14px;
-background:var(--soft);
-color:var(--primary);
-margin-bottom:17px;
-}
-
-.feature-icon svg{
-width:22px;
-height:22px;
-}
-
-.feature h3{
-font-size:18px;
-margin-bottom:6px;
-}
-
-.feature p{
-color:var(--muted);
-font-size:14px;
-}
-
-/* LOADING */
-
-.loading{
-grid-column:1/-1;
-text-align:center;
-padding:45px 20px;
-color:var(--muted);
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:22px;
-}
-
-.loader{
-width:28px;
-height:28px;
-border:3px solid var(--border);
-border-top-color:var(--primary);
-border-radius:50%;
-animation:spin .8s linear infinite;
-margin:0 auto 12px;
-}
-
-@keyframes spin{
-to{transform:rotate(360deg)}
-}
-
-.empty{
-grid-column:1/-1;
-text-align:center;
-padding:40px;
-color:var(--muted);
-background:var(--surface);
-border:1px dashed var(--border);
-border-radius:22px;
-}
-
-.error-message{
-color:var(--danger);
-}
-
-/* CTA */
-
-.cta{
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-border-radius:30px;
-padding:38px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:25px;
-box-shadow:0 20px 50px rgba(15,118,110,.18);
-}
-
-.cta h2{
-font-size:28px;
-margin-bottom:6px;
-}
-
-.cta p{
-opacity:.88;
-}
-
-.cta-button{
-background:white;
-color:#0f766e;
-border:0;
-padding:13px 21px;
-border-radius:14px;
-font-weight:700;
-white-space:nowrap;
-}
-
-/* GRADE FLOAT */
-
-.grade-float{
-position:fixed;
-left:18px;
-bottom:18px;
-z-index:120;
-display:inline-flex;
-align-items:center;
-gap:9px;
-padding:12px 17px;
-border-radius:16px;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:white;
-font-size:14px;
-font-weight:700;
-box-shadow:0 12px 30px rgba(15,118,110,.28);
-border:1px solid rgba(255,255,255,.15);
-transition:.2s;
-}
-
-.grade-float:hover{
-transform:translateY(-3px);
-}
-
-.grade-float svg{
-width:19px;
-height:19px;
-}
-
-/* MODAL */
-
-.modal-overlay{
-position:fixed;
-inset:0;
-background:rgba(5,15,14,.62);
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
-z-index:500;
-display:none;
-align-items:center;
-justify-content:center;
-padding:18px;
-opacity:0;
-transition:.2s;
-}
-
-.modal-overlay.active{
-display:flex;
-opacity:1;
-}
-
-.grade-modal{
-width:min(620px,100%);
-max-height:calc(100vh - 36px);
-overflow-y:auto;
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:28px;
-box-shadow:0 30px 90px rgba(0,0,0,.25);
-transform:translateY(15px) scale(.98);
-transition:.25s;
-}
-
-.modal-overlay.active .grade-modal{
-transform:translateY(0) scale(1);
-}
-
-.modal-header{
-padding:23px 24px 18px;
-border-bottom:1px solid var(--border);
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-position:sticky;
-top:0;
-background:var(--surface);
-z-index:2;
-}
-
-.modal-title-wrap{
-display:flex;
-align-items:center;
-gap:13px;
-}
-
-.modal-title-icon{
-width:46px;
-height:46px;
-border-radius:14px;
-background:var(--soft);
-color:var(--primary);
-display:grid;
-place-items:center;
-}
-
-.modal-title-icon svg{
-width:22px;
-height:22px;
-}
-
-.modal-header h2{
-font-size:21px;
-}
-
-.modal-header p{
-color:var(--muted);
-font-size:12px;
-}
-
-.modal-close{
-width:38px;
-height:38px;
-border:1px solid var(--border);
-background:var(--surface-2);
-color:var(--text);
-border-radius:12px;
-display:grid;
-place-items:center;
-}
-
-.modal-close svg{
-width:18px;
-height:18px;
-}
-
-.calculator-menu{
-padding:24px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-.calc-choice{
-border:1px solid var(--border);
-background:var(--surface-2);
-border-radius:21px;
-padding:22px;
-text-align:right;
-color:var(--text);
-transition:.2s;
-}
-
-.calc-choice:hover{
-border-color:var(--primary);
-transform:translateY(-2px);
-background:var(--soft);
-}
-
-.calc-choice-icon{
-width:44px;
-height:44px;
-display:grid;
-place-items:center;
-border-radius:13px;
-background:var(--surface);
-color:var(--primary);
-margin-bottom:14px;
-}
-
-.calc-choice-icon svg{
-width:21px;
-height:21px;
-}
-
-.calc-choice h3{
-font-size:17px;
-margin-bottom:4px;
-}
-
-.calc-choice p{
-font-size:12px;
-color:var(--muted);
-}
-
-.calc-panel{
-display:none;
-padding:24px;
-}
-
-.calc-panel.active{
-display:block;
-}
-
-.back-btn{
-border:0;
-background:transparent;
-color:var(--primary);
-font-size:13px;
-font-weight:700;
-padding:0;
-margin-bottom:15px;
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.calc-panel h3{
-font-size:21px;
-margin-bottom:3px;
-}
-
-.calc-description{
-font-size:13px;
-color:var(--muted);
-margin-bottom:20px;
-}
-
-.subject-inputs{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-
-.input-group{
-display:flex;
-flex-direction:column;
-gap:6px;
-}
-
-.input-group label{
-font-size:13px;
-font-weight:600;
-}
-
-.input-group small{
-color:var(--muted);
-font-size:11px;
-}
-
-.input-group input{
-width:100%;
-height:48px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-border-radius:13px;
-outline:none;
-padding:0 13px;
-font-size:15px;
-}
-
-.input-group input:focus{
-border-color:var(--primary);
-box-shadow:0 0 0 3px var(--soft);
-}
-
-.exclude-row{
-margin:16px 0;
-padding:13px 14px;
-border:1px solid var(--border);
-background:var(--surface-2);
-border-radius:14px;
-display:flex;
-align-items:center;
-gap:10px;
-cursor:pointer;
-}
-
-.exclude-row input{
-accent-color:var(--primary);
-width:17px;
-height:17px;
-}
-
-.exclude-row span{
-font-size:13px;
-font-weight:600;
-}
-
-.calc-action{
-width:100%;
-height:50px;
-border:0;
-border-radius:14px;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-font-weight:700;
-font-size:15px;
-margin-top:17px;
-}
-
-.result-box{
-display:none;
-margin-top:18px;
-padding:19px;
-border-radius:18px;
-background:var(--soft);
-border:1px solid color-mix(in srgb,var(--primary) 22%,var(--border));
-text-align:center;
-}
-
-.result-box.show{
-display:block;
-}
-
-.result-label{
-font-size:12px;
-color:var(--muted);
-margin-bottom:2px;
-}
-
-.result-number{
-font-size:38px;
-line-height:1.2;
-font-weight:700;
-color:var(--primary);
-}
-
-.result-status{
-margin-top:7px;
-font-size:14px;
-font-weight:700;
-}
-
-.result-status.pass{
-color:var(--success);
-}
-
-.result-status.fail{
-color:var(--danger);
-}
-
-.result-note{
-font-size:11px;
-color:var(--muted);
-margin-top:6px;
-}
-
-.full-note{
-padding:12px 14px;
-border-radius:13px;
-background:var(--soft);
-color:var(--muted);
-font-size:12px;
-margin-bottom:17px;
-}
-
-.total-info{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-margin-top:15px;
-padding:12px 14px;
-background:var(--surface-2);
-border:1px solid var(--border);
-border-radius:13px;
-font-size:12px;
-color:var(--muted);
-}
-
-.total-info strong{
-color:var(--text);
-}
-
-/* FOOTER */
-
-footer{
-border-top:1px solid var(--border);
-padding:30px 0;
-color:var(--muted);
-text-align:center;
-font-size:13px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:850px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.hero-card{
-display:none;
-}
-
-.daily-grid,
-.generations{
-grid-template-columns:1fr;
-}
-
-.features{
-grid-template-columns:1fr;
-}
-
-.cta{
-flex-direction:column;
-align-items:flex-start;
-}
-
-}
-
-@media(max-width:600px){
-
-.container{
-width:min(100% - 22px,1150px);
-}
-
-.hero{
-padding-top:45px;
-}
-
-.hero h1{
-font-size:37px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-.section-title{
-font-size:24px;
-}
-
-.cta{
-padding:27px;
-border-radius:23px;
-}
-
-.cta h2{
-font-size:23px;
-}
-
-.grade-float{
-left:12px;
-bottom:12px;
-padding:11px 14px;
-border-radius:14px;
-font-size:13px;
-}
-
-.calculator-menu{
-grid-template-columns:1fr;
-padding:18px;
-}
-
-.subject-inputs{
-grid-template-columns:1fr 1fr;
-}
-
-.modal-header{
-padding:18px;
-}
-
-.calc-panel{
-padding:18px;
-}
-
-}
-
-@media(max-width:390px){
-
-.subject-inputs{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>مساعد توجيهي</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f8f7;
+      --surface:#fff;
+      --surface-2:#eef6f4;
+      --text:#14201e;
+      --muted:#6b7975;
+      --primary:#0f766e;
+      --primary-2:#14b8a6;
+      --soft:#e5f6f2;
+      --border:#dfe9e6;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --shadow:0 18px 55px rgba(15,118,110,.09);
+      --radius:25px;
+    }
+
+    body.dark{
+      --bg:#09100f;
+      --surface:#101817;
+      --surface-2:#16211f;
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary-2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:#253430;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"IBM Plex Sans Arabic",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      transition:.25s;
+    }
+
+    button,input{
+      font-family:inherit;
+    }
+
+    button{
+      border:0;
+      cursor:pointer;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      height:76px;
+      background:color-mix(in srgb,var(--surface) 82%,transparent);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+    }
+
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .brand-icon{
+      width:43px;
+      height:43px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 25px rgba(20,184,166,.2);
+    }
+
+    .brand-icon svg{
+      width:23px;
+      height:23px;
+    }
+
+    .icon-btn{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .icon-btn svg{
+      width:20px;
+      height:20px;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:55px 0 30px;
+    }
+
+    .hero-box{
+      position:relative;
+      overflow:hidden;
+      padding:45px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 32%),
+        radial-gradient(circle at 10% 90%,rgba(15,118,110,.08),transparent 30%),
+        var(--surface);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .badge{
+      width:max-content;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary);
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .badge-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--primary-2);
+    }
+
+    .hero h1{
+      font-size:clamp(32px,5vw,52px);
+      line-height:1.25;
+      margin-bottom:14px;
+      letter-spacing:-1px;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      max-width:700px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.9;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:25px;
+    }
+
+    .btn{
+      min-height:48px;
+      padding:0 19px;
+      border-radius:15px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .btn svg{
+      width:19px;
+      height:19px;
+    }
+
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      box-shadow:0 12px 25px rgba(20,184,166,.18);
+    }
+
+    .btn-secondary{
+      color:var(--text);
+      background:var(--surface-2);
+      border:1px solid var(--border);
+    }
+
+    /* SECTIONS */
+
+    main{
+      padding:25px 0 80px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      margin-bottom:20px;
+    }
+
+    .section-title{
+      font-size:27px;
+      font-weight:700;
+      margin-bottom:5px;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* GENERATIONS */
+
+    .generations-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .generation-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      transition:.25s;
+    }
+
+    .generation-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(20,184,166,.4);
+    }
+
+    .generation-icon{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      background:var(--soft);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
+    .generation-icon svg{
+      width:28px;
+      height:28px;
+    }
+
+    .generation-card h3{
+      font-size:22px;
+      margin-bottom:7px;
+    }
+
+    .generation-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+      min-height:50px;
+    }
+
+    .generation-card .btn{
+      width:100%;
+      margin-top:20px;
+    }
+
+    /* FEATURES */
+
+    .features{
+      margin-top:60px;
+    }
+
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .feature{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .feature-icon{
+      width:48px;
+      height:48px;
+      border-radius:15px;
+      background:var(--soft);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:14px;
+    }
+
+    .feature-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .feature h3{
+      margin-bottom:5px;
+    }
+
+    .feature p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.8;
+    }
+
+    /* LOADING */
+
+    .loading{
+      padding:45px;
+      text-align:center;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      color:var(--muted);
+    }
+
+    .loader{
+      width:36px;
+      height:36px;
+      margin:0 auto 14px;
+      border:3px solid var(--border);
+      border-top-color:var(--primary);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+
+    @keyframes spin{
+      to{transform:rotate(360deg);}
+    }
+
+    .empty{
+      padding:45px;
+      text-align:center;
+      background:var(--surface);
+      border:1px dashed var(--border);
+      border-radius:var(--radius);
+      color:var(--muted);
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid var(--border);
+      background:var(--surface);
+      padding:30px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .footer-brand{
+      font-weight:700;
+    }
+
+    .footer-text{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    @media(max-width:800px){
+
+      .generations-grid,
+      .features-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-box{
+        padding:30px 23px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      header{
+        height:68px;
+      }
+
+      .container{
+        width:calc(100% - 22px);
+      }
+
+      .hero{
+        padding-top:25px;
+      }
+
+      .hero-box{
+        padding:26px 20px;
+        border-radius:24px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .generations-grid,
+      .features-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
+  <div class="container header-inner">
 
-<div class="container nav">
+    <a href="index.html" class="brand">
 
-<a href="index.html" class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3 4 7l8 4 8-4-8-4Z"/>
+          <path d="m6 9v5c0 1.7 2.7 4 6 4s6-2.3 6-4V9"/>
+          <path d="M20 8v6"/>
+        </svg>
+      </div>
 
-<div class="brand-icon">
+      <span>مساعد توجيهي</span>
 
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-<path d="M8 6h8"/>
-<path d="M8 10h8"/>
-</svg>
+    </a>
 
-</div>
+    <button class="icon-btn" id="themeBtn">
 
-<span>مساعد توجيهي</span>
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+      </svg>
 
-</a>
+    </button>
 
-<div class="nav-actions">
-
-<button class="theme-btn" id="themeBtn" aria-label="تغيير المظهر"></button>
-
-</div>
-
-</div>
-
+  </div>
 </header>
+
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-box">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        منصة طلاب التوجيهي
+      </div>
+
+      <h1>
+        كل ما تحتاجه
+        <span>لتوجيهيك</span>
+      </h1>
+
+      <p>
+        اختر جيلك للوصول إلى المواد الدراسية والأقسام
+        والملفات التعليمية الخاصة بك، وكل شيء مرتب بمكان واحد.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="#generations" class="btn btn-primary">
+          استعرض الأجيال
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <main>
 
-<!-- HERO -->
+  <div class="container">
 
-<section class="hero">
+    <section id="generations">
 
-<div class="container hero-grid">
+      <div class="section-head">
 
-<div>
+        <div>
+          <div class="section-title">الأجيال</div>
 
-<div class="hero-badge">
-<span></span>
-منصتك الدراسية للتوجيهي
-</div>
+          <div class="section-desc">
+            اختر جيلك للوصول إلى محتواه وملفاته
+          </div>
+        </div>
 
-<h1>
-طريقك إلى<br>
-<span>التفوق يبدأ هنا</span>
-</h1>
+      </div>
 
-<p>
-كل ما تحتاجه للتوجيهي في مكان واحد؛
-ملخصات، أسئلة، ملفات، اختبارات، ومحتوى مرتب يساعدك تدرس بطريقة أذكى.
-</p>
 
-<div class="search">
+      <div id="generationsContainer">
 
-<span class="search-icon">
+        <div class="loading">
 
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="11" cy="11" r="7"></circle>
-<path d="m20 20-4-4"></path>
-</svg>
+          <div class="loader"></div>
 
-</span>
+          جاري تحميل الأجيال...
 
-<input
-id="searchInput"
-type="search"
-placeholder="ابحث عن مادة، قسم، ملف أو جيل..."
-autocomplete="off"
->
+        </div>
 
-<div class="search-results" id="searchResults"></div>
+      </div>
 
-</div>
+    </section>
 
-</div>
 
+    <section class="features">
 
-<div class="hero-card">
+      <div class="section-head">
 
-<div class="hero-card-icon">
+        <div>
+          <div class="section-title">مميزات المنصة</div>
 
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z"/>
-<path d="M5 10v5.5c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5V10"/>
-<path d="M21 8v7"/>
-</svg>
+          <div class="section-desc">
+            كل شيء مرتب ليساعدك في دراستك
+          </div>
+        </div>
 
-</div>
+      </div>
 
-<h3>كل دراستك بمكان واحد</h3>
 
-<p>
-اختار جيلك، ثم المادة، ووصل لكل الملفات والأقسام والروابط التي تتم إضافتها من لوحة الإدارة.
-</p>
+      <div class="features-grid">
 
-<div class="hero-mini">
+        <div class="feature">
 
-<div class="hero-mini-item">
-<strong>2009</strong>
-<span>الأجيال والحقول</span>
-</div>
+          <div class="feature-icon">
 
-<div class="hero-mini-item">
-<strong>2010</strong>
-<span>المواد الوزارية</span>
-</div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            </svg>
 
-</div>
+          </div>
 
-</div>
+          <h3>مواد مرتبة</h3>
 
-</div>
+          <p>
+            الوصول إلى موادك الدراسية بطريقة سهلة ومنظمة.
+          </p>
 
-</section>
+        </div>
 
 
-<!-- DAILY -->
+        <div class="feature">
 
-<section>
+          <div class="feature-icon">
 
-<div class="container">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M8 13h8"/>
+              <path d="M8 17h6"/>
+            </svg>
 
-<div class="section-head">
+          </div>
 
-<div>
+          <h3>ملفات تعليمية</h3>
 
-<h2 class="section-title">اليوم في مساعد توجيهي</h2>
+          <p>
+            جميع الملفات والأوراق والمواد الخاصة بكل مادة.
+          </p>
 
-<p class="section-subtitle">
-آية ونصيحة تتغير تلقائيًا لتذكّرك تكمل.
-</p>
+        </div>
 
-</div>
 
-</div>
+        <div class="feature">
 
+          <div class="feature-icon">
 
-<div class="daily-grid">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m12 17.3-5.4 3 1.5-6.1-4.7-4.1 6.2-.5L12 4l2.4 5.6 6.2.5-4.7 4.1 1.5 6.1-5.4-3Z"/>
+            </svg>
 
-<div class="daily-card">
+          </div>
 
-<div class="daily-label">
+          <h3>المفضلة</h3>
 
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M12 3v18"/>
-<path d="M5 7c2.5-1.7 5-1.7 7 0 2-1.7 4.5-1.7 7 0"/>
-<path d="M5 17c2.5-1.7 5-1.7 7 0 2-1.7 4.5-1.7 7 0"/>
-</svg>
+          <p>
+            احفظ الملفات المهمة لديك للوصول إليها بسرعة.
+          </p>
 
-آية اليوم
+        </div>
 
-</div>
+      </div>
 
-<div class="verse" id="dailyVerse"></div>
+    </section>
 
-<small id="dailyVerseSource"></small>
-
-</div>
-
-
-<div class="daily-card">
-
-<div class="daily-label">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M12 2v4"/>
-<path d="M12 18v4"/>
-<path d="m4.93 4.93 2.83 2.83"/>
-<path d="m16.24 16.24 2.83 2.83"/>
-<path d="M2 12h4"/>
-<path d="M18 12h4"/>
-<path d="m4.93 19.07 2.83-2.83"/>
-<path d="m16.24 7.76 2.83-2.83"/>
-</svg>
-
-نصيحة اليوم
-
-</div>
-
-<p class="daily-text" id="dailyTip"></p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- GENERATIONS -->
-
-<section id="generationsSection">
-
-<div class="container">
-
-<div class="section-head">
-
-<div>
-
-<h2 class="section-title">اختر جيلك</h2>
-
-<p class="section-subtitle">
-الأجيال والمواد والأقسام يتم التحكم بها من لوحة الأدمن.
-</p>
-
-</div>
-
-</div>
-
-<div class="generations" id="generations">
-
-<div class="loading">
-<div class="loader"></div>
-جاري تحميل المحتوى...
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head">
-
-<div>
-
-<h2 class="section-title">كل ما تحتاجه</h2>
-
-<p class="section-subtitle">
-أدوات ومحتوى يساعدك تنظم دراستك.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-</svg>
-
-</div>
-
-<h3>ملخصات وملفات</h3>
-
-<p>
-الوصول للملفات والملخصات والمواد التعليمية بسهولة.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M9 11l3 3L22 4"/>
-<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-</svg>
-
-</div>
-
-<h3>أسئلة وتدريب</h3>
-
-<p>
-بنوك أسئلة وأوراق عمل وأسئلة سنوات سابقة.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="3" y="4" width="18" height="16" rx="2"/>
-<path d="M8 9h8"/>
-<path d="M8 13h5"/>
-</svg>
-
-</div>
-
-<h3>اختبارات ونماذج</h3>
-
-<p>
-اختبارات إلكترونية ونماذج تساعدك تقيس مستواك.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section>
-
-<div class="container">
-
-<div class="cta">
-
-<div>
-
-<h2>ابدأ دراستك الآن</h2>
-
-<p>
-اختار جيلك وابدأ بتنظيم دراستك خطوة بخطوة.
-</p>
-
-</div>
-
-<a href="#generationsSection" class="cta-button">
-عرض الأجيال
-</a>
-
-</div>
-
-</div>
-
-</section>
+  </div>
 
 </main>
 
 
-<!-- GRADE BUTTON -->
-
-<button class="grade-float" id="gradeFloat" type="button">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="5" y="2" width="14" height="20" rx="2"/>
-<path d="M8 6h8"/>
-<path d="M8 10h2"/>
-<path d="M14 10h2"/>
-<path d="M8 14h2"/>
-<path d="M14 14h2"/>
-<path d="M8 18h2"/>
-<path d="M14 18h2"/>
-</svg>
-
-<span>احسب معدلك</span>
-
-</button>
-
-
-<!-- GRADE MODAL -->
-
-<div class="modal-overlay" id="gradeModal">
-
-<div class="grade-modal">
-
-<div class="modal-header">
-
-<div class="modal-title-wrap">
-
-<div class="modal-title-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="5" y="2" width="14" height="20" rx="2"/>
-<path d="M8 6h8"/>
-<path d="M8 10h2"/>
-<path d="M14 10h2"/>
-<path d="M8 14h2"/>
-<path d="M14 14h2"/>
-<path d="M8 18h2"/>
-<path d="M14 18h2"/>
-</svg>
-
-</div>
-
-<div>
-
-<h2>احسب معدلك</h2>
-
-<p>اختر نوع الحساب الذي تريده</p>
-
-</div>
-
-</div>
-
-
-<button class="modal-close" id="closeGradeModal" type="button">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="m6 6 12 12"/>
-<path d="m18 6-12 12"/>
-</svg>
-
-</button>
-
-</div>
-
-
-<!-- MENU -->
-
-<div class="calculator-menu" id="calculatorMenu">
-
-<button class="calc-choice" id="firstYearChoice" type="button">
-
-<div class="calc-choice-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-</svg>
-
-</div>
-
-<h3>حساب معدل السنة الأولى</h3>
-
-<p>حساب المعدل من 30 للمواد الأربع.</p>
-
-</button>
-
-
-<button class="calc-choice" id="fullYearChoice" type="button">
-
-<div class="calc-choice-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-<path d="M8 7h8"/>
-<path d="M8 11h8"/>
-<path d="M8 15h5"/>
-</svg>
-
-</div>
-
-<h3>حساب معدل السنة الكاملة</h3>
-
-<p>السنة الأولى + أربع مواد من 175.</p>
-
-</button>
-
-</div>
-
-
-<!-- FIRST YEAR -->
-
-<div class="calc-panel" id="firstYearPanel">
-
-<button class="back-btn" type="button" data-back>
-← الرجوع لاختيار الحاسبة
-</button>
-
-<h3>معدل السنة الأولى</h3>
-
-<p class="calc-description">
-أدخل علامة كل مادة حسب علامتها الكاملة، وسيتم تحويل النتيجة إلى معدل من 30.
-</p>
-
-<div class="subject-inputs">
-
-<div class="input-group">
-
-<label for="math100">الرياضيات</label>
-<small>من 100</small>
-
-<input
-id="math100"
-type="number"
-min="0"
-max="100"
-step="0.01"
-placeholder="مثال: 85"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="arabic100">اللغة العربية</label>
-<small>من 100</small>
-
-<input
-id="arabic100"
-type="number"
-min="0"
-max="100"
-step="0.01"
-placeholder="مثال: 90"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="history40">التاريخ</label>
-<small>من 40</small>
-
-<input
-id="history40"
-type="number"
-min="0"
-max="40"
-step="0.01"
-placeholder="مثال: 35"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="religion60">التربية الإسلامية</label>
-<small>من 60</small>
-
-<input
-id="religion60"
-type="number"
-min="0"
-max="60"
-step="0.01"
-placeholder="مثال: 55"
->
-
-</div>
-
-</div>
-
-
-<label class="exclude-row">
-
-<input type="checkbox" id="excludeReligion">
-
-<span>
-استبعاد التربية الإسلامية من حساب معدل السنة الأولى
-</span>
-
-</label>
-
-
-<button class="calc-action" id="calculateFirst" type="button">
-احسب معدل السنة الأولى
-</button>
-
-
-<div class="result-box" id="firstResult">
-
-<div class="result-label">
-معدل السنة الأولى
-</div>
-
-<div class="result-number" id="firstResultNumber">
-0.00 / 30
-</div>
-
-<div class="result-status" id="firstResultStatus"></div>
-
-<div class="result-note" id="firstResultNote"></div>
-
-</div>
-
-</div>
-
-
-<!-- FULL YEAR -->
-
-<div class="calc-panel" id="fullYearPanel">
-
-<button class="back-btn" type="button" data-back>
-← الرجوع لاختيار الحاسبة
-</button>
-
-<h3>معدل السنة الكاملة</h3>
-
-<p class="calc-description">
-أدخل معدل السنة الأولى من 30، ثم علامات المواد الأربع، كل مادة من 175.
-</p>
-
-<div class="full-note">
-السنة الأولى تمثل <strong>30%</strong>، والمواد الأربع تمثل <strong>70%</strong> من المعدل النهائي.
-</div>
-
-
-<div class="subject-inputs">
-
-<div class="input-group">
-
-<label for="firstYear30">معدل السنة الأولى</label>
-<small>من 30</small>
-
-<input
-id="firstYear30"
-type="number"
-min="0"
-max="30"
-step="0.01"
-placeholder="مثال: 27.5"
->
-
-</div>
-
-<div></div>
-
-
-<div class="input-group">
-
-<label for="fullSubject1">المادة الأولى</label>
-<small>من 175</small>
-
-<input
-id="fullSubject1"
-type="number"
-min="0"
-max="175"
-step="0.01"
-placeholder="مثال: 160"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="fullSubject2">المادة الثانية</label>
-<small>من 175</small>
-
-<input
-id="fullSubject2"
-type="number"
-min="0"
-max="175"
-step="0.01"
-placeholder="مثال: 150"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="fullSubject3">المادة الثالثة</label>
-<small>من 175</small>
-
-<input
-id="fullSubject3"
-type="number"
-min="0"
-max="175"
-step="0.01"
-placeholder="مثال: 165"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label for="fullSubject4">المادة الرابعة</label>
-<small>من 175</small>
-
-<input
-id="fullSubject4"
-type="number"
-min="0"
-max="175"
-step="0.01"
-placeholder="مثال: 155"
->
-
-</div>
-
-</div>
-
-
-<div class="total-info">
-
-<span>علامات المواد الأربع</span>
-
-<strong id="fullTotalMarks">0 / 700</strong>
-
-</div>
-
-
-<button class="calc-action" id="calculateFull" type="button">
-احسب المعدل الكامل
-</button>
-
-
-<div class="result-box" id="fullResult">
-
-<div class="result-label">
-المعدل النهائي
-</div>
-
-<div class="result-number" id="fullResultNumber">
-0.00%
-</div>
-
-<div class="result-status pass" id="fullResultStatus">
-</div>
-
-<div class="result-note">
-المعدل محسوب من 100%.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
 <footer>
 
-<div class="container">
-© 2026 مساعد توجيهي — جميع الحقوق محفوظة
-</div>
+  <div class="container footer-inner">
+
+    <div>
+
+      <div class="footer-brand">
+        مساعد توجيهي
+      </div>
+
+      <div class="footer-text">
+        منصة مساعدة لطلاب التوجيهي
+      </div>
+
+    </div>
+
+  </div>
 
 </footer>
 
 
 <script type="module">
 
-import {
-db,
-collection,
-getDocs
-} from "./admin/firebase-config.js";
+  import {
+    db,
+    collection,
+    getDocs
+  } from "./admin/firebase-config.js";
 
-import {
-query,
-where
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+  const generationsContainer =
+    document.getElementById("generationsContainer");
 
-/* =========================
-الوضع الليلي
-========================= */
 
-const themeBtn=document.getElementById("themeBtn");
+  function escapeHTML(value){
 
-function setThemeIcon(){
+    return String(value ?? "")
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
 
-const isDark=document.body.classList.contains("dark");
+  }
 
-themeBtn.innerHTML=isDark
 
-?`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="12" r="4"/>
-<path d="M12 2v2"/>
-<path d="M12 20v2"/>
-<path d="m4.93 4.93 1.41 1.41"/>
-<path d="m17.66 17.66 1.41 1.41"/>
-<path d="M2 12h2"/>
-<path d="M20 12h2"/>
-<path d="m6.34 17.66-1.41 1.41"/>
-<path d="m19.07 4.93-1.41 1.41"/>
-</svg>
-`
+  function getGenerationName(generation){
 
-:`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
-</svg>
-`;
+    return (
+      generation.year ??
+      generation.name ??
+      generation.title ??
+      generation.label ??
+      "جيل"
+    );
 
-}
+  }
 
-if(localStorage.getItem("tawjihi-theme")==="dark"){
-document.body.classList.add("dark");
-}
 
-setThemeIcon();
+  function generationIcon(){
 
-themeBtn.addEventListener("click",()=>{
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19V5"/>
+        <path d="M4 5c4-2 8 2 12 0 1.4-.7 2.7-.8 4 0v14c-1.3-.8-2.6-.7-4 0-4 2-8-2-12 0"/>
+      </svg>
+    `;
 
-document.body.classList.toggle("dark");
+  }
 
-localStorage.setItem(
-"tawjihi-theme",
-document.body.classList.contains("dark")
-?"dark"
-:"light"
-);
 
-setThemeIcon();
+  async function loadGenerations(){
 
-});
+    try{
 
+      const snapshot =
+        await getDocs(
+          collection(db,"generations")
+        );
 
-/* =========================
-Firebase Data
-========================= */
 
-let generationsData=[];
-let subjectsData=[];
-let sectionsData=[];
-let resourcesData=[];
+      const generations =
+        snapshot.docs.map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }));
 
 
-function getGenerationName(generation){
+      if(!generations.length){
 
-return generation.year ||
-generation.name ||
-generation.title ||
-generation.label ||
-"جيل";
+        generationsContainer.innerHTML = `
 
-}
+          <div class="empty">
 
+            لا توجد أجيال مضافة حالياً.
 
-function getSubjectName(subject){
+          </div>
 
-return subject.name ||
-subject.title ||
-subject.subjectName ||
-subject.label ||
-"مادة";
+        `;
 
-}
+        return;
 
+      }
 
-function getSectionName(section){
 
-return section.name ||
-section.title ||
-section.sectionName ||
-section.label ||
-"قسم";
+      generations.sort((a,b) => {
 
-}
+        const yearA =
+          Number(getGenerationName(a)) || 0;
 
+        const yearB =
+          Number(getGenerationName(b)) || 0;
 
-function getResourceName(resource){
+        return yearB - yearA;
 
-return resource.title ||
-resource.name ||
-resource.resourceName ||
-"ملف";
+      });
 
-}
 
+      generationsContainer.innerHTML = `
 
-function findGenerationForSubject(subject){
+        <div class="generations-grid">
 
-const generationId=
-subject.generationId ||
-subject.generationID ||
-subject.generation ||
-subject.year;
+          ${generations.map(generation => {
 
-return generationsData.find(generation=>
-generation.id===generationId ||
-String(getGenerationName(generation))===String(generationId)
-);
+            const name =
+              getGenerationName(generation);
 
-}
+            /*
+              إذا كان عندك year = 2009
+              الرابط يصبح:
+              generations.html?year=2009
+            */
 
+            const year =
+              String(name).trim();
 
-function findSubjectForSection(section){
+            return `
 
-const subjectId=
-section.subjectId ||
-section.subjectID ||
-section.subject;
+              <article class="generation-card">
 
-return subjectsData.find(subject=>subject.id===subjectId);
+                <div class="generation-icon">
+                  ${generationIcon()}
+                </div>
 
-}
+                <h3>
+                  جيل ${escapeHTML(year)}
+                </h3>
 
+                <p>
+                  ادخل إلى المواد الدراسية والأقسام
+                  والملفات الخاصة بجيلك.
+                </p>
 
-function findSubjectForResource(resource){
+                <a
+                  class="btn btn-primary"
+                  href="generations.html?year=${encodeURIComponent(year)}"
+                >
 
-const subjectId=
-resource.subjectId ||
-resource.subjectID ||
-resource.subject;
+                  دخول الجيل
 
-if(subjectId){
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
 
-return subjectsData.find(subject=>subject.id===subjectId);
+                </a>
 
-}
+              </article>
 
-const sectionId=
-resource.sectionId ||
-resource.sectionID ||
-resource.section;
+            `;
 
-if(sectionId){
+          }).join("")}
 
-const section=sectionsData.find(section=>section.id===sectionId);
+        </div>
 
-if(section){
-return findSubjectForSection(section);
-}
+      `;
 
-}
+    }catch(error){
 
-return null;
+      console.error(error);
 
-}
+      generationsContainer.innerHTML = `
 
+        <div class="empty">
 
-function getGenerationLink(generation){
+          حدث خطأ أثناء تحميل الأجيال.
 
-const name=String(getGenerationName(generation));
+        </div>
 
-if(generation.page){
-return generation.page;
-}
+      `;
 
-if(generation.pageUrl){
-return generation.pageUrl;
-}
+    }
 
-if(generation.url){
-return generation.url;
-}
+  }
 
-if(generation.slug){
 
-if(generation.slug.endsWith(".html")){
-return generation.slug;
-}
+  /* THEME */
 
-return generation.slug+".html";
+  const themeBtn =
+    document.getElementById("themeBtn");
 
-}
+  const themeIcon =
+    document.getElementById("themeIcon");
 
-if(name.includes("2010")){
-return "2010.html";
-}
 
-if(name.includes("2009")){
-return "2009.html";
-}
+  function updateThemeIcon(){
 
-return "#";
+    const dark =
+      document.body.classList.contains("dark");
 
-}
 
+    if(dark){
 
-async function loadData(){
+      themeIcon.innerHTML = `
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8Z"/>
+      `;
 
-const generationsContainer=document.getElementById("generations");
+    }else{
 
-try{
+      themeIcon.innerHTML = `
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+      `;
 
-generationsContainer.innerHTML=`
-<div class="loading">
-<div class="loader"></div>
-جاري تحميل المحتوى...
-</div>
-`;
+    }
 
-const generationsSnapshot=
-await getDocs(collection(db,"generations"));
+  }
 
-generationsData=
-generationsSnapshot.docs.map(doc=>({
-id:doc.id,
-...doc.data()
-}));
 
+  if(
+    localStorage.getItem("tawjihi-theme") === "dark"
+  ){
 
-const subjectsSnapshot=
-await getDocs(collection(db,"subjects"));
+    document.body.classList.add("dark");
 
-subjectsData=
-subjectsSnapshot.docs.map(doc=>({
-id:doc.id,
-...doc.data()
-}));
+  }
 
 
-try{
+  updateThemeIcon();
 
-const sectionsSnapshot=
-await getDocs(collection(db,"sections"));
 
-sectionsData=
-sectionsSnapshot.docs.map(doc=>({
-id:doc.id,
-...doc.data()
-}));
+  themeBtn.addEventListener("click",() => {
 
-}catch(error){
+    const dark =
+      document.body.classList.toggle("dark");
 
-console.warn("Sections unavailable:",error);
-sectionsData=[];
 
-}
+    localStorage.setItem(
+      "tawjihi-theme",
+      dark ? "dark" : "light"
+    );
 
 
-try{
+    updateThemeIcon();
 
-const resourcesQuery=
-query(
-collection(db,"resources"),
-where("published","==",true)
-);
+  });
 
-const resourcesSnapshot=
-await getDocs(resourcesQuery);
 
-resourcesData=
-resourcesSnapshot.docs.map(doc=>({
-id:doc.id,
-...doc.data()
-}));
-
-}catch(error){
-
-console.warn("Resources unavailable:",error);
-resourcesData=[];
-
-}
-
-
-renderGenerations();
-prepareSearchData();
-
-}catch(error){
-
-console.error("Firebase Error:",error);
-
-generationsContainer.innerHTML=`
-<div class="empty">
-
-<strong class="error-message">
-تعذر تحميل المحتوى
-</strong>
-
-<br>
-
-<span>
-تأكد من اتصال Firebase وقواعد Firestore.
-</span>
-
-</div>
-`;
-
-}
-
-}
-
-
-/* =========================
-Render Generations
-========================= */
-
-function renderGenerations(){
-
-const container=document.getElementById("generations");
-
-if(!generationsData.length){
-
-container.innerHTML=`
-<div class="empty">
-لا يوجد أجيال مضافة حاليًا.
-<br>
-أضف جيلًا من لوحة الأدمن ليظهر هنا.
-</div>
-`;
-
-return;
-
-}
-
-
-container.innerHTML=
-generationsData.map(generation=>{
-
-const name=getGenerationName(generation);
-
-const subjects=
-subjectsData.filter(subject=>{
-
-const generationId=
-subject.generationId ||
-subject.generationID ||
-subject.generation;
-
-return generationId===generation.id ||
-String(generationId)===String(getGenerationName(generation));
-
-});
-
-
-const link=getGenerationLink(generation);
-
-return`
-
-<a
-href="${escapeAttribute(link)}"
-class="generation-card"
-${link==="#"?'onclick="return false;"':""}
->
-
-<div class="generation-top">
-
-<div class="generation-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
-</svg>
-
-</div>
-
-<div class="arrow">
-
-<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="m9 18 6-6-6-6"/>
-</svg>
-
-</div>
-
-</div>
-
-<h3>${escapeHTML(String(name))}</h3>
-
-<p>
-المحتوى والمواد التعليمية الخاصة بهذا الجيل.
-</p>
-
-<span class="subject-count">
-
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-</svg>
-
-${subjects.length} مواد
-
-</span>
-
-</a>
-
-`;
-
-}).join("");
-
-}
-
-
-/* =========================
-Search
-========================= */
-
-let searchData=[];
-
-function prepareSearchData(){
-
-searchData=[];
-
-generationsData.forEach(generation=>{
-
-searchData.push({
-
-title:String(getGenerationName(generation)),
-type:"جيل",
-icon:"generation",
-link:getGenerationLink(generation)
-
-});
-
-});
-
-
-subjectsData.forEach(subject=>{
-
-const generation=findGenerationForSubject(subject);
-
-searchData.push({
-
-title:String(getSubjectName(subject)),
-type:generation
-?String(getGenerationName(generation))
-:"مادة",
-icon:"subject",
-link:generation
-?getGenerationLink(generation)
-:"#"
-
-});
-
-});
-
-
-sectionsData.forEach(section=>{
-
-const subject=findSubjectForSection(section);
-
-const generation=subject
-?findGenerationForSubject(subject)
-:null;
-
-searchData.push({
-
-title:String(getSectionName(section)),
-type:subject
-?String(getSubjectName(subject))
-:"قسم",
-icon:"section",
-link:generation
-?getGenerationLink(generation)
-:"#"
-
-});
-
-});
-
-
-resourcesData.forEach(resource=>{
-
-const name=getResourceName(resource);
-
-const subject=findSubjectForResource(resource);
-
-const generation=subject
-?findGenerationForSubject(subject)
-:null;
-
-const resourceURL=
-resource.url ||
-resource.link ||
-resource.driveUrl ||
-resource.fileUrl ||
-"";
-
-searchData.push({
-
-title:String(name),
-
-type:subject
-?String(getSubjectName(subject))
-:"ملف",
-
-icon:"resource",
-
-link:
-resourceURL ||
-(generation
-?getGenerationLink(generation)
-:"#"),
-
-external:Boolean(resourceURL)
-
-});
-
-});
-
-}
-
-
-function getSearchIcon(type){
-
-if(type==="generation"){
-
-return`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-</svg>
-`;
-
-}
-
-if(type==="subject"){
-
-return`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 5h16"/>
-<path d="M4 12h16"/>
-<path d="M4 19h10"/>
-</svg>
-`;
-
-}
-
-if(type==="section"){
-
-return`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 5h16"/>
-<path d="M7 9h10"/>
-<path d="M9 13h6"/>
-<path d="M11 17h2"/>
-</svg>
-`;
-
-}
-
-return`
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M6 2h9l4 4v16H6z"/>
-<path d="M14 2v5h5"/>
-<path d="M9 13h6"/>
-<path d="M9 17h6"/>
-</svg>
-`;
-
-}
-
-
-const searchInput=document.getElementById("searchInput");
-const searchResults=document.getElementById("searchResults");
-
-searchInput.addEventListener("input",()=>{
-
-const value=searchInput.value.trim().toLowerCase();
-
-if(!value){
-
-searchResults.style.display="none";
-searchResults.innerHTML="";
-return;
-
-}
-
-if(!searchData.length){
-
-searchResults.innerHTML=`
-<div class="search-loading">
-جاري تجهيز البحث...
-</div>
-`;
-
-searchResults.style.display="block";
-return;
-
-}
-
-
-const results=searchData
-.filter(item=>{
-
-return item.title.toLowerCase().includes(value) ||
-item.type.toLowerCase().includes(value);
-
-})
-.slice(0,10);
-
-
-if(!results.length){
-
-searchResults.innerHTML=`
-<div class="search-result">
-
-<div class="search-result-icon">
-
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="11" cy="11" r="7"/>
-<path d="m20 20-4-4"/>
-</svg>
-
-</div>
-
-<div class="search-result-content">
-
-<strong>لا توجد نتائج</strong>
-
-<span>جرب كلمة بحث مختلفة.</span>
-
-</div>
-
-</div>
-`;
-
-}else{
-
-searchResults.innerHTML=
-results.map(result=>{
-
-const target=result.external
-?'target="_blank" rel="noopener noreferrer"'
-:"";
-
-return`
-
-<a
-href="${escapeAttribute(result.link)}"
-class="search-result"
-${target}
->
-
-<div class="search-result-icon">
-
-${getSearchIcon(result.icon)}
-
-</div>
-
-<div class="search-result-content">
-
-<strong>
-${escapeHTML(result.title)}
-</strong>
-
-<span>
-${escapeHTML(result.type)}
-</span>
-
-</div>
-
-</a>
-
-`;
-
-}).join("");
-
-}
-
-searchResults.style.display="block";
-
-});
-
-
-searchInput.addEventListener("keydown",event=>{
-
-if(event.key==="Enter"){
-
-const firstResult=searchResults.querySelector("a");
-
-if(firstResult){
-firstResult.click();
-}
-
-}
-
-});
-
-
-document.addEventListener("click",event=>{
-
-if(!event.target.closest(".search")){
-
-searchResults.style.display="none";
-
-}
-
-});
-
-
-/* =========================
-10 آيات
-========================= */
-
-const verses=[
-
-{
-text:"﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾",
-source:"سورة طه، الآية 114"
-},
-
-{
-text:"﴿ رَبِّ اشْرَحْ لِي صَدْرِي ﴾",
-source:"سورة طه، الآية 25"
-},
-
-{
-text:"﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾",
-source:"سورة الشرح، الآية 5"
-},
-
-{
-text:"﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾",
-source:"سورة الشرح، الآية 6"
-},
-
-{
-text:"﴿ وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ ﴾",
-source:"سورة النجم، الآية 39"
-},
-
-{
-text:"﴿ وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ﴾",
-source:"سورة الطلاق، الآية 3"
-},
-
-{
-text:"﴿ فَاذْكُرُونِي أَذْكُرْكُمْ ﴾",
-source:"سورة البقرة، الآية 152"
-},
-
-{
-text:"﴿ وَاللَّهُ مَعَ الصَّابِرِينَ ﴾",
-source:"سورة الأنفال، الآية 46"
-},
-
-{
-text:"﴿ إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ ﴾",
-source:"سورة التوبة، الآية 120"
-},
-
-{
-text:"﴿ وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ﴾",
-source:"سورة هود، الآية 88"
-}
-
-];
-
-
-/* =========================
-10 نصائح
-========================= */
-
-const tips=[
-
-"ابدأ بالأصعب عندما يكون تركيزك في أعلى مستوياته.",
-
-"قسّم المادة إلى جلسات قصيرة بدل جلسة طويلة.",
-
-"حل الأسئلة بعد كل درس ولا تؤجل التدريب إلى نهاية الوحدة.",
-
-"راجع أخطاءك؛ الخطأ الذي تفهم سببه غالبًا لا يتكرر.",
-
-"استخدم الاسترجاع النشط: أغلق الكتاب وحاول تذكر المعلومات من نفسك.",
-
-"خصص وقتًا يوميًا ثابتًا للمراجعة حتى لو كان قصيرًا.",
-
-"النوم الكافي جزء من الدراسة، وليس وقتًا ضائعًا.",
-
-"كل يوم قليل أفضل من يوم واحد كثير ثم انقطاع.",
-
-"بعد كل جلسة دراسة اختبر نفسك بدون النظر إلى الكتاب.",
-
-"لا تقيس إنجازك بعدد الساعات فقط؛ قِسه بما تعلمته فعلًا."
-
-];
-
-
-let verseIndex=Math.floor(Math.random()*verses.length);
-let tipIndex=Math.floor(Math.random()*tips.length);
-
-
-function showDailyContent(){
-
-document.getElementById("dailyVerse").textContent=verses[verseIndex].text;
-document.getElementById("dailyVerseSource").textContent=verses[verseIndex].source;
-document.getElementById("dailyTip").textContent=tips[tipIndex];
-
-}
-
-showDailyContent();
-
-
-function changeDailyContent(){
-
-const verse=document.getElementById("dailyVerse");
-const tip=document.getElementById("dailyTip");
-
-verse.classList.add("fade");
-tip.classList.add("fade");
-
-setTimeout(()=>{
-
-verseIndex=(verseIndex+1)%verses.length;
-tipIndex=(tipIndex+1)%tips.length;
-
-showDailyContent();
-
-verse.classList.remove("fade");
-tip.classList.remove("fade");
-
-},250);
-
-}
-
-setInterval(changeDailyContent,10000);
-
-
-/* =========================
-Grade Calculator
-========================= */
-
-const gradeFloat=document.getElementById("gradeFloat");
-const gradeModal=document.getElementById("gradeModal");
-const closeGradeModal=document.getElementById("closeGradeModal");
-
-const calculatorMenu=document.getElementById("calculatorMenu");
-
-const firstYearPanel=document.getElementById("firstYearPanel");
-const fullYearPanel=document.getElementById("fullYearPanel");
-
-
-function openGradeModal(){
-
-gradeModal.classList.add("active");
-document.body.classList.add("modal-open");
-
-showCalculatorMenu();
-
-}
-
-
-function closeGrade(){
-
-gradeModal.classList.remove("active");
-document.body.classList.remove("modal-open");
-
-}
-
-
-function showCalculatorMenu(){
-
-calculatorMenu.style.display="grid";
-
-firstYearPanel.classList.remove("active");
-fullYearPanel.classList.remove("active");
-
-}
-
-
-function showPanel(panel){
-
-calculatorMenu.style.display="none";
-
-firstYearPanel.classList.remove("active");
-fullYearPanel.classList.remove("active");
-
-panel.classList.add("active");
-
-}
-
-
-gradeFloat.addEventListener("click",openGradeModal);
-
-closeGradeModal.addEventListener("click",closeGrade);
-
-
-gradeModal.addEventListener("click",event=>{
-
-if(event.target===gradeModal){
-closeGrade();
-}
-
-});
-
-
-document.addEventListener("keydown",event=>{
-
-if(event.key==="Escape"){
-closeGrade();
-}
-
-});
-
-
-document.getElementById("firstYearChoice")
-.addEventListener("click",()=>{
-showPanel(firstYearPanel);
-});
-
-
-document.getElementById("fullYearChoice")
-.addEventListener("click",()=>{
-showPanel(fullYearPanel);
-});
-
-
-document.querySelectorAll("[data-back]")
-.forEach(button=>{
-
-button.addEventListener("click",showCalculatorMenu);
-
-});
-
-
-/* =========================
-First Year Calculator
-========================= */
-
-const firstInputs=[
-
-document.getElementById("math100"),
-document.getElementById("arabic100"),
-document.getElementById("history40"),
-document.getElementById("religion60")
-
-];
-
-
-function readNumber(id){
-
-const value=parseFloat(document.getElementById(id).value);
-
-return Number.isFinite(value)?value:0;
-
-}
-
-
-function validRange(value,min,max){
-
-return value>=min && value<=max;
-
-}
-
-
-document.getElementById("calculateFirst")
-.addEventListener("click",()=>{
-
-const math=readNumber("math100");
-const arabic=readNumber("arabic100");
-const history=readNumber("history40");
-const religion=readNumber("religion60");
-
-const excludeReligion=
-document.getElementById("excludeReligion").checked;
-
-
-if(
-!validRange(math,0,100) ||
-!validRange(arabic,0,100) ||
-!validRange(history,0,40) ||
-!validRange(religion,0,60)
-){
-
-alert("تأكد من إدخال العلامات ضمن الحدود الصحيحة.");
-
-return;
-
-}
-
-
-let total;
-let maximum;
-
-
-if(excludeReligion){
-
-total=math+arabic+history;
-maximum=240;
-
-}else{
-
-total=math+arabic+history+religion;
-maximum=300;
-
-}
-
-
-const result=(total/maximum)*30;
-
-const rounded=Math.round(result*100)/100;
-
-
-document.getElementById("firstResultNumber")
-.textContent=rounded.toFixed(2)+" / 30";
-
-
-const status=
-document.getElementById("firstResultStatus");
-
-const note=
-document.getElementById("firstResultNote");
-
-
-if(result<15){
-
-status.textContent="راسب — المعدل أقل من نصف العلامة";
-status.className="result-status fail";
-
-note.textContent=
-excludeReligion
-?"تم استبعاد التربية الإسلامية من الحساب."
-:"الحساب يشمل جميع المواد.";
-
-}else{
-
-status.textContent="ناجح";
-status.className="result-status pass";
-
-note.textContent=
-excludeReligion
-?"تم استبعاد التربية الإسلامية من الحساب."
-:"الحساب يشمل جميع المواد.";
-
-}
-
-
-document.getElementById("firstResult")
-.classList.add("show");
-
-});
-
-
-/* =========================
-Full Year Calculator
-========================= */
-
-const fullInputs=[
-
-"fullSubject1",
-"fullSubject2",
-"fullSubject3",
-"fullSubject4"
-
-];
-
-
-function updateFullTotal(){
-
-let total=0;
-
-fullInputs.forEach(id=>{
-total+=readNumber(id);
-});
-
-document.getElementById("fullTotalMarks")
-.textContent=
-total.toFixed(2)+" / 700";
-
-}
-
-
-fullInputs.forEach(id=>{
-
-document.getElementById(id)
-.addEventListener("input",updateFullTotal);
-
-});
-
-
-document.getElementById("calculateFull")
-.addEventListener("click",()=>{
-
-const firstYear=readNumber("firstYear30");
-
-const s1=readNumber("fullSubject1");
-const s2=readNumber("fullSubject2");
-const s3=readNumber("fullSubject3");
-const s4=readNumber("fullSubject4");
-
-if(
-!validRange(firstYear,0,30) ||
-!validRange(s1,0,175) ||
-!validRange(s2,0,175) ||
-!validRange(s3,0,175) ||
-!validRange(s4,0,175)
-){
-
-alert("تأكد من إدخال العلامات ضمن الحدود الصحيحة.");
-
-return;
-
-}
-
-
-const total=s1+s2+s3+s4;
-
-/*
-السنة الأولى = 30%
-المواد الأربع = 70%
-
-مجموع المواد = 700
-700 = 70%
-إذن:
-total / 700 * 70
-= total / 10
-
-المعدل النهائي =
-معدل السنة الأولى + مجموع المواد / 10
-*/
-
-const finalGrade=
-firstYear+(total/10);
-
-
-const rounded=
-Math.round(finalGrade*100)/100;
-
-
-document.getElementById("fullTotalMarks")
-.textContent=
-total.toFixed(2)+" / 700";
-
-
-document.getElementById("fullResultNumber")
-.textContent=
-rounded.toFixed(2)+"%";
-
-
-const status=
-document.getElementById("fullResultStatus");
-
-if(rounded<50){
-
-status.textContent="أقل من 50%";
-status.className="result-status fail";
-
-}else{
-
-status.textContent="المعدل من 100%";
-status.className="result-status pass";
-
-}
-
-
-document.getElementById("fullResult")
-.classList.add("show");
-
-});
-
-
-/* =========================
-حماية النصوص
-========================= */
-
-function escapeHTML(value){
-
-return String(value)
-
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-
-}
-
-
-function escapeAttribute(value){
-
-return escapeHTML(String(value));
-
-}
-
-
-/* =========================
-تشغيل
-========================= */
-
-loadData();
+  loadGenerations();
 
 </script>
 
