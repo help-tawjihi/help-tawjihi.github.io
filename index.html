@@ -66,7 +66,9 @@
       text-decoration:none;
     }
 
-    button{
+    button,
+    input,
+    textarea{
       font-family:inherit;
     }
 
@@ -201,6 +203,112 @@
       color:var(--muted);
       line-height:1.9;
       font-size:15px;
+    }
+
+    /* Search */
+
+    .search-section{
+      margin:5px 0 35px;
+    }
+
+    .search-box{
+      position:relative;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .search-box input{
+      width:100%;
+      height:58px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:18px;
+      padding:0 52px 0 20px;
+      outline:none;
+      font-size:14px;
+      box-shadow:var(--shadow);
+      transition:.2s;
+    }
+
+    .search-box input:focus{
+      border-color:var(--primary-2);
+      box-shadow:0 15px 40px rgba(15,118,110,.12);
+    }
+
+    .search-icon{
+      position:absolute;
+      right:18px;
+      top:50%;
+      transform:translateY(-50%);
+      width:21px;
+      height:21px;
+      color:var(--primary);
+      pointer-events:none;
+    }
+
+    .search-results{
+      display:none;
+      max-width:800px;
+      margin:10px auto 0;
+      padding:8px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .search-results.show{
+      display:block;
+    }
+
+    .search-result{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:13px;
+      border-radius:13px;
+      transition:.2s;
+    }
+
+    .search-result:hover{
+      background:var(--surface-2);
+    }
+
+    .search-result-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+      flex:none;
+    }
+
+    .search-result-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    .search-result-text strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:2px;
+    }
+
+    .search-result-text span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .search-empty{
+      text-align:center;
+      padding:20px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     /* Daily section */
@@ -357,7 +465,6 @@
       bottom:-40px;
     }
 
-    /* تم تعديل هذا الجزء فقط */
     .generation-number{
       position:relative;
       z-index:1;
@@ -399,6 +506,76 @@
       height:20px;
       color:var(--muted);
       z-index:2;
+    }
+
+    /* Study Tools */
+
+    .study-tools{
+      margin-top:45px;
+    }
+
+    .study-tools-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:17px;
+    }
+
+    .study-tool{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:17px;
+      padding:22px;
+      min-height:110px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .study-tool:hover{
+      transform:translateY(-4px);
+      border-color:rgba(20,184,166,.35);
+    }
+
+    .study-tool-icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+      flex:none;
+    }
+
+    .study-tool-icon svg{
+      width:24px;
+      height:24px;
+    }
+
+    .study-tool-content{
+      flex:1;
+    }
+
+    .study-tool-content h3{
+      font-size:17px;
+      margin-bottom:4px;
+    }
+
+    .study-tool-content p{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .study-tool-arrow{
+      width:20px;
+      height:20px;
+      color:var(--muted);
+      flex:none;
     }
 
     /* Features */
@@ -472,6 +649,171 @@
 
     @keyframes spin{
       to{transform:rotate(360deg)}
+    }
+
+    /* Floating Notes */
+
+    .notes-float-btn{
+      position:fixed;
+      left:20px;
+      bottom:20px;
+      z-index:300;
+      width:56px;
+      height:56px;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      box-shadow:0 14px 35px rgba(15,118,110,.28);
+      transition:.25s ease;
+    }
+
+    .notes-float-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(15,118,110,.35);
+    }
+
+    .notes-float-btn svg{
+      width:24px;
+      height:24px;
+    }
+
+    .notes-overlay{
+      position:fixed;
+      inset:0;
+      z-index:400;
+      display:none;
+      align-items:flex-end;
+      justify-content:flex-start;
+      padding:25px;
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(4px);
+      -webkit-backdrop-filter:blur(4px);
+    }
+
+    .notes-overlay.show{
+      display:flex;
+    }
+
+    .notes-panel{
+      width:min(430px,100%);
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:25px;
+      box-shadow:0 25px 80px rgba(0,0,0,.22);
+      overflow:hidden;
+      animation:notesIn .22s ease;
+    }
+
+    @keyframes notesIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .notes-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:18px 20px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .notes-header-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .notes-header-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .notes-header-icon svg{
+      width:19px;
+      height:19px;
+    }
+
+    .notes-header strong{
+      font-size:15px;
+    }
+
+    .notes-close{
+      width:36px;
+      height:36px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      border-radius:11px;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+    }
+
+    .notes-close svg{
+      width:18px;
+      height:18px;
+    }
+
+    .notes-body{
+      padding:18px;
+    }
+
+    .notes-body textarea{
+      width:100%;
+      min-height:230px;
+      resize:vertical;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      border-radius:17px;
+      padding:15px;
+      outline:none;
+      font-size:14px;
+      line-height:1.9;
+    }
+
+    .notes-body textarea:focus{
+      border-color:var(--primary-2);
+    }
+
+    .notes-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .notes-status{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .notes-save{
+      border:none;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      border-radius:13px;
+      padding:10px 17px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
     }
 
     /* Footer */
@@ -578,12 +920,34 @@
         min-height:140px;
       }
 
+      .study-tools-grid{
+        grid-template-columns:1fr;
+      }
+
+      .study-tool{
+        min-height:100px;
+      }
+
       .features{
         margin-top:45px;
       }
 
       .brand-text span{
         display:none;
+      }
+
+      .notes-overlay{
+        padding:12px;
+      }
+
+      .notes-panel{
+        width:100%;
+        border-radius:22px;
+      }
+
+      .notes-float-btn{
+        left:14px;
+        bottom:14px;
       }
     }
   </style>
@@ -638,6 +1002,38 @@
           مكان واحد يجمع لك كل ما تحتاجه في رحلتك الدراسية،
           بطريقة مرتبة وسهلة وسريعة.
         </p>
+
+      </div>
+    </section>
+
+
+    <!-- البحث الشامل -->
+    <section class="search-section">
+      <div class="container">
+
+        <div class="search-box">
+
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-4-4"/>
+          </svg>
+
+          <input
+            type="search"
+            id="globalSearch"
+            placeholder="ابحث عن جيل، مادة، ملف أو أي شيء..."
+            autocomplete="off"
+          >
+
+        </div>
+
+        <div class="search-results" id="searchResults"></div>
 
       </div>
     </section>
@@ -735,6 +1131,86 @@
     </section>
 
 
+    <!-- Study Tools -->
+    <section class="study-tools">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-title">
+            <h2>أدوات الدراسة</h2>
+            <p>أدوات تساعدك على تنظيم وقتك ودراستك</p>
+          </div>
+        </div>
+
+        <div class="study-tools-grid">
+
+          <!-- Study Plan -->
+          <a href="study-plan.html" class="study-tool">
+
+            <div class="study-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="17" rx="2"/>
+                <path d="M8 2v4"/>
+                <path d="M16 2v4"/>
+                <path d="M3 9h18"/>
+                <path d="M8 13h3"/>
+                <path d="M8 17h6"/>
+              </svg>
+            </div>
+
+            <div class="study-tool-content">
+              <h3>خطة الدراسة</h3>
+              <p>نظّم دراستك وحدد أهدافك وخطتك اليومية.</p>
+            </div>
+
+            <svg
+              class="study-tool-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+
+          </a>
+
+
+          <!-- Study Timer -->
+          <a href="study-timer.html" class="study-tool">
+
+            <div class="study-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="13" r="8"/>
+                <path d="M12 9v4l2.5 2"/>
+                <path d="M9 2h6"/>
+                <path d="M12 2v3"/>
+              </svg>
+            </div>
+
+            <div class="study-tool-content">
+              <h3>مؤقت الدراسة</h3>
+              <p>ركّز في دراستك باستخدام مؤقت مخصص لجلسات الدراسة.</p>
+            </div>
+
+            <svg
+              class="study-tool-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
     <!-- Features -->
     <section class="features">
       <div class="container">
@@ -802,7 +1278,103 @@
   </main>
 
 
+  <!-- Floating Notes Button -->
+
+  <button
+    class="notes-float-btn"
+    id="notesFloatBtn"
+    aria-label="فتح المذكرة"
+    title="المذكرة"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M4 4h16v16H4z"/>
+      <path d="M8 9h8"/>
+      <path d="M8 13h8"/>
+      <path d="M8 17h5"/>
+    </svg>
+  </button>
+
+
+  <!-- Notes -->
+
+  <div class="notes-overlay" id="notesOverlay">
+
+    <div class="notes-panel">
+
+      <div class="notes-header">
+
+        <div class="notes-header-title">
+
+          <div class="notes-header-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 4h16v16H4z"/>
+              <path d="M8 9h8"/>
+              <path d="M8 13h8"/>
+              <path d="M8 17h5"/>
+            </svg>
+          </div>
+
+          <strong>مذكرتي</strong>
+
+        </div>
+
+        <button
+          class="notes-close"
+          id="notesClose"
+          aria-label="إغلاق المذكرة"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 6l12 12"/>
+            <path d="M18 6L6 18"/>
+          </svg>
+        </button>
+
+      </div>
+
+
+      <div class="notes-body">
+
+        <textarea
+          id="notesTextarea"
+          placeholder="اكتب ملاحظاتك، الأشياء التي أنجزتها، أهدافك، أو أي شيء تريد تذكره..."
+        ></textarea>
+
+        <div class="notes-footer">
+
+          <div class="notes-status" id="notesStatus">
+            تُحفظ المذكرة على هذا الجهاز
+          </div>
+
+          <button class="notes-save" id="notesSave">
+            حفظ المذكرة
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
   <!-- Footer -->
+
   <footer>
     <div class="container">
 
@@ -1091,6 +1663,8 @@
             </div>
           `;
 
+          setupSearch([]);
+
           return;
 
         }
@@ -1106,6 +1680,7 @@
               <a
                 class="generation-card"
                 href="generations.html?year=${encodeURIComponent(year)}"
+                data-search="${escapeHtml(`جيل ${year} ${generation.name || ""} ${generation.title || ""} ${generation.label || ""}`)}"
               >
 
                 <div class="generation-number">
@@ -1136,7 +1711,7 @@
                   class="generation-arrow"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
+                                   stroke="currentColor"
                   stroke-width="2"
                 >
                   <path d="M9 18l6-6-6-6"/>
@@ -1147,6 +1722,9 @@
             `;
 
           }).join("");
+
+
+        setupSearch(generations);
 
 
       }catch(error){
@@ -1161,6 +1739,8 @@
             حاول تحديث الصفحة مرة أخرى.
           </div>
         `;
+
+        setupSearch([]);
 
       }
 
@@ -1178,6 +1758,298 @@
 
     }
 
+
+    /* =========================
+       البحث الشامل
+    ========================= */
+
+    const globalSearch =
+      document.getElementById("globalSearch");
+
+    const searchResults =
+      document.getElementById("searchResults");
+
+
+    let searchableItems = [];
+
+
+    function setupSearch(generations){
+
+      searchableItems = generations.map(generation => {
+
+        const year = generation.year;
+
+        return {
+          title:`جيل ${year}`,
+          description:"عرض المواد والملفات",
+          url:`generations.html?year=${encodeURIComponent(year)}`
+        };
+
+      });
+
+    }
+
+
+    function normalizeSearch(value){
+
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[أإآ]/g,"ا")
+        .replace(/ة/g,"ه")
+        .replace(/ى/g,"ي")
+        .trim();
+
+    }
+
+
+    function searchAll(value){
+
+      const query = normalizeSearch(value);
+
+      if(!query){
+
+        searchResults.classList.remove("show");
+        searchResults.innerHTML = "";
+
+        return;
+
+      }
+
+
+      const results =
+        searchableItems.filter(item => {
+
+          const content =
+            normalizeSearch(
+              `${item.title} ${item.description}`
+            );
+
+          return content.includes(query);
+
+        });
+
+
+      searchResults.classList.add("show");
+
+
+      if(!results.length){
+
+        searchResults.innerHTML = `
+          <div class="search-empty">
+            لا توجد نتائج مطابقة لبحثك.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      searchResults.innerHTML =
+        results.map(item => `
+
+          <a
+            href="${item.url}"
+            class="search-result"
+          >
+
+            <div class="search-result-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              </svg>
+
+            </div>
+
+            <div class="search-result-text">
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${escapeHtml(item.description)}</span>
+            </div>
+
+          </a>
+
+        `).join("");
+
+    }
+
+
+    globalSearch.addEventListener("input",event=>{
+
+      searchAll(event.target.value);
+
+    });
+
+
+    document.addEventListener("click",event=>{
+
+      if(
+        !event.target.closest(".search-box") &&
+        !event.target.closest(".search-results")
+      ){
+
+        searchResults.classList.remove("show");
+
+      }
+
+    });
+
+
+    /* =========================
+       المذكرة
+    ========================= */
+
+    const NOTES_KEY =
+      "tawjihi-notes";
+
+
+    const notesFloatBtn =
+      document.getElementById("notesFloatBtn");
+
+    const notesOverlay =
+      document.getElementById("notesOverlay");
+
+    const notesClose =
+      document.getElementById("notesClose");
+
+    const notesTextarea =
+      document.getElementById("notesTextarea");
+
+    const notesSave =
+      document.getElementById("notesSave");
+
+    const notesStatus =
+      document.getElementById("notesStatus");
+
+
+    function loadNotes(){
+
+      const savedNotes =
+        localStorage.getItem(NOTES_KEY);
+
+      notesTextarea.value =
+        savedNotes || "";
+
+    }
+
+
+    function openNotes(){
+
+      loadNotes();
+
+      notesOverlay.classList.add("show");
+
+      setTimeout(()=>{
+
+        notesTextarea.focus();
+
+      },100);
+
+    }
+
+
+    function closeNotes(){
+
+      notesOverlay.classList.remove("show");
+
+    }
+
+
+    function saveNotes(){
+
+      localStorage.setItem(
+        NOTES_KEY,
+        notesTextarea.value
+      );
+
+      notesStatus.textContent =
+        "تم حفظ المذكرة بنجاح";
+
+      setTimeout(()=>{
+
+        notesStatus.textContent =
+          "تُحفظ المذكرة على هذا الجهاز";
+
+      },2000);
+
+    }
+
+
+    notesFloatBtn.addEventListener(
+      "click",
+      openNotes
+    );
+
+
+    notesClose.addEventListener(
+      "click",
+      closeNotes
+    );
+
+
+    notesSave.addEventListener(
+      "click",
+      saveNotes
+    );
+
+
+    notesOverlay.addEventListener(
+      "click",
+      event=>{
+
+        if(event.target === notesOverlay){
+
+          closeNotes();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event=>{
+
+        if(
+          event.key === "Escape" &&
+          notesOverlay.classList.contains("show")
+        ){
+
+          closeNotes();
+
+        }
+
+      }
+    );
+
+
+    /*
+      حفظ تلقائي عند مغادرة الصفحة
+      حتى لا تضيع الملاحظات إذا نسي الطالب الضغط على حفظ
+    */
+
+    notesTextarea.addEventListener(
+      "input",
+      ()=>{
+
+        localStorage.setItem(
+          NOTES_KEY,
+          notesTextarea.value
+        );
+
+      }
+    );
+
+
+    /* =========================
+       تشغيل
+    ========================= */
 
     loadGenerations();
 
