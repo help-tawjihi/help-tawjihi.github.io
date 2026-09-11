@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>توجيهي 2010 | مساعد توجيهي</title>
+
+  <meta
+    name="description"
+    content="منصة مساعد توجيهي لطلاب توجيهي 2010 - عربي، رياضيات، دين، تاريخ"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f5f7f6;
+      --card: rgba(255,255,255,.82);
+      --card-solid: #ffffff;
+      --text: #101817;
+      --muted: #687572;
+      --border: rgba(16,24,23,.09);
+
+      --green: #16a36a;
+      --green-dark: #087a4b;
+      --green-light: #dff7eb;
+      --green-soft: rgba(22,163,106,.10);
+
+      --shadow: 0 15px 45px rgba(0,0,0,.07);
+      --radius: 24px;
+    }
+
+    body.dark {
+      --bg: #08100d;
+      --card: rgba(17,28,24,.82);
+      --card-solid: #111c18;
+      --text: #f2f7f5;
+      --muted: #98aaa4;
+      --border: rgba(255,255,255,.08);
+
+      --green: #28c984;
+      --green-dark: #19a86a;
+      --green-light: rgba(40,201,132,.13);
+      --green-soft: rgba(40,201,132,.10);
+
+      --shadow: 0 20px 55px rgba(0,0,0,.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "IBM Plex Sans Arabic", sans-serif;
+      background:
+        radial-gradient(circle at 85% 5%, rgba(22,163,106,.10), transparent 28%),
+        radial-gradient(circle at 10% 40%, rgba(22,163,106,.06), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background .3s ease, color .3s ease;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(245,247,246,.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.dark header {
+      background: rgba(8,16,13,.72);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, var(--green), var(--green-dark));
+      color: white;
+      box-shadow: 0 9px 22px rgba(22,163,106,.25);
+    }
+
+    .brand-icon svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(15px);
+      transition: .2s;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(22,163,106,.3);
+    }
+
+    .icon-btn svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 55px 0 35px;
+    }
+
+    .hero-box {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg,
+          rgba(22,163,106,.13),
+          rgba(22,163,106,.035)
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(22,163,106,.10);
+      top: -140px;
+      left: -80px;
+      filter: blur(4px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+      transition: .2s;
+    }
+
+    .back-btn:hover {
+      color: var(--green);
+    }
+
+    .back-btn svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    body.dark .eyebrow {
+      color: var(--green);
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(22,163,106,.10);
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 13px;
+      letter-spacing: -.8px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      max-width: 670px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-section {
+      padding: 0 0 20px;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box svg {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 58px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      color: var(--text);
+      padding: 0 52px 0 18px;
+      outline: none;
+      font-size: 14px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.03);
+      transition: .2s;
+    }
+
+    .search-input:focus {
+      border-color: rgba(22,163,106,.4);
+      box-shadow: 0 0 0 4px rgba(22,163,106,.08);
+    }
+
+    .search-input::placeholder {
+      color: var(--muted);
+    }
+
+    /* ================= SECTION TITLE ================= */
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 25px 0 18px;
+    }
+
+    .section-head h2 {
+      font-size: 22px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .count-badge {
+      padding: 7px 11px;
+      border-radius: 10px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    body.dark .count-badge {
+      color: var(--green);
+    }
+
+    /* ================= SUBJECTS ================= */
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+      padding-bottom: 50px;
+    }
+
+    .subject-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      border-radius: 25px;
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 35px rgba(0,0,0,.045);
+      cursor: pointer;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+      backdrop-filter: blur(15px);
+    }
+
+    .subject-card::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      left: -60px;
+      bottom: -70px;
+      transition: .25s;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(22,163,106,.24);
+      box-shadow: 0 18px 45px rgba(0,0,0,.08);
+    }
+
+    .subject-card:hover::after {
+      transform: scale(1.25);
+    }
+
+    .subject-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .subject-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .subject-icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .arrow-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      transition: .2s;
+    }
+
+    .subject-card:hover .arrow-icon {
+      color: var(--green);
+      transform: translateX(-3px);
+    }
+
+    .subject-info {
+      position: relative;
+      z-index: 2;
+      margin-top: 27px;
+    }
+
+    .subject-info h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .subject-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .subject-meta {
+      display: flex;
+      gap: 7px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .meta-pill {
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--green-soft);
+      padding: 5px 9px;
+      border-radius: 8px;
+    }
+
+    /* ================= LOADING ================= */
+
+    .loading {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+
+    .loader {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 3px solid rgba(22,163,106,.15);
+      border-top-color: var(--green);
+      animation: spin .8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ================= EMPTY ================= */
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 55px 20px;
+      text-align: center;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px dashed var(--border);
+    }
+
+    .empty-icon {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 15px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .empty-icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    .empty h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+    }
+
+    .empty p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= MODAL ================= */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 15px;
+      background: rgba(0,0,0,.48);
+      backdrop-filter: blur(7px);
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(720px, 100%);
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 30px;
+      background: var(--card-solid);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+      animation: modalUp .25s ease;
+    }
+
+    @keyframes modalUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 20px;
+      background: var(--card-solid);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-title-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .modal-title-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .modal-title h3 {
+      font-size: 18px;
+    }
+
+    .modal-title p {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .close-btn {
+      width: 39px;
+      height: 39px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--green-soft);
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .close-btn:hover {
+      color: var(--green);
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    .sections-grid {
+      display: grid;
+      gap: 11px;
+    }
+
+    .section-card {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      width: 100%;
+      text-align: right;
+      padding: 15px;
+      border-radius: 17px;
+      background: var(--green-soft);
+      border: 1px solid transparent;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    .section-card:hover {
+      border-color: rgba(22,163,106,.22);
+      transform: translateX(-3px);
+    }
+
+    .section-card-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .section-card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .section-card-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .section-card-text strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .section-card-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .section-arrow {
+      color: var(--muted);
+    }
+
+    /* ================= RESOURCES ================= */
+
+    .resources-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .resource {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: .2s;
+    }
+
+    .resource:hover {
+      border-color: rgba(22,163,106,.25);
+      transform: translateY(-2px);
+    }
+
+    .resource-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .resource-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .resource-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .resource-info strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .resource-info span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .open-resource {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: var(--green);
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .open-resource svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 35px 0 50px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--green);
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      max-width: calc(100% - 40px);
+      padding: 13px 16px;
+      border-radius: 15px;
+      background: var(--card-solid);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: .25s;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      header {
+        padding: 10px 0;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+      }
+
+      .brand-text strong {
+        font-size: 15px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .icon-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      .hero {
+        padding: 25px 0 20px;
+      }
+
+      .hero-box {
+        padding: 27px 21px;
+        border-radius: 25px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p {
+        font-size: 13px;
+      }
+
+      .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .subject-card {
+        min-height: 160px;
+        padding: 21px;
+      }
+
+      .subject-info {
+        margin-top: 21px;
+      }
+
+      .section-head h2 {
+        font-size: 19px;
+      }
+
+      .modal-overlay {
+        padding: 0;
+      }
+
+      .modal {
+        border-radius: 28px 28px 0 0;
+        max-height: 91vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8"/>
+            <path d="M8 10h8"/>
+          </svg>
+        </div>
+
+        <div class="brand-text">
+          <strong>مساعد توجيهي</strong>
+          <span>منصتك للتفوق</span>
+        </div>
+
+      </a>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          aria-label="تغيير الوضع"
+          title="تغيير الوضع"
+        >
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-box">
+
+          <div class="hero-content">
+
+            <a href="index.html" class="back-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              العودة للرئيسية
+            </a>
+
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              توجيهي 2010
+            </div>
+
+            <h1>
+              مواد <span>توجيهي 2010</span>
+            </h1>
+
+            <p>
+              اختر المادة التي تريد دراستها للوصول إلى الأقسام،
+              الملخصات، الأسئلة، الملفات والنماذج المتوفرة.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+      <div class="container">
+
+        <div class="search-box">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="ابحث عن مادة..."
+            autocomplete="off"
+          />
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <h2>اختر مادتك</h2>
+            <p>مواد توجيهي 2010 المتوفرة حالياً</p>
+          </div>
+
+          <div class="count-badge" id="subjectCount">
+            0 مواد
+          </div>
+
+        </div>
+
+        <div class="subjects-grid" id="subjectsGrid">
+
+          <div class="loading">
+            <div>
+              <div class="loader"></div>
+              <p>جاري تحميل المواد...</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= SUBJECT MODAL ================= -->
+
+  <div class="modal-overlay" id="subjectModal">
+
+    <div class="modal">
+
+      <div class="modal-head">
+
+        <div class="modal-title">
+
+          <div class="modal-title-icon" id="modalSubjectIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 id="modalSubjectName">المادة</h3>
+            <p>أقسام المادة</p>
+          </div>
+
+        </div>
+
+        <button class="close-btn" id="closeModal">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="sections-grid" id="sectionsGrid">
+
+          <div class="loading">
+            <div>
+              <div class="loader"></div>
+              <p>جاري تحميل الأقسام...</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= RESOURCES MODAL ================= -->
+
+  <div class="modal-overlay" id="resourcesModal">
+
+    <div class="modal">
+
+      <div class="modal-head">
+
+        <div class="modal-title">
+
+          <div class="modal-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+              <path d="M13 2v7h7"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 id="resourcesTitle">الملفات</h3>
+            <p>المصادر المتوفرة</p>
+          </div>
+
+        </div>
+
+        <button class="close-btn" id="closeResourcesModal">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="resources-list" id="resourcesList">
+
+          <div class="loading">
+            <div>
+              <div class="loader"></div>
+              <p>جاري تحميل الملفات...</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <div class="container">
+      <p>
+        <strong>مساعد توجيهي</strong>
+        — طريقك لتنظيم دراستك وتحقيق هدفك.
+      </p>
+    </div>
+  </footer>
+
+
+  <div class="toast" id="toast"></div>
+
+
+  <!-- ================= FIREBASE ================= -->
+
+  <script type="module">
+
+    import {
+      db,
+      collection,
+      getDocs
+    } from "./admin/firebase-config.js";
+
+    import {
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+    /* =========================================================
+       إعدادات الصفحة
+    ========================================================= */
+
+    const GENERATION_YEAR = "2010";
+
+
+    /* =========================================================
+       عناصر الصفحة
+    ========================================================= */
+
+    const subjectsGrid = document.getElementById("subjectsGrid");
+    const subjectCount = document.getElementById("subjectCount");
+    const searchInput = document.getElementById("searchInput");
+
+    const subjectModal = document.getElementById("subjectModal");
+    const resourcesModal = document.getElementById("resourcesModal");
+
+    const sectionsGrid = document.getElementById("sectionsGrid");
+    const resourcesList = document.getElementById("resourcesList");
+
+    const modalSubjectName = document.getElementById("modalSubjectName");
+    const resourcesTitle = document.getElementById("resourcesTitle");
+
+    const closeModal = document.getElementById("closeModal");
+    const closeResourcesModal = document.getElementById("closeResourcesModal");
+
+    const themeBtn = document.getElementById("themeBtn");
+    const themeIcon = document.getElementById("themeIcon");
+
+    const toast = document.getElementById("toast");
+
+
+    /* =========================================================
+       متغيرات
+    ========================================================= */
+
+    let allSubjects = [];
+    let allSections = [];
+    let allResources = [];
+
+    let currentSubject = null;
+
+
+    /* =========================================================
+       أيقونات المواد
+    ========================================================= */
+
+    function getSubjectIcon(name = "") {
+
+      const n = name.toLowerCase();
+
+      if (
+        n.includes("رياض") ||
+        n.includes("math")
+      ) {
+        return `
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <rect x="4" y="3" width="16" height="18" rx="2"/>
+            <path d="M8 7h8"/>
+            <path d="M8 11h2"/>
+            <path d="M14 11h2"/>
+            <path d="M8 15h2"/>
+            <path d="M14 15h2"/>
+            <path d="M8 19h8"/>
+          </svg>
+        `;
+      }
+
+      if (
+        n.includes("عرب") ||
+        n.includes("arab")
+      ) {
+        return `
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8"/>
+            <path d="M8 10h6"/>
+          </svg>
+        `;
+      }
+
+      if (
+        n.includes("دين") ||
+        n.includes("إسلام") ||
+        n.includes("اسلام") ||
+        n.includes("شرع")
+      ) {
+        return `
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M12 3v18"/>
+            <path d="M5 8c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
+            <path d="M5 12c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
+            <path d="M5 16c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
+          </svg>
+        `;
+      }
+
+      if (
+        n.includes("تاريخ") ||
+        n.includes("history")
+      ) {
+        return `
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 19h16"/>
+            <path d="M5 19V9l7-5 7 5v10"/>
+            <path d="M9 19v-6h6v6"/>
+            <path d="M3 9h18"/>
+          </svg>
+        `;
+      }
+
+      return `
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+        </svg>
+      `;
+    }
+
+
+    /* =========================================================
+       تنظيف النص
+    ========================================================= */
+
+    function escapeHTML(value) {
+
+      if (value === undefined || value === null) {
+        return "";
+      }
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+
+    /* =========================================================
+       الحصول على قيمة مرنة من Firestore
+    ========================================================= */
+
+    function firstValue(obj, fields, fallback = "") {
+
+      for (const field of fields) {
+
+        if (
+          obj[field] !== undefined &&
+          obj[field] !== null &&
+          String(obj[field]).trim() !== ""
+        ) {
+          return obj[field];
+        }
+
+      }
+
+      return fallback;
+    }
+
+
+    /* =========================================================
+       توحيد رقم الجيل
+    ========================================================= */
+
+    function normalizeYear(value) {
+
+      if (value === undefined || value === null) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/[^\d]/g, "")
+        .trim();
+    }
+
+
+    /* =========================================================
+       التأكد أن المادة تابعة لـ 2010
+    ========================================================= */
+
+    function isSubjectFor2010(subject) {
+
+      const generationId = firstValue(
+        subject,
+        [
+          "generationId",
+          "generationID",
+          "generation",
+          "generationYear",
+          "year"
+        ]
+      );
+
+      if (!generationId) {
+        return false;
+      }
+
+      const normalized = normalizeYear(generationId);
+
+      return normalized === "2010";
+    }
+
+
+    /* =========================================================
+       تحميل البيانات
+    ========================================================= */
+
+    async function loadData() {
+
+      try {
+
+        const [
+          subjectsSnapshot,
+          sectionsSnapshot,
+          resourcesSnapshot
+        ] = await Promise.all([
+
+          getDocs(collection(db, "subjects")),
+
+          getDocs(collection(db, "sections")),
+
+          getDocs(
+            query(
+              collection(db, "resources"),
+              where("published", "==", true)
+            )
+          )
+
+        ]);
+
+
+        allSubjects = subjectsSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        allSections = sectionsSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        allResources = resourcesSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+
+        renderSubjects(allSubjects);
+
+      } catch (error) {
+
+        console.error("Firebase Error:", error);
+
+        subjectsGrid.innerHTML = `
+          <div class="empty">
+
+            <div class="empty-icon">
+              <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 9v4"/>
+                <path d="M12 17h.01"/>
+                <path d="M10.3 3.6 2.2 18a2 2 0 0 0 1.7 3h16.2a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/>
+              </svg>
+            </div>
+
+            <h3>تعذر تحميل المواد</h3>
+
+            <p>
+              تأكد من إعداد Firebase وقواعد Firestore ثم حاول مرة أخرى.
+            </p>
+
+          </div>
+        `;
+
+        showToast("حدث خطأ أثناء تحميل البيانات");
+
+      }
+
+    }
+
+
+    /* =========================================================
+       عرض المواد
+    ========================================================= */
+
+    function renderSubjects(subjects) {
+
+      const generationSubjects = subjects.filter(isSubjectFor2010);
+
+      const searchTerm = searchInput.value
+        .trim()
+        .toLowerCase();
+
+      const filtered = generationSubjects.filter(subject => {
+
+        const name = firstValue(
+          subject,
+          [
+            "name",
+            "title",
+            "subjectName",
+            "label"
+          ],
+          "مادة"
+        );
+
+        return name
+          .toLowerCase()
+          .includes(searchTerm);
+
+      });
+
+
+      subjectCount.textContent =
+        `${filtered.length} ${filtered.length === 1 ? "مادة" : "مواد"}`;
+
+
+      if (!filtered.length) {
+
+        subjectsGrid.innerHTML = `
+          <div class="empty">
+
+            <div class="empty-icon">
+
+              <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.3-4.3"/>
+
+              </svg>
+
+            </div>
+
+            <h3>
+              لا توجد نتائج
+            </h3>
+
+            <p>
+              لم نجد مادة تطابق بحثك.
+            </p>
+
+          </div>
+        `;
+
+        return;
+      }
+
+
+      subjectsGrid.innerHTML = filtered.map(subject => {
+
+        const name = firstValue(
+          subject,
+          [
+            "name",
+            "title",
+            "subjectName",
+            "label"
+          ],
+          "مادة"
+        );
+
+        const sections = getSectionsForSubject(subject.id);
+
+        const resourceCount =
+          getResourcesForSubject(subject.id).length;
+
+
+        return `
+          <article
+            class="subject-card"
+            data-subject-id="${escapeHTML(subject.id)}"
+          >
+
+            <div class="subject-top">
+
+              <div class="subject-icon">
+                ${getSubjectIcon(name)}
+              </div>
+
+              <div class="arrow-icon">
+                <svg viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2">
+
+                  <path d="m9 18 6-6-6-6"/>
+
+                </svg>
+              </div>
+
+            </div>
+
+
+            <div class="subject-info">
+
+              <h3>
+                ${escapeHTML(name)}
+              </h3>
+
+              <p>
+                افتح المادة للوصول إلى محتوياتها
+              </p>
+
+              <div class="subject-meta">
+
+                <span class="meta-pill">
+                  ${sections.length} أقسام
+                </span>
+
+                <span class="meta-pill">
+                  ${resourceCount} ملف
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+        `;
+
+      }).join("");
+
+
+      document
+        .querySelectorAll(".subject-card")
+        .forEach(card => {
+
+          card.addEventListener("click", () => {
+
+            const id = card.dataset.subjectId;
+
+            const subject = allSubjects.find(
+              item => item.id === id
+            );
+
+            if (subject) {
+              openSubject(subject);
+            }
+
+          });
+
+        });
+
+    }
+
+
+    /* =========================================================
+       أقسام المادة
+    ========================================================= */
+
+    function getSectionsForSubject(subjectId) {
+
+      return allSections.filter(section => {
+
+        const sectionSubject = firstValue(
+          section,
+          [
+            "subjectId",
+            "subjectID",
+            "subject"
+          ]
+        );
+
+        return String(sectionSubject) === String(subjectId);
+
+      });
+
+    }
+
+
+    /* =========================================================
+       ملفات المادة
+    ========================================================= */
+
+    function getResourcesForSubject(subjectId) {
+
+      return allResources.filter(resource => {
+
+        const resourceSubject = firstValue(
+          resource,
+          [
+            "subjectId",
+            "subjectID",
+            "subject"
+          ]
+        );
+
+        return String(resourceSubject) === String(subjectId);
+
+      });
+
+    }
+
+
+    /* =========================================================
+       ملفات القسم
+    ========================================================= */
+
+    function getResourcesForSection(sectionId) {
+
+      return allResources.filter(resource => {
+
+        const resourceSection = firstValue(
+          resource,
+          [
+            "sectionId",
+            "sectionID",
+            "section"
+          ]
+        );
+
+        return String(resourceSection) === String(sectionId);
+
+      });
+
+    }
+
+
+    /* =========================================================
+       فتح المادة
+    ========================================================= */
+
+    function openSubject(subject) {
+
+      currentSubject = subject;
+
+      const name = firstValue(
+        subject,
+        [
+          "name",
+          "title",
+          "subjectName",
+          "label"
+        ],
+        "المادة"
+      );
+
+
+      modalSubjectName.textContent = name;
+
+
+      const sections =
+        getSectionsForSubject(subject.id);
+
+
+      sectionsGrid.innerHTML = "";
+
+
+      if (!sections.length) {
+
+        const resources =
+          getResourcesForSubject(subject.id);
+
+
+        if (resources.length) {
+
+          sectionsGrid.innerHTML = `
+            <button
+              class="section-card"
+              data-open-all="true"
+            >
+
+              <div class="section-card-icon">
+
+                <svg viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2">
+
+                  <path d="M4 4h16v16H4z"/>
+                  <path d="M8 8h8"/>
+                  <path d="M8 12h8"/>
+                  <path d="M8 16h5"/>
+
+                </svg>
+
+              </div>
+
+              <div class="section-card-text">
+
+                <strong>
+                  جميع الملفات
+                </strong>
+
+                <span>
+                  ${resources.length} ملف متوفر
+                </span>
+
+              </div>
+
+              <div class="section-arrow">
+                <svg viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2">
+
+                  <path d="m9 18 6-6-6-6"/>
+
+                </svg>
+              </div>
+
+            </button>
+          `;
+
+          document
+            .querySelector("[data-open-all]")
+            .addEventListener("click", () => {
+
+              closeSubjectModal();
+
+              setTimeout(() => {
+                openResources(
+                  `${name} — جميع الملفات`,
+                  resources
+                );
+              }, 180);
+
+            });
+
+        } else {
+
+          sectionsGrid.innerHTML = `
+            <div class="empty">
+
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2">
+
+                  <path d="M4 4h16v16H4z"/>
+                  <path d="M8 8h8"/>
+                  <path d="M8 12h5"/>
+
+                </svg>
+              </div>
+
+              <h3>
+                لا توجد أقسام بعد
+              </h3>
+
+              <p>
+                سيتم عرض الأقسام هنا عند إضافتها من لوحة الأدمن.
+              </p>
+
+            </div>
+          `;
+
+        }
+
+      } else {
+
+        sectionsGrid.innerHTML =
+          sections.map(section => {
+
+            const sectionName = firstValue(
+              section,
+              [
+                "name",
+                "title",
+                "sectionName",
+                "label"
+              ],
+              "قسم"
+            );
+
+
+            const resources =
+              getResourcesForSection(section.id);
+
+
+            return `
+              <button
+                class="section-card"
+                data-section-id="${escapeHTML(section.id)}"
+              >
+
+                <div class="section-card-icon">
+
+                  <svg viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M4 4h16v16H4z"/>
+                    <path d="M8 8h8"/>
+                    <path d="M8 12h8"/>
+                    <path d="M8 16h5"/>
+
+                  </svg>
+
+                </div>
+
+                <div class="section-card-text">
+
+                  <strong>
+                    ${escapeHTML(sectionName)}
+                  </strong>
+
+                  <span>
+                    ${resources.length} ملف متوفر
+                  </span>
+
+                </div>
+
+                <div class="section-arrow">
+
+                  <svg viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="m9 18 6-6-6-6"/>
+
+                  </svg>
+
+                </div>
+
+              </button>
+            `;
+
+          }).join("");
+
+
+        document
+          .querySelectorAll("[data-section-id]")
+          .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+              const sectionId =
+                button.dataset.sectionId;
+
+              const section =
+                sections.find(
+                  item => item.id === sectionId
+                );
+
+              if (!section) return;
+
+
+              const sectionName =
+                firstValue(
+                  section,
+                  [
+                    "name",
+                    "title",
+                    "sectionName",
+                    "label"
+                  ],
+                  "القسم"
+                );
+
+
+              const resources =
+                getResourcesForSection(sectionId);
+
+
+              closeSubjectModal();
+
+
+              setTimeout(() => {
+
+                openResources(
+                  `${name} — ${sectionName}`,
+                  resources
+                );
+
+              }, 180);
+
+            });
+
+          });
+
+      }
+
+
+      subjectModal.classList.add("show");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    /* =========================================================
+       فتح الملفات
+    ========================================================= */
+
+    function openResources(title, resources) {
+
+      resourcesTitle.textContent = title;
+
+
+      if (!resources.length) {
+
+        resourcesList.innerHTML = `
+          <div class="empty">
+
+            <div class="empty-icon">
+
+              <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path d="M4 4h16v16H4z"/>
+                <path d="M8 8h8"/>
+                <path d="M8 12h8"/>
+                <path d="M8 16h5"/>
+
+              </svg>
+
+            </div>
+
+            <h3>
+              لا توجد ملفات
+            </h3>
+
+            <p>
+              لم تتم إضافة ملفات لهذا القسم حتى الآن.
+            </p>
+
+          </div>
+        `;
+
+      } else {
+
+        resourcesList.innerHTML =
+          resources.map(resource => {
+
+            const resourceName =
+              firstValue(
+                resource,
+                [
+                  "title",
+                  "name",
+                  "resourceName"
+                ],
+                "ملف"
+              );
+
+
+            const url =
+              firstValue(
+                resource,
+                [
+                  "url",
+                  "link",
+                  "driveUrl",
+                  "fileUrl"
+                ],
+                ""
+              );
+
+
+            if (!url) {
+
+              return `
+                <div class="resource">
+
+                  <div class="resource-icon">
+
+                    <svg viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2">
+
+                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                      <path d="M13 2v7h7"/>
+
+                    </svg>
+
+                  </div>
+
+                  <div class="resource-info">
+
+                    <strong>
+                      ${escapeHTML(resourceName)}
+                    </strong>
+
+                    <span>
+                      الرابط غير متوفر
+                    </span>
+
+                  </div>
+
+                </div>
+              `;
+
+            }
+
+
+            return `
+              <div class="resource">
+
+                <div class="resource-icon">
+
+                  <svg viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                    <path d="M13 2v7h7"/>
+
+                  </svg>
+
+                </div>
+
+                <div class="resource-info">
+
+                  <strong>
+                    ${escapeHTML(resourceName)}
+                  </strong>
+
+                  <span>
+                    اضغط لفتح الملف
+                  </span>
+
+                </div>
+
+                <a
+                  class="open-resource"
+                  href="${escapeHTML(url)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="فتح الملف"
+                >
+
+                  <svg viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+
+                    <path d="M14 3h7v7"/>
+                    <path d="M10 14 21 3"/>
+                    <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+
+                  </svg>
+
+                </a>
+
+              </div>
+            `;
+
+          }).join("");
+
+      }
+
+
+      resourcesModal.classList.add("show");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    /* =========================================================
+       إغلاق النوافذ
+    ========================================================= */
+
+    function closeSubjectModal() {
+
+      subjectModal.classList.remove("show");
+
+      if (!resourcesModal.classList.contains("show")) {
+        document.body.style.overflow = "";
+      }
+
+    }
+
+
+    function closeResources() {
+
+      resourcesModal.classList.remove("show");
+
+      if (!subjectModal.classList.contains("show")) {
+        document.body.style.overflow = "";
+      }
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeSubjectModal
+    );
+
+
+    closeResourcesModal.addEventListener(
+      "click",
+      closeResources
+    );
+
+
+    subjectModal.addEventListener("click", event => {
+
+      if (event.target === subjectModal) {
+        closeSubjectModal();
+      }
+
+    });
+
+
+    resourcesModal.addEventListener("click", event => {
+
+      if (event.target === resourcesModal) {
+        closeResources();
+      }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        closeSubjectModal();
+        closeResources();
+
+      }
+
+    });
+
+
+    /* =========================================================
+       البحث
+    ========================================================= */
+
+    searchInput.addEventListener("input", () => {
+      renderSubjects(allSubjects);
+    });
+
+
+    /* =========================================================
+       الوضع الليلي
+    ========================================================= */
+
+    function updateThemeIcon() {
+
+      const dark =
+        document.body.classList.contains("dark");
+
+
+      if (dark) {
+
+        themeIcon.innerHTML = `
+          <path d="M21 12.79A9 9 0 1 1 11.21 3
+          7 7 0 0 0 21 12.79Z"/>
+        `;
+
+      } else {
+
+        themeIcon.innerHTML = `
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/>
+          <path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="m6.34 17.66-1.41 1.41"/>
+          <path d="m19.07 4.93-1.41 1.41"/>
+        `;
+
+      }
+
+    }
+
+
+    const savedTheme =
+      localStorage.getItem("tawjihi-theme");
+
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
+
+    updateThemeIcon();
+
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark");
+
+      const dark =
+        document.body.classList.contains("dark");
+
+      localStorage.setItem(
+        "tawjihi-theme",
+        dark ? "dark" : "light"
+      );
+
+      updateThemeIcon();
+
+    });
+
+
+    /* =========================================================
+       Toast
+    ========================================================= */
+
+    let toastTimer;
+
+
+    function showToast(message) {
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 2500);
+
+    }
+
+
+    /* =========================================================
+       بدء الصفحة
+    ========================================================= */
+
+    loadData();
+
+  </script>
+
+</body>
+</html>
