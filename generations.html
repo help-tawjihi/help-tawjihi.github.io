@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الجيل | مساعد توجيهي</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --bg:#f5f8f7;
+      --surface:#fff;
+      --surface-2:#eef6f4;
+      --text:#14201e;
+      --muted:#6b7975;
+      --primary:#0f766e;
+      --primary-2:#14b8a6;
+      --soft:#e5f6f2;
+      --border:#dfe9e6;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --shadow:0 18px 55px rgba(15,118,110,.09);
+      --radius:25px;
+    }
+
+    body.dark{
+      --bg:#09100f;
+      --surface:#101817;
+      --surface-2:#16211f;
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary-2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:#253430;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"IBM Plex Sans Arabic",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      transition:.25s;
+    }
+
+    button,
+    input{
+      font-family:inherit;
+    }
+
+    button{
+      border:0;
+      cursor:pointer;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      height:76px;
+      background:color-mix(in srgb,var(--surface) 82%,transparent);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+    }
+
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:700;
+      font-size:18px;
+    }
+
+    .brand-icon{
+      width:43px;
+      height:43px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .brand-icon svg{
+      width:23px;
+      height:23px;
+    }
+
+    .header-actions{
+      display:flex;
+      gap:8px;
+    }
+
+    .icon-btn{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .icon-btn svg{
+      width:20px;
+      height:20px;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:45px 0 30px;
+    }
+
+    .hero-box{
+      position:relative;
+      overflow:hidden;
+      padding:40px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 32%),
+        radial-gradient(circle at 10% 90%,rgba(15,118,110,.08),transparent 30%),
+        var(--surface);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .badge{
+      width:max-content;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary);
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:17px;
+    }
+
+    .badge-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--primary-2);
+    }
+
+    .hero h1{
+      font-size:clamp(32px,5vw,48px);
+      line-height:1.25;
+      margin-bottom:12px;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      max-width:720px;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:16px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:23px;
+    }
+
+    .btn{
+      min-height:47px;
+      padding:0 18px;
+      border-radius:15px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-weight:600;
+    }
+
+    .btn svg{
+      width:18px;
+      height:18px;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+    }
+
+    .btn-secondary{
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+    }
+
+    /* MAIN */
+
+    main{
+      padding:20px 0 70px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      margin-bottom:20px;
+    }
+
+    .section-title{
+      font-size:26px;
+      font-weight:700;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:4px;
+    }
+
+    /* SUBJECTS */
+
+    .subjects-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .subject-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      transition:.25s;
+    }
+
+    .subject-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(20,184,166,.4);
+    }
+
+    .subject-icon{
+      width:55px;
+      height:55px;
+      border-radius:17px;
+      background:var(--soft);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:17px;
+    }
+
+    .subject-icon svg{
+      width:27px;
+      height:27px;
+    }
+
+    .subject-card h3{
+      color:var(--text);
+      font-size:20px;
+      margin-bottom:7px;
+    }
+
+    .subject-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+      min-height:48px;
+    }
+
+    .subject-card .btn{
+      width:100%;
+      margin-top:19px;
+    }
+
+    /* LOADING */
+
+    .loading,
+    .empty{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:45px 20px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .loader{
+      width:35px;
+      height:35px;
+      margin:0 auto 14px;
+      border:3px solid var(--border);
+      border-top-color:var(--primary);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+
+    @keyframes spin{
+      to{transform:rotate(360deg);}
+    }
+
+    /* MODAL */
+
+    .modal-overlay{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:15px;
+    }
+
+    .modal-overlay.active{
+      display:flex;
+    }
+
+    .modal{
+      width:min(850px,100%);
+      max-height:91vh;
+      display:flex;
+      flex-direction:column;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.25);
+    }
+
+    .modal-header{
+      padding:20px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .modal-title-area{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .modal-icon{
+      width:48px;
+      height:48px;
+      flex-shrink:0;
+      border-radius:15px;
+      background:var(--soft);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-icon svg{
+      width:24px;
+      height:24px;
+    }
+
+    .modal-title{
+      font-size:19px;
+      font-weight:700;
+    }
+
+    .modal-subtitle{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:2px;
+    }
+
+    .close-btn{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .close-btn svg{
+      width:20px;
+    }
+
+    .modal-body{
+      padding:20px;
+      overflow-y:auto;
+    }
+
+    /* FILE CONTROLS */
+
+    .file-controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-bottom:18px;
+    }
+
+    .search-box{
+      flex:1;
+      min-width:210px;
+      position:relative;
+    }
+
+    .search-box svg{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      width:18px;
+      color:var(--muted);
+    }
+
+    .search-box input{
+      width:100%;
+      height:46px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      outline:none;
+      padding:0 42px 0 13px;
+    }
+
+    .search-box input:focus{
+      border-color:var(--primary-2);
+    }
+
+    .filter-btn{
+      min-height:46px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      gap:7px;
+      font-weight:600;
+    }
+
+    .filter-btn.active{
+      background:var(--soft);
+      color:var(--primary);
+      border-color:rgba(20,184,166,.3);
+    }
+
+    .filter-btn svg{
+      width:17px;
+    }
+
+    /* SECTIONS */
+
+    .sections-wrap{
+      margin-bottom:20px;
+    }
+
+    .small-title{
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:9px;
+    }
+
+    .sections-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .section-chip{
+      padding:9px 13px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      font-size:13px;
+    }
+
+    .section-chip.active{
+      color:white;
+      background:var(--primary);
+      border-color:var(--primary);
+    }
+
+    /* FILES */
+
+    .files-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .file-card{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px;
+      border-radius:17px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+    }
+
+    .file-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:var(--surface);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .file-icon svg{
+      width:22px;
+    }
+
+    .file-info{
+      flex:1;
+      min-width:0;
+    }
+
+    .file-info h4{
+      font-size:15px;
+      margin-bottom:3px;
+      color:var(--text);
+    }
+
+    .file-info span{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .file-actions{
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    .file-btn{
+      height:40px;
+      padding:0 13px;
+      border-radius:12px;
+      background:var(--primary);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .file-btn svg{
+      width:17px;
+    }
+
+    .favorite-btn{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .favorite-btn.active{
+      color:var(--primary);
+      background:var(--soft);
+      border-color:rgba(20,184,166,.3);
+    }
+
+    .favorite-btn svg{
+      width:18px;
+    }
+
+    .file-empty{
+      text-align:center;
+      padding:35px 15px;
+      color:var(--muted);
+      border:1px dashed var(--border);
+      border-radius:18px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid var(--border);
+      background:var(--surface);
+      padding:30px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .footer-brand{
+      font-weight:700;
+    }
+
+    .footer-text{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:3px;
+    }
+
+    @media(max-width:700px){
+
+      header{
+        height:68px;
+      }
+
+      .container{
+        width:calc(100% - 22px);
+      }
+
+      .hero{
+        padding-top:25px;
+      }
+
+      .hero-box{
+        padding:27px 20px;
+        border-radius:24px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .subjects-grid{
+        grid-template-columns:1fr;
+      }
+
+      .modal{
+        max-height:94vh;
+        border-radius:22px;
+      }
+
+      .modal-body{
+        padding:15px;
+      }
+
+      .file-card{
+        align-items:flex-start;
+      }
+
+      .file-actions{
+        flex-direction:column;
+      }
+
+      .file-btn{
+        width:40px;
+        padding:0;
+        justify-content:center;
+      }
+
+      .file-btn span{
+        display:none;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+<header>
+
+  <div class="container header-inner">
+
+    <a href="index.html" class="brand">
+
+      <div class="brand-icon">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3 4 7l8 4 8-4-8-4Z"/>
+          <path d="m6 9v5c0 1.7 2.7 4 6 4s6-2.3 6-4V9"/>
+          <path d="M20 8v6"/>
+        </svg>
+
+      </div>
+
+      <span>مساعد توجيهي</span>
+
+    </a>
+
+
+    <div class="header-actions">
+
+      <button class="icon-btn" id="themeBtn">
+
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/>
+          <path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="m6.34 17.66-1.41 1.41"/>
+          <path d="m19.07 4.93-1.41 1.41"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-box">
+
+      <div class="badge">
+
+        <span class="badge-dot"></span>
+
+        <span id="generationBadge">
+          جاري التحميل
+        </span>
+
+      </div>
+
+
+      <h1>
+
+        جيل
+        <span id="generationTitle">...</span>
+
+      </h1>
+
+
+      <p>
+
+        اختر المادة التي تريدها للوصول إلى الأقسام
+        والملفات التعليمية الخاصة بجيلك.
+
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a href="index.html" class="btn btn-secondary">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+
+          العودة للرئيسية
+
+        </a>
+
+
+        <button class="btn btn-primary" id="allFavoritesBtn">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m12 17.3-5.4 3 1.5-6.1-4.7-4.1 6.2-.5L12 4l2.4 5.6 6.2.5-4.7 4.1 1.5 6.1-5.4-3Z"/>
+          </svg>
+
+          الملفات المفضلة
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-title">
+          المواد الدراسية
+        </div>
+
+        <div class="section-desc">
+          اختر المادة لعرض الأقسام والملفات الخاصة بها
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="subjectsContainer">
+
+      <div class="loading">
+
+        <div class="loader"></div>
+
+        جاري تحميل المواد...
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- FILE MODAL -->
+
+<div class="modal-overlay" id="filesModal">
+
+  <div class="modal">
+
+
+    <div class="modal-header">
+
+      <div class="modal-title-area">
+
+        <div class="modal-icon">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h7l2 2h7v14H4z"/>
+            <path d="M8 12h8"/>
+            <path d="M8 16h6"/>
+          </svg>
+
+        </div>
+
+
+        <div>
+
+          <div class="modal-title" id="modalTitle">
+            الملفات
+          </div>
+
+          <div class="modal-subtitle" id="modalSubtitle">
+            الأقسام والملفات
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button class="close-btn" id="closeModalBtn">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18"/>
+          <path d="m6 6 12 12"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+
+      <div class="file-controls">
+
+        <div class="search-box">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-4-4"/>
+          </svg>
+
+          <input
+            id="fileSearch"
+            type="search"
+            placeholder="ابحث عن ملف..."
+          >
+
+        </div>
+
+
+        <button class="filter-btn active" id="allFilesFilter">
+
+          كل الملفات
+
+        </button>
+
+
+        <button class="filter-btn" id="favoriteFilesFilter">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z"/>
+          </svg>
+
+          المفضلة
+
+        </button>
+
+      </div>
+
+
+      <div class="sections-wrap" id="sectionsWrap">
+
+        <div class="small-title">
+          أقسام المادة
+        </div>
+
+        <div class="sections-list" id="sectionsList"></div>
+
+      </div>
+
+
+      <div id="filesContainer"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+
+      <div class="footer-brand">
+        مساعد توجيهي
+      </div>
+
+      <div class="footer-text">
+        منصة مساعدة لطلاب التوجيهي
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script type="module">
+
+  import {
+    db,
+    collection,
+    getDocs
+  } from "./admin/firebase-config.js";
+
+
+  import {
+    query,
+    where
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+  /* ================================
+     YEAR FROM URL
+  ================================= */
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const selectedYear =
+    params.get("year");
+
+
+  /* ================================
+     VARIABLES
+  ================================= */
+
+  let generationsData = [];
+  let subjectsData = [];
+  let sectionsData = [];
+  let resourcesData = [];
+
+  let currentSubject = null;
+  let currentResources = [];
+  let currentSections = [];
+
+  let activeSection = "all";
+  let favoriteOnly = false;
+
+
+  const FAVORITES_KEY =
+    "tawjihi-favorite-resources";
+
+
+  /* ================================
+     DOM
+  ================================= */
+
+  const generationBadge =
+    document.getElementById("generationBadge");
+
+  const generationTitle =
+    document.getElementById("generationTitle");
+
+  const subjectsContainer =
+    document.getElementById("subjectsContainer");
+
+  const filesModal =
+    document.getElementById("filesModal");
+
+  const modalTitle =
+    document.getElementById("modalTitle");
+
+  const modalSubtitle =
+    document.getElementById("modalSubtitle");
+
+  const sectionsWrap =
+    document.getElementById("sectionsWrap");
+
+  const sectionsList =
+    document.getElementById("sectionsList");
+
+  const filesContainer =
+    document.getElementById("filesContainer");
+
+  const fileSearch =
+    document.getElementById("fileSearch");
+
+  const allFilesFilter =
+    document.getElementById("allFilesFilter");
+
+  const favoriteFilesFilter =
+    document.getElementById("favoriteFilesFilter");
+
+
+  /* ================================
+     HELPERS
+  ================================= */
+
+  function escapeHTML(value){
+
+    return String(value ?? "")
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+
+  }
+
+
+  function getGenerationName(generation){
+
+    return (
+      generation?.year ??
+      generation?.name ??
+      generation?.title ??
+      generation?.label ??
+      ""
+    );
+
+  }
+
+
+  function getSubjectName(subject){
+
+    return (
+      subject?.name ??
+      subject?.title ??
+      subject?.subjectName ??
+      subject?.label ??
+      "مادة"
+    );
+
+  }
+
+
+  function getSectionName(section){
+
+    return (
+      section?.name ??
+      section?.title ??
+      section?.sectionName ??
+      section?.label ??
+      "قسم"
+    );
+
+  }
+
+
+  function getResourceName(resource){
+
+    return (
+      resource?.title ??
+      resource?.name ??
+      resource?.resourceName ??
+      "ملف"
+    );
+
+  }
+
+
+  function relationId(value){
+
+    if(value === null || value === undefined){
+      return "";
+    }
+
+    if(typeof value === "object"){
+
+      return String(
+        value.id ??
+        value.uid ??
+        value.value ??
+        ""
+      );
+
+    }
+
+    return String(value);
+
+  }
+
+
+  function favoriteList(){
+
+    try{
+
+      const data =
+        JSON.parse(
+          localStorage.getItem(FAVORITES_KEY) || "[]"
+        );
+
+      return Array.isArray(data)
+        ? data.map(String)
+        : [];
+
+    }catch{
+
+      return [];
+
+    }
+
+  }
+
+
+  function isFavorite(id){
+
+    return favoriteList()
+      .includes(String(id));
+
+  }
+
+
+  function toggleFavorite(id){
+
+    let favorites =
+      favoriteList();
+
+    const value =
+      String(id);
+
+
+    if(favorites.includes(value)){
+
+      favorites =
+        favorites.filter(
+          item => item !== value
+        );
+
+    }else{
+
+      favorites.push(value);
+
+    }
+
+
+    localStorage.setItem(
+      FAVORITES_KEY,
+      JSON.stringify(favorites)
+    );
+
+
+    if(favoriteOnly){
+
+      renderFiles();
+
+    }else{
+
+      renderFiles();
+
+    }
+
+  }
+
+
+  function subjectGenerationRelation(subject){
+
+    return relationId(
+      subject?.generationId ??
+      subject?.generationID ??
+      subject?.generation ??
+      subject?.year ??
+      ""
+    );
+
+  }
+
+
+  function sectionSubjectRelation(section){
+
+    return relationId(
+      section?.subjectId ??
+      section?.subjectID ??
+      section?.subject ??
+      ""
+    );
+
+  }
+
+
+  function resourceSubjectRelation(resource){
+
+    return relationId(
+      resource?.subjectId ??
+      resource?.subjectID ??
+      resource?.subject ??
+      ""
+    );
+
+  }
+
+
+  function resourceSectionRelation(resource){
+
+    return relationId(
+      resource?.sectionId ??
+      resource?.sectionID ??
+      resource?.section ??
+      ""
+    );
+
+  }
+
+
+  /* ================================
+     FIND GENERATION
+  ================================= */
+
+  function findSelectedGeneration(){
+
+    if(!selectedYear){
+      return null;
+    }
+
+
+    return generationsData.find(generation => {
+
+      const id =
+        String(generation.id || "")
+          .trim();
+
+      const name =
+        String(getGenerationName(generation))
+          .trim();
+
+
+      return (
+        id === selectedYear ||
+        name === selectedYear
+      );
+
+    }) || null;
+
+  }
+
+
+  /* ================================
+     CHECK SUBJECT BELONGS TO YEAR
+  ================================= */
+
+  function subjectBelongsToYear(subject){
+
+    const relation =
+      subjectGenerationRelation(subject);
+
+
+    const generation =
+      findSelectedGeneration();
+
+
+    if(generation){
+
+      const generationId =
+        String(generation.id);
+
+
+      const generationName =
+        String(getGenerationName(generation));
+
+
+      return (
+        relation === generationId ||
+        relation === generationName ||
+        relation === String(selectedYear)
+      );
+
+    }
+
+
+    return relation === String(selectedYear);
+
+  }
+
+
+  /* ================================
+     ICONS
+  ================================= */
+
+  function subjectIcon(){
+
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      </svg>
+    `;
+
+  }
+
+
+  function fileIcon(){
+
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 2v6h6"/>
+        <path d="M8 13h8"/>
+        <path d="M8 17h6"/>
+      </svg>
+    `;
+
+  }
+
+
+  function starIcon(active){
+
+    return active
+      ? `
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z"/>
+        </svg>
+      `
+      : `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z"/>
+        </svg>
+      `;
+
+  }
+
+
+  /* ================================
+     LOAD DATA
+  ================================= */
+
+  async function loadData(){
+
+    try{
+
+      if(!selectedYear){
+
+        showError(
+          "لم يتم تحديد الجيل",
+          "افتح الصفحة من خلال اختيار جيل من الصفحة الرئيسية."
+        );
+
+        return;
+
+      }
+
+
+      const [
+        generationsSnapshot,
+        subjectsSnapshot,
+        sectionsSnapshot,
+        resourcesSnapshot
+      ] = await Promise.all([
+
+        getDocs(
+          collection(db,"generations")
+        ),
+
+        getDocs(
+          collection(db,"subjects")
+        ),
+
+        getDocs(
+          collection(db,"sections")
+        ),
+
+        getDocs(
+          query(
+            collection(db,"resources"),
+            where("published","==",true)
+          )
+        )
+
+      ]);
+
+
+      generationsData =
+        generationsSnapshot.docs.map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }));
+
+
+      subjectsData =
+        subjectsSnapshot.docs.map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }));
+
+
+      sectionsData =
+        sectionsSnapshot.docs.map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }));
+
+
+      resourcesData =
+        resourcesSnapshot.docs.map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }));
+
+
+      const generation =
+        findSelectedGeneration();
+
+
+      const displayYear =
+        generation
+          ? getGenerationName(generation)
+          : selectedYear;
+
+
+      generationBadge.textContent =
+        `جيل ${displayYear}`;
+
+
+      generationTitle.textContent =
+        displayYear;
+
+
+      document.title =
+        `جيل ${displayYear} | مساعد توجيهي`;
+
+
+      renderSubjects();
+
+
+    }catch(error){
+
+      console.error(error);
+
+      showError(
+        "حدث خطأ",
+        "تعذر تحميل بيانات الجيل من قاعدة البيانات."
+      );
+
+    }
+
+  }
+
+
+  /* ================================
+     ERROR
+  ================================= */
+
+  function showError(title,text){
+
+    subjectsContainer.innerHTML = `
+
+      <div class="empty">
+
+        <h3 style="color:var(--text);margin-bottom:7px;">
+          ${escapeHTML(title)}
+        </h3>
+
+        <p>
+          ${escapeHTML(text)}
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* ================================
+     RENDER SUBJECTS
+  ================================= */
+
+  function renderSubjects(){
+
+    const subjects =
+      subjectsData.filter(
+        subject =>
+          subjectBelongsToYear(subject)
+      );
+
+
+    if(!subjects.length){
+
+      subjectsContainer.innerHTML = `
+
+        <div class="empty">
+
+          <h3 style="color:var(--text);margin-bottom:7px;">
+            لا توجد مواد لهذا الجيل
+          </h3>
+
+          <p>
+            لم تتم إضافة المواد الخاصة بهذا الجيل من لوحة الإدارة حتى الآن.
+          </p>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    subjectsContainer.innerHTML = `
+
+      <div class="subjects-grid">
+
+        ${subjects.map(subject => {
+
+          return `
+
+            <article class="subject-card">
+
+              <div class="subject-icon">
+                ${subjectIcon()}
+              </div>
+
+              <h3>
+                ${escapeHTML(
+                  getSubjectName(subject)
+                )}
+              </h3>
+
+              <p>
+                ملفات وأقسام المادة الدراسية
+              </p>
+
+              <button
+                class="btn btn-primary"
+                data-open-subject="${escapeHTML(subject.id)}"
+              >
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                </svg>
+
+                عرض الملفات
+
+              </button>
+
+            </article>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* ================================
+     OPEN SUBJECT
+  ================================= */
+
+  function openSubject(subjectId){
+
+    currentSubject =
+      subjectsData.find(
+        subject =>
+          String(subject.id) ===
+          String(subjectId)
+      );
+
+
+    if(!currentSubject){
+      return;
+    }
+
+
+    currentResources =
+      resourcesData.filter(resource => {
+
+        const relation =
+          resourceSubjectRelation(resource);
+
+        return (
+          relation === String(currentSubject.id) ||
+          relation === getSubjectName(currentSubject)
+        );
+
+      });
+
+
+    currentSections =
+      sectionsData.filter(section => {
+
+        const relation =
+          sectionSubjectRelation(section);
+
+        return (
+          relation === String(currentSubject.id) ||
+          relation === getSubjectName(currentSubject)
+        );
+
+      });
+
+
+    activeSection = "all";
+
+    favoriteOnly = false;
+
+    fileSearch.value = "";
+
+
+    modalTitle.textContent =
+      getSubjectName(currentSubject);
+
+    modalSubtitle.textContent =
+      "الأقسام والملفات المنشورة";
+
+
+    allFilesFilter.classList.add("active");
+
+    favoriteFilesFilter.classList.remove("active");
+
+
+    renderSections();
+
+    renderFiles();
+
+
+    filesModal.classList.add("active");
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  /* ================================
+     SECTIONS
+  ================================= */
+
+  function renderSections(){
+
+    if(!currentSections.length){
+
+      sectionsWrap.style.display =
+        "none";
+
+      return;
+
+    }
+
+
+    sectionsWrap.style.display =
+      "block";
+
+
+    sectionsList.innerHTML = `
+
+      <button
+        class="section-chip active"
+        data-section="all"
+      >
+        كل الأقسام
+      </button>
+
+      ${currentSections.map(section => `
+
+        <button
+          class="section-chip"
+          data-section="${escapeHTML(section.id)}"
+        >
+          ${escapeHTML(
+            getSectionName(section)
+          )}
+        </button>
+
+      `).join("")}
+
+    `;
+
+  }
+
+
+  /* ================================
+     RENDER FILES
+  ================================= */
+
+  function renderFiles(){
+
+    let files =
+      [...currentResources];
+
+
+    if(activeSection !== "all"){
+
+      files =
+        files.filter(resource => {
+
+          const relation =
+            resourceSectionRelation(resource);
+
+          return (
+            relation === String(activeSection)
+          );
+
+        });
+
+    }
+
+
+    if(favoriteOnly){
+
+      files =
+        files.filter(resource =>
+          isFavorite(resource.id)
+        );
+
+    }
+
+
+    const search =
+      fileSearch.value
+        .trim()
+        .toLowerCase();
+
+
+    if(search){
+
+      files =
+        files.filter(resource =>
+          getResourceName(resource)
+            .toLowerCase()
+            .includes(search)
+        );
+
+    }
+
+
+    if(!files.length){
+
+      filesContainer.innerHTML = `
+
+        <div class="file-empty">
+
+          لا توجد ملفات مطابقة حالياً.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    filesContainer.innerHTML = `
+
+      <div class="files-list">
+
+        ${files.map(resource => {
+
+          const name =
+            getResourceName(resource);
+
+
+          const url =
+            resource.url ??
+            resource.link ??
+            resource.driveUrl ??
+            resource.fileUrl ??
+            "";
+
+
+          const sectionRelation =
+            resourceSectionRelation(resource);
+
+
+          let sectionName =
+            "ملف المادة";
+
+
+          if(sectionRelation){
+
+            const section =
+              currentSections.find(
+                item =>
+                  String(item.id) ===
+                  String(sectionRelation)
+              );
+
+
+            if(section){
+
+              sectionName =
+                getSectionName(section);
+
+            }
+
+          }
+
+
+          const favorite =
+            isFavorite(resource.id);
+
+
+          return `
+
+            <article class="file-card">
+
+              <div class="file-icon">
+
+                ${fileIcon()}
+
+              </div>
+
+
+              <div class="file-info">
+
+                <h4>
+                  ${escapeHTML(name)}
+                </h4>
+
+                <span>
+                  ${escapeHTML(sectionName)}
+                </span>
+
+              </div>
+
+
+              <div class="file-actions">
+
+
+                <button
+                  class="favorite-btn ${favorite ? "active" : ""}"
+                  data-favorite="${escapeHTML(resource.id)}"
+                  title="${favorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}"
+                >
+
+                  ${starIcon(favorite)}
+
+                </button>
+
+
+                ${
+                  url
+                  ?
+                  `
+
+                    <a
+                      href="${escapeHTML(url)}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="file-btn"
+                    >
+
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 3h7v7"/>
+                        <path d="M10 14 21 3"/>
+                        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+                      </svg>
+
+                      <span>فتح الملف</span>
+
+                    </a>
+
+                  `
+                  :
+                  ""
+                }
+
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* ================================
+     ALL FAVORITES
+  ================================= */
+
+  function openFavorites(){
+
+    currentSubject = null;
+
+    currentSections = [];
+
+    activeSection = "all";
+
+    favoriteOnly = true;
+
+    fileSearch.value = "";
+
+
+    const favorites =
+      favoriteList();
+
+
+    currentResources =
+      resourcesData.filter(resource =>
+        favorites.includes(
+          String(resource.id)
+        )
+      );
+
+
+    modalTitle.textContent =
+      "الملفات المفضلة";
+
+    modalSubtitle.textContent =
+      "الملفات التي قمت بحفظها";
+
+
+    sectionsWrap.style.display =
+      "none";
+
+
+    allFilesFilter.classList.remove("active");
+
+    favoriteFilesFilter.classList.add("active");
+
+
+    renderFiles();
+
+
+    filesModal.classList.add("active");
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  /* ================================
+     EVENTS
+  ================================= */
+
+  subjectsContainer.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          "[data-open-subject]"
+        );
+
+
+      if(!button){
+        return;
+      }
+
+
+      openSubject(
+        button.dataset.openSubject
+      );
+
+    }
+  );
+
+
+  sectionsList.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          "[data-section]"
+        );
+
+
+      if(!button){
+        return;
+      }
+
+
+      activeSection =
+        button.dataset.section;
+
+
+      sectionsList
+        .querySelectorAll(".section-chip")
+        .forEach(item =>
+          item.classList.remove("active")
+        );
+
+
+      button.classList.add("active");
+
+
+      renderFiles();
+
+    }
+  );
+
+
+  filesContainer.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          "[data-favorite]"
+        );
+
+
+      if(!button){
+        return;
+      }
+
+
+      event.preventDefault();
+
+
+      toggleFavorite(
+        button.dataset.favorite
+      );
+
+    }
+  );
+
+
+  fileSearch.addEventListener(
+    "input",
+    renderFiles
+  );
+
+
+  document
+    .getElementById("allFilesFilter")
+    .addEventListener(
+      "click",
+      () => {
+
+        favoriteOnly = false;
+
+        allFilesFilter.classList.add("active");
+
+        favoriteFilesFilter.classList.remove("active");
+
+        renderFiles();
+
+      }
+    );
+
+
+  document
+    .getElementById("favoriteFilesFilter")
+    .addEventListener(
+      "click",
+      () => {
+
+        favoriteOnly = true;
+
+        allFilesFilter.classList.remove("active");
+
+        favoriteFilesFilter.classList.add("active");
+
+        renderFiles();
+
+      }
+    );
+
+
+  document
+    .getElementById("allFavoritesBtn")
+    .addEventListener(
+      "click",
+      openFavorites
+    );
+
+
+  /* ================================
+     CLOSE MODAL
+  ================================= */
+
+  function closeModal(){
+
+    filesModal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+
+  document
+    .getElementById("closeModalBtn")
+    .addEventListener(
+      "click",
+      closeModal
+    );
+
+
+  filesModal.addEventListener(
+    "click",
+    event => {
+
+      if(event.target === filesModal){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if(event.key === "Escape"){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+  /* ================================
+     THEME
+  ================================= */
+
+  const themeBtn =
+    document.getElementById("themeBtn");
+
+  const themeIcon =
+    document.getElementById("themeIcon");
+
+
+  function updateThemeIcon(){
+
+    const dark =
+      document.body.classList.contains("dark");
+
+
+    if(dark){
+
+      themeIcon.innerHTML = `
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8Z"/>
+      `;
+
+    }else{
+
+      themeIcon.innerHTML = `
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+      `;
+
+    }
+
+  }
+
+
+  if(
+    localStorage.getItem("tawjihi-theme")
+    ===
+    "dark"
+  ){
+
+    document.body.classList.add("dark");
+
+  }
+
+
+  updateThemeIcon();
+
+
+  themeBtn.addEventListener(
+    "click",
+    () => {
+
+      const dark =
+        document.body.classList.toggle("dark");
+
+
+      localStorage.setItem(
+        "tawjihi-theme",
+        dark
+          ? "dark"
+          : "light"
+      );
+
+
+      updateThemeIcon();
+
+    }
+  );
+
+
+  /* ================================
+     START
+  ================================= */
+
+  loadData();
+
+</script>
+
+</body>
+</html>
