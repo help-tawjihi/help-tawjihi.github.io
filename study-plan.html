@@ -1,0 +1,3674 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>خطة الدراسة | مساعد توجيهي</title>
+  <meta name="description" content="أنشئ خطة دراستك اليومية والأسبوعية مع مساعد توجيهي">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root{
+      --bg:#f5f8f7;
+      --surface:#ffffff;
+      --surface-2:#eef6f4;
+      --text:#14201e;
+      --muted:#6b7975;
+      --primary:#0f766e;
+      --primary-2:#14b8a6;
+      --soft:#e5f6f2;
+      --border:#dfe9e6;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --shadow:0 18px 55px rgba(15,118,110,.09);
+      --radius:25px;
+    }
+
+    body.dark{
+      --bg:#09100f;
+      --surface:#101817;
+      --surface-2:#16211f;
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary-2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:#253430;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"IBM Plex Sans Arabic",sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(20,184,166,.08),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(15,118,110,.07),
+          transparent 25%
+        ),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      transition:.25s ease;
+    }
+
+    button,
+    input,
+    select{
+      font-family:inherit;
+    }
+
+    button{
+      border:0;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      padding:14px 0;
+
+      background:rgba(245,248,247,.78);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(223,233,230,.7);
+    }
+
+    body.dark header{
+      background:rgba(9,16,15,.78);
+      border-bottom-color:rgba(37,52,48,.7);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+    }
+
+    .brand-icon{
+      width:45px;
+      height:45px;
+      border-radius:15px;
+
+      display:grid;
+      place-items:center;
+
+      color:white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 10px 25px rgba(15,118,110,.22);
+    }
+
+    .brand-icon svg{
+      width:23px;
+      height:23px;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:17px;
+      font-weight:700;
+    }
+
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:1px;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:9px;
+    }
+
+    .back-btn,
+    .theme-btn{
+      width:44px;
+      height:44px;
+
+      border:1px solid var(--border);
+
+      background:var(--surface);
+      color:var(--text);
+
+      border-radius:14px;
+
+      display:grid;
+      place-items:center;
+
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .back-btn:hover,
+    .theme-btn:hover{
+      transform:translateY(-2px);
+      border-color:var(--primary-2);
+    }
+
+    .back-btn svg,
+    .theme-btn svg{
+      width:20px;
+      height:20px;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero{
+      padding:55px 0 30px;
+      text-align:center;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:8px 14px;
+
+      border-radius:999px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      font-size:13px;
+      font-weight:600;
+
+      border:1px solid rgba(20,184,166,.12);
+
+      margin-bottom:18px;
+    }
+
+    .hero-badge svg{
+      width:16px;
+      height:16px;
+    }
+
+    .hero h1{
+      font-size:clamp(30px,6vw,48px);
+      line-height:1.2;
+      letter-spacing:-1px;
+      margin-bottom:13px;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      max-width:650px;
+      margin:auto;
+
+      color:var(--muted);
+
+      line-height:1.9;
+      font-size:15px;
+    }
+
+    /* =========================
+       Section
+    ========================= */
+
+    .section{
+      margin-bottom:25px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:15px;
+      margin-bottom:18px;
+    }
+
+    .section-title h2{
+      font-size:23px;
+      margin-bottom:5px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* =========================
+       Setup Card
+    ========================= */
+
+    .setup-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:27px;
+    }
+
+    .setup-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
+    }
+
+    .field{
+      margin-bottom:20px;
+    }
+
+    .field:last-child{
+      margin-bottom:0;
+    }
+
+    .field-label{
+      display:block;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:9px;
+    }
+
+    .field-help{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:6px;
+    }
+
+    .input{
+      width:100%;
+      height:49px;
+
+      border:1px solid var(--border);
+      border-radius:15px;
+
+      background:var(--surface-2);
+      color:var(--text);
+
+      padding:0 15px;
+
+      outline:none;
+
+      font-size:14px;
+
+      transition:.2s;
+    }
+
+    .input:focus{
+      border-color:var(--primary-2);
+      box-shadow:0 0 0 3px rgba(20,184,166,.08);
+    }
+
+    .hours-control{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .hours-control .input{
+      text-align:center;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .hours-label{
+      white-space:nowrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Days */
+
+    .days-grid{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:8px;
+    }
+
+    .day-option{
+      position:relative;
+    }
+
+    .day-option input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .day-label{
+      height:52px;
+
+      border:1px solid var(--border);
+      border-radius:15px;
+
+      background:var(--surface-2);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      cursor:pointer;
+
+      color:var(--muted);
+
+      font-size:13px;
+      font-weight:600;
+
+      transition:.2s;
+    }
+
+    .day-label:hover{
+      border-color:var(--primary-2);
+    }
+
+    .day-option input:checked + .day-label{
+      background:var(--soft);
+      border-color:var(--primary-2);
+      color:var(--primary);
+      box-shadow:0 5px 18px rgba(20,184,166,.09);
+    }
+
+    /* =========================
+       Subjects
+    ========================= */
+
+    .subjects-box{
+      margin-top:25px;
+      padding-top:25px;
+      border-top:1px solid var(--border);
+    }
+
+    .subjects-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .subjects-head strong{
+      font-size:15px;
+    }
+
+    .subjects-head span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .subject-input-row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:10px;
+      margin-bottom:15px;
+    }
+
+    .add-subject-btn{
+      min-width:110px;
+
+      border-radius:15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color:#fff;
+
+      padding:0 20px;
+
+      font-size:13px;
+      font-weight:700;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 10px 22px rgba(15,118,110,.16);
+
+      transition:.2s;
+    }
+
+    .add-subject-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .subjects-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+
+    .subject-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+
+      background:var(--surface-2);
+      border:1px solid var(--border);
+
+      border-radius:17px;
+
+      padding:12px 14px;
+    }
+
+    .subject-info{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .subject-icon{
+      width:37px;
+      height:37px;
+      flex:none;
+
+      border-radius:12px;
+
+      display:grid;
+      place-items:center;
+
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .subject-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    .subject-name{
+      font-size:14px;
+      font-weight:600;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .priority{
+      font-size:10px;
+      margin-top:2px;
+      color:var(--muted);
+    }
+
+    .remove-subject{
+      width:32px;
+      height:32px;
+
+      border-radius:10px;
+
+      background:transparent;
+      color:var(--muted);
+
+      display:grid;
+      place-items:center;
+
+      cursor:pointer;
+      flex:none;
+
+      transition:.2s;
+    }
+
+    .remove-subject:hover{
+      background:rgba(220,38,38,.08);
+      color:var(--danger);
+    }
+
+    .remove-subject svg{
+      width:17px;
+      height:17px;
+    }
+
+    .empty-subjects{
+      padding:28px 15px;
+
+      text-align:center;
+
+      border:1px dashed var(--border);
+      border-radius:17px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    /* =========================
+       Generate button
+    ========================= */
+
+    .generate-wrap{
+      margin-top:25px;
+      display:flex;
+      gap:10px;
+    }
+
+    .generate-btn{
+      flex:1;
+
+      height:54px;
+
+      border-radius:17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color:#fff;
+
+      font-size:15px;
+      font-weight:700;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 12px 27px rgba(15,118,110,.18);
+
+      transition:.2s;
+    }
+
+    .generate-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .reset-btn{
+      height:54px;
+      padding:0 20px;
+
+      border-radius:17px;
+
+      border:1px solid var(--border);
+
+      background:var(--surface-2);
+      color:var(--text);
+
+      font-size:13px;
+      font-weight:600;
+
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .reset-btn:hover{
+      border-color:var(--danger);
+      color:var(--danger);
+    }
+
+    /* =========================
+       Dashboard
+    ========================= */
+
+    .dashboard{
+      display:none;
+    }
+
+    .dashboard.show{
+      display:block;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:13px;
+      margin-bottom:18px;
+    }
+
+    .stat-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .stat-top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .stat-icon{
+      width:39px;
+      height:39px;
+
+      border-radius:12px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      display:grid;
+      place-items:center;
+    }
+
+    .stat-icon svg{
+      width:19px;
+      height:19px;
+    }
+
+    .stat-label{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .stat-value{
+      font-size:25px;
+      font-weight:700;
+    }
+
+    .progress-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      margin-bottom:20px;
+    }
+
+    .progress-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .progress-head strong{
+      font-size:14px;
+    }
+
+    .progress-percent{
+      color:var(--primary);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .progress-track{
+      width:100%;
+      height:10px;
+      background:var(--surface-2);
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .progress-fill{
+      height:100%;
+      width:0;
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      transition:.35s ease;
+    }
+
+    /* =========================
+       Tabs
+    ========================= */
+
+    .tabs{
+      display:flex;
+      gap:8px;
+
+      padding:6px;
+
+      background:var(--surface-2);
+
+      border:1px solid var(--border);
+      border-radius:17px;
+
+      margin-bottom:18px;
+    }
+
+    .tab{
+      flex:1;
+
+      height:42px;
+
+      border-radius:12px;
+
+      background:transparent;
+      color:var(--muted);
+
+      font-size:13px;
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:.2s;
+    }
+
+    .tab.active{
+      background:var(--surface);
+      color:var(--primary);
+
+      box-shadow:0 5px 18px rgba(15,118,110,.08);
+    }
+
+    /* =========================
+       Daily / Weekly
+    ========================= */
+
+    .plan-view{
+      display:none;
+    }
+
+    .plan-view.active{
+      display:block;
+    }
+
+    .today-title{
+      margin-bottom:15px;
+    }
+
+    .today-title h2{
+      font-size:21px;
+      margin-bottom:4px;
+    }
+
+    .today-title p{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .day-plan{
+      margin-bottom:18px;
+    }
+
+    .day-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+      border-bottom:0;
+
+      border-radius:20px 20px 0 0;
+
+      padding:17px 19px;
+    }
+
+    .day-header-main{
+      display:flex;
+      align-items:center;
+      gap:11px;
+    }
+
+    .day-number{
+      width:38px;
+      height:38px;
+
+      border-radius:12px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      display:grid;
+      place-items:center;
+
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .day-name{
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .day-date{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+    }
+
+    .day-hours{
+      color:var(--primary);
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .tasks{
+      border:1px solid var(--border);
+      border-radius:0 0 20px 20px;
+      overflow:hidden;
+    }
+
+    .task{
+      display:flex;
+      align-items:center;
+      gap:13px;
+
+      padding:15px 18px;
+
+      background:var(--surface);
+
+      border-bottom:1px solid var(--border);
+
+      transition:.2s;
+    }
+
+    .task:last-child{
+      border-bottom:0;
+    }
+
+    .task:hover{
+      background:var(--surface-2);
+    }
+
+    .task.completed{
+      opacity:.62;
+    }
+
+    .task-check{
+      width:23px;
+      height:23px;
+
+      border:2px solid var(--border);
+
+      border-radius:8px;
+
+      background:transparent;
+
+      display:grid;
+      place-items:center;
+
+      color:white;
+
+      cursor:pointer;
+
+      flex:none;
+
+      transition:.2s;
+    }
+
+    .task-check:hover{
+      border-color:var(--primary);
+    }
+
+    .task.completed .task-check{
+      background:var(--primary);
+      border-color:var(--primary);
+    }
+
+    .task-check svg{
+      width:14px;
+      height:14px;
+      opacity:0;
+    }
+
+    .task.completed .task-check svg{
+      opacity:1;
+    }
+
+    .task-content{
+      flex:1;
+      min-width:0;
+    }
+
+    .task-subject{
+      font-size:14px;
+      font-weight:700;
+
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .task.completed .task-subject{
+      text-decoration:line-through;
+    }
+
+    .task-detail{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:3px;
+    }
+
+    .task-time{
+      padding:6px 9px;
+
+      border-radius:9px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      font-size:11px;
+      font-weight:700;
+
+      white-space:nowrap;
+    }
+
+    .empty-day{
+      padding:28px;
+      text-align:center;
+      color:var(--muted);
+      background:var(--surface);
+    }
+
+    /* =========================
+       Empty dashboard
+    ========================= */
+
+    .empty-plan{
+      padding:50px 20px;
+
+      text-align:center;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      border-radius:23px;
+
+      box-shadow:var(--shadow);
+    }
+
+    .empty-plan-icon{
+      width:58px;
+      height:58px;
+
+      border-radius:18px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      display:grid;
+      place-items:center;
+
+      margin:0 auto 16px;
+    }
+
+    .empty-plan-icon svg{
+      width:27px;
+      height:27px;
+    }
+
+    .empty-plan h3{
+      font-size:18px;
+      margin-bottom:6px;
+    }
+
+    .empty-plan p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.8;
+    }
+
+    /* =========================
+       Tips
+    ========================= */
+
+    .tips-card{
+      margin-top:20px;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      border-radius:22px;
+
+      padding:22px;
+
+      box-shadow:var(--shadow);
+    }
+
+    .tips-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      margin-bottom:14px;
+    }
+
+    .tips-title-icon{
+      width:38px;
+      height:38px;
+
+      border-radius:12px;
+
+      background:var(--soft);
+      color:var(--primary);
+
+      display:grid;
+      place-items:center;
+    }
+
+    .tips-title-icon svg{
+      width:19px;
+      height:19px;
+    }
+
+    .tips-title strong{
+      font-size:14px;
+    }
+
+    .tips-list{
+      display:grid;
+      gap:9px;
+    }
+
+    .tip{
+      display:flex;
+      gap:9px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .tip-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--primary);
+      margin-top:8px;
+      flex:none;
+    }
+
+    /* =========================
+       Toast
+    ========================= */
+
+    .toast{
+      position:fixed;
+
+      bottom:22px;
+      right:22px;
+
+      max-width:330px;
+
+      padding:13px 17px;
+
+      background:var(--text);
+      color:var(--bg);
+
+      border-radius:14px;
+
+      font-size:12px;
+      font-weight:600;
+
+      box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+      transform:translateY(20px);
+      opacity:0;
+      pointer-events:none;
+
+      transition:.25s;
+
+      z-index:1000;
+    }
+
+    .toast.show{
+      transform:translateY(0);
+      opacity:1;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer{
+      margin-top:70px;
+
+      border-top:1px solid var(--border);
+
+      padding:30px 0 25px;
+
+      text-align:center;
+    }
+
+    .footer-brand{
+      font-size:16px;
+      font-weight:700;
+      margin-bottom:7px;
+    }
+
+    .footer-text{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .developer{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+
+      margin-top:13px;
+
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .developer a{
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media(max-width:850px){
+
+      .setup-grid{
+        grid-template-columns:1fr;
+      }
+
+      .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:650px){
+
+      .container{
+        width:min(100% - 22px,1120px);
+      }
+
+      header{
+        padding:10px 0;
+      }
+
+      .hero{
+        padding:42px 0 25px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .brand-text span{
+        display:none;
+      }
+
+      .setup-card{
+        padding:20px;
+      }
+
+      .days-grid{
+        grid-template-columns:repeat(4,1fr);
+      }
+
+      .day-label{
+        height:47px;
+        font-size:12px;
+      }
+
+      .subjects-list{
+        grid-template-columns:1fr;
+      }
+
+      .subject-input-row{
+        grid-template-columns:1fr;
+      }
+
+      .add-subject-btn{
+        height:48px;
+      }
+
+      .generate-wrap{
+        flex-direction:column;
+      }
+
+      .reset-btn{
+        width:100%;
+      }
+
+      .stats-grid{
+        grid-template-columns:1fr 1fr;
+        gap:9px;
+      }
+
+      .stat-card{
+        padding:15px;
+      }
+
+      .stat-value{
+        font-size:21px;
+      }
+
+      .day-header{
+        padding:14px;
+      }
+
+      .day-hours{
+        display:none;
+      }
+
+      .task{
+        padding:14px;
+        gap:10px;
+      }
+
+      .task-time{
+        font-size:10px;
+        padding:5px 7px;
+      }
+
+      .task-subject{
+        font-size:13px;
+      }
+
+      .tabs{
+        margin-bottom:14px;
+      }
+
+      .tab{
+        font-size:12px;
+      }
+
+      .toast{
+        right:11px;
+        left:11px;
+        bottom:15px;
+        max-width:none;
+        text-align:center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       Header
+  ========================= -->
+
+  <header>
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8M8 10h8"/>
+          </svg>
+
+        </div>
+
+        <div class="brand-text">
+
+          <strong>مساعد توجيهي</strong>
+
+          <span>
+            رفيقك في طريق التوجيهي
+          </span>
+
+        </div>
+
+      </a>
+
+      <div class="header-actions">
+
+        <a
+          href="index.html"
+          class="back-btn"
+          aria-label="العودة"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+
+        </a>
+
+        <button
+          class="theme-btn"
+          id="themeBtn"
+          aria-label="تغيير المظهر"
+        ></button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         Hero
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-badge">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 2"/>
+          </svg>
+
+          خطة الدراسة
+
+        </div>
+
+        <h1>
+          رتّب
+          <span>دراستك</span>
+          وخلّيك ملتزم
+        </h1>
+
+        <p>
+          حدد موادك وعدد ساعات دراستك، وخلي مساعد توجيهي
+          يبني لك خطة يومية وأسبوعية تساعدك تلتزم وتتابع إنجازك.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Setup
+    ========================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-title">
+
+            <h2>أنشئ خطتك</h2>
+
+            <p>
+              أدخل معلوماتك الدراسية حتى نبني الخطة المناسبة إلك
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="setup-card">
+
+          <div class="setup-grid">
+
+            <!-- Hours -->
+
+            <div>
+
+              <div class="field">
+
+                <label class="field-label">
+                  كم ساعة بتدرس يوميًا؟
+                </label>
+
+                <div class="hours-control">
+
+                  <input
+                    type="number"
+                    id="studyHours"
+                    class="input"
+                    min="1"
+                    max="16"
+                    step="0.5"
+                    value="4"
+                  >
+
+                  <span class="hours-label">
+                    ساعة يوميًا
+                  </span>
+
+                </div>
+
+                <div class="field-help">
+                  يفضل تحديد عدد ساعات واقعي تقدر تلتزم فيه يوميًا.
+                </div>
+
+              </div>
+
+
+              <!-- Days -->
+
+              <div class="field">
+
+                <label class="field-label">
+                  أيام الدراسة
+                </label>
+
+                <div class="days-grid">
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الأحد" checked>
+                    <span class="day-label">الأحد</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الاثنين" checked>
+                    <span class="day-label">الاثنين</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الثلاثاء" checked>
+                    <span class="day-label">الثلاثاء</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الأربعاء" checked>
+                    <span class="day-label">الأربعاء</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الخميس" checked>
+                    <span class="day-label">الخميس</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="الجمعة">
+                    <span class="day-label">الجمعة</span>
+                  </label>
+
+                  <label class="day-option">
+                    <input type="checkbox" value="السبت">
+                    <span class="day-label">السبت</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Information -->
+
+            <div>
+
+              <div class="field">
+
+                <label class="field-label">
+                  مدة الجلسة الدراسية
+                </label>
+
+                <select
+                  id="sessionLength"
+                  class="input"
+                >
+
+                  <option value="30">
+                    30 دقيقة
+                  </option>
+
+                  <option value="45">
+                    45 دقيقة
+                  </option>
+
+                  <option value="60" selected>
+                    ساعة
+                  </option>
+
+                  <option value="90">
+                    ساعة ونصف
+                  </option>
+
+                  <option value="120">
+                    ساعتين
+                  </option>
+
+                </select>
+
+                <div class="field-help">
+                  الخطة ستقسم ساعاتك إلى جلسات حسب هذا الاختيار.
+                </div>
+
+              </div>
+
+
+              <div class="field">
+
+                <label class="field-label">
+                  اسم الخطة
+                </label>
+
+                <input
+                  id="planName"
+                  class="input"
+                  type="text"
+                  placeholder="مثال: خطة التوجيهي"
+                  value="خطة دراستي"
+                >
+
+                <div class="field-help">
+                  هذا الاسم يظهر أعلى خطتك.
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Subjects -->
+
+          <div class="subjects-box">
+
+            <div class="subjects-head">
+
+              <strong>
+                المواد الدراسية
+              </strong>
+
+              <span id="subjectsCount">
+                0 مواد
+              </span>
+
+            </div>
+
+
+            <div class="subject-input-row">
+
+              <input
+                id="subjectInput"
+                class="input"
+                type="text"
+                placeholder="اكتب اسم المادة، مثال: رياضيات"
+              >
+
+              <button
+                class="add-subject-btn"
+                id="addSubjectBtn"
+              >
+                إضافة مادة
+              </button>
+
+            </div>
+
+
+            <div
+              class="subjects-list"
+              id="subjectsList"
+            >
+
+              <div class="empty-subjects">
+                أضف المواد التي بدك تدرسها حتى يتم إنشاء الخطة.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="generate-wrap">
+
+            <button
+              class="generate-btn"
+              id="generateBtn"
+            >
+              إنشاء خطة الدراسة
+            </button>
+
+            <button
+              class="reset-btn"
+              id="resetBtn"
+            >
+              إعادة ضبط
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Dashboard
+    ========================= -->
+
+    <section
+      class="section dashboard"
+      id="dashboard"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-title">
+
+            <h2 id="planTitle">
+              خطة دراستي
+            </h2>
+
+            <p>
+              تابع تقدمك والتزم بخطتك يومًا بعد يوم
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Stats -->
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+
+            <div class="stat-top">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+
+              </div>
+
+              <div class="stat-label">
+                ساعات اليوم
+              </div>
+
+            </div>
+
+            <div
+              class="stat-value"
+              id="todayHours"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-top">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12l4 4L19 6"/>
+                </svg>
+
+              </div>
+
+              <div class="stat-label">
+                المهام المكتملة
+              </div>
+
+            </div>
+
+            <div
+              class="stat-value"
+              id="completedCount"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-top">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                </svg>
+
+              </div>
+
+              <div class="stat-label">
+                عدد المواد
+              </div>
+
+            </div>
+
+            <div
+              class="stat-value"
+              id="planSubjectsCount"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-top">
+
+              <div class="stat-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 12a8 8 0 1 1-2.34-5.66"/>
+                  <path d="M20 4v6h-6"/>
+                </svg>
+
+              </div>
+
+              <div class="stat-label">
+                نسبة الإنجاز
+              </div>
+
+            </div>
+
+            <div
+              class="stat-value"
+              id="progressValue"
+            >
+              0%
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Progress -->
+
+        <div class="progress-card">
+
+          <div class="progress-head">
+
+            <strong>
+              تقدم الخطة
+            </strong>
+
+            <span
+              class="progress-percent"
+              id="progressPercent"
+            >
+              0%
+            </span>
+
+          </div>
+
+          <div class="progress-track">
+
+            <div
+              class="progress-fill"
+              id="progressFill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Tabs -->
+
+        <div class="tabs">
+
+          <button
+            class="tab active"
+            data-tab="today"
+          >
+            خطة اليوم
+          </button>
+
+          <button
+            class="tab"
+            data-tab="week"
+          >
+            الخطة الأسبوعية
+          </button>
+
+        </div>
+
+
+        <!-- Today -->
+
+        <div
+          class="plan-view active"
+          id="todayView"
+        >
+
+          <div class="today-title">
+
+            <h2 id="todayHeading">
+              خطة اليوم
+            </h2>
+
+            <p id="todayDescription">
+              المهام المطلوبة منك اليوم
+            </p>
+
+          </div>
+
+          <div id="todayTasks"></div>
+
+        </div>
+
+
+        <!-- Week -->
+
+        <div
+          class="plan-view"
+          id="weekView"
+        >
+
+          <div id="weeklyPlan"></div>
+
+        </div>
+
+
+        <!-- Tips -->
+
+        <div class="tips-card">
+
+          <div class="tips-title">
+
+            <div class="tips-title-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5C14.5 15.3 14 16.2 14 17H10c0-.8-.5-1.7-1.5-2.5Z"/>
+              </svg>
+
+            </div>
+
+            <strong>
+              نصائح للاستفادة من الخطة
+            </strong>
+
+          </div>
+
+
+          <div class="tips-list">
+
+            <div class="tip">
+              <span class="tip-dot"></span>
+              <span>
+                لا تحاول تعويض يوم كامل من الدراسة في جلسة واحدة؛ الاستمرارية أهم.
+              </span>
+            </div>
+
+            <div class="tip">
+              <span class="tip-dot"></span>
+              <span>
+                علّم المهمة كمكتملة مباشرة بعد إنهائها حتى تعرف مستواك الحقيقي.
+              </span>
+            </div>
+
+            <div class="tip">
+              <span class="tip-dot"></span>
+              <span>
+                إذا كانت الخطة أصعب من قدرتك، قلل الساعات بدل ما تترك الخطة بالكامل.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Toast -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-brand">
+        مساعد توجيهي
+      </div>
+
+      <div class="footer-text">
+        منصتك التعليمية لمساعدتك في رحلتك الدراسية
+      </div>
+
+      <div class="developer">
+
+        <span>
+          برمجة وتصميم
+        </span>
+
+        <a
+          href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          عبدالله جهاد
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       Storage
+    ========================= */
+
+    const STORAGE_KEY = "tawjihi-study-plan";
+
+
+    /* =========================
+       Elements
+    ========================= */
+
+    const subjectInput =
+      document.getElementById("subjectInput");
+
+    const addSubjectBtn =
+      document.getElementById("addSubjectBtn");
+
+    const subjectsList =
+      document.getElementById("subjectsList");
+
+    const subjectsCount =
+      document.getElementById("subjectsCount");
+
+    const studyHours =
+      document.getElementById("studyHours");
+
+    const sessionLength =
+      document.getElementById("sessionLength");
+
+    const planName =
+      document.getElementById("planName");
+
+    const generateBtn =
+      document.getElementById("generateBtn");
+
+    const resetBtn =
+      document.getElementById("resetBtn");
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    const todayTasks =
+      document.getElementById("todayTasks");
+
+    const weeklyPlan =
+      document.getElementById("weeklyPlan");
+
+
+    /* =========================
+       Data
+    ========================= */
+
+    let subjects = [];
+
+    let plan = null;
+
+
+    const days = [
+      "الأحد",
+      "الاثنين",
+      "الثلاثاء",
+      "الأربعاء",
+      "الخميس",
+      "الجمعة",
+      "السبت"
+    ];
+
+
+    /* =========================
+       Icons
+    ========================= */
+
+    function checkIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+        >
+          <path d="M5 12l4 4L19 6"/>
+        </svg>
+      `;
+
+    }
+
+
+    /* =========================
+       Toast
+    ========================= */
+
+    let toastTimer;
+
+    function showToast(message){
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer =
+        setTimeout(() => {
+
+          toast.classList.remove("show");
+
+        },2500);
+
+    }
+
+
+    /* =========================
+       Theme
+    ========================= */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+
+    function sunIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="M4.93 4.93l1.41 1.41"/>
+          <path d="M17.66 17.66l1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="M4.93 19.07l1.41-1.41"/>
+          <path d="M17.66 6.34l1.41-1.41"/>
+        </svg>
+      `;
+
+    }
+
+
+    function moonIcon(){
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
+        </svg>
+      `;
+
+    }
+
+
+    function updateThemeButton(){
+
+      const dark =
+        document.body.classList.contains("dark");
+
+      themeBtn.innerHTML =
+        dark
+          ? sunIcon()
+          : moonIcon();
+
+    }
+
+
+    const savedTheme =
+      localStorage.getItem("tawjihi-theme");
+
+
+    if(savedTheme === "dark"){
+
+      document.body.classList.add("dark");
+
+    }
+
+
+    updateThemeButton();
+
+
+    themeBtn.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle("dark");
+
+        const dark =
+          document.body.classList.contains("dark");
+
+        localStorage.setItem(
+          "tawjihi-theme",
+          dark
+            ? "dark"
+            : "light"
+        );
+
+        updateThemeButton();
+
+      }
+    );
+
+
+    /* =========================
+       Subjects
+    ========================= */
+
+    function renderSubjects(){
+
+      subjectsCount.textContent =
+        `${subjects.length} مواد`;
+
+
+      if(!subjects.length){
+
+        subjectsList.innerHTML = `
+          <div class="empty-subjects">
+            أضف المواد التي بدك تدرسها حتى يتم إنشاء الخطة.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      subjectsList.innerHTML =
+        subjects.map((subject,index) => {
+
+          const priorityText =
+            subject.priority === "high"
+              ? "أولوية عالية"
+              : subject.priority === "low"
+                ? "أولوية منخفضة"
+                : "أولوية متوسطة";
+
+
+          return `
+
+            <div class="subject-item">
+
+              <div class="subject-info">
+
+                <div class="subject-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                  </svg>
+
+                </div>
+
+                <div>
+
+                  <div class="subject-name">
+                    ${escapeHtml(subject.name)}
+                  </div>
+
+                  <div class="priority">
+                    ${priorityText}
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <button
+                class="remove-subject"
+                data-index="${index}"
+                aria-label="حذف المادة"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M3 6h18"/>
+                  <path d="M8 6V4h8v2"/>
+                  <path d="M19 6l-1 15H6L5 6"/>
+                  <path d="M10 11v6"/>
+                  <path d="M14 11v6"/>
+                </svg>
+
+              </button>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+
+      document
+        .querySelectorAll(".remove-subject")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const index =
+                Number(button.dataset.index);
+
+              subjects.splice(index,1);
+
+              saveSetup();
+
+              renderSubjects();
+
+            }
+          );
+
+        });
+
+    }
+
+
+    function addSubject(){
+
+      const name =
+        subjectInput.value.trim();
+
+
+      if(!name){
+
+        showToast("اكتب اسم المادة أولاً");
+
+        subjectInput.focus();
+
+        return;
+
+      }
+
+
+      const exists =
+        subjects.some(
+          subject =>
+            subject.name.toLowerCase() ===
+            name.toLowerCase()
+        );
+
+
+      if(exists){
+
+        showToast("هاي المادة مضافة بالفعل");
+
+        subjectInput.select();
+
+        return;
+
+      }
+
+
+      subjects.push({
+
+        id:
+          Date.now() +
+          "-" +
+          Math.random()
+            .toString(36)
+            .slice(2),
+
+        name:name,
+
+        priority:"medium"
+
+      });
+
+
+      subjectInput.value = "";
+
+      saveSetup();
+
+      renderSubjects();
+
+      subjectInput.focus();
+
+    }
+
+
+    addSubjectBtn.addEventListener(
+      "click",
+      addSubject
+    );
+
+
+    subjectInput.addEventListener(
+      "keydown",
+      event => {
+
+        if(event.key === "Enter"){
+
+          event.preventDefault();
+
+          addSubject();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       Setup Storage
+    ========================= */
+
+    function getSelectedDays(){
+
+      return [
+        ...document.querySelectorAll(
+          ".day-option input:checked"
+        )
+      ].map(input => input.value);
+
+    }
+
+
+    function saveSetup(){
+
+      const setup = {
+
+        subjects:subjects,
+
+        hours:Number(studyHours.value) || 4,
+
+        sessionLength:
+          Number(sessionLength.value) || 60,
+
+        planName:
+          planName.value.trim() ||
+          "خطة دراستي",
+
+        selectedDays:
+          getSelectedDays()
+
+      };
+
+
+      const existing =
+        loadStorage();
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+
+          setup:setup,
+
+          plan:
+            existing
+              ? existing.plan
+              : null
+
+        })
+      );
+
+    }
+
+
+    function loadStorage(){
+
+      try{
+
+        const raw =
+          localStorage.getItem(STORAGE_KEY);
+
+        if(!raw){
+          return null;
+        }
+
+        return JSON.parse(raw);
+
+      }catch(error){
+
+        console.error(error);
+
+        return null;
+
+      }
+
+    }
+
+
+    function loadSavedData(){
+
+      const saved =
+        loadStorage();
+
+
+      if(!saved){
+        renderSubjects();
+        return;
+      }
+
+
+      if(saved.setup){
+
+        subjects =
+          Array.isArray(
+            saved.setup.subjects
+          )
+            ? saved.setup.subjects
+            : [];
+
+
+        studyHours.value =
+          saved.setup.hours || 4;
+
+
+        sessionLength.value =
+          saved.setup.sessionLength || 60;
+
+
+        planName.value =
+          saved.setup.planName ||
+          "خطة دراستي";
+
+
+        const selectedDays =
+          Array.isArray(
+            saved.setup.selectedDays
+          )
+            ? saved.setup.selectedDays
+            : days.slice(0,5);
+
+
+        document
+          .querySelectorAll(
+            ".day-option input"
+          )
+          .forEach(input => {
+
+            input.checked =
+              selectedDays.includes(
+                input.value
+              );
+
+          });
+
+      }
+
+
+      if(saved.plan){
+
+        plan =
+          saved.plan;
+
+        showDashboard();
+
+      }
+
+
+      renderSubjects();
+
+    }
+
+
+    /* =========================
+       Escape
+    ========================= */
+
+    function escapeHtml(value){
+
+      return String(value)
+
+        .replaceAll("&","&amp;")
+
+        .replaceAll("<","&lt;")
+
+        .replaceAll(">","&gt;")
+
+        .replaceAll('"',"&quot;")
+
+        .replaceAll("'","&#039;");
+
+    }
+
+
+    /* =========================
+       Date helpers
+    ========================= */
+
+    function getJordanDay(){
+
+      const formatter =
+        new Intl.DateTimeFormat(
+          "ar-JO",
+          {
+            timeZone:"Asia/Amman",
+            weekday:"long"
+          }
+        );
+
+      const date =
+        new Date();
+
+      const day =
+        formatter.format(date);
+
+      const clean =
+        day
+          .replace("،","")
+          .trim();
+
+
+      const map = {
+
+        "الأحد":"الأحد",
+        "الإثنين":"الاثنين",
+        "الاثنين":"الاثنين",
+        "الثلاثاء":"الثلاثاء",
+        "الأربعاء":"الأربعاء",
+        "الخميس":"الخميس",
+        "الجمعة":"الجمعة",
+        "السبت":"السبت"
+
+      };
+
+
+      return map[clean] || clean;
+
+    }
+
+
+    function formatDate(dateString){
+
+      const date =
+        new Date(dateString);
+
+
+      if(Number.isNaN(date.getTime())){
+        return "";
+      }
+
+
+      return new Intl.DateTimeFormat(
+        "ar-JO",
+        {
+          day:"numeric",
+          month:"long"
+        }
+      ).format(date);
+
+    }
+
+
+    function getNextSelectedDays(selectedDays){
+
+      const today =
+        getJordanDay();
+
+
+      const todayIndex =
+        days.indexOf(today);
+
+
+      const result = [];
+
+
+      for(let i=0;i<7;i++){
+
+        const index =
+          (todayIndex + i) % 7;
+
+        const day =
+          days[index];
+
+
+        if(selectedDays.includes(day)){
+
+          result.push(day);
+
+        }
+
+      }
+
+
+      return result;
+
+    }
+
+
+    /* =========================
+       Generate Plan
+    ========================= */
+
+    function generatePlan(){
+
+      const hours =
+        Number(studyHours.value);
+
+
+      const session =
+        Number(sessionLength.value);
+
+
+      const selectedDays =
+        getSelectedDays();
+
+
+      if(!subjects.length){
+
+        showToast("أضف مادة واحدة على الأقل");
+
+        return;
+
+      }
+
+
+      if(!hours || hours < 1){
+
+        showToast("حدد عدد ساعات صحيح");
+
+        studyHours.focus();
+
+        return;
+
+      }
+
+
+      if(!selectedDays.length){
+
+        showToast("حدد يوم دراسة واحد على الأقل");
+
+        return;
+
+      }
+
+
+      saveSetup();
+
+
+      const sessionsPerDay =
+        Math.max(
+          1,
+          Math.round(
+            (hours * 60) / session
+          )
+        );
+
+
+      const totalMinutesPerDay =
+        hours * 60;
+
+
+      const weekDays =
+        getNextSelectedDays(
+          selectedDays
+        );
+
+
+      const tasks = [];
+
+
+      let subjectIndex = 0;
+
+
+      for(let dayIndex=0;dayIndex<weekDays.length;dayIndex++){
+
+        const dayName =
+          weekDays[dayIndex];
+
+
+        let remaining =
+          totalMinutesPerDay;
+
+
+        let sessionIndex = 0;
+
+
+        while(remaining > 0){
+
+          const currentSession =
+            Math.min(
+              session,
+              remaining
+            );
+
+
+          const subject =
+            subjects[
+              subjectIndex %
+              subjects.length
+            ];
+
+
+          const task = {
+
+            id:
+              Date.now() +
+              "-" +
+              dayIndex +
+              "-" +
+              sessionIndex +
+              "-" +
+              Math.random()
+                .toString(36)
+                .slice(2),
+
+            day:dayName,
+
+            subjectId:
+              subject.id,
+
+            subject:
+              subject.name,
+
+            minutes:
+              currentSession,
+
+            completed:false
+
+          };
+
+
+          tasks.push(task);
+
+
+          subjectIndex++;
+
+
+          sessionIndex++;
+
+
+          remaining -=
+            currentSession;
+
+        }
+
+      }
+
+
+      plan = {
+
+        createdAt:
+          new Date().toISOString(),
+
+        days:
+          weekDays,
+
+        hours:hours,
+
+        sessionLength:session,
+
+        tasks:tasks
+
+      };
+
+
+      savePlan();
+
+
+      showDashboard();
+
+
+      showToast(
+        "تم إنشاء خطة الدراسة بنجاح"
+      );
+
+
+      setTimeout(() => {
+
+        dashboard.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      },100);
+
+    }
+
+
+    function savePlan(){
+
+      const existing =
+        loadStorage();
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+
+          setup:{
+            subjects:subjects,
+
+            hours:
+              Number(studyHours.value),
+
+            sessionLength:
+              Number(sessionLength.value),
+
+            planName:
+              planName.value.trim() ||
+              "خطة دراستي",
+
+            selectedDays:
+              getSelectedDays()
+
+          },
+
+          plan:plan
+
+        })
+      );
+
+    }
+
+
+    /* =========================
+       Dashboard
+    ========================= */
+
+    function showDashboard(){
+
+      if(!plan){
+
+        dashboard.classList.remove("show");
+
+        return;
+
+      }
+
+
+      dashboard.classList.add("show");
+
+
+      document.getElementById(
+        "planTitle"
+      ).textContent =
+        planName.value.trim() ||
+        "خطة دراستي";
+
+
+      updateStats();
+
+      renderToday();
+
+      renderWeek();
+
+    }
+
+
+    /* =========================
+       Stats
+    ========================= */
+
+    function updateStats(){
+
+      if(!plan){
+        return;
+      }
+
+
+      const today =
+        getJordanDay();
+
+
+      const todayTasks =
+        plan.tasks.filter(
+          task =>
+            task.day === today
+        );
+
+
+      const todayMinutes =
+        todayTasks.reduce(
+          (sum,task) =>
+            sum + task.minutes,
+          0
+        );
+
+
+      const completed =
+        plan.tasks.filter(
+          task =>
+            task.completed
+        ).length;
+
+
+      const total =
+        plan.tasks.length;
+
+
+      const percentage =
+        total
+          ? Math.round(
+              (completed / total) * 100
+            )
+          : 0;
+
+
+      document.getElementById(
+        "todayHours"
+      ).textContent =
+        formatMinutes(
+          todayMinutes
+        );
+
+
+      document.getElementById(
+        "completedCount"
+      ).textContent =
+        `${completed}/${total}`;
+
+
+      document.getElementById(
+        "planSubjectsCount"
+      ).textContent =
+        subjects.length;
+
+
+      document.getElementById(
+        "progressValue"
+      ).textContent =
+        `${percentage}%`;
+
+
+      document.getElementById(
+        "progressPercent"
+      ).textContent =
+        `${percentage}%`;
+
+
+      document.getElementById(
+        "progressFill"
+      ).style.width =
+        `${percentage}%`;
+
+    }
+
+
+    function formatMinutes(minutes){
+
+      if(minutes < 60){
+
+        return `${minutes} د`;
+
+      }
+
+
+      const hours =
+        Math.floor(minutes / 60);
+
+      const mins =
+        minutes % 60;
+
+
+      if(mins === 0){
+
+        return `${hours} س`;
+
+      }
+
+
+      return `${hours} س ${mins} د`;
+
+    }
+
+
+    /* =========================
+       Render Task
+    ========================= */
+
+    function taskHtml(task){
+
+      return `
+
+        <div
+          class="task ${task.completed ? "completed" : ""}"
+        >
+
+          <button
+            class="task-check"
+            data-task-id="${task.id}"
+            aria-label="تحديد المهمة كمكتملة"
+          >
+            ${checkIcon()}
+          </button>
+
+
+          <div class="task-content">
+
+            <div class="task-subject">
+              ${escapeHtml(task.subject)}
+            </div>
+
+            <div class="task-detail">
+              جلسة دراسة
+            </div>
+
+          </div>
+
+
+          <div class="task-time">
+            ${formatMinutes(task.minutes)}
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function attachTaskEvents(){
+
+      document
+        .querySelectorAll(".task-check")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const id =
+                button.dataset.taskId;
+
+
+              const task =
+                plan.tasks.find(
+                  item =>
+                    item.id === id
+                );
+
+
+              if(!task){
+                return;
+              }
+
+
+              task.completed =
+                !task.completed;
+
+
+              savePlan();
+
+
+              updateStats();
+
+              renderToday();
+
+              renderWeek();
+
+
+              if(task.completed){
+
+                showToast(
+                  "ممتاز، تم إنجاز المهمة"
+                );
+
+              }
+
+            }
+          );
+
+        });
+
+    }
+
+
+    /* =========================
+       Today
+    ========================= */
+
+    function renderToday(){
+
+      const today =
+        getJordanDay();
+
+
+      const tasks =
+        plan.tasks.filter(
+          task =>
+            task.day === today
+        );
+
+
+      document.getElementById(
+        "todayHeading"
+      ).textContent =
+        `خطة ${today}`;
+
+
+      document.getElementById(
+        "todayDescription"
+      ).textContent =
+        tasks.length
+          ? "هاي مهامك الدراسية لليوم"
+          : "ما عندك مهام مجدولة لهذا اليوم";
+
+
+      if(!tasks.length){
+
+        todayTasks.innerHTML = `
+
+          <div class="empty-plan">
+
+            <div class="empty-plan-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12l4 4L19 6"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              يوم هادئ
+            </h3>
+
+            <p>
+              ما عندك دراسة مجدولة اليوم حسب الخطة الحالية.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      todayTasks.innerHTML = `
+
+        <div class="day-plan">
+
+          <div class="day-header">
+
+            <div class="day-header-main">
+
+              <div class="day-number">
+                ${tasks.length}
+              </div>
+
+              <div>
+
+                <div class="day-name">
+                  مهام اليوم
+                </div>
+
+                <div class="day-date">
+                  ${formatMinutes(
+                    tasks.reduce(
+                      (sum,t) =>
+                        sum + t.minutes,
+                      0
+                    )
+                  )}
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="day-hours">
+              ${tasks.filter(t => t.completed).length}
+              مكتملة
+            </div>
+
+          </div>
+
+
+          <div class="tasks">
+
+            ${tasks.map(taskHtml).join("")}
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      attachTaskEvents();
+
+    }
+
+
+    /* =========================
+       Weekly
+    ========================= */
+
+    function renderWeek(){
+
+      if(!plan){
+        return;
+      }
+
+
+      const html =
+        plan.days.map(
+          (day,dayIndex) => {
+
+            const tasks =
+              plan.tasks.filter(
+                task =>
+                  task.day === day
+              );
+
+
+            const totalMinutes =
+              tasks.reduce(
+                (sum,task) =>
+                  sum + task.minutes,
+                0
+              );
+
+
+            const completed =
+              tasks.filter(
+                task =>
+                  task.completed
+              ).length;
+
+
+            return `
+
+              <div class="day-plan">
+
+                <div class="day-header">
+
+                  <div class="day-header-main">
+
+                    <div class="day-number">
+                      ${dayIndex + 1}
+                    </div>
+
+                    <div>
+
+                      <div class="day-name">
+                        ${day}
+                      </div>
+
+                      <div class="day-date">
+                        ${tasks.length}
+                        مهام
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="day-hours">
+
+                    ${formatMinutes(totalMinutes)}
+
+                    ·
+
+                    ${completed}/${tasks.length}
+
+                  </div>
+
+                </div>
+
+
+                <div class="tasks">
+
+                  ${
+                    tasks.length
+                      ? tasks.map(taskHtml).join("")
+                      : `
+                        <div class="empty-day">
+                          لا توجد مهام في هذا اليوم.
+                        </div>
+                      `
+                  }
+
+                </div>
+
+              </div>
+
+            `;
+
+          }
+        ).join("");
+
+
+      weeklyPlan.innerHTML =
+        html;
+
+
+      attachTaskEvents();
+
+    }
+
+
+    /* =========================
+       Tabs
+    ========================= */
+
+    document
+      .querySelectorAll(".tab")
+      .forEach(tab => {
+
+        tab.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(".tab")
+              .forEach(item => {
+
+                item.classList.remove(
+                  "active"
+                );
+
+              });
+
+
+            tab.classList.add("active");
+
+
+            document
+              .querySelectorAll(".plan-view")
+              .forEach(view => {
+
+                view.classList.remove(
+                  "active"
+                );
+
+              });
+
+
+            const target =
+              tab.dataset.tab;
+
+
+            if(target === "today"){
+
+              document
+                .getElementById("todayView")
+                .classList.add("active");
+
+            }else{
+
+              document
+                .getElementById("weekView")
+                .classList.add("active");
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* =========================
+       Generate
+    ========================= */
+
+    generateBtn.addEventListener(
+      "click",
+      generatePlan
+    );
+
+
+    /* =========================
+       Reset
+    ========================= */
+
+    resetBtn.addEventListener(
+      "click",
+      () => {
+
+        const confirmed =
+          confirm(
+            "هل أنت متأكد أنك تريد حذف الخطة والمواد المحفوظة؟"
+          );
+
+
+        if(!confirmed){
+          return;
+        }
+
+
+        subjects = [];
+
+        plan = null;
+
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+
+        studyHours.value = 4;
+
+        sessionLength.value = 60;
+
+        planName.value =
+          "خطة دراستي";
+
+
+        document
+          .querySelectorAll(
+            ".day-option input"
+          )
+          .forEach((input,index) => {
+
+            input.checked =
+              index < 5;
+
+          });
+
+
+        renderSubjects();
+
+
+        dashboard.classList.remove(
+          "show"
+        );
+
+
+        showToast(
+          "تم إعادة ضبط الخطة"
+        );
+
+      }
+    );
+
+
+    /* =========================
+       Auto Save Inputs
+    ========================= */
+
+    studyHours.addEventListener(
+      "change",
+      saveSetup
+    );
+
+
+    sessionLength.addEventListener(
+      "change",
+      saveSetup
+    );
+
+
+    planName.addEventListener(
+      "input",
+      () => {
+
+        saveSetup();
+
+        if(plan){
+
+          document.getElementById(
+            "planTitle"
+          ).textContent =
+            planName.value.trim() ||
+            "خطة دراستي";
+
+        }
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        ".day-option input"
+      )
+      .forEach(input => {
+
+        input.addEventListener(
+          "change",
+          saveSetup
+        );
+
+      });
+
+
+    /* =========================
+       Load
+    ========================= */
+
+    loadSavedData();
+
+  </script>
+
+</body>
+</html>
