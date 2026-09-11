@@ -1,2518 +1,2727 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>توجيهي 2010 | مساعد توجيهي</title>
-
-<meta
-name="description"
-content="مواد وملفات وأقسام توجيهي 2010 - مساعد توجيهي."
->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
-rel="stylesheet"
->
-
-<style>
-
-:root{
---bg:#f5f8f7;
---surface:#fff;
---surface-2:#eef6f4;
---text:#14201e;
---muted:#6b7975;
---primary:#0f766e;
---primary-2:#14b8a6;
---soft:#e5f6f2;
---border:#dfe9e6;
---success:#16a34a;
---danger:#dc2626;
---warning:#d97706;
---shadow:0 18px 55px rgba(15,118,110,.09);
---radius:25px;
-}
-
-body.dark{
---bg:#09100f;
---surface:#101817;
---surface-2:#16211f;
---text:#f1f5f4;
---muted:#9aa9a5;
---primary:#2dd4bf;
---primary-2:#14b8a6;
---soft:rgba(20,184,166,.12);
---border:#253430;
---shadow:0 18px 55px rgba(0,0,0,.28);
-}
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:"IBM Plex Sans Arabic",sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.7;
-transition:.25s;
-}
-
-body.modal-open{
-overflow:hidden;
-}
-
-a{
-color:inherit;
-text-decoration:none;
-}
-
-button,input{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-.container{
-width:min(1150px,calc(100% - 30px));
-margin:auto;
-}
-
-/* =========================
-HEADER
-========================= */
-
-header{
-position:sticky;
-top:0;
-z-index:100;
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-background:color-mix(in srgb,var(--bg) 84%,transparent);
-border-bottom:1px solid var(--border);
-}
-
-.nav{
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-font-weight:700;
-font-size:19px;
-}
-
-.brand-icon{
-width:43px;
-height:43px;
-border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-box-shadow:0 10px 28px rgba(20,184,166,.22);
-}
-
-.brand-icon svg{
-width:23px;
-height:23px;
-}
-
-.nav-actions{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.back-home{
-height:42px;
-display:flex;
-align-items:center;
-gap:7px;
-padding:0 13px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-border-radius:13px;
-font-size:13px;
-font-weight:600;
-transition:.2s;
-}
-
-.back-home:hover{
-border-color:var(--primary);
-color:var(--primary);
-transform:translateY(-1px);
-}
-
-.back-home svg{
-width:17px;
-height:17px;
-}
-
-.theme-btn{
-width:42px;
-height:42px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-border-radius:13px;
-display:grid;
-place-items:center;
-transition:.2s;
-}
-
-.theme-btn:hover{
-border-color:var(--primary);
-transform:translateY(-1px);
-}
-
-.theme-btn svg{
-width:19px;
-height:19px;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-padding:65px 0 38px;
-position:relative;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-width:370px;
-height:370px;
-background:var(--primary);
-opacity:.055;
-filter:blur(85px);
-border-radius:50%;
-top:-40px;
-right:5%;
-pointer-events:none;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:28px;
-align-items:center;
-position:relative;
-}
-
-.hero-badge{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 13px;
-border-radius:999px;
-background:var(--soft);
-color:var(--primary);
-font-size:13px;
-font-weight:700;
-margin-bottom:18px;
-}
-
-.hero-badge span{
-width:7px;
-height:7px;
-border-radius:50%;
-background:var(--primary);
-box-shadow:0 0 0 5px color-mix(in srgb,var(--primary) 12%,transparent);
-}
-
-.hero h1{
-font-size:clamp(38px,5vw,59px);
-line-height:1.14;
-letter-spacing:-1.7px;
-margin-bottom:17px;
-}
-
-.hero h1 span{
-color:var(--primary);
-}
-
-.hero p{
-color:var(--muted);
-font-size:17px;
-max-width:680px;
-margin-bottom:25px;
-}
-
-/* =========================
-HERO CARD
-========================= */
-
-.hero-card{
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(145deg,var(--surface),var(--surface-2));
-border:1px solid var(--border);
-border-radius:31px;
-padding:31px;
-box-shadow:var(--shadow);
-}
-
-.hero-card::after{
-content:"";
-position:absolute;
-width:150px;
-height:150px;
-background:var(--primary);
-opacity:.06;
-border-radius:50%;
-left:-50px;
-bottom:-60px;
-}
-
-.hero-card-icon{
-width:59px;
-height:59px;
-border-radius:18px;
-display:grid;
-place-items:center;
-background:var(--soft);
-color:var(--primary);
-margin-bottom:20px;
-}
-
-.hero-card-icon svg{
-width:29px;
-height:29px;
-}
-
-.hero-card h3{
-font-size:23px;
-margin-bottom:8px;
-}
-
-.hero-card p{
-font-size:14px;
-margin:0;
-}
-
-.hero-mini{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:23px;
-}
-
-.hero-mini-item{
-padding:13px;
-border:1px solid var(--border);
-background:color-mix(in srgb,var(--surface) 75%,transparent);
-border-radius:15px;
-}
-
-.hero-mini-item strong{
-display:block;
-font-size:18px;
-color:var(--primary);
-}
-
-.hero-mini-item span{
-display:block;
-font-size:12px;
-color:var(--muted);
-}
-
-/* =========================
-SECTION
-========================= */
-
-section{
-margin-bottom:55px;
-}
-
-.section-head{
-display:flex;
-align-items:end;
-justify-content:space-between;
-gap:15px;
-margin-bottom:21px;
-}
-
-.section-title{
-font-size:28px;
-margin-bottom:4px;
-}
-
-.section-subtitle{
-color:var(--muted);
-font-size:14px;
-}
-
-/* =========================
-BREADCRUMB
-========================= */
-
-.breadcrumb{
-display:flex;
-align-items:center;
-gap:8px;
-color:var(--muted);
-font-size:13px;
-margin-bottom:15px;
-}
-
-.breadcrumb a{
-color:var(--primary);
-font-weight:600;
-}
-
-.breadcrumb svg{
-width:15px;
-height:15px;
-}
-
-/* =========================
-SUBJECTS
-========================= */
-
-.subjects{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-}
-
-.subject-card{
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:27px;
-padding:25px;
-box-shadow:var(--shadow);
-transition:.2s;
-cursor:pointer;
-position:relative;
-overflow:hidden;
-}
-
-.subject-card::after{
-content:"";
-position:absolute;
-width:120px;
-height:120px;
-border-radius:50%;
-background:var(--primary);
-opacity:.035;
-left:-40px;
-bottom:-55px;
-pointer-events:none;
-}
-
-.subject-card:hover{
-transform:translateY(-4px);
-border-color:var(--primary);
-box-shadow:0 20px 50px rgba(15,118,110,.12);
-}
-
-.subject-top{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-margin-bottom:18px;
-}
-
-.subject-icon{
-width:55px;
-height:55px;
-border-radius:17px;
-display:grid;
-place-items:center;
-background:var(--soft);
-color:var(--primary);
-}
-
-.subject-icon svg{
-width:27px;
-height:27px;
-}
-
-.subject-arrow{
-color:var(--muted);
-transition:.2s;
-}
-
-.subject-card:hover .subject-arrow{
-color:var(--primary);
-transform:translateX(-3px);
-}
-
-.subject-card h3{
-font-size:21px;
-margin-bottom:5px;
-}
-
-.subject-card p{
-color:var(--muted);
-font-size:13px;
-margin-bottom:17px;
-}
-
-.subject-info{
-display:flex;
-align-items:center;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.info-pill{
-display:inline-flex;
-align-items:center;
-gap:6px;
-padding:7px 10px;
-border-radius:11px;
-background:var(--soft);
-color:var(--primary);
-font-size:12px;
-font-weight:600;
-}
-
-.info-pill svg{
-width:15px;
-height:15px;
-}
-
-/* =========================
-LOADING
-========================= */
-
-.loading{
-grid-column:1/-1;
-text-align:center;
-padding:45px 20px;
-color:var(--muted);
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:22px;
-}
-
-.loader{
-width:28px;
-height:28px;
-border:3px solid var(--border);
-border-top-color:var(--primary);
-border-radius:50%;
-animation:spin .8s linear infinite;
-margin:0 auto 12px;
-}
-
-@keyframes spin{
-to{
-transform:rotate(360deg);
-}
-}
-
-.empty{
-grid-column:1/-1;
-text-align:center;
-padding:40px;
-color:var(--muted);
-background:var(--surface);
-border:1px dashed var(--border);
-border-radius:22px;
-}
-
-.empty strong{
-display:block;
-font-size:17px;
-color:var(--text);
-margin-bottom:5px;
-}
-
-.error-message{
-color:var(--danger)!important;
-}
-
-/* =========================
-SUBJECT MODAL
-========================= */
-
-.modal-overlay{
-position:fixed;
-inset:0;
-background:rgba(5,15,14,.62);
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
-z-index:500;
-display:none;
-align-items:center;
-justify-content:center;
-padding:16px;
-opacity:0;
-transition:.2s;
-}
-
-.modal-overlay.active{
-display:flex;
-opacity:1;
-}
-
-.subject-modal{
-width:min(720px,100%);
-max-height:calc(100vh - 32px);
-overflow-y:auto;
-background:var(--surface);
-border:1px solid var(--border);
-border-radius:29px;
-box-shadow:0 30px 90px rgba(0,0,0,.25);
-transform:translateY(15px) scale(.98);
-transition:.25s;
-}
-
-.modal-overlay.active .subject-modal{
-transform:translateY(0) scale(1);
-}
-
-.modal-header{
-padding:22px 23px 18px;
-border-bottom:1px solid var(--border);
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-position:sticky;
-top:0;
-background:var(--surface);
-z-index:3;
-}
-
-.modal-title-wrap{
-display:flex;
-align-items:center;
-gap:13px;
-min-width:0;
-}
-
-.modal-title-icon{
-width:47px;
-height:47px;
-flex:0 0 47px;
-border-radius:14px;
-background:var(--soft);
-color:var(--primary);
-display:grid;
-place-items:center;
-}
-
-.modal-title-icon svg{
-width:23px;
-height:23px;
-}
-
-.modal-title-text{
-min-width:0;
-}
-
-.modal-title-text h2{
-font-size:21px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-.modal-title-text p{
-color:var(--muted);
-font-size:12px;
-}
-
-.modal-close{
-width:38px;
-height:38px;
-flex:0 0 38px;
-border:1px solid var(--border);
-background:var(--surface-2);
-color:var(--text);
-border-radius:12px;
-display:grid;
-place-items:center;
-}
-
-.modal-close svg{
-width:18px;
-height:18px;
-}
-
-/* =========================
-SECTIONS
-========================= */
-
-.modal-content{
-padding:22px;
-}
-
-.content-label{
-font-size:14px;
-font-weight:700;
-margin-bottom:13px;
-}
-
-.sections-list{
-display:grid;
-gap:11px;
-}
-
-.section-card{
-width:100%;
-border:1px solid var(--border);
-background:var(--surface-2);
-color:var(--text);
-border-radius:17px;
-padding:15px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-text-align:right;
-transition:.2s;
-}
-
-.section-card:hover{
-border-color:var(--primary);
-background:var(--soft);
-transform:translateY(-1px);
-}
-
-.section-card-left{
-display:flex;
-align-items:center;
-gap:12px;
-min-width:0;
-}
-
-.section-card-icon{
-width:43px;
-height:43px;
-flex:0 0 43px;
-border-radius:13px;
-display:grid;
-place-items:center;
-background:var(--surface);
-color:var(--primary);
-}
-
-.section-card-icon svg{
-width:20px;
-height:20px;
-}
-
-.section-card-text{
-min-width:0;
-}
-
-.section-card-text strong{
-display:block;
-font-size:14px;
-margin-bottom:2px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-.section-card-text span{
-display:block;
-font-size:11px;
-color:var(--muted);
-}
-
-.section-card-arrow{
-color:var(--muted);
-}
-
-.section-card:hover .section-card-arrow{
-color:var(--primary);
-}
-
-/* =========================
-RESOURCE VIEW
-========================= */
-
-.resources-view{
-display:none;
-}
-
-.resources-view.active{
-display:block;
-}
-
-.resource-back{
-border:0;
-background:transparent;
-color:var(--primary);
-font-size:13px;
-font-weight:700;
-padding:0;
-margin-bottom:16px;
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.resource-title{
-font-size:20px;
-margin-bottom:3px;
-}
-
-.resource-subtitle{
-font-size:12px;
-color:var(--muted);
-margin-bottom:18px;
-}
-
-.resources-list{
-display:grid;
-gap:11px;
-}
-
-.resource-card{
-display:flex;
-align-items:center;
-gap:13px;
-padding:14px;
-border:1px solid var(--border);
-background:var(--surface-2);
-border-radius:17px;
-transition:.2s;
-}
-
-.resource-card:hover{
-border-color:var(--primary);
-background:var(--soft);
-transform:translateY(-1px);
-}
-
-.resource-icon{
-width:43px;
-height:43px;
-flex:0 0 43px;
-display:grid;
-place-items:center;
-border-radius:13px;
-background:var(--surface);
-color:var(--primary);
-}
-
-.resource-icon svg{
-width:21px;
-height:21px;
-}
-
-.resource-info{
-flex:1;
-min-width:0;
-}
-
-.resource-info strong{
-display:block;
-font-size:14px;
-margin-bottom:2px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-.resource-info span{
-font-size:11px;
-color:var(--muted);
-}
-
-.resource-open{
-display:flex;
-align-items:center;
-justify-content:center;
-width:38px;
-height:38px;
-border-radius:11px;
-background:var(--primary);
-color:#fff;
-flex:0 0 38px;
-}
-
-.resource-open svg{
-width:17px;
-height:17px;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-border-top:1px solid var(--border);
-padding:30px 0;
-color:var(--muted);
-text-align:center;
-font-size:13px;
-margin-top:30px;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:850px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.hero-card{
-display:none;
-}
-
-.subjects{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-.container{
-width:min(100% - 22px,1150px);
-}
-
-.hero{
-padding-top:43px;
-}
-
-.hero h1{
-font-size:37px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-.section-title{
-font-size:24px;
-}
-
-.back-home span{
-display:none;
-}
-
-.back-home{
-width:42px;
-justify-content:center;
-padding:0;
-}
-
-.modal-content{
-padding:17px;
-}
-
-.modal-header{
-padding:17px;
-}
-
-.subject-card{
-padding:22px;
-}
-
-}
-
-@media(max-width:390px){
-
-.hero h1{
-font-size:34px;
-}
-
-.subject-card h3{
-font-size:19px;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>2010 | مساعد توجيهي</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f8f7;
+      --surface:#ffffff;
+      --surface-2:#eef6f4;
+      --text:#14201e;
+      --muted:#6b7975;
+      --primary:#0f766e;
+      --primary-2:#14b8a6;
+      --soft:#e5f6f2;
+      --border:#dfe9e6;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --shadow:0 18px 55px rgba(15,118,110,.09);
+      --radius:25px;
+    }
+
+    body.dark{
+      --bg:#09100f;
+      --surface:#101817;
+      --surface-2:#16211f;
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary-2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:#253430;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"IBM Plex Sans Arabic",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      transition:.25s;
+    }
+
+    button,
+    input{
+      font-family:inherit;
+    }
+
+    button{
+      cursor:pointer;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 30px));
+      margin:auto;
+    }
+
+    /* Header */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      padding:12px 0;
+      background:rgba(245,248,247,.78);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--border);
+    }
+
+    body.dark header{
+      background:rgba(9,16,15,.78);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      min-width:0;
+    }
+
+    .brand-icon{
+      width:43px;
+      height:43px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      display:grid;
+      place-items:center;
+      color:white;
+      flex-shrink:0;
+      box-shadow:0 9px 25px rgba(15,118,110,.2);
+    }
+
+    .brand-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .brand-text{
+      line-height:1.15;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:16px;
+      font-weight:700;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .icon-btn{
+      width:43px;
+      height:43px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:var(--surface);
+      color:var(--text);
+      display:grid;
+      place-items:center;
+      transition:.2s;
+    }
+
+    .icon-btn:hover{
+      border-color:var(--primary);
+      color:var(--primary);
+      transform:translateY(-1px);
+    }
+
+    .icon-btn svg{
+      width:19px;
+      height:19px;
+    }
+
+    /* Hero */
+
+    .hero{
+      padding:38px 0 22px;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:20px;
+      transition:.2s;
+    }
+
+    .back-btn:hover{
+      color:var(--primary);
+    }
+
+    .back-btn svg{
+      width:17px;
+      height:17px;
+    }
+
+    .hero-box{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 35%),
+        var(--surface);
+      padding:32px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-box::after{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      left:-80px;
+      bottom:-90px;
+      border-radius:50%;
+      background:rgba(20,184,166,.07);
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background:var(--soft);
+      color:var(--primary);
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:14px;
+    }
+
+    .badge-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--primary-2);
+    }
+
+    .hero h1{
+      font-size:clamp(29px,5vw,45px);
+      line-height:1.15;
+      letter-spacing:-1px;
+      margin-bottom:10px;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      color:var(--muted);
+      line-height:1.8;
+      max-width:650px;
+      font-size:15px;
+    }
+
+    /* Search */
+
+    .search-wrap{
+      margin-top:18px;
+      position:relative;
+    }
+
+    .search{
+      width:100%;
+      height:54px;
+      border:1px solid var(--border);
+      border-radius:17px;
+      background:var(--surface);
+      color:var(--text);
+      outline:none;
+      padding:0 49px 0 16px;
+      font-size:14px;
+      transition:.2s;
+    }
+
+    .search:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px var(--soft);
+    }
+
+    .search-icon{
+      position:absolute;
+      right:17px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      pointer-events:none;
+    }
+
+    .search-icon svg{
+      width:19px;
+      height:19px;
+    }
+
+    /* Stats row */
+
+    .quick-info{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .quick-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      gap:11px;
+    }
+
+    .quick-icon{
+      width:38px;
+      height:38px;
+      flex-shrink:0;
+      border-radius:12px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+    }
+
+    .quick-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    .quick-card strong{
+      display:block;
+      font-size:17px;
+      line-height:1.1;
+    }
+
+    .quick-card span{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    /* Sections */
+
+    section{
+      padding:20px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:15px;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:9px;
+    }
+
+    .section-title-icon{
+      width:35px;
+      height:35px;
+      border-radius:11px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+    }
+
+    .section-title-icon svg{
+      width:17px;
+      height:17px;
+    }
+
+    .section-head h2{
+      font-size:20px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .count{
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    /* Favorites */
+
+    .favorites-section{
+      display:none;
+    }
+
+    .favorites-section.show{
+      display:block;
+    }
+
+    .favorites-box{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .favorites-tabs{
+      display:flex;
+      gap:8px;
+      margin-bottom:15px;
+      overflow-x:auto;
+      padding-bottom:2px;
+    }
+
+    .fav-tab{
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 13px;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .fav-tab.active{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+    }
+
+    .favorite-list{
+      display:grid;
+      gap:9px;
+    }
+
+    .favorite-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      border-radius:15px;
+    }
+
+    .favorite-main{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .favorite-icon{
+      width:37px;
+      height:37px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+      flex-shrink:0;
+    }
+
+    .favorite-icon svg{
+      width:17px;
+      height:17px;
+    }
+
+    .favorite-name{
+      font-size:13px;
+      font-weight:600;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .favorite-sub{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+    }
+
+    .favorite-open{
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      border-radius:10px;
+      padding:7px 11px;
+      font-size:11px;
+      flex-shrink:0;
+    }
+
+    /* Subjects */
+
+    .subjects-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .subject-card{
+      position:relative;
+      overflow:hidden;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+      min-height:190px;
+      box-shadow:var(--shadow);
+      transition:.25s;
+    }
+
+    .subject-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(20,184,166,.35);
+    }
+
+    .subject-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .subject-icon{
+      width:49px;
+      height:49px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .subject-icon svg{
+      width:23px;
+      height:23px;
+    }
+
+    .favorite-btn{
+      width:39px;
+      height:39px;
+      border-radius:13px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--muted);
+      display:grid;
+      place-items:center;
+      transition:.2s;
+    }
+
+    .favorite-btn:hover{
+      color:var(--primary);
+      border-color:var(--primary);
+    }
+
+    .favorite-btn.active{
+      color:var(--primary);
+      background:var(--soft);
+      border-color:rgba(20,184,166,.25);
+    }
+
+    .favorite-btn svg{
+      width:18px;
+      height:18px;
+    }
+
+    .subject-card h3{
+      margin-top:17px;
+      font-size:19px;
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .subject-card p{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+      margin-top:4px;
+    }
+
+    .subject-footer{
+      margin-top:17px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .sections-count{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .open-subject{
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      padding:9px 13px;
+      border-radius:11px;
+      font-size:12px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .open-subject svg{
+      width:14px;
+      height:14px;
+    }
+
+    /* Subject detail */
+
+    .detail{
+      display:none;
+      margin-top:20px;
+    }
+
+    .detail.show{
+      display:block;
+    }
+
+    .detail-box{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .detail-head{
+      padding:20px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .detail-title{
+      display:flex;
+      align-items:center;
+      gap:11px;
+    }
+
+    .detail-title-icon{
+      width:43px;
+      height:43px;
+      border-radius:13px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+    }
+
+    .detail-title-icon svg{
+      width:20px;
+      height:20px;
+    }
+
+    .detail-title h2{
+      font-size:18px;
+    }
+
+    .detail-title p{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .close-detail{
+      width:39px;
+      height:39px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--muted);
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+    }
+
+    .close-detail svg{
+      width:17px;
+      height:17px;
+    }
+
+    .sections-list{
+      padding:18px;
+      display:grid;
+      gap:11px;
+    }
+
+    .section-card{
+      border:1px solid var(--border);
+      border-radius:17px;
+      background:var(--surface-2);
+      padding:15px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      transition:.2s;
+    }
+
+    .section-card:hover{
+      border-color:rgba(20,184,166,.35);
+    }
+
+    .section-info{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      min-width:0;
+    }
+
+    .section-icon{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      background:var(--surface);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+
+    .section-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    .section-info h3{
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .section-info p{
+      color:var(--muted);
+      font-size:10px;
+      margin-top:2px;
+    }
+
+    .open-section{
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      border-radius:10px;
+      padding:8px 11px;
+      font-size:11px;
+      flex-shrink:0;
+    }
+
+    /* Resources */
+
+    .resources{
+      display:none;
+      margin-top:15px;
+      padding:18px;
+      border-top:1px solid var(--border);
+      background:var(--surface-2);
+    }
+
+    .resources.show{
+      display:block;
+    }
+
+    .resources-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:11px;
+      gap:10px;
+    }
+
+    .resources-head strong{
+      font-size:14px;
+    }
+
+    .resources-head span{
+      color:var(--muted);
+      font-size:10px;
+    }
+
+    .resources-list{
+      display:grid;
+      gap:9px;
+    }
+
+    .resource-card{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:15px;
+      padding:11px;
+    }
+
+    .resource-icon{
+      width:39px;
+      height:39px;
+      border-radius:11px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+
+    .resource-icon svg{
+      width:17px;
+      height:17px;
+    }
+
+    .resource-info{
+      flex:1;
+      min-width:0;
+    }
+
+    .resource-info strong{
+      display:block;
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .resource-info span{
+      color:var(--muted);
+      font-size:10px;
+    }
+
+    .resource-actions{
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .resource-fav{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--muted);
+      display:grid;
+      place-items:center;
+    }
+
+    .resource-fav.active{
+      color:var(--primary);
+      background:var(--soft);
+    }
+
+    .resource-fav svg{
+      width:16px;
+      height:16px;
+    }
+
+    .resource-open{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      display:grid;
+      place-items:center;
+    }
+
+    .resource-open svg{
+      width:16px;
+      height:16px;
+    }
+
+    /* Empty */
+
+    .empty{
+      border:1px dashed var(--border);
+      background:var(--surface);
+      border-radius:22px;
+      padding:38px 20px;
+      text-align:center;
+      grid-column:1/-1;
+    }
+
+    .empty-icon{
+      width:53px;
+      height:53px;
+      margin:0 auto 12px;
+      border-radius:16px;
+      background:var(--soft);
+      color:var(--primary);
+      display:grid;
+      place-items:center;
+    }
+
+    .empty-icon svg{
+      width:23px;
+      height:23px;
+    }
+
+    .empty h3{
+      font-size:16px;
+      margin-bottom:5px;
+    }
+
+    .empty p{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    /* Loading */
+
+    .loading{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:45px 0;
+      color:var(--muted);
+      font-size:13px;
+      grid-column:1/-1;
+    }
+
+    .spinner{
+      width:19px;
+      height:19px;
+      border:2px solid var(--border);
+      border-top-color:var(--primary);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+
+    @keyframes spin{
+      to{transform:rotate(360deg)}
+    }
+
+    /* Toast */
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:22px;
+      transform:translate(-50%,20px);
+      background:var(--text);
+      color:var(--surface);
+      padding:11px 16px;
+      border-radius:13px;
+      font-size:12px;
+      opacity:0;
+      pointer-events:none;
+      transition:.25s;
+      z-index:500;
+      white-space:nowrap;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translate(-50%,0);
+    }
+
+    footer{
+      padding:40px 0 30px;
+      text-align:center;
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    @media(max-width:700px){
+      .container{
+        width:min(100% - 20px,1120px);
+      }
+
+      .hero{
+        padding-top:25px;
+      }
+
+      .hero-box{
+        padding:23px 18px;
+        border-radius:25px;
+      }
+
+      .hero h1{
+        font-size:30px;
+      }
+
+      .quick-info{
+        grid-template-columns:1fr;
+      }
+
+      .quick-card{
+        padding:11px;
+      }
+
+      .subjects-grid{
+        grid-template-columns:1fr;
+      }
+
+      .subject-card{
+        min-height:175px;
+      }
+
+      .section-card{
+        align-items:flex-start;
+      }
+
+      .section-info{
+        align-items:flex-start;
+      }
+
+      .resource-card{
+        padding:9px;
+      }
+
+      .resource-info strong{
+        max-width:145px;
+      }
+
+      .detail-head{
+        padding:15px;
+      }
+
+      .sections-list{
+        padding:12px;
+      }
+    }
+
+    @media(min-width:701px){
+      .resource-info strong{
+        max-width:500px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
 <header>
+  <div class="container nav">
 
-<div class="container nav">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/>
+          <path d="m8.5 12 2.2 2.2 4.8-5"/>
+        </svg>
+      </div>
 
-<a href="index.html" class="brand">
+      <div class="brand-text">
+        <strong>مساعد توجيهي</strong>
+        <span>منصة الطالب الأردني</span>
+      </div>
+    </a>
 
-<div class="brand-icon">
+    <div class="nav-actions">
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+      <button class="icon-btn" id="themeBtn" title="تغيير المظهر">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/>
+        </svg>
+      </button>
 
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-<path d="M8 6h8"/>
-<path d="M8 10h8"/>
-
-</svg>
-
-</div>
-
-<span>مساعد توجيهي</span>
-
-</a>
-
-
-<div class="nav-actions">
-
-<a href="index.html" class="back-home">
-
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
-
-<path d="m15 18-6-6 6-6"/>
-
-</svg>
-
-<span>الصفحة الرئيسية</span>
-
-</a>
-
-
-<button
-class="theme-btn"
-id="themeBtn"
-aria-label="تغيير المظهر"
-type="button"
-></button>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </header>
 
 
 <main>
 
-<!-- =========================
-HERO
-========================= -->
+  <div class="container">
+
+    <div class="hero">
+
+      <a href="index.html" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+        العودة للرئيسية
+      </a>
+
+      <div class="hero-box">
+
+        <div class="hero-content">
+
+          <div class="badge">
+            <span class="badge-dot"></span>
+            جيل 2010
+          </div>
+
+          <h1>
+            مواد <span>2010</span>
+          </h1>
 
-<section class="hero">
+          <p>
+            كل موادك وأقسامك وملفاتك الدراسية في مكان واحد.
+            اختر المادة للانتقال إلى أقسامها والملفات المتوفرة من لوحة الأدمن.
+          </p>
 
-<div class="container hero-grid">
+          <div class="search-wrap">
 
-<div>
+            <span class="search-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+              </svg>
+            </span>
 
-<div class="breadcrumb">
+            <input
+              id="searchInput"
+              class="search"
+              type="search"
+              placeholder="ابحث عن مادة أو قسم أو ملف..."
+              autocomplete="off"
+            >
 
-<a href="index.html">الرئيسية</a>
+          </div>
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+        </div>
 
-<path d="m9 18 6-6-6-6"/>
+      </div>
 
-</svg>
 
-<span>توجيهي 2010</span>
+      <div class="quick-info">
 
-</div>
+        <div class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            </svg>
+          </div>
+          <div>
+            <strong id="subjectCount">0</strong>
+            <span>مادة</span>
+          </div>
+        </div>
 
+        <div class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 7h5l2 2h11v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+              <path d="M3 7V5a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <div>
+            <strong id="sectionCount">0</strong>
+            <span>قسم</span>
+          </div>
+        </div>
 
-<div class="hero-badge">
+        <div class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+            </svg>
+          </div>
+          <div>
+            <strong id="resourceCount">0</strong>
+            <span>ملف منشور</span>
+          </div>
+        </div>
 
-<span></span>
+      </div>
 
-جيل 2010
+    </div>
 
-</div>
 
+    <!-- المفضلة -->
 
-<h1>
+    <section class="favorites-section" id="favoritesSection">
 
-توجيهي <span>2010</span>
+      <div class="section-head">
 
-</h1>
+        <div class="section-title">
 
+          <div class="section-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/>
+            </svg>
+          </div>
 
-<p>
+          <div>
+            <h2>المفضلة</h2>
+            <p>موادك وملفاتك المحفوظة</p>
+          </div>
 
-اختر المادة التي تريد دراستها، ثم انتقل إلى الأقسام والملفات
-التي يتم إضافتها وتحديثها من لوحة الإدارة.
+        </div>
 
-</p>
+        <span class="count" id="favoritesCount">0</span>
 
-</div>
+      </div>
 
 
-<div class="hero-card">
+      <div class="favorites-box">
 
-<div class="hero-card-icon">
+        <div class="favorites-tabs">
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+          <button class="fav-tab active" data-tab="subjects">
+            المواد
+          </button>
 
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <button class="fav-tab" data-tab="resources">
+            الملفات
+          </button>
 
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+        </div>
 
-</svg>
+        <div class="favorite-list" id="favoriteList"></div>
 
-</div>
+      </div>
 
+    </section>
 
-<h3>محتوى جيل 2010</h3>
 
-<p>
+    <!-- المواد -->
 
-المواد والأقسام والملفات تظهر تلقائيًا حسب ما يتم إضافته
-من لوحة الأدمن.
+    <section>
 
-</p>
+      <div class="section-head">
 
+        <div class="section-title">
 
-<div class="hero-mini">
+          <div class="section-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            </svg>
+          </div>
 
-<div class="hero-mini-item">
+          <div>
+            <h2>المواد الدراسية</h2>
+            <p>اختر المادة للوصول إلى محتواها</p>
+          </div>
 
-<strong id="subjectCount">0</strong>
+        </div>
 
-<span>مواد متاحة</span>
+        <span class="count" id="visibleCount">جاري التحميل...</span>
 
-</div>
+      </div>
 
 
-<div class="hero-mini-item">
+      <div class="subjects-grid" id="subjectsGrid">
 
-<strong id="resourceCount">0</strong>
+        <div class="loading">
+          <span class="spinner"></span>
+          جاري تحميل المواد...
+        </div>
 
-<span>ملف منشور</span>
+      </div>
 
-</div>
+    </section>
 
-</div>
 
-</div>
+    <!-- تفاصيل المادة -->
 
-</div>
+    <section class="detail" id="subjectDetail">
 
-</section>
+      <div class="detail-box">
 
+        <div class="detail-head">
 
-<!-- =========================
-SUBJECTS
-========================= -->
+          <div class="detail-title">
 
-<section>
+            <div class="detail-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              </svg>
+            </div>
 
-<div class="container">
+            <div>
+              <h2 id="detailSubjectName">المادة</h2>
+              <p>أقسام المادة والملفات المتوفرة</p>
+            </div>
 
-<div class="section-head">
+          </div>
 
-<div>
+          <button class="close-detail" id="closeDetail">
 
-<h2 class="section-title">مواد جيل 2010</h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
 
-<p class="section-subtitle">
+          </button>
 
-المواد التي يضيفها الأدمن تظهر هنا تلقائيًا.
+        </div>
 
-</p>
+        <div class="sections-list" id="sectionsList"></div>
 
-</div>
+      </div>
 
-</div>
+    </section>
 
 
-<div
-class="subjects"
-id="subjects"
->
-
-<div class="loading">
-
-<div class="loader"></div>
-
-جاري تحميل المواد...
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+  </div>
 
 </main>
 
 
 <footer>
-
-<div class="container">
-
-© 2026 مساعد توجيهي — جميع الحقوق محفوظة
-
-</div>
-
+  مساعد توجيهي — منصة الطالب الأردني
 </footer>
 
 
-<!-- =========================
-SUBJECT MODAL
-========================= -->
-
-<div
-class="modal-overlay"
-id="subjectModal"
->
-
-<div class="subject-modal">
-
-<div class="modal-header">
-
-<div class="modal-title-wrap">
-
-<div class="modal-title-icon">
-
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
-
-<path d="M4 5h16"/>
-<path d="M4 12h16"/>
-<path d="M4 19h10"/>
-
-</svg>
-
-</div>
-
-
-<div class="modal-title-text">
-
-<h2 id="modalSubjectName">المادة</h2>
-
-<p>اختر القسم الذي تريد فتحه</p>
-
-</div>
-
-</div>
-
-
-<button
-class="modal-close"
-id="closeSubjectModal"
-type="button"
->
-
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
-
-<path d="m6 6 12 12"/>
-<path d="m18 6-12 12"/>
-
-</svg>
-
-</button>
-
-</div>
-
-
-<div class="modal-content">
-
-<!-- SECTIONS VIEW -->
-
-<div id="sectionsView">
-
-<div class="content-label">
-أقسام المادة
-</div>
-
-<div
-class="sections-list"
-id="sectionsList"
-></div>
-
-</div>
-
-
-<!-- RESOURCES VIEW -->
-
-<div
-class="resources-view"
-id="resourcesView"
->
-
-<button
-class="resource-back"
-id="resourceBack"
-type="button"
->
-
-← الرجوع إلى أقسام المادة
-
-</button>
-
-
-<h3
-class="resource-title"
-id="resourceTitle"
-></h3>
-
-<p class="resource-subtitle">
-الملفات والروابط المنشورة في هذا القسم
-</p>
-
-
-<div
-class="resources-list"
-id="resourcesList"
-></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script type="module">
 
-import {
-db,
-collection,
-getDocs
-} from "./admin/firebase-config.js";
+  import {
+    db,
+    collection,
+    getDocs
+  } from "./admin/firebase-config.js";
 
-import {
-query,
-where
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+  import {
+    query,
+    where
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-/* =====================================================
-الوضع الليلي
-===================================================== */
+  /* =========================
+     Theme
+  ========================= */
 
-const themeBtn=document.getElementById("themeBtn");
+  const savedTheme = localStorage.getItem("tawjihi-theme");
 
+  if(savedTheme === "dark"){
+    document.body.classList.add("dark");
+  }
 
-function setThemeIcon(){
+  const themeBtn = document.getElementById("themeBtn");
 
-const isDark=document.body.classList.contains("dark");
+  themeBtn.addEventListener("click", () => {
 
+    document.body.classList.toggle("dark");
 
-themeBtn.innerHTML=isDark
+    localStorage.setItem(
+      "tawjihi-theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
 
-?`
+  });
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
 
-<circle cx="12" cy="12" r="4"/>
+  /* =========================
+     State
+  ========================= */
 
-<path d="M12 2v2"/>
-<path d="M12 20v2"/>
-<path d="m4.93 4.93 1.41 1.41"/>
-<path d="m17.66 17.66 1.41 1.41"/>
-<path d="M2 12h2"/>
-<path d="M20 12h2"/>
-<path d="m6.34 17.66-1.41 1.41"/>
-<path d="m19.07 4.93-1.41 1.41"/>
+  let generations = [];
+  let subjects = [];
+  let sections = [];
+  let resources = [];
 
-</svg>
+  let currentSubject = null;
+  let currentFavoriteTab = "subjects";
 
-`
 
-:`
+  /* =========================
+     Favorites
+  ========================= */
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+  function getFavoriteSubjects(){
 
-<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+    try{
+      return JSON.parse(
+        localStorage.getItem("tawjihi-2010-favorite-subjects") || "[]"
+      );
+    }catch{
+      return [];
+    }
 
-</svg>
+  }
 
-`;
 
-}
+  function getFavoriteResources(){
 
+    try{
+      return JSON.parse(
+        localStorage.getItem("tawjihi-2010-favorite-resources") || "[]"
+      );
+    }catch{
+      return [];
+    }
 
-if(
-localStorage.getItem("tawjihi-theme")==="dark"
-){
+  }
 
-document.body.classList.add("dark");
 
-}
+  function saveFavoriteSubjects(list){
 
-setThemeIcon();
+    localStorage.setItem(
+      "tawjihi-2010-favorite-subjects",
+      JSON.stringify(list)
+    );
 
+  }
 
-themeBtn.addEventListener("click",()=>{
 
-document.body.classList.toggle("dark");
+  function saveFavoriteResources(list){
 
+    localStorage.setItem(
+      "tawjihi-2010-favorite-resources",
+      JSON.stringify(list)
+    );
 
-localStorage.setItem(
-"tawjihi-theme",
-document.body.classList.contains("dark")
-?"dark"
-:"light"
-);
+  }
 
 
-setThemeIcon();
+  function isSubjectFavorite(id){
 
-});
+    return getFavoriteSubjects().includes(id);
 
+  }
 
-/* =====================================================
-Firebase Data
-===================================================== */
 
-let generationsData=[];
-let subjectsData=[];
-let sectionsData=[];
-let resourcesData=[];
+  function isResourceFavorite(id){
 
+    return getFavoriteResources().includes(id);
 
-/* =====================================================
-أسماء الحقول
-===================================================== */
+  }
 
-function getGenerationName(generation){
 
-return generation.year ||
-generation.name ||
-generation.title ||
-generation.label ||
-"جيل";
+  function toggleSubjectFavorite(id){
 
-}
+    let list = getFavoriteSubjects();
 
+    if(list.includes(id)){
 
-function getSubjectName(subject){
+      list = list.filter(x => x !== id);
+      showToast("تمت إزالة المادة من المفضلة");
 
-return subject.name ||
-subject.title ||
-subject.subjectName ||
-subject.label ||
-"مادة";
+    }else{
 
-}
+      list.push(id);
+      showToast("تمت إضافة المادة إلى المفضلة");
 
+    }
 
-function getSectionName(section){
+    saveFavoriteSubjects(list);
 
-return section.name ||
-section.title ||
-section.sectionName ||
-section.label ||
-"قسم";
+    renderSubjects();
+    renderFavorites();
 
-}
+  }
 
 
-function getResourceName(resource){
+  function toggleResourceFavorite(id){
 
-return resource.title ||
-resource.name ||
-resource.resourceName ||
-"ملف";
+    let list = getFavoriteResources();
 
-}
+    if(list.includes(id)){
 
+      list = list.filter(x => x !== id);
+      showToast("تمت إزالة الملف من المفضلة");
 
-/* =====================================================
-معرفة إذا المادة تابعة لـ 2010
-===================================================== */
+    }else{
 
-function is2010Subject(subject){
+      list.push(id);
+      showToast("تمت إضافة الملف إلى المفضلة");
 
-const generationId=
-subject.generationId ??
-subject.generationID ??
-subject.generation ??
-subject.year;
+    }
 
+    saveFavoriteResources(list);
 
-if(!generationId){
+    renderResourcesForCurrentSection();
+    renderFavorites();
 
-return false;
+  }
 
-}
 
+  /* =========================
+     Helpers
+  ========================= */
 
-/* إذا كانت القيمة هي ID الجيل */
+  function textValue(obj, fields){
 
-const generation=
-generationsData.find(generation=>
-generation.id===String(generationId)
-);
+    for(const field of fields){
 
+      const value = obj?.[field];
 
-if(generation){
+      if(value !== undefined && value !== null && String(value).trim() !== ""){
+        return String(value).trim();
+      }
 
-const name=
-String(getGenerationName(generation));
+    }
 
-return name.includes("2010");
+    return "";
 
-}
+  }
 
 
-/* إذا كانت القيمة نفسها 2010 */
+  function normalize(value){
 
-return String(generationId).includes("2010");
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[أإآ]/g,"ا")
+      .replace(/ة/g,"ه")
+      .replace(/\s+/g," ");
 
-}
+  }
 
 
-/* =====================================================
-العلاقات
-===================================================== */
+  function getSubjectName(subject){
 
-function findSubjectForSection(section){
+    return textValue(subject,[
+      "name",
+      "title",
+      "subjectName",
+      "label"
+    ]) || "مادة بدون اسم";
 
-const subjectId=
-section.subjectId ??
-section.subjectID ??
-section.subject;
+  }
 
 
-if(!subjectId){
+  function getSectionName(section){
 
-return null;
+    return textValue(section,[
+      "name",
+      "title",
+      "sectionName",
+      "label"
+    ]) || "قسم بدون اسم";
 
-}
+  }
 
 
-return subjectsData.find(subject=>
-subject.id===String(subjectId)
-);
+  function getResourceName(resource){
 
-}
+    return textValue(resource,[
+      "title",
+      "name",
+      "resourceName"
+    ]) || "ملف بدون اسم";
 
+  }
 
-function findSectionForResource(resource){
 
-const sectionId=
-resource.sectionId ??
-resource.sectionID ??
-resource.section;
+  function getResourceUrl(resource){
 
+    return textValue(resource,[
+      "url",
+      "link",
+      "driveUrl",
+      "fileUrl"
+    ]);
 
-if(!sectionId){
+  }
 
-return null;
 
-}
+  function showToast(message){
 
+    const toast = document.getElementById("toast");
 
-return sectionsData.find(section=>
-section.id===String(sectionId)
-);
+    toast.textContent = message;
+    toast.classList.add("show");
 
-}
+    clearTimeout(window.__toastTimer);
 
+    window.__toastTimer = setTimeout(() => {
+      toast.classList.remove("show");
+    },2200);
 
-function findSubjectForResource(resource){
+  }
 
-const subjectId=
-resource.subjectId ??
-resource.subjectID ??
-resource.subject;
 
+  function escapeHtml(value){
 
-if(subjectId){
+    return String(value ?? "")
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
 
-return subjectsData.find(subject=>
-subject.id===String(subjectId)
-);
+  }
 
-}
 
+  /* =========================
+     Find Generation 2010
+  ========================= */
 
-const section=
-findSectionForResource(resource);
+  function is2010Generation(generation){
 
+    const values = [
+      generation?.year,
+      generation?.name,
+      generation?.title,
+      generation?.label,
+      generation?.page,
+      generation?.pageUrl,
+      generation?.url,
+      generation?.slug,
+      generation?.id
+    ]
+    .filter(Boolean)
+    .map(normalize);
 
-if(section){
+    return values.some(value => {
 
-return findSubjectForSection(section);
+      return value === "2010" ||
+             value.includes("2010") ||
+             value.includes("جيل 2010");
 
-}
+    });
 
+  }
 
-return null;
 
-}
+  /* =========================
+     Check Subject belongs to 2010
+  ========================= */
 
+  function belongsTo2010(subject, generation){
 
-/* =====================================================
-تحميل Firebase
-===================================================== */
+    const generationId = generation?.id;
 
-async function loadData(){
+    const relationValues = [
+      subject?.generationId,
+      subject?.generationID,
+      subject?.generation,
+      subject?.year
+    ]
+    .filter(v => v !== undefined && v !== null)
+    .map(normalize);
 
-const container=
-document.getElementById("subjects");
+    if(generationId){
 
+      const gid = normalize(generationId);
 
-try{
+      if(relationValues.includes(gid)){
+        return true;
+      }
 
-container.innerHTML=`
+    }
 
-<div class="loading">
+    return relationValues.some(value => {
 
-<div class="loader"></div>
+      return value === "2010" ||
+             value.includes("2010") ||
+             value.includes("جيل 2010");
 
-جاري تحميل المواد...
+    });
 
-</div>
+  }
 
-`;
 
+  /* =========================
+     Check Section
+  ========================= */
 
-/* =========================
-الأجيال
-========================= */
+  function belongsToSubject(section, subject){
 
-const generationsSnapshot=
-await getDocs(
-collection(db,"generations")
-);
+    const subjectId = subject?.id;
 
+    const relationValues = [
+      section?.subjectId,
+      section?.subjectID,
+      section?.subject
+    ]
+    .filter(v => v !== undefined && v !== null)
+    .map(normalize);
 
-generationsData=
-generationsSnapshot.docs.map(doc=>({
+    if(subjectId){
 
-id:doc.id,
-...doc.data()
+      const sid = normalize(subjectId);
 
-}));
+      if(relationValues.includes(sid)){
+        return true;
+      }
 
+    }
 
-/* =========================
-المواد
-========================= */
+    const subjectName = normalize(getSubjectName(subject));
 
-const subjectsSnapshot=
-await getDocs(
-collection(db,"subjects")
-);
+    return relationValues.some(value => {
 
+      return value === subjectName ||
+             value.includes(subjectName) ||
+             subjectName.includes(value);
 
-subjectsData=
-subjectsSnapshot.docs.map(doc=>({
+    });
 
-id:doc.id,
-...doc.data()
+  }
 
-}));
 
+  /* =========================
+     Check Resource
+  ========================= */
 
-/* =========================
-الأقسام
-========================= */
+  function belongsToSection(resource, section){
 
-try{
+    const sectionId = section?.id;
 
-const sectionsSnapshot=
-await getDocs(
-collection(db,"sections")
-);
+    const relationValues = [
+      resource?.sectionId,
+      resource?.sectionID,
+      resource?.section
+    ]
+    .filter(v => v !== undefined && v !== null)
+    .map(normalize);
 
+    if(sectionId){
 
-sectionsData=
-sectionsSnapshot.docs.map(doc=>({
+      const sid = normalize(sectionId);
 
-id:doc.id,
-...doc.data()
+      if(relationValues.includes(sid)){
+        return true;
+      }
 
-}));
+    }
 
-}catch(error){
+    const sectionName = normalize(getSectionName(section));
 
-console.warn(
-"Sections unavailable:",
-error
-);
+    return relationValues.some(value => {
 
-sectionsData=[];
+      return value === sectionName ||
+             value.includes(sectionName) ||
+             sectionName.includes(value);
 
-}
+    });
 
+  }
 
-/* =========================
-الموارد المنشورة فقط
-========================= */
 
-try{
+  /* =========================
+     Firebase
+  ========================= */
 
-const resourcesQuery=
-query(
+  async function loadData(){
 
-collection(db,"resources"),
+    try{
 
-where(
-"published",
-"==",
-true
-)
+      const [
+        generationsSnap,
+        subjectsSnap,
+        sectionsSnap,
+        resourcesSnap
+      ] = await Promise.all([
 
-);
+        getDocs(collection(db,"generations")),
 
+        getDocs(collection(db,"subjects")),
 
-const resourcesSnapshot=
-await getDocs(
-resourcesQuery
-);
+        getDocs(collection(db,"sections")),
 
+        getDocs(
+          query(
+            collection(db,"resources"),
+            where("published","==",true)
+          )
+        )
 
-resourcesData=
-resourcesSnapshot.docs.map(doc=>({
+      ]);
 
-id:doc.id,
-...doc.data()
 
-}));
+      generations = generationsSnap.docs.map(doc => ({
+        id:doc.id,
+        ...doc.data()
+      }));
 
-}catch(error){
+      const generation = generations.find(is2010Generation);
 
-console.warn(
-"Resources unavailable:",
-error
-);
 
-resourcesData=[];
+      if(!generation){
 
-}
+        renderGenerationMissing();
+        return;
 
+      }
 
-/* =========================
-عرض المواد
-========================= */
 
-renderSubjects();
+      subjects = subjectsSnap.docs
+        .map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }))
+        .filter(subject => belongsTo2010(subject,generation));
 
 
-}catch(error){
+      sections = sectionsSnap.docs.map(doc => ({
+        id:doc.id,
+        ...doc.data()
+      }));
 
-console.error(
-"Firebase Error:",
-error
-);
 
+      resources = resourcesSnap.docs
+        .map(doc => ({
+          id:doc.id,
+          ...doc.data()
+        }))
+        .filter(resource => getResourceUrl(resource));
 
-container.innerHTML=`
 
-<div class="empty">
+      updateStats();
 
-<strong class="error-message">
+      renderSubjects();
 
-تعذر تحميل المواد
+      renderFavorites();
 
-</strong>
+    }catch(error){
 
-<span>
+      console.error(error);
 
-تأكد من اتصال Firebase وقواعد Firestore.
+      document.getElementById("subjectsGrid").innerHTML = `
+        <div class="empty">
+          <div class="empty-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
 
-</span>
+          <h3>حدث خطأ أثناء تحميل الصفحة</h3>
 
-</div>
+          <p>
+            تأكد من اتصال Firebase وقواعد Firestore ثم حاول تحديث الصفحة.
+          </p>
+        </div>
+      `;
 
-`;
+    }
 
-}
+  }
 
-}
 
+  /* =========================
+     Stats
+  ========================= */
 
-/* =====================================================
-عرض المواد
-===================================================== */
+  function updateStats(){
 
-function renderSubjects(){
+    let sectionTotal = 0;
+    let resourceTotal = 0;
 
-const container=
-document.getElementById("subjects");
+    subjects.forEach(subject => {
 
+      const subjectSections = sections.filter(
+        section => belongsToSubject(section,subject)
+      );
 
-const subjects=
-subjectsData.filter(
-subject=>is2010Subject(subject)
-);
+      sectionTotal += subjectSections.length;
 
+      subjectSections.forEach(section => {
 
-document.getElementById("subjectCount")
-.textContent=subjects.length;
+        resourceTotal += resources.filter(
+          resource => belongsToSection(resource,section)
+        ).length;
 
+      });
 
-const subjectResourceCount=
-resourcesData.filter(resource=>{
+    });
 
-const subject=
-findSubjectForResource(resource);
 
-return subject &&
-is2010Subject(subject);
+    document.getElementById("subjectCount").textContent =
+      subjects.length;
 
-}).length;
+    document.getElementById("sectionCount").textContent =
+      sectionTotal;
 
+    document.getElementById("resourceCount").textContent =
+      resourceTotal;
 
-document.getElementById("resourceCount")
-.textContent=subjectResourceCount;
+  }
 
 
-if(!subjects.length){
+  /* =========================
+     Subject Icon
+  ========================= */
 
-container.innerHTML=`
+  function subjectIcon(){
 
-<div class="empty">
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+      </svg>
+    `;
 
-<strong>لا توجد مواد مضافة حاليًا</strong>
+  }
 
-<span>
 
-عند إضافة مادة لجيل 2010 من لوحة الأدمن
-ستظهر هنا تلقائيًا.
+  function starIcon(filled=false){
 
-</span>
+    return `
+      <svg
+        viewBox="0 0 24 24"
+        fill="${filled ? "currentColor" : "none"}"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/>
+      </svg>
+    `;
 
-</div>
+  }
 
-`;
 
-return;
+  /* =========================
+     Render Subjects
+  ========================= */
 
-}
+  function renderSubjects(){
 
+    const grid = document.getElementById("subjectsGrid");
 
-container.innerHTML=
-subjects.map((subject,index)=>{
+    const search = normalize(
+      document.getElementById("searchInput").value
+    );
 
-const sections=
-sectionsData.filter(section=>{
 
-const linkedSubject=
-findSubjectForSection(section);
+    let filtered = subjects.filter(subject => {
 
-return linkedSubject &&
-linkedSubject.id===subject.id;
+      if(!search) return true;
 
-});
+      const name = normalize(getSubjectName(subject));
 
+      const subjectSections = sections.filter(
+        section => belongsToSubject(section,subject)
+      );
 
-const resources=
-resourcesData.filter(resource=>{
+      const sectionNames = subjectSections
+        .map(getSectionName)
+        .map(normalize);
 
-const linkedSubject=
-findSubjectForResource(resource);
+      const resourceNames = [];
 
-return linkedSubject &&
-linkedSubject.id===subject.id;
+      subjectSections.forEach(section => {
 
-});
+        resources
+          .filter(resource => belongsToSection(resource,section))
+          .forEach(resource => {
+            resourceNames.push(normalize(getResourceName(resource)));
+          });
 
+      });
 
-return`
 
-<button
-class="subject-card"
-type="button"
-data-subject-id="${escapeAttribute(subject.id)}"
->
+      return name.includes(search) ||
+             sectionNames.some(x => x.includes(search)) ||
+             resourceNames.some(x => x.includes(search));
 
-<div class="subject-top">
+    });
 
-<div class="subject-icon">
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+    document.getElementById("visibleCount").textContent =
+      `${filtered.length} مادة`;
 
-<path d="M4 5h16"/>
-<path d="M4 12h16"/>
-<path d="M4 19h10"/>
 
-</svg>
+    if(!subjects.length){
 
-</div>
+      grid.innerHTML = `
+        <div class="empty">
 
+          <div class="empty-icon">
+            ${subjectIcon()}
+          </div>
 
-<div class="subject-arrow">
+          <h3>لا توجد مواد مضافة حاليًا</h3>
 
-<svg
-width="21"
-height="21"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+          <p>
+            لم تتم إضافة مواد جيل 2010 من لوحة الأدمن بعد.
+            أضف المواد من لوحة الأدمن وستظهر هنا تلقائيًا.
+          </p>
 
-<path d="m9 18 6-6-6-6"/>
+        </div>
+      `;
 
-</svg>
+      return;
 
-</div>
+    }
 
-</div>
 
+    if(!filtered.length){
 
-<h3>
+      grid.innerHTML = `
+        <div class="empty">
 
-${escapeHTML(
-String(getSubjectName(subject))
-)}
+          <div class="empty-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m20 20-4-4"/>
+            </svg>
+          </div>
 
-</h3>
+          <h3>لا توجد نتائج</h3>
 
+          <p>
+            جرّب البحث باسم مادة أو قسم أو ملف آخر.
+          </p>
 
-<p>
+        </div>
+      `;
 
-الأقسام والملفات الخاصة بهذه المادة.
+      return;
 
-</p>
+    }
 
 
-<div class="subject-info">
+    grid.innerHTML = filtered.map(subject => {
 
-<span class="info-pill">
+      const name = getSubjectName(subject);
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+      const subjectSections = sections.filter(
+        section => belongsToSubject(section,subject)
+      );
 
-<path d="M4 5h16"/>
-<path d="M4 12h16"/>
-<path d="M4 19h10"/>
+      const favorite = isSubjectFavorite(subject.id);
 
-</svg>
+      return `
 
-${sections.length} أقسام
+        <article class="subject-card">
 
-</span>
+          <div class="subject-top">
 
+            <div class="subject-icon">
+              ${subjectIcon()}
+            </div>
 
-<span class="info-pill">
+            <button
+              class="favorite-btn ${favorite ? "active" : ""}"
+              data-favorite-subject="${escapeHtml(subject.id)}"
+              title="${favorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}"
+            >
+              ${starIcon(favorite)}
+            </button>
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+          </div>
 
-<path d="M6 2h9l4 4v16H6z"/>
 
-<path d="M14 2v5h5"/>
+          <h3>${escapeHtml(name)}</h3>
 
-</svg>
+          <p>
+            ${subjectSections.length
+              ? `يوجد ${subjectSections.length} قسم${subjectSections.length === 1 ? "" : "ًا"} متاحًا`
+              : "لا توجد أقسام مضافة حاليًا"}
+          </p>
 
-${resources.length} ملفات
 
-</span>
+          <div class="subject-footer">
 
-</div>
+            <span class="sections-count">
+              ${subjectSections.length} قسم
+            </span>
 
-</button>
+            <button
+              class="open-subject"
+              data-open-subject="${escapeHtml(subject.id)}"
+            >
+              فتح المادة
 
-`;
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
 
-}).join("");
+            </button>
 
+          </div>
 
-/* ربط الضغط */
+        </article>
 
-document
-.querySelectorAll(".subject-card")
-.forEach(card=>{
+      `;
 
-card.addEventListener(
-"click",
-()=>{
+    }).join("");
 
-const subject=
-subjectsData.find(
-item=>item.id===card.dataset.subjectId
-);
 
+    document.querySelectorAll("[data-favorite-subject]")
+      .forEach(button => {
 
-if(subject){
+        button.addEventListener("click",event => {
 
-openSubject(subject);
+          event.stopPropagation();
 
-}
+          toggleSubjectFavorite(
+            button.dataset.favoriteSubject
+          );
 
-});
+        });
 
-});
+      });
 
-}
 
+    document.querySelectorAll("[data-open-subject]")
+      .forEach(button => {
 
-/* =====================================================
-فتح المادة
-===================================================== */
+        button.addEventListener("click",() => {
 
-const subjectModal=
-document.getElementById("subjectModal");
+          openSubject(
+            button.dataset.openSubject
+          );
 
-const closeSubjectModal=
-document.getElementById("closeSubjectModal");
+        });
 
-const sectionsView=
-document.getElementById("sectionsView");
+      });
 
-const resourcesView=
-document.getElementById("resourcesView");
+  }
 
-const sectionsList=
-document.getElementById("sectionsList");
 
-const resourcesList=
-document.getElementById("resourcesList");
+  /* =========================
+     Open Subject
+  ========================= */
 
-const modalSubjectName=
-document.getElementById("modalSubjectName");
+  function openSubject(subjectId){
 
-const resourceTitle=
-document.getElementById("resourceTitle");
+    const subject = subjects.find(
+      item => item.id === subjectId
+    );
 
+    if(!subject) return;
 
-function openSubject(subject){
+    currentSubject = subject;
 
-modalSubjectName.textContent=
-getSubjectName(subject);
+    document.getElementById("detailSubjectName").textContent =
+      getSubjectName(subject);
 
 
-sectionsView.style.display="block";
+    const subjectSections = sections.filter(
+      section => belongsToSubject(section,subject)
+    );
 
-resourcesView.classList.remove("active");
 
+    const list = document.getElementById("sectionsList");
 
-const sections=
-sectionsData.filter(section=>{
 
-const linkedSubject=
-findSubjectForSection(section);
+    if(!subjectSections.length){
 
-return linkedSubject &&
-linkedSubject.id===subject.id;
+      list.innerHTML = `
+        <div class="empty">
 
-});
+          <div class="empty-icon">
+            ${subjectIcon()}
+          </div>
 
+          <h3>لا توجد أقسام حاليًا</h3>
 
-if(!sections.length){
+          <p>
+            لم تتم إضافة أقسام لهذه المادة من لوحة الأدمن بعد.
+          </p>
 
-sectionsList.innerHTML=`
+        </div>
+      `;
 
-<div class="empty">
+    }else{
 
-<strong>لا توجد أقسام لهذه المادة</strong>
+      list.innerHTML = subjectSections.map(section => {
 
-<span>
+        const sectionResources = resources.filter(
+          resource => belongsToSection(resource,section)
+        );
 
-أضف قسمًا من لوحة الأدمن ليظهر هنا.
+        return `
 
-</span>
+          <div class="section-card">
 
-</div>
+            <div class="section-info">
 
-`;
+              <div class="section-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 7h5l2 2h11v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+                  <path d="M3 7V5a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </div>
 
-}else{
+              <div>
+                <h3>${escapeHtml(getSectionName(section))}</h3>
+                <p>${sectionResources.length} ملف منشور</p>
+              </div>
 
-sectionsList.innerHTML=
-sections.map(section=>{
+            </div>
 
-const resources=
-resourcesData.filter(resource=>{
+            <button
+              class="open-section"
+              data-open-section="${escapeHtml(section.id)}"
+            >
+              عرض الملفات
+            </button>
 
-const linkedSection=
-findSectionForResource(resource);
+          </div>
 
-return linkedSection &&
-linkedSection.id===section.id;
+          <div
+            class="resources"
+            id="resources-${escapeHtml(section.id)}"
+          ></div>
 
-});
+        `;
 
+      }).join("");
 
-return`
 
-<button
-class="section-card"
-type="button"
-data-section-id="${escapeAttribute(section.id)}"
->
+      document.querySelectorAll("[data-open-section]")
+        .forEach(button => {
 
-<div class="section-card-left">
+          button.addEventListener("click",() => {
 
-<div class="section-card-icon">
+            openSection(
+              button.dataset.openSection
+            );
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+          });
 
-<path d="M4 5h16"/>
-<path d="M7 9h10"/>
-<path d="M9 13h6"/>
-<path d="M11 17h2"/>
+        });
 
-</svg>
+    }
 
-</div>
 
+    const detail = document.getElementById("subjectDetail");
 
-<div class="section-card-text">
+    detail.classList.add("show");
 
-<strong>
+    setTimeout(() => {
 
-${escapeHTML(
-String(getSectionName(section))
-)}
+      detail.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
-</strong>
+    },50);
 
-<span>
+  }
 
-${resources.length} ملفات منشورة
 
-</span>
+  /* =========================
+     Open Section
+  ========================= */
 
-</div>
+  function openSection(sectionId){
 
-</div>
+    const box = document.getElementById(
+      `resources-${CSS.escape(sectionId)}`
+    );
 
+    if(!box) return;
 
-<div class="section-card-arrow">
 
-<svg
-width="18"
-height="18"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+    if(box.classList.contains("show")){
 
-<path d="m9 18 6-6-6-6"/>
+      box.classList.remove("show");
+      return;
 
-</svg>
+    }
 
-</div>
 
-</button>
+    document.querySelectorAll(".resources.show")
+      .forEach(item => {
 
-`;
+        item.classList.remove("show");
 
-}).join("");
+      });
 
 
-document
-.querySelectorAll(".section-card")
-.forEach(card=>{
+    box.classList.add("show");
 
-card.addEventListener(
-"click",
-()=>{
+    renderResourcesForSection(sectionId);
 
-const section=
-sectionsData.find(
-item=>item.id===card.dataset.sectionId
-);
+  }
 
 
-if(section){
+  /* =========================
+     Render Resources
+  ========================= */
 
-openResources(
-section,
-subject
-);
+  function renderResourcesForSection(sectionId){
 
-}
+    const box = document.getElementById(
+      `resources-${CSS.escape(sectionId)}`
+    );
 
-});
+    if(!box) return;
 
-});
 
-}
+    const section = sections.find(
+      item => item.id === sectionId
+    );
 
+    if(!section) return;
 
-subjectModal.classList.add("active");
 
-document.body.classList.add("modal-open");
+    const sectionResources = resources.filter(
+      resource => belongsToSection(resource,section)
+    );
 
-}
 
+    box.innerHTML = `
 
-/* =====================================================
-فتح ملفات القسم
-===================================================== */
+      <div class="resources-head">
 
-function openResources(section,subject){
+        <strong>
+          ملفات ${escapeHtml(getSectionName(section))}
+        </strong>
 
-sectionsView.style.display="none";
+        <span>
+          ${sectionResources.length} ملف
+        </span>
 
-resourcesView.classList.add("active");
+      </div>
 
+      <div class="resources-list">
 
-resourceTitle.textContent=
-getSectionName(section);
+        ${
+          sectionResources.length
 
+          ? sectionResources.map(resource => {
 
-const resources=
-resourcesData.filter(resource=>{
+              const favorite =
+                isResourceFavorite(resource.id);
 
-const linkedSection=
-findSectionForResource(resource);
+              return `
 
-if(linkedSection){
+                <div class="resource-card">
 
-return linkedSection.id===section.id;
+                  <div class="resource-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                      <path d="M14 2v6h6"/>
+                      <path d="M8 13h8M8 17h6"/>
+                    </svg>
+                  </div>
 
-}
 
+                  <div class="resource-info">
 
-/* دعم الموارد المرتبطة بالمادة مباشرة */
+                    <strong>
+                      ${escapeHtml(getResourceName(resource))}
+                    </strong>
 
-const linkedSubject=
-findSubjectForResource(resource);
+                    <span>
+                      ملف منشور
+                    </span>
 
-return linkedSubject &&
-linkedSubject.id===subject.id;
+                  </div>
 
-});
 
+                  <div class="resource-actions">
 
-if(!resources.length){
+                    <button
+                      class="resource-fav ${favorite ? "active" : ""}"
+                      data-favorite-resource="${escapeHtml(resource.id)}"
+                      title="${favorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}"
+                    >
+                      ${starIcon(favorite)}
+                    </button>
 
-resourcesList.innerHTML=`
 
-<div class="empty">
+                    <a
+                      class="resource-open"
+                      href="${escapeHtml(getResourceUrl(resource))}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="فتح الملف"
+                    >
 
-<strong>لا توجد ملفات منشورة</strong>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 3h7v7"/>
+                        <path d="M10 14 21 3"/>
+                        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+                      </svg>
 
-<span>
+                    </a>
 
-سيظهر الملف هنا بعد إضافته من الأدمن
-وتفعيله للنشر.
+                  </div>
 
-</span>
+                </div>
 
-</div>
+              `;
 
-`;
+            }).join("")
 
-return;
+          : `
 
-}
+            <div class="empty">
 
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                  <path d="M14 2v6h6"/>
+                </svg>
+              </div>
 
-resourcesList.innerHTML=
-resources.map(resource=>{
+              <h3>لا توجد ملفات منشورة</h3>
 
-const url=
-resource.url ||
-resource.link ||
-resource.driveUrl ||
-resource.fileUrl ||
-"";
+              <p>
+                لم تتم إضافة ملفات منشورة لهذا القسم حاليًا.
+              </p>
 
+            </div>
 
-if(!url){
+          `
+        }
 
-return`
+      </div>
 
-<div class="resource-card">
+    `;
 
-<div class="resource-icon">
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+    box.querySelectorAll("[data-favorite-resource]")
+      .forEach(button => {
 
-<path d="M6 2h9l4 4v16H6z"/>
+        button.addEventListener("click",() => {
 
-<path d="M14 2v5h5"/>
+          toggleResourceFavorite(
+            button.dataset.favoriteResource
+          );
 
-</svg>
+        });
 
-</div>
+      });
 
+  }
 
-<div class="resource-info">
 
-<strong>
+  /* =========================
+     Re-render current resources
+  ========================= */
 
-${escapeHTML(
-String(getResourceName(resource))
-)}
+  function renderResourcesForCurrentSection(){
 
-</strong>
+    document.querySelectorAll(".resources.show")
+      .forEach(box => {
 
-<span>
+        const id = box.id.replace("resources-","");
 
-الرابط غير متوفر حاليًا
+        renderResourcesForSection(id);
 
-</span>
+      });
 
-</div>
+  }
 
-</div>
 
-`;
+  /* =========================
+     Close Subject
+  ========================= */
 
-}
+  document.getElementById("closeDetail")
+    .addEventListener("click",() => {
 
+      document.getElementById("subjectDetail")
+        .classList.remove("show");
 
-return`
+      currentSubject = null;
 
-<a
-href="${escapeAttribute(url)}"
-target="_blank"
-rel="noopener noreferrer"
-class="resource-card"
->
+    });
 
-<div class="resource-icon">
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+  /* =========================
+     Favorites Render
+  ========================= */
 
-<path d="M6 2h9l4 4v16H6z"/>
+  function renderFavorites(){
 
-<path d="M14 2v5h5"/>
+    const favoriteSubjectIds =
+      getFavoriteSubjects();
 
-<path d="M9 13h6"/>
+    const favoriteResourceIds =
+      getFavoriteResources();
 
-<path d="M9 17h6"/>
 
-</svg>
+    const total =
+      favoriteSubjectIds.length +
+      favoriteResourceIds.length;
 
-</div>
 
+    const section =
+      document.getElementById("favoritesSection");
 
-<div class="resource-info">
 
-<strong>
+    document.getElementById("favoritesCount")
+      .textContent = `${total} محفوظ`;
 
-${escapeHTML(
-String(getResourceName(resource))
-)}
 
-</strong>
+    if(total === 0){
 
-<span>
+      section.classList.remove("show");
+      return;
 
-فتح الملف أو الرابط
+    }
 
-</span>
 
-</div>
+    section.classList.add("show");
 
 
-<div class="resource-open">
+    renderFavoriteTab();
 
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
->
+  }
 
-<path d="M14 5h5v5"/>
 
-<path d="M10 14 19 5"/>
+  function renderFavoriteTab(){
 
-<path d="M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"/>
+    const list =
+      document.getElementById("favoriteList");
 
-</svg>
 
-</div>
+    if(currentFavoriteTab === "subjects"){
 
-</a>
+      const favoriteIds =
+        getFavoriteSubjects();
 
-`;
 
-}).join("");
+      const favoriteSubjects =
+        subjects.filter(subject =>
+          favoriteIds.includes(subject.id)
+        );
 
-}
 
+      if(!favoriteSubjects.length){
 
-/* =====================================================
-رجوع من الملفات للأقسام
-===================================================== */
+        list.innerHTML = `
+          <div class="empty">
 
-document
-.getElementById("resourceBack")
-.addEventListener("click",()=>{
+            <div class="empty-icon">
+              ${starIcon()}
+            </div>
 
-resourcesView.classList.remove("active");
+            <h3>لا توجد مواد مفضلة</h3>
 
-sectionsView.style.display="block";
+            <p>
+              اضغط على النجمة بجانب أي مادة لإضافتها هنا.
+            </p>
 
-});
+          </div>
+        `;
 
+        return;
 
-/* =====================================================
-إغلاق المادة
-===================================================== */
+      }
 
-function closeSubject(){
 
-subjectModal.classList.remove("active");
+      list.innerHTML =
+        favoriteSubjects.map(subject => {
 
-document.body.classList.remove("modal-open");
+          return `
 
-setTimeout(()=>{
+            <div class="favorite-item">
 
-resourcesView.classList.remove("active");
+              <div class="favorite-main">
 
-sectionsView.style.display="block";
+                <div class="favorite-icon">
+                  ${subjectIcon()}
+                </div>
 
-},200);
+                <div>
 
-}
+                  <div class="favorite-name">
+                    ${escapeHtml(getSubjectName(subject))}
+                  </div>
 
+                  <div class="favorite-sub">
+                    مادة دراسية
+                  </div>
 
-closeSubjectModal.addEventListener(
-"click",
-closeSubject
-);
+                </div>
 
+              </div>
 
-subjectModal.addEventListener(
-"click",
-event=>{
 
-if(event.target===subjectModal){
+              <button
+                class="favorite-open"
+                data-fav-open-subject="${escapeHtml(subject.id)}"
+              >
+                فتح
+              </button>
 
-closeSubject();
+            </div>
 
-}
+          `;
 
-});
+        }).join("");
 
 
-document.addEventListener(
-"keydown",
-event=>{
+      list.querySelectorAll("[data-fav-open-subject]")
+        .forEach(button => {
 
-if(event.key==="Escape"){
+          button.addEventListener("click",() => {
 
-closeSubject();
+            openSubject(
+              button.dataset.favOpenSubject
+            );
 
-}
+          });
 
-});
+        });
 
+    }else{
 
-/* =====================================================
-حماية النصوص
-===================================================== */
+      const favoriteIds =
+        getFavoriteResources();
 
-function escapeHTML(value){
 
-return String(value)
+      const favoriteResources =
+        resources.filter(resource =>
+          favoriteIds.includes(resource.id)
+        );
 
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
 
-}
+      if(!favoriteResources.length){
 
+        list.innerHTML = `
+          <div class="empty">
 
-function escapeAttribute(value){
+            <div class="empty-icon">
+              ${starIcon()}
+            </div>
 
-return escapeHTML(String(value));
+            <h3>لا توجد ملفات مفضلة</h3>
 
-}
+            <p>
+              اضغط على النجمة بجانب أي ملف لحفظه هنا.
+            </p>
 
+          </div>
+        `;
 
-/* =====================================================
-تشغيل
-===================================================== */
+        return;
 
-loadData();
+      }
+
+
+      list.innerHTML =
+        favoriteResources.map(resource => {
+
+          return `
+
+            <div class="favorite-item">
+
+              <div class="favorite-main">
+
+                <div class="favorite-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                    <path d="M14 2v6h6"/>
+                  </svg>
+                </div>
+
+                <div>
+
+                  <div class="favorite-name">
+                    ${escapeHtml(getResourceName(resource))}
+                  </div>
+
+                  <div class="favorite-sub">
+                    ملف منشور
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <a
+                class="favorite-open"
+                href="${escapeHtml(getResourceUrl(resource))}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                فتح
+              </a>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+    }
+
+  }
+
+
+  /* =========================
+     Favorite Tabs
+  ========================= */
+
+  document.querySelectorAll(".fav-tab")
+    .forEach(tab => {
+
+      tab.addEventListener("click",() => {
+
+        document.querySelectorAll(".fav-tab")
+          .forEach(item => item.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        currentFavoriteTab =
+          tab.dataset.tab;
+
+        renderFavoriteTab();
+
+      });
+
+    });
+
+
+  /* =========================
+     Search
+  ========================= */
+
+  document.getElementById("searchInput")
+    .addEventListener("input",() => {
+
+      renderSubjects();
+
+    });
+
+
+  /* =========================
+     Start
+  ========================= */
+
+  loadData();
 
 </script>
 
