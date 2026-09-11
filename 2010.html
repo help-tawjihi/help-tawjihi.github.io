@@ -1,2336 +1,2520 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>توجيهي 2010 | مساعد توجيهي</title>
-
-  <meta
-    name="description"
-    content="منصة مساعد توجيهي لطلاب توجيهي 2010 - عربي، رياضيات، دين، تاريخ"
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --bg: #f5f7f6;
-      --card: rgba(255,255,255,.82);
-      --card-solid: #ffffff;
-      --text: #101817;
-      --muted: #687572;
-      --border: rgba(16,24,23,.09);
-
-      --green: #16a36a;
-      --green-dark: #087a4b;
-      --green-light: #dff7eb;
-      --green-soft: rgba(22,163,106,.10);
-
-      --shadow: 0 15px 45px rgba(0,0,0,.07);
-      --radius: 24px;
-    }
-
-    body.dark {
-      --bg: #08100d;
-      --card: rgba(17,28,24,.82);
-      --card-solid: #111c18;
-      --text: #f2f7f5;
-      --muted: #98aaa4;
-      --border: rgba(255,255,255,.08);
-
-      --green: #28c984;
-      --green-dark: #19a86a;
-      --green-light: rgba(40,201,132,.13);
-      --green-soft: rgba(40,201,132,.10);
-
-      --shadow: 0 20px 55px rgba(0,0,0,.25);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "IBM Plex Sans Arabic", sans-serif;
-      background:
-        radial-gradient(circle at 85% 5%, rgba(22,163,106,.10), transparent 28%),
-        radial-gradient(circle at 10% 40%, rgba(22,163,106,.06), transparent 25%),
-        var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      transition: background .3s ease, color .3s ease;
-    }
-
-    button,
-    input {
-      font-family: inherit;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: auto;
-    }
-
-    /* ================= HEADER ================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 14px 0;
-      background: rgba(245,247,246,.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    body.dark header {
-      background: rgba(8,16,13,.72);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--green), var(--green-dark));
-      color: white;
-      box-shadow: 0 9px 22px rgba(22,163,106,.25);
-    }
-
-    .brand-icon svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1.1;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .icon-btn {
-      width: 43px;
-      height: 43px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: var(--card);
-      color: var(--text);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(15px);
-      transition: .2s;
-    }
-
-    .icon-btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(22,163,106,.3);
-    }
-
-    .icon-btn svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-      padding: 55px 0 35px;
-    }
-
-    .hero-box {
-      position: relative;
-      overflow: hidden;
-      padding: 42px;
-      border-radius: 32px;
-      background:
-        linear-gradient(135deg,
-          rgba(22,163,106,.13),
-          rgba(22,163,106,.035)
-        ),
-        var(--card);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
-    }
-
-    .hero-box::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(22,163,106,.10);
-      top: -140px;
-      left: -80px;
-      filter: blur(4px);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 25px;
-      transition: .2s;
-    }
-
-    .back-btn:hover {
-      color: var(--green);
-    }
-
-    .back-btn svg {
-      width: 17px;
-      height: 17px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    body.dark .eyebrow {
-      color: var(--green);
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 4px rgba(22,163,106,.10);
-    }
-
-    .hero h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.15;
-      margin-bottom: 13px;
-      letter-spacing: -.8px;
-    }
-
-    .hero h1 span {
-      color: var(--green);
-    }
-
-    .hero p {
-      max-width: 670px;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 15px;
-    }
-
-    /* ================= SEARCH ================= */
-
-    .search-section {
-      padding: 0 0 20px;
-    }
-
-    .search-box {
-      position: relative;
-    }
-
-    .search-box svg {
-      position: absolute;
-      right: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      color: var(--muted);
-      pointer-events: none;
-    }
-
-    .search-input {
-      width: 100%;
-      height: 58px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--card);
-      color: var(--text);
-      padding: 0 52px 0 18px;
-      outline: none;
-      font-size: 14px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 8px 30px rgba(0,0,0,.03);
-      transition: .2s;
-    }
-
-    .search-input:focus {
-      border-color: rgba(22,163,106,.4);
-      box-shadow: 0 0 0 4px rgba(22,163,106,.08);
-    }
-
-    .search-input::placeholder {
-      color: var(--muted);
-    }
-
-    /* ================= SECTION TITLE ================= */
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 15px;
-      margin: 25px 0 18px;
-    }
-
-    .section-head h2 {
-      font-size: 22px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 4px;
-    }
-
-    .count-badge {
-      padding: 7px 11px;
-      border-radius: 10px;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    body.dark .count-badge {
-      color: var(--green);
-    }
-
-    /* ================= SUBJECTS ================= */
-
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 17px;
-      padding-bottom: 50px;
-    }
-
-    .subject-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 190px;
-      border-radius: 25px;
-      padding: 25px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 35px rgba(0,0,0,.045);
-      cursor: pointer;
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-      backdrop-filter: blur(15px);
-    }
-
-    .subject-card::after {
-      content: "";
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: var(--green-soft);
-      left: -60px;
-      bottom: -70px;
-      transition: .25s;
-    }
-
-    .subject-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(22,163,106,.24);
-      box-shadow: 0 18px 45px rgba(0,0,0,.08);
-    }
-
-    .subject-card:hover::after {
-      transform: scale(1.25);
-    }
-
-    .subject-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      position: relative;
-      z-index: 2;
-    }
-
-    .subject-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 17px;
-      display: grid;
-      place-items: center;
-      background: var(--green-light);
-      color: var(--green);
-    }
-
-    .subject-icon svg {
-      width: 25px;
-      height: 25px;
-    }
-
-    .arrow-icon {
-      width: 32px;
-      height: 32px;
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      transition: .2s;
-    }
-
-    .subject-card:hover .arrow-icon {
-      color: var(--green);
-      transform: translateX(-3px);
-    }
-
-    .subject-info {
-      position: relative;
-      z-index: 2;
-      margin-top: 27px;
-    }
-
-    .subject-info h3 {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .subject-info p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .subject-meta {
-      display: flex;
-      gap: 7px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-
-    .meta-pill {
-      font-size: 11px;
-      color: var(--muted);
-      background: var(--green-soft);
-      padding: 5px 9px;
-      border-radius: 8px;
-    }
-
-    /* ================= LOADING ================= */
-
-    .loading {
-      min-height: 260px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--muted);
-      grid-column: 1 / -1;
-    }
-
-    .loader {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      border: 3px solid rgba(22,163,106,.15);
-      border-top-color: var(--green);
-      animation: spin .8s linear infinite;
-      margin: 0 auto 12px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* ================= EMPTY ================= */
-
-    .empty {
-      grid-column: 1 / -1;
-      padding: 55px 20px;
-      text-align: center;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px dashed var(--border);
-    }
-
-    .empty-icon {
-      width: 62px;
-      height: 62px;
-      margin: 0 auto 15px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      background: var(--green-light);
-      color: var(--green);
-    }
-
-    .empty-icon svg {
-      width: 27px;
-      height: 27px;
-    }
-
-    .empty h3 {
-      margin-bottom: 7px;
-      font-size: 18px;
-    }
-
-    .empty p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* ================= MODAL ================= */
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 500;
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 15px;
-      background: rgba(0,0,0,.48);
-      backdrop-filter: blur(7px);
-    }
-
-    .modal-overlay.show {
-      display: flex;
-    }
-
-    .modal {
-      width: min(720px, 100%);
-      max-height: 88vh;
-      overflow-y: auto;
-      border-radius: 30px;
-      background: var(--card-solid);
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 80px rgba(0,0,0,.25);
-      animation: modalUp .25s ease;
-    }
-
-    @keyframes modalUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .modal-head {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 20px;
-      background: var(--card-solid);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .modal-title-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: var(--green-light);
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .modal-title-icon svg {
-      width: 21px;
-      height: 21px;
-    }
-
-    .modal-title h3 {
-      font-size: 18px;
-    }
-
-    .modal-title p {
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 2px;
-    }
-
-    .close-btn {
-      width: 39px;
-      height: 39px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--green-soft);
-      color: var(--text);
-      flex-shrink: 0;
-    }
-
-    .close-btn:hover {
-      color: var(--green);
-    }
-
-    .modal-body {
-      padding: 20px;
-    }
-
-    /* ================= SECTIONS ================= */
-
-    .sections-grid {
-      display: grid;
-      gap: 11px;
-    }
-
-    .section-card {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      width: 100%;
-      text-align: right;
-      padding: 15px;
-      border-radius: 17px;
-      background: var(--green-soft);
-      border: 1px solid transparent;
-      color: var(--text);
-      transition: .2s;
-    }
-
-    .section-card:hover {
-      border-color: rgba(22,163,106,.22);
-      transform: translateX(-3px);
-    }
-
-    .section-card-icon {
-      width: 43px;
-      height: 43px;
-      border-radius: 13px;
-      display: grid;
-      place-items: center;
-      background: var(--green-light);
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .section-card-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .section-card-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .section-card-text strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .section-card-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .section-arrow {
-      color: var(--muted);
-    }
-
-    /* ================= RESOURCES ================= */
-
-    .resources-list {
-      display: grid;
-      gap: 11px;
-    }
-
-    .resource {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px;
-      border-radius: 17px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      transition: .2s;
-    }
-
-    .resource:hover {
-      border-color: rgba(22,163,106,.25);
-      transform: translateY(-2px);
-    }
-
-    .resource-icon {
-      width: 43px;
-      height: 43px;
-      border-radius: 13px;
-      display: grid;
-      place-items: center;
-      background: var(--green-light);
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .resource-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .resource-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .resource-info strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 3px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    .resource-info span {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .open-resource {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      background: var(--green);
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .open-resource svg {
-      width: 17px;
-      height: 17px;
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer {
-      padding: 35px 0 50px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      text-align: center;
-      font-size: 12px;
-    }
-
-    footer strong {
-      color: var(--green);
-    }
-
-    /* ================= TOAST ================= */
-
-    .toast {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      z-index: 1000;
-      max-width: calc(100% - 40px);
-      padding: 13px 16px;
-      border-radius: 15px;
-      background: var(--card-solid);
-      color: var(--text);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      font-size: 13px;
-      opacity: 0;
-      transform: translateY(15px);
-      pointer-events: none;
-      transition: .25s;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ================= RESPONSIVE ================= */
-
-    @media (max-width: 700px) {
-      .container {
-        width: min(100% - 22px, 1180px);
-      }
-
-      header {
-        padding: 10px 0;
-      }
-
-      .brand-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 13px;
-      }
-
-      .brand-text strong {
-        font-size: 15px;
-      }
-
-      .brand-text span {
-        font-size: 10px;
-      }
-
-      .icon-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-      }
-
-      .hero {
-        padding: 25px 0 20px;
-      }
-
-      .hero-box {
-        padding: 27px 21px;
-        border-radius: 25px;
-      }
-
-      .hero h1 {
-        font-size: 31px;
-      }
-
-      .hero p {
-        font-size: 13px;
-      }
-
-      .subjects-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .subject-card {
-        min-height: 160px;
-        padding: 21px;
-      }
-
-      .subject-info {
-        margin-top: 21px;
-      }
-
-      .section-head h2 {
-        font-size: 19px;
-      }
-
-      .modal-overlay {
-        padding: 0;
-      }
-
-      .modal {
-        border-radius: 28px 28px 0 0;
-        max-height: 91vh;
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>توجيهي 2010 | مساعد توجيهي</title>
+
+<meta
+name="description"
+content="مواد وملفات وأقسام توجيهي 2010 - مساعد توجيهي."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+rel="stylesheet"
+>
+
+<style>
+
+:root{
+--bg:#f5f8f7;
+--surface:#fff;
+--surface-2:#eef6f4;
+--text:#14201e;
+--muted:#6b7975;
+--primary:#0f766e;
+--primary-2:#14b8a6;
+--soft:#e5f6f2;
+--border:#dfe9e6;
+--success:#16a34a;
+--danger:#dc2626;
+--warning:#d97706;
+--shadow:0 18px 55px rgba(15,118,110,.09);
+--radius:25px;
+}
+
+body.dark{
+--bg:#09100f;
+--surface:#101817;
+--surface-2:#16211f;
+--text:#f1f5f4;
+--muted:#9aa9a5;
+--primary:#2dd4bf;
+--primary-2:#14b8a6;
+--soft:rgba(20,184,166,.12);
+--border:#253430;
+--shadow:0 18px 55px rgba(0,0,0,.28);
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"IBM Plex Sans Arabic",sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+transition:.25s;
+}
+
+body.modal-open{
+overflow:hidden;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+button,input{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+.container{
+width:min(1150px,calc(100% - 30px));
+margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+background:color-mix(in srgb,var(--bg) 84%,transparent);
+border-bottom:1px solid var(--border);
+}
+
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:700;
+font-size:19px;
+}
+
+.brand-icon{
+width:43px;
+height:43px;
+border-radius:14px;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,var(--primary),var(--primary-2));
+color:#fff;
+box-shadow:0 10px 28px rgba(20,184,166,.22);
+}
+
+.brand-icon svg{
+width:23px;
+height:23px;
+}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.back-home{
+height:42px;
+display:flex;
+align-items:center;
+gap:7px;
+padding:0 13px;
+border:1px solid var(--border);
+background:var(--surface);
+color:var(--text);
+border-radius:13px;
+font-size:13px;
+font-weight:600;
+transition:.2s;
+}
+
+.back-home:hover{
+border-color:var(--primary);
+color:var(--primary);
+transform:translateY(-1px);
+}
+
+.back-home svg{
+width:17px;
+height:17px;
+}
+
+.theme-btn{
+width:42px;
+height:42px;
+border:1px solid var(--border);
+background:var(--surface);
+color:var(--text);
+border-radius:13px;
+display:grid;
+place-items:center;
+transition:.2s;
+}
+
+.theme-btn:hover{
+border-color:var(--primary);
+transform:translateY(-1px);
+}
+
+.theme-btn svg{
+width:19px;
+height:19px;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+padding:65px 0 38px;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:370px;
+height:370px;
+background:var(--primary);
+opacity:.055;
+filter:blur(85px);
+border-radius:50%;
+top:-40px;
+right:5%;
+pointer-events:none;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:28px;
+align-items:center;
+position:relative;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 13px;
+border-radius:999px;
+background:var(--soft);
+color:var(--primary);
+font-size:13px;
+font-weight:700;
+margin-bottom:18px;
+}
+
+.hero-badge span{
+width:7px;
+height:7px;
+border-radius:50%;
+background:var(--primary);
+box-shadow:0 0 0 5px color-mix(in srgb,var(--primary) 12%,transparent);
+}
+
+.hero h1{
+font-size:clamp(38px,5vw,59px);
+line-height:1.14;
+letter-spacing:-1.7px;
+margin-bottom:17px;
+}
+
+.hero h1 span{
+color:var(--primary);
+}
+
+.hero p{
+color:var(--muted);
+font-size:17px;
+max-width:680px;
+margin-bottom:25px;
+}
+
+/* =========================
+HERO CARD
+========================= */
+
+.hero-card{
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(145deg,var(--surface),var(--surface-2));
+border:1px solid var(--border);
+border-radius:31px;
+padding:31px;
+box-shadow:var(--shadow);
+}
+
+.hero-card::after{
+content:"";
+position:absolute;
+width:150px;
+height:150px;
+background:var(--primary);
+opacity:.06;
+border-radius:50%;
+left:-50px;
+bottom:-60px;
+}
+
+.hero-card-icon{
+width:59px;
+height:59px;
+border-radius:18px;
+display:grid;
+place-items:center;
+background:var(--soft);
+color:var(--primary);
+margin-bottom:20px;
+}
+
+.hero-card-icon svg{
+width:29px;
+height:29px;
+}
+
+.hero-card h3{
+font-size:23px;
+margin-bottom:8px;
+}
+
+.hero-card p{
+font-size:14px;
+margin:0;
+}
+
+.hero-mini{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:23px;
+}
+
+.hero-mini-item{
+padding:13px;
+border:1px solid var(--border);
+background:color-mix(in srgb,var(--surface) 75%,transparent);
+border-radius:15px;
+}
+
+.hero-mini-item strong{
+display:block;
+font-size:18px;
+color:var(--primary);
+}
+
+.hero-mini-item span{
+display:block;
+font-size:12px;
+color:var(--muted);
+}
+
+/* =========================
+SECTION
+========================= */
+
+section{
+margin-bottom:55px;
+}
+
+.section-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:15px;
+margin-bottom:21px;
+}
+
+.section-title{
+font-size:28px;
+margin-bottom:4px;
+}
+
+.section-subtitle{
+color:var(--muted);
+font-size:14px;
+}
+
+/* =========================
+BREADCRUMB
+========================= */
+
+.breadcrumb{
+display:flex;
+align-items:center;
+gap:8px;
+color:var(--muted);
+font-size:13px;
+margin-bottom:15px;
+}
+
+.breadcrumb a{
+color:var(--primary);
+font-weight:600;
+}
+
+.breadcrumb svg{
+width:15px;
+height:15px;
+}
+
+/* =========================
+SUBJECTS
+========================= */
+
+.subjects{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.subject-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:27px;
+padding:25px;
+box-shadow:var(--shadow);
+transition:.2s;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.subject-card::after{
+content:"";
+position:absolute;
+width:120px;
+height:120px;
+border-radius:50%;
+background:var(--primary);
+opacity:.035;
+left:-40px;
+bottom:-55px;
+pointer-events:none;
+}
+
+.subject-card:hover{
+transform:translateY(-4px);
+border-color:var(--primary);
+box-shadow:0 20px 50px rgba(15,118,110,.12);
+}
+
+.subject-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+margin-bottom:18px;
+}
+
+.subject-icon{
+width:55px;
+height:55px;
+border-radius:17px;
+display:grid;
+place-items:center;
+background:var(--soft);
+color:var(--primary);
+}
+
+.subject-icon svg{
+width:27px;
+height:27px;
+}
+
+.subject-arrow{
+color:var(--muted);
+transition:.2s;
+}
+
+.subject-card:hover .subject-arrow{
+color:var(--primary);
+transform:translateX(-3px);
+}
+
+.subject-card h3{
+font-size:21px;
+margin-bottom:5px;
+}
+
+.subject-card p{
+color:var(--muted);
+font-size:13px;
+margin-bottom:17px;
+}
+
+.subject-info{
+display:flex;
+align-items:center;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.info-pill{
+display:inline-flex;
+align-items:center;
+gap:6px;
+padding:7px 10px;
+border-radius:11px;
+background:var(--soft);
+color:var(--primary);
+font-size:12px;
+font-weight:600;
+}
+
+.info-pill svg{
+width:15px;
+height:15px;
+}
+
+/* =========================
+LOADING
+========================= */
+
+.loading{
+grid-column:1/-1;
+text-align:center;
+padding:45px 20px;
+color:var(--muted);
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:22px;
+}
+
+.loader{
+width:28px;
+height:28px;
+border:3px solid var(--border);
+border-top-color:var(--primary);
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin:0 auto 12px;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+.empty{
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+color:var(--muted);
+background:var(--surface);
+border:1px dashed var(--border);
+border-radius:22px;
+}
+
+.empty strong{
+display:block;
+font-size:17px;
+color:var(--text);
+margin-bottom:5px;
+}
+
+.error-message{
+color:var(--danger)!important;
+}
+
+/* =========================
+SUBJECT MODAL
+========================= */
+
+.modal-overlay{
+position:fixed;
+inset:0;
+background:rgba(5,15,14,.62);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+z-index:500;
+display:none;
+align-items:center;
+justify-content:center;
+padding:16px;
+opacity:0;
+transition:.2s;
+}
+
+.modal-overlay.active{
+display:flex;
+opacity:1;
+}
+
+.subject-modal{
+width:min(720px,100%);
+max-height:calc(100vh - 32px);
+overflow-y:auto;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:29px;
+box-shadow:0 30px 90px rgba(0,0,0,.25);
+transform:translateY(15px) scale(.98);
+transition:.25s;
+}
+
+.modal-overlay.active .subject-modal{
+transform:translateY(0) scale(1);
+}
+
+.modal-header{
+padding:22px 23px 18px;
+border-bottom:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+position:sticky;
+top:0;
+background:var(--surface);
+z-index:3;
+}
+
+.modal-title-wrap{
+display:flex;
+align-items:center;
+gap:13px;
+min-width:0;
+}
+
+.modal-title-icon{
+width:47px;
+height:47px;
+flex:0 0 47px;
+border-radius:14px;
+background:var(--soft);
+color:var(--primary);
+display:grid;
+place-items:center;
+}
+
+.modal-title-icon svg{
+width:23px;
+height:23px;
+}
+
+.modal-title-text{
+min-width:0;
+}
+
+.modal-title-text h2{
+font-size:21px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.modal-title-text p{
+color:var(--muted);
+font-size:12px;
+}
+
+.modal-close{
+width:38px;
+height:38px;
+flex:0 0 38px;
+border:1px solid var(--border);
+background:var(--surface-2);
+color:var(--text);
+border-radius:12px;
+display:grid;
+place-items:center;
+}
+
+.modal-close svg{
+width:18px;
+height:18px;
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+.modal-content{
+padding:22px;
+}
+
+.content-label{
+font-size:14px;
+font-weight:700;
+margin-bottom:13px;
+}
+
+.sections-list{
+display:grid;
+gap:11px;
+}
+
+.section-card{
+width:100%;
+border:1px solid var(--border);
+background:var(--surface-2);
+color:var(--text);
+border-radius:17px;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+text-align:right;
+transition:.2s;
+}
+
+.section-card:hover{
+border-color:var(--primary);
+background:var(--soft);
+transform:translateY(-1px);
+}
+
+.section-card-left{
+display:flex;
+align-items:center;
+gap:12px;
+min-width:0;
+}
+
+.section-card-icon{
+width:43px;
+height:43px;
+flex:0 0 43px;
+border-radius:13px;
+display:grid;
+place-items:center;
+background:var(--surface);
+color:var(--primary);
+}
+
+.section-card-icon svg{
+width:20px;
+height:20px;
+}
+
+.section-card-text{
+min-width:0;
+}
+
+.section-card-text strong{
+display:block;
+font-size:14px;
+margin-bottom:2px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.section-card-text span{
+display:block;
+font-size:11px;
+color:var(--muted);
+}
+
+.section-card-arrow{
+color:var(--muted);
+}
+
+.section-card:hover .section-card-arrow{
+color:var(--primary);
+}
+
+/* =========================
+RESOURCE VIEW
+========================= */
+
+.resources-view{
+display:none;
+}
+
+.resources-view.active{
+display:block;
+}
+
+.resource-back{
+border:0;
+background:transparent;
+color:var(--primary);
+font-size:13px;
+font-weight:700;
+padding:0;
+margin-bottom:16px;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.resource-title{
+font-size:20px;
+margin-bottom:3px;
+}
+
+.resource-subtitle{
+font-size:12px;
+color:var(--muted);
+margin-bottom:18px;
+}
+
+.resources-list{
+display:grid;
+gap:11px;
+}
+
+.resource-card{
+display:flex;
+align-items:center;
+gap:13px;
+padding:14px;
+border:1px solid var(--border);
+background:var(--surface-2);
+border-radius:17px;
+transition:.2s;
+}
+
+.resource-card:hover{
+border-color:var(--primary);
+background:var(--soft);
+transform:translateY(-1px);
+}
+
+.resource-icon{
+width:43px;
+height:43px;
+flex:0 0 43px;
+display:grid;
+place-items:center;
+border-radius:13px;
+background:var(--surface);
+color:var(--primary);
+}
+
+.resource-icon svg{
+width:21px;
+height:21px;
+}
+
+.resource-info{
+flex:1;
+min-width:0;
+}
+
+.resource-info strong{
+display:block;
+font-size:14px;
+margin-bottom:2px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.resource-info span{
+font-size:11px;
+color:var(--muted);
+}
+
+.resource-open{
+display:flex;
+align-items:center;
+justify-content:center;
+width:38px;
+height:38px;
+border-radius:11px;
+background:var(--primary);
+color:#fff;
+flex:0 0 38px;
+}
+
+.resource-open svg{
+width:17px;
+height:17px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+border-top:1px solid var(--border);
+padding:30px 0;
+color:var(--muted);
+text-align:center;
+font-size:13px;
+margin-top:30px;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.hero-card{
+display:none;
+}
+
+.subjects{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+width:min(100% - 22px,1150px);
+}
+
+.hero{
+padding-top:43px;
+}
+
+.hero h1{
+font-size:37px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title{
+font-size:24px;
+}
+
+.back-home span{
+display:none;
+}
+
+.back-home{
+width:42px;
+justify-content:center;
+padding:0;
+}
+
+.modal-content{
+padding:17px;
+}
+
+.modal-header{
+padding:17px;
+}
+
+.subject-card{
+padding:22px;
+}
+
+}
+
+@media(max-width:390px){
+
+.hero h1{
+font-size:34px;
+}
+
+.subject-card h3{
+font-size:19px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+<!-- =========================
+HEADER
+========================= -->
 
-  <header>
-    <div class="container nav">
+<header>
 
-      <a href="index.html" class="brand">
+<div class="container nav">
 
-        <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            <path d="M8 6h8"/>
-            <path d="M8 10h8"/>
-          </svg>
-        </div>
+<a href="index.html" class="brand">
 
-        <div class="brand-text">
-          <strong>مساعد توجيهي</strong>
-          <span>منصتك للتفوق</span>
-        </div>
+<div class="brand-icon">
 
-      </a>
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-      <div class="header-actions">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+<path d="M8 6h8"/>
+<path d="M8 10h8"/>
 
-        <button
-          class="icon-btn"
-          id="themeBtn"
-          aria-label="تغيير الوضع"
-          title="تغيير الوضع"
-        >
-          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2"/>
-            <path d="M12 20v2"/>
-            <path d="m4.93 4.93 1.41 1.41"/>
-            <path d="m17.66 17.66 1.41 1.41"/>
-            <path d="M2 12h2"/>
-            <path d="M20 12h2"/>
-            <path d="m6.34 17.66-1.41 1.41"/>
-            <path d="m19.07 4.93-1.41 1.41"/>
-          </svg>
-        </button>
+</svg>
 
-      </div>
+</div>
 
-    </div>
-  </header>
+<span>مساعد توجيهي</span>
 
+</a>
 
-  <!-- ================= HERO ================= -->
 
-  <main>
+<div class="nav-actions">
 
-    <section class="hero">
-      <div class="container">
+<a href="index.html" class="back-home">
 
-        <div class="hero-box">
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-          <div class="hero-content">
+<path d="m15 18-6-6 6-6"/>
 
-            <a href="index.html" class="back-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="m15 18-6-6 6-6"/>
-              </svg>
-              العودة للرئيسية
-            </a>
+</svg>
 
-            <div class="eyebrow">
-              <span class="eyebrow-dot"></span>
-              توجيهي 2010
-            </div>
+<span>الصفحة الرئيسية</span>
 
-            <h1>
-              مواد <span>توجيهي 2010</span>
-            </h1>
+</a>
 
-            <p>
-              اختر المادة التي تريد دراستها للوصول إلى الأقسام،
-              الملخصات، الأسئلة، الملفات والنماذج المتوفرة.
-            </p>
 
-          </div>
+<button
+class="theme-btn"
+id="themeBtn"
+aria-label="تغيير المظهر"
+type="button"
+></button>
 
-        </div>
+</div>
 
-      </div>
-    </section>
+</div>
 
+</header>
 
-    <!-- ================= SEARCH ================= -->
 
-    <section class="search-section">
-      <div class="container">
+<main>
 
-        <div class="search-box">
+<!-- =========================
+HERO
+========================= -->
 
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="m21 21-4.3-4.3"/>
-          </svg>
+<section class="hero">
 
-          <input
-            id="searchInput"
-            class="search-input"
-            type="search"
-            placeholder="ابحث عن مادة..."
-            autocomplete="off"
-          />
+<div class="container hero-grid">
 
-        </div>
+<div>
 
-      </div>
-    </section>
+<div class="breadcrumb">
 
+<a href="index.html">الرئيسية</a>
 
-    <!-- ================= SUBJECTS ================= -->
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-    <section>
-      <div class="container">
+<path d="m9 18 6-6-6-6"/>
 
-        <div class="section-head">
+</svg>
 
-          <div>
-            <h2>اختر مادتك</h2>
-            <p>مواد توجيهي 2010 المتوفرة حالياً</p>
-          </div>
+<span>توجيهي 2010</span>
 
-          <div class="count-badge" id="subjectCount">
-            0 مواد
-          </div>
+</div>
 
-        </div>
 
-        <div class="subjects-grid" id="subjectsGrid">
+<div class="hero-badge">
 
-          <div class="loading">
-            <div>
-              <div class="loader"></div>
-              <p>جاري تحميل المواد...</p>
-            </div>
-          </div>
+<span></span>
 
-        </div>
+جيل 2010
 
-      </div>
-    </section>
+</div>
 
-  </main>
 
+<h1>
 
-  <!-- ================= SUBJECT MODAL ================= -->
+توجيهي <span>2010</span>
 
-  <div class="modal-overlay" id="subjectModal">
+</h1>
 
-    <div class="modal">
 
-      <div class="modal-head">
+<p>
 
-        <div class="modal-title">
+اختر المادة التي تريد دراستها، ثم انتقل إلى الأقسام والملفات
+التي يتم إضافتها وتحديثها من لوحة الإدارة.
 
-          <div class="modal-title-icon" id="modalSubjectIcon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            </svg>
-          </div>
+</p>
 
-          <div>
-            <h3 id="modalSubjectName">المادة</h3>
-            <p>أقسام المادة</p>
-          </div>
+</div>
 
-        </div>
 
-        <button class="close-btn" id="closeModal">
+<div class="hero-card">
 
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
-          </svg>
+<div class="hero-card-icon">
 
-        </button>
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-      </div>
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
 
-      <div class="modal-body">
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
 
-        <div class="sections-grid" id="sectionsGrid">
+</svg>
 
-          <div class="loading">
-            <div>
-              <div class="loader"></div>
-              <p>جاري تحميل الأقسام...</p>
-            </div>
-          </div>
+</div>
 
-        </div>
 
-      </div>
+<h3>محتوى جيل 2010</h3>
 
-    </div>
+<p>
 
-  </div>
+المواد والأقسام والملفات تظهر تلقائيًا حسب ما يتم إضافته
+من لوحة الأدمن.
 
+</p>
 
-  <!-- ================= RESOURCES MODAL ================= -->
 
-  <div class="modal-overlay" id="resourcesModal">
+<div class="hero-mini">
 
-    <div class="modal">
+<div class="hero-mini-item">
 
-      <div class="modal-head">
+<strong id="subjectCount">0</strong>
 
-        <div class="modal-title">
+<span>مواد متاحة</span>
 
-          <div class="modal-title-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-              <path d="M13 2v7h7"/>
-            </svg>
-          </div>
+</div>
 
-          <div>
-            <h3 id="resourcesTitle">الملفات</h3>
-            <p>المصادر المتوفرة</p>
-          </div>
 
-        </div>
+<div class="hero-mini-item">
 
-        <button class="close-btn" id="closeResourcesModal">
+<strong id="resourceCount">0</strong>
 
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
-          </svg>
+<span>ملف منشور</span>
 
-        </button>
+</div>
 
-      </div>
+</div>
 
-      <div class="modal-body">
+</div>
 
-        <div class="resources-list" id="resourcesList">
+</div>
 
-          <div class="loading">
-            <div>
-              <div class="loader"></div>
-              <p>جاري تحميل الملفات...</p>
-            </div>
-          </div>
+</section>
 
-        </div>
 
-      </div>
+<!-- =========================
+SUBJECTS
+========================= -->
 
-    </div>
+<section>
 
-  </div>
+<div class="container">
 
+<div class="section-head">
 
-  <!-- ================= FOOTER ================= -->
+<div>
 
-  <footer>
-    <div class="container">
-      <p>
-        <strong>مساعد توجيهي</strong>
-        — طريقك لتنظيم دراستك وتحقيق هدفك.
-      </p>
-    </div>
-  </footer>
+<h2 class="section-title">مواد جيل 2010</h2>
 
+<p class="section-subtitle">
 
-  <div class="toast" id="toast"></div>
+المواد التي يضيفها الأدمن تظهر هنا تلقائيًا.
 
+</p>
 
-  <!-- ================= FIREBASE ================= -->
+</div>
 
-  <script type="module">
+</div>
 
-    import {
-      db,
-      collection,
-      getDocs
-    } from "./admin/firebase-config.js";
 
-    import {
-      query,
-      where
-    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+<div
+class="subjects"
+id="subjects"
+>
 
+<div class="loading">
 
-    /* =========================================================
-       إعدادات الصفحة
-    ========================================================= */
+<div class="loader"></div>
 
-    const GENERATION_YEAR = "2010";
+جاري تحميل المواد...
 
+</div>
 
-    /* =========================================================
-       عناصر الصفحة
-    ========================================================= */
+</div>
 
-    const subjectsGrid = document.getElementById("subjectsGrid");
-    const subjectCount = document.getElementById("subjectCount");
-    const searchInput = document.getElementById("searchInput");
+</div>
 
-    const subjectModal = document.getElementById("subjectModal");
-    const resourcesModal = document.getElementById("resourcesModal");
+</section>
 
-    const sectionsGrid = document.getElementById("sectionsGrid");
-    const resourcesList = document.getElementById("resourcesList");
+</main>
 
-    const modalSubjectName = document.getElementById("modalSubjectName");
-    const resourcesTitle = document.getElementById("resourcesTitle");
 
-    const closeModal = document.getElementById("closeModal");
-    const closeResourcesModal = document.getElementById("closeResourcesModal");
+<footer>
 
-    const themeBtn = document.getElementById("themeBtn");
-    const themeIcon = document.getElementById("themeIcon");
+<div class="container">
 
-    const toast = document.getElementById("toast");
+© 2026 مساعد توجيهي — جميع الحقوق محفوظة
 
+</div>
 
-    /* =========================================================
-       متغيرات
-    ========================================================= */
+</footer>
 
-    let allSubjects = [];
-    let allSections = [];
-    let allResources = [];
 
-    let currentSubject = null;
+<!-- =========================
+SUBJECT MODAL
+========================= -->
 
+<div
+class="modal-overlay"
+id="subjectModal"
+>
 
-    /* =========================================================
-       أيقونات المواد
-    ========================================================= */
+<div class="subject-modal">
 
-    function getSubjectIcon(name = "") {
+<div class="modal-header">
 
-      const n = name.toLowerCase();
+<div class="modal-title-wrap">
 
-      if (
-        n.includes("رياض") ||
-        n.includes("math")
-      ) {
-        return `
-          <svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <rect x="4" y="3" width="16" height="18" rx="2"/>
-            <path d="M8 7h8"/>
-            <path d="M8 11h2"/>
-            <path d="M14 11h2"/>
-            <path d="M8 15h2"/>
-            <path d="M14 15h2"/>
-            <path d="M8 19h8"/>
-          </svg>
-        `;
-      }
+<div class="modal-title-icon">
 
-      if (
-        n.includes("عرب") ||
-        n.includes("arab")
-      ) {
-        return `
-          <svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            <path d="M8 6h8"/>
-            <path d="M8 10h6"/>
-          </svg>
-        `;
-      }
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-      if (
-        n.includes("دين") ||
-        n.includes("إسلام") ||
-        n.includes("اسلام") ||
-        n.includes("شرع")
-      ) {
-        return `
-          <svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M12 3v18"/>
-            <path d="M5 8c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
-            <path d="M5 12c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
-            <path d="M5 16c2.5-2 5-2 7 0 2-2 4.5-2 7 0"/>
-          </svg>
-        `;
-      }
+<path d="M4 5h16"/>
+<path d="M4 12h16"/>
+<path d="M4 19h10"/>
 
-      if (
-        n.includes("تاريخ") ||
-        n.includes("history")
-      ) {
-        return `
-          <svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M4 19h16"/>
-            <path d="M5 19V9l7-5 7 5v10"/>
-            <path d="M9 19v-6h6v6"/>
-            <path d="M3 9h18"/>
-          </svg>
-        `;
-      }
+</svg>
 
-      return `
-        <svg viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-        </svg>
-      `;
-    }
+</div>
 
 
-    /* =========================================================
-       تنظيف النص
-    ========================================================= */
+<div class="modal-title-text">
 
-    function escapeHTML(value) {
+<h2 id="modalSubjectName">المادة</h2>
 
-      if (value === undefined || value === null) {
-        return "";
-      }
+<p>اختر القسم الذي تريد فتحه</p>
 
-      return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
+</div>
 
+</div>
 
-    /* =========================================================
-       الحصول على قيمة مرنة من Firestore
-    ========================================================= */
 
-    function firstValue(obj, fields, fallback = "") {
+<button
+class="modal-close"
+id="closeSubjectModal"
+type="button"
+>
 
-      for (const field of fields) {
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-        if (
-          obj[field] !== undefined &&
-          obj[field] !== null &&
-          String(obj[field]).trim() !== ""
-        ) {
-          return obj[field];
-        }
+<path d="m6 6 12 12"/>
+<path d="m18 6-12 12"/>
 
-      }
+</svg>
 
-      return fallback;
-    }
+</button>
 
+</div>
 
-    /* =========================================================
-       توحيد رقم الجيل
-    ========================================================= */
 
-    function normalizeYear(value) {
+<div class="modal-content">
 
-      if (value === undefined || value === null) {
-        return "";
-      }
+<!-- SECTIONS VIEW -->
 
-      return String(value)
-        .replace(/[^\d]/g, "")
-        .trim();
-    }
+<div id="sectionsView">
 
+<div class="content-label">
+أقسام المادة
+</div>
 
-    /* =========================================================
-       التأكد أن المادة تابعة لـ 2010
-    ========================================================= */
+<div
+class="sections-list"
+id="sectionsList"
+></div>
 
-    function isSubjectFor2010(subject) {
+</div>
 
-      const generationId = firstValue(
-        subject,
-        [
-          "generationId",
-          "generationID",
-          "generation",
-          "generationYear",
-          "year"
-        ]
-      );
 
-      if (!generationId) {
-        return false;
-      }
+<!-- RESOURCES VIEW -->
 
-      const normalized = normalizeYear(generationId);
+<div
+class="resources-view"
+id="resourcesView"
+>
 
-      return normalized === "2010";
-    }
+<button
+class="resource-back"
+id="resourceBack"
+type="button"
+>
 
+← الرجوع إلى أقسام المادة
 
-    /* =========================================================
-       تحميل البيانات
-    ========================================================= */
+</button>
 
-    async function loadData() {
 
-      try {
+<h3
+class="resource-title"
+id="resourceTitle"
+></h3>
 
-        const [
-          subjectsSnapshot,
-          sectionsSnapshot,
-          resourcesSnapshot
-        ] = await Promise.all([
+<p class="resource-subtitle">
+الملفات والروابط المنشورة في هذا القسم
+</p>
 
-          getDocs(collection(db, "subjects")),
 
-          getDocs(collection(db, "sections")),
+<div
+class="resources-list"
+id="resourcesList"
+></div>
 
-          getDocs(
-            query(
-              collection(db, "resources"),
-              where("published", "==", true)
-            )
-          )
+</div>
 
-        ]);
+</div>
 
+</div>
 
-        allSubjects = subjectsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+</div>
 
-        allSections = sectionsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
 
-        allResources = resourcesSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+<script type="module">
 
+import {
+db,
+collection,
+getDocs
+} from "./admin/firebase-config.js";
 
-        renderSubjects(allSubjects);
+import {
+query,
+where
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-      } catch (error) {
 
-        console.error("Firebase Error:", error);
+/* =====================================================
+الوضع الليلي
+===================================================== */
 
-        subjectsGrid.innerHTML = `
-          <div class="empty">
+const themeBtn=document.getElementById("themeBtn");
 
-            <div class="empty-icon">
-              <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M12 9v4"/>
-                <path d="M12 17h.01"/>
-                <path d="M10.3 3.6 2.2 18a2 2 0 0 0 1.7 3h16.2a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/>
-              </svg>
-            </div>
 
-            <h3>تعذر تحميل المواد</h3>
+function setThemeIcon(){
 
-            <p>
-              تأكد من إعداد Firebase وقواعد Firestore ثم حاول مرة أخرى.
-            </p>
+const isDark=document.body.classList.contains("dark");
 
-          </div>
-        `;
 
-        showToast("حدث خطأ أثناء تحميل البيانات");
+themeBtn.innerHTML=isDark
 
-      }
+?`
 
-    }
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
+<circle cx="12" cy="12" r="4"/>
 
-    /* =========================================================
-       عرض المواد
-    ========================================================= */
+<path d="M12 2v2"/>
+<path d="M12 20v2"/>
+<path d="m4.93 4.93 1.41 1.41"/>
+<path d="m17.66 17.66 1.41 1.41"/>
+<path d="M2 12h2"/>
+<path d="M20 12h2"/>
+<path d="m6.34 17.66-1.41 1.41"/>
+<path d="m19.07 4.93-1.41 1.41"/>
 
-    function renderSubjects(subjects) {
+</svg>
 
-      const generationSubjects = subjects.filter(isSubjectFor2010);
+`
 
-      const searchTerm = searchInput.value
-        .trim()
-        .toLowerCase();
+:`
 
-      const filtered = generationSubjects.filter(subject => {
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-        const name = firstValue(
-          subject,
-          [
-            "name",
-            "title",
-            "subjectName",
-            "label"
-          ],
-          "مادة"
-        );
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
 
-        return name
-          .toLowerCase()
-          .includes(searchTerm);
+</svg>
 
-      });
+`;
 
+}
 
-      subjectCount.textContent =
-        `${filtered.length} ${filtered.length === 1 ? "مادة" : "مواد"}`;
 
+if(
+localStorage.getItem("tawjihi-theme")==="dark"
+){
 
-      if (!filtered.length) {
+document.body.classList.add("dark");
 
-        subjectsGrid.innerHTML = `
-          <div class="empty">
+}
 
-            <div class="empty-icon">
+setThemeIcon();
 
-              <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
 
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.3-4.3"/>
+themeBtn.addEventListener("click",()=>{
 
-              </svg>
+document.body.classList.toggle("dark");
 
-            </div>
 
-            <h3>
-              لا توجد نتائج
-            </h3>
+localStorage.setItem(
+"tawjihi-theme",
+document.body.classList.contains("dark")
+?"dark"
+:"light"
+);
 
-            <p>
-              لم نجد مادة تطابق بحثك.
-            </p>
 
-          </div>
-        `;
+setThemeIcon();
 
-        return;
-      }
+});
 
 
-      subjectsGrid.innerHTML = filtered.map(subject => {
+/* =====================================================
+Firebase Data
+===================================================== */
 
-        const name = firstValue(
-          subject,
-          [
-            "name",
-            "title",
-            "subjectName",
-            "label"
-          ],
-          "مادة"
-        );
+let generationsData=[];
+let subjectsData=[];
+let sectionsData=[];
+let resourcesData=[];
 
-        const sections = getSectionsForSubject(subject.id);
 
-        const resourceCount =
-          getResourcesForSubject(subject.id).length;
+/* =====================================================
+أسماء الحقول
+===================================================== */
 
+function getGenerationName(generation){
 
-        return `
-          <article
-            class="subject-card"
-            data-subject-id="${escapeHTML(subject.id)}"
-          >
+return generation.year ||
+generation.name ||
+generation.title ||
+generation.label ||
+"جيل";
 
-            <div class="subject-top">
+}
 
-              <div class="subject-icon">
-                ${getSubjectIcon(name)}
-              </div>
 
-              <div class="arrow-icon">
-                <svg viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2">
+function getSubjectName(subject){
 
-                  <path d="m9 18 6-6-6-6"/>
+return subject.name ||
+subject.title ||
+subject.subjectName ||
+subject.label ||
+"مادة";
 
-                </svg>
-              </div>
+}
 
-            </div>
 
+function getSectionName(section){
 
-            <div class="subject-info">
+return section.name ||
+section.title ||
+section.sectionName ||
+section.label ||
+"قسم";
 
-              <h3>
-                ${escapeHTML(name)}
-              </h3>
+}
 
-              <p>
-                افتح المادة للوصول إلى محتوياتها
-              </p>
 
-              <div class="subject-meta">
+function getResourceName(resource){
 
-                <span class="meta-pill">
-                  ${sections.length} أقسام
-                </span>
+return resource.title ||
+resource.name ||
+resource.resourceName ||
+"ملف";
 
-                <span class="meta-pill">
-                  ${resourceCount} ملف
-                </span>
+}
 
-              </div>
 
-            </div>
+/* =====================================================
+معرفة إذا المادة تابعة لـ 2010
+===================================================== */
 
-          </article>
-        `;
+function is2010Subject(subject){
 
-      }).join("");
+const generationId=
+subject.generationId ??
+subject.generationID ??
+subject.generation ??
+subject.year;
 
 
-      document
-        .querySelectorAll(".subject-card")
-        .forEach(card => {
+if(!generationId){
 
-          card.addEventListener("click", () => {
+return false;
 
-            const id = card.dataset.subjectId;
+}
 
-            const subject = allSubjects.find(
-              item => item.id === id
-            );
 
-            if (subject) {
-              openSubject(subject);
-            }
+/* إذا كانت القيمة هي ID الجيل */
 
-          });
+const generation=
+generationsData.find(generation=>
+generation.id===String(generationId)
+);
 
-        });
 
-    }
+if(generation){
 
+const name=
+String(getGenerationName(generation));
 
-    /* =========================================================
-       أقسام المادة
-    ========================================================= */
+return name.includes("2010");
 
-    function getSectionsForSubject(subjectId) {
+}
 
-      return allSections.filter(section => {
 
-        const sectionSubject = firstValue(
-          section,
-          [
-            "subjectId",
-            "subjectID",
-            "subject"
-          ]
-        );
+/* إذا كانت القيمة نفسها 2010 */
 
-        return String(sectionSubject) === String(subjectId);
+return String(generationId).includes("2010");
 
-      });
+}
 
-    }
 
+/* =====================================================
+العلاقات
+===================================================== */
 
-    /* =========================================================
-       ملفات المادة
-    ========================================================= */
+function findSubjectForSection(section){
 
-    function getResourcesForSubject(subjectId) {
+const subjectId=
+section.subjectId ??
+section.subjectID ??
+section.subject;
 
-      return allResources.filter(resource => {
 
-        const resourceSubject = firstValue(
-          resource,
-          [
-            "subjectId",
-            "subjectID",
-            "subject"
-          ]
-        );
+if(!subjectId){
 
-        return String(resourceSubject) === String(subjectId);
+return null;
 
-      });
+}
 
-    }
 
+return subjectsData.find(subject=>
+subject.id===String(subjectId)
+);
 
-    /* =========================================================
-       ملفات القسم
-    ========================================================= */
+}
 
-    function getResourcesForSection(sectionId) {
 
-      return allResources.filter(resource => {
+function findSectionForResource(resource){
 
-        const resourceSection = firstValue(
-          resource,
-          [
-            "sectionId",
-            "sectionID",
-            "section"
-          ]
-        );
+const sectionId=
+resource.sectionId ??
+resource.sectionID ??
+resource.section;
 
-        return String(resourceSection) === String(sectionId);
 
-      });
+if(!sectionId){
 
-    }
+return null;
 
+}
 
-    /* =========================================================
-       فتح المادة
-    ========================================================= */
 
-    function openSubject(subject) {
+return sectionsData.find(section=>
+section.id===String(sectionId)
+);
 
-      currentSubject = subject;
+}
 
-      const name = firstValue(
-        subject,
-        [
-          "name",
-          "title",
-          "subjectName",
-          "label"
-        ],
-        "المادة"
-      );
 
+function findSubjectForResource(resource){
 
-      modalSubjectName.textContent = name;
+const subjectId=
+resource.subjectId ??
+resource.subjectID ??
+resource.subject;
 
 
-      const sections =
-        getSectionsForSubject(subject.id);
+if(subjectId){
 
+return subjectsData.find(subject=>
+subject.id===String(subjectId)
+);
 
-      sectionsGrid.innerHTML = "";
+}
 
 
-      if (!sections.length) {
+const section=
+findSectionForResource(resource);
 
-        const resources =
-          getResourcesForSubject(subject.id);
 
+if(section){
 
-        if (resources.length) {
+return findSubjectForSection(section);
 
-          sectionsGrid.innerHTML = `
-            <button
-              class="section-card"
-              data-open-all="true"
-            >
+}
 
-              <div class="section-card-icon">
 
-                <svg viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2">
+return null;
 
-                  <path d="M4 4h16v16H4z"/>
-                  <path d="M8 8h8"/>
-                  <path d="M8 12h8"/>
-                  <path d="M8 16h5"/>
+}
 
-                </svg>
 
-              </div>
+/* =====================================================
+تحميل Firebase
+===================================================== */
 
-              <div class="section-card-text">
+async function loadData(){
 
-                <strong>
-                  جميع الملفات
-                </strong>
+const container=
+document.getElementById("subjects");
 
-                <span>
-                  ${resources.length} ملف متوفر
-                </span>
 
-              </div>
+try{
 
-              <div class="section-arrow">
-                <svg viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2">
+container.innerHTML=`
 
-                  <path d="m9 18 6-6-6-6"/>
+<div class="loading">
 
-                </svg>
-              </div>
+<div class="loader"></div>
 
-            </button>
-          `;
+جاري تحميل المواد...
 
-          document
-            .querySelector("[data-open-all]")
-            .addEventListener("click", () => {
+</div>
 
-              closeSubjectModal();
+`;
 
-              setTimeout(() => {
-                openResources(
-                  `${name} — جميع الملفات`,
-                  resources
-                );
-              }, 180);
 
-            });
+/* =========================
+الأجيال
+========================= */
 
-        } else {
+const generationsSnapshot=
+await getDocs(
+collection(db,"generations")
+);
 
-          sectionsGrid.innerHTML = `
-            <div class="empty">
 
-              <div class="empty-icon">
-                <svg viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2">
+generationsData=
+generationsSnapshot.docs.map(doc=>({
 
-                  <path d="M4 4h16v16H4z"/>
-                  <path d="M8 8h8"/>
-                  <path d="M8 12h5"/>
+id:doc.id,
+...doc.data()
 
-                </svg>
-              </div>
+}));
 
-              <h3>
-                لا توجد أقسام بعد
-              </h3>
 
-              <p>
-                سيتم عرض الأقسام هنا عند إضافتها من لوحة الأدمن.
-              </p>
+/* =========================
+المواد
+========================= */
 
-            </div>
-          `;
+const subjectsSnapshot=
+await getDocs(
+collection(db,"subjects")
+);
 
-        }
 
-      } else {
+subjectsData=
+subjectsSnapshot.docs.map(doc=>({
 
-        sectionsGrid.innerHTML =
-          sections.map(section => {
+id:doc.id,
+...doc.data()
 
-            const sectionName = firstValue(
-              section,
-              [
-                "name",
-                "title",
-                "sectionName",
-                "label"
-              ],
-              "قسم"
-            );
+}));
 
 
-            const resources =
-              getResourcesForSection(section.id);
+/* =========================
+الأقسام
+========================= */
 
+try{
 
-            return `
-              <button
-                class="section-card"
-                data-section-id="${escapeHTML(section.id)}"
-              >
+const sectionsSnapshot=
+await getDocs(
+collection(db,"sections")
+);
 
-                <div class="section-card-icon">
 
-                  <svg viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
+sectionsData=
+sectionsSnapshot.docs.map(doc=>({
 
-                    <path d="M4 4h16v16H4z"/>
-                    <path d="M8 8h8"/>
-                    <path d="M8 12h8"/>
-                    <path d="M8 16h5"/>
+id:doc.id,
+...doc.data()
 
-                  </svg>
+}));
 
-                </div>
+}catch(error){
 
-                <div class="section-card-text">
+console.warn(
+"Sections unavailable:",
+error
+);
 
-                  <strong>
-                    ${escapeHTML(sectionName)}
-                  </strong>
+sectionsData=[];
 
-                  <span>
-                    ${resources.length} ملف متوفر
-                  </span>
+}
 
-                </div>
 
-                <div class="section-arrow">
+/* =========================
+الموارد المنشورة فقط
+========================= */
 
-                  <svg viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
+try{
 
-                    <path d="m9 18 6-6-6-6"/>
+const resourcesQuery=
+query(
 
-                  </svg>
+collection(db,"resources"),
 
-                </div>
+where(
+"published",
+"==",
+true
+)
 
-              </button>
-            `;
+);
 
-          }).join("");
 
+const resourcesSnapshot=
+await getDocs(
+resourcesQuery
+);
 
-        document
-          .querySelectorAll("[data-section-id]")
-          .forEach(button => {
 
-            button.addEventListener("click", () => {
+resourcesData=
+resourcesSnapshot.docs.map(doc=>({
 
-              const sectionId =
-                button.dataset.sectionId;
+id:doc.id,
+...doc.data()
 
-              const section =
-                sections.find(
-                  item => item.id === sectionId
-                );
+}));
 
-              if (!section) return;
+}catch(error){
 
+console.warn(
+"Resources unavailable:",
+error
+);
 
-              const sectionName =
-                firstValue(
-                  section,
-                  [
-                    "name",
-                    "title",
-                    "sectionName",
-                    "label"
-                  ],
-                  "القسم"
-                );
+resourcesData=[];
 
+}
 
-              const resources =
-                getResourcesForSection(sectionId);
 
+/* =========================
+عرض المواد
+========================= */
 
-              closeSubjectModal();
+renderSubjects();
 
 
-              setTimeout(() => {
+}catch(error){
 
-                openResources(
-                  `${name} — ${sectionName}`,
-                  resources
-                );
+console.error(
+"Firebase Error:",
+error
+);
 
-              }, 180);
 
-            });
+container.innerHTML=`
 
-          });
+<div class="empty">
 
-      }
+<strong class="error-message">
 
+تعذر تحميل المواد
 
-      subjectModal.classList.add("show");
+</strong>
 
-      document.body.style.overflow = "hidden";
+<span>
 
-    }
+تأكد من اتصال Firebase وقواعد Firestore.
 
+</span>
 
-    /* =========================================================
-       فتح الملفات
-    ========================================================= */
+</div>
 
-    function openResources(title, resources) {
+`;
 
-      resourcesTitle.textContent = title;
+}
 
+}
 
-      if (!resources.length) {
 
-        resourcesList.innerHTML = `
-          <div class="empty">
+/* =====================================================
+عرض المواد
+===================================================== */
 
-            <div class="empty-icon">
+function renderSubjects(){
 
-              <svg viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2">
+const container=
+document.getElementById("subjects");
 
-                <path d="M4 4h16v16H4z"/>
-                <path d="M8 8h8"/>
-                <path d="M8 12h8"/>
-                <path d="M8 16h5"/>
 
-              </svg>
+const subjects=
+subjectsData.filter(
+subject=>is2010Subject(subject)
+);
 
-            </div>
 
-            <h3>
-              لا توجد ملفات
-            </h3>
+document.getElementById("subjectCount")
+.textContent=subjects.length;
 
-            <p>
-              لم تتم إضافة ملفات لهذا القسم حتى الآن.
-            </p>
 
-          </div>
-        `;
+const subjectResourceCount=
+resourcesData.filter(resource=>{
 
-      } else {
+const subject=
+findSubjectForResource(resource);
 
-        resourcesList.innerHTML =
-          resources.map(resource => {
+return subject &&
+is2010Subject(subject);
 
-            const resourceName =
-              firstValue(
-                resource,
-                [
-                  "title",
-                  "name",
-                  "resourceName"
-                ],
-                "ملف"
-              );
+}).length;
 
 
-            const url =
-              firstValue(
-                resource,
-                [
-                  "url",
-                  "link",
-                  "driveUrl",
-                  "fileUrl"
-                ],
-                ""
-              );
+document.getElementById("resourceCount")
+.textContent=subjectResourceCount;
 
 
-            if (!url) {
+if(!subjects.length){
 
-              return `
-                <div class="resource">
+container.innerHTML=`
 
-                  <div class="resource-icon">
+<div class="empty">
 
-                    <svg viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2">
+<strong>لا توجد مواد مضافة حاليًا</strong>
 
-                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                      <path d="M13 2v7h7"/>
+<span>
 
-                    </svg>
+عند إضافة مادة لجيل 2010 من لوحة الأدمن
+ستظهر هنا تلقائيًا.
 
-                  </div>
+</span>
 
-                  <div class="resource-info">
+</div>
 
-                    <strong>
-                      ${escapeHTML(resourceName)}
-                    </strong>
+`;
 
-                    <span>
-                      الرابط غير متوفر
-                    </span>
+return;
 
-                  </div>
+}
 
-                </div>
-              `;
 
-            }
+container.innerHTML=
+subjects.map((subject,index)=>{
 
+const sections=
+sectionsData.filter(section=>{
 
-            return `
-              <div class="resource">
+const linkedSubject=
+findSubjectForSection(section);
 
-                <div class="resource-icon">
+return linkedSubject &&
+linkedSubject.id===subject.id;
 
-                  <svg viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
+});
 
-                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                    <path d="M13 2v7h7"/>
 
-                  </svg>
+const resources=
+resourcesData.filter(resource=>{
 
-                </div>
+const linkedSubject=
+findSubjectForResource(resource);
 
-                <div class="resource-info">
+return linkedSubject &&
+linkedSubject.id===subject.id;
 
-                  <strong>
-                    ${escapeHTML(resourceName)}
-                  </strong>
+});
 
-                  <span>
-                    اضغط لفتح الملف
-                  </span>
 
-                </div>
+return`
 
-                <a
-                  class="open-resource"
-                  href="${escapeHTML(url)}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="فتح الملف"
-                >
+<button
+class="subject-card"
+type="button"
+data-subject-id="${escapeAttribute(subject.id)}"
+>
 
-                  <svg viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
+<div class="subject-top">
 
-                    <path d="M14 3h7v7"/>
-                    <path d="M10 14 21 3"/>
-                    <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+<div class="subject-icon">
 
-                  </svg>
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-                </a>
+<path d="M4 5h16"/>
+<path d="M4 12h16"/>
+<path d="M4 19h10"/>
 
-              </div>
-            `;
+</svg>
 
-          }).join("");
+</div>
 
-      }
 
+<div class="subject-arrow">
 
-      resourcesModal.classList.add("show");
+<svg
+width="21"
+height="21"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-      document.body.style.overflow = "hidden";
+<path d="m9 18 6-6-6-6"/>
 
-    }
+</svg>
 
+</div>
 
-    /* =========================================================
-       إغلاق النوافذ
-    ========================================================= */
+</div>
 
-    function closeSubjectModal() {
 
-      subjectModal.classList.remove("show");
+<h3>
 
-      if (!resourcesModal.classList.contains("show")) {
-        document.body.style.overflow = "";
-      }
+${escapeHTML(
+String(getSubjectName(subject))
+)}
 
-    }
+</h3>
 
 
-    function closeResources() {
+<p>
 
-      resourcesModal.classList.remove("show");
+الأقسام والملفات الخاصة بهذه المادة.
 
-      if (!subjectModal.classList.contains("show")) {
-        document.body.style.overflow = "";
-      }
+</p>
 
-    }
 
+<div class="subject-info">
 
-    closeModal.addEventListener(
-      "click",
-      closeSubjectModal
-    );
+<span class="info-pill">
 
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-    closeResourcesModal.addEventListener(
-      "click",
-      closeResources
-    );
+<path d="M4 5h16"/>
+<path d="M4 12h16"/>
+<path d="M4 19h10"/>
 
+</svg>
 
-    subjectModal.addEventListener("click", event => {
+${sections.length} أقسام
 
-      if (event.target === subjectModal) {
-        closeSubjectModal();
-      }
+</span>
 
-    });
 
+<span class="info-pill">
 
-    resourcesModal.addEventListener("click", event => {
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
-      if (event.target === resourcesModal) {
-        closeResources();
-      }
+<path d="M6 2h9l4 4v16H6z"/>
 
-    });
+<path d="M14 2v5h5"/>
 
+</svg>
 
-    document.addEventListener("keydown", event => {
+${resources.length} ملفات
 
-      if (event.key === "Escape") {
+</span>
 
-        closeSubjectModal();
-        closeResources();
+</div>
 
-      }
+</button>
 
-    });
+`;
 
+}).join("");
 
-    /* =========================================================
-       البحث
-    ========================================================= */
 
-    searchInput.addEventListener("input", () => {
-      renderSubjects(allSubjects);
-    });
+/* ربط الضغط */
 
+document
+.querySelectorAll(".subject-card")
+.forEach(card=>{
 
-    /* =========================================================
-       الوضع الليلي
-    ========================================================= */
+card.addEventListener(
+"click",
+()=>{
 
-    function updateThemeIcon() {
+const subject=
+subjectsData.find(
+item=>item.id===card.dataset.subjectId
+);
 
-      const dark =
-        document.body.classList.contains("dark");
 
+if(subject){
 
-      if (dark) {
+openSubject(subject);
 
-        themeIcon.innerHTML = `
-          <path d="M21 12.79A9 9 0 1 1 11.21 3
-          7 7 0 0 0 21 12.79Z"/>
-        `;
+}
 
-      } else {
+});
 
-        themeIcon.innerHTML = `
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2"/>
-          <path d="M12 20v2"/>
-          <path d="m4.93 4.93 1.41 1.41"/>
-          <path d="m17.66 17.66 1.41 1.41"/>
-          <path d="M2 12h2"/>
-          <path d="M20 12h2"/>
-          <path d="m6.34 17.66-1.41 1.41"/>
-          <path d="m19.07 4.93-1.41 1.41"/>
-        `;
+});
 
-      }
+}
 
-    }
 
+/* =====================================================
+فتح المادة
+===================================================== */
 
-    const savedTheme =
-      localStorage.getItem("tawjihi-theme");
+const subjectModal=
+document.getElementById("subjectModal");
 
+const closeSubjectModal=
+document.getElementById("closeSubjectModal");
 
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark");
-    }
+const sectionsView=
+document.getElementById("sectionsView");
 
+const resourcesView=
+document.getElementById("resourcesView");
 
-    updateThemeIcon();
+const sectionsList=
+document.getElementById("sectionsList");
 
+const resourcesList=
+document.getElementById("resourcesList");
 
-    themeBtn.addEventListener("click", () => {
+const modalSubjectName=
+document.getElementById("modalSubjectName");
 
-      document.body.classList.toggle("dark");
+const resourceTitle=
+document.getElementById("resourceTitle");
 
-      const dark =
-        document.body.classList.contains("dark");
 
-      localStorage.setItem(
-        "tawjihi-theme",
-        dark ? "dark" : "light"
-      );
+function openSubject(subject){
 
-      updateThemeIcon();
+modalSubjectName.textContent=
+getSubjectName(subject);
 
-    });
 
+sectionsView.style.display="block";
 
-    /* =========================================================
-       Toast
-    ========================================================= */
+resourcesView.classList.remove("active");
 
-    let toastTimer;
 
+const sections=
+sectionsData.filter(section=>{
 
-    function showToast(message) {
+const linkedSubject=
+findSubjectForSection(section);
 
-      toast.textContent = message;
+return linkedSubject &&
+linkedSubject.id===subject.id;
 
-      toast.classList.add("show");
+});
 
-      clearTimeout(toastTimer);
 
-      toastTimer = setTimeout(() => {
+if(!sections.length){
 
-        toast.classList.remove("show");
+sectionsList.innerHTML=`
 
-      }, 2500);
+<div class="empty">
 
-    }
+<strong>لا توجد أقسام لهذه المادة</strong>
 
+<span>
 
-    /* =========================================================
-       بدء الصفحة
-    ========================================================= */
+أضف قسمًا من لوحة الأدمن ليظهر هنا.
 
-    loadData();
+</span>
 
-  </script>
+</div>
+
+`;
+
+}else{
+
+sectionsList.innerHTML=
+sections.map(section=>{
+
+const resources=
+resourcesData.filter(resource=>{
+
+const linkedSection=
+findSectionForResource(resource);
+
+return linkedSection &&
+linkedSection.id===section.id;
+
+});
+
+
+return`
+
+<button
+class="section-card"
+type="button"
+data-section-id="${escapeAttribute(section.id)}"
+>
+
+<div class="section-card-left">
+
+<div class="section-card-icon">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path d="M4 5h16"/>
+<path d="M7 9h10"/>
+<path d="M9 13h6"/>
+<path d="M11 17h2"/>
+
+</svg>
+
+</div>
+
+
+<div class="section-card-text">
+
+<strong>
+
+${escapeHTML(
+String(getSectionName(section))
+)}
+
+</strong>
+
+<span>
+
+${resources.length} ملفات منشورة
+
+</span>
+
+</div>
+
+</div>
+
+
+<div class="section-card-arrow">
+
+<svg
+width="18"
+height="18"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path d="m9 18 6-6-6-6"/>
+
+</svg>
+
+</div>
+
+</button>
+
+`;
+
+}).join("");
+
+
+document
+.querySelectorAll(".section-card")
+.forEach(card=>{
+
+card.addEventListener(
+"click",
+()=>{
+
+const section=
+sectionsData.find(
+item=>item.id===card.dataset.sectionId
+);
+
+
+if(section){
+
+openResources(
+section,
+subject
+);
+
+}
+
+});
+
+});
+
+}
+
+
+subjectModal.classList.add("active");
+
+document.body.classList.add("modal-open");
+
+}
+
+
+/* =====================================================
+فتح ملفات القسم
+===================================================== */
+
+function openResources(section,subject){
+
+sectionsView.style.display="none";
+
+resourcesView.classList.add("active");
+
+
+resourceTitle.textContent=
+getSectionName(section);
+
+
+const resources=
+resourcesData.filter(resource=>{
+
+const linkedSection=
+findSectionForResource(resource);
+
+if(linkedSection){
+
+return linkedSection.id===section.id;
+
+}
+
+
+/* دعم الموارد المرتبطة بالمادة مباشرة */
+
+const linkedSubject=
+findSubjectForResource(resource);
+
+return linkedSubject &&
+linkedSubject.id===subject.id;
+
+});
+
+
+if(!resources.length){
+
+resourcesList.innerHTML=`
+
+<div class="empty">
+
+<strong>لا توجد ملفات منشورة</strong>
+
+<span>
+
+سيظهر الملف هنا بعد إضافته من الأدمن
+وتفعيله للنشر.
+
+</span>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+resourcesList.innerHTML=
+resources.map(resource=>{
+
+const url=
+resource.url ||
+resource.link ||
+resource.driveUrl ||
+resource.fileUrl ||
+"";
+
+
+if(!url){
+
+return`
+
+<div class="resource-card">
+
+<div class="resource-icon">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path d="M6 2h9l4 4v16H6z"/>
+
+<path d="M14 2v5h5"/>
+
+</svg>
+
+</div>
+
+
+<div class="resource-info">
+
+<strong>
+
+${escapeHTML(
+String(getResourceName(resource))
+)}
+
+</strong>
+
+<span>
+
+الرابط غير متوفر حاليًا
+
+</span>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+return`
+
+<a
+href="${escapeAttribute(url)}"
+target="_blank"
+rel="noopener noreferrer"
+class="resource-card"
+>
+
+<div class="resource-icon">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path d="M6 2h9l4 4v16H6z"/>
+
+<path d="M14 2v5h5"/>
+
+<path d="M9 13h6"/>
+
+<path d="M9 17h6"/>
+
+</svg>
+
+</div>
+
+
+<div class="resource-info">
+
+<strong>
+
+${escapeHTML(
+String(getResourceName(resource))
+)}
+
+</strong>
+
+<span>
+
+فتح الملف أو الرابط
+
+</span>
+
+</div>
+
+
+<div class="resource-open">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path d="M14 5h5v5"/>
+
+<path d="M10 14 19 5"/>
+
+<path d="M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"/>
+
+</svg>
+
+</div>
+
+</a>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =====================================================
+رجوع من الملفات للأقسام
+===================================================== */
+
+document
+.getElementById("resourceBack")
+.addEventListener("click",()=>{
+
+resourcesView.classList.remove("active");
+
+sectionsView.style.display="block";
+
+});
+
+
+/* =====================================================
+إغلاق المادة
+===================================================== */
+
+function closeSubject(){
+
+subjectModal.classList.remove("active");
+
+document.body.classList.remove("modal-open");
+
+setTimeout(()=>{
+
+resourcesView.classList.remove("active");
+
+sectionsView.style.display="block";
+
+},200);
+
+}
+
+
+closeSubjectModal.addEventListener(
+"click",
+closeSubject
+);
+
+
+subjectModal.addEventListener(
+"click",
+event=>{
+
+if(event.target===subjectModal){
+
+closeSubject();
+
+}
+
+});
+
+
+document.addEventListener(
+"keydown",
+event=>{
+
+if(event.key==="Escape"){
+
+closeSubject();
+
+}
+
+});
+
+
+/* =====================================================
+حماية النصوص
+===================================================== */
+
+function escapeHTML(value){
+
+return String(value)
+
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+return escapeHTML(String(value));
+
+}
+
+
+/* =====================================================
+تشغيل
+===================================================== */
+
+loadData();
+
+</script>
 
 </body>
 </html>
