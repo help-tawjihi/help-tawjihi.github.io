@@ -357,6 +357,7 @@
       bottom:-40px;
     }
 
+    /* تم تعديل هذا الجزء فقط */
     .generation-number{
       position:relative;
       z-index:1;
@@ -367,10 +368,13 @@
       place-items:center;
       background:linear-gradient(135deg,var(--primary),var(--primary-2));
       color:#fff;
-      font-size:17px;
-      font-weight:700;
       box-shadow:0 10px 22px rgba(15,118,110,.18);
       margin-bottom:18px;
+    }
+
+    .generation-number svg{
+      width:23px;
+      height:23px;
     }
 
     .generation-card h3{
@@ -679,7 +683,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 18h6"/>
                   <path d="M10 22h4"/>
-                  <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5C14.5 15.3 14 16.2 14 17H10c0-0.8-.5-1.7-1.5-2.5Z"/>
+                  <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5C14.5 15.3 14 16.2 14 17H10c0-.8-.5-1.7-1.5-2.5Z"/>
                 </svg>
               </div>
 
@@ -919,6 +923,7 @@
       "حل الأسئلة بنفسك قبل أن تنظر إلى الحل، حتى لو أخذ منك وقتاً أطول.",
 
       "الاستمرارية اليومية أهم من يوم واحد تدرس فيه لساعات طويلة."
+
     ];
 
 
@@ -1104,7 +1109,19 @@
               >
 
                 <div class="generation-number">
-                  ${escapeHtml(year)}
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                    <path d="M8 6h8"/>
+                    <path d="M8 10h6"/>
+                  </svg>
+
                 </div>
 
                 <h3>
