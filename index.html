@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>مساعد توجيهي</title>
+  <meta name="description" content="مساعد توجيهي - منصتك التعليمية لطلاب التوجيهي">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#f5f8f7;
-      --surface:#fff;
+      --surface:#ffffff;
       --surface-2:#eef6f4;
       --text:#14201e;
       --muted:#6b7975;
@@ -23,8 +23,6 @@
       --soft:#e5f6f2;
       --border:#dfe9e6;
       --success:#16a34a;
-      --danger:#dc2626;
-      --warning:#d97706;
       --shadow:0 18px 55px rgba(15,118,110,.09);
       --radius:25px;
     }
@@ -54,24 +52,22 @@
 
     body{
       font-family:"IBM Plex Sans Arabic",sans-serif;
-      background:var(--bg);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(20,184,166,.08), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(15,118,110,.07), transparent 25%),
+        var(--bg);
       color:var(--text);
       min-height:100vh;
-      transition:.25s;
-    }
-
-    button,input{
-      font-family:inherit;
-    }
-
-    button{
-      border:0;
-      cursor:pointer;
+      transition:.25s ease;
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font-family:inherit;
     }
 
     .container{
@@ -79,44 +75,46 @@
       margin:auto;
     }
 
-    /* HEADER */
+    /* Header */
 
     header{
       position:sticky;
       top:0;
       z-index:100;
-      height:76px;
-      background:color-mix(in srgb,var(--surface) 82%,transparent);
-      border-bottom:1px solid var(--border);
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
+      padding:14px 0;
+      background:rgba(245,248,247,.78);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(223,233,230,.7);
+    }
+
+    body.dark header{
+      background:rgba(9,16,15,.78);
+      border-bottom-color:rgba(37,52,48,.7);
     }
 
     .header-inner{
-      height:100%;
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:15px;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:11px;
-      font-size:18px;
-      font-weight:700;
     }
 
     .brand-icon{
-      width:43px;
-      height:43px;
-      border-radius:14px;
+      width:45px;
+      height:45px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      color:white;
       background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 10px 25px rgba(20,184,166,.2);
+      box-shadow:0 10px 25px rgba(15,118,110,.22);
     }
 
     .brand-icon svg{
@@ -124,68 +122,73 @@
       height:23px;
     }
 
-    .icon-btn{
-      width:42px;
-      height:42px;
-      border-radius:13px;
-      background:var(--surface-2);
-      border:1px solid var(--border);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .brand-text strong{
+      display:block;
+      font-size:17px;
+      font-weight:700;
     }
 
-    .icon-btn svg{
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:1px;
+    }
+
+    .theme-btn{
+      width:44px;
+      height:44px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .theme-btn:hover{
+      transform:translateY(-2px);
+      border-color:var(--primary-2);
+    }
+
+    .theme-btn svg{
       width:20px;
       height:20px;
     }
 
-    /* HERO */
+    /* Hero */
 
     .hero{
-      padding:55px 0 30px;
+      padding:62px 0 32px;
+      text-align:center;
     }
 
-    .hero-box{
-      position:relative;
-      overflow:hidden;
-      padding:45px;
-      border-radius:32px;
-      background:
-        radial-gradient(circle at 90% 10%,rgba(20,184,166,.15),transparent 32%),
-        radial-gradient(circle at 10% 90%,rgba(15,118,110,.08),transparent 30%),
-        var(--surface);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-    }
-
-    .badge{
-      width:max-content;
-      display:flex;
+    .hero-badge{
+      display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:8px 13px;
+      padding:8px 14px;
       border-radius:999px;
       background:var(--soft);
       color:var(--primary);
-      font-size:14px;
+      font-size:13px;
       font-weight:600;
+      border:1px solid rgba(20,184,166,.12);
       margin-bottom:18px;
     }
 
-    .badge-dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--primary-2);
+    .hero-badge svg{
+      width:16px;
+      height:16px;
     }
 
     .hero h1{
-      font-size:clamp(32px,5vw,52px);
-      line-height:1.25;
-      margin-bottom:14px;
+      font-size:clamp(30px,6vw,50px);
+      line-height:1.2;
       letter-spacing:-1px;
+      margin-bottom:15px;
     }
 
     .hero h1 span{
@@ -193,166 +196,246 @@
     }
 
     .hero p{
-      max-width:700px;
+      max-width:650px;
+      margin:auto;
       color:var(--muted);
-      font-size:17px;
       line-height:1.9;
+      font-size:15px;
     }
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:25px;
+    /* Daily section */
+
+    .daily-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:20px 0 52px;
     }
 
-    .btn{
-      min-height:48px;
-      padding:0 19px;
-      border-radius:15px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:9px;
-      font-weight:600;
-      transition:.2s;
-    }
-
-    .btn svg{
-      width:19px;
-      height:19px;
-    }
-
-    .btn-primary{
-      color:#fff;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      box-shadow:0 12px 25px rgba(20,184,166,.18);
-    }
-
-    .btn-secondary{
-      color:var(--text);
-      background:var(--surface-2);
+    .daily-card{
+      position:relative;
+      overflow:hidden;
       border:1px solid var(--border);
+      background:var(--surface);
+      border-radius:var(--radius);
+      padding:27px;
+      box-shadow:var(--shadow);
     }
 
-    /* SECTIONS */
-
-    main{
-      padding:25px 0 80px;
+    .daily-card::before{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:var(--soft);
+      left:-55px;
+      top:-60px;
+      opacity:.8;
     }
+
+    .daily-top{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      margin-bottom:18px;
+    }
+
+    .daily-icon{
+      width:43px;
+      height:43px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+      flex:none;
+    }
+
+    .daily-icon svg{
+      width:21px;
+      height:21px;
+    }
+
+    .daily-title{
+      font-size:15px;
+      font-weight:700;
+    }
+
+    .daily-subtitle{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+    }
+
+    .verse{
+      position:relative;
+      font-size:19px;
+      line-height:2.05;
+      font-weight:600;
+    }
+
+    .verse-source{
+      position:relative;
+      margin-top:14px;
+      color:var(--primary);
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .tip-text{
+      position:relative;
+      font-size:17px;
+      line-height:2;
+      font-weight:500;
+    }
+
+    /* Generations */
 
     .section-head{
       display:flex;
-      justify-content:space-between;
       align-items:end;
+      justify-content:space-between;
+      gap:15px;
       margin-bottom:20px;
     }
 
-    .section-title{
-      font-size:27px;
-      font-weight:700;
+    .section-title h2{
+      font-size:25px;
       margin-bottom:5px;
     }
 
-    .section-desc{
+    .section-title p{
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
     }
 
-    /* GENERATIONS */
+    .generation-count{
+      padding:7px 12px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary);
+      font-size:12px;
+      font-weight:600;
+      white-space:nowrap;
+    }
 
     .generations-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
+      gap:17px;
     }
 
     .generation-card{
+      position:relative;
+      overflow:hidden;
+      display:block;
+      padding:24px;
+      min-height:155px;
       background:var(--surface);
       border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:24px;
+      border-radius:23px;
       box-shadow:var(--shadow);
-      transition:.25s;
+      transition:.25s ease;
     }
 
     .generation-card:hover{
       transform:translateY(-5px);
-      border-color:rgba(20,184,166,.4);
+      border-color:rgba(20,184,166,.35);
+      box-shadow:0 20px 45px rgba(15,118,110,.14);
     }
 
-    .generation-icon{
-      width:58px;
-      height:58px;
-      border-radius:18px;
+    .generation-card::after{
+      content:"";
+      position:absolute;
+      width:100px;
+      height:100px;
+      border-radius:50%;
       background:var(--soft);
-      color:var(--primary);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:20px;
+      left:-30px;
+      bottom:-40px;
     }
 
-    .generation-icon svg{
-      width:28px;
-      height:28px;
+    .generation-number{
+      position:relative;
+      z-index:1;
+      width:49px;
+      height:49px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      font-size:17px;
+      font-weight:700;
+      box-shadow:0 10px 22px rgba(15,118,110,.18);
+      margin-bottom:18px;
     }
 
     .generation-card h3{
-      font-size:22px;
-      margin-bottom:7px;
+      position:relative;
+      z-index:1;
+      font-size:19px;
+      margin-bottom:5px;
     }
 
     .generation-card p{
+      position:relative;
+      z-index:1;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.8;
-      min-height:50px;
+      font-size:12px;
     }
 
-    .generation-card .btn{
-      width:100%;
-      margin-top:20px;
+    .generation-arrow{
+      position:absolute;
+      left:20px;
+      top:25px;
+      width:20px;
+      height:20px;
+      color:var(--muted);
+      z-index:2;
     }
 
-    /* FEATURES */
+    /* Features */
 
     .features{
-      margin-top:60px;
+      margin:60px 0 20px;
     }
 
     .features-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:15px;
+      gap:17px;
     }
 
     .feature{
+      padding:24px;
+      border-radius:22px;
       background:var(--surface);
       border:1px solid var(--border);
-      border-radius:22px;
-      padding:22px;
+      box-shadow:var(--shadow);
     }
 
     .feature-icon{
-      width:48px;
-      height:48px;
-      border-radius:15px;
+      width:44px;
+      height:44px;
+      border-radius:14px;
       background:var(--soft);
       color:var(--primary);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:14px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
     }
 
     .feature-icon svg{
-      width:22px;
-      height:22px;
+      width:21px;
+      height:21px;
     }
 
     .feature h3{
-      margin-bottom:5px;
+      font-size:16px;
+      margin-bottom:7px;
     }
 
     .feature p{
@@ -361,594 +444,727 @@
       line-height:1.8;
     }
 
-    /* LOADING */
+    /* Loading / Empty */
 
     .loading{
-      padding:45px;
+      grid-column:1/-1;
       text-align:center;
+      padding:50px 20px;
+      color:var(--muted);
       background:var(--surface);
       border:1px solid var(--border);
-      border-radius:var(--radius);
-      color:var(--muted);
+      border-radius:23px;
     }
 
-    .loader{
-      width:36px;
-      height:36px;
-      margin:0 auto 14px;
+    .spinner{
+      width:32px;
+      height:32px;
       border:3px solid var(--border);
       border-top-color:var(--primary);
       border-radius:50%;
+      margin:0 auto 12px;
       animation:spin .8s linear infinite;
     }
 
     @keyframes spin{
-      to{transform:rotate(360deg);}
+      to{transform:rotate(360deg)}
     }
 
-    .empty{
-      padding:45px;
-      text-align:center;
-      background:var(--surface);
-      border:1px dashed var(--border);
-      border-radius:var(--radius);
-      color:var(--muted);
-    }
-
-    /* FOOTER */
+    /* Footer */
 
     footer{
+      margin-top:70px;
       border-top:1px solid var(--border);
-      background:var(--surface);
-      padding:30px 0;
-    }
-
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
+      padding:30px 0 25px;
+      text-align:center;
     }
 
     .footer-brand{
+      font-size:16px;
       font-weight:700;
+      margin-bottom:7px;
     }
 
     .footer-text{
       color:var(--muted);
-      font-size:13px;
-      margin-top:4px;
+      font-size:12px;
+      line-height:1.8;
     }
 
-    @media(max-width:800px){
+    .developer{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:13px;
+      color:var(--muted);
+      font-size:12px;
+    }
 
-      .generations-grid,
+    .developer a{
+      color:var(--primary);
+      font-weight:700;
+      transition:.2s;
+    }
+
+    .developer a:hover{
+      color:var(--primary-2);
+      text-decoration:underline;
+    }
+
+    /* Responsive */
+
+    @media(max-width:850px){
+      .generations-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
       .features-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
       }
-
-      .hero-box{
-        padding:30px 23px;
-      }
-
     }
 
-    @media(max-width:600px){
+    @media(max-width:650px){
+      .container{
+        width:min(100% - 22px,1120px);
+      }
 
       header{
-        height:68px;
-      }
-
-      .container{
-        width:calc(100% - 22px);
+        padding:10px 0;
       }
 
       .hero{
-        padding-top:25px;
-      }
-
-      .hero-box{
-        padding:26px 20px;
-        border-radius:24px;
+        padding:42px 0 25px;
       }
 
       .hero h1{
         font-size:34px;
       }
 
-      .hero p{
+      .daily-grid{
+        grid-template-columns:1fr;
+        gap:13px;
+        margin-bottom:42px;
+      }
+
+      .daily-card{
+        padding:22px;
+      }
+
+      .verse{
+        font-size:17px;
+      }
+
+      .tip-text{
         font-size:15px;
       }
 
-      .hero-actions{
-        flex-direction:column;
+      .section-head{
+        align-items:center;
       }
 
-      .hero-actions .btn{
-        width:100%;
+      .section-title h2{
+        font-size:21px;
       }
 
-      .generations-grid,
-      .features-grid{
+      .generations-grid{
         grid-template-columns:1fr;
       }
 
-      .footer-inner{
-        flex-direction:column;
-        align-items:flex-start;
+      .generation-card{
+        min-height:140px;
       }
 
+      .features{
+        margin-top:45px;
+      }
+
+      .brand-text span{
+        display:none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container header-inner">
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
 
-    <a href="index.html" class="brand">
-
-      <div class="brand-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 3 4 7l8 4 8-4-8-4Z"/>
-          <path d="m6 9v5c0 1.7 2.7 4 6 4s6-2.3 6-4V9"/>
-          <path d="M20 8v6"/>
-        </svg>
-      </div>
-
-      <span>مساعد توجيهي</span>
-
-    </a>
-
-    <button class="icon-btn" id="themeBtn">
-
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2"/>
-        <path d="M12 20v2"/>
-        <path d="m4.93 4.93 1.41 1.41"/>
-        <path d="m17.66 17.66 1.41 1.41"/>
-        <path d="M2 12h2"/>
-        <path d="M20 12h2"/>
-        <path d="m6.34 17.66-1.41 1.41"/>
-        <path d="m19.07 4.93-1.41 1.41"/>
-      </svg>
-
-    </button>
-
-  </div>
-</header>
-
-
-<section class="hero">
-
-  <div class="container">
-
-    <div class="hero-box">
-
-      <div class="badge">
-        <span class="badge-dot"></span>
-        منصة طلاب التوجيهي
-      </div>
-
-      <h1>
-        كل ما تحتاجه
-        <span>لتوجيهيك</span>
-      </h1>
-
-      <p>
-        اختر جيلك للوصول إلى المواد الدراسية والأقسام
-        والملفات التعليمية الخاصة بك، وكل شيء مرتب بمكان واحد.
-      </p>
-
-      <div class="hero-actions">
-
-        <a href="#generations" class="btn btn-primary">
-          استعرض الأجيال
-
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="m6 9 6 6 6-6"/>
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8M8 10h8"/>
           </svg>
+        </div>
 
-        </a>
+        <div class="brand-text">
+          <strong>مساعد توجيهي</strong>
+          <span>رفيقك في طريق التوجيهي</span>
+        </div>
+      </a>
 
-      </div>
+      <button class="theme-btn" id="themeBtn" aria-label="تغيير المظهر"></button>
 
     </div>
-
-  </div>
-
-</section>
+  </header>
 
 
-<main>
+  <main>
 
-  <div class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
 
-    <section id="generations">
-
-      <div class="section-head">
-
-        <div>
-          <div class="section-title">الأجيال</div>
-
-          <div class="section-desc">
-            اختر جيلك للوصول إلى محتواه وملفاته
-          </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
+          </svg>
+          منصتك التعليمية
         </div>
 
-      </div>
+        <h1>
+          أهلاً بك في
+          <span>مساعد توجيهي</span>
+        </h1>
 
-
-      <div id="generationsContainer">
-
-        <div class="loading">
-
-          <div class="loader"></div>
-
-          جاري تحميل الأجيال...
-
-        </div>
+        <p>
+          مكان واحد يجمع لك كل ما تحتاجه في رحلتك الدراسية،
+          بطريقة مرتبة وسهلة وسريعة.
+        </p>
 
       </div>
-
     </section>
 
 
+    <!-- Daily -->
+    <section>
+      <div class="container">
+
+        <div class="daily-grid">
+
+          <!-- Quran -->
+          <div class="daily-card">
+
+            <div class="daily-top">
+              <div class="daily-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                </svg>
+              </div>
+
+              <div>
+                <div class="daily-title">آية اليوم</div>
+                <div class="daily-subtitle">اخترنا لك آية عشوائية</div>
+              </div>
+            </div>
+
+            <div class="verse" id="verseText">
+              جاري تحميل الآية...
+            </div>
+
+            <div class="verse-source" id="verseSource"></div>
+
+          </div>
+
+
+          <!-- Advice -->
+          <div class="daily-card">
+
+            <div class="daily-top">
+              <div class="daily-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                  <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5C14.5 15.3 14 16.2 14 17H10c0-0.8-.5-1.7-1.5-2.5Z"/>
+                </svg>
+              </div>
+
+              <div>
+                <div class="daily-title">نصيحة اليوم</div>
+                <div class="daily-subtitle">خطوة صغيرة تصنع فرقاً كبيراً</div>
+              </div>
+            </div>
+
+            <div class="tip-text" id="tipText">
+              جاري تحميل النصيحة...
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Generations -->
+    <section>
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-title">
+            <h2>الأجيال الدراسية</h2>
+            <p>اختر جيلك للوصول إلى المواد والملفات</p>
+          </div>
+
+          <div class="generation-count" id="generationCount">
+            جاري التحميل
+          </div>
+
+        </div>
+
+        <div class="generations-grid" id="generationsGrid">
+
+          <div class="loading">
+            <div class="spinner"></div>
+            جاري تحميل الأجيال...
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Features -->
     <section class="features">
+      <div class="container">
 
-      <div class="section-head">
-
-        <div>
-          <div class="section-title">مميزات المنصة</div>
-
-          <div class="section-desc">
-            كل شيء مرتب ليساعدك في دراستك
+        <div class="section-head">
+          <div class="section-title">
+            <h2>ليش مساعد توجيهي؟</h2>
+            <p>مصمم حتى يخلي وصولك للمحتوى أسهل</p>
           </div>
         </div>
 
-      </div>
+        <div class="features-grid">
 
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              </svg>
+            </div>
 
-      <div class="features-grid">
-
-        <div class="feature">
-
-          <div class="feature-icon">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            </svg>
-
+            <h3>محتوى مرتب</h3>
+            <p>
+              الوصول إلى المواد والملفات بطريقة منظمة حسب الجيل والمادة.
+            </p>
           </div>
 
-          <h3>مواد مرتبة</h3>
 
-          <p>
-            الوصول إلى موادك الدراسية بطريقة سهلة ومنظمة.
-          </p>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3v18"/>
+                <path d="M3 12h18"/>
+                <path d="M5.6 5.6l12.8 12.8"/>
+                <path d="M18.4 5.6L5.6 18.4"/>
+              </svg>
+            </div>
 
-        </div>
-
-
-        <div class="feature">
-
-          <div class="feature-icon">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 2v6h6"/>
-              <path d="M8 13h8"/>
-              <path d="M8 17h6"/>
-            </svg>
-
+            <h3>سريع وسهل</h3>
+            <p>
+              تصميم بسيط يساعدك توصل للمعلومة والملف الذي تحتاجه بأقل وقت.
+            </p>
           </div>
 
-          <h3>ملفات تعليمية</h3>
 
-          <p>
-            جميع الملفات والأوراق والمواد الخاصة بكل مادة.
-          </p>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 12a8 8 0 1 1-2.34-5.66"/>
+                <path d="M20 4v6h-6"/>
+              </svg>
+            </div>
 
-        </div>
-
-
-        <div class="feature">
-
-          <div class="feature-icon">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="m12 17.3-5.4 3 1.5-6.1-4.7-4.1 6.2-.5L12 4l2.4 5.6 6.2.5-4.7 4.1 1.5 6.1-5.4-3Z"/>
-            </svg>
-
+            <h3>يتطور باستمرار</h3>
+            <p>
+              يتم إضافة وتنظيم المحتوى باستمرار حتى تبقى المنصة مفيدة للطلاب.
+            </p>
           </div>
-
-          <h3>المفضلة</h3>
-
-          <p>
-            احفظ الملفات المهمة لديك للوصول إليها بسرعة.
-          </p>
 
         </div>
 
       </div>
-
     </section>
 
-  </div>
-
-</main>
+  </main>
 
 
-<footer>
-
-  <div class="container footer-inner">
-
-    <div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
 
       <div class="footer-brand">
         مساعد توجيهي
       </div>
 
       <div class="footer-text">
-        منصة مساعدة لطلاب التوجيهي
+        منصتك التعليمية لمساعدتك في رحلتك الدراسية
+      </div>
+
+      <div class="developer">
+        <span>برمجة وتصميم</span>
+
+        <a
+          href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          عبدالله جهاد
+        </a>
       </div>
 
     </div>
-
-  </div>
-
-</footer>
+  </footer>
 
 
-<script type="module">
+  <script type="module">
 
-  import {
-    db,
-    collection,
-    getDocs
-  } from "./admin/firebase-config.js";
-
-
-  const generationsContainer =
-    document.getElementById("generationsContainer");
+    import {
+      db,
+      collection,
+      getDocs
+    } from "./admin/firebase-config.js";
 
 
-  function escapeHTML(value){
+    /* =========================
+       آيات القرآن
+    ========================= */
 
-    return String(value ?? "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
+    const verses = [
 
-  }
+      {
+        text:"إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+        source:"سورة الشرح — الآية 6"
+      },
 
+      {
+        text:"وَقُل رَّبِّ زِدْنِي عِلْمًا",
+        source:"سورة طه — الآية 114"
+      },
 
-  function getGenerationName(generation){
+      {
+        text:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+        source:"سورة الشرح — الآية 5"
+      },
 
-    return (
-      generation.year ??
-      generation.name ??
-      generation.title ??
-      generation.label ??
-      "جيل"
-    );
+      {
+        text:"وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+        source:"سورة الطلاق — الآية 3"
+      },
 
-  }
+      {
+        text:"لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
+        source:"سورة الزمر — الآية 53"
+      },
 
+      {
+        text:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+        source:"سورة البقرة — الآية 153"
+      },
 
-  function generationIcon(){
+      {
+        text:"وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ",
+        source:"سورة النجم — الآية 39"
+      },
 
-    return `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 19V5"/>
-        <path d="M4 5c4-2 8 2 12 0 1.4-.7 2.7-.8 4 0v14c-1.3-.8-2.6-.7-4 0-4 2-8-2-12 0"/>
-      </svg>
-    `;
+      {
+        text:"وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ",
+        source:"سورة هود — الآية 88"
+      },
 
-  }
+      {
+        text:"إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ",
+        source:"سورة الرعد — الآية 11"
+      },
 
-
-  async function loadGenerations(){
-
-    try{
-
-      const snapshot =
-        await getDocs(
-          collection(db,"generations")
-        );
-
-
-      const generations =
-        snapshot.docs.map(doc => ({
-          id:doc.id,
-          ...doc.data()
-        }));
-
-
-      if(!generations.length){
-
-        generationsContainer.innerHTML = `
-
-          <div class="empty">
-
-            لا توجد أجيال مضافة حالياً.
-
-          </div>
-
-        `;
-
-        return;
-
+      {
+        text:"وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+        source:"سورة العنكبوت — الآية 69"
       }
 
-
-      generations.sort((a,b) => {
-
-        const yearA =
-          Number(getGenerationName(a)) || 0;
-
-        const yearB =
-          Number(getGenerationName(b)) || 0;
-
-        return yearB - yearA;
-
-      });
+    ];
 
 
-      generationsContainer.innerHTML = `
+    /* =========================
+       النصائح
+    ========================= */
 
-        <div class="generations-grid">
+    const tips = [
 
-          ${generations.map(generation => {
+      "لا تنتظر أن تشعر بالحماس حتى تبدأ، ابدأ وستجد الحماس يأتي مع الإنجاز.",
 
-            const name =
-              getGenerationName(generation);
+      "قسّم دراستك إلى جلسات قصيرة وركّز في كل جلسة على هدف واحد فقط.",
 
-            /*
-              إذا كان عندك year = 2009
-              الرابط يصبح:
-              generations.html?year=2009
-            */
+      "المراجعة المستمرة أقوى من الدراسة لساعات طويلة قبل الامتحان.",
 
-            const year =
-              String(name).trim();
+      "إذا أخطأت في سؤال، لا تعتبره فشلاً؛ اعتبره فرصة تعرف منها نقطة ضعفك.",
+
+      "ابدأ بالأصعب عندما يكون تركيزك في أعلى مستوياته.",
+
+      "النوم الكافي جزء من الدراسة، وليس وقتاً ضائعاً منها.",
+
+      "لا تقارن نفسك بغيرك، قارن نفسك بمستواك بالأمس.",
+
+      "اكتب أهدافك الدراسية بوضوح، ثم حوّل كل هدف إلى خطوات صغيرة.",
+
+      "حل الأسئلة بنفسك قبل أن تنظر إلى الحل، حتى لو أخذ منك وقتاً أطول.",
+
+      "الاستمرارية اليومية أهم من يوم واحد تدرس فيه لساعات طويلة."
+    ];
+
+
+    /* =========================
+       اختيار عشوائي
+    ========================= */
+
+    function randomItem(array){
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+
+    function loadDailyContent(){
+
+      const verse = randomItem(verses);
+      const tip = randomItem(tips);
+
+      document.getElementById("verseText").textContent = verse.text;
+      document.getElementById("verseSource").textContent = verse.source;
+
+      document.getElementById("tipText").textContent = tip.text || tip;
+
+    }
+
+
+    loadDailyContent();
+
+
+    /* =========================
+       الوضع الليلي
+    ========================= */
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    function sunIcon(){
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
+          <path d="M4.93 4.93l1.41 1.41"/>
+          <path d="M17.66 17.66l1.41 1.41"/>
+          <path d="M2 12h2"/>
+          <path d="M20 12h2"/>
+          <path d="M4.93 19.07l1.41-1.41"/>
+          <path d="M17.66 6.34l1.41-1.41"/>
+        </svg>
+      `;
+    }
+
+    function moonIcon(){
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
+        </svg>
+      `;
+    }
+
+
+    function updateThemeButton(){
+
+      const dark = document.body.classList.contains("dark");
+
+      themeBtn.innerHTML = dark ? sunIcon() : moonIcon();
+
+    }
+
+
+    const savedTheme = localStorage.getItem("tawjihi-theme");
+
+    if(savedTheme === "dark"){
+      document.body.classList.add("dark");
+    }
+
+    updateThemeButton();
+
+
+    themeBtn.addEventListener("click",()=>{
+
+      document.body.classList.toggle("dark");
+
+      const dark = document.body.classList.contains("dark");
+
+      localStorage.setItem(
+        "tawjihi-theme",
+        dark ? "dark" : "light"
+      );
+
+      updateThemeButton();
+
+    });
+
+
+    /* =========================
+       تحميل الأجيال من Firebase
+    ========================= */
+
+    const generationsGrid =
+      document.getElementById("generationsGrid");
+
+    const generationCount =
+      document.getElementById("generationCount");
+
+
+    function getGenerationYear(data, id){
+
+      return (
+        data.year ??
+        data.name ??
+        data.title ??
+        data.label ??
+        id
+      );
+
+    }
+
+
+    function numericYear(value){
+
+      const match = String(value).match(/\d{4}/);
+
+      return match
+        ? Number(match[0])
+        : 0;
+
+    }
+
+
+    async function loadGenerations(){
+
+      try{
+
+        const snapshot =
+          await getDocs(collection(db,"generations"));
+
+        const generations = snapshot.docs.map(docSnap => {
+
+          const data = docSnap.data();
+
+          return {
+            id:docSnap.id,
+            ...data,
+            year:getGenerationYear(data,docSnap.id)
+          };
+
+        });
+
+
+        generations.sort((a,b)=>{
+
+          return numericYear(b.year) - numericYear(a.year);
+
+        });
+
+
+        generationCount.textContent =
+          `${generations.length} أجيال`;
+
+
+        if(!generations.length){
+
+          generationsGrid.innerHTML = `
+            <div class="loading">
+              لا توجد أجيال مضافة حالياً.
+            </div>
+          `;
+
+          return;
+
+        }
+
+
+        generationsGrid.innerHTML =
+          generations.map(generation => {
+
+            const year = generation.year;
 
             return `
 
-              <article class="generation-card">
+              <a
+                class="generation-card"
+                href="generations.html?year=${encodeURIComponent(year)}"
+              >
 
-                <div class="generation-icon">
-                  ${generationIcon()}
+                <div class="generation-number">
+                  ${escapeHtml(year)}
                 </div>
 
                 <h3>
-                  جيل ${escapeHTML(year)}
+                  جيل ${escapeHtml(year)}
                 </h3>
 
                 <p>
-                  ادخل إلى المواد الدراسية والأقسام
-                  والملفات الخاصة بجيلك.
+                  عرض المواد والملفات
                 </p>
 
-                <a
-                  class="btn btn-primary"
-                  href="generations.html?year=${encodeURIComponent(year)}"
+                <svg
+                  class="generation-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
                 >
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
 
-                  دخول الجيل
-
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
-
-                </a>
-
-              </article>
+              </a>
 
             `;
 
-          }).join("")}
+          }).join("");
 
-        </div>
 
-      `;
+      }catch(error){
 
-    }catch(error){
+        console.error(error);
 
-      console.error(error);
+        generationCount.textContent = "خطأ";
 
-      generationsContainer.innerHTML = `
+        generationsGrid.innerHTML = `
+          <div class="loading">
+            تعذر تحميل الأجيال حالياً.<br>
+            حاول تحديث الصفحة مرة أخرى.
+          </div>
+        `;
 
-        <div class="empty">
-
-          حدث خطأ أثناء تحميل الأجيال.
-
-        </div>
-
-      `;
+      }
 
     }
 
-  }
 
+    function escapeHtml(value){
 
-  /* THEME */
-
-  const themeBtn =
-    document.getElementById("themeBtn");
-
-  const themeIcon =
-    document.getElementById("themeIcon");
-
-
-  function updateThemeIcon(){
-
-    const dark =
-      document.body.classList.contains("dark");
-
-
-    if(dark){
-
-      themeIcon.innerHTML = `
-        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8Z"/>
-      `;
-
-    }else{
-
-      themeIcon.innerHTML = `
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2"/>
-        <path d="M12 20v2"/>
-        <path d="m4.93 4.93 1.41 1.41"/>
-        <path d="m17.66 17.66 1.41 1.41"/>
-        <path d="M2 12h2"/>
-        <path d="M20 12h2"/>
-        <path d="m6.34 17.66-1.41 1.41"/>
-        <path d="m19.07 4.93-1.41 1.41"/>
-      `;
+      return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 
     }
 
-  }
 
+    loadGenerations();
 
-  if(
-    localStorage.getItem("tawjihi-theme") === "dark"
-  ){
-
-    document.body.classList.add("dark");
-
-  }
-
-
-  updateThemeIcon();
-
-
-  themeBtn.addEventListener("click",() => {
-
-    const dark =
-      document.body.classList.toggle("dark");
-
-
-    localStorage.setItem(
-      "tawjihi-theme",
-      dark ? "dark" : "light"
-    );
-
-
-    updateThemeIcon();
-
-  });
-
-
-  loadGenerations();
-
-</script>
+  </script>
 
 </body>
 </html>
