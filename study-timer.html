@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>مؤقت الدراسة | مساعد توجيهي</title>
-
-  <meta
-    name="description"
-    content="مؤقت الدراسة من مساعد توجيهي يساعدك على التركيز وتنظيم وقتك أثناء الدراسة."
-  >
+  <meta name="description" content="مؤقت دراسة متطور لطلاب التوجيهي">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root{
       --bg:#f5f8f7;
       --surface:#ffffff;
@@ -32,15 +22,11 @@
       --primary-2:#14b8a6;
       --soft:#e5f6f2;
       --border:#dfe9e6;
-      --success:#16a34a;
       --danger:#dc2626;
       --warning:#d97706;
-
       --shadow:0 18px 55px rgba(15,118,110,.09);
-
       --radius:25px;
     }
-
 
     body.dark{
       --bg:#09100f;
@@ -52,10 +38,8 @@
       --primary-2:#14b8a6;
       --soft:rgba(20,184,166,.12);
       --border:#253430;
-
       --shadow:0 18px 55px rgba(0,0,0,.28);
     }
-
 
     *{
       box-sizing:border-box;
@@ -63,1712 +47,1086 @@
       padding:0;
     }
 
-
     html{
       scroll-behavior:smooth;
     }
 
-
     body{
-
       font-family:"IBM Plex Sans Arabic",sans-serif;
-
       background:
-        radial-gradient(
-          circle at 10% 0%,
-          rgba(20,184,166,.08),
-          transparent 28%
-        ),
-
-        radial-gradient(
-          circle at 90% 15%,
-          rgba(15,118,110,.07),
-          transparent 25%
-        ),
-
+        radial-gradient(circle at 10% 0%,rgba(20,184,166,.08),transparent 28%),
+        radial-gradient(circle at 90% 15%,rgba(15,118,110,.07),transparent 25%),
         var(--bg);
-
       color:var(--text);
-
       min-height:100vh;
-
       transition:.25s ease;
-
     }
-
 
     body.fullscreen-mode{
       overflow:hidden;
     }
 
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-
     button,
-    input{
+    input,
+    select{
       font-family:inherit;
     }
 
-
-    .container{
-
-      width:min(
-        1120px,
-        calc(100% - 32px)
-      );
-
-      margin:auto;
-
+    button{
+      border:none;
     }
-
 
     /* =========================
        Header
     ========================= */
 
     header{
-
       position:sticky;
-
       top:0;
-
       z-index:100;
-
       padding:14px 0;
-
       background:rgba(245,248,247,.78);
-
       backdrop-filter:blur(18px);
-
       -webkit-backdrop-filter:blur(18px);
-
-      border-bottom:
-        1px solid
-        rgba(223,233,230,.7);
-
+      border-bottom:1px solid rgba(223,233,230,.7);
     }
-
 
     body.dark header{
-
       background:rgba(9,16,15,.78);
-
-      border-bottom-color:
-        rgba(37,52,48,.7);
-
+      border-bottom-color:rgba(37,52,48,.7);
     }
 
+    .container{
+      width:min(1050px,calc(100% - 28px));
+      margin:auto;
+    }
 
     .header-inner{
-
       display:flex;
-
       align-items:center;
-
       justify-content:space-between;
-
       gap:15px;
-
     }
-
-
-    .header-actions{
-
-      display:flex;
-
-      align-items:center;
-
-      gap:8px;
-
-    }
-
 
     .brand{
-
       display:flex;
-
       align-items:center;
-
       gap:11px;
-
+      text-decoration:none;
+      color:inherit;
     }
-
 
     .brand-icon{
-
       width:45px;
-
       height:45px;
-
       border-radius:15px;
-
       display:grid;
-
       place-items:center;
-
       color:white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-2)
-        );
-
-      box-shadow:
-        0 10px 25px
-        rgba(15,118,110,.22);
-
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      box-shadow:0 10px 25px rgba(15,118,110,.22);
     }
-
 
     .brand-icon svg{
-
       width:23px;
-
       height:23px;
-
     }
-
 
     .brand-text strong{
-
       display:block;
-
       font-size:17px;
-
       font-weight:700;
-
     }
-
 
     .brand-text span{
-
       display:block;
-
       color:var(--muted);
-
       font-size:12px;
-
       margin-top:1px;
-
     }
 
-
-    .header-btn{
-
-      width:44px;
-
-      height:44px;
-
-      border:
-        1px solid
-        var(--border);
-
-      background:var(--surface);
-
-      color:var(--text);
-
-      border-radius:14px;
-
-      display:grid;
-
-      place-items:center;
-
-      cursor:pointer;
-
-      transition:.2s;
-
-    }
-
-
-    .header-btn:hover{
-
-      transform:translateY(-2px);
-
-      border-color:
-        var(--primary-2);
-
-    }
-
-
-    .header-btn svg{
-
-      width:20px;
-
-      height:20px;
-
-    }
-
-
-    /* =========================
-       Hero
-    ========================= */
-
-    .hero{
-
-      padding:52px 0 30px;
-
-      text-align:center;
-
-    }
-
-
-    .hero-badge{
-
-      display:inline-flex;
-
-      align-items:center;
-
+    .header-actions{
+      display:flex;
       gap:8px;
-
-      padding:8px 14px;
-
-      border-radius:999px;
-
-      background:var(--soft);
-
-      color:var(--primary);
-
-      font-size:13px;
-
-      font-weight:600;
-
-      border:
-        1px solid
-        rgba(20,184,166,.12);
-
-      margin-bottom:18px;
-
     }
 
-
-    .hero-badge svg{
-
-      width:16px;
-
-      height:16px;
-
+    .icon-btn{
+      width:44px;
+      height:44px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      transition:.2s;
     }
 
-
-    .hero h1{
-
-      font-size:
-        clamp(30px,6vw,48px);
-
-      line-height:1.2;
-
-      letter-spacing:-1px;
-
-      margin-bottom:12px;
-
+    .icon-btn:hover{
+      transform:translateY(-2px);
+      border-color:var(--primary-2);
     }
 
-
-    .hero h1 span{
-
-      color:var(--primary);
-
+    .icon-btn svg{
+      width:20px;
+      height:20px;
     }
-
-
-    .hero p{
-
-      max-width:650px;
-
-      margin:auto;
-
-      color:var(--muted);
-
-      line-height:1.9;
-
-      font-size:15px;
-
-    }
-
 
     /* =========================
-       Timer App
+       Page
     ========================= */
 
-    .timer-app{
-
-      max-width:900px;
-
-      margin:10px auto 0;
-
-      background:var(--surface);
-
-      border:
-        1px solid
-        var(--border);
-
-      border-radius:30px;
-
-      box-shadow:var(--shadow);
-
-      overflow:hidden;
-
+    .page{
+      padding:42px 0 60px;
     }
 
-
-    /* Tabs */
-
-    .timer-tabs{
-
-      display:grid;
-
-      grid-template-columns:1fr 1fr;
-
-      padding:8px;
-
-      background:var(--surface-2);
-
-      border-bottom:
-        1px solid
-        var(--border);
-
+    .page-title{
+      text-align:center;
+      margin-bottom:30px;
     }
 
-
-    .timer-tab{
-
-      border:none;
-
-      background:transparent;
-
-      color:var(--muted);
-
-      padding:14px;
-
-      border-radius:17px;
-
-      font-size:14px;
-
-      font-weight:600;
-
-      cursor:pointer;
-
-      transition:.2s;
-
-    }
-
-
-    .timer-tab.active{
-
-      background:var(--surface);
-
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--soft);
       color:var(--primary);
-
-      box-shadow:
-        0 5px 18px
-        rgba(15,118,110,.08);
-
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:14px;
     }
 
-
-    /* Timer Body */
-
-    .timer-body{
-
-      padding:34px 30px 30px;
-
+    .badge svg{
+      width:16px;
+      height:16px;
     }
 
+    .page-title h1{
+      font-size:clamp(28px,5vw,42px);
+      margin-bottom:8px;
+    }
+
+    .page-title p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* =========================
+       Timer card
+    ========================= */
+
+    .timer-card{
+      max-width:850px;
+      margin:auto;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .timer-top{
+      padding:24px 26px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .timer-mode{
+      display:flex;
+      gap:7px;
+      padding:5px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      border-radius:15px;
+    }
+
+    .mode-btn{
+      padding:10px 17px;
+      border-radius:11px;
+      background:transparent;
+      color:var(--muted);
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .mode-btn.active{
+      background:var(--surface);
+      color:var(--primary);
+      box-shadow:0 5px 15px rgba(0,0,0,.06);
+    }
+
+    .session-label{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* =========================
+       Setup
+    ========================= */
+
+    .setup{
+      padding:35px 26px;
+    }
+
+    .setup-title{
+      text-align:center;
+      margin-bottom:25px;
+    }
+
+    .setup-title h2{
+      font-size:22px;
+      margin-bottom:5px;
+    }
+
+    .setup-title p{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .time-presets{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .preset{
+      padding:14px 8px;
+      border-radius:15px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .preset:hover,
+    .preset.active{
+      border-color:var(--primary-2);
+      background:var(--soft);
+      color:var(--primary);
+      transform:translateY(-2px);
+    }
+
+    .custom-time{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-bottom:20px;
+    }
+
+    .input-group label{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:7px;
+    }
+
+    .input-group input{
+      width:100%;
+      height:50px;
+      padding:0 15px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      outline:none;
+      background:var(--surface-2);
+      color:var(--text);
+      font-size:14px;
+    }
+
+    .input-group input:focus{
+      border-color:var(--primary-2);
+    }
+
+    /* Quran switch */
+
+    .quran-option{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      padding:16px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      border-radius:17px;
+      margin-bottom:20px;
+    }
+
+    .quran-info{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .quran-icon{
+      width:43px;
+      height:43px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+      flex:none;
+    }
+
+    .quran-icon svg{
+      width:21px;
+      height:21px;
+    }
+
+    .quran-info strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:2px;
+    }
+
+    .quran-info span{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .switch{
+      position:relative;
+      width:52px;
+      height:29px;
+      flex:none;
+    }
+
+    .switch input{
+      opacity:0;
+      width:0;
+      height:0;
+    }
+
+    .slider{
+      position:absolute;
+      inset:0;
+      background:#cbd5d2;
+      border-radius:30px;
+      cursor:pointer;
+      transition:.25s;
+    }
+
+    .slider::before{
+      content:"";
+      position:absolute;
+      width:23px;
+      height:23px;
+      right:3px;
+      top:3px;
+      background:white;
+      border-radius:50%;
+      transition:.25s;
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
+    }
+
+    .switch input:checked + .slider{
+      background:var(--primary);
+    }
+
+    .switch input:checked + .slider::before{
+      transform:translateX(-23px);
+    }
+
+    .start-btn{
+      width:100%;
+      height:55px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 12px 28px rgba(15,118,110,.22);
+      transition:.25s;
+    }
+
+    .start-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 35px rgba(15,118,110,.3);
+    }
+
+    /* =========================
+       Running timer
+    ========================= */
+
+    .running{
+      display:none;
+      padding:35px 26px 30px;
+    }
+
+    .running.show{
+      display:block;
+      animation:fadeUp .35s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(12px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
 
     .timer-status{
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      gap:8px;
-
+      text-align:center;
       color:var(--muted);
-
       font-size:13px;
-
-      margin-bottom:25px;
-
+      margin-bottom:20px;
     }
 
-
-    .status-dot{
-
-      width:8px;
-
-      height:8px;
-
+    .timer-circle{
+      width:min(390px,78vw);
+      aspect-ratio:1;
+      margin:auto;
       border-radius:50%;
-
-      background:var(--muted);
-
-    }
-
-
-    .timer-status.running .status-dot{
-
-      background:var(--success);
-
+      position:relative;
+      display:grid;
+      place-items:center;
+      background:
+        conic-gradient(
+          var(--primary) var(--progress,0%),
+          var(--surface-2) 0
+        );
       box-shadow:
-        0 0 0 5px
-        rgba(22,163,74,.10);
-
-      animation:pulseDot 1.5s infinite;
-
+        0 25px 70px rgba(15,118,110,.13),
+        inset 0 0 0 1px var(--border);
+      transition:background .4s linear;
     }
 
-
-    .timer-status.finished .status-dot{
-
-      background:var(--primary);
-
+    .timer-circle::before{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border-radius:50%;
+      background:var(--surface);
+      border:1px solid var(--border);
     }
 
+    .timer-circle.running-animation::before{
+      animation:pulse 2s ease-in-out infinite;
+    }
 
-    @keyframes pulseDot{
+    @keyframes pulse{
+      0%,100%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(.985);
+      }
+    }
 
-      0%,
+    .timer-inner{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      width:80%;
+    }
+
+    .time-display{
+      font-family:Arial,sans-serif;
+      direction:ltr;
+      font-size:clamp(55px,12vw,92px);
+      line-height:1;
+      font-weight:700;
+      letter-spacing:3px;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .time-display.tick{
+      animation:tick .35s ease;
+    }
+
+    @keyframes tick{
+      0%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(1.035);
+      }
       100%{
         transform:scale(1);
       }
-
-      50%{
-        transform:scale(1.3);
-      }
-
     }
 
-
-    /* Clock */
-
-    .clock-area{
-
-      position:relative;
-
-      width:min(
-        390px,
-        78vw
-      );
-
-      aspect-ratio:1;
-
-      margin:0 auto 32px;
-
-      display:grid;
-
-      place-items:center;
-
-    }
-
-
-    .clock-svg{
-
-      position:absolute;
-
-      inset:0;
-
-      width:100%;
-
-      height:100%;
-
-      transform:rotate(-90deg);
-
-    }
-
-
-    .clock-track{
-
-      fill:none;
-
-      stroke:var(--surface-2);
-
-      stroke-width:8;
-
-    }
-
-
-    .clock-progress{
-
-      fill:none;
-
-      stroke:
-        url(#timerGradient);
-
-      stroke-width:8;
-
-      stroke-linecap:round;
-
-      stroke-dasharray:1000;
-
-      stroke-dashoffset:0;
-
-      transition:
-        stroke-dashoffset .5s linear;
-
-    }
-
-
-    .clock-glow{
-
-      fill:none;
-
-      stroke:var(--primary);
-
-      stroke-width:2;
-
-      opacity:.15;
-
-      filter:
-        drop-shadow(
-          0 0 8px
-          var(--primary)
-        );
-
-    }
-
-
-    .clock-content{
-
-      position:relative;
-
-      z-index:2;
-
-      text-align:center;
-
-      width:75%;
-
-    }
-
-
-    .clock-mode{
-
+    .timer-caption{
       color:var(--muted);
-
       font-size:12px;
-
-      margin-bottom:8px;
-
+      margin-top:12px;
     }
 
-
-    .time{
-
-      font-size:
-        clamp(48px,12vw,82px);
-
-      line-height:1;
-
-      font-weight:700;
-
-      letter-spacing:2px;
-
-      font-variant-numeric:tabular-nums;
-
-    }
-
-
-    .timer-app.active .time{
-
-      text-shadow:
-        0 0 25px
-        rgba(20,184,166,.12);
-
-    }
-
-
-    .timer-app.active .clock-area{
-
-      animation:
-        clockFloat 3s ease-in-out infinite;
-
-    }
-
-
-    @keyframes clockFloat{
-
-      0%,
-      100%{
-        transform:translateY(0);
-      }
-
-      50%{
-        transform:translateY(-3px);
-      }
-
-    }
-
-
-    .time-label{
-
-      color:var(--muted);
-
-      font-size:12px;
-
-      margin-top:10px;
-
-    }
-
-
-    /* Quran */
-
-    .quran-box{
-
-      max-width:650px;
-
-      margin:0 auto 25px;
-
-      padding:20px;
-
-      background:var(--soft);
-
-      border:
-        1px solid
-        rgba(20,184,166,.15);
-
-      border-radius:20px;
-
-      text-align:center;
-
+    .quran-display{
       display:none;
-
-      animation:quranIn .35s ease;
-
+      max-width:650px;
+      margin:30px auto 0;
+      padding:23px;
+      border-radius:20px;
+      background:var(--soft);
+      border:1px solid rgba(20,184,166,.15);
+      text-align:center;
+      animation:fadeUp .5s ease;
     }
 
-
-    .quran-box.show{
-
+    .quran-display.show{
       display:block;
-
     }
 
-
-    @keyframes quranIn{
-
-      from{
-
-        opacity:0;
-
-        transform:
-          translateY(8px);
-
-      }
-
-      to{
-
-        opacity:1;
-
-        transform:
-          translateY(0);
-
-      }
-
-    }
-
-
-    .quran-label{
-
+    .quran-display .small-title{
       color:var(--primary);
-
-      font-size:11px;
-
-      font-weight:700;
-
-      margin-bottom:8px;
-
-    }
-
-
-    .quran-text{
-
-      font-size:18px;
-
+      font-size:12px;
       font-weight:600;
+      margin-bottom:10px;
+    }
 
+    .quran-display .ayah{
+      font-size:20px;
       line-height:2;
-
+      font-weight:600;
     }
 
-
-    .quran-source{
-
+    .quran-display .source{
       color:var(--primary);
-
-      font-size:11px;
-
-      margin-top:8px;
-
+      font-size:12px;
+      margin-top:9px;
     }
-
-
-    /* Controls */
 
     .controls{
-
       display:flex;
-
-      align-items:center;
-
       justify-content:center;
-
-      gap:10px;
-
       flex-wrap:wrap;
-
+      gap:10px;
+      margin-top:28px;
     }
-
 
     .control-btn{
-
       min-width:125px;
-
-      height:50px;
-
-      border:none;
-
-      border-radius:15px;
-
-      display:inline-flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      gap:8px;
-
+      height:48px;
+      padding:0 18px;
+      border-radius:14px;
       cursor:pointer;
-
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
       font-size:13px;
-
       font-weight:600;
-
       transition:.2s;
-
     }
-
-
-    .control-btn:hover{
-
-      transform:translateY(-2px);
-
-    }
-
 
     .control-btn svg{
-
-      width:19px;
-
-      height:19px;
-
+      width:18px;
+      height:18px;
     }
 
-
-    .primary-btn{
-
-      color:#fff;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-2)
-        );
-
-      box-shadow:
-        0 10px 25px
-        rgba(15,118,110,.20);
-
+    .control-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      box-shadow:0 9px 22px rgba(15,118,110,.2);
     }
 
-
-    .secondary-btn{
-
-      color:var(--text);
-
+    .control-secondary{
       background:var(--surface-2);
-
-      border:
-        1px solid
-        var(--border);
-
+      color:var(--text);
+      border:1px solid var(--border);
     }
 
-
-    .danger-btn{
-
+    .control-danger{
+      background:rgba(220,38,38,.08);
       color:var(--danger);
-
-      background:
-        rgba(220,38,38,.08);
-
-      border:
-        1px solid
-        rgba(220,38,38,.12);
-
+      border:1px solid rgba(220,38,38,.15);
     }
 
-
-    /* Settings */
-
-    .settings{
-
-      margin-top:30px;
-
-      padding-top:25px;
-
-      border-top:
-        1px solid
-        var(--border);
-
+    .control-btn:hover{
+      transform:translateY(-2px);
     }
 
-
-    .settings-title{
-
-      font-size:15px;
-
-      font-weight:700;
-
-      margin-bottom:15px;
-
+    .progress-info{
+      max-width:600px;
+      margin:22px auto 0;
     }
 
-
-    .preset-grid{
-
-      display:grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
-      gap:9px;
-
-    }
-
-
-    .preset-btn{
-
-      border:
-        1px solid
-        var(--border);
-
-      background:var(--surface-2);
-
-      color:var(--text);
-
-      padding:12px 8px;
-
-      border-radius:14px;
-
-      cursor:pointer;
-
-      font-size:12px;
-
-      font-weight:600;
-
-      transition:.2s;
-
-    }
-
-
-    .preset-btn:hover{
-
-      border-color:
-        var(--primary-2);
-
-    }
-
-
-    .preset-btn.active{
-
-      color:var(--primary);
-
-      background:var(--soft);
-
-      border-color:
-        rgba(20,184,166,.35);
-
-    }
-
-
-    .custom-time{
-
-      display:grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:10px;
-
-      margin-top:10px;
-
-    }
-
-
-    .time-input-group{
-
-      position:relative;
-
-    }
-
-
-    .time-input-group label{
-
-      display:block;
-
-      color:var(--muted);
-
-      font-size:11px;
-
-      margin-bottom:6px;
-
-    }
-
-
-    .time-input{
-
-      width:100%;
-
-      height:47px;
-
-      border:
-        1px solid
-        var(--border);
-
-      background:var(--surface);
-
-      color:var(--text);
-
-      border-radius:13px;
-
-      padding:0 14px;
-
-      outline:none;
-
-      font-size:14px;
-
-    }
-
-
-    .time-input:focus{
-
-      border-color:
-        var(--primary-2);
-
-    }
-
-
-    /* Checkbox */
-
-    .quran-option{
-
-      margin-top:15px;
-
-      padding:15px;
-
+    .progress-head{
       display:flex;
-
       align-items:center;
-
       justify-content:space-between;
-
-      gap:15px;
-
-      background:var(--surface-2);
-
-      border:
-        1px solid
-        var(--border);
-
-      border-radius:16px;
-
-    }
-
-
-    .quran-option-text strong{
-
-      display:block;
-
-      font-size:13px;
-
-      margin-bottom:3px;
-
-    }
-
-
-    .quran-option-text span{
-
-      display:block;
-
       color:var(--muted);
-
-      font-size:10px;
-
-    }
-
-
-    .switch{
-
-      position:relative;
-
-      width:47px;
-
-      height:27px;
-
-      flex:none;
-
-    }
-
-
-    .switch input{
-
-      opacity:0;
-
-      width:0;
-
-      height:0;
-
-    }
-
-
-    .slider{
-
-      position:absolute;
-
-      inset:0;
-
-      background:#cbd5d2;
-
-      border-radius:999px;
-
-      cursor:pointer;
-
-      transition:.2s;
-
-    }
-
-
-    .slider::before{
-
-      content:"";
-
-      position:absolute;
-
-      width:21px;
-
-      height:21px;
-
-      right:3px;
-
-      top:3px;
-
-      background:white;
-
-      border-radius:50%;
-
-      transition:.2s;
-
-      box-shadow:
-        0 2px 5px
-        rgba(0,0,0,.15);
-
-    }
-
-
-    .switch input:checked + .slider{
-
-      background:var(--primary);
-
-    }
-
-
-    .switch input:checked + .slider::before{
-
-      transform:translateX(-20px);
-
-    }
-
-
-    /* Fullscreen */
-
-    .fullscreen-hint{
-
-      margin-top:18px;
-
-      text-align:center;
-
-      color:var(--muted);
-
       font-size:11px;
-
-    }
-
-
-    /* Fullscreen Mode */
-
-    body.fullscreen-mode .hero,
-    body.fullscreen-mode .settings,
-    body.fullscreen-mode .timer-tabs,
-    body.fullscreen-mode header,
-    body.fullscreen-mode .fullscreen-hint,
-    body.fullscreen-mode footer{
-
-      display:none;
-
-    }
-
-
-    body.fullscreen-mode main{
-
-      min-height:100vh;
-
-      display:grid;
-
-      place-items:center;
-
-    }
-
-
-    body.fullscreen-mode .timer-app{
-
-      width:min(
-        100vw,
-        1000px
-      );
-
-      max-width:none;
-
-      margin:0;
-
-      border:none;
-
-      border-radius:0;
-
-      box-shadow:none;
-
-      background:transparent;
-
-    }
-
-
-    body.fullscreen-mode .timer-body{
-
-      padding:20px;
-
-    }
-
-
-    body.fullscreen-mode .clock-area{
-
-      width:min(
-        520px,
-        75vh,
-        85vw
-      );
-
-      margin-bottom:25px;
-
-    }
-
-
-    body.fullscreen-mode .time{
-
-      font-size:
-        clamp(
-          60px,
-          12vw,
-          115px
-        );
-
-    }
-
-
-    body.fullscreen-mode .quran-box{
-
-      max-width:720px;
-
-    }
-
-
-    .exit-fullscreen{
-
-      position:fixed;
-
-      top:20px;
-
-      left:20px;
-
-      z-index:500;
-
-      display:none;
-
-      width:45px;
-
-      height:45px;
-
-      border:
-        1px solid
-        var(--border);
-
-      background:var(--surface);
-
-      color:var(--text);
-
-      border-radius:14px;
-
-      cursor:pointer;
-
-      place-items:center;
-
-    }
-
-
-    body.fullscreen-mode .exit-fullscreen{
-
-      display:grid;
-
-    }
-
-
-    /* Finished */
-
-    .finished-message{
-
-      display:none;
-
-      margin-top:18px;
-
-      padding:14px;
-
-      border-radius:15px;
-
-      background:
-        rgba(22,163,74,.08);
-
-      color:var(--success);
-
-      border:
-        1px solid
-        rgba(22,163,74,.15);
-
-      text-align:center;
-
-      font-size:13px;
-
-      animation:quranIn .3s ease;
-
-    }
-
-
-    .finished-message.show{
-
-      display:block;
-
-    }
-
-
-    /* Info Cards */
-
-    .info-section{
-
-      margin:45px 0 20px;
-
-    }
-
-
-    .section-head{
-
-      margin-bottom:18px;
-
-    }
-
-
-    .section-head h2{
-
-      font-size:23px;
-
-      margin-bottom:5px;
-
-    }
-
-
-    .section-head p{
-
-      color:var(--muted);
-
-      font-size:13px;
-
-    }
-
-
-    .info-grid{
-
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:15px;
-
-    }
-
-
-    .info-card{
-
-      padding:21px;
-
-      background:var(--surface);
-
-      border:
-        1px solid
-        var(--border);
-
-      border-radius:21px;
-
-      box-shadow:var(--shadow);
-
-    }
-
-
-    .info-icon{
-
-      width:43px;
-
-      height:43px;
-
-      border-radius:14px;
-
-      display:grid;
-
-      place-items:center;
-
-      background:var(--soft);
-
-      color:var(--primary);
-
-      margin-bottom:14px;
-
-    }
-
-
-    .info-icon svg{
-
-      width:21px;
-
-      height:21px;
-
-    }
-
-
-    .info-card h3{
-
-      font-size:15px;
-
-      margin-bottom:6px;
-
-    }
-
-
-    .info-card p{
-
-      color:var(--muted);
-
-      font-size:12px;
-
-      line-height:1.8;
-
-    }
-
-
-    /* Footer */
-
-    footer{
-
-      margin-top:65px;
-
-      border-top:
-        1px solid
-        var(--border);
-
-      padding:30px 0 25px;
-
-      text-align:center;
-
-    }
-
-
-    .footer-brand{
-
-      font-size:16px;
-
-      font-weight:700;
-
       margin-bottom:7px;
-
     }
 
-
-    .footer-text{
-
-      color:var(--muted);
-
-      font-size:12px;
-
-      line-height:1.8;
-
+    .progress-bar{
+      height:7px;
+      border-radius:20px;
+      background:var(--surface-2);
+      overflow:hidden;
+      border:1px solid var(--border);
     }
 
-
-    .developer{
-
-      display:inline-flex;
-
-      align-items:center;
-
-      gap:6px;
-
-      margin-top:13px;
-
-      color:var(--muted);
-
-      font-size:12px;
-
+    .progress-fill{
+      height:100%;
+      width:0%;
+      border-radius:inherit;
+      background:linear-gradient(90deg,var(--primary),var(--primary-2));
+      transition:width .3s linear;
     }
 
+    /* =========================
+       Completion
+    ========================= */
 
-    .developer a{
+    .completion{
+      display:none;
+      padding:55px 25px;
+      text-align:center;
+    }
 
+    .completion.show{
+      display:block;
+      animation:fadeUp .4s ease;
+    }
+
+    .completion-icon{
+      width:80px;
+      height:80px;
+      border-radius:25px;
+      display:grid;
+      place-items:center;
+      margin:0 auto 20px;
+      background:var(--soft);
       color:var(--primary);
-
-      font-weight:700;
-
+      animation:completePop .55s ease;
     }
 
+    .completion-icon svg{
+      width:40px;
+      height:40px;
+    }
 
-    /* Responsive */
+    @keyframes completePop{
+      0%{
+        transform:scale(.5) rotate(-10deg);
+        opacity:0;
+      }
+      70%{
+        transform:scale(1.1);
+      }
+      100%{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    .completion h2{
+      font-size:27px;
+      margin-bottom:8px;
+    }
+
+    .completion p{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:25px;
+    }
+
+    .completion-btn{
+      height:50px;
+      padding:0 25px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    /* =========================
+       Extra Features
+    ========================= */
+
+    .features{
+      max-width:850px;
+      margin:25px auto 0;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .feature{
+      padding:20px 16px;
+      border-radius:19px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .feature-icon{
+      width:42px;
+      height:42px;
+      margin:0 auto 10px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .feature-icon svg{
+      width:20px;
+      height:20px;
+    }
+
+    .feature strong{
+      display:block;
+      font-size:13px;
+      margin-bottom:4px;
+    }
+
+    .feature span{
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.7;
+    }
+
+    /* =========================
+       Fullscreen
+    ========================= */
+
+    .fullscreen-overlay{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      background:
+        radial-gradient(circle at 50% 20%,rgba(20,184,166,.12),transparent 35%),
+        var(--bg);
+      color:var(--text);
+      overflow:auto;
+    }
+
+    .fullscreen-overlay.show{
+      display:block;
+      animation:fullscreenIn .3s ease;
+    }
+
+    @keyframes fullscreenIn{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .fullscreen-top{
+      position:absolute;
+      top:20px;
+      right:20px;
+      left:20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      z-index:3;
+    }
+
+    .fullscreen-label{
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary);
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .fullscreen-close{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      color:var(--text);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+    }
+
+    .fullscreen-close svg{
+      width:20px;
+      height:20px;
+    }
+
+    .fullscreen-content{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:80px 20px 40px;
+      text-align:center;
+    }
+
+    .fullscreen-content .timer-circle{
+      width:min(560px,80vw);
+    }
+
+    .fullscreen-content .time-display{
+      font-size:clamp(70px,15vw,135px);
+    }
+
+    .fullscreen-quran{
+      display:none;
+      max-width:800px;
+      margin-top:35px;
+      padding:20px 30px;
+      border-radius:22px;
+      background:var(--soft);
+      border:1px solid rgba(20,184,166,.15);
+    }
+
+    .fullscreen-quran.show{
+      display:block;
+      animation:fadeUp .4s ease;
+    }
+
+    .fullscreen-quran .ayah{
+      font-size:clamp(17px,3vw,25px);
+      line-height:2;
+      font-weight:600;
+    }
+
+    .fullscreen-quran .source{
+      color:var(--primary);
+      font-size:12px;
+      margin-top:8px;
+    }
+
+    .fullscreen-controls{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:28px;
+    }
+
+    /* =========================
+       Toast
+    ========================= */
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:25px;
+      transform:translate(-50%,20px);
+      background:var(--text);
+      color:var(--surface);
+      padding:12px 18px;
+      border-radius:13px;
+      font-size:12px;
+      opacity:0;
+      pointer-events:none;
+      transition:.3s;
+      z-index:2000;
+      white-space:nowrap;
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translate(-50%,0);
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
 
     @media(max-width:700px){
 
       .container{
-
-        width:
-          min(
-            100% - 22px,
-            1120px
-          );
-
+        width:min(100% - 22px,1050px);
       }
-
 
       header{
-
         padding:10px 0;
-
       }
-
-
-      .hero{
-
-        padding:
-          40px 0
-          25px;
-
-      }
-
-
-      .hero h1{
-
-        font-size:34px;
-
-      }
-
-
-      .timer-body{
-
-        padding:
-          28px 17px 22px;
-
-      }
-
-
-      .preset-grid{
-
-        grid-template-columns:
-          repeat(2,1fr);
-
-      }
-
-
-      .custom-time{
-
-        grid-template-columns:1fr;
-
-      }
-
-
-      .controls{
-
-        display:grid;
-
-        grid-template-columns:
-          1fr 1fr;
-
-        width:100%;
-
-      }
-
-
-      .control-btn{
-
-        width:100%;
-
-        min-width:0;
-
-      }
-
-
-      .control-btn:first-child{
-
-        grid-column:
-          1 / -1;
-
-      }
-
-
-      .info-grid{
-
-        grid-template-columns:1fr;
-
-      }
-
 
       .brand-text span{
-
         display:none;
-
       }
 
-
-      .timer-app{
-
-        border-radius:24px;
-
+      .page{
+        padding:30px 0 45px;
       }
 
-
-      .quran-text{
-
-        font-size:16px;
-
+      .timer-top{
+        padding:17px;
+        flex-direction:column;
+        align-items:stretch;
       }
 
+      .timer-mode{
+        width:100%;
+      }
+
+      .mode-btn{
+        flex:1;
+      }
+
+      .session-label{
+        text-align:center;
+      }
+
+      .setup{
+        padding:25px 18px;
+      }
+
+      .time-presets{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .custom-time{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .running{
+        padding:25px 15px;
+      }
+
+      .timer-circle{
+        width:min(330px,82vw);
+      }
+
+      .quran-display .ayah{
+        font-size:17px;
+      }
+
+      .controls{
+        gap:8px;
+      }
+
+      .control-btn{
+        flex:1;
+        min-width:100px;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .feature{
+        display:flex;
+        align-items:center;
+        text-align:right;
+        gap:12px;
+      }
+
+      .feature-icon{
+        margin:0;
+        flex:none;
+      }
+
+      .fullscreen-content .timer-circle{
+        width:min(390px,86vw);
+      }
+
+      .fullscreen-top{
+        top:12px;
+        right:12px;
+        left:12px;
+      }
     }
 
+    @media(max-width:420px){
+
+      .time-display{
+        font-size:53px;
+      }
+
+      .timer-circle{
+        width:285px;
+      }
+
+      .quran-option{
+        padding:13px;
+      }
+
+      .quran-info span{
+        display:block;
+        max-width:190px;
+      }
+    }
   </style>
-
 </head>
-
 
 <body>
 
-
   <!-- Header -->
-
   <header>
-
     <div class="container header-inner">
 
       <a href="index.html" class="brand">
 
         <div class="brand-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="13" r="8"/>
-            <path d="M12 9v4l2.5 2"/>
-            <path d="M9 2h6"/>
-            <path d="M12 2v3"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8M8 10h8"/>
           </svg>
-
         </div>
 
-
         <div class="brand-text">
-
           <strong>مساعد توجيهي</strong>
-
           <span>رفيقك في طريق التوجيهي</span>
-
         </div>
 
       </a>
 
-
       <div class="header-actions">
 
         <button
-          class="header-btn"
-          id="homeBtn"
-          title="الصفحة الرئيسية"
-          aria-label="الصفحة الرئيسية"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M3 11.5 12 4l9 7.5"/>
-            <path d="M5 10v10h14V10"/>
-            <path d="M9 20v-6h6v6"/>
-          </svg>
-
-        </button>
-
-
-        <button
-          class="header-btn"
+          class="icon-btn"
           id="themeBtn"
-          title="تغيير المظهر"
           aria-label="تغيير المظهر"
         ></button>
+
+        <button
+          class="icon-btn"
+          id="homeBtn"
+          aria-label="العودة للرئيسية"
+          title="الرئيسية"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 11.5L12 4l9 7.5"/>
+            <path d="M5 10.5V20h14v-9.5"/>
+            <path d="M9 20v-5h6v5"/>
+          </svg>
+        </button>
 
       </div>
 
     </div>
-
   </header>
 
 
-  <main>
+  <main class="page">
 
-    <!-- Hero -->
+    <div class="container">
 
-    <section class="hero">
+      <!-- Title -->
+      <div class="page-title">
 
-      <div class="container">
+        <div class="badge">
 
-        <div class="hero-badge">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="13" r="8"/>
             <path d="M12 9v4l2.5 2"/>
             <path d="M9 2h6"/>
@@ -1779,674 +1137,566 @@
 
         </div>
 
-
-        <h1>
-
-          <span>مؤقت الدراسة</span>
-
-        </h1>
-
+        <h1>مؤقت الدراسة</h1>
 
         <p>
-
-          ركّز في دراستك، حدّد وقتك، واترك المؤقت يتولى الباقي.
-
+          ركّز، ابدأ جلستك، وخلي الوقت يساعدك توصل لهدفك.
         </p>
 
       </div>
 
-    </section>
 
+      <!-- Main Timer Card -->
+      <div class="timer-card">
 
-    <!-- Timer App -->
+        <!-- Top -->
+        <div class="timer-top">
 
-    <section>
-
-      <div class="container">
-
-
-        <div class="timer-app" id="timerApp">
-
-
-          <!-- Tabs -->
-
-          <div class="timer-tabs">
+          <div class="timer-mode">
 
             <button
-              class="timer-tab active"
-              id="countdownTab"
+              class="mode-btn active"
+              id="countdownMode"
             >
-              المؤقت
+              مؤقت تنازلي
             </button>
 
-
             <button
-              class="timer-tab"
-              id="stopwatchTab"
+              class="mode-btn"
+              id="stopwatchMode"
             >
-              ساعة الإيقاف
+              ساعة إيقاف
+            </button>
+
+          </div>
+
+          <div
+            class="session-label"
+            id="sessionLabel"
+          >
+            جلسة دراسة جديدة
+          </div>
+
+        </div>
+
+
+        <!-- Setup -->
+        <div class="setup" id="setupPanel">
+
+          <div class="setup-title">
+
+            <h2>حدد وقت الدراسة</h2>
+
+            <p>
+              اختر مدة جاهزة أو حدد الوقت الذي يناسبك
+            </p>
+
+          </div>
+
+
+          <!-- Presets -->
+          <div class="time-presets">
+
+            <button class="preset" data-minutes="5">
+              5 دقائق
+            </button>
+
+            <button class="preset" data-minutes="15">
+              15 دقيقة
+            </button>
+
+            <button class="preset active" data-minutes="25">
+              25 دقيقة
+            </button>
+
+            <button class="preset" data-minutes="45">
+              45 دقيقة
+            </button>
+
+            <button class="preset" data-minutes="60">
+              ساعة
+            </button>
+
+            <button class="preset" data-minutes="90">
+              90 دقيقة
+            </button>
+
+            <button class="preset" data-minutes="120">
+              ساعتان
+            </button>
+
+            <button class="preset" data-minutes="custom">
+              مخصص
             </button>
 
           </div>
 
 
-          <div class="timer-body">
+          <!-- Custom -->
+          <div class="custom-time">
+
+            <div class="input-group">
+
+              <label for="minutesInput">
+                الدقائق
+              </label>
+
+              <input
+                type="number"
+                id="minutesInput"
+                min="0"
+                max="999"
+                value="25"
+              >
+
+            </div>
+
+            <div class="input-group">
+
+              <label for="secondsInput">
+                الثواني
+              </label>
+
+              <input
+                type="number"
+                id="secondsInput"
+                min="0"
+                max="59"
+                value="0"
+              >
+
+            </div>
+
+          </div>
 
 
-            <!-- Status -->
+          <!-- Quran -->
+          <div class="quran-option">
+
+            <div class="quran-info">
+
+              <div class="quran-icon">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                </svg>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  إظهار آية قرآنية
+                </strong>
+
+                <span>
+                  ستظهر آيات أثناء جلسة الدراسة
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <label class="switch">
+
+              <input
+                type="checkbox"
+                id="quranToggle"
+              >
+
+              <span class="slider"></span>
+
+            </label>
+
+          </div>
+
+
+          <button
+            class="start-btn"
+            id="startBtn"
+          >
+            بدء جلسة الدراسة
+          </button>
+
+        </div>
+
+
+        <!-- Running -->
+        <div class="running" id="runningPanel">
+
+          <div
+            class="timer-status"
+            id="timerStatus"
+          >
+            جاري التركيز
+          </div>
+
+
+          <!-- Circle -->
+          <div
+            class="timer-circle"
+            id="timerCircle"
+          >
+
+            <div class="timer-inner">
+
+              <div
+                class="time-display"
+                id="timeDisplay"
+              >
+                25:00
+              </div>
+
+              <div
+                class="timer-caption"
+                id="timerCaption"
+              >
+                الوقت المتبقي
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Quran -->
+          <div
+            class="quran-display"
+            id="quranDisplay"
+          >
+
+            <div class="small-title">
+              آية قرآنية
+            </div>
 
             <div
-              class="timer-status"
-              id="timerStatus"
+              class="ayah"
+              id="ayahText"
+            >
+              وَقُل رَّبِّ زِدْنِي عِلْمًا
+            </div>
+
+            <div
+              class="source"
+              id="ayahSource"
+            >
+              سورة طه — الآية 114
+            </div>
+
+          </div>
+
+
+          <!-- Controls -->
+          <div class="controls">
+
+            <button
+              class="control-btn control-primary"
+              id="pauseBtn"
             >
 
-              <span class="status-dot"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 5v14"/>
+                <path d="M16 5v14"/>
+              </svg>
 
-              <span id="statusText">
-                جاهز للدراسة
+              إيقاف مؤقت
+
+            </button>
+
+
+            <button
+              class="control-btn control-secondary"
+              id="fullscreenBtn"
+            >
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3H3v5"/>
+                <path d="M16 3h5v5"/>
+                <path d="M8 21H3v-5"/>
+                <path d="M16 21h5v-5"/>
+              </svg>
+
+              تكبير الشاشة
+
+            </button>
+
+
+            <button
+              class="control-btn control-secondary"
+              id="resetBtn"
+            >
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 3-6.7"/>
+                <path d="M3 4v6h6"/>
+              </svg>
+
+              إعادة ضبط
+
+            </button>
+
+          </div>
+
+
+          <!-- Progress -->
+          <div class="progress-info">
+
+            <div class="progress-head">
+
+              <span>
+                تقدم الجلسة
+              </span>
+
+              <span id="progressPercent">
+                0%
               </span>
 
             </div>
 
-
-            <!-- Clock -->
-
-            <div class="clock-area">
-
-
-              <svg
-                class="clock-svg"
-                viewBox="0 0 360 360"
-              >
-
-                <defs>
-
-                  <linearGradient
-                    id="timerGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-
-                    <stop
-                      offset="0%"
-                      stop-color="#0f766e"
-                    />
-
-                    <stop
-                      offset="100%"
-                      stop-color="#14b8a6"
-                    />
-
-                  </linearGradient>
-
-                </defs>
-
-
-                <circle
-                  class="clock-track"
-                  cx="180"
-                  cy="180"
-                  r="150"
-                />
-
-
-                <circle
-                  class="clock-glow"
-                  cx="180"
-                  cy="180"
-                  r="142"
-                />
-
-
-                <circle
-                  class="clock-progress"
-                  id="clockProgress"
-                  cx="180"
-                  cy="180"
-                  r="150"
-                />
-
-              </svg>
-
-
-              <div class="clock-content">
-
-                <div
-                  class="clock-mode"
-                  id="clockMode"
-                >
-                  وقت الدراسة
-                </div>
-
-
-                <div
-                  class="time"
-                  id="timeDisplay"
-                >
-                  25:00
-                </div>
-
-
-                <div class="time-label">
-                  دقائق : ثواني
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <!-- Quran -->
-
-            <div
-              class="quran-box"
-              id="quranBox"
-            >
-
-              <div class="quran-label">
-                آية أثناء الدراسة
-              </div>
-
+            <div class="progress-bar">
 
               <div
-                class="quran-text"
-                id="quranText"
-              >
-                وَقُل رَّبِّ زِدْنِي عِلْمًا
-              </div>
-
-
-              <div
-                class="quran-source"
-                id="quranSource"
-              >
-                سورة طه — الآية 114
-              </div>
+                class="progress-fill"
+                id="progressFill"
+              ></div>
 
             </div>
-
-
-            <!-- Finished -->
-
-            <div
-              class="finished-message"
-              id="finishedMessage"
-            >
-
-              انتهت جلسة الدراسة، أحسنت! خذ استراحة قصيرة ثم أكمل.
-
-            </div>
-
-
-            <!-- Controls -->
-
-            <div class="controls">
-
-
-              <button
-                class="control-btn primary-btn"
-                id="startBtn"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="m8 5 11 7-11 7V5Z"/>
-                </svg>
-
-                ابدأ الدراسة
-
-              </button>
-
-
-              <button
-                class="control-btn secondary-btn"
-                id="resetBtn"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M3 12a9 9 0 1 0 3-6.7"/>
-                  <path d="M3 4v6h6"/>
-                </svg>
-
-                إعادة ضبط
-
-              </button>
-
-
-              <button
-                class="control-btn secondary-btn"
-                id="fullscreenBtn"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M8 3H3v5"/>
-                  <path d="M16 3h5v5"/>
-                  <path d="M8 21H3v-5"/>
-                  <path d="M21 16v5h-5"/>
-                </svg>
-
-                ملء الشاشة
-
-              </button>
-
-            </div>
-
-
-            <!-- Settings -->
-
-            <div
-              class="settings"
-              id="settings"
-            >
-
-              <div class="settings-title">
-                مدة جلسة الدراسة
-              </div>
-
-
-              <div class="preset-grid">
-
-                <button
-                  class="preset-btn"
-                  data-minutes="15"
-                >
-                  15 دقيقة
-                </button>
-
-
-                <button
-                  class="preset-btn active"
-                  data-minutes="25"
-                >
-                  25 دقيقة
-                </button>
-
-
-                <button
-                  class="preset-btn"
-                  data-minutes="45"
-                >
-                  45 دقيقة
-                </button>
-
-
-                <button
-                  class="preset-btn"
-                  data-minutes="60"
-                >
-                  60 دقيقة
-                </button>
-
-              </div>
-
-
-              <div class="custom-time">
-
-                <div class="time-input-group">
-
-                  <label for="customMinutes">
-                    دقائق
-                  </label>
-
-                  <input
-                    class="time-input"
-                    id="customMinutes"
-                    type="number"
-                    min="1"
-                    max="999"
-                    placeholder="مثلاً 30"
-                  >
-
-                </div>
-
-
-                <div class="time-input-group">
-
-                  <label for="customSeconds">
-                    ثواني
-                  </label>
-
-                  <input
-                    class="time-input"
-                    id="customSeconds"
-                    type="number"
-                    min="0"
-                    max="59"
-                    placeholder="مثلاً 30"
-                  >
-
-                </div>
-
-              </div>
-
-
-              <!-- Quran Switch -->
-
-              <div class="quran-option">
-
-                <div class="quran-option-text">
-
-                  <strong>
-                    إظهار آية قرآنية أثناء الدراسة
-                  </strong>
-
-                  <span>
-                    ستظهر آية جميلة أثناء تشغيل المؤقت
-                  </span>
-
-                </div>
-
-
-                <label class="switch">
-
-                  <input
-                    type="checkbox"
-                    id="quranToggle"
-                  >
-
-                  <span class="slider"></span>
-
-                </label>
-
-              </div>
-
-            </div>
-
-
-            <div class="fullscreen-hint">
-
-              يمكنك تكبير المؤقت لملء الشاشة والتركيز بدون تشتيت.
-
-            </div>
-
 
           </div>
 
         </div>
 
-      </div>
 
-    </section>
+        <!-- Completion -->
+        <div
+          class="completion"
+          id="completionPanel"
+        >
 
+          <div class="completion-icon">
 
-    <!-- Information -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
 
-    <section class="info-section">
-
-      <div class="container">
-
-
-        <div class="section-head">
+          </div>
 
           <h2>
-            أدوات تساعدك على التركيز
+            أحسنت! انتهت الجلسة
           </h2>
 
           <p>
-            استخدم المؤقت بالطريقة التي تناسب أسلوب دراستك.
+            خلصت جلستك الدراسية. خذ نفساً وافتخر بالإنجاز.
           </p>
 
-        </div>
-
-
-        <div class="info-grid">
-
-
-          <div class="info-card">
-
-            <div class="info-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="13" r="8"/>
-                <path d="M12 9v4l2.5 2"/>
-              </svg>
-
-            </div>
-
-            <h3>
-              جلسات تركيز
-            </h3>
-
-            <p>
-              حدد مدة مناسبة وركز خلالها على مهمة دراسية واحدة بدون تشتت.
-            </p>
-
-          </div>
-
-
-          <div class="info-card">
-
-            <div class="info-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-              </svg>
-
-            </div>
-
-            <h3>
-              آيات أثناء الدراسة
-            </h3>
-
-            <p>
-              فعّل الخيار لتظهر لك آيات قرآنية أثناء جلسة التركيز.
-            </p>
-
-          </div>
-
-
-          <div class="info-card">
-
-            <div class="info-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M8 3H3v5"/>
-                <path d="M16 3h5v5"/>
-                <path d="M8 21H3v-5"/>
-                <path d="M21 16v5h-5"/>
-              </svg>
-
-            </div>
-
-            <h3>
-              وضع التركيز
-            </h3>
-
-            <p>
-              استخدم ملء الشاشة لتقليل المشتتات والتركيز على وقتك فقط.
-            </p>
-
-          </div>
-
+          <button
+            class="completion-btn"
+            id="newSessionBtn"
+          >
+            جلسة جديدة
+          </button>
 
         </div>
 
       </div>
 
-    </section>
 
-  </main>
+      <!-- Features -->
+      <div class="features">
 
+        <div class="feature">
 
-  <!-- Exit Fullscreen -->
+          <div class="feature-icon">
 
-  <button
-    class="exit-fullscreen"
-    id="exitFullscreen"
-    title="الخروج من وضع التركيز"
-    aria-label="الخروج من وضع التركيز"
-  >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M12 9v4l2.5 2"/>
+              <path d="M9 2h6"/>
+              <path d="M12 2v3"/>
+            </svg>
 
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-      <path d="m9 9-6-6"/>
-      <path d="M3 9V3h6"/>
-      <path d="m15 9 6-6"/>
-      <path d="M21 9V3h-6"/>
-      <path d="m9 15-6 6"/>
-      <path d="M3 15v6h6"/>
-      <path d="m15 15 6 6"/>
-      <path d="M21 15v6h-6"/>
-    </svg>
+          </div>
 
-  </button>
+          <div>
+            <strong>تركيز أفضل</strong>
+            <span>
+              جلسات واضحة تساعدك تلتزم بوقتك.
+            </span>
+          </div>
+
+        </div>
 
 
-  <!-- Footer -->
+        <div class="feature">
 
-  <footer>
+          <div class="feature-icon">
 
-    <div class="container">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            </svg>
 
-      <div class="footer-brand">
-        مساعد توجيهي
-      </div>
+          </div>
 
-      <div class="footer-text">
-        منصتك التعليمية لمساعدتك في رحلتك الدراسية
-      </div>
+          <div>
+            <strong>آيات قرآنية</strong>
+            <span>
+              خيار اختياري لإظهار آيات أثناء الدراسة.
+            </span>
+          </div>
 
-      <div class="developer">
+        </div>
 
-        <span>
-          برمجة وتصميم
-        </span>
 
-        <a
-          href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          عبدالله جهاد
-        </a>
+        <div class="feature">
+
+          <div class="feature-icon">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3H3v5"/>
+              <path d="M16 3h5v5"/>
+              <path d="M8 21H3v-5"/>
+              <path d="M16 21h5v-5"/>
+            </svg>
+
+          </div>
+
+          <div>
+            <strong>وضع التركيز</strong>
+            <span>
+              كبّر المؤقت وخلي الشاشة مخصصة للدراسة.
+            </span>
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
-  </footer>
+  </main>
+
+
+  <!-- Fullscreen -->
+  <div
+    class="fullscreen-overlay"
+    id="fullscreenOverlay"
+  >
+
+    <div class="fullscreen-top">
+
+      <div class="fullscreen-label">
+        وضع التركيز
+      </div>
+
+      <button
+        class="fullscreen-close"
+        id="fullscreenClose"
+        aria-label="إغلاق ملء الشاشة"
+      >
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H3v5"/>
+          <path d="M16 3h5v5"/>
+          <path d="M8 21H3v-5"/>
+          <path d="M16 21h5v-5"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+
+    <div class="fullscreen-content">
+
+      <div
+        class="timer-circle"
+        id="fullscreenCircle"
+      >
+
+        <div class="timer-inner">
+
+          <div
+            class="time-display"
+            id="fullscreenTime"
+          >
+            25:00
+          </div>
+
+          <div
+            class="timer-caption"
+            id="fullscreenCaption"
+          >
+            الوقت المتبقي
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="fullscreen-quran"
+        id="fullscreenQuran"
+      >
+
+        <div
+          class="ayah"
+          id="fullscreenAyah"
+        >
+          وَقُل رَّبِّ زِدْنِي عِلْمًا
+        </div>
+
+        <div
+          class="source"
+          id="fullscreenSource"
+        >
+          سورة طه — الآية 114
+        </div>
+
+      </div>
+
+
+      <div class="fullscreen-controls">
+
+        <button
+          class="control-btn control-primary"
+          id="fullscreenPauseBtn"
+        >
+          إيقاف مؤقت
+        </button>
+
+        <button
+          class="control-btn control-secondary"
+          id="fullscreenResetBtn"
+        >
+          إعادة ضبط
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Toast -->
+  <div
+    class="toast"
+    id="toast"
+  ></div>
 
 
   <script>
 
-
     /* =========================
-       العناصر
-    ========================= */
-
-    const timerApp =
-      document.getElementById("timerApp");
-
-    const countdownTab =
-      document.getElementById("countdownTab");
-
-    const stopwatchTab =
-      document.getElementById("stopwatchTab");
-
-    const timeDisplay =
-      document.getElementById("timeDisplay");
-
-    const clockProgress =
-      document.getElementById("clockProgress");
-
-    const clockMode =
-      document.getElementById("clockMode");
-
-    const timerStatus =
-      document.getElementById("timerStatus");
-
-    const statusText =
-      document.getElementById("statusText");
-
-    const startBtn =
-      document.getElementById("startBtn");
-
-    const resetBtn =
-      document.getElementById("resetBtn");
-
-    const fullscreenBtn =
-      document.getElementById("fullscreenBtn");
-
-    const exitFullscreen =
-      document.getElementById("exitFullscreen");
-
-    const quranToggle =
-      document.getElementById("quranToggle");
-
-    const quranBox =
-      document.getElementById("quranBox");
-
-    const quranText =
-      document.getElementById("quranText");
-
-    const quranSource =
-      document.getElementById("quranSource");
-
-    const finishedMessage =
-      document.getElementById("finishedMessage");
-
-    const customMinutes =
-      document.getElementById("customMinutes");
-
-    const customSeconds =
-      document.getElementById("customSeconds");
-
-    const presetButtons =
-      document.querySelectorAll(".preset-btn");
-
-    const themeBtn =
-      document.getElementById("themeBtn");
-
-    const homeBtn =
-      document.getElementById("homeBtn");
-
-
-    /* =========================
-       القرآن
+       آيات القرآن
     ========================= */
 
     const verses = [
-
-      {
-        text:"وَقُل رَّبِّ زِدْنِي عِلْمًا",
-        source:"سورة طه — الآية 114"
-      },
 
       {
         text:"إِنَّ مَعَ الْعُسْرِ يُسْرًا",
@@ -2454,18 +1704,8 @@
       },
 
       {
-        text:"وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ",
-        source:"سورة هود — الآية 88"
-      },
-
-      {
-        text:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
-        source:"سورة البقرة — الآية 153"
-      },
-
-      {
-        text:"وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ",
-        source:"سورة النجم — الآية 39"
+        text:"وَقُل رَّبِّ زِدْنِي عِلْمًا",
+        source:"سورة طه — الآية 114"
       },
 
       {
@@ -2479,6 +1719,26 @@
       },
 
       {
+        text:"لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
+        source:"سورة الزمر — الآية 53"
+      },
+
+      {
+        text:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+        source:"سورة البقرة — الآية 153"
+      },
+
+      {
+        text:"وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ",
+        source:"سورة النجم — الآية 39"
+      },
+
+      {
+        text:"وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ",
+        source:"سورة هود — الآية 88"
+      },
+
+      {
         text:"إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ",
         source:"سورة الرعد — الآية 11"
       },
@@ -2489,33 +1749,154 @@
       },
 
       {
-        text:"لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
-        source:"سورة الزمر — الآية 53"
+        text:"وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ",
+        source:"سورة التوبة — الآية 105"
+      },
+
+      {
+        text:"إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ",
+        source:"سورة البقرة — الآية 222"
       }
 
     ];
 
 
-    let currentVerse = 0;
+    /* =========================
+       العناصر
+    ========================= */
+
+    const setupPanel =
+      document.getElementById("setupPanel");
+
+    const runningPanel =
+      document.getElementById("runningPanel");
+
+    const completionPanel =
+      document.getElementById("completionPanel");
+
+    const countdownMode =
+      document.getElementById("countdownMode");
+
+    const stopwatchMode =
+      document.getElementById("stopwatchMode");
+
+    const minutesInput =
+      document.getElementById("minutesInput");
+
+    const secondsInput =
+      document.getElementById("secondsInput");
+
+    const presets =
+      document.querySelectorAll(".preset");
+
+    const quranToggle =
+      document.getElementById("quranToggle");
+
+    const startBtn =
+      document.getElementById("startBtn");
+
+    const pauseBtn =
+      document.getElementById("pauseBtn");
+
+    const resetBtn =
+      document.getElementById("resetBtn");
+
+    const newSessionBtn =
+      document.getElementById("newSessionBtn");
+
+    const fullscreenBtn =
+      document.getElementById("fullscreenBtn");
+
+    const fullscreenClose =
+      document.getElementById("fullscreenClose");
+
+    const fullscreenPauseBtn =
+      document.getElementById("fullscreenPauseBtn");
+
+    const fullscreenResetBtn =
+      document.getElementById("fullscreenResetBtn");
+
+    const fullscreenOverlay =
+      document.getElementById("fullscreenOverlay");
+
+    const timeDisplay =
+      document.getElementById("timeDisplay");
+
+    const fullscreenTime =
+      document.getElementById("fullscreenTime");
+
+    const timerCaption =
+      document.getElementById("timerCaption");
+
+    const fullscreenCaption =
+      document.getElementById("fullscreenCaption");
+
+    const timerStatus =
+      document.getElementById("timerStatus");
+
+    const timerCircle =
+      document.getElementById("timerCircle");
+
+    const fullscreenCircle =
+      document.getElementById("fullscreenCircle");
+
+    const progressFill =
+      document.getElementById("progressFill");
+
+    const progressPercent =
+      document.getElementById("progressPercent");
+
+    const quranDisplay =
+      document.getElementById("quranDisplay");
+
+    const ayahText =
+      document.getElementById("ayahText");
+
+    const ayahSource =
+      document.getElementById("ayahSource");
+
+    const fullscreenQuran =
+      document.getElementById("fullscreenQuran");
+
+    const fullscreenAyah =
+      document.getElementById("fullscreenAyah");
+
+    const fullscreenSource =
+      document.getElementById("fullscreenSource");
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+    const homeBtn =
+      document.getElementById("homeBtn");
+
+    const toast =
+      document.getElementById("toast");
 
 
-    function showRandomVerse(){
+    /* =========================
+       الحالة
+    ========================= */
 
-      currentVerse =
-        Math.floor(
-          Math.random() * verses.length
-        );
+    let mode = "countdown";
 
-      const verse =
-        verses[currentVerse];
+    let running = false;
 
-      quranText.textContent =
-        verse.text;
+    let paused = false;
 
-      quranSource.textContent =
-        verse.source;
+    let timerInterval = null;
 
-    }
+    let remainingSeconds = 25 * 60;
+
+    let elapsedSeconds = 0;
+
+    let totalSeconds = 25 * 60;
+
+    let quranEnabled = false;
+
+    let currentVerseIndex = -1;
+
+    let lastVerseChange = 0;
 
 
     /* =========================
@@ -2525,12 +1906,7 @@
     function sunIcon(){
 
       return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="4"/>
           <path d="M12 2v2"/>
           <path d="M12 20v2"/>
@@ -2549,15 +1925,8 @@
     function moonIcon(){
 
       return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"
-          />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
         </svg>
       `;
 
@@ -2570,9 +1939,7 @@
         document.body.classList.contains("dark");
 
       themeBtn.innerHTML =
-        dark
-          ? sunIcon()
-          : moonIcon();
+        dark ? sunIcon() : moonIcon();
 
     }
 
@@ -2580,408 +1947,644 @@
     const savedTheme =
       localStorage.getItem("tawjihi-theme");
 
-
     if(savedTheme === "dark"){
-
       document.body.classList.add("dark");
-
     }
-
 
     updateThemeButton();
 
 
-    themeBtn.addEventListener(
-      "click",
+    themeBtn.addEventListener("click",()=>{
+
+      document.body.classList.toggle("dark");
+
+      const dark =
+        document.body.classList.contains("dark");
+
+      localStorage.setItem(
+        "tawjihi-theme",
+        dark ? "dark" : "light"
+      );
+
+      updateThemeButton();
+
+    });
+
+
+    /* =========================
+       الرئيسية
+    ========================= */
+
+    homeBtn.addEventListener("click",()=>{
+
+      window.location.href =
+        "index.html";
+
+    });
+
+
+    /* =========================
+       اختيار الوضع
+    ========================= */
+
+    countdownMode.addEventListener("click",()=>{
+
+      if(running) return;
+
+      mode = "countdown";
+
+      countdownMode.classList.add("active");
+      stopwatchMode.classList.remove("active");
+
+      timerStatus.textContent =
+        "جلسة دراسة جديدة";
+
+      timerCaption.textContent =
+        "الوقت المتبقي";
+
+      minutesInput.disabled = false;
+      secondsInput.disabled = false;
+
+      updateSetupTime();
+
+    });
+
+
+    stopwatchMode.addEventListener("click",()=>{
+
+      if(running) return;
+
+      mode = "stopwatch";
+
+      stopwatchMode.classList.add("active");
+      countdownMode.classList.remove("active");
+
+      timerStatus.textContent =
+        "ساعة إيقاف";
+
+      timerCaption.textContent =
+        "الوقت المنقضي";
+
+      minutesInput.disabled = true;
+      secondsInput.disabled = true;
+
+      minutesInput.value = 0;
+      secondsInput.value = 0;
+
+      remainingSeconds = 0;
+      elapsedSeconds = 0;
+      totalSeconds = 0;
+
+      updateDisplay();
+
+    });
+
+
+    /* =========================
+       Presets
+    ========================= */
+
+    presets.forEach(button=>{
+
+      button.addEventListener("click",()=>{
+
+        if(running) return;
+
+        presets.forEach(item=>{
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const value =
+          button.dataset.minutes;
+
+        if(value === "custom"){
+
+          minutesInput.focus();
+
+          return;
+
+        }
+
+        const minutes =
+          Number(value);
+
+        minutesInput.value =
+          minutes;
+
+        secondsInput.value =
+          0;
+
+        updateSetupTime();
+
+      });
+
+    });
+
+
+    minutesInput.addEventListener(
+      "input",
       ()=>{
-
-        document.body.classList.toggle("dark");
-
-        const dark =
-          document.body.classList.contains("dark");
-
-        localStorage.setItem(
-          "tawjihi-theme",
-          dark
-            ? "dark"
-            : "light"
-        );
-
-        updateThemeButton();
-
+        removePresetSelection();
+        updateSetupTime();
       }
     );
 
 
-    /* =========================
-       إعدادات المؤقت
-    ========================= */
-
-    let mode = "countdown";
-
-    let selectedMinutes = 25;
-
-    let selectedSeconds = 0;
-
-    let totalSeconds =
-      selectedMinutes * 60;
-
-    let remainingSeconds =
-      totalSeconds;
-
-    let stopwatchSeconds = 0;
-
-    let timerInterval = null;
-
-    let isRunning = false;
-
-
-    const CIRCUMFERENCE =
-      2 * Math.PI * 150;
-
-
-    clockProgress.style.strokeDasharray =
-      CIRCUMFERENCE;
-
-
-    function updateProgress(){
-
-      if(mode === "stopwatch"){
-
-        clockProgress.style.strokeDashoffset =
-          CIRCUMFERENCE * 0.65;
-
-        return;
-
+    secondsInput.addEventListener(
+      "input",
+      ()=>{
+        removePresetSelection();
+        updateSetupTime();
       }
+    );
 
 
-      if(totalSeconds <= 0){
+    function removePresetSelection(){
 
-        clockProgress.style.strokeDashoffset =
-          CIRCUMFERENCE;
-
-        return;
-
-      }
-
-
-      const progress =
-        remainingSeconds /
-        totalSeconds;
-
-
-      clockProgress.style.strokeDashoffset =
-        CIRCUMFERENCE *
-        (1 - progress);
+      presets.forEach(item=>{
+        item.classList.remove("active");
+      });
 
     }
 
 
+    function updateSetupTime(){
+
+      if(mode !== "countdown") return;
+
+      let minutes =
+        Math.max(
+          0,
+          Math.min(
+            999,
+            Number(minutesInput.value) || 0
+          )
+        );
+
+      let seconds =
+        Math.max(
+          0,
+          Math.min(
+            59,
+            Number(secondsInput.value) || 0
+          )
+        );
+
+      minutesInput.value =
+        minutes;
+
+      secondsInput.value =
+        seconds;
+
+      totalSeconds =
+        minutes * 60 + seconds;
+
+      remainingSeconds =
+        totalSeconds;
+
+      updateDisplay();
+
+    }
+
+
+    /* =========================
+       الوقت
+    ========================= */
+
     function formatTime(seconds){
+
+      seconds =
+        Math.max(0,Math.floor(seconds));
 
       const hours =
         Math.floor(seconds / 3600);
 
       const minutes =
-        Math.floor(
-          (seconds % 3600) / 60
-        );
+        Math.floor((seconds % 3600) / 60);
 
       const secs =
         seconds % 60;
 
-
       if(hours > 0){
 
-        return (
-          String(hours).padStart(2,"0") +
-          ":" +
-          String(minutes).padStart(2,"0") +
-          ":" +
+        return [
+          String(hours).padStart(2,"0"),
+          String(minutes).padStart(2,"0"),
           String(secs).padStart(2,"0")
-        );
+        ].join(":");
 
       }
 
-
-      return (
-        String(minutes).padStart(2,"0") +
-        ":" +
+      return [
+        String(minutes).padStart(2,"0"),
         String(secs).padStart(2,"0")
-      );
+      ].join(":");
 
     }
 
 
     function updateDisplay(){
 
+      let seconds;
+
       if(mode === "countdown"){
 
-        timeDisplay.textContent =
-          formatTime(
-            remainingSeconds
-          );
-
-        clockMode.textContent =
-          "وقت الدراسة";
+        seconds =
+          remainingSeconds;
 
       }else{
 
-        timeDisplay.textContent =
-          formatTime(
-            stopwatchSeconds
-          );
-
-        clockMode.textContent =
-          "وقت التركيز";
+        seconds =
+          elapsedSeconds;
 
       }
 
+      const formatted =
+        formatTime(seconds);
 
-      updateProgress();
+      timeDisplay.textContent =
+        formatted;
+
+      fullscreenTime.textContent =
+        formatted;
+
+      if(mode === "countdown"){
+
+        const progress =
+          totalSeconds > 0
+            ? ((totalSeconds - remainingSeconds) / totalSeconds) * 100
+            : 0;
+
+        const safeProgress =
+          Math.max(0,Math.min(100,progress));
+
+        timerCircle.style.setProperty(
+          "--progress",
+          `${safeProgress}%`
+        );
+
+        fullscreenCircle.style.setProperty(
+          "--progress",
+          `${safeProgress}%`
+        );
+
+        progressFill.style.width =
+          `${safeProgress}%`;
+
+        progressPercent.textContent =
+          `${Math.round(safeProgress)}%`;
+
+      }else{
+
+        timerCircle.style.setProperty(
+          "--progress",
+          "100%"
+        );
+
+        fullscreenCircle.style.setProperty(
+          "--progress",
+          "100%"
+        );
+
+        progressFill.style.width =
+          "100%";
+
+        progressPercent.textContent =
+          "جاري العد";
+
+      }
+
+      animateTime();
+
+    }
+
+
+    function animateTime(){
+
+      timeDisplay.classList.remove("tick");
+      fullscreenTime.classList.remove("tick");
+
+      void timeDisplay.offsetWidth;
+
+      timeDisplay.classList.add("tick");
+      fullscreenTime.classList.add("tick");
 
     }
 
 
     /* =========================
-       الحالة
+       الآيات
     ========================= */
 
-    function setStatus(type,text){
+    function randomVerse(){
 
-      timerStatus.classList.remove(
-        "running",
-        "finished"
-      );
-
-      if(type){
-
-        timerStatus.classList.add(type);
-
+      if(verses.length <= 1){
+        return 0;
       }
 
-      statusText.textContent =
-        text;
+      let index;
+
+      do{
+
+        index =
+          Math.floor(
+            Math.random() * verses.length
+          );
+
+      }while(index === currentVerseIndex);
+
+      return index;
 
     }
 
 
-    function updateStartButton(){
+    function showRandomVerse(){
 
-      if(isRunning){
+      currentVerseIndex =
+        randomVerse();
 
-        startBtn.innerHTML = `
+      const verse =
+        verses[currentVerseIndex];
 
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <rect x="7" y="5" width="3" height="14"/>
-            <rect x="14" y="5" width="3" height="14"/>
-          </svg>
+      ayahText.textContent =
+        verse.text;
 
-          إيقاف مؤقت
+      ayahSource.textContent =
+        verse.source;
 
-        `;
+      fullscreenAyah.textContent =
+        verse.text;
 
-      }else{
-
-        startBtn.innerHTML = `
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="m8 5 11 7-11 7V5Z"/>
-          </svg>
-
-          ابدأ الدراسة
-
-        `;
-
-      }
+      fullscreenSource.textContent =
+        verse.source;
 
     }
 
 
-    /* =========================
-       تشغيل المؤقت
-    ========================= */
+    function updateQuranVisibility(){
 
-    function startTimer(){
+      quranEnabled =
+        quranToggle.checked;
 
-      if(mode === "countdown" &&
-         remainingSeconds <= 0){
+      if(quranEnabled){
 
-        resetTimer();
-
-      }
-
-
-      if(isRunning){
-
-        pauseTimer();
-
-        return;
-
-      }
-
-
-      isRunning = true;
-
-      timerApp.classList.add("active");
-
-      updateStartButton();
-
-      setStatus(
-        "running",
-        mode === "countdown"
-          ? "جاري التركيز والدراسة"
-          : "ساعة الإيقاف تعمل"
-      );
-
-
-      if(quranToggle.checked){
-
-        quranBox.classList.add("show");
+        quranDisplay.classList.add("show");
+        fullscreenQuran.classList.add("show");
 
         showRandomVerse();
 
+        lastVerseChange =
+          Date.now();
+
+      }else{
+
+        quranDisplay.classList.remove("show");
+        fullscreenQuran.classList.remove("show");
+
       }
 
+    }
 
-      timerInterval =
-        setInterval(
-          tick,
-          1000
-        );
+
+    quranToggle.addEventListener(
+      "change",
+      updateQuranVisibility
+    );
+
+
+    function rotateVerseIfNeeded(){
+
+      if(!quranEnabled || !running){
+        return;
+      }
+
+      /*
+        تغيير الآية كل 60 ثانية
+      */
+
+      if(
+        Date.now() - lastVerseChange >= 60000
+      ){
+
+        showRandomVerse();
+
+        lastVerseChange =
+          Date.now();
+
+      }
 
     }
 
 
-    function pauseTimer(){
+    /* =========================
+       بدء الجلسة
+    ========================= */
 
-      clearInterval(
-        timerInterval
-      );
-
-      timerInterval = null;
-
-      isRunning = false;
-
-      timerApp.classList.remove(
-        "active"
-      );
-
-      updateStartButton();
-
-      setStatus(
-        "",
-        "المؤقت متوقف مؤقتاً"
-      );
-
-    }
+    startBtn.addEventListener("click",startTimer);
 
 
-    function tick(){
+    function startTimer(){
 
       if(mode === "countdown"){
 
-        if(remainingSeconds > 0){
+        const minutes =
+          Number(minutesInput.value) || 0;
 
-          remainingSeconds--;
+        const seconds =
+          Number(secondsInput.value) || 0;
 
-        }
+        totalSeconds =
+          minutes * 60 + seconds;
 
+        if(totalSeconds <= 0){
 
-        if(
-          quranToggle.checked &&
-          remainingSeconds > 0 &&
-          remainingSeconds %
-          60 === 0
-        ){
-
-          showRandomVerse();
-
-        }
-
-
-        if(remainingSeconds <= 0){
-
-          finishTimer();
+          showToast(
+            "حدد مدة المؤقت أولاً"
+          );
 
           return;
 
         }
 
+        remainingSeconds =
+          totalSeconds;
+
       }else{
 
-        stopwatchSeconds++;
+        elapsedSeconds = 0;
+        totalSeconds = 0;
 
       }
 
+      running = true;
+      paused = false;
 
-      updateDisplay();
+      setupPanel.style.display =
+        "none";
+
+      completionPanel.classList.remove(
+        "show"
+      );
+
+      runningPanel.classList.add(
+        "show"
+      );
+
+      timerStatus.textContent =
+        mode === "countdown"
+          ? "جاري التركيز"
+          : "ساعة الإيقاف تعمل";
+
+      pauseBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 5v14"/>
+          <path d="M16 5v14"/>
+        </svg>
+        إيقاف مؤقت
+      `;
+
+      timerCircle.classList.add(
+        "running-animation"
+      );
+
+      fullscreenCircle.classList.add(
+        "running-animation"
+      );
+
+      updateQuranVisibility();
+
+      startInterval();
+
+      saveSettings();
 
     }
 
 
-    function finishTimer(){
+    /* =========================
+       تشغيل العداد
+    ========================= */
 
-      clearInterval(
-        timerInterval
-      );
+    function startInterval(){
 
-      timerInterval = null;
+      clearInterval(timerInterval);
 
-      isRunning = false;
+      timerInterval =
+        setInterval(()=>{
 
-      timerApp.classList.remove(
-        "active"
-      );
+          if(!running || paused){
+            return;
+          }
 
-      updateStartButton();
+          if(mode === "countdown"){
 
-      updateDisplay();
+            if(remainingSeconds > 0){
 
-      setStatus(
-        "finished",
-        "انتهت جلسة الدراسة"
-      );
+              remainingSeconds--;
 
-      finishedMessage.classList.add(
-        "show"
-      );
+              updateDisplay();
 
-      if(quranToggle.checked){
+              rotateVerseIfNeeded();
 
-        quranBox.classList.add(
-          "show"
+            }else{
+
+              finishTimer();
+
+            }
+
+          }else{
+
+            elapsedSeconds++;
+
+            updateDisplay();
+
+            rotateVerseIfNeeded();
+
+          }
+
+        },1000);
+
+    }
+
+
+    /* =========================
+       إيقاف / استئناف
+    ========================= */
+
+    pauseBtn.addEventListener(
+      "click",
+      togglePause
+    );
+
+    fullscreenPauseBtn.addEventListener(
+      "click",
+      togglePause
+    );
+
+
+    function togglePause(){
+
+      if(!running) return;
+
+      paused =
+        !paused;
+
+      if(paused){
+
+        timerStatus.textContent =
+          "الجلسة متوقفة مؤقتاً";
+
+        timerCircle.classList.remove(
+          "running-animation"
         );
 
-        showRandomVerse();
+        fullscreenCircle.classList.remove(
+          "running-animation"
+        );
 
-      }
+        pauseBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 4l10 8-10 8V4Z"/>
+          </svg>
+          استئناف
+        `;
 
+        fullscreenPauseBtn.textContent =
+          "استئناف";
 
-      playFinishSound();
+        showToast(
+          "تم إيقاف الجلسة مؤقتاً"
+        );
 
-      if(
-        "Notification" in window &&
-        Notification.permission === "granted"
-      ){
+      }else{
 
-        new Notification(
-          "مساعد توجيهي",
-          {
-            body:
-              "انتهت جلسة الدراسة، أحسنت!"
-          }
+        timerStatus.textContent =
+          mode === "countdown"
+            ? "جاري التركيز"
+            : "ساعة الإيقاف تعمل";
+
+        timerCircle.classList.add(
+          "running-animation"
+        );
+
+        fullscreenCircle.classList.add(
+          "running-animation"
+        );
+
+        pauseBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 5v14"/>
+            <path d="M16 5v14"/>
+          </svg>
+          إيقاف مؤقت
+        `;
+
+        fullscreenPauseBtn.textContent =
+          "إيقاف مؤقت";
+
+        showToast(
+          "تم استئناف الجلسة"
         );
 
       }
@@ -2993,448 +2596,293 @@
        إعادة الضبط
     ========================= */
 
-    function resetTimer(){
-
-      clearInterval(
-        timerInterval
-      );
-
-      timerInterval = null;
-
-      isRunning = false;
-
-      timerApp.classList.remove(
-        "active"
-      );
-
-      finishedMessage.classList.remove(
-        "show"
-      );
-
-
-      if(mode === "countdown"){
-
-        remainingSeconds =
-          totalSeconds;
-
-      }else{
-
-        stopwatchSeconds = 0;
-
-      }
-
-
-      updateDisplay();
-
-      updateStartButton();
-
-      setStatus(
-        "",
-        "جاهز للدراسة"
-      );
-
-    }
-
-
-    /* =========================
-       اختيار الوقت
-    ========================= */
-
-    function selectPreset(minutes){
-
-      if(isRunning){
-
-        pauseTimer();
-
-      }
-
-
-      mode = "countdown";
-
-      selectedMinutes =
-        Number(minutes);
-
-      selectedSeconds = 0;
-
-      totalSeconds =
-        selectedMinutes * 60;
-
-      remainingSeconds =
-        totalSeconds;
-
-
-      customMinutes.value = "";
-
-      customSeconds.value = "";
-
-
-      presetButtons.forEach(
-        button => {
-
-          button.classList.toggle(
-            "active",
-            Number(
-              button.dataset.minutes
-            ) === selectedMinutes
-          );
-
-        }
-      );
-
-
-      finishedMessage.classList.remove(
-        "show"
-      );
-
-
-      countdownTab.classList.add(
-        "active"
-      );
-
-      stopwatchTab.classList.remove(
-        "active"
-      );
-
-
-      updateDisplay();
-
-      updateStartButton();
-
-      setStatus(
-        "",
-        "جاهز للدراسة"
-      );
-
-
-      localStorage.setItem(
-        "tawjihi-timer-minutes",
-        selectedMinutes
-      );
-
-    }
-
-
-    presetButtons.forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          ()=>{
-
-            selectPreset(
-              button.dataset.minutes
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-    function applyCustomTime(){
-
-      let minutes =
-        Number(
-          customMinutes.value
-        ) || 0;
-
-      let seconds =
-        Number(
-          customSeconds.value
-        ) || 0;
-
-
-      if(minutes < 0){
-
-        minutes = 0;
-
-      }
-
-
-      if(seconds < 0){
-
-        seconds = 0;
-
-      }
-
-
-      if(seconds > 59){
-
-        seconds = 59;
-
-      }
-
-
-      if(
-        minutes === 0 &&
-        seconds === 0
-      ){
-
-        return;
-
-      }
-
-
-      if(isRunning){
-
-        pauseTimer();
-
-      }
-
-
-      mode = "countdown";
-
-      totalSeconds =
-        (minutes * 60) +
-        seconds;
-
-      remainingSeconds =
-        totalSeconds;
-
-
-      presetButtons.forEach(
-        button => {
-
-          button.classList.remove(
-            "active"
-          );
-
-        }
-      );
-
-
-      finishedMessage.classList.remove(
-        "show"
-      );
-
-
-      updateDisplay();
-
-      updateStartButton();
-
-      setStatus(
-        "",
-        "جاهز للدراسة"
-      );
-
-
-      localStorage.setItem(
-        "tawjihi-timer-minutes",
-        minutes
-      );
-
-    }
-
-
-    customMinutes.addEventListener(
-      "change",
-      applyCustomTime
-    );
-
-
-    customSeconds.addEventListener(
-      "change",
-      applyCustomTime
-    );
-
-
-    /* =========================
-       التبويبات
-    ========================= */
-
-    countdownTab.addEventListener(
-      "click",
-      ()=>{
-
-        if(isRunning){
-
-          pauseTimer();
-
-        }
-
-        mode = "countdown";
-
-        countdownTab.classList.add(
-          "active"
-        );
-
-        stopwatchTab.classList.remove(
-          "active"
-        );
-
-        finishedMessage.classList.remove(
-          "show"
-        );
-
-        updateDisplay();
-
-        setStatus(
-          "",
-          "جاهز للدراسة"
-        );
-
-      }
-    );
-
-
-    stopwatchTab.addEventListener(
-      "click",
-      ()=>{
-
-        if(isRunning){
-
-          pauseTimer();
-
-        }
-
-        mode = "stopwatch";
-
-        countdownTab.classList.remove(
-          "active"
-        );
-
-        stopwatchTab.classList.add(
-          "active"
-        );
-
-        finishedMessage.classList.remove(
-          "show"
-        );
-
-        stopwatchSeconds = 0;
-
-        updateDisplay();
-
-        setStatus(
-          "",
-          "جاهز لساعة الإيقاف"
-        );
-
-        updateStartButton();
-
-      }
-    );
-
-
-    /* =========================
-       زر التشغيل
-    ========================= */
-
-    startBtn.addEventListener(
-      "click",
-      startTimer
-    );
-
-
     resetBtn.addEventListener(
       "click",
       resetTimer
     );
 
+    fullscreenResetBtn.addEventListener(
+      "click",
+      resetTimer
+    );
+
+
+    function resetTimer(){
+
+      clearInterval(timerInterval);
+
+      running = false;
+      paused = false;
+
+      timerCircle.classList.remove(
+        "running-animation"
+      );
+
+      fullscreenCircle.classList.remove(
+        "running-animation"
+      );
+
+      if(mode === "countdown"){
+
+        updateSetupTime();
+
+      }else{
+
+        elapsedSeconds = 0;
+        updateDisplay();
+
+      }
+
+      runningPanel.classList.remove(
+        "show"
+      );
+
+      completionPanel.classList.remove(
+        "show"
+      );
+
+      setupPanel.style.display =
+        "block";
+
+      timerStatus.textContent =
+        "جلسة دراسة جديدة";
+
+      exitFullscreen();
+
+    }
+
 
     /* =========================
-       آيات
+       انتهاء المؤقت
     ========================= */
 
-    quranToggle.addEventListener(
-      "change",
-      ()=>{
+    function finishTimer(){
 
-        if(quranToggle.checked){
+      clearInterval(timerInterval);
 
-          if(isRunning){
+      running = false;
+      paused = false;
 
-            quranBox.classList.add(
-              "show"
-            );
+      remainingSeconds = 0;
 
-            showRandomVerse();
+      updateDisplay();
 
+      timerCircle.classList.remove(
+        "running-animation"
+      );
+
+      fullscreenCircle.classList.remove(
+        "running-animation"
+      );
+
+      timerStatus.textContent =
+        "انتهى الوقت";
+
+      playNotificationSound();
+
+      if(
+        "Notification" in window &&
+        Notification.permission === "granted"
+      ){
+
+        new Notification(
+          "مساعد توجيهي",
+          {
+            body:"أحسنت! انتهت جلسة الدراسة.",
+            icon:""
           }
-
-        }else{
-
-          quranBox.classList.remove(
-            "show"
-          );
-
-        }
-
-
-        localStorage.setItem(
-          "tawjihi-quran",
-          quranToggle.checked
-            ? "true"
-            : "false"
         );
 
       }
-    );
+
+      setTimeout(()=>{
+
+        runningPanel.classList.remove(
+          "show"
+        );
+
+        completionPanel.classList.add(
+          "show"
+        );
+
+        exitFullscreen();
+
+      },500);
+
+    }
+
+
+    /* =========================
+       صوت انتهاء الجلسة
+    ========================= */
+
+    function playNotificationSound(){
+
+      try{
+
+        const AudioContext =
+          window.AudioContext ||
+          window.webkitAudioContext;
+
+        if(!AudioContext) return;
+
+        const context =
+          new AudioContext();
+
+        const oscillator =
+          context.createOscillator();
+
+        const gain =
+          context.createGain();
+
+        oscillator.type =
+          "sine";
+
+        oscillator.frequency.value =
+          880;
+
+        gain.gain.setValueAtTime(
+          .001,
+          context.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+          .25,
+          context.currentTime + .03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+          .001,
+          context.currentTime + .5
+        );
+
+        oscillator.connect(gain);
+        gain.connect(context.destination);
+
+        oscillator.start();
+
+        oscillator.stop(
+          context.currentTime + .55
+        );
+
+      }catch(error){
+
+        console.log(error);
+
+      }
+
+    }
+
+
+    /* =========================
+       طلب إشعارات
+    ========================= */
+
+    async function requestNotificationPermission(){
+
+      if(
+        "Notification" in window &&
+        Notification.permission === "default"
+      ){
+
+        try{
+
+          await Notification.requestPermission();
+
+        }catch(error){
+
+          console.log(error);
+
+        }
+
+      }
+
+    }
 
 
     /* =========================
        ملء الشاشة
     ========================= */
 
-    function enterFocusMode(){
+    fullscreenBtn.addEventListener(
+      "click",
+      enterFullscreen
+    );
+
+    fullscreenClose.addEventListener(
+      "click",
+      exitFullscreen
+    );
+
+
+    function enterFullscreen(){
+
+      if(!running){
+
+        showToast(
+          "ابدأ الجلسة أولاً"
+        );
+
+        return;
+
+      }
+
+      fullscreenOverlay.classList.add(
+        "show"
+      );
 
       document.body.classList.add(
         "fullscreen-mode"
       );
 
+      updateFullscreenButton();
 
-      try{
+      if(
+        document.documentElement.requestFullscreen
+      ){
 
-        if(
-          document.documentElement.requestFullscreen
-        ){
+        document.documentElement
+          .requestFullscreen()
+          .catch(()=>{});
 
-          document.documentElement
-            .requestFullscreen()
-            .catch(()=>{});
-
-        }
-
-      }catch(error){}
+      }
 
     }
 
 
-    function exitFocusMode(){
+    function exitFullscreen(){
+
+      fullscreenOverlay.classList.remove(
+        "show"
+      );
 
       document.body.classList.remove(
         "fullscreen-mode"
       );
 
+      if(document.fullscreenElement){
 
-      try{
+        document.exitFullscreen()
+          .catch(()=>{});
 
-        if(
-          document.fullscreenElement &&
-          document.exitFullscreen
-        ){
-
-          document.exitFullscreen()
-            .catch(()=>{});
-
-        }
-
-      }catch(error){}
+      }
 
     }
 
 
-    fullscreenBtn.addEventListener(
-      "click",
-      enterFocusMode
-    );
+    function updateFullscreenButton(){
 
+      fullscreenBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H3v5"/>
+          <path d="M16 3h5v5"/>
+          <path d="M8 21H3v-5"/>
+          <path d="M16 21h5v-5"/>
+        </svg>
+        تكبير الشاشة
+      `;
 
-    exitFullscreen.addEventListener(
-      "click",
-      exitFocusMode
-    );
+    }
 
 
     document.addEventListener(
@@ -3442,6 +2890,10 @@
       ()=>{
 
         if(!document.fullscreenElement){
+
+          fullscreenOverlay.classList.remove(
+            "show"
+          );
 
           document.body.classList.remove(
             "fullscreen-mode"
@@ -3454,167 +2906,245 @@
 
 
     /* =========================
-       إشعار نهاية الجلسة
+       زر Escape
     ========================= */
 
-    function requestNotificationPermission(){
+    document.addEventListener(
+      "keydown",
+      event=>{
 
-      if(
-        "Notification" in window &&
-        Notification.permission === "default"
-      ){
+        if(event.key === "Escape"){
 
-        Notification.requestPermission()
-          .catch(()=>{});
+          if(
+            fullscreenOverlay.classList.contains(
+              "show"
+            )
+          ){
 
-      }
+            exitFullscreen();
 
-    }
-
-
-    function playFinishSound(){
-
-      try{
-
-        const AudioContext =
-          window.AudioContext ||
-          window.webkitAudioContext;
-
-        if(!AudioContext){
-
-          return;
+          }
 
         }
 
-
-        const audio =
-          new AudioContext();
-
-
-        const oscillator =
-          audio.createOscillator();
-
-
-        const gain =
-          audio.createGain();
-
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.value =
-          660;
-
-
-        gain.gain.setValueAtTime(
-          0.0001,
-          audio.currentTime
-        );
-
-
-        gain.gain.exponentialRampToValueAtTime(
-          0.18,
-          audio.currentTime + .03
-        );
-
-
-        gain.gain.exponentialRampToValueAtTime(
-          0.0001,
-          audio.currentTime + .8
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(
-          audio.destination
-        );
-
-
-        oscillator.start();
-
-        oscillator.stop(
-          audio.currentTime + .8
-        );
-
-      }catch(error){}
-
-    }
+      }
+    );
 
 
     /* =========================
-       الصفحة الرئيسية
+       جلسة جديدة
     ========================= */
 
-    homeBtn.addEventListener(
+    newSessionBtn.addEventListener(
       "click",
       ()=>{
 
-        window.location.href =
-          "index.html";
+        completionPanel.classList.remove(
+          "show"
+        );
+
+        setupPanel.style.display =
+          "block";
+
+        if(mode === "countdown"){
+
+          updateSetupTime();
+
+        }else{
+
+          elapsedSeconds = 0;
+          updateDisplay();
+
+        }
 
       }
     );
+
+
+    /* =========================
+       Toast
+    ========================= */
+
+    let toastTimeout = null;
+
+    function showToast(message){
+
+      toast.textContent =
+        message;
+
+      toast.classList.add(
+        "show"
+      );
+
+      clearTimeout(toastTimeout);
+
+      toastTimeout =
+        setTimeout(()=>{
+
+          toast.classList.remove(
+            "show"
+          );
+
+        },2200);
+
+    }
 
 
     /* =========================
        حفظ الإعدادات
     ========================= */
 
-    const savedMinutes =
-      Number(
-        localStorage.getItem(
-          "tawjihi-timer-minutes"
-        )
+    function saveSettings(){
+
+      const settings = {
+
+        mode,
+        minutes:
+          Number(minutesInput.value) || 0,
+        seconds:
+          Number(secondsInput.value) || 0,
+        quran:
+          quranToggle.checked
+
+      };
+
+      localStorage.setItem(
+        "tawjihi-timer-settings",
+        JSON.stringify(settings)
       );
-
-
-    if(
-      savedMinutes &&
-      savedMinutes > 0
-    ){
-
-      selectPreset(
-        savedMinutes
-      );
-
-    }else{
-
-      selectPreset(25);
 
     }
 
 
-    const savedQuran =
-      localStorage.getItem(
-        "tawjihi-quran"
-      );
+    function loadSettings(){
 
+      try{
 
-    if(savedQuran === "true"){
+        const saved =
+          JSON.parse(
+            localStorage.getItem(
+              "tawjihi-timer-settings"
+            )
+          );
 
-      quranToggle.checked = true;
+        if(!saved) return;
+
+        if(
+          saved.minutes !== undefined
+        ){
+
+          minutesInput.value =
+            saved.minutes;
+
+        }
+
+        if(
+          saved.seconds !== undefined
+        ){
+
+          secondsInput.value =
+            saved.seconds;
+
+        }
+
+        if(saved.quran){
+
+          quranToggle.checked =
+            true;
+
+        }
+
+        if(saved.mode === "stopwatch"){
+
+          mode = "stopwatch";
+
+          stopwatchMode.classList.add(
+            "active"
+          );
+
+          countdownMode.classList.remove(
+            "active"
+          );
+
+          minutesInput.disabled = true;
+          secondsInput.disabled = true;
+
+          minutesInput.value = 0;
+          secondsInput.value = 0;
+
+        }
+
+      }catch(error){
+
+        console.log(error);
+
+      }
 
     }
-
-
-    updateDisplay();
-
-    updateStartButton();
 
 
     /* =========================
-       طلب الإشعارات عند أول تشغيل
+       عند فتح الصفحة
     ========================= */
 
-    startBtn.addEventListener(
+    loadSettings();
+
+    if(mode === "countdown"){
+
+      updateSetupTime();
+
+    }else{
+
+      elapsedSeconds = 0;
+
+      updateDisplay();
+
+    }
+
+
+    /*
+      طلب الإشعارات عند أول تفاعل
+    */
+
+    let notificationAsked = false;
+
+    document.addEventListener(
       "click",
-      requestNotificationPermission,
-      { once:true }
+      ()=>{
+
+        if(notificationAsked) return;
+
+        notificationAsked = true;
+
+        requestNotificationPermission();
+
+      },
+      {
+        once:false
+      }
     );
 
 
-  </script>
+    /* =========================
+       منع فقدان الجلسة بالغلط
+    ========================= */
 
+    window.addEventListener(
+      "beforeunload",
+      event=>{
+
+        if(running && !paused){
+
+          event.preventDefault();
+
+          event.returnValue = "";
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
