@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
 import {
   getAuth,
   onAuthStateChanged,
@@ -16,13 +17,14 @@ import {
   deleteDoc,
   doc,
   query,
+  where,
   orderBy,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
 /* =====================================================
-   ضع معلومات Firebase الخاصة بك هنا
+   Firebase Config
    ===================================================== */
 
 const firebaseConfig = {
@@ -67,6 +69,7 @@ export {
   deleteDoc,
   doc,
   query,
+  where,
   orderBy,
   serverTimestamp
 };
