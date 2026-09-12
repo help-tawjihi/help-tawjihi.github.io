@@ -7,20 +7,24 @@
   <title>مساعد توجيهي</title>
   <meta name="description" content="مساعد توجيهي - منصتك التعليمية لطلاب التوجيهي">
 
+  <meta name="keywords" content="مساعد توجيهي, توجيهي, التوجيهي الأردن, منصة توجيهي, مواد التوجيهي, ملفات توجيهي, دراسة التوجيهي, طلاب التوجيهي, جيل 2009, جيل 2010, خطة الدراسة, مؤقت الدراسة">
+  <meta name="author" content="عبدالله جهاد">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/install-logo.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="manifest" href="manifest.json">
 
   <meta name="theme-color" content="#0f766e">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="مساعد توجيهي">
+
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -268,8 +272,6 @@
       border-radius:18px;
       box-shadow:var(--shadow);
       overflow:hidden;
-      max-height:500px;
-      overflow-y:auto;
     }
 
     .search-results.show{
@@ -305,17 +307,10 @@
       height:18px;
     }
 
-    .search-result-text{
-      min-width:0;
-    }
-
     .search-result-text strong{
       display:block;
       font-size:14px;
       margin-bottom:2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
     }
 
     .search-result-text span{
@@ -701,199 +696,6 @@
       height:24px;
     }
 
-    /* Install Floating */
-
-    .install-banner{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      z-index:350;
-      width:min(390px,calc(100% - 40px));
-      display:none;
-      align-items:center;
-      gap:14px;
-      padding:14px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:20px;
-      box-shadow:0 20px 60px rgba(0,0,0,.16);
-      animation:installIn .25s ease;
-    }
-
-    .install-banner.show{
-      display:flex;
-    }
-
-    @keyframes installIn{
-      from{
-        opacity:0;
-        transform:translateY(15px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .install-content{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      min-width:0;
-      flex:1;
-    }
-
-    .install-logo{
-      width:48px;
-      height:48px;
-      border-radius:14px;
-      overflow:hidden;
-      flex:none;
-      background:var(--soft);
-      display:grid;
-      place-items:center;
-    }
-
-    .install-logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .install-info{
-      min-width:0;
-    }
-
-    .install-info strong{
-      display:block;
-      font-size:13px;
-      margin-bottom:2px;
-    }
-
-    .install-info span{
-      display:block;
-      color:var(--muted);
-      font-size:10px;
-      line-height:1.6;
-    }
-
-    .install-actions{
-      display:flex;
-      flex-direction:column;
-      gap:5px;
-      flex:none;
-    }
-
-    .install-btn{
-      border:none;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      color:#fff;
-      border-radius:11px;
-      padding:8px 12px;
-      cursor:pointer;
-      font-size:11px;
-      font-weight:600;
-      white-space:nowrap;
-    }
-
-    .later-btn{
-      border:none;
-      background:transparent;
-      color:var(--muted);
-      border-radius:10px;
-      padding:4px 8px;
-      cursor:pointer;
-      font-size:10px;
-    }
-
-    .later-btn:hover{
-      color:var(--primary);
-    }
-
-    /* iOS Install Help */
-
-    .ios-help{
-      position:fixed;
-      inset:0;
-      z-index:500;
-      display:none;
-      align-items:flex-end;
-      justify-content:center;
-      padding:20px;
-      background:rgba(0,0,0,.35);
-      backdrop-filter:blur(5px);
-      -webkit-backdrop-filter:blur(5px);
-    }
-
-    .ios-help.show{
-      display:flex;
-    }
-
-    .ios-card{
-      width:min(430px,100%);
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:25px;
-      padding:22px;
-      box-shadow:0 25px 80px rgba(0,0,0,.25);
-    }
-
-    .ios-card h3{
-      font-size:17px;
-      margin-bottom:7px;
-    }
-
-    .ios-card p{
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.8;
-      margin-bottom:16px;
-    }
-
-    .ios-step{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:12px;
-      background:var(--surface-2);
-      border-radius:14px;
-      margin-bottom:8px;
-      font-size:12px;
-    }
-
-    .ios-step-number{
-      width:29px;
-      height:29px;
-      border-radius:10px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-      font-weight:700;
-      flex:none;
-    }
-
-    .ios-share-icon{
-      width:22px;
-      height:22px;
-      color:var(--primary);
-      flex:none;
-    }
-
-    .ios-close{
-      width:100%;
-      margin-top:10px;
-      height:44px;
-      border:1px solid var(--border);
-      background:var(--surface-2);
-      color:var(--text);
-      border-radius:13px;
-      cursor:pointer;
-      font-size:13px;
-    }
-
-    /* Notes */
-
     .notes-overlay{
       position:fixed;
       inset:0;
@@ -1029,10 +831,231 @@
       font-weight:600;
     }
 
-    /* iOS / Mobile */
+    /* Footer */
+
+    footer{
+      margin-top:70px;
+      border-top:1px solid var(--border);
+      padding:30px 0 25px;
+      text-align:center;
+    }
+
+    .footer-brand{
+      font-size:16px;
+      font-weight:700;
+      margin-bottom:7px;
+    }
+
+    .footer-text{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .developer{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:13px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .developer a{
+      color:var(--primary);
+      font-weight:700;
+      transition:.2s;
+    }
+
+    .developer a:hover{
+      color:var(--primary-2);
+      text-decoration:underline;
+    }
+
+    /* =========================
+       Install App
+    ========================= */
+
+    .install-banner{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:350;
+      width:min(430px,calc(100% - 40px));
+      display:none;
+      align-items:center;
+      gap:16px;
+      padding:14px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px;
+      box-shadow:0 18px 55px rgba(15,118,110,.16);
+      animation:installIn .25s ease;
+    }
+
+    .install-banner.show{
+      display:flex;
+    }
+
+    @keyframes installIn{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .install-content{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      flex:1;
+      min-width:0;
+    }
+
+    .install-logo{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      overflow:hidden;
+      flex:none;
+      background:var(--soft);
+      border:1px solid var(--border);
+    }
+
+    .install-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .install-info{
+      min-width:0;
+    }
+
+    .install-info strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:3px;
+    }
+
+    .install-info span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.5;
+    }
+
+    .install-actions{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:none;
+    }
+
+    .install-btn,
+    .later-btn{
+      border:none;
+      cursor:pointer;
+      border-radius:11px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .install-btn{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+    }
+
+    .later-btn{
+      background:var(--surface-2);
+      color:var(--muted);
+      border:1px solid var(--border);
+    }
+
+    /* iPhone install instructions */
+
+    .ios-help{
+      position:fixed;
+      inset:0;
+      z-index:500;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.35);
+      backdrop-filter:blur(5px);
+      -webkit-backdrop-filter:blur(5px);
+    }
+
+    .ios-help.show{
+      display:flex;
+    }
+
+    .ios-card{
+      position:relative;
+      width:min(420px,100%);
+      padding:24px;
+      background:var(--surface);
+      color:var(--text);
+      border:1px solid var(--border);
+      border-radius:23px;
+      box-shadow:0 25px 80px rgba(0,0,0,.22);
+      animation:installIn .22s ease;
+    }
+
+    .ios-card strong{
+      display:block;
+      font-size:17px;
+      margin-bottom:17px;
+      padding-left:35px;
+    }
+
+    .ios-step{
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .ios-step:last-child{
+      border-bottom:0;
+    }
+
+    .ios-close{
+      position:absolute;
+      left:14px;
+      top:14px;
+      width:34px;
+      height:34px;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      border-radius:10px;
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+    }
+
+    /* Responsive */
+
+    @media(max-width:850px){
+      .generations-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .features-grid{
+        grid-template-columns:1fr;
+      }
+    }
 
     @media(max-width:650px){
-
       .container{
         width:min(100% - 22px,1120px);
       }
@@ -1114,13 +1137,18 @@
       }
 
       .install-banner{
-        right:14px;
-        bottom:14px;
-        width:calc(100% - 28px);
+        right:11px;
+        bottom:82px;
+        width:calc(100% - 22px);
       }
 
-      .install-info span{
-        display:none;
+      .install-actions{
+        flex-direction:row;
+      }
+
+      .install-banner{
+        gap:10px;
+        padding:12px;
       }
 
       .install-logo{
@@ -1128,32 +1156,20 @@
         height:44px;
       }
 
-      .install-btn{
-        padding:8px 10px;
-      }
-    }
-
-    @media(max-width:420px){
-
-      .install-banner{
-        gap:9px;
-        padding:11px;
-      }
-
-      .install-content{
-        gap:8px;
-      }
-
       .install-info strong{
+        font-size:13px;
+      }
+
+      .install-info span{
+        font-size:10px;
+      }
+
+      .install-btn,
+      .later-btn{
+        padding:8px 9px;
         font-size:11px;
       }
-
-      .install-actions{
-        gap:2px;
-      }
-
     }
-
   </style>
 </head>
 
@@ -1492,119 +1508,6 @@
     </svg>
   </button>
 
-  <!-- Install Floating Banner -->
-
-  <div class="install-banner" id="installBanner">
-
-    <div class="install-content">
-
-      <div class="install-logo">
-        <img
-          src="assets/install-logo.png"
-          alt="مساعد توجيهي"
-        >
-      </div>
-
-      <div class="install-info">
-        <strong>ثبّت مساعد توجيهي</strong>
-        <span id="installDescription">
-          أضف المنصة إلى جهازك للوصول إليها بسرعة.
-        </span>
-      </div>
-
-    </div>
-
-    <div class="install-actions">
-
-      <button
-        class="install-btn"
-        id="installBtn"
-      >
-        تثبيت التطبيق
-      </button>
-
-      <button
-        class="later-btn"
-        id="laterBtn"
-      >
-        ذكرني لاحقاً
-      </button>
-
-    </div>
-
-  </div>
-
-  <!-- iOS Install Help -->
-
-  <div class="ios-help" id="iosHelp">
-
-    <div class="ios-card">
-
-      <h3>تثبيت مساعد توجيهي</h3>
-
-      <p>
-        لإضافة الموقع إلى الشاشة الرئيسية على الآيفون، اتبع الخطوات التالية:
-      </p>
-
-      <div class="ios-step">
-
-        <div class="ios-step-number">
-          1
-        </div>
-
-        <span>
-          افتح الموقع باستخدام متصفح Safari.
-        </span>
-
-      </div>
-
-      <div class="ios-step">
-
-        <div class="ios-step-number">
-          2
-        </div>
-
-        <span>
-          اضغط على زر المشاركة.
-        </span>
-
-        <svg
-          class="ios-share-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M12 16V3"/>
-          <path d="m7 8 5-5 5 5"/>
-          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>
-        </svg>
-
-      </div>
-
-      <div class="ios-step">
-
-        <div class="ios-step-number">
-          3
-        </div>
-
-        <span>
-          اختر "إضافة إلى الشاشة الرئيسية".
-        </span>
-
-      </div>
-
-      <button
-        class="ios-close"
-        id="iosClose"
-      >
-        إغلاق
-      </button>
-
-    </div>
-
-  </div>
-
   <!-- Notes -->
 
   <div class="notes-overlay" id="notesOverlay">
@@ -1676,6 +1579,86 @@
 
   </div>
 
+  <!-- Install App -->
+
+  <div class="install-banner" id="installBanner">
+
+    <div class="install-content">
+
+      <div class="install-logo">
+        <img
+          src="assets/install-logo.png"
+          alt="مساعد توجيهي"
+        >
+      </div>
+
+      <div class="install-info">
+        <strong>ثبّت مساعد توجيهي</strong>
+        <span id="installDescription">
+          أضف المنصة إلى جهازك للوصول إليها بسرعة.
+        </span>
+      </div>
+
+    </div>
+
+    <div class="install-actions">
+
+      <button
+        class="install-btn"
+        id="installBtn"
+      >
+        تثبيت التطبيق
+      </button>
+
+      <button
+        class="later-btn"
+        id="laterBtn"
+      >
+        ذكرني لاحقاً
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- iOS Install Help -->
+
+  <div class="ios-help" id="iosHelp">
+
+    <div class="ios-card">
+
+      <button
+        class="ios-close"
+        id="iosClose"
+        aria-label="إغلاق"
+      >
+        ×
+      </button>
+
+      <strong>
+        تثبيت مساعد توجيهي على الآيفون
+      </strong>
+
+      <div class="ios-step">
+        1. افتح الموقع من متصفح Safari.
+      </div>
+
+      <div class="ios-step">
+        2. اضغط زر المشاركة.
+      </div>
+
+      <div class="ios-step">
+        3. اختر «إضافة إلى الشاشة الرئيسية».
+      </div>
+
+      <div class="ios-step">
+        4. اضغط «إضافة».
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- Footer -->
 
   <footer>
@@ -1713,7 +1696,6 @@
       query,
       where
     } from "./admin/firebase-config.js";
-
 
     /* =========================
        آيات القرآن
@@ -1773,7 +1755,6 @@
 
     ];
 
-
     /* =========================
        النصائح
     ========================= */
@@ -1802,56 +1783,37 @@
 
     ];
 
-
     /* =========================
        اختيار عشوائي
     ========================= */
 
     function randomItem(array){
-
-      return array[
-        Math.floor(Math.random() * array.length)
-      ];
-
+      return array[Math.floor(Math.random() * array.length)];
     }
-
 
     function loadDailyContent(){
 
       const verse = randomItem(verses);
       const tip = randomItem(tips);
 
-      document.getElementById("verseText").textContent =
-        verse.text;
+      document.getElementById("verseText").textContent = verse.text;
+      document.getElementById("verseSource").textContent = verse.source;
 
-      document.getElementById("verseSource").textContent =
-        verse.source;
-
-      document.getElementById("tipText").textContent =
-        tip.text || tip;
+      document.getElementById("tipText").textContent = tip.text || tip;
 
     }
 
     loadDailyContent();
 
-
     /* =========================
        الوضع الليلي
     ========================= */
 
-    const themeBtn =
-      document.getElementById("themeBtn");
-
+    const themeBtn = document.getElementById("themeBtn");
 
     function sunIcon(){
-
       return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="4"/>
           <path d="M12 2v2"/>
           <path d="M12 20v2"/>
@@ -1863,125 +1825,50 @@
           <path d="M17.66 6.34l1.41-1.41"/>
         </svg>
       `;
-
     }
 
-
     function moonIcon(){
-
       return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
         </svg>
       `;
-
     }
-
 
     function updateThemeButton(){
 
-      const dark =
-        document.body.classList.contains("dark");
+      const dark = document.body.classList.contains("dark");
 
-      themeBtn.innerHTML =
-        dark ? sunIcon() : moonIcon();
+      themeBtn.innerHTML = dark ? sunIcon() : moonIcon();
 
     }
 
-
-    const savedTheme =
-      localStorage.getItem("tawjihi-theme");
-
+    const savedTheme = localStorage.getItem("tawjihi-theme");
 
     if(savedTheme === "dark"){
-
       document.body.classList.add("dark");
-
     }
-
 
     updateThemeButton();
 
+    themeBtn.addEventListener("click",()=>{
 
-    themeBtn.addEventListener(
-      "click",
-      ()=>{
+      document.body.classList.toggle("dark");
 
-        document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
 
-        const dark =
-          document.body.classList.contains("dark");
-
-        localStorage.setItem(
-          "tawjihi-theme",
-          dark ? "dark" : "light"
-        );
-
-        updateThemeButton();
-
-      }
-    );
-
-
-    /* =========================
-       الأجيال
-    ========================= */
-
-    const generationsGrid =
-      document.getElementById("generationsGrid");
-
-    const generationCount =
-      document.getElementById("generationCount");
-
-
-    function getGenerationYear(data,id){
-
-      return (
-        data.year ??
-        data.name ??
-        data.title ??
-        data.label ??
-        id
+      localStorage.setItem(
+        "tawjihi-theme",
+        dark ? "dark" : "light"
       );
 
-    }
+      updateThemeButton();
 
-
-    function numericYear(value){
-
-      const match =
-        String(value).match(/\d{4}/);
-
-      return match
-        ? Number(match[0])
-        : 0;
-
-    }
-
+    });
 
     /* =========================
-       أدوات البحث
+       أدوات مساعدة للبيانات
     ========================= */
-
-    function normalizeSearch(value){
-
-      return String(value || "")
-        .toLowerCase()
-        .replace(/[أإآ]/g,"ا")
-        .replace(/ة/g,"ه")
-        .replace(/ى/g,"ي")
-        .replace(/[ًٌٍَُِّْـ]/g,"")
-        .replace(/[^\u0600-\u06FFa-z0-9\s]/gi," ")
-        .replace(/\s+/g," ")
-        .trim();
-
-    }
-
 
     function getItemTitle(data,id){
 
@@ -1999,6 +1886,18 @@
 
     }
 
+    function getItemDescription(data){
+
+      return (
+        data.description ??
+        data.desc ??
+        data.subtitle ??
+        data.category ??
+        data.type ??
+        ""
+      );
+
+    }
 
     function getResourceUrl(data){
 
@@ -2015,8 +1914,7 @@
 
     }
 
-
-    function getYearFromData(data){
+    function getGenerationReference(data){
 
       return (
         data.year ??
@@ -2029,547 +1927,53 @@
 
     }
 
+    function getReferenceValue(data,keys){
 
-    function getRelatedId(data){
+      for(const key of keys){
 
-      return (
-        data.generationId ??
-        data.generationID ??
-        data.generation_id ??
-        data.yearId ??
-        data.yearID ??
-        data.subjectId ??
-        data.subjectID ??
-        data.sectionId ??
-        data.sectionID ??
-        ""
-      );
+        if(
+          data[key] !== undefined &&
+          data[key] !== null &&
+          String(data[key]).trim() !== ""
+        ){
 
-    }
-
-
-    function getDescription(data){
-
-      return (
-        data.description ??
-        data.desc ??
-        data.details ??
-        data.text ??
-        data.content ??
-        ""
-      );
-
-    }
-
-
-    function addSearchItem(item){
-
-      if(!item || !item.title){
-        return;
-      }
-
-      const duplicate =
-        searchableItems.some(existing =>
-          existing.type === item.type &&
-          existing.title === item.title &&
-          existing.url === item.url
-        );
-
-      if(!duplicate){
-
-        searchableItems.push(item);
-
-      }
-
-    }
-
-
-    /* =========================
-       بناء فهرس البحث الكامل
-    ========================= */
-
-    let searchableItems = [];
-
-
-    async function buildSearchIndex(generations){
-
-      searchableItems = [];
-
-
-      /* الأجيال */
-
-      generations.forEach(generation => {
-
-        const year =
-          generation.year;
-
-        addSearchItem({
-
-          title:`جيل ${year}`,
-
-          description:
-            "عرض المواد والملفات",
-
-          type:"جيل",
-
-          url:
-            `generations.html?year=${encodeURIComponent(year)}`,
-
-          searchText:
-            `جيل ${year}
-             ${generation.name || ""}
-             ${generation.title || ""}
-             ${generation.label || ""}`
-
-        });
-
-      });
-
-
-      /* أدوات الدراسة */
-
-      addSearchItem({
-
-        title:"خطة الدراسة",
-
-        description:
-          "نظّم دراستك وحدد أهدافك وخطتك اليومية.",
-
-        type:"أداة",
-
-        url:"study-plan.html",
-
-        searchText:
-          "خطة الدراسة تنظيم الدراسة الخطة اليومية"
-
-      });
-
-
-      addSearchItem({
-
-        title:"مؤقت الدراسة",
-
-        description:
-          "ركّز في دراستك باستخدام مؤقت مخصص لجلسات الدراسة.",
-
-        type:"أداة",
-
-        url:"study-timer.html",
-
-        searchText:
-          "مؤقت الدراسة وقت مؤقت التركيز جلسات الدراسة"
-
-      });
-
-
-      /* المواد */
-
-      try{
-
-        const subjectsSnapshot =
-          await getDocs(
-            collection(db,"subjects")
-          );
-
-
-        subjectsSnapshot.docs.forEach(docSnap => {
-
-          const data =
-            docSnap.data();
-
-          const title =
-            getItemTitle(data,docSnap.id);
-
-          const year =
-            getYearFromData(data);
-
-          let url =
-            "generations.html";
-
-
-          if(year){
-
-            url =
-              `generations.html?year=${encodeURIComponent(year)}`;
-
-          }
-
-
-          addSearchItem({
-
-            title:title,
-
-            description:
-              year
-                ? `مادة — جيل ${year}`
-                : "مادة دراسية",
-
-            type:"مادة",
-
-            url:url,
-
-            searchText:`
-              ${title}
-              ${getDescription(data)}
-              ${year}
-              ${getRelatedId(data)}
-            `
-
-          });
-
-        });
-
-      }catch(error){
-
-        console.warn(
-          "تعذر تحميل subjects للبحث:",
-          error
-        );
-
-      }
-
-
-      /* الأقسام */
-
-      try{
-
-        const sectionsSnapshot =
-          await getDocs(
-            collection(db,"sections")
-          );
-
-
-        sectionsSnapshot.docs.forEach(docSnap => {
-
-          const data =
-            docSnap.data();
-
-          const title =
-            getItemTitle(data,docSnap.id);
-
-          const year =
-            getYearFromData(data);
-
-          let url =
-            "generations.html";
-
-
-          if(year){
-
-            url =
-              `generations.html?year=${encodeURIComponent(year)}`;
-
-          }
-
-
-          addSearchItem({
-
-            title:title,
-
-            description:
-              year
-                ? `قسم — جيل ${year}`
-                : "قسم دراسي",
-
-            type:"قسم",
-
-            url:url,
-
-            searchText:`
-              ${title}
-              ${getDescription(data)}
-              ${year}
-              ${getRelatedId(data)}
-            `
-
-          });
-
-        });
-
-      }catch(error){
-
-        console.warn(
-          "تعذر تحميل sections للبحث:",
-          error
-        );
-
-      }
-
-
-      /* الملفات / الموارد المنشورة */
-
-      try{
-
-        const resourcesQuery =
-          query(
-            collection(db,"resources"),
-            where("published","==",true)
-          );
-
-
-        const resourcesSnapshot =
-          await getDocs(resourcesQuery);
-
-
-        resourcesSnapshot.docs.forEach(docSnap => {
-
-          const data =
-            docSnap.data();
-
-          const title =
-            getItemTitle(data,docSnap.id);
-
-          const description =
-            getDescription(data);
-
-          const resourceUrl =
-            getResourceUrl(data);
-
-          const year =
-            getYearFromData(data);
-
-          const relatedId =
-            getRelatedId(data);
-
-
-          let url =
-            resourceUrl;
-
-
-          /*
-            إذا الملف عنده رابط مباشر:
-            نفتح الملف مباشرة.
-
-            إذا ما عنده رابط:
-            نرجعه إلى صفحة الأجيال.
-          */
-
-          if(!url){
-
-            if(year){
-
-              url =
-                `generations.html?year=${encodeURIComponent(year)}`;
-
-            }else{
-
-              url =
-                "generations.html";
-
-            }
-
-          }
-
-
-          addSearchItem({
-
-            title:title,
-
-            description:
-              year
-                ? `ملف — جيل ${year}`
-                : "ملف دراسي",
-
-            type:"ملف",
-
-            url:url,
-
-            searchText:`
-              ${title}
-              ${description}
-              ${year}
-              ${relatedId}
-              ${data.subjectName || ""}
-              ${data.subjectTitle || ""}
-              ${data.sectionName || ""}
-              ${data.sectionTitle || ""}
-              ${data.generationName || ""}
-              ${data.generationTitle || ""}
-              ${data.keywords || ""}
-              ${data.tags || ""}
-            `
-
-          });
-
-        });
-
-      }catch(error){
-
-        console.warn(
-          "تعذر تحميل resources للبحث:",
-          error
-        );
-
-      }
-
-    }
-
-
-    /* =========================
-       تحميل الأجيال
-    ========================= */
-
-    async function loadGenerations(){
-
-      try{
-
-        const snapshot =
-          await getDocs(
-            collection(db,"generations")
-          );
-
-
-        const generations =
-          snapshot.docs.map(docSnap => {
-
-            const data =
-              docSnap.data();
-
-            return {
-
-              id:docSnap.id,
-
-              ...data,
-
-              year:
-                getGenerationYear(
-                  data,
-                  docSnap.id
-                )
-
-            };
-
-          });
-
-
-        generations.sort((a,b)=>{
-
-          return numericYear(b.year) -
-                 numericYear(a.year);
-
-        });
-
-
-        generationCount.textContent =
-          `${generations.length} أجيال`;
-
-
-        if(!generations.length){
-
-          generationsGrid.innerHTML = `
-
-            <div class="loading">
-              لا توجد أجيال مضافة حالياً.
-            </div>
-
-          `;
-
-          await buildSearchIndex([]);
-
-          return;
+          return data[key];
 
         }
 
-
-        generationsGrid.innerHTML =
-          generations.map(generation => {
-
-            const year =
-              generation.year;
-
-
-            return `
-
-              <a
-                class="generation-card"
-                href="generations.html?year=${encodeURIComponent(year)}"
-                data-search="${escapeHtml(
-                  `جيل ${year}
-                   ${generation.name || ""}
-                   ${generation.title || ""}
-                   ${generation.label || ""}`
-                )}"
-              >
-
-                <div class="generation-number">
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-                    <path d="M8 6h8"/>
-                    <path d="M8 10h6"/>
-                  </svg>
-
-                </div>
-
-                <h3>
-                  جيل ${escapeHtml(year)}
-                </h3>
-
-                <p>
-                  عرض المواد والملفات
-                </p>
-
-                <svg
-                  class="generation-arrow"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M9 18l6-6-6-6"/>
-                </svg>
-
-              </a>
-
-            `;
-
-          }).join("");
-
-
-        /*
-          هنا يتم بناء البحث بعد تحميل الأجيال.
-          وبالتالي البحث يشمل كل المحتوى.
-        */
-
-        await buildSearchIndex(
-          generations
-        );
-
-
-      }catch(error){
-
-        console.error(error);
-
-        generationCount.textContent =
-          "خطأ";
-
-
-        generationsGrid.innerHTML = `
-
-          <div class="loading">
-            تعذر تحميل الأجيال حالياً.<br>
-            حاول تحديث الصفحة مرة أخرى.
-          </div>
-
-        `;
-
-
-        await buildSearchIndex([]);
-
       }
+
+      return "";
 
     }
 
+    function numericYear(value){
+
+      const match = String(value).match(/\d{4}/);
+
+      return match
+        ? Number(match[0])
+        : 0;
+
+    }
+
+    function normalizeSearch(value){
+
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[أإآ]/g,"ا")
+        .replace(/ة/g,"ه")
+        .replace(/ى/g,"ي")
+        .replace(/[ًٌٍَُِّْـ]/g,"")
+        .replace(/[^\u0600-\u06FFa-z0-9\s]/gi," ")
+        .replace(/\s+/g," ")
+        .trim();
+
+    }
 
     function escapeHtml(value){
 
-      return String(value)
+      return String(value ?? "")
         .replaceAll("&","&amp;")
         .replaceAll("<","&lt;")
         .replaceAll(">","&gt;")
@@ -2578,9 +1982,139 @@
 
     }
 
+    function escapeAttr(value){
+
+      return escapeHtml(value);
+
+    }
+
+    function getSearchIcon(type){
+
+      if(type === "ملف"){
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2h9l4 4v16H6z"/>
+            <path d="M14 2v5h5"/>
+            <path d="M9 13h6"/>
+            <path d="M9 17h6"/>
+          </svg>
+        `;
+
+      }
+
+      if(type === "مادة"){
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+          </svg>
+        `;
+
+      }
+
+      if(type === "قسم"){
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        `;
+
+      }
+
+      if(type === "أداة"){
+
+        return `
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 8v4l2.5 2"/>
+          </svg>
+        `;
+
+      }
+
+      return `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+        </svg>
+      `;
+
+    }
+
+    function makeInternalGenerationUrl(year){
+
+      if(
+        year !== undefined &&
+        year !== null &&
+        String(year).trim() !== ""
+      ){
+
+        return `generations.html?year=${encodeURIComponent(year)}`;
+
+      }
+
+      return "generations.html";
+
+    }
+
+    function isExternalUrl(url){
+
+      return /^https?:\/\//i.test(String(url || ""));
+
+    }
+
+    function getItemSearchText(item){
+
+      return normalizeSearch(
+        [
+          item.title,
+          item.description,
+          item.type,
+          item.year,
+          item.keywords,
+          item.subject,
+          item.section,
+          item.generation
+        ]
+        .filter(Boolean)
+        .join(" ")
+      );
+
+    }
 
     /* =========================
-       البحث
+       البحث الشامل
     ========================= */
 
     const globalSearch =
@@ -2589,8 +2123,50 @@
     const searchResults =
       document.getElementById("searchResults");
 
+    let searchableItems = [];
 
-    function getSearchScore(item,query){
+    function addSearchItem(item){
+
+      if(!item || !item.title){
+        return;
+      }
+
+      const title = String(item.title).trim();
+
+      if(!title){
+        return;
+      }
+
+      searchableItems.push({
+
+        title,
+
+        description:
+          String(item.description || item.type || ""),
+
+        type:
+          String(item.type || ""),
+
+        url:
+          item.url || "generations.html",
+
+        year:
+          item.year || "",
+
+        keywords:
+          item.keywords || "",
+
+        searchText:
+          getItemSearchText(item)
+
+      });
+
+    }
+
+    function scoreSearchResult(item,query){
+
+      const normalizedQuery =
+        normalizeSearch(query);
 
       const title =
         normalizeSearch(item.title);
@@ -2598,173 +2174,186 @@
       const description =
         normalizeSearch(item.description);
 
-      const content =
-        normalizeSearch(`
-          ${item.title}
-          ${item.description}
-          ${item.searchText || ""}
-        `);
+      const keywords =
+        normalizeSearch(item.keywords);
 
+      const full =
+        item.searchText;
 
-      let score = 0;
-
-
-      if(title === query){
-        score += 100;
+      if(!normalizedQuery){
+        return 0;
       }
 
-      if(title.startsWith(query)){
-        score += 70;
-      }
-
-      if(title.includes(query)){
-        score += 50;
-      }
-
-      if(description.includes(query)){
-        score += 20;
-      }
-
-      if(content.includes(query)){
-        score += 10;
-      }
-
-
-      const words =
-        query
+      const queryWords =
+        normalizedQuery
           .split(/\s+/)
           .filter(Boolean);
 
+      let score = 0;
 
-      words.forEach(word => {
+      /* تطابق كامل مع العنوان */
+      if(title === normalizedQuery){
+        score += 1000;
+      }
 
-        if(title.includes(word)){
-          score += 15;
+      /* العنوان يبدأ بعبارة البحث */
+      if(title.startsWith(normalizedQuery)){
+        score += 700;
+      }
+
+      /* العنوان يحتوي عبارة البحث */
+      if(title.includes(normalizedQuery)){
+        score += 500;
+      }
+
+      /* تطابق كلمة كاملة داخل العنوان */
+      for(const word of queryWords){
+
+        if(!word){
+          continue;
         }
 
-        if(content.includes(word)){
-          score += 5;
+        if(title === word){
+          score += 450;
+        }
+        else if(title.startsWith(word)){
+          score += 300;
+        }
+        else if(title.includes(word)){
+          score += 220;
+        }
+        else if(full.includes(word)){
+          score += 80;
         }
 
-      });
+      }
 
+      /* الوصف والكلمات المفتاحية */
+      if(description.includes(normalizedQuery)){
+        score += 100;
+      }
+
+      if(keywords.includes(normalizedQuery)){
+        score += 120;
+      }
+
+      /* كل كلمات البحث موجودة */
+      if(
+        queryWords.length > 1 &&
+        queryWords.every(word => full.includes(word))
+      ){
+
+        score += 250;
+
+      }
+
+      /* الأولوية حسب نوع المحتوى */
+      if(title.includes(normalizedQuery)){
+
+        if(item.type === "مادة"){
+          score += 45;
+        }
+
+        if(item.type === "ملف"){
+          score += 35;
+        }
+
+        if(item.type === "جيل"){
+          score += 30;
+        }
+
+        if(item.type === "قسم"){
+          score += 25;
+        }
+
+        if(item.type === "أداة"){
+          score += 20;
+        }
+
+      }
 
       return score;
 
     }
 
-
     function searchAll(value){
 
-      const searchQuery =
+      const queryText =
         normalizeSearch(value);
 
-
-      if(!searchQuery){
+      if(!queryText){
 
         searchResults.classList.remove("show");
-
         searchResults.innerHTML = "";
 
         return;
 
       }
 
-
       const results =
         searchableItems
-          .map(item => ({
+          .map(item => {
 
-            item:item,
-
-            score:
-              getSearchScore(
+            return {
+              ...item,
+              score:scoreSearchResult(
                 item,
-                searchQuery
+                queryText
               )
+            };
 
-          }))
-          .filter(result =>
-            result.score > 0
-          )
-          .sort((a,b)=>
-            b.score - a.score
-          )
-          .slice(0,30);
+          })
+          .filter(item => item.score > 0)
+          .sort((a,b)=>{
 
+            if(b.score !== a.score){
+              return b.score - a.score;
+            }
+
+            return a.title.localeCompare(
+              b.title,
+              "ar"
+            );
+
+          })
+          .slice(0,12);
 
       searchResults.classList.add("show");
-
 
       if(!results.length){
 
         searchResults.innerHTML = `
-
           <div class="search-empty">
             لا توجد نتائج مطابقة لبحثك.
           </div>
-
         `;
 
         return;
 
       }
 
-
       searchResults.innerHTML =
-        results.map(result => {
+        results.map(item => {
 
-          const item =
-            result.item;
+          const external =
+            isExternalUrl(item.url);
 
+          const target =
+            external
+              ? ` target="_blank" rel="noopener noreferrer"`
+              : "";
 
           return `
 
             <a
-              href="${escapeHtml(item.url)}"
+              href="${escapeAttr(item.url)}"
               class="search-result"
+              ${target}
             >
 
               <div class="search-result-icon">
 
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
-                  ${
-                    item.type === "ملف"
-                    ?
-                    `
-                      <path d="M6 2h9l4 4v16H6z"/>
-                      <path d="M14 2v5h5"/>
-                      <path d="M9 13h6"/>
-                      <path d="M9 17h6"/>
-                    `
-                    :
-                    item.type === "مادة"
-                    ?
-                    `
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-                    `
-                    :
-                    item.type === "أداة"
-                    ?
-                    `
-                      <circle cx="12" cy="12" r="8"/>
-                      <path d="M12 8v4l2.5 2"/>
-                    `
-                    :
-                    `
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-                    `
-                  }
-
-                </svg>
+                ${getSearchIcon(item.type)}
 
               </div>
 
@@ -2788,18 +2377,14 @@
 
     }
 
-
     globalSearch.addEventListener(
       "input",
       event => {
 
-        searchAll(
-          event.target.value
-        );
+        searchAll(event.target.value);
 
       }
     );
-
 
     document.addEventListener(
       "click",
@@ -2817,6 +2402,714 @@
       }
     );
 
+    /* =========================
+       تحميل الأجيال
+    ========================= */
+
+    const generationsGrid =
+      document.getElementById("generationsGrid");
+
+    const generationCount =
+      document.getElementById("generationCount");
+
+    let generationsData = [];
+    let subjectsData = [];
+    let sectionsData = [];
+    let resourcesData = [];
+
+    async function loadGenerations(){
+
+      try{
+
+        const snapshot =
+          await getDocs(
+            collection(db,"generations")
+          );
+
+        generationsData =
+          snapshot.docs.map(docSnap => {
+
+            const data =
+              docSnap.data();
+
+            return {
+              id:docSnap.id,
+              ...data,
+              year:
+                getGenerationReference(
+                  data
+                ) ||
+                getItemTitle(
+                  data,
+                  docSnap.id
+                )
+            };
+
+          });
+
+        generationsData.sort(
+          (a,b) =>
+            numericYear(b.year) -
+            numericYear(a.year)
+        );
+
+        generationCount.textContent =
+          `${generationsData.length} أجيال`;
+
+        if(!generationsData.length){
+
+          generationsGrid.innerHTML = `
+            <div class="loading">
+              لا توجد أجيال مضافة حالياً.
+            </div>
+          `;
+
+        }
+        else{
+
+          generationsGrid.innerHTML =
+            generationsData.map(
+              generation => {
+
+                const year =
+                  generation.year;
+
+                return `
+
+                  <a
+                    class="generation-card"
+                    href="generations.html?year=${encodeURIComponent(year)}"
+                    data-search="${escapeAttr(`جيل ${year} ${generation.name || ""} ${generation.title || ""} ${generation.label || ""}`)}"
+                  >
+
+                    <div class="generation-number">
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                        <path d="M8 6h8"/>
+                        <path d="M8 10h6"/>
+                      </svg>
+
+                    </div>
+
+                    <h3>
+                      جيل ${escapeHtml(year)}
+                    </h3>
+
+                    <p>
+                      عرض المواد والملفات
+                    </p>
+
+                    <svg
+                      class="generation-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M9 18l6-6-6-6"/>
+                    </svg>
+
+                  </a>
+
+                `;
+
+              }
+            ).join("");
+
+        }
+
+      }
+      catch(error){
+
+        console.error(
+          "Generations error:",
+          error
+        );
+
+        generationCount.textContent =
+          "خطأ";
+
+        generationsGrid.innerHTML = `
+          <div class="loading">
+            تعذر تحميل الأجيال حالياً.<br>
+            حاول تحديث الصفحة مرة أخرى.
+          </div>
+        `;
+
+      }
+
+    }
+
+    /* =========================
+       تحميل المواد
+    ========================= */
+
+    async function loadSubjects(){
+
+      try{
+
+        const snapshot =
+          await getDocs(
+            collection(db,"subjects")
+          );
+
+        subjectsData =
+          snapshot.docs.map(docSnap => {
+
+            return {
+              id:docSnap.id,
+              ...docSnap.data()
+            };
+
+          });
+
+      }
+      catch(error){
+
+        console.error(
+          "Subjects search error:",
+          error
+        );
+
+        subjectsData = [];
+
+      }
+
+    }
+
+    /* =========================
+       تحميل الأقسام
+    ========================= */
+
+    async function loadSections(){
+
+      try{
+
+        const snapshot =
+          await getDocs(
+            collection(db,"sections")
+          );
+
+        sectionsData =
+          snapshot.docs.map(docSnap => {
+
+            return {
+              id:docSnap.id,
+              ...docSnap.data()
+            };
+
+          });
+
+      }
+      catch(error){
+
+        console.error(
+          "Sections search error:",
+          error
+        );
+
+        sectionsData = [];
+
+      }
+
+    }
+
+    /* =========================
+       تحميل الملفات المنشورة
+    ========================= */
+
+    async function loadResources(){
+
+      try{
+
+        /*
+          مهم:
+          يتم تحميل الملفات المنشورة فقط
+          حتى لا نخالف Firestore Rules
+        */
+
+        const resourcesQuery =
+          query(
+            collection(db,"resources"),
+            where(
+              "published",
+              "==",
+              true
+            )
+          );
+
+        const snapshot =
+          await getDocs(
+            resourcesQuery
+          );
+
+        resourcesData =
+          snapshot.docs.map(docSnap => {
+
+            return {
+              id:docSnap.id,
+              ...docSnap.data()
+            };
+
+          });
+
+      }
+      catch(error){
+
+        console.error(
+          "Resources search error:",
+          error
+        );
+
+        resourcesData = [];
+
+      }
+
+    }
+
+    /* =========================
+       بناء فهرس البحث
+    ========================= */
+
+    function buildSearchIndex(){
+
+      searchableItems = [];
+
+      /*
+        الأجيال
+      */
+
+      for(const generation of generationsData){
+
+        const year =
+          generation.year ||
+          generation.name ||
+          generation.title ||
+          generation.id;
+
+        addSearchItem({
+
+          title:`جيل ${year}`,
+
+          description:
+            "عرض المواد والملفات",
+
+          type:"جيل",
+
+          url:
+            makeInternalGenerationUrl(
+              year
+            ),
+
+          year,
+
+          keywords:[
+            "جيل",
+            String(year),
+            generation.name,
+            generation.title,
+            generation.label
+          ]
+            .filter(Boolean)
+            .join(" ")
+
+        });
+
+      }
+
+      /*
+        المواد
+      */
+
+      for(const subject of subjectsData){
+
+        const title =
+          getItemTitle(
+            subject,
+            subject.id
+          );
+
+        const description =
+          getItemDescription(
+            subject
+          );
+
+        const year =
+          getGenerationReference(
+            subject
+          );
+
+        const subjectKeywords =
+          getReferenceValue(
+            subject,
+            [
+              "keywords",
+              "tags",
+              "searchKeywords"
+            ]
+          );
+
+        /*
+          إذا كان عند المادة generationId
+          نحاول معرفة سنة الجيل من بيانات الأجيال.
+        */
+
+        let finalYear = year;
+
+        if(
+          !finalYear &&
+          subject.generationId
+        ){
+
+          const matchingGeneration =
+            generationsData.find(
+              generation =>
+                generation.id ===
+                subject.generationId
+            );
+
+          if(matchingGeneration){
+
+            finalYear =
+              matchingGeneration.year;
+
+          }
+
+        }
+
+        addSearchItem({
+
+          title,
+
+          description:
+            description ||
+            "مادة دراسية",
+
+          type:"مادة",
+
+          url:
+            makeInternalGenerationUrl(
+              finalYear
+            ),
+
+          year:finalYear,
+
+          subject:title,
+
+          keywords:[
+            title,
+            description,
+            subjectKeywords,
+            finalYear
+          ]
+            .filter(Boolean)
+            .join(" ")
+
+        });
+
+      }
+
+      /*
+        الأقسام
+      */
+
+      for(const section of sectionsData){
+
+        const title =
+          getItemTitle(
+            section,
+            section.id
+          );
+
+        const description =
+          getItemDescription(
+            section
+          );
+
+        let year =
+          getGenerationReference(
+            section
+          );
+
+        if(
+          !year &&
+          section.generationId
+        ){
+
+          const matchingGeneration =
+            generationsData.find(
+              generation =>
+                generation.id ===
+                section.generationId
+            );
+
+          if(matchingGeneration){
+
+            year =
+              matchingGeneration.year;
+
+          }
+
+        }
+
+        const sectionKeywords =
+          getReferenceValue(
+            section,
+            [
+              "keywords",
+              "tags",
+              "searchKeywords"
+            ]
+          );
+
+        addSearchItem({
+
+          title,
+
+          description:
+            description ||
+            "قسم دراسي",
+
+          type:"قسم",
+
+          url:
+            makeInternalGenerationUrl(
+              year
+            ),
+
+          year,
+
+          section:title,
+
+          keywords:[
+            title,
+            description,
+            sectionKeywords,
+            year
+          ]
+            .filter(Boolean)
+            .join(" ")
+
+        });
+
+      }
+
+      /*
+        الملفات والموارد
+      */
+
+      for(const resource of resourcesData){
+
+        const title =
+          getItemTitle(
+            resource,
+            resource.id
+          );
+
+        const description =
+          getItemDescription(
+            resource
+          );
+
+        let year =
+          getGenerationReference(
+            resource
+          );
+
+        /*
+          محاولة استخراج الجيل
+          من subjectId أو sectionId
+        */
+
+        if(
+          !year &&
+          resource.subjectId
+        ){
+
+          const subject =
+            subjectsData.find(
+              item =>
+                item.id ===
+                resource.subjectId
+            );
+
+          if(subject){
+
+            year =
+              getGenerationReference(
+                subject
+              );
+
+          }
+
+        }
+
+        if(
+          !year &&
+          resource.sectionId
+        ){
+
+          const section =
+            sectionsData.find(
+              item =>
+                item.id ===
+                resource.sectionId
+            );
+
+          if(section){
+
+            year =
+              getGenerationReference(
+                section
+              );
+
+          }
+
+        }
+
+        /*
+          إذا لم يوجد رابط مباشر
+          نرسل المستخدم إلى صفحة الجيل.
+        */
+
+        const directUrl =
+          getResourceUrl(
+            resource
+          );
+
+        const url =
+          directUrl ||
+          makeInternalGenerationUrl(
+            year
+          );
+
+        const resourceKeywords =
+          getReferenceValue(
+            resource,
+            [
+              "keywords",
+              "tags",
+              "searchKeywords"
+            ]
+          );
+
+        const resourceSubject =
+          getReferenceValue(
+            resource,
+            [
+              "subjectName",
+              "subject",
+              "subjectTitle"
+            ]
+          );
+
+        const resourceSection =
+          getReferenceValue(
+            resource,
+            [
+              "sectionName",
+              "section",
+              "sectionTitle"
+            ]
+          );
+
+        addSearchItem({
+
+          title,
+
+          description:
+            description ||
+            "ملف",
+
+          type:"ملف",
+
+          url,
+
+          year,
+
+          subject:
+            resourceSubject,
+
+          section:
+            resourceSection,
+
+          keywords:[
+            title,
+            description,
+            resourceKeywords,
+            resourceSubject,
+            resourceSection,
+            year
+          ]
+            .filter(Boolean)
+            .join(" ")
+
+        });
+
+      }
+
+      /*
+        أدوات الدراسة
+      */
+
+      addSearchItem({
+
+        title:"خطة الدراسة",
+
+        description:
+          "نظّم دراستك وحدد أهدافك وخطتك اليومية.",
+
+        type:"أداة",
+
+        url:"study-plan.html",
+
+        keywords:
+          "خطة الدراسة تنظيم الدراسة أهداف خطة يومية دراسة"
+
+      });
+
+      addSearchItem({
+
+        title:"مؤقت الدراسة",
+
+        description:
+          "ركّز في دراستك باستخدام مؤقت مخصص لجلسات الدراسة.",
+
+        type:"أداة",
+
+        url:"study-timer.html",
+
+        keywords:
+          "مؤقت الدراسة تايمر وقت جلسة دراسة تركيز"
+
+      });
+
+    }
+
+    /* =========================
+       تشغيل البحث بعد تحميل كل البيانات
+    ========================= */
+
+    async function loadAllSearchData(){
+
+      await loadGenerations();
+
+      await Promise.all([
+        loadSubjects(),
+        loadSections(),
+        loadResources()
+      ]);
+
+      buildSearchIndex();
+
+    }
 
     /* =========================
        المذكرة
@@ -2825,42 +3118,23 @@
     const NOTES_KEY =
       "tawjihi-notes";
 
-
     const notesFloatBtn =
-      document.getElementById(
-        "notesFloatBtn"
-      );
-
+      document.getElementById("notesFloatBtn");
 
     const notesOverlay =
-      document.getElementById(
-        "notesOverlay"
-      );
-
+      document.getElementById("notesOverlay");
 
     const notesClose =
-      document.getElementById(
-        "notesClose"
-      );
-
+      document.getElementById("notesClose");
 
     const notesTextarea =
-      document.getElementById(
-        "notesTextarea"
-      );
-
+      document.getElementById("notesTextarea");
 
     const notesSave =
-      document.getElementById(
-        "notesSave"
-      );
-
+      document.getElementById("notesSave");
 
     const notesStatus =
-      document.getElementById(
-        "notesStatus"
-      );
-
+      document.getElementById("notesStatus");
 
     function loadNotes(){
 
@@ -2869,21 +3143,16 @@
           NOTES_KEY
         );
 
-
       notesTextarea.value =
         savedNotes || "";
 
     }
 
-
     function openNotes(){
 
       loadNotes();
 
-      notesOverlay.classList.add(
-        "show"
-      );
-
+      notesOverlay.classList.add("show");
 
       setTimeout(()=>{
 
@@ -2893,15 +3162,11 @@
 
     }
 
-
     function closeNotes(){
 
-      notesOverlay.classList.remove(
-        "show"
-      );
+      notesOverlay.classList.remove("show");
 
     }
-
 
     function saveNotes(){
 
@@ -2910,10 +3175,8 @@
         notesTextarea.value
       );
 
-
       notesStatus.textContent =
         "تم حفظ المذكرة بنجاح";
-
 
       setTimeout(()=>{
 
@@ -2924,31 +3187,28 @@
 
     }
 
-
     notesFloatBtn.addEventListener(
       "click",
       openNotes
     );
-
 
     notesClose.addEventListener(
       "click",
       closeNotes
     );
 
-
     notesSave.addEventListener(
       "click",
       saveNotes
     );
 
-
     notesOverlay.addEventListener(
       "click",
-      event => {
+      event=>{
 
         if(
-          event.target === notesOverlay
+          event.target ===
+          notesOverlay
         ){
 
           closeNotes();
@@ -2957,15 +3217,16 @@
 
       }
     );
-
 
     document.addEventListener(
       "keydown",
-      event => {
+      event=>{
 
         if(
           event.key === "Escape" &&
-          notesOverlay.classList.contains("show")
+          notesOverlay.classList.contains(
+            "show"
+          )
         ){
 
           closeNotes();
@@ -2975,6 +3236,10 @@
       }
     );
 
+    /*
+      حفظ تلقائي عند مغادرة الصفحة
+      حتى لا تضيع الملاحظات إذا نسي الطالب الضغط على حفظ
+    */
 
     notesTextarea.addEventListener(
       "input",
@@ -2988,57 +3253,52 @@
       }
     );
 
-
     /* =========================
        تثبيت التطبيق
     ========================= */
+
+    let deferredInstallPrompt = null;
+
+    const INSTALL_SESSION_KEY =
+      "tawjihi-install-reminder";
 
     const installBanner =
       document.getElementById(
         "installBanner"
       );
 
-
     const installBtn =
       document.getElementById(
         "installBtn"
       );
-
 
     const laterBtn =
       document.getElementById(
         "laterBtn"
       );
 
+    const installDescription =
+      document.getElementById(
+        "installDescription"
+      );
 
     const iosHelp =
       document.getElementById(
         "iosHelp"
       );
 
-
     const iosClose =
       document.getElementById(
         "iosClose"
       );
 
-
-    let deferredInstallPrompt =
-      null;
-
-
-    const INSTALL_REMINDER_KEY =
-      "tawjihi-install-reminder";
-
-
     function isIOS(){
 
-      return /iPhone|iPad|iPod/i.test(
+      return /iphone|ipad|ipod/i.test(
         navigator.userAgent
       );
 
     }
-
 
     function isStandalone(){
 
@@ -3051,31 +3311,38 @@
 
     }
 
-
     function showInstallBanner(){
+
+      /*
+        إذا كان التطبيق مثبتاً
+        لا نعرض شريط التثبيت.
+      */
 
       if(isStandalone()){
         return;
       }
 
+      /*
+        ذكرني لاحقاً يخفي الشريط
+        لباقي جلسة التصفح فقط.
+        عند الدخول من جديد سيظهر مرة أخرى.
+      */
 
       if(
         sessionStorage.getItem(
-          INSTALL_REMINDER_KEY
-        ) === "true"
+          INSTALL_SESSION_KEY
+        ) === "1"
       ){
 
         return;
 
       }
 
-
       installBanner.classList.add(
         "show"
       );
 
     }
-
 
     function hideInstallBanner(){
 
@@ -3085,19 +3352,9 @@
 
     }
 
-
-    function remindLater(){
-
-      sessionStorage.setItem(
-        INSTALL_REMINDER_KEY,
-        "true"
-      );
-
-
-      hideInstallBanner();
-
-    }
-
+    /*
+      Android / Chrome / Edge
+    */
 
     window.addEventListener(
       "beforeinstallprompt",
@@ -3108,11 +3365,18 @@
         deferredInstallPrompt =
           event;
 
-        showInstallBanner();
+        if(!isIOS()){
+
+          showInstallBanner();
+
+        }
 
       }
     );
 
+    /*
+      زر التثبيت
+    */
 
     installBtn.addEventListener(
       "click",
@@ -3124,8 +3388,6 @@
 
         if(isIOS()){
 
-          hideInstallBanner();
-
           iosHelp.classList.add(
             "show"
           );
@@ -3134,9 +3396,9 @@
 
         }
 
-
         /*
-          Android / Chrome
+          Android والمتصفحات التي
+          تدعم نافذة التثبيت الأصلية
         */
 
         if(deferredInstallPrompt){
@@ -3145,28 +3407,20 @@
 
             deferredInstallPrompt.prompt();
 
-            const choice =
+            const result =
               await deferredInstallPrompt.userChoice;
 
+            console.log(
+              "Install result:",
+              result
+            );
 
-            if(
-              choice.outcome === "accepted"
-            ){
+            deferredInstallPrompt = null;
 
-              sessionStorage.setItem(
-                INSTALL_REMINDER_KEY,
-                "true"
-              );
+            hideInstallBanner();
 
-              hideInstallBanner();
-
-            }
-
-
-            deferredInstallPrompt =
-              null;
-
-          }catch(error){
+          }
+          catch(error){
 
             console.error(
               "Install error:",
@@ -3179,25 +3433,38 @@
 
         }
 
-
         /*
-          إذا المتصفح لا يدعم
-          نافذة التثبيت التلقائية
+          إذا لم تتوفر نافذة التثبيت
+          نعرض تعليمات عامة.
         */
 
-        alert(
-          "يمكنك تثبيت الموقع من قائمة المتصفح واختيار إضافة إلى الشاشة الرئيسية."
-        );
+        installDescription.textContent =
+          "استخدم قائمة المتصفح واختر إضافة إلى الشاشة الرئيسية.";
 
       }
     );
 
+    /*
+      ذكرني لاحقاً
+    */
 
     laterBtn.addEventListener(
       "click",
-      remindLater
+      ()=>{
+
+        sessionStorage.setItem(
+          INSTALL_SESSION_KEY,
+          "1"
+        );
+
+        hideInstallBanner();
+
+      }
     );
 
+    /*
+      إغلاق تعليمات الآيفون
+    */
 
     iosClose.addEventListener(
       "click",
@@ -3210,13 +3477,13 @@
       }
     );
 
-
     iosHelp.addEventListener(
       "click",
       event => {
 
         if(
-          event.target === iosHelp
+          event.target ===
+          iosHelp
         ){
 
           iosHelp.classList.remove(
@@ -3228,34 +3495,51 @@
       }
     );
 
+    /*
+      عند تثبيت التطبيق
+    */
 
     window.addEventListener(
       "appinstalled",
       ()=>{
 
-        sessionStorage.setItem(
-          INSTALL_REMINDER_KEY,
-          "true"
-        );
+        deferredInstallPrompt =
+          null;
 
         hideInstallBanner();
 
       }
     );
 
-
     /*
-      إظهار التثبيت بعد تحميل الصفحة
-      إذا لم يكن هناك beforeinstallprompt
-      مثل iPhone.
+      إظهار الشريط عند الدخول
     */
 
-    setTimeout(()=>{
+    if(!isStandalone()){
 
-      showInstallBanner();
+      if(isIOS()){
 
-    },1200);
+        setTimeout(
+          showInstallBanner,
+          1200
+        );
 
+      }
+      else{
+
+        /*
+          على Android ننتظر قليلاً
+          حتى يعطي المتصفح beforeinstallprompt.
+        */
+
+        setTimeout(
+          showInstallBanner,
+          1800
+        );
+
+      }
+
+    }
 
     /* =========================
        Service Worker
@@ -3271,26 +3555,37 @@
 
           navigator.serviceWorker
             .register("./sw.js")
-            .catch(error => {
+            .then(
+              registration => {
 
-              console.warn(
-                "Service Worker error:",
-                error
-              );
+                console.log(
+                  "Service Worker registered:",
+                  registration.scope
+                );
 
-            });
+              }
+            )
+            .catch(
+              error => {
+
+                console.error(
+                  "Service Worker error:",
+                  error
+                );
+
+              }
+            );
 
         }
       );
 
     }
 
-
     /* =========================
        تشغيل
     ========================= */
 
-    loadGenerations();
+    loadAllSearchData();
 
   </script>
 
