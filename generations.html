@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>الجيل | مساعد توجيهي</title>
+
   <meta
     name="description"
     content="مساعد توجيهي - المواد والملفات الدراسية"
@@ -99,10 +100,6 @@
       margin:auto;
     }
 
-    /* =========================
-       Header
-    ========================= */
-
     header{
       position:sticky;
       top:0;
@@ -139,7 +136,6 @@
     .brand-icon{
       width:45px;
       height:45px;
-
       border-radius:15px;
 
       display:grid;
@@ -205,10 +201,6 @@
       height:20px;
     }
 
-    /* =========================
-       Hero
-    ========================= */
-
     .hero{
       padding:55px 0 25px;
       text-align:center;
@@ -260,10 +252,6 @@
       line-height:1.9;
       font-size:15px;
     }
-
-    /* =========================
-       Navigation
-    ========================= */
 
     .navigation{
       display:flex;
@@ -317,10 +305,6 @@
       height:18px;
     }
 
-    /* =========================
-       Section Head
-    ========================= */
-
     .section-head{
       display:flex;
       align-items:end;
@@ -354,28 +338,18 @@
       white-space:nowrap;
     }
 
-    /* =========================
-       Subjects
-    ========================= */
-
     .subjects-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
+      grid-template-columns:repeat(3,1fr);
       gap:17px;
     }
 
     .subject-card{
       position:relative;
-
       overflow:hidden;
-
       display:block;
 
       padding:24px;
-
       min-height:175px;
 
       background:var(--surface);
@@ -509,10 +483,6 @@
       height:14px;
     }
 
-    /* =========================
-       Loading
-    ========================= */
-
     .loading{
       grid-column:1/-1;
 
@@ -541,8 +511,7 @@
 
       margin:0 auto 12px;
 
-      animation:
-        spin .8s linear infinite;
+      animation:spin .8s linear infinite;
     }
 
     @keyframes spin{
@@ -550,10 +519,6 @@
         transform:rotate(360deg);
       }
     }
-
-    /* =========================
-       Modal
-    ========================= */
 
     .modal-overlay{
       position:fixed;
@@ -569,8 +534,7 @@
 
       padding:18px;
 
-      background:
-        rgba(0,0,0,.45);
+      background:rgba(0,0,0,.45);
 
       backdrop-filter:blur(7px);
       -webkit-backdrop-filter:blur(7px);
@@ -583,8 +547,7 @@
     .modal{
       width:min(800px,100%);
 
-      max-height:
-        min(850px,90vh);
+      max-height:min(850px,90vh);
 
       overflow:hidden;
 
@@ -601,8 +564,7 @@
         0 30px 90px
         rgba(0,0,0,.25);
 
-      animation:
-        modalIn .22s ease;
+      animation:modalIn .22s ease;
     }
 
     @keyframes modalIn{
@@ -628,8 +590,7 @@
 
       padding:21px;
 
-      border-bottom:
-        1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
 
     .modal-title-wrap{
@@ -702,17 +663,11 @@
 
     .modal-body{
       overflow:auto;
-
       padding:20px;
     }
 
-    /* =========================
-       Search
-    ========================= */
-
     .search-box{
       position:relative;
-
       margin-bottom:15px;
     }
 
@@ -721,9 +676,7 @@
 
       height:48px;
 
-      padding:
-        0 45px
-        0 15px;
+      padding:0 45px 0 15px;
 
       border-radius:15px;
 
@@ -767,10 +720,6 @@
 
       pointer-events:none;
     }
-
-    /* =========================
-       Filters
-    ========================= */
 
     .filters{
       display:flex;
@@ -825,10 +774,6 @@
       color:#fff;
     }
 
-    /* =========================
-       Sections
-    ========================= */
-
     .file-section{
       margin-bottom:22px;
     }
@@ -860,10 +805,6 @@
       font-size:10px;
     }
 
-    /* =========================
-       Files
-    ========================= */
-
     .files-list{
       display:flex;
       flex-direction:column;
@@ -889,9 +830,7 @@
     }
 
     .file-item:hover{
-      border-color:
-        rgba(20,184,166,.35);
-
+      border-color:rgba(20,184,166,.35);
       transform:translateY(-1px);
     }
 
@@ -979,9 +918,7 @@
 
     .favorite-btn:hover{
       color:var(--primary);
-
-      border-color:
-        var(--primary-2);
+      border-color:var(--primary-2);
     }
 
     .favorite-btn.active{
@@ -989,23 +926,17 @@
 
       background:var(--soft);
 
-      border-color:
-        rgba(20,184,166,.3);
+      border-color:rgba(20,184,166,.3);
     }
 
     .open-btn{
       background:var(--primary);
-
       color:#fff;
     }
 
     .open-btn:hover{
       background:var(--primary-2);
     }
-
-    /* =========================
-       Empty
-    ========================= */
 
     .empty{
       padding:35px 20px;
@@ -1034,10 +965,6 @@
       color:var(--primary);
     }
 
-    /* =========================
-       Footer
-    ========================= */
-
     footer{
       margin-top:70px;
 
@@ -1051,7 +978,6 @@
     .footer-brand{
       font-size:16px;
       font-weight:700;
-
       margin-bottom:7px;
     }
 
@@ -1087,19 +1013,13 @@
 
     .developer a:hover{
       color:var(--primary-2);
-
       text-decoration:underline;
     }
-
-    /* =========================
-       Responsive
-    ========================= */
 
     @media(max-width:850px){
 
       .subjects-grid{
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
     }
@@ -1107,10 +1027,7 @@
     @media(max-width:650px){
 
       .container{
-        width:min(
-          100% - 22px,
-          1120px
-        );
+        width:min(100% - 22px,1120px);
       }
 
       header{
@@ -1182,17 +1099,191 @@
 
 <body>
 
-  <!-- =========================
-       Header
-  ========================== -->
+<header>
 
-  <header>
+  <div class="container header-inner">
 
-    <div class="container header-inner">
+    <a href="index.html" class="brand">
 
-      <a href="index.html" class="brand">
+      <div class="brand-icon">
 
-        <div class="brand-icon">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+          <path d="M8 6h8M8 10h8"/>
+        </svg>
+
+      </div>
+
+      <div class="brand-text">
+
+        <strong>مساعد توجيهي</strong>
+
+        <span>
+          رفيقك في طريق التوجيهي
+        </span>
+
+      </div>
+
+    </a>
+
+    <button
+      class="theme-btn"
+      id="themeBtn"
+      aria-label="تغيير المظهر"
+    ></button>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-badge">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
+        </svg>
+
+        <span>الجيل الدراسي</span>
+
+      </div>
+
+      <h1 id="generationTitle">
+        جاري تحميل <span>الجيل...</span>
+      </h1>
+
+      <p id="generationDescription">
+        جاري تحميل المواد الدراسية والملفات...
+      </p>
+
+    </div>
+
+  </section>
+
+  <div class="container">
+
+    <div class="navigation">
+
+      <a
+        href="index.html"
+        class="nav-btn"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5"/>
+          <path d="M12 19l-7-7 7-7"/>
+        </svg>
+
+        العودة للأجيال
+
+      </a>
+
+      <button
+        class="nav-btn"
+        id="favoritesBtn"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
+        </svg>
+
+        الملفات المفضلة
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head">
+
+        <div class="section-title">
+
+          <h2>
+            المواد الدراسية
+          </h2>
+
+          <p>
+            اختر المادة للوصول إلى ملفاتها وملخصاتها
+          </p>
+
+        </div>
+
+        <div
+          class="subject-count"
+          id="subjectCount"
+        >
+          جاري التحميل
+        </div>
+
+      </div>
+
+      <div
+        class="subjects-grid"
+        id="subjectsGrid"
+      >
+
+        <div class="loading">
+
+          <div class="spinner"></div>
+
+          جاري تحميل المواد...
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<div
+  class="modal-overlay"
+  id="modalOverlay"
+>
+
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+  >
+
+    <div class="modal-header">
+
+      <div class="modal-title-wrap">
+
+        <div class="modal-icon">
 
           <svg
             viewBox="0 0 24 24"
@@ -1202,874 +1293,51 @@
           >
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-            <path d="M8 6h8M8 10h8"/>
+            <path d="M8 6h8M8 10h6"/>
           </svg>
 
         </div>
 
-        <div class="brand-text">
+        <div class="modal-title">
 
-          <strong>مساعد توجيهي</strong>
+          <h2 id="modalTitle">
+            المادة
+          </h2>
 
-          <span>
-            رفيقك في طريق التوجيهي
-          </span>
+          <p id="modalSubtitle">
+            الملفات الدراسية
+          </p>
 
         </div>
 
-      </a>
+      </div>
 
       <button
-        class="theme-btn"
-        id="themeBtn"
-        aria-label="تغيير المظهر"
-      ></button>
+        class="close-btn"
+        id="closeModal"
+        aria-label="إغلاق"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M6 6l12 12"/>
+          <path d="M18 6L6 18"/>
+        </svg>
+
+      </button>
 
     </div>
 
-  </header>
+    <div class="modal-body">
 
+      <div class="search-box">
 
-  <main>
-
-    <!-- =========================
-         Hero
-    ========================== -->
-
-    <section class="hero">
-
-      <div class="container">
-
-        <div class="hero-badge">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
-          </svg>
-
-          <span>الجيل الدراسي</span>
-
-        </div>
-
-        <h1 id="generationTitle">
-          جاري تحميل <span>الجيل...</span>
-        </h1>
-
-        <p id="generationDescription">
-          جاري تحميل المواد الدراسية والملفات...
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         Navigation
-    ========================== -->
-
-    <div class="container">
-
-      <div class="navigation">
-
-        <a
-          href="index.html"
-          class="nav-btn"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M19 12H5"/>
-            <path d="M12 19l-7-7 7-7"/>
-          </svg>
-
-          العودة للأجيال
-
-        </a>
-
-        <button
-          class="nav-btn"
-          id="favoritesBtn"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
-          </svg>
-
-          الملفات المفضلة
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- =========================
-         Subjects
-    ========================== -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div class="section-title">
-
-            <h2>
-              المواد الدراسية
-            </h2>
-
-            <p>
-              اختر المادة للوصول إلى ملفاتها وملخصاتها
-            </p>
-
-          </div>
-
-          <div
-            class="subject-count"
-            id="subjectCount"
-          >
-            جاري التحميل
-          </div>
-
-        </div>
-
-
-        <div
-          class="subjects-grid"
-          id="subjectsGrid"
-        >
-
-          <div class="loading">
-
-            <div class="spinner"></div>
-
-            جاري تحميل المواد...
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       Files Modal
-  ========================== -->
-
-  <div
-    class="modal-overlay"
-    id="modalOverlay"
-  >
-
-    <div
-      class="modal"
-      role="dialog"
-      aria-modal="true"
-    >
-
-      <div class="modal-header">
-
-        <div class="modal-title-wrap">
-
-          <div class="modal-icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-              <path d="M8 6h8M8 10h6"/>
-            </svg>
-
-          </div>
-
-          <div class="modal-title">
-
-            <h2 id="modalTitle">
-              المادة
-            </h2>
-
-            <p id="modalSubtitle">
-              الملفات الدراسية
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="close-btn"
-          id="closeModal"
-          aria-label="إغلاق"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M6 6l12 12"/>
-            <path d="M18 6L6 18"/>
-          </svg>
-
-        </button>
-
-      </div>
-
-
-      <div class="modal-body">
-
-        <!-- Search -->
-
-        <div class="search-box">
-
-          <svg
-            class="search-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="11" cy="11" r="7"/>
-            <path d="m20 20-4-4"/>
-          </svg>
-
-          <input
-            type="search"
-            id="fileSearch"
-            placeholder="ابحث عن ملف..."
-            autocomplete="off"
-          >
-
-        </div>
-
-
-        <!-- Filters -->
-
-        <div
-          class="filters"
-          id="filters"
-        ></div>
-
-
-        <!-- Files -->
-
-        <div id="filesContainer"></div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       Footer
-  ========================== -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-brand">
-        مساعد توجيهي
-      </div>
-
-      <div class="footer-text">
-        منصتك التعليمية لمساعدتك في رحلتك الدراسية
-      </div>
-
-      <div class="developer">
-
-        <span>
-          برمجة وتصميم
-        </span>
-
-        <a
-          href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          عبدالله جهاد
-        </a>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       JavaScript
-  ========================== -->
-
-  <script type="module">
-
-    import {
-      db,
-      collection,
-      getDocs
-    } from "./admin/firebase-config.js";
-
-
-    /* =====================================
-       المتغيرات
-    ===================================== */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-    const selectedYear =
-      params.get("year");
-
-
-    const generationTitle =
-      document.getElementById(
-        "generationTitle"
-      );
-
-    const generationDescription =
-      document.getElementById(
-        "generationDescription"
-      );
-
-    const subjectsGrid =
-      document.getElementById(
-        "subjectsGrid"
-      );
-
-    const subjectCount =
-      document.getElementById(
-        "subjectCount"
-      );
-
-    const modalOverlay =
-      document.getElementById(
-        "modalOverlay"
-      );
-
-    const closeModal =
-      document.getElementById(
-        "closeModal"
-      );
-
-    const modalTitle =
-      document.getElementById(
-        "modalTitle"
-      );
-
-    const modalSubtitle =
-      document.getElementById(
-        "modalSubtitle"
-      );
-
-    const fileSearch =
-      document.getElementById(
-        "fileSearch"
-      );
-
-    const filters =
-      document.getElementById(
-        "filters"
-      );
-
-    const filesContainer =
-      document.getElementById(
-        "filesContainer"
-      );
-
-    const favoritesBtn =
-      document.getElementById(
-        "favoritesBtn"
-      );
-
-
-    /* =====================================
-       المفضلة
-    ===================================== */
-
-    const FAVORITES_KEY =
-      "tawjihi-favorite-resources";
-
-
-    function getFavorites(){
-
-      try{
-
-        const saved =
-          localStorage.getItem(
-            FAVORITES_KEY
-          );
-
-        if(!saved){
-          return [];
-        }
-
-        const parsed =
-          JSON.parse(saved);
-
-        return Array.isArray(parsed)
-          ? parsed
-          : [];
-
-      }catch(error){
-
-        return [];
-
-      }
-
-    }
-
-
-    function saveFavorites(favorites){
-
-      localStorage.setItem(
-        FAVORITES_KEY,
-        JSON.stringify(favorites)
-      );
-
-    }
-
-
-    function isFavorite(id){
-
-      return getFavorites().includes(id);
-
-    }
-
-
-    function toggleFavorite(id){
-
-      let favorites =
-        getFavorites();
-
-      if(favorites.includes(id)){
-
-        favorites =
-          favorites.filter(
-            item => item !== id
-          );
-
-      }else{
-
-        favorites.push(id);
-
-      }
-
-      saveFavorites(favorites);
-
-    }
-
-
-    /* =====================================
-       الوضع الليلي
-    ===================================== */
-
-    const themeBtn =
-      document.getElementById(
-        "themeBtn"
-      );
-
-
-    function sunIcon(){
-
-      return `
         <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2"/>
-          <path d="M12 20v2"/>
-          <path d="M4.93 4.93l1.41 1.41"/>
-          <path d="M17.66 17.66l1.41 1.41"/>
-          <path d="M2 12h2"/>
-          <path d="M20 12h2"/>
-          <path d="M4.93 19.07l1.41-1.41"/>
-          <path d="M17.66 6.34l1.41-1.41"/>
-        </svg>
-      `;
-
-    }
-
-
-    function moonIcon(){
-
-      return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
-        </svg>
-      `;
-
-    }
-
-
-    function updateThemeButton(){
-
-      const dark =
-        document.body.classList.contains(
-          "dark"
-        );
-
-      themeBtn.innerHTML =
-        dark
-          ? sunIcon()
-          : moonIcon();
-
-    }
-
-
-    const savedTheme =
-      localStorage.getItem(
-        "tawjihi-theme"
-      );
-
-
-    if(savedTheme === "dark"){
-
-      document.body.classList.add(
-        "dark"
-      );
-
-    }
-
-
-    updateThemeButton();
-
-
-    themeBtn.addEventListener(
-      "click",
-      ()=>{
-
-        document.body.classList.toggle(
-          "dark"
-        );
-
-        const dark =
-          document.body.classList.contains(
-            "dark"
-          );
-
-        localStorage.setItem(
-          "tawjihi-theme",
-          dark
-            ? "dark"
-            : "light"
-        );
-
-        updateThemeButton();
-
-      }
-    );
-
-
-    /* =====================================
-       Helpers
-    ===================================== */
-
-    function escapeHtml(value){
-
-      return String(
-        value ?? ""
-      )
-      .replaceAll(
-        "&",
-        "&amp;"
-      )
-      .replaceAll(
-        "<",
-        "&lt;"
-      )
-      .replaceAll(
-        ">",
-        "&gt;"
-      )
-      .replaceAll(
-        '"',
-        "&quot;"
-      )
-      .replaceAll(
-        "'",
-        "&#039;"
-      );
-
-    }
-
-
-    function normalize(value){
-
-      return String(
-        value ?? ""
-      )
-      .trim()
-      .toLowerCase();
-
-    }
-
-
-    function getFirstValue(
-      data,
-      fields
-    ){
-
-      for(
-        const field of fields
-      ){
-
-        if(
-          data[field] !== undefined &&
-          data[field] !== null &&
-          String(data[field]).trim() !== ""
-        ){
-
-          return data[field];
-
-        }
-
-      }
-
-      return "";
-
-    }
-
-
-    function getGenerationYear(
-      data,
-      id
-    ){
-
-      return getFirstValue(
-        data,
-        [
-          "year",
-          "name",
-          "title",
-          "label"
-        ]
-      ) || id;
-
-    }
-
-
-    function getSubjectName(
-      data,
-      id
-    ){
-
-      return getFirstValue(
-        data,
-        [
-          "name",
-          "title",
-          "subjectName",
-          "label"
-        ]
-      ) || id;
-
-    }
-
-
-    function getSectionName(
-      data,
-      id
-    ){
-
-      return getFirstValue(
-        data,
-        [
-          "name",
-          "title",
-          "sectionName",
-          "label"
-        ]
-      ) || id;
-
-    }
-
-
-    function getResourceName(
-      data,
-      id
-    ){
-
-      return getFirstValue(
-        data,
-        [
-          "title",
-          "name",
-          "resourceName"
-        ]
-      ) || "ملف بدون اسم";
-
-    }
-
-
-    function getResourceUrl(
-      data
-    ){
-
-      return getFirstValue(
-        data,
-        [
-          "url",
-          "link",
-          "driveUrl",
-          "fileUrl"
-        ]
-      );
-
-    }
-
-
-    function numericYear(value){
-
-      const match =
-        String(value)
-          .match(/\d{4}/);
-
-      return match
-        ? Number(match[0])
-        : 0;
-
-    }
-
-
-    /*
-      مقارنة مرنة بين القيم.
-
-      هذا يسمح مثلاً أن تكون العلاقة في Firebase:
-      generationId = "abc123"
-
-      أو:
-      generation = "2010"
-
-      أو:
-      year = 2010
-    */
-
-    function matchesValue(
-      value,
-      candidates
-    ){
-
-      if(
-        value === undefined ||
-        value === null
-      ){
-
-        return false;
-
-      }
-
-      const normalized =
-        normalize(value);
-
-      return candidates.some(
-        candidate =>
-          normalize(candidate) ===
-          normalized
-      );
-
-    }
-
-
-    /* =====================================
-       أيقونات
-    ===================================== */
-
-    function bookIcon(){
-
-      return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-          <path d="M8 6h8"/>
-          <path d="M8 10h6"/>
-        </svg>
-      `;
-
-    }
-
-
-    function arrowIcon(){
-
-      return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M9 18l6-6-6-6"/>
-        </svg>
-      `;
-
-    }
-
-
-    function fileIcon(){
-
-      return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-          <path d="M14 2v6h6"/>
-          <path d="M8 13h8"/>
-          <path d="M8 17h6"/>
-        </svg>
-      `;
-
-    }
-
-
-    function searchEmptyIcon(){
-
-      return `
-        <svg
+          class="search-icon"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -2078,588 +1346,1756 @@
           <circle cx="11" cy="11" r="7"/>
           <path d="m20 20-4-4"/>
         </svg>
-      `;
 
+        <input
+          type="search"
+          id="fileSearch"
+          placeholder="ابحث عن ملف..."
+          autocomplete="off"
+        >
+
+      </div>
+
+      <div
+        class="filters"
+        id="filters"
+      ></div>
+
+      <div id="filesContainer"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-brand">
+      مساعد توجيهي
+    </div>
+
+    <div class="footer-text">
+      منصتك التعليمية لمساعدتك في رحلتك الدراسية
+    </div>
+
+    <div class="developer">
+
+      <span>
+        برمجة وتصميم
+      </span>
+
+      <a
+        href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        عبدالله جهاد
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<script type="module">
+
+import {
+  db,
+  collection,
+  getDocs
+} from "./admin/firebase-config.js";
+
+
+/* =====================================
+   المتغيرات
+===================================== */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const selectedYear =
+  params.get("year");
+
+const generationTitle =
+  document.getElementById(
+    "generationTitle"
+  );
+
+const generationDescription =
+  document.getElementById(
+    "generationDescription"
+  );
+
+const subjectsGrid =
+  document.getElementById(
+    "subjectsGrid"
+  );
+
+const subjectCount =
+  document.getElementById(
+    "subjectCount"
+  );
+
+const modalOverlay =
+  document.getElementById(
+    "modalOverlay"
+  );
+
+const closeModal =
+  document.getElementById(
+    "closeModal"
+  );
+
+const modalTitle =
+  document.getElementById(
+    "modalTitle"
+  );
+
+const modalSubtitle =
+  document.getElementById(
+    "modalSubtitle"
+  );
+
+const fileSearch =
+  document.getElementById(
+    "fileSearch"
+  );
+
+const filters =
+  document.getElementById(
+    "filters"
+  );
+
+const filesContainer =
+  document.getElementById(
+    "filesContainer"
+  );
+
+const favoritesBtn =
+  document.getElementById(
+    "favoritesBtn"
+  );
+
+
+/* =====================================
+   المفضلة
+===================================== */
+
+const FAVORITES_KEY =
+  "tawjihi-favorite-resources";
+
+function getFavorites(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        FAVORITES_KEY
+      );
+
+    if(!saved){
+      return [];
     }
 
+    const parsed =
+      JSON.parse(saved);
 
-    function heartIcon(
-      filled = false
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+function saveFavorites(favorites){
+
+  localStorage.setItem(
+    FAVORITES_KEY,
+    JSON.stringify(favorites)
+  );
+
+}
+
+function isFavorite(id){
+
+  return getFavorites().includes(id);
+
+}
+
+function toggleFavorite(id){
+
+  let favorites =
+    getFavorites();
+
+  if(favorites.includes(id)){
+
+    favorites =
+      favorites.filter(
+        item => item !== id
+      );
+
+  }else{
+
+    favorites.push(id);
+
+  }
+
+  saveFavorites(favorites);
+
+}
+
+
+/* =====================================
+   الوضع الليلي
+===================================== */
+
+const themeBtn =
+  document.getElementById(
+    "themeBtn"
+  );
+
+function sunIcon(){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/>
+      <path d="M12 20v2"/>
+      <path d="M4.93 4.93l1.41 1.41"/>
+      <path d="M17.66 17.66l1.41 1.41"/>
+      <path d="M2 12h2"/>
+      <path d="M20 12h2"/>
+      <path d="M4.93 19.07l1.41-1.41"/>
+      <path d="M17.66 6.34l1.41-1.41"/>
+    </svg>
+  `;
+
+}
+
+function moonIcon(){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
+    </svg>
+  `;
+
+}
+
+function updateThemeButton(){
+
+  const dark =
+    document.body.classList.contains(
+      "dark"
+    );
+
+  themeBtn.innerHTML =
+    dark
+      ? sunIcon()
+      : moonIcon();
+
+}
+
+const savedTheme =
+  localStorage.getItem(
+    "tawjihi-theme"
+  );
+
+if(savedTheme === "dark"){
+
+  document.body.classList.add(
+    "dark"
+  );
+
+}
+
+updateThemeButton();
+
+themeBtn.addEventListener(
+  "click",
+  ()=>{
+
+    document.body.classList.toggle(
+      "dark"
+    );
+
+    const dark =
+      document.body.classList.contains(
+        "dark"
+      );
+
+    localStorage.setItem(
+      "tawjihi-theme",
+      dark
+        ? "dark"
+        : "light"
+    );
+
+    updateThemeButton();
+
+  }
+);
+
+
+/* =====================================
+   Helpers
+===================================== */
+
+function escapeHtml(value){
+
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+function normalize(value){
+
+  return String(
+    value ?? ""
+  )
+  .trim()
+  .toLowerCase();
+
+}
+
+function getFirstValue(
+  data,
+  fields
+){
+
+  for(
+    const field of fields
+  ){
+
+    if(
+      data[field] !== undefined &&
+      data[field] !== null &&
+      String(data[field]).trim() !== ""
     ){
 
-      return filled
-
-        ? `
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
-          </svg>
-        `
-
-        : `
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
-          </svg>
-        `;
+      return data[field];
 
     }
 
+  }
 
-    function externalIcon(){
+  return "";
 
-      return `
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M14 4h6v6"/>
-          <path d="M10 14L20 4"/>
-          <path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"/>
-        </svg>
-      `;
+}
 
-    }
+function getGenerationYear(
+  data,
+  id
+){
+
+  return getFirstValue(
+    data,
+    [
+      "year",
+      "name",
+      "title",
+      "label"
+    ]
+  ) || id;
+
+}
+
+function getSubjectName(
+  data,
+  id
+){
+
+  return getFirstValue(
+    data,
+    [
+      "name",
+      "title",
+      "subjectName",
+      "label"
+    ]
+  ) || id;
+
+}
+
+function getSectionName(
+  data,
+  id
+){
+
+  return getFirstValue(
+    data,
+    [
+      "name",
+      "title",
+      "sectionName",
+      "label"
+    ]
+  ) || id;
+
+}
+
+function getResourceName(
+  data,
+  id
+){
+
+  return getFirstValue(
+    data,
+    [
+      "title",
+      "name",
+      "resourceName"
+    ]
+  ) || "ملف بدون اسم";
+
+}
+
+function getResourceUrl(data){
+
+  return getFirstValue(
+    data,
+    [
+      "url",
+      "link",
+      "driveUrl",
+      "fileUrl"
+    ]
+  );
+
+}
+
+function matchesValue(
+  value,
+  candidates
+){
+
+  if(
+    value === undefined ||
+    value === null
+  ){
+
+    return false;
+
+  }
+
+  const normalized =
+    normalize(value);
+
+  return candidates.some(
+    candidate =>
+      normalize(candidate) ===
+      normalized
+  );
+
+}
 
 
-    /* =====================================
-       البيانات
-    ===================================== */
+/* =====================================
+   الأيقونات
+===================================== */
 
-    let currentGeneration = null;
+function bookIcon(){
 
-    let allSubjects = [];
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+      <path d="M8 6h8"/>
+      <path d="M8 10h6"/>
+    </svg>
+  `;
 
-    let allSections = [];
+}
 
-    let allResources = [];
+function arrowIcon(){
 
-    let currentSubject = null;
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  `;
 
-    let currentFilter = "all";
+}
+
+function fileIcon(){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+      <path d="M14 2v6h6"/>
+      <path d="M8 13h8"/>
+      <path d="M8 17h6"/>
+    </svg>
+  `;
+
+}
+
+function searchEmptyIcon(){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <circle cx="11" cy="11" r="7"/>
+      <path d="m20 20-4-4"/>
+    </svg>
+  `;
+
+}
+
+function heartIcon(filled=false){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="${filled ? "currentColor" : "none"}"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
+    </svg>
+  `;
+
+}
+
+function externalIcon(){
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path d="M14 4h6v6"/>
+      <path d="M10 14L20 4"/>
+      <path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"/>
+    </svg>
+  `;
+
+}
 
 
-    /* =====================================
-       التحقق من الجيل
-    ===================================== */
+/* =====================================
+   البيانات
+===================================== */
 
-    if(!selectedYear){
+let currentGeneration = null;
 
-      generationTitle.innerHTML =
-        `لم يتم تحديد <span>الجيل</span>`;
+let allSubjects = [];
 
-      generationDescription.textContent =
-        "ارجع إلى صفحة الأجيال واختر الجيل الذي تريده.";
+let allSections = [];
 
-      subjectsGrid.innerHTML = `
-        <div class="loading">
+let allResources = [];
 
-          لم يتم تحديد جيل.
+let currentSubject = null;
 
-          <br>
-
-          <br>
-
-          <a
-            href="index.html"
-            class="nav-btn primary"
-          >
-            العودة إلى الأجيال
-          </a>
-
-        </div>
-      `;
-
-      subjectCount.textContent =
-        "لا يوجد";
-
-    }
+let currentFilter = "all";
 
 
-    /* =====================================
-       تحميل كل البيانات
-    ===================================== */
+/* =====================================
+   فحص الخطأ
+===================================== */
 
-    async function loadPage(){
+function isPermissionError(error){
 
-      if(!selectedYear){
-        return;
+  const message =
+    String(
+      error?.message ||
+      ""
+    ).toLowerCase();
+
+  return (
+    message.includes(
+      "permission"
+    ) ||
+    message.includes(
+      "insufficient"
+    ) ||
+    error?.code ===
+    "permission-denied"
+  );
+
+}
+
+
+/* =====================================
+   تحميل مجموعة Firebase بأمان
+===================================== */
+
+async function safeGetCollection(
+  collectionName
+){
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          collectionName
+        )
+      );
+
+    return {
+      ok:true,
+      docs:snapshot.docs,
+      error:null
+    };
+
+  }catch(error){
+
+    console.error(
+      `Firebase ${collectionName} error:`,
+      error
+    );
+
+    return {
+      ok:false,
+      docs:[],
+      error
+    };
+
+  }
+
+}
+
+
+/* =====================================
+   التحقق من الجيل
+===================================== */
+
+if(!selectedYear){
+
+  generationTitle.innerHTML =
+    `لم يتم تحديد <span>الجيل</span>`;
+
+  generationDescription.textContent =
+    "ارجع إلى صفحة الأجيال واختر الجيل الذي تريده.";
+
+  subjectsGrid.innerHTML = `
+    <div class="loading">
+
+      لم يتم تحديد جيل.
+
+      <br><br>
+
+      <a
+        href="index.html"
+        class="nav-btn primary"
+      >
+        العودة إلى الأجيال
+      </a>
+
+    </div>
+  `;
+
+  subjectCount.textContent =
+    "لا يوجد";
+
+}
+
+
+/* =====================================
+   تحميل الصفحة
+===================================== */
+
+async function loadPage(){
+
+  if(!selectedYear){
+    return;
+  }
+
+  /*
+    مهم:
+
+    لا نستخدم Promise.all هنا.
+
+    السبب أن Promise.all كان يجعل أي مجموعة
+    Firebase فيها Permission Denied تسقط الصفحة
+    كلها.
+
+    الآن كل مجموعة يتم تحميلها بشكل مستقل.
+  */
+
+  const generationsResult =
+    await safeGetCollection(
+      "generations"
+    );
+
+  if(!generationsResult.ok){
+
+    generationTitle.innerHTML =
+      `تعذر تحميل <span>الجيل</span>`;
+
+    generationDescription.textContent =
+      "يوجد خطأ في صلاحيات قراءة بيانات الأجيال من Firebase.";
+
+    subjectsGrid.innerHTML = `
+      <div class="loading">
+
+        تعذر تحميل المواد والملفات حالياً.
+
+        <br>
+
+        حاول تحديث الصفحة مرة أخرى.
+
+        <br><br>
+
+        <small>
+          Missing or insufficient permissions.
+        </small>
+
+      </div>
+    `;
+
+    subjectCount.textContent =
+      "خطأ";
+
+    return;
+
+  }
+
+
+  /* =====================================
+     Generations
+  ===================================== */
+
+  const generations =
+    generationsResult.docs.map(
+      docSnap => {
+
+        const data =
+          docSnap.data();
+
+        return {
+
+          id:docSnap.id,
+
+          ...data,
+
+          year:
+            getGenerationYear(
+              data,
+              docSnap.id
+            )
+
+        };
+
       }
+    );
 
-      try{
 
-        const [
-          generationsSnapshot,
-          subjectsSnapshot,
-          sectionsSnapshot,
-          resourcesSnapshot
-        ] = await Promise.all([
+  currentGeneration =
+    generations.find(
+      generation =>
+        matchesValue(
+          selectedYear,
+          [
+            generation.id,
+            generation.year,
+            generation.name,
+            generation.title,
+            generation.label
+          ]
+        )
+    );
 
-          getDocs(
-            collection(
-              db,
-              "generations"
+
+  if(!currentGeneration){
+
+    generationTitle.innerHTML =
+      `الجيل <span>${escapeHtml(selectedYear)}</span>`;
+
+    generationDescription.textContent =
+      "لم يتم العثور على هذا الجيل في المنصة.";
+
+    subjectsGrid.innerHTML = `
+      <div class="loading">
+
+        لا يوجد جيل بهذا الاسم حالياً.
+
+        <br><br>
+
+        <a
+          href="index.html"
+          class="nav-btn primary"
+        >
+          العودة إلى الأجيال
+        </a>
+
+      </div>
+    `;
+
+    subjectCount.textContent =
+      "0 مادة";
+
+    return;
+
+  }
+
+
+  /* =====================================
+     معلومات الجيل
+  ===================================== */
+
+  const year =
+    currentGeneration.year;
+
+  generationTitle.innerHTML =
+    `جيل <span>${escapeHtml(year)}</span>`;
+
+  generationDescription.textContent =
+    "اختر المادة للوصول إلى الملفات والملخصات والموارد الدراسية.";
+
+
+  /* =====================================
+     تحميل Subjects
+  ===================================== */
+
+  const subjectsResult =
+    await safeGetCollection(
+      "subjects"
+    );
+
+
+  /*
+    إذا كانت subjects ممنوعة فقط،
+    لا نخلي الصفحة تنهار.
+
+    نظهر رسالة واضحة.
+  */
+
+  if(!subjectsResult.ok){
+
+    subjectCount.textContent =
+      "خطأ";
+
+    subjectsGrid.innerHTML = `
+      <div class="loading">
+
+        تعذر تحميل المواد حالياً.
+
+        <br>
+
+        يرجى التأكد من صلاحيات قراءة
+        <strong>subjects</strong>
+        في Firebase.
+
+        <br><br>
+
+        <small>
+          Missing or insufficient permissions.
+        </small>
+
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  allSubjects =
+    subjectsResult.docs.map(
+      docSnap => {
+
+        const data =
+          docSnap.data();
+
+        return {
+
+          id:docSnap.id,
+
+          ...data,
+
+          name:
+            getSubjectName(
+              data,
+              docSnap.id
             )
-          ),
 
-          getDocs(
-            collection(
-              db,
-              "subjects"
-            )
-          ),
+        };
 
-          getDocs(
-            collection(
-              db,
-              "sections"
-            )
-          ),
-
-          getDocs(
-            collection(
-              db,
-              "resources"
-            )
-          )
-
-        ]);
+      }
+    );
 
 
-        /* =========================
-           Generations
-        ========================= */
+  /* =====================================
+     Sections
+  ===================================== */
 
-        const generations =
-          generationsSnapshot.docs.map(
-            docSnap => {
+  const sectionsResult =
+    await safeGetCollection(
+      "sections"
+    );
 
-              const data =
-                docSnap.data();
+  if(sectionsResult.ok){
 
-              return {
+    allSections =
+      sectionsResult.docs.map(
+        docSnap => {
 
-                id:docSnap.id,
+          const data =
+            docSnap.data();
 
-                ...data,
+          return {
 
-                year:
-                  getGenerationYear(
-                    data,
-                    docSnap.id
-                  )
+            id:docSnap.id,
 
-              };
+            ...data,
 
-            }
-          );
-
-
-        /*
-          نحاول أولاً مطابقة ID
-          ثم السنة/الاسم
-        */
-
-        currentGeneration =
-          generations.find(
-            generation =>
-              matchesValue(
-                selectedYear,
-                [
-                  generation.id,
-                  generation.year,
-                  generation.name,
-                  generation.title,
-                  generation.label
-                ]
+            name:
+              getSectionName(
+                data,
+                docSnap.id
               )
-          );
 
-
-        if(!currentGeneration){
-
-          generationTitle.innerHTML =
-            `الجيل <span>${escapeHtml(selectedYear)}</span>`;
-
-          generationDescription.textContent =
-            "لم يتم العثور على هذا الجيل في المنصة.";
-
-          subjectsGrid.innerHTML = `
-            <div class="loading">
-
-              لا يوجد جيل بهذا الاسم حالياً.
-
-              <br><br>
-
-              <a
-                href="index.html"
-                class="nav-btn primary"
-              >
-                العودة إلى الأجيال
-              </a>
-
-            </div>
-          `;
-
-          subjectCount.textContent =
-            "0 مادة";
-
-          return;
+          };
 
         }
+      );
+
+  }else{
+
+    /*
+      إذا sections ممنوعة،
+      المواد تظل تعمل.
+    */
+
+    allSections = [];
+
+  }
 
 
-        /* =========================
-           معلومات الجيل
-        ========================= */
+  /* =====================================
+     Resources
+  ===================================== */
 
-        const year =
-          currentGeneration.year;
+  const resourcesResult =
+    await safeGetCollection(
+      "resources"
+    );
 
-        generationTitle.innerHTML =
-          `جيل <span>${escapeHtml(year)}</span>`;
+  if(resourcesResult.ok){
 
-        generationDescription.textContent =
-          "اختر المادة للوصول إلى الملفات والملخصات والموارد الدراسية.";
+    allResources =
+      resourcesResult.docs
 
+        .map(
+          docSnap => {
 
-        /* =========================
-           Subjects
-        ========================= */
+            const data =
+              docSnap.data();
 
-        allSubjects =
-          subjectsSnapshot.docs.map(
-            docSnap => {
+            return {
 
-              const data =
-                docSnap.data();
+              id:docSnap.id,
 
-              return {
+              ...data,
 
-                id:docSnap.id,
+              name:
+                getResourceName(
+                  data,
+                  docSnap.id
+                ),
 
-                ...data,
+              url:
+                getResourceUrl(
+                  data
+                )
 
-                name:
-                  getSubjectName(
-                    data,
-                    docSnap.id
-                  )
+            };
 
-              };
+          }
+        )
+
+        .filter(
+          resource => {
+
+            /*
+              إذا published غير موجود،
+              نعتبر الملف متاحاً.
+
+              وإذا موجود، لازم يكون true.
+            */
+
+            if(
+              resource.published ===
+              undefined
+            ){
+
+              return true;
 
             }
-          );
 
-
-        allSections =
-          sectionsSnapshot.docs.map(
-            docSnap => {
-
-              const data =
-                docSnap.data();
-
-              return {
-
-                id:docSnap.id,
-
-                ...data,
-
-                name:
-                  getSectionName(
-                    data,
-                    docSnap.id
-                  )
-
-              };
-
-            }
-          );
-
-
-        /*
-          نعرض فقط الملفات المنشورة.
-          
-          لا نستخدم where هنا حتى يبقى
-          الملف متوافقاً مع firebase-config
-          الحالي عندك.
-        */
-
-        allResources =
-          resourcesSnapshot.docs
-
-            .map(
-              docSnap => {
-
-                const data =
-                  docSnap.data();
-
-                return {
-
-                  id:docSnap.id,
-
-                  ...data,
-
-                  name:
-                    getResourceName(
-                      data,
-                      docSnap.id
-                    ),
-
-                  url:
-                    getResourceUrl(
-                      data
-                    )
-
-                };
-
-              }
-            )
-
-            .filter(
-              resource =>
-                resource.published === true
+            return (
+              resource.published ===
+              true
             );
 
+          }
+        );
 
-        /* =========================
-           ربط المواد بالجيل
-        ========================= */
+  }else{
 
-        const generationCandidates = [
+    /*
+      إذا resources ممنوعة،
+      المواد ستظهر لكن عدد الملفات = 0.
+    */
 
-          currentGeneration.id,
+    allResources = [];
 
-          currentGeneration.year,
+  }
 
-          currentGeneration.name,
 
-          currentGeneration.title,
+  /* =====================================
+     ربط المواد بالجيل
+  ===================================== */
 
-          currentGeneration.label,
+  const generationCandidates = [
 
-          selectedYear
+    currentGeneration.id,
+
+    currentGeneration.year,
+
+    currentGeneration.name,
+
+    currentGeneration.title,
+
+    currentGeneration.label,
+
+    selectedYear
+
+  ];
+
+
+  allSubjects =
+    allSubjects.filter(
+      subject => {
+
+        /*
+          إذا subject مربوط بالجيل
+          بأحد هذه الحقول.
+        */
+
+        const values = [
+
+          subject.generationId,
+          subject.generationID,
+          subject.generation,
+          subject.year,
+          subject.generationYear
 
         ];
 
 
-        allSubjects =
-          allSubjects.filter(
-            subject => {
+        /*
+          إذا عندنا قيمة ربط،
+          لازم تطابق الجيل.
+        */
 
-              const values = [
-
-                subject.generationId,
-                subject.generationID,
-                subject.generation,
-                subject.year
-
-              ];
-
-              return values.some(
-                value =>
-                  matchesValue(
-                    value,
-                    generationCandidates
-                  )
-              );
-
-            }
+        const hasGenerationValue =
+          values.some(
+            value =>
+              value !== undefined &&
+              value !== null &&
+              String(value).trim() !== ""
           );
 
 
-        /*
-          ترتيب المواد حسب order إذا كان موجوداً
-        */
+        if(hasGenerationValue){
 
-        allSubjects.sort(
-          (a,b)=>{
-
-            const orderA =
-              Number(
-                a.order ??
-                a.sortOrder ??
-                999999
-              );
-
-            const orderB =
-              Number(
-                b.order ??
-                b.sortOrder ??
-                999999
-              );
-
-            return orderA - orderB;
-
-          }
-        );
-
-
-        subjectCount.textContent =
-          `${allSubjects.length} مواد`;
-
-
-        if(!allSubjects.length){
-
-          subjectsGrid.innerHTML = `
-            <div class="loading">
-
-              لا توجد مواد مضافة لهذا الجيل حالياً.
-
-            </div>
-          `;
-
-          return;
+          return values.some(
+            value =>
+              matchesValue(
+                value,
+                generationCandidates
+              )
+          );
 
         }
 
 
-        renderSubjects();
+        /*
+          إذا المادة لا تحتوي generationId
+          نخليها لا تظهر حتى لا تختلط
+          أجيال الموقع مع بعض.
+        */
+
+        return false;
+
+      }
+    );
 
 
-      }catch(error){
+  /* =====================================
+     ترتيب المواد
+  ===================================== */
 
-        console.error(
-          "Firebase Error:",
-          error
+  allSubjects.sort(
+    (a,b)=>{
+
+      const orderA =
+        Number(
+          a.order ??
+          a.sortOrder ??
+          999999
         );
 
-        subjectCount.textContent =
-          "خطأ";
+      const orderB =
+        Number(
+          b.order ??
+          b.sortOrder ??
+          999999
+        );
 
-        subjectsGrid.innerHTML = `
-          <div class="loading">
+      return orderA - orderB;
 
-            تعذر تحميل المواد والملفات حالياً.
+    }
+  );
 
-            <br>
 
-            حاول تحديث الصفحة مرة أخرى.
+  subjectCount.textContent =
+    `${allSubjects.length} مواد`;
 
-            <br><br>
 
-            <small>
+  if(!allSubjects.length){
+
+    subjectsGrid.innerHTML = `
+      <div class="loading">
+
+        لا توجد مواد مضافة لهذا الجيل حالياً.
+
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  renderSubjects();
+
+}
+
+
+/* =====================================
+   عرض المواد
+===================================== */
+
+function renderSubjects(){
+
+  subjectsGrid.innerHTML =
+    allSubjects.map(
+      subject => {
+
+        const count =
+          getSubjectResourceCount(
+            subject
+          );
+
+        return `
+
+          <div
+            class="subject-card"
+            data-subject-id="${escapeHtml(subject.id)}"
+          >
+
+            <div class="subject-icon">
+
+              ${bookIcon()}
+
+            </div>
+
+            <h3>
               ${escapeHtml(
-                error?.message ||
-                "حدث خطأ غير معروف"
+                subject.name
               )}
-            </small>
+            </h3>
+
+            <p>
+              عرض الملفات والملخصات
+              الخاصة بالمادة
+            </p>
+
+            <div
+              class="subject-files-count"
+            >
+
+              ${fileIcon()}
+
+              ${count}
+              ملف
+
+            </div>
+
+            <div
+              class="subject-arrow"
+            >
+
+              ${arrowIcon()}
+
+            </div>
 
           </div>
+
         `;
 
       }
+    ).join("");
 
-    }
 
+  document
+    .querySelectorAll(
+      ".subject-card"
+    )
+    .forEach(
+      card => {
 
-    /* =====================================
-       عرض المواد
-    ===================================== */
+        card.addEventListener(
+          "click",
+          ()=>{
 
-    function renderSubjects(){
+            const subject =
+              allSubjects.find(
+                item =>
+                  item.id ===
+                  card.dataset.subjectId
+              );
 
-      subjectsGrid.innerHTML =
-        allSubjects.map(
-          subject => {
+            if(subject){
 
-            const count =
-              getSubjectResourceCount(
+              openSubject(
                 subject
               );
 
-            return `
-
-              <div
-                class="subject-card"
-                data-subject-id="${escapeHtml(subject.id)}"
-              >
-
-                <div class="subject-icon">
-
-                  ${bookIcon()}
-
-                </div>
-
-
-                <h3>
-                  ${escapeHtml(
-                    subject.name
-                  )}
-                </h3>
-
-
-                <p>
-                  عرض الملفات والملخصات
-                  الخاصة بالمادة
-                </p>
-
-
-                <div
-                  class="subject-files-count"
-                >
-
-                  ${fileIcon()}
-
-                  ${count}
-                  ملف
-
-                </div>
-
-
-                <div
-                  class="subject-arrow"
-                >
-
-                  ${arrowIcon()}
-
-                </div>
-
-              </div>
-
-            `;
+            }
 
           }
-        ).join("");
+        );
+
+      }
+    );
+
+}
 
 
-      document
-        .querySelectorAll(
-          ".subject-card"
-        )
-        .forEach(
-          card => {
+/* =====================================
+   عدد ملفات المادة
+===================================== */
 
-            card.addEventListener(
-              "click",
-              ()=>{
+function getSubjectResourceCount(
+  subject
+){
 
-                const subject =
-                  allSubjects.find(
-                    item =>
-                      item.id ===
-                      card.dataset.subjectId
-                  );
+  const sections =
+    getSubjectSections(
+      subject
+    );
 
-                if(subject){
+  const subjectCandidates = [
 
-                  openSubject(
-                    subject
-                  );
+    subject.id,
 
-                }
+    subject.name
 
-              }
+  ];
+
+  return allResources.filter(
+    resource => {
+
+      const directMatch = [
+
+        resource.subjectId,
+        resource.subjectID,
+        resource.subject
+
+      ].some(
+        value =>
+          matchesValue(
+            value,
+            subjectCandidates
+          )
+      );
+
+
+      const sectionMatch = [
+
+        resource.sectionId,
+        resource.sectionID,
+        resource.section
+
+      ].some(
+        value =>
+          sections.some(
+            section =>
+              matchesValue(
+                value,
+                [
+                  section.id,
+                  section.name
+                ]
+              )
+          )
+      );
+
+
+      return (
+        directMatch ||
+        sectionMatch
+      );
+
+    }
+  ).length;
+
+}
+
+
+/* =====================================
+   أقسام المادة
+===================================== */
+
+function getSubjectSections(
+  subject
+){
+
+  const subjectCandidates = [
+
+    subject.id,
+    subject.name
+
+  ];
+
+  return allSections.filter(
+    section => {
+
+      return [
+
+        section.subjectId,
+        section.subjectID,
+        section.subject
+
+      ].some(
+        value =>
+          matchesValue(
+            value,
+            subjectCandidates
+          )
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================
+   ملفات المادة
+===================================== */
+
+function getSubjectResources(
+  subject
+){
+
+  const sections =
+    getSubjectSections(
+      subject
+    );
+
+  const subjectCandidates = [
+
+    subject.id,
+    subject.name
+
+  ];
+
+  return allResources.filter(
+    resource => {
+
+      const directMatch = [
+
+        resource.subjectId,
+        resource.subjectID,
+        resource.subject
+
+      ].some(
+        value =>
+          matchesValue(
+            value,
+            subjectCandidates
+          )
+      );
+
+
+      const sectionMatch = [
+
+        resource.sectionId,
+        resource.sectionID,
+        resource.section
+
+      ].some(
+        value =>
+          sections.some(
+            section =>
+              matchesValue(
+                value,
+                [
+                  section.id,
+                  section.name
+                ]
+              )
+          )
+      );
+
+
+      return (
+        directMatch ||
+        sectionMatch
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================
+   فتح المادة
+===================================== */
+
+function openSubject(
+  subject
+){
+
+  currentSubject =
+    subject;
+
+  currentFilter =
+    "all";
+
+  modalTitle.textContent =
+    subject.name;
+
+  modalSubtitle.textContent =
+    `ملفات ${subject.name}`;
+
+  fileSearch.value = "";
+
+  renderFilters();
+
+  renderFiles();
+
+  modalOverlay.classList.add(
+    "active"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+  setTimeout(
+    ()=>{
+      fileSearch.focus();
+    },
+    100
+  );
+
+}
+
+
+/* =====================================
+   إغلاق
+===================================== */
+
+function closeFilesModal(){
+
+  modalOverlay.classList.remove(
+    "active"
+  );
+
+  document.body.style.overflow =
+    "";
+
+  currentSubject =
+    null;
+
+}
+
+closeModal.addEventListener(
+  "click",
+  closeFilesModal
+);
+
+modalOverlay.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      modalOverlay
+    ){
+
+      closeFilesModal();
+
+    }
+
+  }
+);
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeFilesModal();
+
+    }
+
+  }
+);
+
+
+/* =====================================
+   الفلاتر
+===================================== */
+
+function renderFilters(){
+
+  if(!currentSubject){
+    return;
+  }
+
+  const sections =
+    getSubjectSections(
+      currentSubject
+    );
+
+  filters.innerHTML = `
+
+    <button
+      class="filter-btn active"
+      data-filter="all"
+    >
+      كل الملفات
+    </button>
+
+    <button
+      class="filter-btn"
+      data-filter="favorites"
+    >
+      المفضلة
+    </button>
+
+    ${
+      sections.map(
+        section => `
+          <button
+            class="filter-btn"
+            data-filter="${escapeHtml(section.id)}"
+          >
+            ${escapeHtml(section.name)}
+          </button>
+        `
+      ).join("")
+    }
+
+  `;
+
+
+  filters
+    .querySelectorAll(
+      ".filter-btn"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            currentFilter =
+              button.dataset.filter;
+
+            filters
+              .querySelectorAll(
+                ".filter-btn"
+              )
+              .forEach(
+                item =>
+                  item.classList.remove(
+                    "active"
+                  )
+              );
+
+            button.classList.add(
+              "active"
+            );
+
+            renderFiles();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =====================================
+   عرض الملفات
+===================================== */
+
+function renderFiles(){
+
+  if(!currentSubject){
+    return;
+  }
+
+  let resources =
+    getSubjectResources(
+      currentSubject
+    );
+
+  const search =
+    normalize(
+      fileSearch.value
+    );
+
+
+  if(search){
+
+    resources =
+      resources.filter(
+        resource => {
+
+          const searchableText = [
+
+            resource.name,
+
+            resource.title,
+
+            resource.description,
+
+            resource.type,
+
+            resource.category,
+
+            resource.tags
+
+          ]
+          .flat()
+          .join(" ");
+
+          return normalize(
+            searchableText
+          ).includes(
+            search
+          );
+
+        }
+      );
+
+  }
+
+
+  if(
+    currentFilter ===
+    "favorites"
+  ){
+
+    resources =
+      resources.filter(
+        resource =>
+          isFavorite(
+            resource.id
+          )
+      );
+
+  }else if(
+    currentFilter !==
+    "all"
+  ){
+
+    const selectedSection =
+      allSections.find(
+        section =>
+          section.id ===
+          currentFilter
+      );
+
+    if(selectedSection){
+
+      resources =
+        resources.filter(
+          resource => {
+
+            const sectionValues = [
+
+              resource.sectionId,
+              resource.sectionID,
+              resource.section
+
+            ];
+
+            return sectionValues.some(
+              value =>
+                matchesValue(
+                  value,
+                  [
+                    selectedSection.id,
+                    selectedSection.name
+                  ]
+                )
             );
 
           }
@@ -2667,49 +3103,87 @@
 
     }
 
-
-    /* =====================================
-       عدد ملفات المادة
-    ===================================== */
-
-    function getSubjectResourceCount(
-      subject
-    ){
-
-      const sections =
-        getSubjectSections(
-          subject
-        );
-
-      const subjectCandidates = [
-
-        subject.id,
-
-        subject.name
-
-      ];
+  }
 
 
-      const count =
-        allResources.filter(
+  if(!resources.length){
+
+    filesContainer.innerHTML = `
+
+      <div class="empty">
+
+        ${searchEmptyIcon()}
+
+        <br>
+
+        ${
+          currentFilter ===
+          "favorites"
+
+            ? "لا توجد ملفات مفضلة حالياً."
+
+            : search
+
+              ? "لم نجد أي ملف يطابق بحثك."
+
+              : "لا توجد ملفات متاحة حالياً."
+        }
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  if(
+    currentFilter ===
+    "all" ||
+    currentFilter ===
+    "favorites"
+  ){
+
+    renderGroupedFiles(
+      resources
+    );
+
+  }else{
+
+    renderSimpleFiles(
+      resources
+    );
+
+  }
+
+}
+
+
+/* =====================================
+   الملفات حسب الأقسام
+===================================== */
+
+function renderGroupedFiles(
+  resources
+){
+
+  const sections =
+    getSubjectSections(
+      currentSubject
+    );
+
+  const groups = [];
+
+
+  sections.forEach(
+    section => {
+
+      const sectionResources =
+        resources.filter(
           resource => {
 
-            const directMatch = [
-
-              resource.subjectId,
-              resource.subjectID,
-              resource.subject
-
-            ].some(
-              value =>
-                matchesValue(
-                  value,
-                  subjectCandidates
-                )
-            );
-
-
-            const sectionMatch = [
+            return [
 
               resource.sectionId,
               resource.sectionID,
@@ -2717,984 +3191,370 @@
 
             ].some(
               value =>
-                sections.some(
-                  section =>
-                    matchesValue(
-                      value,
-                      [
-                        section.id,
-                        section.name
-                      ]
-                    )
+                matchesValue(
+                  value,
+                  [
+                    section.id,
+                    section.name
+                  ]
                 )
             );
 
-
-            return (
-              directMatch ||
-              sectionMatch
-            );
-
-          }
-        ).length;
-
-
-      return count;
-
-    }
-
-
-    /* =====================================
-       أقسام المادة
-    ===================================== */
-
-    function getSubjectSections(
-      subject
-    ){
-
-      const subjectCandidates = [
-
-        subject.id,
-        subject.name
-
-      ];
-
-
-      return allSections.filter(
-        section => {
-
-          return [
-
-            section.subjectId,
-            section.subjectID,
-            section.subject
-
-          ].some(
-            value =>
-              matchesValue(
-                value,
-                subjectCandidates
-              )
-          );
-
-        }
-      );
-
-    }
-
-
-    /* =====================================
-       ملفات المادة
-    ===================================== */
-
-    function getSubjectResources(
-      subject
-    ){
-
-      const sections =
-        getSubjectSections(
-          subject
-        );
-
-
-      const subjectCandidates = [
-
-        subject.id,
-        subject.name
-
-      ];
-
-
-      return allResources.filter(
-        resource => {
-
-          const directMatch = [
-
-            resource.subjectId,
-            resource.subjectID,
-            resource.subject
-
-          ].some(
-            value =>
-              matchesValue(
-                value,
-                subjectCandidates
-              )
-          );
-
-
-          const sectionMatch = [
-
-            resource.sectionId,
-            resource.sectionID,
-            resource.section
-
-          ].some(
-            value =>
-              sections.some(
-                section =>
-                  matchesValue(
-                    value,
-                    [
-                      section.id,
-                      section.name
-                    ]
-                  )
-              )
-          );
-
-
-          return (
-            directMatch ||
-            sectionMatch
-          );
-
-        }
-      );
-
-    }
-
-
-    /* =====================================
-       فتح المادة
-    ===================================== */
-
-    function openSubject(
-      subject
-    ){
-
-      currentSubject =
-        subject;
-
-      currentFilter =
-        "all";
-
-
-      modalTitle.textContent =
-        subject.name;
-
-
-      modalSubtitle.textContent =
-        `ملفات ${subject.name}`;
-
-
-      fileSearch.value = "";
-
-
-      renderFilters();
-
-      renderFiles();
-
-
-      modalOverlay.classList.add(
-        "active"
-      );
-
-
-      document.body.style.overflow =
-        "hidden";
-
-
-      setTimeout(
-        ()=>{
-          fileSearch.focus();
-        },
-        100
-      );
-
-    }
-
-
-    /* =====================================
-       إغلاق المودال
-    ===================================== */
-
-    function closeFilesModal(){
-
-      modalOverlay.classList.remove(
-        "active"
-      );
-
-      document.body.style.overflow =
-        "";
-
-      currentSubject =
-        null;
-
-    }
-
-
-    closeModal.addEventListener(
-      "click",
-      closeFilesModal
-    );
-
-
-    modalOverlay.addEventListener(
-      "click",
-      event => {
-
-        if(
-          event.target ===
-          modalOverlay
-        ){
-
-          closeFilesModal();
-
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if(
-          event.key ===
-          "Escape"
-        ){
-
-          closeFilesModal();
-
-        }
-
-      }
-    );
-
-
-    /* =====================================
-       الفلاتر
-    ===================================== */
-
-    function renderFilters(){
-
-      if(!currentSubject){
-        return;
-      }
-
-
-      const sections =
-        getSubjectSections(
-          currentSubject
-        );
-
-
-      filters.innerHTML = `
-
-        <button
-          class="filter-btn active"
-          data-filter="all"
-        >
-          كل الملفات
-        </button>
-
-        <button
-          class="filter-btn"
-          data-filter="favorites"
-        >
-          المفضلة
-        </button>
-
-        ${
-          sections.map(
-            section => `
-              <button
-                class="filter-btn"
-                data-filter="${escapeHtml(section.id)}"
-              >
-                ${escapeHtml(section.name)}
-              </button>
-            `
-          ).join("")
-        }
-
-      `;
-
-
-      filters
-        .querySelectorAll(
-          ".filter-btn"
-        )
-        .forEach(
-          button => {
-
-            button.addEventListener(
-              "click",
-              ()=>{
-
-                currentFilter =
-                  button.dataset.filter;
-
-
-                filters
-                  .querySelectorAll(
-                    ".filter-btn"
-                  )
-                  .forEach(
-                    item =>
-                      item.classList.remove(
-                        "active"
-                      )
-                  );
-
-
-                button.classList.add(
-                  "active"
-                );
-
-
-                renderFiles();
-
-              }
-            );
-
           }
         );
 
-    }
-
-
-    /* =====================================
-       عرض الملفات
-    ===================================== */
-
-    function renderFiles(){
-
-      if(!currentSubject){
-        return;
-      }
-
-
-      let resources =
-        getSubjectResources(
-          currentSubject
-        );
-
-
-      const search =
-        normalize(
-          fileSearch.value
-        );
-
-
-      /*
-        البحث
-      */
-
-      if(search){
-
-        resources =
-          resources.filter(
-            resource => {
-
-              return normalize(
-                resource.name
-              ).includes(
-                search
-              );
-
-            }
-          );
-
-      }
-
-
-      /*
-        الفلتر
-      */
 
       if(
-        currentFilter ===
-        "favorites"
+        sectionResources.length
       ){
-
-        resources =
-          resources.filter(
-            resource =>
-              isFavorite(
-                resource.id
-              )
-          );
-
-      }else if(
-        currentFilter !==
-        "all"
-      ){
-
-        const selectedSection =
-          allSections.find(
-            section =>
-              section.id ===
-              currentFilter
-          );
-
-
-        if(selectedSection){
-
-          resources =
-            resources.filter(
-              resource => {
-
-                const sectionValues = [
-
-                  resource.sectionId,
-                  resource.sectionID,
-                  resource.section
-
-                ];
-
-
-                return sectionValues.some(
-                  value =>
-                    matchesValue(
-                      value,
-                      [
-                        selectedSection.id,
-                        selectedSection.name
-                      ]
-                    )
-                );
-
-              }
-            );
-
-        }
-
-      }
-
-
-      if(!resources.length){
-
-        filesContainer.innerHTML = `
-
-          <div class="empty">
-
-            ${searchEmptyIcon()}
-
-            <br>
-
-            ${
-              currentFilter ===
-              "favorites"
-
-                ? "لا توجد ملفات مفضلة حالياً."
-
-                : search
-
-                  ? "لم نجد أي ملف يطابق بحثك."
-
-                  : "لا توجد ملفات متاحة حالياً."
-            }
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      /*
-        إذا لم نستخدم فلتر قسم محدد
-        نقسم الملفات حسب الأقسام.
-      */
-
-      if(
-        currentFilter ===
-        "all" ||
-        currentFilter ===
-        "favorites"
-      ){
-
-        renderGroupedFiles(
-          resources
-        );
-
-      }else{
-
-        renderSimpleFiles(
-          resources
-        );
-
-      }
-
-    }
-
-
-    /* =====================================
-       عرض الملفات حسب الأقسام
-    ===================================== */
-
-    function renderGroupedFiles(
-      resources
-    ){
-
-      const sections =
-        getSubjectSections(
-          currentSubject
-        );
-
-
-      const groups = [];
-
-
-      /*
-        أضف الأقسام المعرفة
-      */
-
-      sections.forEach(
-        section => {
-
-          const sectionResources =
-            resources.filter(
-              resource => {
-
-                return [
-
-                  resource.sectionId,
-                  resource.sectionID,
-                  resource.section
-
-                ].some(
-                  value =>
-                    matchesValue(
-                      value,
-                      [
-                        section.id,
-                        section.name
-                      ]
-                    )
-                );
-
-              }
-            );
-
-
-          if(
-            sectionResources.length
-          ){
-
-            groups.push({
-
-              name:section.name,
-
-              resources:
-                sectionResources
-
-            });
-
-          }
-
-        }
-      );
-
-
-      /*
-        الملفات التي لا تملك قسم
-      */
-
-      const groupedIds =
-        new Set();
-
-
-      groups.forEach(
-        group => {
-
-          group.resources.forEach(
-            resource =>
-              groupedIds.add(
-                resource.id
-              )
-          );
-
-        }
-      );
-
-
-      const ungrouped =
-        resources.filter(
-          resource =>
-            !groupedIds.has(
-              resource.id
-            )
-        );
-
-
-      if(ungrouped.length){
 
         groups.push({
 
-          name:"ملفات أخرى",
+          name:
+            section.name,
 
-          resources:ungrouped
+          resources:
+            sectionResources
 
         });
 
       }
 
-
-      filesContainer.innerHTML =
-        groups.map(
-          group => `
-
-            <div class="file-section">
-
-              <div
-                class="file-section-title"
-              >
-
-                <strong>
-                  ${escapeHtml(
-                    group.name
-                  )}
-                </strong>
-
-                <span>
-                  ${group.resources.length}
-                  ملفات
-                </span>
-
-              </div>
+    }
+  );
 
 
-              <div class="files-list">
-
-                ${group.resources
-                  .map(
-                    resource =>
-                      renderFile(
-                        resource
-                      )
-                  )
-                  .join("")
-                }
-
-              </div>
-
-            </div>
-
-          `
-        ).join("");
+  const groupedIds =
+    new Set();
 
 
-      attachFileEvents();
+  groups.forEach(
+    group => {
+
+      group.resources.forEach(
+        resource =>
+          groupedIds.add(
+            resource.id
+          )
+      );
 
     }
+  );
 
 
-    /* =====================================
-       عرض ملفات بدون تقسيم
-    ===================================== */
-
-    function renderSimpleFiles(
-      resources
-    ){
-
-      filesContainer.innerHTML = `
-
-        <div class="files-list">
-
-          ${resources
-            .map(
-              resource =>
-                renderFile(
-                  resource
-                )
-            )
-            .join("")
-          }
-
-        </div>
-
-      `;
-
-
-      attachFileEvents();
-
-    }
-
-
-    /* =====================================
-       كرت الملف
-    ===================================== */
-
-    function renderFile(
-      resource
-    ){
-
-      const favorite =
-        isFavorite(
+  const ungrouped =
+    resources.filter(
+      resource =>
+        !groupedIds.has(
           resource.id
-        );
+        )
+    );
 
 
-      const url =
-        resource.url;
+  if(ungrouped.length){
+
+    groups.push({
+
+      name:"ملفات أخرى",
+
+      resources:
+        ungrouped
+
+    });
+
+  }
 
 
-      return `
+  filesContainer.innerHTML =
+    groups.map(
+      group => `
 
-        <div
-          class="file-item"
-          data-resource-id="${escapeHtml(resource.id)}"
-        >
+        <div class="file-section">
 
-          <div class="file-icon">
+          <div
+            class="file-section-title"
+          >
 
-            ${fileIcon()}
-
-          </div>
-
-
-          <div class="file-info">
-
-            <div class="file-name">
-
+            <strong>
               ${escapeHtml(
-                resource.name
+                group.name
               )}
+            </strong>
 
-            </div>
-
-            <div class="file-type">
-
-              ملف دراسي
-
-            </div>
+            <span>
+              ${group.resources.length}
+              ملفات
+            </span>
 
           </div>
 
+          <div class="files-list">
 
-          <div class="file-actions">
-
-            <button
-              class="file-action favorite-btn ${
-                favorite
-                  ? "active"
-                  : ""
-              }"
-              data-action="favorite"
-              data-id="${escapeHtml(resource.id)}"
-              aria-label="المفضلة"
-            >
-
-              ${heartIcon(
-                favorite
-              )}
-
-            </button>
-
-
-            ${
-              url
-                ? `
-
-                  <button
-                    class="file-action open-btn"
-                    data-action="open"
-                    data-url="${escapeHtml(url)}"
-                    aria-label="فتح الملف"
-                  >
-
-                    ${externalIcon()}
-
-                  </button>
-
-                `
-                : ""
+            ${group.resources
+              .map(
+                resource =>
+                  renderFile(
+                    resource
+                  )
+              )
+              .join("")
             }
 
           </div>
 
         </div>
 
-      `;
+      `
+    ).join("");
 
-    }
+
+  attachFileEvents();
+
+}
 
 
-    /* =====================================
-       أحداث الملفات
-    ===================================== */
+/* =====================================
+   ملفات عادية
+===================================== */
 
-    function attachFileEvents(){
+function renderSimpleFiles(
+  resources
+){
 
-      document
-        .querySelectorAll(
-          '[data-action="favorite"]'
+  filesContainer.innerHTML = `
+
+    <div class="files-list">
+
+      ${resources
+        .map(
+          resource =>
+            renderFile(
+              resource
+            )
         )
-        .forEach(
-          button => {
+        .join("")
+      }
 
-            button.addEventListener(
-              "click",
-              event => {
+    </div>
 
-                event.stopPropagation();
+  `;
 
+  attachFileEvents();
 
-                const id =
-                  button.dataset.id;
+}
 
 
-                toggleFavorite(id);
+/* =====================================
+   كرت الملف
+===================================== */
+
+function renderFile(
+  resource
+){
+
+  const favorite =
+    isFavorite(
+      resource.id
+    );
+
+  const url =
+    resource.url;
+
+  return `
+
+    <div
+      class="file-item"
+      data-resource-id="${escapeHtml(resource.id)}"
+    >
+
+      <div class="file-icon">
+
+        ${fileIcon()}
+
+      </div>
+
+      <div class="file-info">
+
+        <div class="file-name">
+
+          ${escapeHtml(
+            resource.name
+          )}
+
+        </div>
+
+        <div class="file-type">
+
+          ملف دراسي
+
+        </div>
+
+      </div>
+
+      <div class="file-actions">
+
+        <button
+          class="file-action favorite-btn ${
+            favorite
+              ? "active"
+              : ""
+          }"
+          data-action="favorite"
+          data-id="${escapeHtml(resource.id)}"
+          aria-label="المفضلة"
+        >
+
+          ${heartIcon(
+            favorite
+          )}
+
+        </button>
+
+        ${
+          url
+            ? `
+
+              <button
+                class="file-action open-btn"
+                data-action="open"
+                data-url="${escapeHtml(url)}"
+                aria-label="فتح الملف"
+              >
+
+                ${externalIcon()}
+
+              </button>
+
+            `
+            : ""
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+}
 
 
-                /*
-                  إعادة رسم الملفات
-                  حتى تتحدث أيقونة المفضلة.
-                */
+/* =====================================
+   أحداث الملفات
+===================================== */
 
-                renderFiles();
+function attachFileEvents(){
 
-              }
-            );
+  document
+    .querySelectorAll(
+      '[data-action="favorite"]'
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          event => {
+
+            event.stopPropagation();
+
+            const id =
+              button.dataset.id;
+
+            toggleFavorite(id);
+
+            renderFiles();
 
           }
         );
-
-
-      document
-        .querySelectorAll(
-          '[data-action="open"]'
-        )
-        .forEach(
-          button => {
-
-            button.addEventListener(
-              "click",
-              event => {
-
-                event.stopPropagation();
-
-
-                const url =
-                  button.dataset.url;
-
-
-                if(!url){
-                  return;
-                }
-
-
-                window.open(
-                  url,
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-
-              }
-            );
-
-          }
-        );
-
-    }
-
-
-    /* =====================================
-       البحث
-    ===================================== */
-
-    fileSearch.addEventListener(
-      "input",
-      ()=>{
-
-        renderFiles();
 
       }
     );
 
 
-    /* =====================================
-       زر المفضلة
-    ===================================== */
+  document
+    .querySelectorAll(
+      '[data-action="open"]'
+    )
+    .forEach(
+      button => {
 
-    favoritesBtn.addEventListener(
-      "click",
-      ()=>{
+        button.addEventListener(
+          "click",
+          event => {
 
-        if(!currentSubject){
+            event.stopPropagation();
 
-          /*
-            إذا لم نفتح مادة بعد،
-            نفتح أول مادة فيها ملفات مفضلة.
-          */
+            const url =
+              button.dataset.url;
 
-          const favoriteIds =
-            getFavorites();
+            if(!url){
+              return;
+            }
 
-
-          const subject =
-            allSubjects.find(
-              item =>
-                getSubjectResources(
-                  item
-                ).some(
-                  resource =>
-                    favoriteIds.includes(
-                      resource.id
-                    )
-                )
-            );
-
-
-          if(subject){
-
-            openSubject(
-              subject
-            );
-
-
-            currentFilter =
-              "favorites";
-
-
-            renderFilters();
-
-
-            filters
-              .querySelectorAll(
-                ".filter-btn"
-              )
-              .forEach(
-                button => {
-
-                  button.classList.toggle(
-                    "active",
-                    button.dataset.filter ===
-                    "favorites"
-                  );
-
-                }
-              );
-
-
-            renderFiles();
-
-          }else{
-
-            alert(
-              "لا توجد ملفات مفضلة حالياً."
+            window.open(
+              url,
+              "_blank",
+              "noopener,noreferrer"
             );
 
           }
+        );
+
+      }
+    );
+
+}
 
 
-          return;
+/* =====================================
+   البحث
+===================================== */
 
-        }
+fileSearch.addEventListener(
+  "input",
+  ()=>{
+    renderFiles();
+  }
+);
 
+
+/* =====================================
+   المفضلة
+===================================== */
+
+favoritesBtn.addEventListener(
+  "click",
+  ()=>{
+
+    if(!currentSubject){
+
+      const favoriteIds =
+        getFavorites();
+
+      const subject =
+        allSubjects.find(
+          item =>
+            getSubjectResources(
+              item
+            ).some(
+              resource =>
+                favoriteIds.includes(
+                  resource.id
+                )
+            )
+        );
+
+
+      if(subject){
+
+        openSubject(
+          subject
+        );
 
         currentFilter =
           "favorites";
 
-
         renderFilters();
-
 
         filters
           .querySelectorAll(
@@ -3712,20 +3572,55 @@
             }
           );
 
-
         renderFiles();
 
+      }else{
+
+        alert(
+          "لا توجد ملفات مفضلة حالياً."
+        );
+
       }
-    );
+
+      return;
+
+    }
 
 
-    /* =====================================
-       تشغيل الصفحة
-    ===================================== */
+    currentFilter =
+      "favorites";
 
-    loadPage();
+    renderFilters();
 
-  </script>
+    filters
+      .querySelectorAll(
+        ".filter-btn"
+      )
+      .forEach(
+        button => {
+
+          button.classList.toggle(
+            "active",
+            button.dataset.filter ===
+            "favorites"
+          );
+
+        }
+      );
+
+    renderFiles();
+
+  }
+);
+
+
+/* =====================================
+   تشغيل
+===================================== */
+
+loadPage();
+
+</script>
 
 </body>
 </html>
