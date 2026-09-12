@@ -1406,7 +1406,9 @@
 import {
   db,
   collection,
-  getDocs
+  getDocs,
+  query,
+  where
 } from "./admin/firebase-config.js";
 
 
@@ -1791,6 +1793,59 @@ function getResourceUrl(data){
 
 }
 
+
+/*
+  تحويل أي قيمة إلى نص للمقارنة.
+
+  هذا يساعد إذا كان عندك:
+  - String
+  - Number
+  - DocumentReference
+*/
+
+function valueToString(value){
+
+  if(
+    value === undefined ||
+    value === null
+  ){
+
+    return "";
+
+  }
+
+  if(
+    typeof value === "string" ||
+    typeof value === "number"
+  ){
+
+    return String(value);
+
+  }
+
+  if(
+    typeof value === "object"
+  ){
+
+    if(value.id){
+      return String(value.id);
+    }
+
+    if(value.path){
+      return String(value.path);
+    }
+
+    if(value.name){
+      return String(value.name);
+    }
+
+  }
+
+  return String(value);
+
+}
+
+
 function matchesValue(
   value,
   candidates
@@ -1806,12 +1861,36 @@ function matchesValue(
   }
 
   const normalized =
-    normalize(value);
+    normalize(
+      valueToString(value)
+    );
 
   return candidates.some(
     candidate =>
-      normalize(candidate) ===
-      normalized
+      normalize(
+        valueToString(candidate)
+      ) === normalized
+  );
+
+}
+
+
+/*
+  التحقق من عدة حقول دفعة واحدة.
+*/
+
+function matchesAnyField(
+  data,
+  fields,
+  candidates
+){
+
+  return fields.some(
+    field =>
+      matchesValue(
+        data[field],
+        candidates
+      )
   );
 
 }
@@ -1938,30 +2017,21 @@ let currentSubject = null;
 let currentFilter = "all";
 
 
-/* =====================================
-   فحص الخطأ
-===================================== */
+/*
+  حالة تحميل البيانات.
 
-function isPermissionError(error){
+  هذه مهمة حتى نعرف إذا كانت الملفات
+  لم توجد فعلاً أو لم نستطع قراءتها.
+*/
 
-  const message =
-    String(
-      error?.message ||
-      ""
-    ).toLowerCase();
+const dataStatus = {
 
-  return (
-    message.includes(
-      "permission"
-    ) ||
-    message.includes(
-      "insufficient"
-    ) ||
-    error?.code ===
-    "permission-denied"
-  );
+  generations:true,
+  subjects:true,
+  sections:true,
+  resources:true
 
-}
+};
 
 
 /* =====================================
@@ -1983,9 +2053,14 @@ async function safeGetCollection(
       );
 
     return {
+
       ok:true,
-      docs:snapshot.docs,
+
+      docs:
+        snapshot.docs,
+
       error:null
+
     };
 
   }catch(error){
@@ -1996,9 +2071,87 @@ async function safeGetCollection(
     );
 
     return {
+
       ok:false,
+
       docs:[],
+
       error
+
+    };
+
+  }
+
+}
+
+
+/* =====================================
+   تحميل الموارد المنشورة فقط
+===================================== */
+
+async function getPublishedResources(){
+
+  try{
+
+    /*
+      مهم جداً:
+
+      Rules تسمح للطالب بقراءة:
+
+      published == true
+
+      لذلك لازم يكون الاستعلام نفسه
+      يبحث فقط عن published == true.
+
+      getDocs(collection(db,"resources"))
+      كان يطلب كل الملفات، ولذلك Firestore
+      كان يرجع Permission Denied.
+    */
+
+    const resourcesQuery =
+      query(
+        collection(
+          db,
+          "resources"
+        ),
+        where(
+          "published",
+          "==",
+          true
+        )
+      );
+
+    const snapshot =
+      await getDocs(
+        resourcesQuery
+      );
+
+    return {
+
+      ok:true,
+
+      docs:
+        snapshot.docs,
+
+      error:null
+
+    };
+
+  }catch(error){
+
+    console.error(
+      "Firebase published resources error:",
+      error
+    );
+
+    return {
+
+      ok:false,
+
+      docs:[],
+
+      error
+
     };
 
   }
@@ -2051,22 +2204,19 @@ async function loadPage(){
     return;
   }
 
-  /*
-    مهم:
 
-    لا نستخدم Promise.all هنا.
-
-    السبب أن Promise.all كان يجعل أي مجموعة
-    Firebase فيها Permission Denied تسقط الصفحة
-    كلها.
-
-    الآن كل مجموعة يتم تحميلها بشكل مستقل.
-  */
+  /* =====================================
+     Generations
+  ===================================== */
 
   const generationsResult =
     await safeGetCollection(
       "generations"
     );
+
+  dataStatus.generations =
+    generationsResult.ok;
+
 
   if(!generationsResult.ok){
 
@@ -2074,22 +2224,16 @@ async function loadPage(){
       `تعذر تحميل <span>الجيل</span>`;
 
     generationDescription.textContent =
-      "يوجد خطأ في صلاحيات قراءة بيانات الأجيال من Firebase.";
+      "يوجد خطأ في تحميل بيانات الجيل.";
 
     subjectsGrid.innerHTML = `
       <div class="loading">
 
-        تعذر تحميل المواد والملفات حالياً.
+        تعذر تحميل بيانات الجيل حالياً.
 
         <br>
 
         حاول تحديث الصفحة مرة أخرى.
-
-        <br><br>
-
-        <small>
-          Missing or insufficient permissions.
-        </small>
 
       </div>
     `;
@@ -2102,10 +2246,6 @@ async function loadPage(){
   }
 
 
-  /* =====================================
-     Generations
-  ===================================== */
-
   const generations =
     generationsResult.docs.map(
       docSnap => {
@@ -2115,7 +2255,8 @@ async function loadPage(){
 
         return {
 
-          id:docSnap.id,
+          id:
+            docSnap.id,
 
           ...data,
 
@@ -2195,7 +2336,7 @@ async function loadPage(){
 
 
   /* =====================================
-     تحميل Subjects
+     Subjects
   ===================================== */
 
   const subjectsResult =
@@ -2203,13 +2344,9 @@ async function loadPage(){
       "subjects"
     );
 
+  dataStatus.subjects =
+    subjectsResult.ok;
 
-  /*
-    إذا كانت subjects ممنوعة فقط،
-    لا نخلي الصفحة تنهار.
-
-    نظهر رسالة واضحة.
-  */
 
   if(!subjectsResult.ok){
 
@@ -2226,12 +2363,6 @@ async function loadPage(){
         يرجى التأكد من صلاحيات قراءة
         <strong>subjects</strong>
         في Firebase.
-
-        <br><br>
-
-        <small>
-          Missing or insufficient permissions.
-        </small>
 
       </div>
     `;
@@ -2250,7 +2381,8 @@ async function loadPage(){
 
         return {
 
-          id:docSnap.id,
+          id:
+            docSnap.id,
 
           ...data,
 
@@ -2275,6 +2407,10 @@ async function loadPage(){
       "sections"
     );
 
+  dataStatus.sections =
+    sectionsResult.ok;
+
+
   if(sectionsResult.ok){
 
     allSections =
@@ -2286,7 +2422,8 @@ async function loadPage(){
 
           return {
 
-            id:docSnap.id,
+            id:
+              docSnap.id,
 
             ...data,
 
@@ -2303,11 +2440,6 @@ async function loadPage(){
 
   }else{
 
-    /*
-      إذا sections ممنوعة،
-      المواد تظل تعمل.
-    */
-
     allSections = [];
 
   }
@@ -2317,10 +2449,19 @@ async function loadPage(){
      Resources
   ===================================== */
 
+  /*
+    لا نستخدم safeGetCollection هنا.
+
+    نستخدم getPublishedResources()
+    حتى يتوافق الاستعلام مع Firestore Rules.
+  */
+
   const resourcesResult =
-    await safeGetCollection(
-      "resources"
-    );
+    await getPublishedResources();
+
+  dataStatus.resources =
+    resourcesResult.ok;
+
 
   if(resourcesResult.ok){
 
@@ -2335,7 +2476,8 @@ async function loadPage(){
 
             return {
 
-              id:docSnap.id,
+              id:
+                docSnap.id,
 
               ...data,
 
@@ -2353,41 +2495,9 @@ async function loadPage(){
             };
 
           }
-        )
-
-        .filter(
-          resource => {
-
-            /*
-              إذا published غير موجود،
-              نعتبر الملف متاحاً.
-
-              وإذا موجود، لازم يكون true.
-            */
-
-            if(
-              resource.published ===
-              undefined
-            ){
-
-              return true;
-
-            }
-
-            return (
-              resource.published ===
-              true
-            );
-
-          }
         );
 
   }else{
-
-    /*
-      إذا resources ممنوعة،
-      المواد ستظهر لكن عدد الملفات = 0.
-    */
 
     allResources = [];
 
@@ -2419,11 +2529,6 @@ async function loadPage(){
     allSubjects.filter(
       subject => {
 
-        /*
-          إذا subject مربوط بالجيل
-          بأحد هذه الحقول.
-        */
-
         const values = [
 
           subject.generationId,
@@ -2435,17 +2540,14 @@ async function loadPage(){
         ];
 
 
-        /*
-          إذا عندنا قيمة ربط،
-          لازم تطابق الجيل.
-        */
-
         const hasGenerationValue =
           values.some(
             value =>
               value !== undefined &&
               value !== null &&
-              String(value).trim() !== ""
+              String(
+                valueToString(value)
+              ).trim() !== ""
           );
 
 
@@ -2461,12 +2563,6 @@ async function loadPage(){
 
         }
 
-
-        /*
-          إذا المادة لا تحتوي generationId
-          نخليها لا تظهر حتى لا تختلط
-          أجيال الموقع مع بعض.
-        */
 
         return false;
 
@@ -2634,65 +2730,12 @@ function getSubjectResourceCount(
   subject
 ){
 
-  const sections =
-    getSubjectSections(
+  const resources =
+    getSubjectResources(
       subject
     );
 
-  const subjectCandidates = [
-
-    subject.id,
-
-    subject.name
-
-  ];
-
-  return allResources.filter(
-    resource => {
-
-      const directMatch = [
-
-        resource.subjectId,
-        resource.subjectID,
-        resource.subject
-
-      ].some(
-        value =>
-          matchesValue(
-            value,
-            subjectCandidates
-          )
-      );
-
-
-      const sectionMatch = [
-
-        resource.sectionId,
-        resource.sectionID,
-        resource.section
-
-      ].some(
-        value =>
-          sections.some(
-            section =>
-              matchesValue(
-                value,
-                [
-                  section.id,
-                  section.name
-                ]
-              )
-          )
-      );
-
-
-      return (
-        directMatch ||
-        sectionMatch
-      );
-
-    }
-  ).length;
+  return resources.length;
 
 }
 
@@ -2715,18 +2758,16 @@ function getSubjectSections(
   return allSections.filter(
     section => {
 
-      return [
-
-        section.subjectId,
-        section.subjectID,
-        section.subject
-
-      ].some(
-        value =>
-          matchesValue(
-            value,
-            subjectCandidates
-          )
+      return matchesAnyField(
+        section,
+        [
+          "subjectId",
+          "subjectID",
+          "subject",
+          "subjectRef",
+          "subjectReference"
+        ],
+        subjectCandidates
       );
 
     }
@@ -2755,43 +2796,56 @@ function getSubjectResources(
 
   ];
 
+
   return allResources.filter(
     resource => {
 
-      const directMatch = [
+      /* =========================
+         ربط مباشر بالمادة
+      ========================= */
 
-        resource.subjectId,
-        resource.subjectID,
-        resource.subject
+      const directMatch =
+        matchesAnyField(
+          resource,
+          [
+            "subjectId",
+            "subjectID",
+            "subject",
+            "subjectRef",
+            "subjectReference"
+          ],
+          subjectCandidates
+        );
 
-      ].some(
-        value =>
-          matchesValue(
-            value,
-            subjectCandidates
-          )
-      );
+
+      /* =========================
+         ربط عن طريق القسم
+      ========================= */
+
+      const sectionCandidates =
+        sections.flatMap(
+          section => [
+
+            section.id,
+            section.name
+
+          ]
+        );
 
 
-      const sectionMatch = [
-
-        resource.sectionId,
-        resource.sectionID,
-        resource.section
-
-      ].some(
-        value =>
-          sections.some(
-            section =>
-              matchesValue(
-                value,
-                [
-                  section.id,
-                  section.name
-                ]
-              )
-          )
-      );
+      const sectionMatch =
+        sectionCandidates.length > 0 &&
+        matchesAnyField(
+          resource,
+          [
+            "sectionId",
+            "sectionID",
+            "section",
+            "sectionRef",
+            "sectionReference"
+          ],
+          sectionCandidates
+        );
 
 
       return (
@@ -3001,10 +3055,12 @@ function renderFiles(){
     return;
   }
 
+
   let resources =
     getSubjectResources(
       currentSubject
     );
+
 
   const search =
     normalize(
@@ -3035,6 +3091,7 @@ function renderFiles(){
           ]
           .flat()
           .join(" ");
+
 
           return normalize(
             searchableText
@@ -3073,29 +3130,26 @@ function renderFiles(){
           currentFilter
       );
 
+
     if(selectedSection){
 
       resources =
         resources.filter(
           resource => {
 
-            const sectionValues = [
-
-              resource.sectionId,
-              resource.sectionID,
-              resource.section
-
-            ];
-
-            return sectionValues.some(
-              value =>
-                matchesValue(
-                  value,
-                  [
-                    selectedSection.id,
-                    selectedSection.name
-                  ]
-                )
+            return matchesAnyField(
+              resource,
+              [
+                "sectionId",
+                "sectionID",
+                "section",
+                "sectionRef",
+                "sectionReference"
+              ],
+              [
+                selectedSection.id,
+                selectedSection.name
+              ]
             );
 
           }
@@ -3108,6 +3162,33 @@ function renderFiles(){
 
   if(!resources.length){
 
+    let emptyMessage =
+      "لا توجد ملفات متاحة حالياً.";
+
+
+    if(
+      currentFilter ===
+      "favorites"
+    ){
+
+      emptyMessage =
+        "لا توجد ملفات مفضلة حالياً.";
+
+    }else if(search){
+
+      emptyMessage =
+        "لم نجد أي ملف يطابق بحثك.";
+
+    }else if(
+      !dataStatus.resources
+    ){
+
+      emptyMessage =
+        "تعذر تحميل الملفات حالياً. تأكد من صلاحيات Firebase.";
+
+    }
+
+
     filesContainer.innerHTML = `
 
       <div class="empty">
@@ -3116,18 +3197,7 @@ function renderFiles(){
 
         <br>
 
-        ${
-          currentFilter ===
-          "favorites"
-
-            ? "لا توجد ملفات مفضلة حالياً."
-
-            : search
-
-              ? "لم نجد أي ملف يطابق بحثك."
-
-              : "لا توجد ملفات متاحة حالياً."
-        }
+        ${emptyMessage}
 
       </div>
 
@@ -3183,21 +3253,19 @@ function renderGroupedFiles(
         resources.filter(
           resource => {
 
-            return [
-
-              resource.sectionId,
-              resource.sectionID,
-              resource.section
-
-            ].some(
-              value =>
-                matchesValue(
-                  value,
-                  [
-                    section.id,
-                    section.name
-                  ]
-                )
+            return matchesAnyField(
+              resource,
+              [
+                "sectionId",
+                "sectionID",
+                "section",
+                "sectionRef",
+                "sectionReference"
+              ],
+              [
+                section.id,
+                section.name
+              ]
             );
 
           }
@@ -3255,12 +3323,29 @@ function renderGroupedFiles(
 
     groups.push({
 
-      name:"ملفات أخرى",
+      name:
+        "ملفات أخرى",
 
       resources:
         ungrouped
 
     });
+
+  }
+
+
+  /*
+    إذا ما في أقسام أصلاً،
+    نعرض الملفات مباشرة.
+  */
+
+  if(!groups.length){
+
+    renderSimpleFiles(
+      resources
+    );
+
+    return;
 
   }
 
@@ -3359,6 +3444,7 @@ function renderFile(
 
   const url =
     resource.url;
+
 
   return `
 
@@ -3530,6 +3616,7 @@ favoritesBtn.addEventListener(
 
       const favoriteIds =
         getFavorites();
+
 
       const subject =
         allSubjects.find(
