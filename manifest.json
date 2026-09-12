@@ -1,24 +1,23 @@
 {
   "name": "مساعد توجيهي",
   "short_name": "مساعد توجيهي",
-  "description": "منصة تعليمية لطلاب التوجيهي في الأردن",
-  "lang": "ar",
-  "dir": "rtl",
+  "description": "منصة تعليمية لطلاب التوجيهي تساعدك على تنظيم الدراسة والوصول إلى المواد والملفات.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f5f8f7",
   "theme_color": "#0f766e",
-  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
   "icons": [
     {
-      "src": "assets/logo-192.png",
+      "src": "assets/install-logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/logo-512.png",
+      "src": "assets/install-logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
