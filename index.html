@@ -1,17 +1,194 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مساعد توجيهي</title>
-  <meta name="description" content="مساعد توجيهي - منصتك التعليمية لطلاب التوجيهي">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <!-- =========================
+       SEO
+  ========================== -->
+
+  <title>مساعد توجيهي | منصة التوجيهي والمواد الدراسية في الأردن</title>
+
+  <meta
+    name="description"
+    content="مساعد توجيهي منصة تعليمية لطلاب التوجيهي في الأردن، توفر الأجيال والمواد والملفات الدراسية وخطة الدراسة ومؤقت الدراسة وأدوات تساعدك على تنظيم دراستك."
+  >
+
+  <meta
+    name="keywords"
+    content="مساعد توجيهي, توجيهي, التوجيهي الأردن, منصة توجيهي, مواد التوجيهي, ملفات توجيهي, دراسة التوجيهي, طلاب التوجيهي, جيل 2009, جيل 2010, خطة الدراسة, مؤقت الدراسة"
+  >
+
+  <meta name="author" content="عبدالله جهاد">
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link
+    rel="canonical"
+    href="https://YOUR-DOMAIN.com/"
+  >
+
+  <!-- =========================
+       Favicon
+  ========================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="assets/logo-192.png"
+  >
+
+  <!-- =========================
+       PWA
+  ========================== -->
+
+  <meta name="theme-color" content="#0f766e">
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="مساعد توجيهي"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <!-- =========================
+       Open Graph
+  ========================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:locale"
+    content="ar_JO"
+  >
+
+  <meta
+    property="og:title"
+    content="مساعد توجيهي | منصة التوجيهي"
+  >
+
+  <meta
+    property="og:description"
+    content="منصة تعليمية لطلاب التوجيهي في الأردن، تجمع المواد والملفات وأدوات الدراسة في مكان واحد."
+  >
+
+  <meta
+    property="og:url"
+    content="https://YOUR-DOMAIN.com/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="مساعد توجيهي"
+  >
+
+  <meta
+    property="og:image"
+    content="https://YOUR-DOMAIN.com/assets/logo-512.png"
+  >
+
+  <!-- =========================
+       Twitter
+  ========================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="مساعد توجيهي | منصة التوجيهي"
+  >
+
+  <meta
+    name="twitter:description"
+    content="منصة تعليمية لطلاب التوجيهي في الأردن."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://YOUR-DOMAIN.com/assets/logo-512.png"
+  >
+
+  <!-- =========================
+       Schema
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"مساعد توجيهي",
+    "alternateName":[
+      "مساعد توجيهي الأردن",
+      "منصة مساعد توجيهي"
+    ],
+    "url":"https://YOUR-DOMAIN.com/",
+    "description":"منصة تعليمية لطلاب التوجيهي في الأردن توفر المواد والملفات وأدوات الدراسة.",
+    "inLanguage":"ar-JO",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":{
+        "@type":"EntryPoint",
+        "urlTemplate":"https://YOUR-DOMAIN.com/?q={search_term_string}"
+      },
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- =========================
+       Font
+  ========================== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root{
       --bg:#f5f8f7;
       --surface:#ffffff;
@@ -25,6 +202,7 @@
       --success:#16a34a;
       --shadow:0 18px 55px rgba(15,118,110,.09);
       --radius:25px;
+      --bottom-height:76px;
     }
 
     body.dark{
@@ -53,12 +231,22 @@
     body{
       font-family:"IBM Plex Sans Arabic",sans-serif;
       background:
-        radial-gradient(circle at 10% 0%, rgba(20,184,166,.08), transparent 28%),
-        radial-gradient(circle at 90% 15%, rgba(15,118,110,.07), transparent 25%),
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(20,184,166,.08),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(15,118,110,.07),
+          transparent 25%
+        ),
         var(--bg);
       color:var(--text);
       min-height:100vh;
       transition:.25s ease;
+
+      padding-bottom:90px;
     }
 
     a{
@@ -77,7 +265,9 @@
       margin:auto;
     }
 
-    /* Header */
+    /* =========================
+       Header
+    ========================== */
 
     header{
       position:sticky;
@@ -115,8 +305,20 @@
       display:grid;
       place-items:center;
       color:white;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
       box-shadow:0 10px 25px rgba(15,118,110,.22);
+      overflow:hidden;
+    }
+
+    .brand-icon img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
     .brand-icon svg{
@@ -160,7 +362,9 @@
       height:20px;
     }
 
-    /* Hero */
+    /* =========================
+       Hero
+    ========================== */
 
     .hero{
       padding:62px 0 32px;
@@ -205,7 +409,9 @@
       font-size:15px;
     }
 
-    /* Search */
+    /* =========================
+       Search
+    ========================== */
 
     .search-section{
       margin:5px 0 35px;
@@ -311,7 +517,9 @@
       font-size:13px;
     }
 
-    /* Daily section */
+    /* =========================
+       Daily
+    ========================== */
 
     .daily-grid{
       display:grid;
@@ -399,7 +607,9 @@
       font-weight:500;
     }
 
-    /* Generations */
+    /* =========================
+       Sections
+    ========================== */
 
     .section-head{
       display:flex;
@@ -428,6 +638,10 @@
       font-weight:600;
       white-space:nowrap;
     }
+
+    /* =========================
+       Generations
+    ========================== */
 
     .generations-grid{
       display:grid;
@@ -473,7 +687,12 @@
       border-radius:16px;
       display:grid;
       place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
       color:#fff;
       box-shadow:0 10px 22px rgba(15,118,110,.18);
       margin-bottom:18px;
@@ -508,7 +727,9 @@
       z-index:2;
     }
 
-    /* Study Tools */
+    /* =========================
+       Study Tools
+    ========================== */
 
     .study-tools{
       margin-top:45px;
@@ -578,7 +799,9 @@
       flex:none;
     }
 
-    /* Features */
+    /* =========================
+       Features
+    ========================== */
 
     .features{
       margin:60px 0 20px;
@@ -625,7 +848,9 @@
       line-height:1.8;
     }
 
-    /* Loading / Empty */
+    /* =========================
+       Loading
+    ========================== */
 
     .loading{
       grid-column:1/-1;
@@ -648,21 +873,30 @@
     }
 
     @keyframes spin{
-      to{transform:rotate(360deg)}
+      to{
+        transform:rotate(360deg)
+      }
     }
 
-    /* Floating Notes */
+    /* =========================
+       Notes
+    ========================== */
 
     .notes-float-btn{
       position:fixed;
       left:20px;
-      bottom:20px;
+      bottom:95px;
       z-index:300;
       width:56px;
       height:56px;
       border:none;
       border-radius:18px;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
       color:#fff;
       display:grid;
       place-items:center;
@@ -673,7 +907,6 @@
 
     .notes-float-btn:hover{
       transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(15,118,110,.35);
     }
 
     .notes-float-btn svg{
@@ -807,7 +1040,12 @@
 
     .notes-save{
       border:none;
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
       color:#fff;
       border-radius:13px;
       padding:10px 17px;
@@ -816,7 +1054,272 @@
       font-weight:600;
     }
 
-    /* Footer */
+    /* =========================
+       Install Banner
+    ========================== */
+
+    .install-banner{
+      position:fixed;
+      left:50%;
+      bottom:88px;
+      transform:translateX(-50%) translateY(25px);
+      width:min(520px,calc(100% - 24px));
+      z-index:500;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:0 25px 70px rgba(0,0,0,.2);
+      padding:15px;
+      opacity:0;
+      visibility:hidden;
+      transition:.25s ease;
+    }
+
+    .install-banner.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateX(-50%) translateY(0);
+    }
+
+    .install-content{
+      display:flex;
+      align-items:center;
+      gap:13px;
+    }
+
+    .install-logo{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+      overflow:hidden;
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+      flex:none;
+    }
+
+    .install-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .install-info{
+      flex:1;
+    }
+
+    .install-info strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:3px;
+    }
+
+    .install-info span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.6;
+    }
+
+    .install-actions{
+      display:flex;
+      gap:7px;
+      margin-top:13px;
+    }
+
+    .install-btn{
+      flex:1;
+      border:none;
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+      color:white;
+      border-radius:12px;
+      padding:11px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:12px;
+    }
+
+    .later-btn{
+      flex:1;
+      border:1px solid var(--border);
+      background:var(--surface-2);
+      color:var(--text);
+      border-radius:12px;
+      padding:11px;
+      cursor:pointer;
+      font-weight:500;
+      font-size:12px;
+    }
+
+    /* =========================
+       iPhone Instructions
+    ========================== */
+
+    .ios-help{
+      position:fixed;
+      inset:0;
+      z-index:700;
+      display:none;
+      align-items:flex-end;
+      background:rgba(0,0,0,.35);
+      backdrop-filter:blur(5px);
+    }
+
+    .ios-help.show{
+      display:flex;
+    }
+
+    .ios-card{
+      width:100%;
+      background:var(--surface);
+      border-radius:28px 28px 0 0;
+      padding:22px;
+      box-shadow:0 -20px 60px rgba(0,0,0,.2);
+    }
+
+    .ios-card-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+
+    .ios-card h3{
+      font-size:18px;
+    }
+
+    .ios-close{
+      width:36px;
+      height:36px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--surface-2);
+      color:var(--text);
+      cursor:pointer;
+    }
+
+    .ios-step{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .ios-step:last-child{
+      border-bottom:0;
+    }
+
+    .ios-step-number{
+      width:34px;
+      height:34px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary);
+      font-weight:700;
+      flex:none;
+    }
+
+    .ios-step p{
+      color:var(--text);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .ios-share-icon{
+      display:inline-flex;
+      vertical-align:middle;
+      margin:0 3px;
+      color:var(--primary);
+    }
+
+    .ios-share-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    /* =========================
+       Bottom Navigation
+    ========================== */
+
+    .bottom-nav{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:600;
+      padding:
+        8px
+        10px
+        calc(8px + env(safe-area-inset-bottom));
+      background:rgba(255,255,255,.88);
+      border-top:1px solid var(--border);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+    }
+
+    body.dark .bottom-nav{
+      background:rgba(16,24,23,.9);
+    }
+
+    .bottom-nav-inner{
+      width:min(600px,100%);
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:7px;
+    }
+
+    .bottom-item{
+      min-height:58px;
+      border:1px solid transparent;
+      border-radius:16px;
+      background:transparent;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:4px;
+      cursor:pointer;
+      font-size:10px;
+      transition:.2s;
+    }
+
+    .bottom-item:hover{
+      background:var(--soft);
+      color:var(--primary);
+    }
+
+    .bottom-item.active{
+      background:var(--soft);
+      color:var(--primary);
+      border-color:rgba(20,184,166,.12);
+    }
+
+    .bottom-item svg{
+      width:21px;
+      height:21px;
+    }
+
+    .bottom-item strong{
+      font-size:10px;
+      font-weight:600;
+    }
+
+    /* =========================
+       Footer
+    ========================== */
 
     footer{
       margin-top:70px;
@@ -849,17 +1352,14 @@
     .developer a{
       color:var(--primary);
       font-weight:700;
-      transition:.2s;
     }
 
-    .developer a:hover{
-      color:var(--primary-2);
-      text-decoration:underline;
-    }
-
-    /* Responsive */
+    /* =========================
+       Responsive
+    ========================== */
 
     @media(max-width:850px){
+
       .generations-grid{
         grid-template-columns:repeat(2,1fr);
       }
@@ -867,9 +1367,11 @@
       .features-grid{
         grid-template-columns:1fr;
       }
+
     }
 
     @media(max-width:650px){
+
       .container{
         width:min(100% - 22px,1120px);
       }
@@ -947,50 +1449,94 @@
 
       .notes-float-btn{
         left:14px;
-        bottom:14px;
+        bottom:88px;
       }
+
+      .install-banner{
+        bottom:84px;
+      }
+
     }
+
   </style>
+
 </head>
 
 <body>
 
-  <!-- Header -->
+  <!-- =========================
+       Header
+  ========================== -->
+
   <header>
+
     <div class="container header-inner">
 
       <a href="index.html" class="brand">
+
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <img
+            src="assets/logo-192.png"
+            alt="شعار مساعد توجيهي"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+          >
+
+          <svg
+            style="display:none"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
             <path d="M8 6h8M8 10h8"/>
           </svg>
+
         </div>
 
         <div class="brand-text">
           <strong>مساعد توجيهي</strong>
           <span>رفيقك في طريق التوجيهي</span>
         </div>
+
       </a>
 
-      <button class="theme-btn" id="themeBtn" aria-label="تغيير المظهر"></button>
+      <button
+        class="theme-btn"
+        id="themeBtn"
+        aria-label="تغيير المظهر"
+      ></button>
 
     </div>
+
   </header>
 
 
   <main>
 
-    <!-- Hero -->
+    <!-- =========================
+         Hero
+    ========================== -->
+
     <section class="hero">
+
       <div class="container">
 
         <div class="hero-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
           </svg>
-          منصتك التعليمية
+
+          منصة التوجيهي في الأردن
+
         </div>
 
         <h1>
@@ -999,16 +1545,21 @@
         </h1>
 
         <p>
-          مكان واحد يجمع لك كل ما تحتاجه في رحلتك الدراسية،
-          بطريقة مرتبة وسهلة وسريعة.
+          كل ما تحتاجه لرحلتك الدراسية في مكان واحد:
+          المواد، الملفات، الأجيال، أدوات الدراسة وتنظيم وقتك.
         </p>
 
       </div>
+
     </section>
 
 
-    <!-- البحث الشامل -->
+    <!-- =========================
+         Search
+    ========================== -->
+
     <section class="search-section">
+
       <div class="container">
 
         <div class="search-box">
@@ -1027,69 +1578,107 @@
           <input
             type="search"
             id="globalSearch"
-            placeholder="ابحث عن جيل، مادة، ملف أو أي شيء..."
+            placeholder="ابحث عن جيل، مادة، ملف، رياضيات، عربي..."
             autocomplete="off"
+            enterkeyhint="search"
           >
 
         </div>
 
-        <div class="search-results" id="searchResults"></div>
+        <div
+          class="search-results"
+          id="searchResults"
+        ></div>
 
       </div>
+
     </section>
 
 
-    <!-- Daily -->
+    <!-- =========================
+         Daily
+    ========================== -->
+
     <section>
+
       <div class="container">
 
         <div class="daily-grid">
 
-          <!-- Quran -->
           <div class="daily-card">
 
             <div class="daily-top">
+
               <div class="daily-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
                 </svg>
+
               </div>
 
               <div>
                 <div class="daily-title">آية اليوم</div>
-                <div class="daily-subtitle">اخترنا لك آية عشوائية</div>
+                <div class="daily-subtitle">
+                  اخترنا لك آية عشوائية
+                </div>
               </div>
+
             </div>
 
-            <div class="verse" id="verseText">
+            <div
+              class="verse"
+              id="verseText"
+            >
               جاري تحميل الآية...
             </div>
 
-            <div class="verse-source" id="verseSource"></div>
+            <div
+              class="verse-source"
+              id="verseSource"
+            ></div>
 
           </div>
 
 
-          <!-- Advice -->
           <div class="daily-card">
 
             <div class="daily-top">
+
               <div class="daily-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
                   <path d="M9 18h6"/>
                   <path d="M10 22h4"/>
                   <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5C14.5 15.3 14 16.2 14 17H10c0-.8-.5-1.7-1.5-2.5Z"/>
                 </svg>
+
               </div>
 
               <div>
                 <div class="daily-title">نصيحة اليوم</div>
-                <div class="daily-subtitle">خطوة صغيرة تصنع فرقاً كبيراً</div>
+                <div class="daily-subtitle">
+                  خطوة صغيرة تصنع فرقاً كبيراً
+                </div>
               </div>
+
             </div>
 
-            <div class="tip-text" id="tipText">
+            <div
+              class="tip-text"
+              id="tipText"
+            >
               جاري تحميل النصيحة...
             </div>
 
@@ -1098,69 +1687,118 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- Generations -->
+    <!-- =========================
+         Generations
+    ========================== -->
+
     <section>
+
       <div class="container">
 
         <div class="section-head">
 
           <div class="section-title">
             <h2>الأجيال الدراسية</h2>
-            <p>اختر جيلك للوصول إلى المواد والملفات</p>
+            <p>
+              اختر جيلك للوصول إلى المواد والملفات
+            </p>
           </div>
 
-          <div class="generation-count" id="generationCount">
+          <div
+            class="generation-count"
+            id="generationCount"
+          >
             جاري التحميل
           </div>
 
         </div>
 
-        <div class="generations-grid" id="generationsGrid">
+        <div
+          class="generations-grid"
+          id="generationsGrid"
+        >
 
           <div class="loading">
+
             <div class="spinner"></div>
+
             جاري تحميل الأجيال...
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- Study Tools -->
+    <!-- =========================
+         Study Tools
+    ========================== -->
+
     <section class="study-tools">
+
       <div class="container">
 
         <div class="section-head">
+
           <div class="section-title">
+
             <h2>أدوات الدراسة</h2>
-            <p>أدوات تساعدك على تنظيم وقتك ودراستك</p>
+
+            <p>
+              أدوات تساعدك على تنظيم وقتك ودراستك
+            </p>
+
           </div>
+
         </div>
+
 
         <div class="study-tools-grid">
 
-          <!-- Study Plan -->
-          <a href="study-plan.html" class="study-tool">
+          <a
+            href="study-plan.html"
+            class="study-tool"
+          >
 
             <div class="study-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="17" rx="2"/>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect
+                  x="3"
+                  y="4"
+                  width="18"
+                  height="17"
+                  rx="2"
+                />
                 <path d="M8 2v4"/>
                 <path d="M16 2v4"/>
                 <path d="M3 9h18"/>
                 <path d="M8 13h3"/>
                 <path d="M8 17h6"/>
               </svg>
+
             </div>
 
             <div class="study-tool-content">
+
               <h3>خطة الدراسة</h3>
-              <p>نظّم دراستك وحدد أهدافك وخطتك اليومية.</p>
+
+              <p>
+                نظّم دراستك وحدد أهدافك وخطتك اليومية.
+              </p>
+
             </div>
 
             <svg
@@ -1176,21 +1814,39 @@
           </a>
 
 
-          <!-- Study Timer -->
-          <a href="study-timer.html" class="study-tool">
+          <a
+            href="study-timer.html"
+            class="study-tool"
+          >
 
             <div class="study-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="13" r="8"/>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle
+                  cx="12"
+                  cy="13"
+                  r="8"
+                />
                 <path d="M12 9v4l2.5 2"/>
                 <path d="M9 2h6"/>
                 <path d="M12 2v3"/>
               </svg>
+
             </div>
 
             <div class="study-tool-content">
+
               <h3>مؤقت الدراسة</h3>
-              <p>ركّز في دراستك باستخدام مؤقت مخصص لجلسات الدراسة.</p>
+
+              <p>
+                ركّز في دراستك باستخدام مؤقت مخصص لجلسات الدراسة.
+              </p>
+
             </div>
 
             <svg
@@ -1208,77 +1864,123 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- Features -->
+    <!-- =========================
+         Features
+    ========================== -->
+
     <section class="features">
+
       <div class="container">
 
         <div class="section-head">
+
           <div class="section-title">
+
             <h2>ليش مساعد توجيهي؟</h2>
-            <p>مصمم حتى يخلي وصولك للمحتوى أسهل</p>
+
+            <p>
+              مصمم حتى يخلي وصولك للمحتوى أسهل
+            </p>
+
           </div>
+
         </div>
+
 
         <div class="features-grid">
 
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
               </svg>
+
             </div>
 
             <h3>محتوى مرتب</h3>
+
             <p>
               الوصول إلى المواد والملفات بطريقة منظمة حسب الجيل والمادة.
             </p>
+
           </div>
 
 
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M12 3v18"/>
                 <path d="M3 12h18"/>
                 <path d="M5.6 5.6l12.8 12.8"/>
                 <path d="M18.4 5.6L5.6 18.4"/>
               </svg>
+
             </div>
 
             <h3>سريع وسهل</h3>
+
             <p>
               تصميم بسيط يساعدك توصل للمعلومة والملف الذي تحتاجه بأقل وقت.
             </p>
+
           </div>
 
 
           <div class="feature">
+
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M20 12a8 8 0 1 1-2.34-5.66"/>
                 <path d="M20 4v6h-6"/>
               </svg>
+
             </div>
 
             <h3>يتطور باستمرار</h3>
+
             <p>
               يتم إضافة وتنظيم المحتوى باستمرار حتى تبقى المنصة مفيدة للطلاب.
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
-  <!-- Floating Notes Button -->
+  <!-- =========================
+       Notes Button
+  ========================== -->
 
   <button
     class="notes-float-btn"
@@ -1286,6 +1988,7 @@
     aria-label="فتح المذكرة"
     title="المذكرة"
   >
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1297,12 +2000,18 @@
       <path d="M8 13h8"/>
       <path d="M8 17h5"/>
     </svg>
+
   </button>
 
 
-  <!-- Notes -->
+  <!-- =========================
+       Notes
+  ========================== -->
 
-  <div class="notes-overlay" id="notesOverlay">
+  <div
+    class="notes-overlay"
+    id="notesOverlay"
+  >
 
     <div class="notes-panel">
 
@@ -1311,6 +2020,7 @@
         <div class="notes-header-title">
 
           <div class="notes-header-icon">
+
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -1322,17 +2032,20 @@
               <path d="M8 13h8"/>
               <path d="M8 17h5"/>
             </svg>
+
           </div>
 
           <strong>مذكرتي</strong>
 
         </div>
 
+
         <button
           class="notes-close"
           id="notesClose"
           aria-label="إغلاق المذكرة"
         >
+
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -1342,6 +2055,7 @@
             <path d="M6 6l12 12"/>
             <path d="M18 6L6 18"/>
           </svg>
+
         </button>
 
       </div>
@@ -1354,13 +2068,20 @@
           placeholder="اكتب ملاحظاتك، الأشياء التي أنجزتها، أهدافك، أو أي شيء تريد تذكره..."
         ></textarea>
 
+
         <div class="notes-footer">
 
-          <div class="notes-status" id="notesStatus">
+          <div
+            class="notes-status"
+            id="notesStatus"
+          >
             تُحفظ المذكرة على هذا الجهاز
           </div>
 
-          <button class="notes-save" id="notesSave">
+          <button
+            class="notes-save"
+            id="notesSave"
+          >
             حفظ المذكرة
           </button>
 
@@ -1373,9 +2094,262 @@
   </div>
 
 
-  <!-- Footer -->
+  <!-- =========================
+       Install Banner
+  ========================== -->
+
+  <div
+    class="install-banner"
+    id="installBanner"
+  >
+
+    <div class="install-content">
+
+      <div class="install-logo">
+
+        <img
+          src="assets/logo-192.png"
+          alt="مساعد توجيهي"
+        >
+
+      </div>
+
+      <div class="install-info">
+
+        <strong>
+          ثبّت مساعد توجيهي
+        </strong>
+
+        <span id="installDescription">
+          أضف المنصة إلى جهازك للوصول إليها بسرعة.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="install-actions">
+
+      <button
+        class="install-btn"
+        id="installBtn"
+      >
+        تثبيت التطبيق
+      </button>
+
+      <button
+        class="later-btn"
+        id="laterBtn"
+      >
+        ذكرني لاحقاً
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       iOS Install Help
+  ========================== -->
+
+  <div
+    class="ios-help"
+    id="iosHelp"
+  >
+
+    <div class="ios-card">
+
+      <div class="ios-card-head">
+
+        <h3>
+          تثبيت مساعد توجيهي على iPhone
+        </h3>
+
+        <button
+          class="ios-close"
+          id="iosClose"
+          aria-label="إغلاق"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="ios-step">
+
+        <div class="ios-step-number">
+          1
+        </div>
+
+        <p>
+          افتح الموقع من متصفح Safari.
+        </p>
+
+      </div>
+
+
+      <div class="ios-step">
+
+        <div class="ios-step-number">
+          2
+        </div>
+
+        <p>
+
+          اضغط على زر المشاركة
+
+          <span class="ios-share-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 16V3"/>
+              <path d="m7 8 5-5 5 5"/>
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>
+            </svg>
+
+          </span>
+
+          من Safari.
+        </p>
+
+      </div>
+
+
+      <div class="ios-step">
+
+        <div class="ios-step-number">
+          3
+        </div>
+
+        <p>
+          اختر «إضافة إلى الشاشة الرئيسية».
+        </p>
+
+      </div>
+
+
+      <div class="ios-step">
+
+        <div class="ios-step-number">
+          4
+        </div>
+
+        <p>
+          اضغط «إضافة» وسيظهر مساعد توجيهي كتطبيق على جهازك.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       Bottom Navigation
+  ========================== -->
+
+  <nav
+    class="bottom-nav"
+    aria-label="التنقل السريع"
+  >
+
+    <div class="bottom-nav-inner">
+
+      <button
+        class="bottom-item active"
+        id="shareSiteBtn"
+        type="button"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <path d="m8.6 13.5 6.8 4"/>
+          <path d="m15.4 6.5-6.8 4"/>
+        </svg>
+
+        <strong>
+          مشاركة الموقع
+        </strong>
+
+      </button>
+
+
+      <button
+        class="bottom-item"
+        id="bottomInstallBtn"
+        type="button"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 3v12"/>
+          <path d="m7 10 5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+
+        <strong>
+          تثبيت التطبيق
+        </strong>
+
+      </button>
+
+
+      <button
+        class="bottom-item"
+        id="bottomLaterBtn"
+        type="button"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+          />
+          <path d="M12 7v5l3 2"/>
+        </svg>
+
+        <strong>
+          ذكرني لاحقاً
+        </strong>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       Footer
+  ========================== -->
 
   <footer>
+
     <div class="container">
 
       <div class="footer-brand">
@@ -1387,7 +2361,10 @@
       </div>
 
       <div class="developer">
-        <span>برمجة وتصميم</span>
+
+        <span>
+          برمجة وتصميم
+        </span>
 
         <a
           href="https://www.instagram.com/x.wx1?stkn=MThuYnVicHZuOW9sOA%3D%3D&utm_source=qr"
@@ -1396,11 +2373,17 @@
         >
           عبدالله جهاد
         </a>
+
       </div>
 
     </div>
+
   </footer>
 
+
+  <!-- =========================
+       Firebase + JS
+  ========================== -->
 
   <script type="module">
 
@@ -1412,8 +2395,8 @@
 
 
     /* =========================
-       آيات القرآن
-    ========================= */
+       Quran
+    ========================== */
 
     const verses = [
 
@@ -1471,8 +2454,8 @@
 
 
     /* =========================
-       النصائح
-    ========================= */
+       Tips
+    ========================== */
 
     const tips = [
 
@@ -1499,40 +2482,54 @@
     ];
 
 
-    /* =========================
-       اختيار عشوائي
-    ========================= */
-
     function randomItem(array){
-      return array[Math.floor(Math.random() * array.length)];
+
+      return array[
+        Math.floor(
+          Math.random() * array.length
+        )
+      ];
+
     }
 
 
     function loadDailyContent(){
 
       const verse = randomItem(verses);
+
       const tip = randomItem(tips);
 
-      document.getElementById("verseText").textContent = verse.text;
-      document.getElementById("verseSource").textContent = verse.source;
+      document.getElementById("verseText").textContent =
+        verse.text;
 
-      document.getElementById("tipText").textContent = tip.text || tip;
+      document.getElementById("verseSource").textContent =
+        verse.source;
+
+      document.getElementById("tipText").textContent =
+        tip;
 
     }
-
 
     loadDailyContent();
 
 
     /* =========================
-       الوضع الليلي
-    ========================= */
+       Theme
+    ========================== */
 
-    const themeBtn = document.getElementById("themeBtn");
+    const themeBtn =
+      document.getElementById("themeBtn");
+
 
     function sunIcon(){
+
       return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <circle cx="12" cy="12" r="4"/>
           <path d="M12 2v2"/>
           <path d="M12 20v2"/>
@@ -1544,54 +2541,91 @@
           <path d="M17.66 6.34l1.41-1.41"/>
         </svg>
       `;
+
     }
 
+
     function moonIcon(){
+
       return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
         </svg>
       `;
+
     }
 
 
     function updateThemeButton(){
 
-      const dark = document.body.classList.contains("dark");
+      const dark =
+        document.body.classList.contains("dark");
 
-      themeBtn.innerHTML = dark ? sunIcon() : moonIcon();
+      themeBtn.innerHTML =
+        dark ? sunIcon() : moonIcon();
 
     }
 
 
-    const savedTheme = localStorage.getItem("tawjihi-theme");
+    const savedTheme =
+      localStorage.getItem("tawjihi-theme");
+
 
     if(savedTheme === "dark"){
+
       document.body.classList.add("dark");
+
     }
+
 
     updateThemeButton();
 
 
-    themeBtn.addEventListener("click",()=>{
+    themeBtn.addEventListener(
+      "click",
+      ()=>{
 
-      document.body.classList.toggle("dark");
+        document.body.classList.toggle("dark");
 
-      const dark = document.body.classList.contains("dark");
+        const dark =
+          document.body.classList.contains("dark");
 
-      localStorage.setItem(
-        "tawjihi-theme",
-        dark ? "dark" : "light"
-      );
+        localStorage.setItem(
+          "tawjihi-theme",
+          dark ? "dark" : "light"
+        );
 
-      updateThemeButton();
+        updateThemeButton();
 
-    });
+      }
+    );
 
 
     /* =========================
-       تحميل الأجيال من Firebase
-    ========================= */
+       Escape HTML
+    ========================== */
+
+    function escapeHtml(value){
+
+      return String(value)
+
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+    }
+
+
+    /* =========================
+       Generations
+    ========================== */
 
     const generationsGrid =
       document.getElementById("generationsGrid");
@@ -1600,7 +2634,7 @@
       document.getElementById("generationCount");
 
 
-    function getGenerationYear(data, id){
+    function getGenerationYear(data,id){
 
       return (
         data.year ??
@@ -1615,7 +2649,8 @@
 
     function numericYear(value){
 
-      const match = String(value).match(/\d{4}/);
+      const match =
+        String(value).match(/\d{4}/);
 
       return match
         ? Number(match[0])
@@ -1629,26 +2664,34 @@
       try{
 
         const snapshot =
-          await getDocs(collection(db,"generations"));
-
-        const generations = snapshot.docs.map(docSnap => {
-
-          const data = docSnap.data();
-
-          return {
-            id:docSnap.id,
-            ...data,
-            year:getGenerationYear(data,docSnap.id)
-          };
-
-        });
+          await getDocs(
+            collection(db,"generations")
+          );
 
 
-        generations.sort((a,b)=>{
+        const generations =
+          snapshot.docs.map(docSnap=>{
 
-          return numericYear(b.year) - numericYear(a.year);
+            const data =
+              docSnap.data();
 
-        });
+            return {
+              id:docSnap.id,
+              ...data,
+              year:getGenerationYear(
+                data,
+                docSnap.id
+              )
+            };
+
+          });
+
+
+        generations.sort(
+          (a,b)=>
+            numericYear(b.year) -
+            numericYear(a.year)
+        );
 
 
         generationCount.textContent =
@@ -1671,16 +2714,22 @@
 
 
         generationsGrid.innerHTML =
-          generations.map(generation => {
+          generations.map(generation=>{
 
-            const year = generation.year;
+            const year =
+              generation.year;
 
             return `
 
               <a
                 class="generation-card"
                 href="generations.html?year=${encodeURIComponent(year)}"
-                data-search="${escapeHtml(`جيل ${year} ${generation.name || ""} ${generation.title || ""} ${generation.label || ""}`)}"
+                data-search="${escapeHtml(
+                  `جيل ${year}
+                  ${generation.name || ""}
+                  ${generation.title || ""}
+                  ${generation.label || ""}`
+                )}"
               >
 
                 <div class="generation-number">
@@ -1711,7 +2760,7 @@
                   class="generation-arrow"
                   viewBox="0 0 24 24"
                   fill="none"
-                                   stroke="currentColor"
+                  stroke="currentColor"
                   stroke-width="2"
                 >
                   <path d="M9 18l6-6-6-6"/>
@@ -1726,12 +2775,12 @@
 
         setupSearch(generations);
 
-
       }catch(error){
 
         console.error(error);
 
-        generationCount.textContent = "خطأ";
+        generationCount.textContent =
+          "خطأ";
 
         generationsGrid.innerHTML = `
           <div class="loading">
@@ -1747,21 +2796,9 @@
     }
 
 
-    function escapeHtml(value){
-
-      return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-
-    }
-
-
     /* =========================
-       البحث الشامل
-    ========================= */
+       Search
+    ========================== */
 
     const globalSearch =
       document.getElementById("globalSearch");
@@ -1775,17 +2812,64 @@
 
     function setupSearch(generations){
 
-      searchableItems = generations.map(generation => {
+      searchableItems = [];
 
-        const year = generation.year;
 
-        return {
+      generations.forEach(generation=>{
+
+        const year =
+          generation.year;
+
+        const subjects =
+          Array.isArray(generation.subjects)
+            ? generation.subjects.join(" ")
+            : "";
+
+
+        searchableItems.push({
+
           title:`جيل ${year}`,
-          description:"عرض المواد والملفات",
-          url:`generations.html?year=${encodeURIComponent(year)}`
-        };
+
+          description:
+            `مواد وملفات جيل ${year}`,
+
+          keywords:
+            `
+            جيل ${year}
+            توجيهي ${year}
+            التوجيهي ${year}
+            مواد ${year}
+            ملفات ${year}
+            ${subjects}
+            `,
+
+          url:
+            `generations.html?year=${encodeURIComponent(year)}`
+
+        });
 
       });
+
+
+      /* أدوات الدراسة */
+
+      searchableItems.push(
+
+        {
+          title:"خطة الدراسة",
+          description:"تنظيم الدراسة والأهداف اليومية",
+          keywords:"خطة دراسة جدول دراسة تنظيم وقت",
+          url:"study-plan.html"
+        },
+
+        {
+          title:"مؤقت الدراسة",
+          description:"مؤقت لجلسات الدراسة والتركيز",
+          keywords:"مؤقت دراسة بومودورو تايمر تركيز",
+          url:"study-timer.html"
+        }
+
+      );
 
     }
 
@@ -1793,22 +2877,109 @@
     function normalizeSearch(value){
 
       return String(value || "")
+
         .toLowerCase()
+
         .replace(/[أإآ]/g,"ا")
+
         .replace(/ة/g,"ه")
+
         .replace(/ى/g,"ي")
+
+        .replace(/[ًٌٍَُِّْـ]/g,"")
+
+        .replace(/[^\u0600-\u06FFa-z0-9\s]/gi," ")
+
+        .replace(/\s+/g," ")
+
         .trim();
+
+    }
+
+
+    function searchScore(item,query){
+
+      const title =
+        normalizeSearch(item.title);
+
+      const description =
+        normalizeSearch(item.description);
+
+      const keywords =
+        normalizeSearch(item.keywords);
+
+      let score = 0;
+
+
+      /* تطابق العنوان */
+
+      if(title === query){
+        score += 1000;
+      }
+
+
+      if(title.startsWith(query)){
+        score += 500;
+      }
+
+
+      if(title.includes(query)){
+        score += 300;
+      }
+
+
+      /* الوصف */
+
+      if(description.includes(query)){
+        score += 100;
+      }
+
+
+      /* الكلمات */
+
+      if(keywords.includes(query)){
+        score += 80;
+      }
+
+
+      /* كل كلمة */
+
+      const words =
+        query.split(" ").filter(Boolean);
+
+
+      words.forEach(word=>{
+
+        if(title.includes(word)){
+          score += 100;
+        }
+
+        if(description.includes(word)){
+          score += 30;
+        }
+
+        if(keywords.includes(word)){
+          score += 20;
+        }
+
+      });
+
+
+      return score;
 
     }
 
 
     function searchAll(value){
 
-      const query = normalizeSearch(value);
+      const query =
+        normalizeSearch(value);
+
 
       if(!query){
 
         searchResults.classList.remove("show");
+
         searchResults.innerHTML = "";
 
         return;
@@ -1817,16 +2988,27 @@
 
 
       const results =
-        searchableItems.filter(item => {
+        searchableItems
 
-          const content =
-            normalizeSearch(
-              `${item.title} ${item.description}`
-            );
+          .map(item=>({
 
-          return content.includes(query);
+            ...item,
 
-        });
+            score:searchScore(
+              item,
+              query
+            )
+
+          }))
+
+          .filter(item=>item.score > 0)
+
+          .sort(
+            (a,b)=>
+              b.score - a.score
+          )
+
+          .slice(0,8);
 
 
       searchResults.classList.add("show");
@@ -1835,9 +3017,13 @@
       if(!results.length){
 
         searchResults.innerHTML = `
+
           <div class="search-empty">
+
             لا توجد نتائج مطابقة لبحثك.
+
           </div>
+
         `;
 
         return;
@@ -1846,7 +3032,7 @@
 
 
       searchResults.innerHTML =
-        results.map(item => `
+        results.map(item=>`
 
           <a
             href="${item.url}"
@@ -1868,8 +3054,15 @@
             </div>
 
             <div class="search-result-text">
-              <strong>${escapeHtml(item.title)}</strong>
-              <span>${escapeHtml(item.description)}</span>
+
+              <strong>
+                ${escapeHtml(item.title)}
+              </strong>
+
+              <span>
+                ${escapeHtml(item.description)}
+              </span>
+
             </div>
 
           </a>
@@ -1879,58 +3072,109 @@
     }
 
 
-    globalSearch.addEventListener("input",event=>{
+    globalSearch.addEventListener(
+      "input",
+      event=>{
+        searchAll(event.target.value);
+      }
+    );
 
-      searchAll(event.target.value);
 
-    });
+    document.addEventListener(
+      "click",
+      event=>{
 
+        if(
+          !event.target.closest(".search-box") &&
+          !event.target.closest(".search-results")
+        ){
 
-    document.addEventListener("click",event=>{
+          searchResults.classList.remove("show");
 
-      if(
-        !event.target.closest(".search-box") &&
-        !event.target.closest(".search-results")
-      ){
-
-        searchResults.classList.remove("show");
+        }
 
       }
-
-    });
+    );
 
 
     /* =========================
-       المذكرة
-    ========================= */
+       Search from URL
+    ========================== */
+
+    const urlParams =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const urlQuery =
+      urlParams.get("q");
+
+
+    if(urlQuery){
+
+      globalSearch.value =
+        urlQuery;
+
+      setTimeout(
+        ()=>{
+          searchAll(urlQuery);
+        },
+        500
+      );
+
+    }
+
+
+    /* =========================
+       Notes
+    ========================== */
 
     const NOTES_KEY =
       "tawjihi-notes";
 
 
     const notesFloatBtn =
-      document.getElementById("notesFloatBtn");
+      document.getElementById(
+        "notesFloatBtn"
+      );
+
 
     const notesOverlay =
-      document.getElementById("notesOverlay");
+      document.getElementById(
+        "notesOverlay"
+      );
+
 
     const notesClose =
-      document.getElementById("notesClose");
+      document.getElementById(
+        "notesClose"
+      );
+
 
     const notesTextarea =
-      document.getElementById("notesTextarea");
+      document.getElementById(
+        "notesTextarea"
+      );
+
 
     const notesSave =
-      document.getElementById("notesSave");
+      document.getElementById(
+        "notesSave"
+      );
+
 
     const notesStatus =
-      document.getElementById("notesStatus");
+      document.getElementById(
+        "notesStatus"
+      );
 
 
     function loadNotes(){
 
       const savedNotes =
-        localStorage.getItem(NOTES_KEY);
+        localStorage.getItem(
+          NOTES_KEY
+        );
 
       notesTextarea.value =
         savedNotes || "";
@@ -1942,20 +3186,25 @@
 
       loadNotes();
 
-      notesOverlay.classList.add("show");
+      notesOverlay.classList.add(
+        "show"
+      );
 
-      setTimeout(()=>{
-
-        notesTextarea.focus();
-
-      },100);
+      setTimeout(
+        ()=>{
+          notesTextarea.focus();
+        },
+        100
+      );
 
     }
 
 
     function closeNotes(){
 
-      notesOverlay.classList.remove("show");
+      notesOverlay.classList.remove(
+        "show"
+      );
 
     }
 
@@ -1967,15 +3216,20 @@
         notesTextarea.value
       );
 
+
       notesStatus.textContent =
         "تم حفظ المذكرة بنجاح";
 
-      setTimeout(()=>{
 
-        notesStatus.textContent =
-          "تُحفظ المذكرة على هذا الجهاز";
+      setTimeout(
+        ()=>{
 
-      },2000);
+          notesStatus.textContent =
+            "تُحفظ المذكرة على هذا الجهاز";
+
+        },
+        2000
+      );
 
     }
 
@@ -1995,6 +3249,19 @@
     notesSave.addEventListener(
       "click",
       saveNotes
+    );
+
+
+    notesTextarea.addEventListener(
+      "input",
+      ()=>{
+
+        localStorage.setItem(
+          NOTES_KEY,
+          notesTextarea.value
+        );
+
+      }
     );
 
 
@@ -2029,27 +3296,434 @@
     );
 
 
-    /*
-      حفظ تلقائي عند مغادرة الصفحة
-      حتى لا تضيع الملاحظات إذا نسي الطالب الضغط على حفظ
-    */
+    /* =========================
+       PWA Install
+    ========================== */
 
-    notesTextarea.addEventListener(
-      "input",
-      ()=>{
+    let deferredInstallPrompt = null;
 
-        localStorage.setItem(
-          NOTES_KEY,
-          notesTextarea.value
-        );
+
+    const installBanner =
+      document.getElementById(
+        "installBanner"
+      );
+
+
+    const installBtn =
+      document.getElementById(
+        "installBtn"
+      );
+
+
+    const laterBtn =
+      document.getElementById(
+        "laterBtn"
+      );
+
+
+    const bottomInstallBtn =
+      document.getElementById(
+        "bottomInstallBtn"
+      );
+
+
+    const bottomLaterBtn =
+      document.getElementById(
+        "bottomLaterBtn"
+      );
+
+
+    const installDescription =
+      document.getElementById(
+        "installDescription"
+      );
+
+
+    const iosHelp =
+      document.getElementById(
+        "iosHelp"
+      );
+
+
+    const iosClose =
+      document.getElementById(
+        "iosClose"
+      );
+
+
+    function isIOS(){
+
+      return /iphone|ipad|ipod/i.test(
+        navigator.userAgent
+      );
+
+    }
+
+
+    function isStandalone(){
+
+      return (
+        window.matchMedia(
+          "(display-mode: standalone)"
+        ).matches ||
+        window.navigator.standalone === true
+      );
+
+    }
+
+
+    function newSession(){
+
+      return !sessionStorage.getItem(
+        "tawjihi-install-session"
+      );
+
+    }
+
+
+    function markSession(){
+
+      sessionStorage.setItem(
+        "tawjihi-install-session",
+        "1"
+      );
+
+    }
+
+
+    function showInstallBanner(){
+
+      if(isStandalone()){
+        return;
+      }
+
+
+      if(isIOS()){
+
+        installDescription.textContent =
+          "ثبّت الموقع على iPhone من زر المشاركة.";
+
+      }else{
+
+        installDescription.textContent =
+          "ثبّت المنصة كتطبيق للوصول إليها بسرعة.";
+
+      }
+
+
+      installBanner.classList.add(
+        "show"
+      );
+
+    }
+
+
+    function hideInstallBanner(){
+
+      installBanner.classList.remove(
+        "show"
+      );
+
+    }
+
+
+    function showIOSHelp(){
+
+      iosHelp.classList.add(
+        "show"
+      );
+
+    }
+
+
+    function hideIOSHelp(){
+
+      iosHelp.classList.remove(
+        "show"
+      );
+
+    }
+
+
+    async function installApp(){
+
+      if(isStandalone()){
+
+        hideInstallBanner();
+
+        return;
+
+      }
+
+
+      if(isIOS()){
+
+        hideInstallBanner();
+
+        showIOSHelp();
+
+        return;
+
+      }
+
+
+      if(deferredInstallPrompt){
+
+        deferredInstallPrompt.prompt();
+
+
+        const result =
+          await deferredInstallPrompt.userChoice;
+
+
+        if(
+          result.outcome === "accepted"
+        ){
+
+          hideInstallBanner();
+
+        }
+
+
+        deferredInstallPrompt = null;
+
+        return;
+
+      }
+
+
+      alert(
+        "إذا لم يظهر التثبيت، افتح قائمة المتصفح واختر إضافة إلى الشاشة الرئيسية."
+      );
+
+    }
+
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      event=>{
+
+        event.preventDefault();
+
+        deferredInstallPrompt =
+          event;
 
       }
     );
 
 
+    window.addEventListener(
+      "appinstalled",
+      ()=>{
+
+        hideInstallBanner();
+
+        deferredInstallPrompt =
+          null;
+
+      }
+    );
+
+
+    installBtn.addEventListener(
+      "click",
+      installApp
+    );
+
+
+    bottomInstallBtn.addEventListener(
+      "click",
+      installApp
+    );
+
+
+    function remindLater(){
+
+      hideInstallBanner();
+
+      markSession();
+
+    }
+
+
+    laterBtn.addEventListener(
+      "click",
+      remindLater
+    );
+
+
+    bottomLaterBtn.addEventListener(
+      "click",
+      remindLater
+    );
+
+
+    iosClose.addEventListener(
+      "click",
+      hideIOSHelp
+    );
+
+
+    iosHelp.addEventListener(
+      "click",
+      event=>{
+
+        if(event.target === iosHelp){
+
+          hideIOSHelp();
+
+        }
+
+      }
+    );
+
+
+    /*
+      إظهار نافذة التثبيت في بداية
+      كل جلسة جديدة.
+    */
+
+    setTimeout(
+      ()=>{
+
+        if(
+          newSession() &&
+          !isStandalone()
+        ){
+
+          showInstallBanner();
+
+        }
+
+      },
+      1200
+    );
+
+
     /* =========================
-       تشغيل
-    ========================= */
+       مشاركة الموقع
+    ========================== */
+
+    const shareSiteBtn =
+      document.getElementById(
+        "shareSiteBtn"
+      );
+
+
+    async function shareSite(){
+
+      const shareData = {
+
+        title:
+          "مساعد توجيهي",
+
+        text:
+          "منصة تعليمية لطلاب التوجيهي في الأردن",
+
+        url:
+          window.location.href
+
+      };
+
+
+      if(
+        navigator.share
+      ){
+
+        try{
+
+          await navigator.share(
+            shareData
+          );
+
+        }catch(error){
+
+          if(
+            error.name !==
+            "AbortError"
+          ){
+
+            console.error(error);
+
+          }
+
+        }
+
+        return;
+
+      }
+
+
+      try{
+
+        await navigator.clipboard.writeText(
+          window.location.href
+        );
+
+        alert(
+          "تم نسخ رابط الموقع."
+        );
+
+      }catch(error){
+
+        prompt(
+          "انسخ رابط الموقع:",
+          window.location.href
+        );
+
+      }
+
+    }
+
+
+    shareSiteBtn.addEventListener(
+      "click",
+      shareSite
+    );
+
+
+    /* =========================
+       Service Worker
+    ========================== */
+
+    if(
+      "serviceWorker" in navigator
+    ){
+
+      window.addEventListener(
+        "load",
+        ()=>{
+
+          navigator.serviceWorker
+            .register(
+              "sw.js"
+            )
+            .then(
+              registration=>{
+                console.log(
+                  "Service Worker registered:",
+                  registration.scope
+                );
+              }
+            )
+            .catch(
+              error=>{
+                console.error(
+                  "Service Worker error:",
+                  error
+                );
+              }
+            );
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       Load
+    ========================== */
 
     loadGenerations();
 
