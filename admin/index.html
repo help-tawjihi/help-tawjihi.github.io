@@ -12,7 +12,6 @@
 
   <title>لوحة التحكم | مساعد توجيهي</title>
 
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -25,7 +24,6 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
-
 
   <style>
 
@@ -480,6 +478,8 @@
 
       font-weight: 600;
 
+      transition: .2s;
+
     }
 
 
@@ -488,6 +488,8 @@
       width: 19px;
 
       height: 19px;
+
+      flex-shrink: 0;
 
     }
 
@@ -550,6 +552,8 @@
       background: rgba(255,255,255,.78);
 
       backdrop-filter: blur(15px);
+
+      -webkit-backdrop-filter: blur(15px);
 
       border-bottom: 1px solid var(--border);
 
@@ -766,6 +770,20 @@
 
       font-size: 12px;
 
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+
     }
 
 
@@ -773,27 +791,58 @@
 
       border-color: var(--primary2);
 
+      transform: translateY(-1px);
+
     }
 
 
     .btn-primary {
 
-      background: var(--primary);
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
 
       color: white;
 
-      border-color: var(--primary);
+      border-color: transparent;
+
+      box-shadow:
+        0 7px 18px rgba(15,118,110,.13);
+
+    }
+
+
+    .btn-primary:hover {
+
+      color: white;
+
+      border-color: transparent;
+
+      box-shadow:
+        0 10px 24px rgba(15,118,110,.22);
 
     }
 
 
     .btn-danger {
 
-      background: #fef2f2;
+      background: #fff7f7;
 
       color: var(--danger);
 
       border-color: #fecaca;
+
+    }
+
+
+    .btn-danger:hover {
+
+      background: #fef2f2;
+
+      border-color: #fca5a5;
 
     }
 
@@ -805,6 +854,37 @@
       color: var(--success);
 
       border-color: #bbf7d0;
+
+    }
+
+
+    .btn-edit {
+
+      background: #effcf9;
+
+      color: var(--primary);
+
+      border-color: #bcece4;
+
+    }
+
+
+    .btn-edit:hover {
+
+      background: var(--soft);
+
+      border-color: var(--primary2);
+
+    }
+
+
+    .btn svg {
+
+      width: 16px;
+
+      height: 16px;
+
+      flex-shrink: 0;
 
     }
 
@@ -852,6 +932,20 @@
       gap: 8px;
 
       margin-top: 5px;
+
+    }
+
+
+    .edit-mode {
+
+      border: 1px solid rgba(20,184,166,.35);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20,184,166,.05),
+          rgba(15,118,110,.02)
+        );
 
     }
 
@@ -908,9 +1002,25 @@
     }
 
 
+    tbody tr {
+
+      transition: background .15s ease;
+
+    }
+
+
+    tbody tr:hover {
+
+      background: rgba(20,184,166,.025);
+
+    }
+
+
     .badge {
 
       display: inline-flex;
+
+      align-items: center;
 
       padding: 5px 9px;
 
@@ -929,6 +1039,8 @@
 
     .url {
 
+      display: block;
+
       max-width: 250px;
 
       overflow: hidden;
@@ -942,6 +1054,24 @@
       direction: ltr;
 
       text-align: right;
+
+      text-decoration: none;
+
+    }
+
+
+    .url:hover {
+
+      text-decoration: underline;
+
+    }
+
+
+    .order-badge {
+
+      min-width: 30px;
+
+      justify-content: center;
 
     }
 
@@ -989,7 +1119,8 @@
 
       color: white;
 
-      box-shadow: 0 15px 40px rgba(0,0,0,.18);
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.18);
 
       font-size: 13px;
 
@@ -1044,7 +1175,8 @@
 
         transition: .25s;
 
-        box-shadow: -20px 0 50px rgba(0,0,0,.08);
+        box-shadow:
+          -20px 0 50px rgba(0,0,0,.08);
 
       }
 
@@ -1171,6 +1303,24 @@
         align-items: flex-start;
 
         flex-direction: column;
+
+      }
+
+
+      .actions {
+
+        gap: 5px;
+
+      }
+
+
+      .actions .btn {
+
+        height: 36px;
+
+        padding: 0 10px;
+
+        font-size: 11px;
 
       }
 
@@ -1326,11 +1476,8 @@
       >
 
         <rect x="3" y="3" width="7" height="7"/>
-
         <rect x="14" y="3" width="7" height="7"/>
-
         <rect x="3" y="14" width="7" height="7"/>
-
         <rect x="14" y="14" width="7" height="7"/>
 
       </svg>
@@ -1376,9 +1523,7 @@
       >
 
         <path d="M4 5h16"/>
-
         <path d="M4 12h16"/>
-
         <path d="M4 19h16"/>
 
       </svg>
@@ -1401,9 +1546,7 @@
       >
 
         <path d="M4 6h16"/>
-
         <path d="M4 12h16"/>
-
         <path d="M4 18h16"/>
 
       </svg>
@@ -1426,11 +1569,8 @@
       >
 
         <path d="M4 4h16v16H4z"/>
-
         <path d="M8 8h8"/>
-
         <path d="M8 12h8"/>
-
         <path d="M8 16h5"/>
 
       </svg>
@@ -1455,9 +1595,7 @@
         >
 
           <path d="M10 17l5-5-5-5"/>
-
           <path d="M15 12H3"/>
-
           <path d="M21 19V5a2 2 0 0 0-2-2h-5"/>
 
         </svg>
@@ -1484,6 +1622,7 @@
         <button
           class="mobile-menu"
           id="mobileMenu"
+          type="button"
         >
 
           <svg
@@ -1494,9 +1633,7 @@
           >
 
             <path d="M4 6h16"/>
-
             <path d="M4 12h16"/>
-
             <path d="M4 18h16"/>
 
           </svg>
@@ -1583,9 +1720,7 @@
               >
 
                 <path d="M4 5h16"/>
-
                 <path d="M4 12h16"/>
-
                 <path d="M4 19h16"/>
 
               </svg>
@@ -1622,9 +1757,7 @@
               >
 
                 <path d="M4 6h16"/>
-
                 <path d="M4 12h16"/>
-
                 <path d="M4 18h16"/>
 
               </svg>
@@ -1661,11 +1794,8 @@
               >
 
                 <path d="M4 4h16v16H4z"/>
-
                 <path d="M8 8h8"/>
-
                 <path d="M8 12h8"/>
-
                 <path d="M8 16h5"/>
 
               </svg>
@@ -1709,6 +1839,7 @@
           <button
             class="btn btn-primary"
             onclick="openPage('resources')"
+            type="button"
           >
             إدارة المحتوى
           </button>
@@ -1758,6 +1889,7 @@
           <button
             class="btn btn-primary"
             onclick="showGenerationForm()"
+            type="button"
           >
             + إضافة جيل
           </button>
@@ -1884,6 +2016,7 @@
           <button
             class="btn btn-primary"
             onclick="showSubjectForm()"
+            type="button"
           >
             + إضافة مادة
           </button>
@@ -2045,6 +2178,7 @@
           <button
             class="btn btn-primary"
             onclick="showSectionForm()"
+            type="button"
           >
             + إضافة قسم
           </button>
@@ -2191,6 +2325,7 @@
           <button
             class="btn btn-primary"
             onclick="showResourceForm()"
+            type="button"
           >
             + إضافة محتوى
           </button>
@@ -2337,6 +2472,7 @@
                 id="resourceOrder"
                 type="number"
                 value="1"
+                min="1"
               >
 
             </div>
@@ -2367,6 +2503,7 @@
 
               <button
                 class="btn btn-primary"
+                id="resourceSaveBtn"
                 type="submit"
               >
                 حفظ المحتوى
@@ -2374,6 +2511,7 @@
 
               <button
                 class="btn"
+                id="resourceCancelBtn"
                 type="button"
                 onclick="hideResourceForm()"
               >
@@ -2419,12 +2557,9 @@
     collection,
     addDoc,
     getDocs,
-    getDoc,
     updateDoc,
     deleteDoc,
     doc,
-    query,
-    orderBy,
     serverTimestamp
 
   } from "./firebase-config.js";
@@ -2438,6 +2573,8 @@
   let subjects = [];
   let sections = [];
   let resources = [];
+
+  let editingResourceId = null;
 
 
   /* =====================================================
@@ -2458,6 +2595,12 @@
 
   const adminEmail =
     document.getElementById("adminEmail");
+
+  const resourceForm =
+    document.getElementById("resourceForm");
+
+  const resourceSaveBtn =
+    document.getElementById("resourceSaveBtn");
 
 
   /* =====================================================
@@ -2495,10 +2638,15 @@
     loginError.style.display = "none";
 
     const email =
-      document.getElementById("email").value.trim();
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
     const password =
-      document.getElementById("password").value;
+      document
+        .getElementById("password")
+        .value;
 
 
     try {
@@ -2516,7 +2664,8 @@
       loginError.textContent =
         "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
 
-      loginError.style.display = "block";
+      loginError.style.display =
+        "block";
 
     }
 
@@ -2668,6 +2817,7 @@
                   <button
                     class="btn btn-danger"
                     onclick="deleteGeneration('${g.id}')"
+                    type="button"
                   >
                     حذف
                   </button>
@@ -2704,13 +2854,17 @@
 
             name:
               document
-                .getElementById("generationName")
+                .getElementById(
+                  "generationName"
+                )
                 .value
                 .trim(),
 
             year:
               document
-                .getElementById("generationYear")
+                .getElementById(
+                  "generationYear"
+                )
                 .value
                 .trim(),
 
@@ -2920,6 +3074,7 @@
                     <button
                       class="btn btn-danger"
                       onclick="deleteSubject('${s.id}')"
+                      type="button"
                     >
                       حذف
                     </button>
@@ -3193,6 +3348,7 @@
                     <button
                       class="btn btn-danger"
                       onclick="deleteSection('${s.id}')"
+                      type="button"
                     >
                       حذف
                     </button>
@@ -3355,8 +3511,8 @@
 
     resources.sort(
       (a,b) =>
-        Number(b.createdAt?.seconds || 0) -
-        Number(a.createdAt?.seconds || 0)
+        Number(a.order || 0) -
+        Number(b.order || 0)
     );
 
 
@@ -3404,6 +3560,8 @@
             <th>القسم</th>
 
             <th>النوع</th>
+
+            <th>الترتيب</th>
 
             <th>الحالة</th>
 
@@ -3477,9 +3635,19 @@
 
                 <td>
 
+                  <span class="badge order-badge">
+                    ${Number(r.order || 1)}
+                  </span>
+
+                </td>
+
+                <td>
+
                   ${
                     r.published
-                      ? `<span class="badge">منشور</span>`
+                      ? `<span class="badge">
+                          منشور
+                        </span>`
                       : `<span
                           class="badge"
                           style="
@@ -3501,7 +3669,7 @@
                       r.url || "#"
                     )}"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     ${escapeHtml(
                       r.url || "—"
@@ -3515,15 +3683,40 @@
                   <div class="actions">
 
                     <button
+                      class="btn btn-edit"
+                      onclick="editResource('${r.id}')"
+                      type="button"
+                      title="تعديل المحتوى"
+                    >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                      </svg>
+
+                      تعديل
+
+                    </button>
+
+
+                    <button
                       class="btn btn-danger"
                       onclick="deleteResource('${r.id}')"
+                      type="button"
                     >
                       حذف
                     </button>
 
+
                     <button
                       class="btn"
                       onclick="toggleResource('${r.id}', ${!r.published})"
+                      type="button"
                     >
                       ${
                         r.published
@@ -3551,6 +3744,10 @@
   }
 
 
+  /* =====================================================
+     ADD / EDIT RESOURCE
+     ===================================================== */
+
   document
     .getElementById("resourceAddForm")
     .addEventListener("submit", async (e) => {
@@ -3558,81 +3755,157 @@
       e.preventDefault();
 
 
+      const subjectId =
+        document
+          .getElementById(
+            "resourceSubject"
+          )
+          .value;
+
+      const sectionId =
+        document
+          .getElementById(
+            "resourceSection"
+          )
+          .value;
+
+      const title =
+        document
+          .getElementById(
+            "resourceTitle"
+          )
+          .value
+          .trim();
+
+      const type =
+        document
+          .getElementById(
+            "resourceType"
+          )
+          .value;
+
+      const url =
+        document
+          .getElementById(
+            "resourceUrl"
+          )
+          .value
+          .trim();
+
+      const description =
+        document
+          .getElementById(
+            "resourceDescription"
+          )
+          .value
+          .trim();
+
+      const order =
+        Number(
+          document
+            .getElementById(
+              "resourceOrder"
+            )
+            .value
+        ) || 1;
+
+      const published =
+        document
+          .getElementById(
+            "resourcePublished"
+          )
+          .value === "true";
+
+
       try {
 
-        await addDoc(
-          collection(db, "resources"),
-          {
+        /* ============================================
+           EDIT
+           ============================================ */
 
-            subjectId:
-              document
-                .getElementById(
-                  "resourceSubject"
-                )
-                .value,
+        if (editingResourceId) {
 
-            sectionId:
-              document
-                .getElementById(
-                  "resourceSection"
-                )
-                .value,
+          await updateDoc(
+            doc(
+              db,
+              "resources",
+              editingResourceId
+            ),
+            {
 
-            title:
-              document
-                .getElementById(
-                  "resourceTitle"
-                )
-                .value
-                .trim(),
+              subjectId,
 
-            type:
-              document
-                .getElementById(
-                  "resourceType"
-                )
-                .value,
+              sectionId,
 
-            url:
-              document
-                .getElementById(
-                  "resourceUrl"
-                )
-                .value
-                .trim(),
+              title,
 
-            description:
-              document
-                .getElementById(
-                  "resourceDescription"
-                )
-                .value
-                .trim(),
+              type,
 
-            order:
-              Number(
-                document
-                  .getElementById(
-                    "resourceOrder"
-                  )
-                  .value
-              ) || 1,
+              url,
 
-            published:
-              document
-                .getElementById(
-                  "resourcePublished"
-                )
-                .value === "true",
+              description,
 
-            createdAt:
-              serverTimestamp(),
+              order,
 
-            updatedAt:
-              serverTimestamp()
+              published,
 
-          }
-        );
+              updatedAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          toast(
+            "تم تعديل المحتوى بنجاح",
+            "success"
+          );
+
+        }
+
+
+        /* ============================================
+           ADD
+           ============================================ */
+
+        else {
+
+          await addDoc(
+            collection(db, "resources"),
+            {
+
+              subjectId,
+
+              sectionId,
+
+              title,
+
+              type,
+
+              url,
+
+              description,
+
+              order,
+
+              published,
+
+              createdAt:
+                serverTimestamp(),
+
+              updatedAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          toast(
+            "تمت إضافة المحتوى بنجاح",
+            "success"
+          );
+
+        }
 
 
         e.target.reset();
@@ -3641,17 +3914,14 @@
 
         await loadResources();
 
-        toast(
-          "تمت إضافة المحتوى بنجاح",
-          "success"
-        );
-
       } catch (error) {
 
         console.error(error);
 
         toast(
-          "تعذر إضافة المحتوى",
+          editingResourceId
+            ? "تعذر تعديل المحتوى"
+            : "تعذر إضافة المحتوى",
           "error"
         );
 
@@ -3659,6 +3929,227 @@
 
     });
 
+
+  /* =====================================================
+     EDIT RESOURCE
+     ===================================================== */
+
+  window.editResource =
+    function(id) {
+
+      const resource =
+        resources.find(
+          r =>
+            r.id === id
+        );
+
+
+      if (!resource) {
+
+        toast(
+          "تعذر العثور على المحتوى",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      editingResourceId = id;
+
+
+      document
+        .getElementById(
+          "resourceSubject"
+        )
+        .value =
+        resource.subjectId || "";
+
+
+      document
+        .getElementById(
+          "resourceSection"
+        )
+        .value =
+        resource.sectionId || "";
+
+
+      document
+        .getElementById(
+          "resourceTitle"
+        )
+        .value =
+        resource.title || "";
+
+
+      document
+        .getElementById(
+          "resourceType"
+        )
+        .value =
+        resource.type || "pdf";
+
+
+      document
+        .getElementById(
+          "resourceUrl"
+        )
+        .value =
+        resource.url || "";
+
+
+      document
+        .getElementById(
+          "resourceDescription"
+        )
+        .value =
+        resource.description || "";
+
+
+      document
+        .getElementById(
+          "resourceOrder"
+        )
+        .value =
+        resource.order ?? 1;
+
+
+      document
+        .getElementById(
+          "resourcePublished"
+        )
+        .value =
+        resource.published
+          ? "true"
+          : "false";
+
+
+      resourceForm.style.display =
+        "block";
+
+      resourceForm.classList.add(
+        "edit-mode"
+      );
+
+
+      resourceSaveBtn.textContent =
+        "حفظ التعديلات";
+
+
+      const panel =
+        resourceForm.closest(".panel");
+
+
+      if (panel) {
+
+        panel.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+    };
+
+
+  /* =====================================================
+     HIDE RESOURCE FORM
+     ===================================================== */
+
+  window.hideResourceForm =
+    function() {
+
+      editingResourceId = null;
+
+      resourceForm.style.display =
+        "none";
+
+      resourceForm.classList.remove(
+        "edit-mode"
+      );
+
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
+
+
+      document
+        .getElementById(
+          "resourceOrder"
+        )
+        .value = 1;
+
+
+      document
+        .getElementById(
+          "resourcePublished"
+        )
+        .value = "true";
+
+
+      resourceSaveBtn.textContent =
+        "حفظ المحتوى";
+
+    };
+
+
+  window.showResourceForm =
+    function() {
+
+      editingResourceId = null;
+
+      resourceForm.style.display =
+        "block";
+
+      resourceForm.classList.remove(
+        "edit-mode"
+      );
+
+
+      resourceSaveBtn.textContent =
+        "حفظ المحتوى";
+
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
+
+
+      document
+        .getElementById(
+          "resourceOrder"
+        )
+        .value = 1;
+
+
+      document
+        .getElementById(
+          "resourcePublished"
+        )
+        .value = "true";
+
+
+      setTimeout(() => {
+
+        resourceForm.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 50);
+
+    };
+
+
+  /* =====================================================
+     TOGGLE RESOURCE
+     ===================================================== */
 
   window.toggleResource =
     async function(id, published) {
@@ -3701,6 +4192,10 @@
 
     };
 
+
+  /* =====================================================
+     DELETE RESOURCE
+     ===================================================== */
 
   window.deleteResource =
     async function(id) {
@@ -3761,8 +4256,8 @@
 
       select.innerHTML += `
 
-        <option value="${g.id}">
-          ${escapeHtml(g.name)}
+        <option value="${escapeAttribute(g.id)}">
+          ${escapeHtml(g.name || "")}
         </option>
 
       `;
@@ -3793,8 +4288,8 @@
       ${
         subjects.map(s => `
 
-          <option value="${s.id}">
-            ${escapeHtml(s.name)}
+          <option value="${escapeAttribute(s.id)}">
+            ${escapeHtml(s.name || "")}
           </option>
 
         `).join("")
@@ -3802,9 +4297,11 @@
     `;
 
 
-    sectionSelect.innerHTML = html;
+    sectionSelect.innerHTML =
+      html;
 
-    resourceSelect.innerHTML = html;
+    resourceSelect.innerHTML =
+      html;
 
   }
 
@@ -3836,14 +4333,16 @@
 
       select.innerHTML += `
 
-        <option value="${s.id}">
+        <option value="${escapeAttribute(s.id)}">
 
           ${escapeHtml(
             subject?.name || ""
           )}
-          — 
+
+          —
+          
           ${escapeHtml(
-            s.name
+            s.name || ""
           )}
 
         </option>
@@ -3856,7 +4355,7 @@
 
 
   /* =====================================================
-     FORMS SHOW/HIDE
+     FORMS SHOW / HIDE
      ===================================================== */
 
   window.showGenerationForm =
@@ -3866,7 +4365,8 @@
         .getElementById(
           "generationForm"
         )
-        .style.display = "block";
+        .style.display =
+        "block";
 
     };
 
@@ -3878,7 +4378,8 @@
         .getElementById(
           "generationForm"
         )
-        .style.display = "none";
+        .style.display =
+        "none";
 
     };
 
@@ -3890,7 +4391,8 @@
         .getElementById(
           "subjectForm"
         )
-        .style.display = "block";
+        .style.display =
+        "block";
 
     };
 
@@ -3902,7 +4404,8 @@
         .getElementById(
           "subjectForm"
         )
-        .style.display = "none";
+        .style.display =
+        "none";
 
     };
 
@@ -3914,7 +4417,8 @@
         .getElementById(
           "sectionForm"
         )
-        .style.display = "block";
+        .style.display =
+        "block";
 
     };
 
@@ -3926,31 +4430,8 @@
         .getElementById(
           "sectionForm"
         )
-        .style.display = "none";
-
-    };
-
-
-  window.showResourceForm =
-    function() {
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .style.display = "block";
-
-    };
-
-
-  window.hideResourceForm =
-    function() {
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .style.display = "none";
+        .style.display =
+        "none";
 
     };
 
@@ -4129,7 +4610,13 @@
 
 
     const recent =
-      resources.slice(0, 8);
+      [...resources]
+        .sort(
+          (a,b) =>
+            Number(b.createdAt?.seconds || 0) -
+            Number(a.createdAt?.seconds || 0)
+        )
+        .slice(0, 8);
 
 
     if (!recent.length) {
@@ -4157,6 +4644,8 @@
               <th>المادة</th>
 
               <th>القسم</th>
+
+              <th>الترتيب</th>
 
               <th>الحالة</th>
 
@@ -4206,6 +4695,14 @@
                       section?.name ||
                       "—"
                     )}
+                  </td>
+
+                  <td>
+
+                    <span class="badge order-badge">
+                      ${Number(r.order || 1)}
+                    </span>
+
                   </td>
 
                   <td>
@@ -4300,7 +4797,8 @@
       "";
 
 
-    element.id = "toast";
+    element.id =
+      "toast";
 
 
     if (type) {
