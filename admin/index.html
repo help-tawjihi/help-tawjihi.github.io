@@ -28,88 +28,63 @@
   <style>
 
     :root {
+      --bg:#f5f7f8;
+      --surface:#ffffff;
+      --surface2:#f0f4f3;
 
-      --bg: #f5f7f8;
-      --surface: #ffffff;
-      --surface2: #f0f4f3;
+      --text:#17211f;
+      --muted:#71807c;
 
-      --text: #17211f;
-      --muted: #71807c;
+      --primary:#0f766e;
+      --primary2:#14b8a6;
 
-      --primary: #0f766e;
-      --primary2: #14b8a6;
+      --soft:#e5f6f3;
 
-      --soft: #e5f6f3;
+      --border:#e1e8e6;
 
-      --border: #e1e8e6;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --success:#16a34a;
 
-      --danger: #dc2626;
-      --warning: #d97706;
+      --shadow:0 12px 35px rgba(15,118,110,.08);
 
-      --success: #16a34a;
-
-      --shadow:
-        0 12px 35px rgba(15,118,110,.08);
-
-      --radius: 20px;
-
+      --radius:20px;
     }
-
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
-
 
     body {
-
-      font-family:
-        "IBM Plex Sans Arabic",
-        sans-serif;
-
-      background: var(--bg);
-
-      color: var(--text);
-
-      min-height: 100vh;
-
+      font-family:"IBM Plex Sans Arabic",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
     }
-
 
     button,
     input,
     select,
     textarea {
-
-      font-family: inherit;
-
+      font-family:inherit;
     }
-
 
     button {
-
-      cursor: pointer;
-
+      cursor:pointer;
     }
-
 
     /* =================================================
        LOGIN
        ================================================= */
 
     #loginScreen {
-
-      min-height: 100vh;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      padding: 20px;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
 
       background:
         radial-gradient(
@@ -117,51 +92,35 @@
           rgba(20,184,166,.13),
           transparent 30%
         ),
-
         radial-gradient(
           circle at 80% 80%,
           rgba(15,118,110,.10),
           transparent 30%
         ),
-
         var(--bg);
-
     }
-
 
     .login-card {
+      width:100%;
+      max-width:430px;
 
-      width: 100%;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:32px;
 
-      max-width: 430px;
-
-      background: var(--surface);
-
-      border: 1px solid var(--border);
-
-      border-radius: 28px;
-
-      padding: 32px;
-
-      box-shadow:
-        0 25px 70px rgba(0,0,0,.08);
-
+      box-shadow:0 25px 70px rgba(0,0,0,.08);
     }
 
-
     .login-logo {
+      width:65px;
+      height:65px;
+      border-radius:19px;
 
-      width: 65px;
+      display:grid;
+      place-items:center;
 
-      height: 65px;
-
-      border-radius: 19px;
-
-      display: grid;
-
-      place-items: center;
-
-      color: white;
+      color:white;
 
       background:
         linear-gradient(
@@ -170,123 +129,82 @@
           var(--primary2)
         );
 
-      margin: 0 auto 18px;
+      margin:0 auto 18px;
 
+      box-shadow:
+        0 12px 25px rgba(15,118,110,.18);
     }
-
 
     .login-logo svg {
-
-      width: 32px;
-
-      height: 32px;
-
+      width:32px;
+      height:32px;
     }
-
 
     .login-card h1 {
-
-      text-align: center;
-
-      font-size: 25px;
-
-      margin-bottom: 6px;
-
+      text-align:center;
+      font-size:25px;
+      margin-bottom:6px;
     }
-
 
     .login-card > p {
-
-      text-align: center;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      margin-bottom: 25px;
-
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:25px;
     }
-
 
     .field {
-
-      margin-bottom: 15px;
-
+      margin-bottom:15px;
     }
-
 
     .field label {
-
-      display: block;
-
-      font-size: 13px;
-
-      font-weight: 600;
-
-      margin-bottom: 7px;
-
+      display:block;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:7px;
     }
-
 
     .field input,
     .field select,
     .field textarea {
+      width:100%;
 
-      width: 100%;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
 
-      border: 1px solid var(--border);
+      border-radius:13px;
+      padding:13px 14px;
 
-      background: var(--surface);
+      outline:none;
+      transition:.2s;
 
-      color: var(--text);
-
-      border-radius: 13px;
-
-      padding: 13px 14px;
-
-      outline: none;
-
-      transition: .2s;
-
-      font-size: 14px;
-
+      font-size:14px;
     }
-
 
     .field textarea {
-
-      min-height: 100px;
-
-      resize: vertical;
-
+      min-height:100px;
+      resize:vertical;
     }
-
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-
-      border-color: var(--primary2);
+      border-color:var(--primary2);
 
       box-shadow:
         0 0 0 3px rgba(20,184,166,.10);
-
     }
 
-
     .primary-btn {
+      width:100%;
+      height:48px;
 
-      width: 100%;
+      border:0;
+      border-radius:13px;
 
-      height: 48px;
-
-      border: 0;
-
-      border-radius: 13px;
-
-      color: white;
-
-      font-weight: 700;
+      color:white;
+      font-weight:700;
 
       background:
         linear-gradient(
@@ -295,106 +213,77 @@
           var(--primary2)
         );
 
-      transition: .2s;
-
+      transition:.2s;
     }
 
-
     .primary-btn:hover {
-
-      transform: translateY(-1px);
+      transform:translateY(-1px);
 
       box-shadow:
         0 10px 25px rgba(15,118,110,.18);
-
     }
-
 
     .error {
+      background:#fef2f2;
+      color:#b91c1c;
+      border:1px solid #fecaca;
 
-      background: #fef2f2;
+      border-radius:12px;
+      padding:10px;
 
-      color: #b91c1c;
+      font-size:13px;
+      margin-bottom:14px;
 
-      border: 1px solid #fecaca;
-
-      border-radius: 12px;
-
-      padding: 10px;
-
-      font-size: 13px;
-
-      margin-bottom: 14px;
-
-      display: none;
-
+      display:none;
     }
-
 
     /* =================================================
        APP
        ================================================= */
 
     #app {
-
-      display: none;
-
-      min-height: 100vh;
-
+      display:none;
+      min-height:100vh;
     }
-
 
     /* =================================================
        SIDEBAR
        ================================================= */
 
     .sidebar {
+      position:fixed;
 
-      position: fixed;
+      right:0;
+      top:0;
+      bottom:0;
 
-      right: 0;
+      width:260px;
 
-      top: 0;
+      background:var(--surface);
+      border-left:1px solid var(--border);
 
-      bottom: 0;
+      padding:22px 15px;
 
-      width: 260px;
-
-      background: var(--surface);
-
-      border-left: 1px solid var(--border);
-
-      padding: 22px 15px;
-
-      z-index: 100;
-
+      z-index:100;
     }
-
 
     .side-brand {
+      display:flex;
+      align-items:center;
 
-      display: flex;
+      gap:10px;
 
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 5px 8px 25px;
-
+      padding:5px 8px 25px;
     }
 
-
     .side-logo {
+      width:43px;
+      height:43px;
 
-      width: 43px;
+      border-radius:13px;
 
-      height: 43px;
-
-      border-radius: 13px;
-
-      display: grid;
-
-      place-items: center;
+      display:grid;
+      place-items:center;
 
       background:
         linear-gradient(
@@ -403,401 +292,323 @@
           var(--primary2)
         );
 
-      color: white;
+      color:white;
 
+      box-shadow:
+        0 8px 20px rgba(15,118,110,.15);
     }
-
 
     .side-logo svg {
-
-      width: 22px;
-
-      height: 22px;
-
+      width:22px;
+      height:22px;
     }
-
 
     .side-brand strong {
-
-      font-size: 15px;
-
+      font-size:15px;
     }
-
 
     .side-brand span {
+      display:block;
 
-      display: block;
+      color:var(--muted);
+      font-size:11px;
 
-      color: var(--muted);
-
-      font-size: 11px;
-
-      margin-top: 2px;
-
+      margin-top:2px;
     }
-
 
     .nav-title {
+      font-size:11px;
+      color:var(--muted);
 
-      font-size: 11px;
-
-      color: var(--muted);
-
-      padding: 0 10px 8px;
-
-      margin-top: 10px;
-
+      padding:0 10px 8px;
+      margin-top:10px;
     }
-
 
     .nav-btn {
+      width:100%;
 
-      width: 100%;
+      display:flex;
+      align-items:center;
 
-      display: flex;
+      gap:11px;
 
-      align-items: center;
+      padding:12px;
 
-      gap: 11px;
+      border:0;
+      background:transparent;
 
-      padding: 12px;
+      color:var(--muted);
 
-      border: 0;
+      border-radius:13px;
 
-      background: transparent;
+      text-align:right;
 
-      color: var(--muted);
+      margin-bottom:4px;
 
-      border-radius: 13px;
+      font-size:13px;
+      font-weight:600;
 
-      text-align: right;
-
-      margin-bottom: 4px;
-
-      font-size: 13px;
-
-      font-weight: 600;
-
-      transition: .2s;
-
+      transition:.2s;
     }
-
 
     .nav-btn svg {
-
-      width: 19px;
-
-      height: 19px;
-
-      flex-shrink: 0;
-
+      width:19px;
+      height:19px;
+      flex:none;
     }
-
 
     .nav-btn:hover,
     .nav-btn.active {
+      background:var(--soft);
+      color:var(--primary);
 
-      background: var(--soft);
-
-      color: var(--primary);
-
+      transform:translateX(-2px);
     }
-
 
     .side-bottom {
+      position:absolute;
 
-      position: absolute;
-
-      left: 15px;
-
-      right: 15px;
-
-      bottom: 18px;
-
+      left:15px;
+      right:15px;
+      bottom:18px;
     }
-
 
     .logout {
-
-      color: var(--danger);
-
+      color:var(--danger);
     }
 
+    .logout:hover {
+      background:#fef2f2;
+      color:var(--danger);
+    }
 
     /* =================================================
        CONTENT
        ================================================= */
 
     .content {
-
-      margin-right: 260px;
-
-      min-height: 100vh;
-
+      margin-right:260px;
+      min-height:100vh;
     }
-
 
     .topbar {
+      height:72px;
 
-      height: 72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-      display: flex;
+      padding:0 28px;
 
-      align-items: center;
+      background:rgba(255,255,255,.82);
 
-      justify-content: space-between;
+      backdrop-filter:blur(15px);
 
-      padding: 0 28px;
+      border-bottom:1px solid var(--border);
 
-      background: rgba(255,255,255,.78);
+      position:sticky;
+      top:0;
 
-      backdrop-filter: blur(15px);
-
-      -webkit-backdrop-filter: blur(15px);
-
-      border-bottom: 1px solid var(--border);
-
-      position: sticky;
-
-      top: 0;
-
-      z-index: 50;
-
+      z-index:50;
     }
-
 
     .topbar h2 {
-
-      font-size: 19px;
-
+      font-size:19px;
     }
-
 
     .admin-user {
-
-      color: var(--muted);
-
-      font-size: 12px;
-
+      color:var(--muted);
+      font-size:12px;
     }
-
 
     .page {
+      padding:28px;
 
-      padding: 28px;
+      max-width:1400px;
 
-      max-width: 1400px;
-
-      margin: auto;
-
+      margin:auto;
     }
 
-
     /* =================================================
-       DASHBOARD CARDS
+       DASHBOARD
        ================================================= */
 
     .stats {
-
-      display: grid;
+      display:grid;
 
       grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
-      gap: 15px;
+      gap:15px;
 
-      margin-bottom: 25px;
-
+      margin-bottom:25px;
     }
-
 
     .stat {
+      background:var(--surface);
 
-      background: var(--surface);
+      border:1px solid var(--border);
 
-      border: 1px solid var(--border);
+      border-radius:var(--radius);
 
-      border-radius: var(--radius);
+      padding:20px;
 
-      padding: 20px;
+      box-shadow:var(--shadow);
 
-      box-shadow: var(--shadow);
-
+      transition:.2s;
     }
 
+    .stat:hover {
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 18px 40px rgba(15,118,110,.11);
+    }
 
     .stat-top {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
 
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-bottom: 15px;
-
+      margin-bottom:15px;
     }
-
 
     .stat-icon {
+      width:42px;
+      height:42px;
 
-      width: 42px;
+      border-radius:13px;
 
-      height: 42px;
+      background:var(--soft);
+      color:var(--primary);
 
-      border-radius: 13px;
-
-      background: var(--soft);
-
-      color: var(--primary);
-
-      display: grid;
-
-      place-items: center;
-
+      display:grid;
+      place-items:center;
     }
-
 
     .stat-icon svg {
-
-      width: 21px;
-
-      height: 21px;
-
+      width:21px;
+      height:21px;
     }
-
 
     .stat-number {
-
-      font-size: 27px;
-
-      font-weight: 700;
-
+      font-size:27px;
+      font-weight:700;
     }
-
 
     .stat-title {
-
-      color: var(--muted);
-
-      font-size: 12px;
-
+      color:var(--muted);
+      font-size:12px;
     }
 
-
     /* =================================================
-       SECTION
+       PANELS
        ================================================= */
 
     .panel {
+      background:var(--surface);
 
-      background: var(--surface);
+      border:1px solid var(--border);
 
-      border: 1px solid var(--border);
+      border-radius:var(--radius);
 
-      border-radius: var(--radius);
+      box-shadow:var(--shadow);
 
-      box-shadow: var(--shadow);
+      overflow:hidden;
 
-      overflow: hidden;
-
-      margin-bottom: 20px;
-
+      margin-bottom:20px;
     }
-
 
     .panel-head {
+      padding:18px 20px;
 
-      padding: 18px 20px;
+      border-bottom:1px solid var(--border);
 
-      border-bottom: 1px solid var(--border);
+      display:flex;
 
-      display: flex;
+      align-items:center;
+      justify-content:space-between;
 
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 15px;
-
+      gap:15px;
     }
-
 
     .panel-head h3 {
-
-      font-size: 17px;
-
+      font-size:17px;
     }
-
 
     .panel-head p {
+      color:var(--muted);
 
-      color: var(--muted);
+      font-size:12px;
 
-      font-size: 12px;
-
-      margin-top: 3px;
-
+      margin-top:3px;
     }
-
 
     .panel-body {
+      padding:20px;
 
-      padding: 20px;
-
+      background:
+        linear-gradient(
+          180deg,
+          rgba(240,244,243,.35),
+          transparent
+        );
     }
-
 
     /* =================================================
        BUTTONS
        ================================================= */
 
     .btn {
+      min-height:40px;
 
-      height: 40px;
+      padding:0 14px;
 
-      padding: 0 14px;
+      border:1px solid var(--border);
 
-      border: 1px solid var(--border);
+      border-radius:12px;
 
-      border-radius: 11px;
+      background:var(--surface);
 
-      background: var(--surface);
+      color:var(--text);
 
-      color: var(--text);
+      font-weight:600;
+      font-size:12px;
 
-      font-weight: 600;
+      display:inline-flex;
 
-      font-size: 12px;
+      align-items:center;
+      justify-content:center;
 
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 6px;
+      gap:7px;
 
       transition:
         transform .18s ease,
         box-shadow .18s ease,
         border-color .18s ease,
         background .18s ease;
-
     }
-
 
     .btn:hover {
+      border-color:var(--primary2);
 
-      border-color: var(--primary2);
+      transform:translateY(-1px);
 
-      transform: translateY(-1px);
-
+      box-shadow:
+        0 7px 18px rgba(15,118,110,.08);
     }
 
+    .btn:active {
+      transform:scale(.97);
+    }
+
+    .btn svg {
+      width:15px;
+      height:15px;
+      flex:none;
+    }
 
     .btn-primary {
-
       background:
         linear-gradient(
           135deg,
@@ -805,523 +616,445 @@
           var(--primary2)
         );
 
-      color: white;
+      color:white;
 
-      border-color: transparent;
+      border-color:transparent;
 
       box-shadow:
-        0 7px 18px rgba(15,118,110,.13);
-
+        0 7px 18px rgba(15,118,110,.15);
     }
-
 
     .btn-primary:hover {
-
-      color: white;
-
-      border-color: transparent;
+      color:white;
+      border-color:transparent;
 
       box-shadow:
-        0 10px 24px rgba(15,118,110,.22);
-
+        0 10px 23px rgba(15,118,110,.22);
     }
-
 
     .btn-danger {
-
-      background: #fff7f7;
-
-      color: var(--danger);
-
-      border-color: #fecaca;
-
+      background:#fef2f2;
+      color:var(--danger);
+      border-color:#fecaca;
     }
-
 
     .btn-danger:hover {
-
-      background: #fef2f2;
-
-      border-color: #fca5a5;
-
+      background:#fee2e2;
+      border-color:#fca5a5;
     }
-
 
     .btn-success {
-
-      background: #f0fdf4;
-
-      color: var(--success);
-
-      border-color: #bbf7d0;
-
+      background:#f0fdf4;
+      color:var(--success);
+      border-color:#bbf7d0;
     }
-
 
     .btn-edit {
-
-      background: #effcf9;
-
-      color: var(--primary);
-
-      border-color: #bcece4;
-
+      background:#effcf9;
+      color:var(--primary);
+      border-color:#c8eee7;
     }
-
 
     .btn-edit:hover {
-
-      background: var(--soft);
-
-      border-color: var(--primary2);
-
+      background:#e5f6f3;
     }
 
-
-    .btn svg {
-
-      width: 16px;
-
-      height: 16px;
-
-      flex-shrink: 0;
-
+    .btn-cancel {
+      background:var(--surface2);
     }
-
 
     .actions {
-
-      display: flex;
-
-      gap: 7px;
-
-      flex-wrap: wrap;
-
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      align-items:center;
     }
 
+    /* =================================================
+       EDIT MODE
+       ================================================= */
+
+    .form-mode {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:15px;
+
+      margin-bottom:18px;
+
+      padding:13px 15px;
+
+      background:var(--soft);
+
+      border:1px solid rgba(20,184,166,.18);
+
+      border-radius:14px;
+    }
+
+    .form-mode strong {
+      color:var(--primary);
+      font-size:13px;
+    }
+
+    .form-mode span {
+      color:var(--muted);
+      font-size:11px;
+      display:block;
+      margin-top:2px;
+    }
+
+    .form-mode-icon {
+      width:38px;
+      height:38px;
+
+      border-radius:11px;
+
+      display:grid;
+      place-items:center;
+
+      background:var(--surface);
+
+      color:var(--primary);
+    }
+
+    .form-mode-icon svg {
+      width:18px;
+      height:18px;
+    }
+
+    .form-mode-content {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
     /* =================================================
-       FORM GRID
+       FORMS
        ================================================= */
 
     .form-grid {
-
-      display: grid;
+      display:grid;
 
       grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2,1fr);
 
-      gap: 15px;
-
+      gap:15px;
     }
-
 
     .full {
-
-      grid-column: 1 / -1;
-
+      grid-column:1 / -1;
     }
-
 
     .form-actions {
+      display:flex;
 
-      display: flex;
+      justify-content:flex-start;
 
-      justify-content: flex-start;
+      gap:8px;
 
-      gap: 8px;
-
-      margin-top: 5px;
-
+      margin-top:5px;
     }
-
-
-    .edit-mode {
-
-      border: 1px solid rgba(20,184,166,.35);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(20,184,166,.05),
-          rgba(15,118,110,.02)
-        );
-
-    }
-
 
     /* =================================================
        TABLE
        ================================================= */
 
     .table-wrap {
-
-      overflow-x: auto;
-
+      overflow-x:auto;
     }
-
 
     table {
+      width:100%;
 
-      width: 100%;
+      border-collapse:collapse;
 
-      border-collapse: collapse;
-
-      min-width: 700px;
-
+      min-width:760px;
     }
-
 
     th {
+      text-align:right;
 
-      text-align: right;
+      background:var(--surface2);
 
-      background: var(--surface2);
+      color:var(--muted);
 
-      color: var(--muted);
+      font-size:11px;
 
-      font-size: 11px;
+      padding:12px;
 
-      padding: 12px;
-
-      white-space: nowrap;
-
+      white-space:nowrap;
     }
-
 
     td {
+      padding:13px 12px;
 
-      padding: 13px 12px;
+      border-top:1px solid var(--border);
 
-      border-top: 1px solid var(--border);
+      font-size:12px;
 
-      font-size: 12px;
-
-      vertical-align: middle;
-
+      vertical-align:middle;
     }
-
 
     tbody tr {
-
-      transition: background .15s ease;
-
+      transition:.15s;
     }
-
 
     tbody tr:hover {
-
-      background: rgba(20,184,166,.025);
-
+      background:rgba(20,184,166,.025);
     }
-
 
     .badge {
+      display:inline-flex;
 
-      display: inline-flex;
+      align-items:center;
+      justify-content:center;
 
-      align-items: center;
+      padding:5px 9px;
 
-      padding: 5px 9px;
+      border-radius:999px;
 
-      border-radius: 999px;
+      background:var(--soft);
 
-      background: var(--soft);
+      color:var(--primary);
 
-      color: var(--primary);
+      font-size:10px;
 
-      font-size: 10px;
+      font-weight:700;
 
-      font-weight: 700;
-
+      white-space:nowrap;
     }
-
-
-    .url {
-
-      display: block;
-
-      max-width: 250px;
-
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-
-      white-space: nowrap;
-
-      color: var(--primary);
-
-      direction: ltr;
-
-      text-align: right;
-
-      text-decoration: none;
-
-    }
-
-
-    .url:hover {
-
-      text-decoration: underline;
-
-    }
-
 
     .order-badge {
+      display:inline-grid;
 
-      min-width: 30px;
+      place-items:center;
 
-      justify-content: center;
+      min-width:34px;
+      height:29px;
 
+      padding:0 8px;
+
+      border-radius:9px;
+
+      background:var(--soft);
+
+      color:var(--primary);
+
+      font-size:11px;
+
+      font-weight:700;
+
+      border:1px solid rgba(20,184,166,.12);
     }
 
+    .url {
+      display:block;
+
+      max-width:250px;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+
+      white-space:nowrap;
+
+      color:var(--primary);
+
+      direction:ltr;
+
+      text-align:right;
+    }
 
     /* =================================================
        EMPTY
        ================================================= */
 
     .empty {
+      text-align:center;
 
-      text-align: center;
+      color:var(--muted);
 
-      color: var(--muted);
+      padding:40px 20px;
 
-      padding: 40px 20px;
-
-      font-size: 13px;
-
+      font-size:13px;
     }
-
 
     /* =================================================
        TOAST
        ================================================= */
 
     #toast {
+      position:fixed;
 
-      position: fixed;
+      left:22px;
+      bottom:22px;
 
-      left: 22px;
+      z-index:1000;
 
-      bottom: 22px;
+      min-width:240px;
+      max-width:380px;
 
-      z-index: 1000;
+      padding:13px 16px;
 
-      min-width: 240px;
+      border-radius:14px;
 
-      max-width: 380px;
-
-      padding: 13px 16px;
-
-      border-radius: 14px;
-
-      background: #17211f;
-
-      color: white;
+      background:#17211f;
+      color:white;
 
       box-shadow:
         0 15px 40px rgba(0,0,0,.18);
 
-      font-size: 13px;
+      font-size:13px;
 
-      transform: translateY(120px);
+      transform:translateY(120px);
 
-      opacity: 0;
+      opacity:0;
 
-      transition: .25s;
-
+      transition:.25s;
     }
-
 
     #toast.show {
-
-      transform: translateY(0);
-
-      opacity: 1;
-
+      transform:translateY(0);
+      opacity:1;
     }
-
 
     #toast.success {
-
-      background: #166534;
-
+      background:#166534;
     }
-
 
     #toast.error {
-
-      background: #991b1b;
-
+      background:#991b1b;
     }
-
 
     /* =================================================
        MOBILE
        ================================================= */
 
     .mobile-menu {
+      display:none;
 
-      display: none;
+      place-items:center;
 
+      width:40px;
+      height:40px;
+
+      border:1px solid var(--border);
+
+      background:var(--surface);
+
+      border-radius:11px;
     }
 
+    .mobile-menu svg {
+      width:19px;
+    }
 
-    @media(max-width: 900px) {
+    @media(max-width:900px) {
 
       .sidebar {
+        transform:translateX(100%);
 
-        transform: translateX(100%);
-
-        transition: .25s;
+        transition:.25s;
 
         box-shadow:
           -20px 0 50px rgba(0,0,0,.08);
-
       }
-
 
       .sidebar.open {
-
-        transform: translateX(0);
-
+        transform:translateX(0);
       }
-
 
       .content {
-
-        margin-right: 0;
-
+        margin-right:0;
       }
-
 
       .mobile-menu {
-
-        display: grid;
-
-        place-items: center;
-
-        width: 40px;
-
-        height: 40px;
-
-        border: 1px solid var(--border);
-
-        background: var(--surface);
-
-        border-radius: 11px;
-
+        display:grid;
       }
-
-
-      .mobile-menu svg {
-
-        width: 19px;
-
-      }
-
 
       .stats {
-
         grid-template-columns:
-          repeat(2, 1fr);
-
+          repeat(2,1fr);
       }
 
     }
 
-
-    @media(max-width: 600px) {
+    @media(max-width:600px) {
 
       .page {
-
-        padding: 18px 14px;
-
+        padding:18px 14px;
       }
-
 
       .topbar {
-
-        padding: 0 14px;
-
+        padding:0 14px;
       }
-
 
       .topbar h2 {
-
-        font-size: 16px;
-
+        font-size:16px;
       }
-
 
       .admin-user {
-
-        display: none;
-
+        display:none;
       }
-
 
       .stats {
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 10px;
-
+        grid-template-columns:1fr 1fr;
+        gap:10px;
       }
-
 
       .stat {
-
-        padding: 15px;
-
+        padding:15px;
       }
-
 
       .stat-number {
-
-        font-size: 23px;
-
+        font-size:23px;
       }
-
 
       .form-grid {
-
-        grid-template-columns: 1fr;
-
+        grid-template-columns:1fr;
       }
-
 
       .full {
-
-        grid-column: auto;
-
+        grid-column:auto;
       }
-
 
       .panel-head {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
+        align-items:flex-start;
+        flex-direction:column;
       }
 
-
-      .actions {
-
-        gap: 5px;
-
+      .panel-head > .btn {
+        width:100%;
       }
 
+      .form-mode {
+        align-items:flex-start;
+      }
+
+      .form-mode-content {
+        align-items:flex-start;
+      }
+
+      .form-actions {
+        flex-direction:column;
+      }
+
+      .form-actions .btn {
+        width:100%;
+      }
 
       .actions .btn {
+        min-height:35px;
+        padding:0 10px;
+      }
 
-        height: 36px;
-
-        padding: 0 10px;
-
-        font-size: 11px;
-
+      #toast {
+        left:12px;
+        right:12px;
+        min-width:0;
+        max-width:none;
+        bottom:12px;
       }
 
     }
@@ -1330,9 +1063,7 @@
 
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      LOGIN
@@ -1359,16 +1090,13 @@
 
     </div>
 
-
     <h1>لوحة إدارة مساعد توجيهي</h1>
 
     <p>
       سجل الدخول لإدارة محتوى المنصة
     </p>
 
-
     <div id="loginError" class="error"></div>
-
 
     <form id="loginForm">
 
@@ -1385,7 +1113,6 @@
 
       </div>
 
-
       <div class="field">
 
         <label>كلمة المرور</label>
@@ -1398,7 +1125,6 @@
         >
 
       </div>
-
 
       <button
         class="primary-btn"
@@ -1414,18 +1140,15 @@
 </section>
 
 
-
 <!-- =====================================================
      APP
      ===================================================== -->
 
 <div id="app">
 
-
   <!-- SIDEBAR -->
 
   <aside class="sidebar" id="sidebar">
-
 
     <div class="side-brand">
 
@@ -1445,7 +1168,6 @@
         </svg>
 
       </div>
-
 
       <div>
 
@@ -1609,20 +1331,23 @@
   </aside>
 
 
-
   <!-- CONTENT -->
 
   <div class="content">
 
-
     <header class="topbar">
 
-      <div style="display:flex;align-items:center;gap:10px;">
+      <div
+        style="
+          display:flex;
+          align-items:center;
+          gap:10px;
+        "
+      >
 
         <button
           class="mobile-menu"
           id="mobileMenu"
-          type="button"
         >
 
           <svg
@@ -1640,13 +1365,11 @@
 
         </button>
 
-
         <h2 id="pageTitle">
           لوحة التحكم
         </h2>
 
       </div>
-
 
       <div
         class="admin-user"
@@ -1654,7 +1377,6 @@
       ></div>
 
     </header>
-
 
 
     <!-- =================================================
@@ -1667,7 +1389,6 @@
     >
 
       <div class="stats">
-
 
         <div class="stat">
 
@@ -1839,13 +1560,25 @@
           <button
             class="btn btn-primary"
             onclick="openPage('resources')"
-            type="button"
           >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
+
+            </svg>
+
             إدارة المحتوى
+
           </button>
 
         </div>
-
 
         <div
           id="recentResources"
@@ -1857,7 +1590,6 @@
       </div>
 
     </main>
-
 
 
     <!-- =================================================
@@ -1889,9 +1621,22 @@
           <button
             class="btn btn-primary"
             onclick="showGenerationForm()"
-            type="button"
           >
-            + إضافة جيل
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
+
+            </svg>
+
+            إضافة جيل
+
           </button>
 
         </div>
@@ -1902,6 +1647,47 @@
           class="panel-body"
           style="display:none"
         >
+
+          <div
+            id="generationEditMode"
+            class="form-mode"
+            style="display:none"
+          >
+
+            <div class="form-mode-content">
+
+              <div class="form-mode-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  تعديل الجيل
+                </strong>
+
+                <span>
+                  عدّل البيانات ثم اضغط حفظ التعديلات
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
 
           <form
             id="generationAddForm"
@@ -1956,13 +1742,14 @@
 
               <button
                 class="btn btn-primary"
+                id="generationSubmitBtn"
                 type="submit"
               >
                 حفظ الجيل
               </button>
 
               <button
-                class="btn"
+                class="btn btn-cancel"
                 type="button"
                 onclick="hideGenerationForm()"
               >
@@ -1984,7 +1771,6 @@
       </div>
 
     </main>
-
 
 
     <!-- =================================================
@@ -2016,9 +1802,22 @@
           <button
             class="btn btn-primary"
             onclick="showSubjectForm()"
-            type="button"
           >
-            + إضافة مادة
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
+
+            </svg>
+
+            إضافة مادة
+
           </button>
 
         </div>
@@ -2029,6 +1828,47 @@
           class="panel-body"
           style="display:none"
         >
+
+          <div
+            id="subjectEditMode"
+            class="form-mode"
+            style="display:none"
+          >
+
+            <div class="form-mode-content">
+
+              <div class="form-mode-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  تعديل المادة
+                </strong>
+
+                <span>
+                  عدّل البيانات ثم اضغط حفظ التعديلات
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
 
           <form
             id="subjectAddForm"
@@ -2118,13 +1958,14 @@
 
               <button
                 class="btn btn-primary"
+                id="subjectSubmitBtn"
                 type="submit"
               >
                 حفظ المادة
               </button>
 
               <button
-                class="btn"
+                class="btn btn-cancel"
                 type="button"
                 onclick="hideSubjectForm()"
               >
@@ -2146,7 +1987,6 @@
       </div>
 
     </main>
-
 
 
     <!-- =================================================
@@ -2178,9 +2018,22 @@
           <button
             class="btn btn-primary"
             onclick="showSectionForm()"
-            type="button"
           >
-            + إضافة قسم
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
+
+            </svg>
+
+            إضافة قسم
+
           </button>
 
         </div>
@@ -2191,6 +2044,47 @@
           class="panel-body"
           style="display:none"
         >
+
+          <div
+            id="sectionEditMode"
+            class="form-mode"
+            style="display:none"
+          >
+
+            <div class="form-mode-content">
+
+              <div class="form-mode-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  تعديل القسم
+                </strong>
+
+                <span>
+                  عدّل البيانات ثم اضغط حفظ التعديلات
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
 
           <form
             id="sectionAddForm"
@@ -2265,13 +2159,14 @@
 
               <button
                 class="btn btn-primary"
+                id="sectionSubmitBtn"
                 type="submit"
               >
                 حفظ القسم
               </button>
 
               <button
-                class="btn"
+                class="btn btn-cancel"
                 type="button"
                 onclick="hideSectionForm()"
               >
@@ -2293,7 +2188,6 @@
       </div>
 
     </main>
-
 
 
     <!-- =================================================
@@ -2325,9 +2219,22 @@
           <button
             class="btn btn-primary"
             onclick="showResourceForm()"
-            type="button"
           >
-            + إضافة محتوى
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+
+              <path d="M12 5v14"/>
+              <path d="M5 12h14"/>
+
+            </svg>
+
+            إضافة محتوى
+
           </button>
 
         </div>
@@ -2338,6 +2245,47 @@
           class="panel-body"
           style="display:none"
         >
+
+          <div
+            id="resourceEditMode"
+            class="form-mode"
+            style="display:none"
+          >
+
+            <div class="form-mode-content">
+
+              <div class="form-mode-icon">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                </svg>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  تعديل المحتوى
+                </strong>
+
+                <span>
+                  عدّل البيانات والترتيب ثم اضغط حفظ التعديلات
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
 
           <form
             id="resourceAddForm"
@@ -2503,15 +2451,14 @@
 
               <button
                 class="btn btn-primary"
-                id="resourceSaveBtn"
+                id="resourceSubmitBtn"
                 type="submit"
               >
                 حفظ المحتوى
               </button>
 
               <button
-                class="btn"
-                id="resourceCancelBtn"
+                class="btn btn-cancel"
                 type="button"
                 onclick="hideResourceForm()"
               >
@@ -2540,7 +2487,6 @@
 
 
 <div id="toast"></div>
-
 
 
 <script type="module">
@@ -2574,6 +2520,9 @@
   let sections = [];
   let resources = [];
 
+  let editingGenerationId = null;
+  let editingSubjectId = null;
+  let editingSectionId = null;
   let editingResourceId = null;
 
 
@@ -2595,12 +2544,6 @@
 
   const adminEmail =
     document.getElementById("adminEmail");
-
-  const resourceForm =
-    document.getElementById("resourceForm");
-
-  const resourceSaveBtn =
-    document.getElementById("resourceSaveBtn");
 
 
   /* =====================================================
@@ -2631,54 +2574,59 @@
   });
 
 
-  loginForm.addEventListener("submit", async (e) => {
+  loginForm.addEventListener(
+    "submit",
+    async (e) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    loginError.style.display = "none";
+      loginError.style.display = "none";
 
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
 
-    const password =
-      document
-        .getElementById("password")
-        .value;
+      const password =
+        document
+          .getElementById("password")
+          .value;
 
+      try {
 
-    try {
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      } catch (error) {
 
-    } catch (error) {
+        console.error(error);
 
-      console.error(error);
+        loginError.textContent =
+          "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
 
-      loginError.textContent =
-        "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+        loginError.style.display =
+          "block";
 
-      loginError.style.display =
-        "block";
+      }
 
     }
-
-  });
+  );
 
 
   document
     .getElementById("logoutBtn")
-    .addEventListener("click", async () => {
+    .addEventListener(
+      "click",
+      async () => {
 
-      await signOut(auth);
+        await signOut(auth);
 
-    });
+      }
+    );
 
 
   /* =====================================================
@@ -2722,22 +2670,23 @@
 
     const snapshot =
       await getDocs(
-        collection(db, "generations")
+        collection(
+          db,
+          "generations"
+        )
       );
 
     generations =
       snapshot.docs.map(d => ({
-        id: d.id,
+        id:d.id,
         ...d.data()
       }));
-
 
     generations.sort(
       (a,b) =>
         Number(a.year || 0) -
         Number(b.year || 0)
     );
-
 
     renderGenerations();
 
@@ -2753,7 +2702,6 @@
         "generationsList"
       );
 
-
     if (!generations.length) {
 
       container.innerHTML =
@@ -2765,7 +2713,6 @@
 
     }
 
-
     container.innerHTML = `
 
       <table>
@@ -2775,11 +2722,8 @@
           <tr>
 
             <th>الاسم</th>
-
             <th>العام</th>
-
             <th>الوصف</th>
-
             <th>الإجراءات</th>
 
           </tr>
@@ -2793,21 +2737,33 @@
             <tr>
 
               <td>
+
                 <strong>
-                  ${escapeHtml(g.name || "")}
+                  ${escapeHtml(
+                    g.name || ""
+                  )}
                 </strong>
+
               </td>
 
               <td>
+
                 <span class="badge">
-                  ${escapeHtml(g.year || "")}
+
+                  ${escapeHtml(
+                    g.year || ""
+                  )}
+
                 </span>
+
               </td>
 
               <td>
+
                 ${escapeHtml(
                   g.description || "—"
                 )}
+
               </td>
 
               <td>
@@ -2815,11 +2771,49 @@
                 <div class="actions">
 
                   <button
+                    class="btn btn-edit"
+                    onclick="editGeneration('${g.id}')"
+                  >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+
+                      <path d="M12 20h9"/>
+                      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                    </svg>
+
+                    تعديل
+
+                  </button>
+
+
+                  <button
                     class="btn btn-danger"
                     onclick="deleteGeneration('${g.id}')"
-                    type="button"
                   >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+
+                      <path d="M3 6h18"/>
+                      <path d="M8 6V4h8v2"/>
+                      <path d="M19 6l-1 15H6L5 6"/>
+                      <path d="M10 11v6"/>
+                      <path d="M14 11v6"/>
+
+                    </svg>
+
                     حذف
+
                   </button>
 
                 </div>
@@ -2841,73 +2835,173 @@
 
   document
     .getElementById("generationAddForm")
-    .addEventListener("submit", async (e) => {
+    .addEventListener(
+      "submit",
+      async (e) => {
 
-      e.preventDefault();
+        e.preventDefault();
 
+        const data = {
 
-      try {
+          name:
+            document
+              .getElementById(
+                "generationName"
+              )
+              .value
+              .trim(),
 
-        await addDoc(
-          collection(db, "generations"),
-          {
+          year:
+            document
+              .getElementById(
+                "generationYear"
+              )
+              .value
+              .trim(),
 
-            name:
-              document
-                .getElementById(
-                  "generationName"
-                )
-                .value
-                .trim(),
+          description:
+            document
+              .getElementById(
+                "generationDescription"
+              )
+              .value
+              .trim(),
 
-            year:
-              document
-                .getElementById(
-                  "generationYear"
-                )
-                .value
-                .trim(),
+          updatedAt:
+            serverTimestamp()
 
-            description:
-              document
-                .getElementById(
-                  "generationDescription"
-                )
-                .value
-                .trim(),
+        };
 
-            createdAt:
-              serverTimestamp()
+        try {
+
+          if (editingGenerationId) {
+
+            await updateDoc(
+              doc(
+                db,
+                "generations",
+                editingGenerationId
+              ),
+              data
+            );
+
+            toast(
+              "تم تعديل الجيل بنجاح",
+              "success"
+            );
+
+          } else {
+
+            await addDoc(
+              collection(
+                db,
+                "generations"
+              ),
+              {
+                ...data,
+                createdAt:
+                  serverTimestamp()
+              }
+            );
+
+            toast(
+              "تمت إضافة الجيل بنجاح",
+              "success"
+            );
 
           }
-        );
 
+          e.target.reset();
 
-        e.target.reset();
+          hideGenerationForm();
 
-        hideGenerationForm();
+          await loadGenerations();
 
-        await loadGenerations();
+          updateStats();
 
-        updateStats();
+        } catch (error) {
 
-        toast(
-          "تمت إضافة الجيل بنجاح",
-          "success"
-        );
+          console.error(error);
 
-      } catch (error) {
+          toast(
+            editingGenerationId
+              ? "تعذر تعديل الجيل"
+              : "تعذر إضافة الجيل",
+            "error"
+          );
 
-        console.error(error);
-
-        toast(
-          "تعذر إضافة الجيل",
-          "error"
-        );
+        }
 
       }
+    );
 
-    });
+
+  window.editGeneration =
+    function(id) {
+
+      const generation =
+        generations.find(
+          g => g.id === id
+        );
+
+      if (!generation) return;
+
+      editingGenerationId = id;
+
+      document
+        .getElementById(
+          "generationName"
+        )
+        .value =
+        generation.name || "";
+
+      document
+        .getElementById(
+          "generationYear"
+        )
+        .value =
+        generation.year || "";
+
+      document
+        .getElementById(
+          "generationDescription"
+        )
+        .value =
+        generation.description || "";
+
+      document
+        .getElementById(
+          "generationSubmitBtn"
+        )
+        .textContent =
+        "حفظ التعديلات";
+
+      document
+        .getElementById(
+          "generationEditMode"
+        )
+        .style.display =
+        "flex";
+
+      document
+        .getElementById(
+          "generationForm"
+        )
+        .style.display =
+        "block";
+
+      openPage("generations");
+
+      document
+        .getElementById(
+          "generationForm"
+        )
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+    };
 
 
   window.deleteGeneration =
@@ -2919,11 +3013,14 @@
         )
       ) return;
 
-
       try {
 
         await deleteDoc(
-          doc(db, "generations", id)
+          doc(
+            db,
+            "generations",
+            id
+          )
         );
 
         await loadGenerations();
@@ -2957,23 +3054,23 @@
 
     const snapshot =
       await getDocs(
-        collection(db, "subjects")
+        collection(
+          db,
+          "subjects"
+        )
       );
-
 
     subjects =
       snapshot.docs.map(d => ({
-        id: d.id,
+        id:d.id,
         ...d.data()
       }));
-
 
     subjects.sort(
       (a,b) =>
         Number(a.order || 0) -
         Number(b.order || 0)
     );
-
 
     renderSubjects();
 
@@ -2989,7 +3086,6 @@
         "subjectsList"
       );
 
-
     if (!subjects.length) {
 
       container.innerHTML =
@@ -3001,7 +3097,6 @@
 
     }
 
-
     container.innerHTML = `
 
       <table>
@@ -3011,13 +3106,9 @@
           <tr>
 
             <th>المادة</th>
-
             <th>الجيل</th>
-
             <th>المعرف</th>
-
             <th>الترتيب</th>
-
             <th>الإجراءات</th>
 
           </tr>
@@ -3035,36 +3126,47 @@
                   s.generationId
               );
 
-
             return `
 
               <tr>
 
                 <td>
+
                   <strong>
                     ${escapeHtml(
                       s.name || ""
                     )}
                   </strong>
+
                 </td>
 
                 <td>
+
                   ${escapeHtml(
                     generation?.name ||
                     "غير معروف"
                   )}
+
                 </td>
 
                 <td>
+
                   <span class="badge">
+
                     ${escapeHtml(
                       s.slug || ""
                     )}
+
                   </span>
+
                 </td>
 
                 <td>
-                  ${s.order ?? 1}
+
+                  <span class="order-badge">
+                    ${Number(s.order) || 1}
+                  </span>
+
                 </td>
 
                 <td>
@@ -3072,11 +3174,49 @@
                   <div class="actions">
 
                     <button
+                      class="btn btn-edit"
+                      onclick="editSubject('${s.id}')"
+                    >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                      </svg>
+
+                      تعديل
+
+                    </button>
+
+
+                    <button
                       class="btn btn-danger"
                       onclick="deleteSubject('${s.id}')"
-                      type="button"
                     >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path d="M3 6h18"/>
+                        <path d="M8 6V4h8v2"/>
+                        <path d="M19 6l-1 15H6L5 6"/>
+                        <path d="M10 11v6"/>
+                        <path d="M14 11v6"/>
+
+                      </svg>
+
                       حذف
+
                     </button>
 
                   </div>
@@ -3100,89 +3240,207 @@
 
   document
     .getElementById("subjectAddForm")
-    .addEventListener("submit", async (e) => {
+    .addEventListener(
+      "submit",
+      async (e) => {
 
-      e.preventDefault();
+        e.preventDefault();
 
+        const data = {
 
-      try {
+          generationId:
+            document
+              .getElementById(
+                "subjectGeneration"
+              )
+              .value,
 
-        await addDoc(
-          collection(db, "subjects"),
-          {
+          name:
+            document
+              .getElementById(
+                "subjectName"
+              )
+              .value
+              .trim(),
 
-            generationId:
+          slug:
+            document
+              .getElementById(
+                "subjectSlug"
+              )
+              .value
+              .trim(),
+
+          description:
+            document
+              .getElementById(
+                "subjectDescription"
+              )
+              .value
+              .trim(),
+
+          order:
+            Number(
               document
                 .getElementById(
-                  "subjectGeneration"
-                )
-                .value,
-
-            name:
-              document
-                .getElementById(
-                  "subjectName"
+                  "subjectOrder"
                 )
                 .value
-                .trim(),
+            ) || 1,
 
-            slug:
-              document
-                .getElementById(
-                  "subjectSlug"
-                )
-                .value
-                .trim(),
+          updatedAt:
+            serverTimestamp()
 
-            description:
-              document
-                .getElementById(
-                  "subjectDescription"
-                )
-                .value
-                .trim(),
+        };
 
-            order:
-              Number(
-                document
-                  .getElementById(
-                    "subjectOrder"
-                  )
-                  .value
-              ) || 1,
+        try {
 
-            createdAt:
-              serverTimestamp()
+          if (editingSubjectId) {
+
+            await updateDoc(
+              doc(
+                db,
+                "subjects",
+                editingSubjectId
+              ),
+              data
+            );
+
+            toast(
+              "تم تعديل المادة بنجاح",
+              "success"
+            );
+
+          } else {
+
+            await addDoc(
+              collection(
+                db,
+                "subjects"
+              ),
+              {
+                ...data,
+                createdAt:
+                  serverTimestamp()
+              }
+            );
+
+            toast(
+              "تمت إضافة المادة بنجاح",
+              "success"
+            );
 
           }
-        );
 
+          e.target.reset();
 
-        e.target.reset();
+          hideSubjectForm();
 
-        hideSubjectForm();
+          await loadSubjects();
 
-        await loadSubjects();
+          await loadSections();
 
-        updateStats();
+          await loadResources();
 
-        toast(
-          "تمت إضافة المادة بنجاح",
-          "success"
-        );
+          updateStats();
 
-      } catch (error) {
+        } catch (error) {
 
-        console.error(error);
+          console.error(error);
 
-        toast(
-          "تعذر إضافة المادة",
-          "error"
-        );
+          toast(
+            editingSubjectId
+              ? "تعذر تعديل المادة"
+              : "تعذر إضافة المادة",
+            "error"
+          );
+
+        }
 
       }
+    );
 
-    });
+
+  window.editSubject =
+    function(id) {
+
+      const subject =
+        subjects.find(
+          s => s.id === id
+        );
+
+      if (!subject) return;
+
+      editingSubjectId = id;
+
+      document
+        .getElementById(
+          "subjectGeneration"
+        )
+        .value =
+        subject.generationId || "";
+
+      document
+        .getElementById(
+          "subjectName"
+        )
+        .value =
+        subject.name || "";
+
+      document
+        .getElementById(
+          "subjectSlug"
+        )
+        .value =
+        subject.slug || "";
+
+      document
+        .getElementById(
+          "subjectOrder"
+        )
+        .value =
+        subject.order ?? 1;
+
+      document
+        .getElementById(
+          "subjectDescription"
+        )
+        .value =
+        subject.description || "";
+
+      document
+        .getElementById(
+          "subjectSubmitBtn"
+        )
+        .textContent =
+        "حفظ التعديلات";
+
+      document
+        .getElementById(
+          "subjectEditMode"
+        )
+        .style.display =
+        "flex";
+
+      document
+        .getElementById(
+          "subjectForm"
+        )
+        .style.display =
+        "block";
+
+      openPage("subjects");
+
+      document
+        .getElementById(
+          "subjectForm"
+        )
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+    };
 
 
   window.deleteSubject =
@@ -3194,11 +3452,14 @@
         )
       ) return;
 
-
       try {
 
         await deleteDoc(
-          doc(db, "subjects", id)
+          doc(
+            db,
+            "subjects",
+            id
+          )
         );
 
         await loadSubjects();
@@ -3232,23 +3493,23 @@
 
     const snapshot =
       await getDocs(
-        collection(db, "sections")
+        collection(
+          db,
+          "sections"
+        )
       );
-
 
     sections =
       snapshot.docs.map(d => ({
-        id: d.id,
+        id:d.id,
         ...d.data()
       }));
-
 
     sections.sort(
       (a,b) =>
         Number(a.order || 0) -
         Number(b.order || 0)
     );
-
 
     renderSections();
 
@@ -3264,7 +3525,6 @@
         "sectionsList"
       );
 
-
     if (!sections.length) {
 
       container.innerHTML =
@@ -3276,7 +3536,6 @@
 
     }
 
-
     container.innerHTML = `
 
       <table>
@@ -3286,13 +3545,9 @@
           <tr>
 
             <th>القسم</th>
-
             <th>المادة</th>
-
             <th>الترتيب</th>
-
             <th>الوصف</th>
-
             <th>الإجراءات</th>
 
           </tr>
@@ -3310,35 +3565,44 @@
                   s.subjectId
               );
 
-
             return `
 
               <tr>
 
                 <td>
+
                   <strong>
                     ${escapeHtml(
                       s.name || ""
                     )}
                   </strong>
+
                 </td>
 
                 <td>
+
                   ${escapeHtml(
                     subject?.name ||
                     "غير معروف"
                   )}
+
                 </td>
 
                 <td>
-                  ${s.order ?? 1}
+
+                  <span class="order-badge">
+                    ${Number(s.order) || 1}
+                  </span>
+
                 </td>
 
                 <td>
+
                   ${escapeHtml(
                     s.description ||
                     "—"
                   )}
+
                 </td>
 
                 <td>
@@ -3346,11 +3610,49 @@
                   <div class="actions">
 
                     <button
+                      class="btn btn-edit"
+                      onclick="editSection('${s.id}')"
+                    >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                      </svg>
+
+                      تعديل
+
+                    </button>
+
+
+                    <button
                       class="btn btn-danger"
                       onclick="deleteSection('${s.id}')"
-                      type="button"
                     >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path d="M3 6h18"/>
+                        <path d="M8 6V4h8v2"/>
+                        <path d="M19 6l-1 15H6L5 6"/>
+                        <path d="M10 11v6"/>
+                        <path d="M14 11v6"/>
+
+                      </svg>
+
                       حذف
+
                     </button>
 
                   </div>
@@ -3374,81 +3676,190 @@
 
   document
     .getElementById("sectionAddForm")
-    .addEventListener("submit", async (e) => {
+    .addEventListener(
+      "submit",
+      async (e) => {
 
-      e.preventDefault();
+        e.preventDefault();
 
+        const data = {
 
-      try {
+          subjectId:
+            document
+              .getElementById(
+                "sectionSubject"
+              )
+              .value,
 
-        await addDoc(
-          collection(db, "sections"),
-          {
+          name:
+            document
+              .getElementById(
+                "sectionName"
+              )
+              .value
+              .trim(),
 
-            subjectId:
+          description:
+            document
+              .getElementById(
+                "sectionDescription"
+              )
+              .value
+              .trim(),
+
+          order:
+            Number(
               document
                 .getElementById(
-                  "sectionSubject"
-                )
-                .value,
-
-            name:
-              document
-                .getElementById(
-                  "sectionName"
+                  "sectionOrder"
                 )
                 .value
-                .trim(),
+            ) || 1,
 
-            description:
-              document
-                .getElementById(
-                  "sectionDescription"
-                )
-                .value
-                .trim(),
+          updatedAt:
+            serverTimestamp()
 
-            order:
-              Number(
-                document
-                  .getElementById(
-                    "sectionOrder"
-                  )
-                  .value
-              ) || 1,
+        };
 
-            createdAt:
-              serverTimestamp()
+        try {
+
+          if (editingSectionId) {
+
+            await updateDoc(
+              doc(
+                db,
+                "sections",
+                editingSectionId
+              ),
+              data
+            );
+
+            toast(
+              "تم تعديل القسم بنجاح",
+              "success"
+            );
+
+          } else {
+
+            await addDoc(
+              collection(
+                db,
+                "sections"
+              ),
+              {
+                ...data,
+                createdAt:
+                  serverTimestamp()
+              }
+            );
+
+            toast(
+              "تمت إضافة القسم بنجاح",
+              "success"
+            );
 
           }
-        );
 
+          e.target.reset();
 
-        e.target.reset();
+          hideSectionForm();
 
-        hideSectionForm();
+          await loadSections();
 
-        await loadSections();
+          await loadResources();
 
-        updateStats();
+          updateStats();
 
-        toast(
-          "تمت إضافة القسم بنجاح",
-          "success"
-        );
+        } catch (error) {
 
-      } catch (error) {
+          console.error(error);
 
-        console.error(error);
+          toast(
+            editingSectionId
+              ? "تعذر تعديل القسم"
+              : "تعذر إضافة القسم",
+            "error"
+          );
 
-        toast(
-          "تعذر إضافة القسم",
-          "error"
-        );
+        }
 
       }
+    );
 
-    });
+
+  window.editSection =
+    function(id) {
+
+      const section =
+        sections.find(
+          s => s.id === id
+        );
+
+      if (!section) return;
+
+      editingSectionId = id;
+
+      document
+        .getElementById(
+          "sectionSubject"
+        )
+        .value =
+        section.subjectId || "";
+
+      document
+        .getElementById(
+          "sectionName"
+        )
+        .value =
+        section.name || "";
+
+      document
+        .getElementById(
+          "sectionOrder"
+        )
+        .value =
+        section.order ?? 1;
+
+      document
+        .getElementById(
+          "sectionDescription"
+        )
+        .value =
+        section.description || "";
+
+      document
+        .getElementById(
+          "sectionSubmitBtn"
+        )
+        .textContent =
+        "حفظ التعديلات";
+
+      document
+        .getElementById(
+          "sectionEditMode"
+        )
+        .style.display =
+        "flex";
+
+      document
+        .getElementById(
+          "sectionForm"
+        )
+        .style.display =
+        "block";
+
+      openPage("sections");
+
+      document
+        .getElementById(
+          "sectionForm"
+        )
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+    };
 
 
   window.deleteSection =
@@ -3460,11 +3871,14 @@
         )
       ) return;
 
-
       try {
 
         await deleteDoc(
-          doc(db, "sections", id)
+          doc(
+            db,
+            "sections",
+            id
+          )
         );
 
         await loadSections();
@@ -3498,23 +3912,47 @@
 
     const snapshot =
       await getDocs(
-        collection(db, "resources")
+        collection(
+          db,
+          "resources"
+        )
       );
-
 
     resources =
       snapshot.docs.map(d => ({
-        id: d.id,
+        id:d.id,
         ...d.data()
       }));
 
-
     resources.sort(
-      (a,b) =>
-        Number(a.order || 0) -
-        Number(b.order || 0)
-    );
+      (a,b) => {
 
+        const orderA =
+          Number.isFinite(
+            Number(a.order)
+          )
+            ? Number(a.order)
+            : 999999;
+
+        const orderB =
+          Number.isFinite(
+            Number(b.order)
+          )
+            ? Number(b.order)
+            : 999999;
+
+        return (
+          orderA - orderB ||
+          Number(
+            b.createdAt?.seconds || 0
+          ) -
+          Number(
+            a.createdAt?.seconds || 0
+          )
+        );
+
+      }
+    );
 
     renderResources();
 
@@ -3532,7 +3970,6 @@
         "resourcesList"
       );
 
-
     if (!resources.length) {
 
       container.innerHTML =
@@ -3544,7 +3981,6 @@
 
     }
 
-
     container.innerHTML = `
 
       <table>
@@ -3554,19 +3990,12 @@
           <tr>
 
             <th>المحتوى</th>
-
             <th>المادة</th>
-
             <th>القسم</th>
-
-            <th>النوع</th>
-
             <th>الترتيب</th>
-
+            <th>النوع</th>
             <th>الحالة</th>
-
             <th>الرابط</th>
-
             <th>الإجراءات</th>
 
           </tr>
@@ -3584,14 +4013,12 @@
                   r.subjectId
               );
 
-
             const section =
               sections.find(
                 x =>
                   x.id ===
                   r.sectionId
               );
-
 
             return `
 
@@ -3607,48 +4034,62 @@
 
                 </td>
 
+
                 <td>
+
                   ${escapeHtml(
                     subject?.name ||
                     "—"
                   )}
+
                 </td>
 
+
                 <td>
+
                   ${escapeHtml(
                     section?.name ||
                     "—"
                   )}
+
                 </td>
+
+
+                <td>
+
+                  <span class="order-badge">
+                    ${Number(r.order) || 1}
+                  </span>
+
+                </td>
+
 
                 <td>
 
                   <span class="badge">
+
                     ${escapeHtml(
                       resourceTypeName(
                         r.type
                       )
                     )}
+
                   </span>
 
                 </td>
 
-                <td>
-
-                  <span class="badge order-badge">
-                    ${Number(r.order || 1)}
-                  </span>
-
-                </td>
 
                 <td>
 
                   ${
                     r.published
-                      ? `<span class="badge">
+                      ? `
+                        <span class="badge">
                           منشور
-                        </span>`
-                      : `<span
+                        </span>
+                      `
+                      : `
+                        <span
                           class="badge"
                           style="
                             background:#fff7ed;
@@ -3656,10 +4097,12 @@
                           "
                         >
                           مخفي
-                        </span>`
+                        </span>
+                      `
                   }
 
                 </td>
+
 
                 <td>
 
@@ -3669,24 +4112,26 @@
                       r.url || "#"
                     )}"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                   >
+
                     ${escapeHtml(
                       r.url || "—"
                     )}
+
                   </a>
 
                 </td>
+
 
                 <td>
 
                   <div class="actions">
 
+
                     <button
                       class="btn btn-edit"
                       onclick="editResource('${r.id}')"
-                      type="button"
-                      title="تعديل المحتوى"
                     >
 
                       <svg
@@ -3695,8 +4140,10 @@
                         stroke="currentColor"
                         stroke-width="2"
                       >
+
                         <path d="M12 20h9"/>
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
                       </svg>
 
                       تعديل
@@ -3705,25 +4152,43 @@
 
 
                     <button
-                      class="btn btn-danger"
-                      onclick="deleteResource('${r.id}')"
-                      type="button"
-                    >
-                      حذف
-                    </button>
-
-
-                    <button
                       class="btn"
                       onclick="toggleResource('${r.id}', ${!r.published})"
-                      type="button"
                     >
+
                       ${
                         r.published
                           ? "إخفاء"
                           : "نشر"
                       }
+
                     </button>
+
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="deleteResource('${r.id}')"
+                    >
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+
+                        <path d="M3 6h18"/>
+                        <path d="M8 6V4h8v2"/>
+                        <path d="M19 6l-1 15H6L5 6"/>
+                        <path d="M10 11v6"/>
+                        <path d="M14 11v6"/>
+
+                      </svg>
+
+                      حذف
+
+                    </button>
+
 
                   </div>
 
@@ -3744,217 +4209,156 @@
   }
 
 
-  /* =====================================================
-     ADD / EDIT RESOURCE
-     ===================================================== */
-
   document
     .getElementById("resourceAddForm")
-    .addEventListener("submit", async (e) => {
+    .addEventListener(
+      "submit",
+      async (e) => {
 
-      e.preventDefault();
+        e.preventDefault();
+
+        const data = {
+
+          subjectId:
+            document
+              .getElementById(
+                "resourceSubject"
+              )
+              .value,
+
+          sectionId:
+            document
+              .getElementById(
+                "resourceSection"
+              )
+              .value,
+
+          title:
+            document
+              .getElementById(
+                "resourceTitle"
+              )
+              .value
+              .trim(),
+
+          type:
+            document
+              .getElementById(
+                "resourceType"
+              )
+              .value,
+
+          url:
+            document
+              .getElementById(
+                "resourceUrl"
+              )
+              .value
+              .trim(),
+
+          description:
+            document
+              .getElementById(
+                "resourceDescription"
+              )
+              .value
+              .trim(),
+
+          order:
+            Number(
+              document
+                .getElementById(
+                  "resourceOrder"
+                )
+                .value
+            ) || 1,
+
+          published:
+            document
+              .getElementById(
+                "resourcePublished"
+              )
+              .value === "true",
+
+          updatedAt:
+            serverTimestamp()
+
+        };
 
 
-      const subjectId =
-        document
-          .getElementById(
-            "resourceSubject"
-          )
-          .value;
+        try {
 
-      const sectionId =
-        document
-          .getElementById(
-            "resourceSection"
-          )
-          .value;
+          if (editingResourceId) {
 
-      const title =
-        document
-          .getElementById(
-            "resourceTitle"
-          )
-          .value
-          .trim();
+            await updateDoc(
+              doc(
+                db,
+                "resources",
+                editingResourceId
+              ),
+              data
+            );
 
-      const type =
-        document
-          .getElementById(
-            "resourceType"
-          )
-          .value;
+            toast(
+              "تم تعديل المحتوى بنجاح",
+              "success"
+            );
 
-      const url =
-        document
-          .getElementById(
-            "resourceUrl"
-          )
-          .value
-          .trim();
+          } else {
 
-      const description =
-        document
-          .getElementById(
-            "resourceDescription"
-          )
-          .value
-          .trim();
+            await addDoc(
+              collection(
+                db,
+                "resources"
+              ),
+              {
+                ...data,
 
-      const order =
-        Number(
-          document
-            .getElementById(
-              "resourceOrder"
-            )
-            .value
-        ) || 1;
+                createdAt:
+                  serverTimestamp()
+              }
+            );
 
-      const published =
-        document
-          .getElementById(
-            "resourcePublished"
-          )
-          .value === "true";
+            toast(
+              "تمت إضافة المحتوى بنجاح",
+              "success"
+            );
+
+          }
 
 
-      try {
+          e.target.reset();
 
-        /* ============================================
-           EDIT
-           ============================================ */
+          hideResourceForm();
 
-        if (editingResourceId) {
+          await loadResources();
 
-          await updateDoc(
-            doc(
-              db,
-              "resources",
-              editingResourceId
-            ),
-            {
+        } catch (error) {
 
-              subjectId,
-
-              sectionId,
-
-              title,
-
-              type,
-
-              url,
-
-              description,
-
-              order,
-
-              published,
-
-              updatedAt:
-                serverTimestamp()
-
-            }
-          );
-
+          console.error(error);
 
           toast(
-            "تم تعديل المحتوى بنجاح",
-            "success"
+            editingResourceId
+              ? "تعذر تعديل المحتوى"
+              : "تعذر إضافة المحتوى",
+            "error"
           );
 
         }
-
-
-        /* ============================================
-           ADD
-           ============================================ */
-
-        else {
-
-          await addDoc(
-            collection(db, "resources"),
-            {
-
-              subjectId,
-
-              sectionId,
-
-              title,
-
-              type,
-
-              url,
-
-              description,
-
-              order,
-
-              published,
-
-              createdAt:
-                serverTimestamp(),
-
-              updatedAt:
-                serverTimestamp()
-
-            }
-          );
-
-
-          toast(
-            "تمت إضافة المحتوى بنجاح",
-            "success"
-          );
-
-        }
-
-
-        e.target.reset();
-
-        hideResourceForm();
-
-        await loadResources();
-
-      } catch (error) {
-
-        console.error(error);
-
-        toast(
-          editingResourceId
-            ? "تعذر تعديل المحتوى"
-            : "تعذر إضافة المحتوى",
-          "error"
-        );
 
       }
+    );
 
-    });
-
-
-  /* =====================================================
-     EDIT RESOURCE
-     ===================================================== */
 
   window.editResource =
     function(id) {
 
       const resource =
         resources.find(
-          r =>
-            r.id === id
+          r => r.id === id
         );
 
-
-      if (!resource) {
-
-        toast(
-          "تعذر العثور على المحتوى",
-          "error"
-        );
-
-        return;
-
-      }
-
+      if (!resource) return;
 
       editingResourceId = id;
 
@@ -3965,6 +4369,11 @@
         )
         .value =
         resource.subjectId || "";
+
+
+      fillResourceSectionSelect(
+        resource.subjectId
+      );
 
 
       document
@@ -4020,144 +4429,64 @@
           "resourcePublished"
         )
         .value =
-        resource.published
-          ? "true"
-          : "false";
+        resource.published === false
+          ? "false"
+          : "true";
 
 
-      resourceForm.style.display =
-        "block";
-
-      resourceForm.classList.add(
-        "edit-mode"
-      );
-
-
-      resourceSaveBtn.textContent =
+      document
+        .getElementById(
+          "resourceSubmitBtn"
+        )
+        .textContent =
         "حفظ التعديلات";
 
 
-      const panel =
-        resourceForm.closest(".panel");
-
-
-      if (panel) {
-
-        panel.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }
-
-    };
-
-
-  /* =====================================================
-     HIDE RESOURCE FORM
-     ===================================================== */
-
-  window.hideResourceForm =
-    function() {
-
-      editingResourceId = null;
-
-      resourceForm.style.display =
-        "none";
-
-      resourceForm.classList.remove(
-        "edit-mode"
-      );
+      document
+        .getElementById(
+          "resourceEditMode"
+        )
+        .style.display =
+        "flex";
 
 
       document
         .getElementById(
-          "resourceAddForm"
+          "resourceForm"
         )
-        .reset();
-
-
-      document
-        .getElementById(
-          "resourceOrder"
-        )
-        .value = 1;
-
-
-      document
-        .getElementById(
-          "resourcePublished"
-        )
-        .value = "true";
-
-
-      resourceSaveBtn.textContent =
-        "حفظ المحتوى";
-
-    };
-
-
-  window.showResourceForm =
-    function() {
-
-      editingResourceId = null;
-
-      resourceForm.style.display =
+        .style.display =
         "block";
 
-      resourceForm.classList.remove(
-        "edit-mode"
-      );
 
-
-      resourceSaveBtn.textContent =
-        "حفظ المحتوى";
+      openPage("resources");
 
 
       document
         .getElementById(
-          "resourceAddForm"
+          "resourceForm"
         )
-        .reset();
-
-
-      document
-        .getElementById(
-          "resourceOrder"
-        )
-        .value = 1;
-
-
-      document
-        .getElementById(
-          "resourcePublished"
-        )
-        .value = "true";
-
-
-      setTimeout(() => {
-
-        resourceForm.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
         });
-
-      }, 50);
 
     };
 
 
-  /* =====================================================
-     TOGGLE RESOURCE
-     ===================================================== */
-
   window.toggleResource =
-    async function(id, published) {
+    async function(
+      id,
+      published
+    ) {
 
       try {
 
         await updateDoc(
-          doc(db, "resources", id),
+          doc(
+            db,
+            "resources",
+            id
+          ),
           {
 
             published,
@@ -4167,7 +4496,6 @@
 
           }
         );
-
 
         await loadResources();
 
@@ -4193,10 +4521,6 @@
     };
 
 
-  /* =====================================================
-     DELETE RESOURCE
-     ===================================================== */
-
   window.deleteResource =
     async function(id) {
 
@@ -4206,11 +4530,14 @@
         )
       ) return;
 
-
       try {
 
         await deleteDoc(
-          doc(db, "resources", id)
+          doc(
+            db,
+            "resources",
+            id
+          )
         );
 
         await loadResources();
@@ -4245,6 +4572,8 @@
         "subjectGeneration"
       );
 
+    const current =
+      select.value;
 
     select.innerHTML =
       `<option value="">
@@ -4257,12 +4586,24 @@
       select.innerHTML += `
 
         <option value="${escapeAttribute(g.id)}">
-          ${escapeHtml(g.name || "")}
+          ${escapeHtml(g.name)}
         </option>
 
       `;
 
     });
+
+
+    if (
+      current &&
+      generations.some(
+        g => g.id === current
+      )
+    ) {
+
+      select.value = current;
+
+    }
 
   }
 
@@ -4280,6 +4621,13 @@
       );
 
 
+    const sectionCurrent =
+      sectionSelect.value;
+
+    const resourceCurrent =
+      resourceSelect.value;
+
+
     const html = `
       <option value="">
         اختر المادة
@@ -4288,8 +4636,10 @@
       ${
         subjects.map(s => `
 
-          <option value="${escapeAttribute(s.id)}">
-            ${escapeHtml(s.name || "")}
+          <option
+            value="${escapeAttribute(s.id)}"
+          >
+            ${escapeHtml(s.name)}
           </option>
 
         `).join("")
@@ -4303,15 +4653,66 @@
     resourceSelect.innerHTML =
       html;
 
+
+    if (
+      sectionCurrent &&
+      subjects.some(
+        s => s.id === sectionCurrent
+      )
+    ) {
+
+      sectionSelect.value =
+        sectionCurrent;
+
+    }
+
+
+    if (
+      resourceCurrent &&
+      subjects.some(
+        s => s.id === resourceCurrent
+      )
+    ) {
+
+      resourceSelect.value =
+        resourceCurrent;
+
+    }
+
+
+    fillSectionSelect();
+
   }
 
 
   function fillSectionSelect() {
 
+    const selectedSubject =
+      document
+        .getElementById(
+          "resourceSubject"
+        )
+        .value;
+
+    fillResourceSectionSelect(
+      selectedSubject
+    );
+
+  }
+
+
+  function fillResourceSectionSelect(
+    subjectId = ""
+  ) {
+
     const select =
       document.getElementById(
         "resourceSection"
       );
+
+
+    const current =
+      select.value;
 
 
     select.innerHTML = `
@@ -4321,7 +4722,17 @@
     `;
 
 
-    sections.forEach(s => {
+    const filtered =
+      subjectId
+        ? sections.filter(
+            s =>
+              s.subjectId ===
+              subjectId
+          )
+        : sections;
+
+
+    filtered.forEach(s => {
 
       const subject =
         subjects.find(
@@ -4333,14 +4744,16 @@
 
       select.innerHTML += `
 
-        <option value="${escapeAttribute(s.id)}">
+        <option
+          value="${escapeAttribute(s.id)}"
+        >
 
           ${escapeHtml(
             subject?.name || ""
           )}
 
           —
-          
+
           ${escapeHtml(
             s.name || ""
           )}
@@ -4351,15 +4764,70 @@
 
     });
 
+
+    if (
+      current &&
+      filtered.some(
+        s => s.id === current
+      )
+    ) {
+
+      select.value = current;
+
+    }
+
   }
 
 
+  document
+    .getElementById(
+      "resourceSubject"
+    )
+    .addEventListener(
+      "change",
+      () => {
+
+        fillResourceSectionSelect(
+          document
+            .getElementById(
+              "resourceSubject"
+            )
+            .value
+        );
+
+      }
+    );
+
+
   /* =====================================================
-     FORMS SHOW / HIDE
+     FORMS
      ===================================================== */
 
   window.showGenerationForm =
     function() {
+
+      editingGenerationId =
+        null;
+
+      document
+        .getElementById(
+          "generationAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "generationSubmitBtn"
+        )
+        .textContent =
+        "حفظ الجيل";
+
+      document
+        .getElementById(
+          "generationEditMode"
+        )
+        .style.display =
+        "none";
 
       document
         .getElementById(
@@ -4374,6 +4842,29 @@
   window.hideGenerationForm =
     function() {
 
+      editingGenerationId =
+        null;
+
+      document
+        .getElementById(
+          "generationAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "generationSubmitBtn"
+        )
+        .textContent =
+        "حفظ الجيل";
+
+      document
+        .getElementById(
+          "generationEditMode"
+        )
+        .style.display =
+        "none";
+
       document
         .getElementById(
           "generationForm"
@@ -4386,6 +4877,36 @@
 
   window.showSubjectForm =
     function() {
+
+      editingSubjectId =
+        null;
+
+      document
+        .getElementById(
+          "subjectAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "subjectOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "subjectSubmitBtn"
+        )
+        .textContent =
+        "حفظ المادة";
+
+      document
+        .getElementById(
+          "subjectEditMode"
+        )
+        .style.display =
+        "none";
 
       document
         .getElementById(
@@ -4400,6 +4921,36 @@
   window.hideSubjectForm =
     function() {
 
+      editingSubjectId =
+        null;
+
+      document
+        .getElementById(
+          "subjectAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "subjectOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "subjectSubmitBtn"
+        )
+        .textContent =
+        "حفظ المادة";
+
+      document
+        .getElementById(
+          "subjectEditMode"
+        )
+        .style.display =
+        "none";
+
       document
         .getElementById(
           "subjectForm"
@@ -4412,6 +4963,36 @@
 
   window.showSectionForm =
     function() {
+
+      editingSectionId =
+        null;
+
+      document
+        .getElementById(
+          "sectionAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "sectionOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "sectionSubmitBtn"
+        )
+        .textContent =
+        "حفظ القسم";
+
+      document
+        .getElementById(
+          "sectionEditMode"
+        )
+        .style.display =
+        "none";
 
       document
         .getElementById(
@@ -4426,12 +5007,132 @@
   window.hideSectionForm =
     function() {
 
+      editingSectionId =
+        null;
+
+      document
+        .getElementById(
+          "sectionAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "sectionOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "sectionSubmitBtn"
+        )
+        .textContent =
+        "حفظ القسم";
+
+      document
+        .getElementById(
+          "sectionEditMode"
+        )
+        .style.display =
+        "none";
+
       document
         .getElementById(
           "sectionForm"
         )
         .style.display =
         "none";
+
+    };
+
+
+  window.showResourceForm =
+    function() {
+
+      editingResourceId =
+        null;
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "resourceOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "resourceSubmitBtn"
+        )
+        .textContent =
+        "حفظ المحتوى";
+
+      document
+        .getElementById(
+          "resourceEditMode"
+        )
+        .style.display =
+        "none";
+
+      document
+        .getElementById(
+          "resourceForm"
+        )
+        .style.display =
+        "block";
+
+      fillResourceSectionSelect("");
+
+    };
+
+
+  window.hideResourceForm =
+    function() {
+
+      editingResourceId =
+        null;
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
+
+      document
+        .getElementById(
+          "resourceOrder"
+        )
+        .value =
+        "1";
+
+      document
+        .getElementById(
+          "resourceSubmitBtn"
+        )
+        .textContent =
+        "حفظ المحتوى";
+
+      document
+        .getElementById(
+          "resourceEditMode"
+        )
+        .style.display =
+        "none";
+
+      document
+        .getElementById(
+          "resourceForm"
+        )
+        .style.display =
+        "none";
+
+      fillResourceSectionSelect("");
 
     };
 
@@ -4461,7 +5162,9 @@
 
 
   document
-    .querySelectorAll(".nav-btn[data-page]")
+    .querySelectorAll(
+      ".nav-btn[data-page]"
+    )
     .forEach(button => {
 
       button.addEventListener(
@@ -4532,17 +5235,21 @@
         .getElementById(
           "sidebar"
         )
-        .classList.remove("open");
+        .classList.remove(
+          "open"
+        );
 
     };
 
 
   /* =====================================================
-     MOBILE MENU
+     MOBILE
      ===================================================== */
 
   document
-    .getElementById("mobileMenu")
+    .getElementById(
+      "mobileMenu"
+    )
     .addEventListener(
       "click",
       () => {
@@ -4551,7 +5258,9 @@
           .getElementById(
             "sidebar"
           )
-          .classList.toggle("open");
+          .classList.toggle(
+            "open"
+          );
 
       }
     );
@@ -4613,10 +5322,14 @@
       [...resources]
         .sort(
           (a,b) =>
-            Number(b.createdAt?.seconds || 0) -
-            Number(a.createdAt?.seconds || 0)
+            Number(
+              b.createdAt?.seconds || 0
+            ) -
+            Number(
+              a.createdAt?.seconds || 0
+            )
         )
-        .slice(0, 8);
+        .slice(0,8);
 
 
     if (!recent.length) {
@@ -4640,13 +5353,9 @@
             <tr>
 
               <th>المحتوى</th>
-
               <th>المادة</th>
-
               <th>القسم</th>
-
               <th>الترتيب</th>
-
               <th>الحالة</th>
 
             </tr>
@@ -4678,41 +5387,56 @@
                 <tr>
 
                   <td>
-                    ${escapeHtml(
-                      r.title || ""
-                    )}
+
+                    <strong>
+                      ${escapeHtml(
+                        r.title || ""
+                      )}
+                    </strong>
+
                   </td>
 
+
                   <td>
+
                     ${escapeHtml(
                       subject?.name ||
                       "—"
                     )}
+
                   </td>
 
+
                   <td>
+
                     ${escapeHtml(
                       section?.name ||
                       "—"
                     )}
+
                   </td>
+
 
                   <td>
 
-                    <span class="badge order-badge">
-                      ${Number(r.order || 1)}
+                    <span class="order-badge">
+                      ${Number(r.order) || 1}
                     </span>
 
                   </td>
+
 
                   <td>
 
                     ${
                       r.published
-                        ? `<span class="badge">
+                        ? `
+                          <span class="badge">
                             منشور
-                          </span>`
-                        : `<span
+                          </span>
+                        `
+                        : `
+                          <span
                             class="badge"
                             style="
                               background:#fff7ed;
@@ -4720,7 +5444,8 @@
                             "
                           >
                             مخفي
-                          </span>`
+                          </span>
+                        `
                     }
 
                   </td>
@@ -4768,8 +5493,10 @@
     };
 
 
-    return names[type] ||
-      "محتوى";
+    return (
+      names[type] ||
+      "محتوى"
+    );
 
   }
 
@@ -4781,7 +5508,10 @@
   let toastTimer;
 
 
-  function toast(message, type = "") {
+  function toast(
+    message,
+    type = ""
+  ) {
 
     const element =
       document.getElementById(
@@ -4794,38 +5524,45 @@
 
 
     element.className =
-      "";
-
-
-    element.id =
       "toast";
 
 
     if (type) {
 
-      element.classList.add(type);
+      element.classList.add(
+        type
+      );
 
     }
 
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(
+      () => {
 
-      element.classList.add("show");
-
-    });
-
-
-    clearTimeout(toastTimer);
-
-
-    toastTimer =
-      setTimeout(() => {
-
-        element.classList.remove(
+        element.classList.add(
           "show"
         );
 
-      }, 3000);
+      }
+    );
+
+
+    clearTimeout(
+      toastTimer
+    );
+
+
+    toastTimer =
+      setTimeout(
+        () => {
+
+          element.classList.remove(
+            "show"
+          );
+
+        },
+        3000
+      );
 
   }
 
@@ -4836,30 +5573,47 @@
 
   function escapeHtml(value) {
 
-    return String(value ?? "")
+    return String(
+      value ?? ""
+    )
 
-      .replaceAll("&", "&amp;")
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
 
-      .replaceAll("<", "&lt;")
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
 
-      .replaceAll(">", "&gt;")
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
 
-      .replaceAll('"', "&quot;")
+      .replaceAll(
+        '"',
+        "&quot;"
+      )
 
-      .replaceAll("'", "&#039;");
+      .replaceAll(
+        "'",
+        "&#039;"
+      );
 
   }
 
 
   function escapeAttribute(value) {
 
-    return escapeHtml(value);
+    return escapeHtml(
+      value
+    );
 
   }
 
-
 </script>
-
 
 </body>
 
