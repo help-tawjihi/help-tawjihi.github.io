@@ -1019,7 +1019,6 @@
 
 </section>
 
-
 <!-- =====================================================
      APP
      ===================================================== -->
@@ -1137,7 +1136,6 @@
 
   </aside>
 
-
   <div class="content">
 
     <header class="topbar">
@@ -1163,7 +1161,6 @@
       <div class="admin-user" id="adminEmail"></div>
 
     </header>
-
 
     <!-- ================= DASHBOARD ================= -->
 
@@ -1257,7 +1254,6 @@
 
       </div>
 
-
       <div class="panel">
 
         <div class="panel-head">
@@ -1292,7 +1288,6 @@
       </div>
 
     </main>
-
 
     <!-- ================= GENERATIONS ================= -->
 
@@ -1385,7 +1380,6 @@
       </div>
 
     </main>
-
 
     <!-- ================= SUBJECTS ================= -->
 
@@ -1487,7 +1481,6 @@
       </div>
 
     </main>
-
 
     <!-- ================= SECTIONS ================= -->
 
@@ -1599,7 +1592,6 @@
 
     </main>
 
-
     <!-- ================= RESOURCES ================= -->
 
     <main class="page" id="page-resources" style="display:none">
@@ -1630,7 +1622,6 @@
           </button>
 
         </div>
-
 
         <div class="panel-body">
 
@@ -1678,7 +1669,6 @@
 
           </div>
 
-
           <div
             id="resourceForm"
             style="display:none"
@@ -1713,7 +1703,6 @@
 
             </div>
 
-
             <form id="resourceAddForm" class="form-grid">
 
               <div class="field">
@@ -1730,7 +1719,6 @@
 
               </div>
 
-
               <div class="field">
 
                 <label>القسم</label>
@@ -1745,7 +1733,6 @@
 
               </div>
 
-
               <div class="field">
 
                 <label>اسم المحتوى</label>
@@ -1757,7 +1744,6 @@
                 >
 
               </div>
-
 
               <div class="field">
 
@@ -1788,7 +1774,6 @@
                 </select>
 
               </div>
-
 
               <!-- GOOGLE DRIVE UPLOAD -->
 
@@ -1850,7 +1835,6 @@
 
                   </div>
 
-
                   <div
                     class="upload-progress"
                     id="uploadProgress"
@@ -1878,7 +1862,6 @@
 
               </div>
 
-
               <div class="field full">
 
                 <label>الرابط</label>
@@ -1892,7 +1875,6 @@
 
               </div>
 
-
               <div class="field full">
 
                 <label>وصف المحتوى</label>
@@ -1903,7 +1885,6 @@
                 ></textarea>
 
               </div>
-
 
               <div class="field">
 
@@ -1917,7 +1898,6 @@
                 >
 
               </div>
-
 
               <div class="field">
 
@@ -1936,7 +1916,6 @@
                 </select>
 
               </div>
-
 
               <div class="form-actions full">
 
@@ -1964,7 +1943,6 @@
 
         </div>
 
-
         <div id="resourcesList" class="table-wrap"></div>
 
       </div>
@@ -1975,9 +1953,7 @@
 
 </div>
 
-
 <div id="toast"></div>
-
 
 <script type="module">
 
@@ -1996,7 +1972,6 @@
     serverTimestamp
   } from "./firebase-config.js";
 
-
   /* =====================================================
      GOOGLE DRIVE CONFIG
      =====================================================
@@ -2008,11 +1983,10 @@
   ===================================================== */
 
   const GOOGLE_CLIENT_ID =
-    "ضع_CLIENT_ID_هنا.apps.googleusercontent.com";
+    "562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com";
 
   const GOOGLE_DRIVE_SCOPE =
     "https://www.googleapis.com/auth/drive.file";
-
 
   /* =====================================================
      GLOBAL DATA
@@ -2028,7 +2002,6 @@
   let editingSectionId = null;
   let editingResourceId = null;
 
-
   /* =====================================================
      GOOGLE DRIVE STATE
   ===================================================== */
@@ -2038,7 +2011,6 @@
   let googleTokenExpiresAt = 0;
 
   let selectedPdfFile = null;
-
 
   /* =====================================================
      ELEMENTS
@@ -2089,7 +2061,6 @@
   const uploadProgressText =
     document.getElementById("uploadProgressText");
 
-
   /* =====================================================
      AUTH
   ===================================================== */
@@ -2123,7 +2094,6 @@
     }
 
   });
-
 
   loginForm.addEventListener(
     "submit",
@@ -2167,7 +2137,6 @@
     }
   );
 
-
   document
     .getElementById("logoutBtn")
     .addEventListener(
@@ -2181,7 +2150,6 @@
       }
     );
 
-
   /* =====================================================
      GOOGLE DRIVE INITIALIZE
   ===================================================== */
@@ -2190,7 +2158,7 @@
 
     if(
       !GOOGLE_CLIENT_ID ||
-      GOOGLE_CLIENT_ID.includes("562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com")
+      GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID_هنا")
     ){
 
       setDriveStatus(false);
@@ -2272,7 +2240,6 @@
 
   }
 
-
   /* =====================================================
      GOOGLE DRIVE CONNECT
   ===================================================== */
@@ -2283,7 +2250,7 @@
 
       if(
         !GOOGLE_CLIENT_ID ||
-        GOOGLE_CLIENT_ID.includes("562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com")
+        GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID_هنا")
       ){
 
         toast(
@@ -2325,7 +2292,6 @@
     }
   );
 
-
   function requestGoogleDriveAccess(){
 
     googleTokenClient.requestAccessToken({
@@ -2333,7 +2299,6 @@
     });
 
   }
-
 
   function setDriveStatus(
     connected,
@@ -2378,7 +2343,6 @@
     }
 
   }
-
 
   /* =====================================================
      GOOGLE TOKEN
@@ -2459,7 +2423,6 @@
 
   }
 
-
   /* =====================================================
      LOAD ALL
   ===================================================== */
@@ -2489,7 +2452,6 @@
     }
 
   }
-
 
   /* =====================================================
      GENERATIONS
@@ -2521,7 +2483,6 @@
     fillGenerationSelects();
 
   }
-
 
   function renderGenerations(){
 
@@ -2613,7 +2574,6 @@
     `;
 
   }
-
 
   document
     .getElementById("generationAddForm")
@@ -2712,7 +2672,6 @@
       }
     );
 
-
   window.editGeneration =
     function(id){
 
@@ -2767,7 +2726,6 @@
 
     };
 
-
   window.deleteGeneration =
     async function(id){
 
@@ -2809,7 +2767,6 @@
 
     };
 
-
   /* =====================================================
      SUBJECTS
   ===================================================== */
@@ -2840,7 +2797,6 @@
     fillSubjectSelects();
 
   }
-
 
   function renderSubjects(){
 
@@ -2951,7 +2907,6 @@
     `;
 
   }
-
 
   document
     .getElementById("subjectAddForm")
@@ -3064,7 +3019,6 @@
       }
     );
 
-
   window.editSubject =
     function(id){
 
@@ -3129,7 +3083,6 @@
 
     };
 
-
   window.deleteSubject =
     async function(id){
 
@@ -3171,7 +3124,6 @@
 
     };
 
-
   /* =====================================================
      SECTIONS
   ===================================================== */
@@ -3206,7 +3158,6 @@
     );
 
   }
-
 
   function renderSections(){
 
@@ -3318,7 +3269,6 @@
 
   }
 
-
   document
     .getElementById("sectionAddForm")
     .addEventListener(
@@ -3423,7 +3373,6 @@
       }
     );
 
-
   window.editSection =
     function(id){
 
@@ -3483,7 +3432,6 @@
 
     };
 
-
   window.deleteSection =
     async function(id){
 
@@ -3525,7 +3473,6 @@
 
     };
 
-
   /* =====================================================
      RESOURCES
   ===================================================== */
@@ -3564,7 +3511,6 @@
 
   }
 
-
   function resourceOrderValue(r){
 
     const n =
@@ -3575,7 +3521,6 @@
       : 999999;
 
   }
-
 
   function renderResources(){
 
@@ -3732,7 +3677,6 @@
 
   }
 
-
   /* =====================================================
      RESOURCE FORM
   ===================================================== */
@@ -3859,7 +3803,6 @@
       }
     );
 
-
   window.editResource =
     function(id){
 
@@ -3950,7 +3893,6 @@
 
     };
 
-
   window.toggleResource =
     async function(
       id,
@@ -3993,7 +3935,6 @@
       }
 
     };
-
 
   window.deleteResource =
     async function(id){
@@ -4066,7 +4007,6 @@
 
     };
 
-
   /* =====================================================
      PDF SELECT
   ===================================================== */
@@ -4079,7 +4019,6 @@
 
     }
   );
-
 
   resourceFile.addEventListener(
     "change",
@@ -4131,7 +4070,6 @@
 
     }
   );
-
 
   /* =====================================================
      PDF UPLOAD
@@ -4309,7 +4247,6 @@
     }
   );
 
-
   async function uploadFileToDrive(
     file,
     accessToken
@@ -4356,7 +4293,6 @@
 
       ]);
 
-
     const response =
       await fetch(
         "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,mimeType,webViewLink,webContentLink",
@@ -4377,7 +4313,6 @@
         }
       );
 
-
     if(!response.ok){
 
       const errorText =
@@ -4392,7 +4327,6 @@
     return await response.json();
 
   }
-
 
   async function makeDriveFilePublic(
     fileId,
@@ -4425,7 +4359,6 @@
         }
       );
 
-
     if(!response.ok){
 
       const text =
@@ -4440,7 +4373,6 @@
     return await response.json();
 
   }
-
 
   async function deleteDriveFile(
     fileId
@@ -4464,7 +4396,6 @@
         }
       );
 
-
     if(
       !response.ok &&
       response.status !== 404
@@ -4480,7 +4411,6 @@
     }
 
   }
-
 
   function setUploadProgress(
     percent,
@@ -4498,7 +4428,6 @@
       text;
 
   }
-
 
   function formatFileSize(bytes){
 
@@ -4521,7 +4450,6 @@
     ).toFixed(2)} MB`;
 
   }
-
 
   function getGoogleDriveErrorMessage(
     error
@@ -4569,7 +4497,6 @@
 
   }
 
-
   /* =====================================================
      SELECTS
   ===================================================== */
@@ -4612,7 +4539,6 @@
     }
 
   }
-
 
   function fillSubjectSelects(){
 
@@ -4684,7 +4610,6 @@
 
   }
 
-
   function fillResourceSectionSelect(
     subjectId = ""
   ){
@@ -4753,7 +4678,6 @@
 
   }
 
-
   document
     .getElementById(
       "resourceSubject"
@@ -4772,7 +4696,6 @@
 
       }
     );
-
 
   /* =====================================================
      FORMS
@@ -4813,7 +4736,6 @@
 
     };
 
-
   window.hideGenerationForm =
     function(){
 
@@ -4849,7 +4771,6 @@
 
     };
 
-
   window.showSubjectForm =
     function(){
 
@@ -4872,8 +4793,7 @@
       document
         .getElementById(
           "subjectSubmitBtn"
-        )
-        .textContent =
+        ).textContent =
         "حفظ المادة";
 
       document
@@ -4891,7 +4811,6 @@
         "block";
 
     };
-
 
   window.hideSubjectForm =
     function(){
@@ -4935,7 +4854,6 @@
 
     };
 
-
   window.showSectionForm =
     function(){
 
@@ -4958,8 +4876,7 @@
       document
         .getElementById(
           "sectionSubmitBtn"
-        )
-        .textContent =
+        ).textContent =
         "حفظ القسم";
 
       document
@@ -4977,7 +4894,6 @@
         "block";
 
     };
-
 
   window.hideSectionForm =
     function(){
@@ -5020,7 +4936,6 @@
         "none";
 
     };
-
 
   window.showResourceForm =
     function(){
@@ -5086,7 +5001,6 @@
 
     };
 
-
   window.hideResourceForm =
     function(){
 
@@ -5151,7 +5065,6 @@
 
     };
 
-
   /* =====================================================
      NAVIGATION
   ===================================================== */
@@ -5175,7 +5088,6 @@
 
   };
 
-
   document
     .querySelectorAll(
       ".nav-btn[data-page]"
@@ -5194,7 +5106,6 @@
       );
 
     });
-
 
   window.openPage =
     function(page){
@@ -5251,7 +5162,6 @@
 
     };
 
-
   /* =====================================================
      MOBILE
   ===================================================== */
@@ -5274,7 +5184,6 @@
 
       }
     );
-
 
   /* =====================================================
      STATS
@@ -5303,7 +5212,6 @@
       resources.length;
 
   }
-
 
   /* =====================================================
      RECENT
@@ -5424,7 +5332,6 @@
 
   }
 
-
   /* =====================================================
      RESOURCE TYPE
   ===================================================== */
@@ -5444,7 +5351,6 @@
     return names[type] || "محتوى";
 
   }
-
 
   /* =====================================================
      ICONS
@@ -5466,7 +5372,6 @@
 
   }
 
-
   function deleteIcon(){
 
     return `
@@ -5485,7 +5390,6 @@
     `;
 
   }
-
 
   /* =====================================================
      TOAST
@@ -5545,7 +5449,6 @@
 
   }
 
-
   /* =====================================================
      SECURITY / HTML
   ===================================================== */
@@ -5562,7 +5465,6 @@
       .replaceAll("'","&#039;");
 
   }
-
 
   function escapeAttribute(value){
 
