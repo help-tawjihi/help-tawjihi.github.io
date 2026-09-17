@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>لوحة التحكم | مساعد توجيهي</title>
 
@@ -25,139 +21,108 @@
     rel="stylesheet"
   >
 
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <style>
 
-    :root {
+    :root{
       --bg:#f5f7f8;
       --surface:#ffffff;
       --surface2:#f0f4f3;
-
       --text:#17211f;
       --muted:#71807c;
-
       --primary:#0f766e;
       --primary2:#14b8a6;
-
       --soft:#e5f6f3;
-
       --border:#e1e8e6;
-
       --danger:#dc2626;
       --warning:#d97706;
       --success:#16a34a;
-
       --shadow:0 12px 35px rgba(15,118,110,.08);
-
       --radius:20px;
     }
 
-    * {
+    *{
       box-sizing:border-box;
       margin:0;
       padding:0;
     }
 
-    body {
+    body{
       font-family:"IBM Plex Sans Arabic",sans-serif;
       background:var(--bg);
       color:var(--text);
       min-height:100vh;
     }
 
-    button,
-    input,
-    select,
-    textarea {
+    button,input,select,textarea{
       font-family:inherit;
     }
 
-    button {
+    button{
       cursor:pointer;
     }
 
-    /* =================================================
-       LOGIN
-       ================================================= */
+    /* ================= LOGIN ================= */
 
-    #loginScreen {
+    #loginScreen{
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:20px;
-
       background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(20,184,166,.13),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 80%,
-          rgba(15,118,110,.10),
-          transparent 30%
-        ),
+        radial-gradient(circle at 20% 20%,rgba(20,184,166,.13),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(15,118,110,.10),transparent 30%),
         var(--bg);
     }
 
-    .login-card {
+    .login-card{
       width:100%;
       max-width:430px;
-
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:28px;
       padding:32px;
-
       box-shadow:0 25px 70px rgba(0,0,0,.08);
     }
 
-    .login-logo {
+    .login-logo{
       width:65px;
       height:65px;
       border-radius:19px;
-
       display:grid;
       place-items:center;
-
       color:white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary2)
-        );
-
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
       margin:0 auto 18px;
-
-      box-shadow:
-        0 12px 25px rgba(15,118,110,.18);
+      box-shadow:0 12px 25px rgba(15,118,110,.18);
     }
 
-    .login-logo svg {
+    .login-logo svg{
       width:32px;
       height:32px;
     }
 
-    .login-card h1 {
+    .login-card h1{
       text-align:center;
       font-size:25px;
       margin-bottom:6px;
     }
 
-    .login-card > p {
+    .login-card>p{
       text-align:center;
       color:var(--muted);
       font-size:13px;
       margin-bottom:25px;
     }
 
-    .field {
+    .field{
       margin-bottom:15px;
     }
 
-    .field label {
+    .field label{
       display:block;
       font-size:13px;
       font-weight:600;
@@ -166,890 +131,808 @@
 
     .field input,
     .field select,
-    .field textarea {
+    .field textarea{
       width:100%;
-
       border:1px solid var(--border);
       background:var(--surface);
       color:var(--text);
-
       border-radius:13px;
       padding:13px 14px;
-
       outline:none;
       transition:.2s;
-
       font-size:14px;
     }
 
-    .field textarea {
+    .field textarea{
       min-height:100px;
       resize:vertical;
     }
 
     .field input:focus,
     .field select:focus,
-    .field textarea:focus {
+    .field textarea:focus{
       border-color:var(--primary2);
-
-      box-shadow:
-        0 0 0 3px rgba(20,184,166,.10);
+      box-shadow:0 0 0 3px rgba(20,184,166,.10);
     }
 
-    .primary-btn {
+    .primary-btn{
       width:100%;
       height:48px;
-
       border:0;
       border-radius:13px;
-
       color:white;
       font-weight:700;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary2)
-        );
-
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
       transition:.2s;
     }
 
-    .primary-btn:hover {
+    .primary-btn:hover{
       transform:translateY(-1px);
-
-      box-shadow:
-        0 10px 25px rgba(15,118,110,.18);
+      box-shadow:0 10px 25px rgba(15,118,110,.18);
     }
 
-    .error {
+    .error{
       background:#fef2f2;
       color:#b91c1c;
       border:1px solid #fecaca;
-
       border-radius:12px;
       padding:10px;
-
       font-size:13px;
       margin-bottom:14px;
-
       display:none;
     }
 
-    /* =================================================
-       APP
-       ================================================= */
+    /* ================= APP ================= */
 
-    #app {
+    #app{
       display:none;
       min-height:100vh;
     }
 
-    /* =================================================
-       SIDEBAR
-       ================================================= */
+    /* ================= SIDEBAR ================= */
 
-    .sidebar {
+    .sidebar{
       position:fixed;
-
       right:0;
       top:0;
       bottom:0;
-
       width:260px;
-
       background:var(--surface);
       border-left:1px solid var(--border);
-
       padding:22px 15px;
-
       z-index:100;
     }
 
-    .side-brand {
+    .side-brand{
       display:flex;
       align-items:center;
-
       gap:10px;
-
       padding:5px 8px 25px;
     }
 
-    .side-logo {
+    .side-logo{
       width:43px;
       height:43px;
-
       border-radius:13px;
-
       display:grid;
       place-items:center;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary2)
-        );
-
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
       color:white;
-
-      box-shadow:
-        0 8px 20px rgba(15,118,110,.15);
+      box-shadow:0 8px 20px rgba(15,118,110,.15);
     }
 
-    .side-logo svg {
+    .side-logo svg{
       width:22px;
       height:22px;
     }
 
-    .side-brand strong {
+    .side-brand strong{
       font-size:15px;
     }
 
-    .side-brand span {
+    .side-brand span{
       display:block;
-
       color:var(--muted);
       font-size:11px;
-
       margin-top:2px;
     }
 
-    .nav-title {
+    .nav-title{
       font-size:11px;
       color:var(--muted);
-
       padding:0 10px 8px;
       margin-top:10px;
     }
 
-    .nav-btn {
+    .nav-btn{
       width:100%;
-
       display:flex;
       align-items:center;
-
       gap:11px;
-
       padding:12px;
-
       border:0;
       background:transparent;
-
       color:var(--muted);
-
       border-radius:13px;
-
       text-align:right;
-
       margin-bottom:4px;
-
       font-size:13px;
       font-weight:600;
-
       transition:.2s;
     }
 
-    .nav-btn svg {
+    .nav-btn svg{
       width:19px;
       height:19px;
       flex:none;
     }
 
     .nav-btn:hover,
-    .nav-btn.active {
+    .nav-btn.active{
       background:var(--soft);
       color:var(--primary);
-
       transform:translateX(-2px);
     }
 
-    .side-bottom {
+    .side-bottom{
       position:absolute;
-
       left:15px;
       right:15px;
       bottom:18px;
     }
 
-    .logout {
+    .logout{
       color:var(--danger);
     }
 
-    .logout:hover {
+    .logout:hover{
       background:#fef2f2;
       color:var(--danger);
     }
 
-    /* =================================================
-       CONTENT
-       ================================================= */
+    /* ================= CONTENT ================= */
 
-    .content {
+    .content{
       margin-right:260px;
       min-height:100vh;
     }
 
-    .topbar {
+    .topbar{
       height:72px;
-
       display:flex;
       align-items:center;
       justify-content:space-between;
-
       padding:0 28px;
-
       background:rgba(255,255,255,.82);
-
       backdrop-filter:blur(15px);
-
       border-bottom:1px solid var(--border);
-
       position:sticky;
       top:0;
-
       z-index:50;
     }
 
-    .topbar h2 {
+    .topbar h2{
       font-size:19px;
     }
 
-    .admin-user {
+    .admin-user{
       color:var(--muted);
       font-size:12px;
     }
 
-    .page {
+    .page{
       padding:28px;
-
       max-width:1400px;
-
       margin:auto;
     }
 
-    /* =================================================
-       DASHBOARD
-       ================================================= */
+    /* ================= DASHBOARD ================= */
 
-    .stats {
+    .stats{
       display:grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
+      grid-template-columns:repeat(4,1fr);
       gap:15px;
-
       margin-bottom:25px;
     }
 
-    .stat {
+    .stat{
       background:var(--surface);
-
       border:1px solid var(--border);
-
       border-radius:var(--radius);
-
       padding:20px;
-
       box-shadow:var(--shadow);
-
       transition:.2s;
     }
 
-    .stat:hover {
+    .stat:hover{
       transform:translateY(-2px);
-
-      box-shadow:
-        0 18px 40px rgba(15,118,110,.11);
+      box-shadow:0 18px 40px rgba(15,118,110,.11);
     }
 
-    .stat-top {
+    .stat-top{
       display:flex;
       justify-content:space-between;
       align-items:center;
-
       margin-bottom:15px;
     }
 
-    .stat-icon {
+    .stat-icon{
       width:42px;
       height:42px;
-
       border-radius:13px;
-
       background:var(--soft);
       color:var(--primary);
-
       display:grid;
       place-items:center;
     }
 
-    .stat-icon svg {
+    .stat-icon svg{
       width:21px;
       height:21px;
     }
 
-    .stat-number {
+    .stat-number{
       font-size:27px;
       font-weight:700;
     }
 
-    .stat-title {
+    .stat-title{
       color:var(--muted);
       font-size:12px;
     }
 
-    /* =================================================
-       PANELS
-       ================================================= */
+    /* ================= PANELS ================= */
 
-    .panel {
+    .panel{
       background:var(--surface);
-
       border:1px solid var(--border);
-
       border-radius:var(--radius);
-
       box-shadow:var(--shadow);
-
       overflow:hidden;
-
       margin-bottom:20px;
     }
 
-    .panel-head {
+    .panel-head{
       padding:18px 20px;
-
       border-bottom:1px solid var(--border);
-
       display:flex;
-
       align-items:center;
       justify-content:space-between;
-
       gap:15px;
     }
 
-    .panel-head h3 {
+    .panel-head h3{
       font-size:17px;
     }
 
-    .panel-head p {
+    .panel-head p{
       color:var(--muted);
-
       font-size:12px;
-
       margin-top:3px;
     }
 
-    .panel-body {
+    .panel-body{
       padding:20px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(240,244,243,.35),
-          transparent
-        );
+      background:linear-gradient(180deg,rgba(240,244,243,.35),transparent);
     }
 
-    /* =================================================
-       BUTTONS
-       ================================================= */
+    /* ================= BUTTONS ================= */
 
-    .btn {
+    .btn{
       min-height:40px;
-
       padding:0 14px;
-
       border:1px solid var(--border);
-
       border-radius:12px;
-
       background:var(--surface);
-
       color:var(--text);
-
       font-weight:600;
       font-size:12px;
-
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       gap:7px;
-
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        border-color .18s ease,
-        background .18s ease;
+      transition:.18s ease;
     }
 
-    .btn:hover {
+    .btn:hover{
       border-color:var(--primary2);
-
       transform:translateY(-1px);
-
-      box-shadow:
-        0 7px 18px rgba(15,118,110,.08);
+      box-shadow:0 7px 18px rgba(15,118,110,.08);
     }
 
-    .btn:active {
+    .btn:active{
       transform:scale(.97);
     }
 
-    .btn svg {
+    .btn svg{
       width:15px;
       height:15px;
       flex:none;
     }
 
-    .btn-primary {
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary2)
-        );
-
-      color:white;
-
-      border-color:transparent;
-
-      box-shadow:
-        0 7px 18px rgba(15,118,110,.15);
-    }
-
-    .btn-primary:hover {
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
       color:white;
       border-color:transparent;
-
-      box-shadow:
-        0 10px 23px rgba(15,118,110,.22);
+      box-shadow:0 7px 18px rgba(15,118,110,.15);
     }
 
-    .btn-danger {
+    .btn-primary:hover{
+      color:white;
+      border-color:transparent;
+      box-shadow:0 10px 23px rgba(15,118,110,.22);
+    }
+
+    .btn-danger{
       background:#fef2f2;
       color:var(--danger);
       border-color:#fecaca;
     }
 
-    .btn-danger:hover {
+    .btn-danger:hover{
       background:#fee2e2;
       border-color:#fca5a5;
     }
 
-    .btn-success {
+    .btn-success{
       background:#f0fdf4;
       color:var(--success);
       border-color:#bbf7d0;
     }
 
-    .btn-edit {
+    .btn-edit{
       background:#effcf9;
       color:var(--primary);
       border-color:#c8eee7;
     }
 
-    .btn-edit:hover {
+    .btn-edit:hover{
       background:#e5f6f3;
     }
 
-    .btn-cancel {
+    .btn-cancel{
       background:var(--surface2);
     }
 
-    .actions {
+    .actions{
       display:flex;
       gap:7px;
       flex-wrap:wrap;
       align-items:center;
     }
 
-    /* =================================================
-       EDIT MODE
-       ================================================= */
+    /* ================= DRIVE ================= */
 
-    .form-mode {
+    .drive-box{
       display:flex;
       align-items:center;
       justify-content:space-between;
-
       gap:15px;
-
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:15px;
+      background:var(--surface);
       margin-bottom:18px;
+    }
 
-      padding:13px 15px;
+    .drive-info{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      min-width:0;
+    }
 
+    .drive-icon{
+      width:43px;
+      height:43px;
+      flex:none;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
       background:var(--soft);
+      color:var(--primary);
+    }
 
+    .drive-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .drive-info strong{
+      display:block;
+      font-size:13px;
+    }
+
+    .drive-info span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      margin-top:3px;
+    }
+
+    .drive-status{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:700;
+      white-space:nowrap;
+      background:#fef2f2;
+      color:#b91c1c;
+    }
+
+    .drive-status.connected{
+      background:#f0fdf4;
+      color:#15803d;
+    }
+
+    .drive-status-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:currentColor;
+    }
+
+    .upload-box{
+      border:1px dashed var(--border);
+      border-radius:15px;
+      padding:15px;
+      margin-bottom:15px;
+      background:var(--surface2);
+    }
+
+    .upload-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .upload-name{
+      color:var(--muted);
+      font-size:11px;
+      min-width:0;
+      flex:1;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .hidden-file{
+      display:none;
+    }
+
+    .upload-progress{
+      display:none;
+      margin-top:11px;
+    }
+
+    .upload-progress.show{
+      display:block;
+    }
+
+    .progress-track{
+      height:7px;
+      background:var(--border);
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .progress-bar{
+      height:100%;
+      width:0;
+      background:linear-gradient(90deg,var(--primary),var(--primary2));
+      border-radius:999px;
+      transition:width .2s ease;
+    }
+
+    .progress-text{
+      color:var(--muted);
+      font-size:10px;
+      margin-top:5px;
+    }
+
+    /* ================= EDIT MODE ================= */
+
+    .form-mode{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      margin-bottom:18px;
+      padding:13px 15px;
+      background:var(--soft);
       border:1px solid rgba(20,184,166,.18);
-
       border-radius:14px;
     }
 
-    .form-mode strong {
+    .form-mode strong{
       color:var(--primary);
       font-size:13px;
     }
 
-    .form-mode span {
+    .form-mode span{
       color:var(--muted);
       font-size:11px;
       display:block;
       margin-top:2px;
     }
 
-    .form-mode-icon {
+    .form-mode-icon{
       width:38px;
       height:38px;
-
       border-radius:11px;
-
       display:grid;
       place-items:center;
-
       background:var(--surface);
-
       color:var(--primary);
     }
 
-    .form-mode-icon svg {
+    .form-mode-icon svg{
       width:18px;
       height:18px;
     }
 
-    .form-mode-content {
+    .form-mode-content{
       display:flex;
       align-items:center;
       gap:10px;
     }
 
-    /* =================================================
-       FORMS
-       ================================================= */
+    /* ================= FORMS ================= */
 
-    .form-grid {
+    .form-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
+      grid-template-columns:repeat(2,1fr);
       gap:15px;
     }
 
-    .full {
+    .full{
       grid-column:1 / -1;
     }
 
-    .form-actions {
+    .form-actions{
       display:flex;
-
       justify-content:flex-start;
-
       gap:8px;
-
       margin-top:5px;
     }
 
-    /* =================================================
-       TABLE
-       ================================================= */
+    /* ================= TABLE ================= */
 
-    .table-wrap {
+    .table-wrap{
       overflow-x:auto;
     }
 
-    table {
+    table{
       width:100%;
-
       border-collapse:collapse;
-
       min-width:760px;
     }
 
-    th {
+    th{
       text-align:right;
-
       background:var(--surface2);
-
       color:var(--muted);
-
       font-size:11px;
-
       padding:12px;
-
       white-space:nowrap;
     }
 
-    td {
+    td{
       padding:13px 12px;
-
       border-top:1px solid var(--border);
-
       font-size:12px;
-
       vertical-align:middle;
     }
 
-    tbody tr {
+    tbody tr{
       transition:.15s;
     }
 
-    tbody tr:hover {
+    tbody tr:hover{
       background:rgba(20,184,166,.025);
     }
 
-    .badge {
+    .badge{
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       padding:5px 9px;
-
       border-radius:999px;
-
       background:var(--soft);
-
       color:var(--primary);
-
       font-size:10px;
-
       font-weight:700;
-
       white-space:nowrap;
     }
 
-    .order-badge {
+    .order-badge{
       display:inline-grid;
-
       place-items:center;
-
       min-width:34px;
       height:29px;
-
       padding:0 8px;
-
       border-radius:9px;
-
       background:var(--soft);
-
       color:var(--primary);
-
       font-size:11px;
-
       font-weight:700;
-
       border:1px solid rgba(20,184,166,.12);
     }
 
-    .url {
+    .url{
       display:block;
-
       max-width:250px;
-
       overflow:hidden;
-
       text-overflow:ellipsis;
-
       white-space:nowrap;
-
       color:var(--primary);
-
       direction:ltr;
-
       text-align:right;
     }
 
-    /* =================================================
-       EMPTY
-       ================================================= */
+    /* ================= EMPTY ================= */
 
-    .empty {
+    .empty{
       text-align:center;
-
       color:var(--muted);
-
       padding:40px 20px;
-
       font-size:13px;
     }
 
-    /* =================================================
-       TOAST
-       ================================================= */
+    /* ================= TOAST ================= */
 
-    #toast {
+    #toast{
       position:fixed;
-
       left:22px;
       bottom:22px;
-
       z-index:1000;
-
       min-width:240px;
       max-width:380px;
-
       padding:13px 16px;
-
       border-radius:14px;
-
       background:#17211f;
       color:white;
-
-      box-shadow:
-        0 15px 40px rgba(0,0,0,.18);
-
+      box-shadow:0 15px 40px rgba(0,0,0,.18);
       font-size:13px;
-
       transform:translateY(120px);
-
       opacity:0;
-
       transition:.25s;
     }
 
-    #toast.show {
+    #toast.show{
       transform:translateY(0);
       opacity:1;
     }
 
-    #toast.success {
+    #toast.success{
       background:#166534;
     }
 
-    #toast.error {
+    #toast.error{
       background:#991b1b;
     }
 
-    /* =================================================
-       MOBILE
-       ================================================= */
+    /* ================= MOBILE ================= */
 
-    .mobile-menu {
+    .mobile-menu{
       display:none;
-
       place-items:center;
-
       width:40px;
       height:40px;
-
       border:1px solid var(--border);
-
       background:var(--surface);
-
       border-radius:11px;
     }
 
-    .mobile-menu svg {
+    .mobile-menu svg{
       width:19px;
     }
 
-    @media(max-width:900px) {
+    @media(max-width:900px){
 
-      .sidebar {
+      .sidebar{
         transform:translateX(100%);
-
         transition:.25s;
-
-        box-shadow:
-          -20px 0 50px rgba(0,0,0,.08);
+        box-shadow:-20px 0 50px rgba(0,0,0,.08);
       }
 
-      .sidebar.open {
+      .sidebar.open{
         transform:translateX(0);
       }
 
-      .content {
+      .content{
         margin-right:0;
       }
 
-      .mobile-menu {
+      .mobile-menu{
         display:grid;
       }
 
-      .stats {
-        grid-template-columns:
-          repeat(2,1fr);
+      .stats{
+        grid-template-columns:repeat(2,1fr);
       }
 
     }
 
-    @media(max-width:600px) {
+    @media(max-width:600px){
 
-      .page {
+      .page{
         padding:18px 14px;
       }
 
-      .topbar {
+      .topbar{
         padding:0 14px;
       }
 
-      .topbar h2 {
+      .topbar h2{
         font-size:16px;
       }
 
-      .admin-user {
+      .admin-user{
         display:none;
       }
 
-      .stats {
+      .stats{
         grid-template-columns:1fr 1fr;
         gap:10px;
       }
 
-      .stat {
+      .stat{
         padding:15px;
       }
 
-      .stat-number {
+      .stat-number{
         font-size:23px;
       }
 
-      .form-grid {
+      .form-grid{
         grid-template-columns:1fr;
       }
 
-      .full {
+      .full{
         grid-column:auto;
       }
 
-      .panel-head {
+      .panel-head{
         align-items:flex-start;
         flex-direction:column;
       }
 
-      .panel-head > .btn {
+      .panel-head>.btn{
         width:100%;
       }
 
-      .form-mode {
+      .form-mode{
         align-items:flex-start;
       }
 
-      .form-mode-content {
+      .form-mode-content{
         align-items:flex-start;
       }
 
-      .form-actions {
+      .form-actions{
         flex-direction:column;
       }
 
-      .form-actions .btn {
+      .form-actions .btn{
         width:100%;
       }
 
-      .actions .btn {
+      .actions .btn{
         min-height:35px;
         padding:0 10px;
       }
 
-      #toast {
+      .drive-box{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      #toast{
         left:12px;
         right:12px;
         min-width:0;
@@ -1081,11 +964,8 @@
         stroke="currentColor"
         stroke-width="2"
       >
-
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
       </svg>
 
     </div>
@@ -1146,8 +1026,6 @@
 
 <div id="app">
 
-  <!-- SIDEBAR -->
-
   <aside class="sidebar" id="sidebar">
 
     <div class="side-brand">
@@ -1160,11 +1038,8 @@
           stroke="currentColor"
           stroke-width="2"
         >
-
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
         </svg>
 
       </div>
@@ -1179,147 +1054,79 @@
 
     </div>
 
-
     <div class="nav-title">
       الإدارة
     </div>
 
+    <button class="nav-btn active" data-page="dashboard">
 
-    <button
-      class="nav-btn active"
-      data-page="dashboard"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="3" y="3" width="7" height="7"/>
         <rect x="14" y="3" width="7" height="7"/>
         <rect x="3" y="14" width="7" height="7"/>
         <rect x="14" y="14" width="7" height="7"/>
-
       </svg>
 
       لوحة التحكم
 
     </button>
 
+    <button class="nav-btn" data-page="generations">
 
-    <button
-      class="nav-btn"
-      data-page="generations"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
       </svg>
 
       الأجيال
 
     </button>
 
+    <button class="nav-btn" data-page="subjects">
 
-    <button
-      class="nav-btn"
-      data-page="subjects"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M4 5h16"/>
         <path d="M4 12h16"/>
         <path d="M4 19h16"/>
-
       </svg>
 
       المواد
 
     </button>
 
+    <button class="nav-btn" data-page="sections">
 
-    <button
-      class="nav-btn"
-      data-page="sections"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M4 6h16"/>
         <path d="M4 12h16"/>
         <path d="M4 18h16"/>
-
       </svg>
 
       أقسام المواد
 
     </button>
 
+    <button class="nav-btn" data-page="resources">
 
-    <button
-      class="nav-btn"
-      data-page="resources"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M4 4h16v16H4z"/>
         <path d="M8 8h8"/>
         <path d="M8 12h8"/>
         <path d="M8 16h5"/>
-
       </svg>
 
       الملفات والروابط
 
     </button>
 
-
     <div class="side-bottom">
 
-      <button
-        class="nav-btn logout"
-        id="logoutBtn"
-      >
+      <button class="nav-btn logout" id="logoutBtn">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M10 17l5-5-5-5"/>
           <path d="M15 12H3"/>
           <path d="M21 19V5a2 2 0 0 0-2-2h-5"/>
-
         </svg>
 
         تسجيل الخروج
@@ -1331,36 +1138,18 @@
   </aside>
 
 
-  <!-- CONTENT -->
-
   <div class="content">
 
     <header class="topbar">
 
-      <div
-        style="
-          display:flex;
-          align-items:center;
-          gap:10px;
-        "
-      >
+      <div style="display:flex;align-items:center;gap:10px;">
 
-        <button
-          class="mobile-menu"
-          id="mobileMenu"
-        >
+        <button class="mobile-menu" id="mobileMenu">
 
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 6h16"/>
             <path d="M4 12h16"/>
             <path d="M4 18h16"/>
-
           </svg>
 
         </button>
@@ -1371,22 +1160,14 @@
 
       </div>
 
-      <div
-        class="admin-user"
-        id="adminEmail"
-      ></div>
+      <div class="admin-user" id="adminEmail"></div>
 
     </header>
 
 
-    <!-- =================================================
-         DASHBOARD
-         ================================================= -->
+    <!-- ================= DASHBOARD ================= -->
 
-    <main
-      class="page"
-      id="page-dashboard"
-    >
+    <main class="page" id="page-dashboard">
 
       <div class="stats">
 
@@ -1396,36 +1177,19 @@
 
             <div class="stat-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-
               </svg>
 
             </div>
 
           </div>
 
-          <div
-            class="stat-number"
-            id="statGenerations"
-          >
-            0
-          </div>
-
-          <div class="stat-title">
-            الأجيال
-          </div>
+          <div class="stat-number" id="statGenerations">0</div>
+          <div class="stat-title">الأجيال</div>
 
         </div>
-
 
         <div class="stat">
 
@@ -1433,36 +1197,20 @@
 
             <div class="stat-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 5h16"/>
                 <path d="M4 12h16"/>
                 <path d="M4 19h16"/>
-
               </svg>
 
             </div>
 
           </div>
 
-          <div
-            class="stat-number"
-            id="statSubjects"
-          >
-            0
-          </div>
-
-          <div class="stat-title">
-            المواد
-          </div>
+          <div class="stat-number" id="statSubjects">0</div>
+          <div class="stat-title">المواد</div>
 
         </div>
-
 
         <div class="stat">
 
@@ -1470,36 +1218,20 @@
 
             <div class="stat-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16"/>
                 <path d="M4 12h16"/>
                 <path d="M4 18h16"/>
-
               </svg>
 
             </div>
 
           </div>
 
-          <div
-            class="stat-number"
-            id="statSections"
-          >
-            0
-          </div>
-
-          <div class="stat-title">
-            أقسام المواد
-          </div>
+          <div class="stat-number" id="statSections">0</div>
+          <div class="stat-title">أقسام المواد</div>
 
         </div>
-
 
         <div class="stat">
 
@@ -1507,34 +1239,19 @@
 
             <div class="stat-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16v16H4z"/>
                 <path d="M8 8h8"/>
                 <path d="M8 12h8"/>
                 <path d="M8 16h5"/>
-
               </svg>
 
             </div>
 
           </div>
 
-          <div
-            class="stat-number"
-            id="statResources"
-          >
-            0
-          </div>
-
-          <div class="stat-title">
-            الملفات والروابط
-          </div>
+          <div class="stat-number" id="statResources">0</div>
+          <div class="stat-title">الملفات والروابط</div>
 
         </div>
 
@@ -1547,9 +1264,7 @@
 
           <div>
 
-            <h3>
-              آخر الملفات والروابط
-            </h3>
+            <h3>آخر الملفات والروابط</h3>
 
             <p>
               آخر المحتويات التي أضافها الأدمن
@@ -1557,21 +1272,11 @@
 
           </div>
 
-          <button
-            class="btn btn-primary"
-            onclick="openPage('resources')"
-          >
+          <button class="btn btn-primary" onclick="openPage('resources')">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
-
             </svg>
 
             إدارة المحتوى
@@ -1580,10 +1285,7 @@
 
         </div>
 
-        <div
-          id="recentResources"
-          class="empty"
-        >
+        <div id="recentResources" class="empty">
           جاري التحميل...
         </div>
 
@@ -1592,15 +1294,9 @@
     </main>
 
 
-    <!-- =================================================
-         GENERATIONS
-         ================================================= -->
+    <!-- ================= GENERATIONS ================= -->
 
-    <main
-      class="page"
-      id="page-generations"
-      style="display:none"
-    >
+    <main class="page" id="page-generations" style="display:none">
 
       <div class="panel">
 
@@ -1608,9 +1304,7 @@
 
           <div>
 
-            <h3>
-              إدارة الأجيال
-            </h3>
+            <h3>إدارة الأجيال</h3>
 
             <p>
               أضف أو عدّل الأجيال الموجودة في المنصة
@@ -1618,21 +1312,11 @@
 
           </div>
 
-          <button
-            class="btn btn-primary"
-            onclick="showGenerationForm()"
-          >
+          <button class="btn btn-primary" onclick="showGenerationForm()">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
-
             </svg>
 
             إضافة جيل
@@ -1641,118 +1325,52 @@
 
         </div>
 
+        <div id="generationForm" class="panel-body" style="display:none">
 
-        <div
-          id="generationForm"
-          class="panel-body"
-          style="display:none"
-        >
-
-          <div
-            id="generationEditMode"
-            class="form-mode"
-            style="display:none"
-          >
+          <div id="generationEditMode" class="form-mode" style="display:none">
 
             <div class="form-mode-content">
 
               <div class="form-mode-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 20h9"/>
                   <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
                 </svg>
-
               </div>
 
               <div>
-
-                <strong>
-                  تعديل الجيل
-                </strong>
-
-                <span>
-                  عدّل البيانات ثم اضغط حفظ التعديلات
-                </span>
-
+                <strong>تعديل الجيل</strong>
+                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
               </div>
 
             </div>
 
           </div>
 
-
-          <form
-            id="generationAddForm"
-            class="form-grid"
-          >
+          <form id="generationAddForm" class="form-grid">
 
             <div class="field">
-
-              <label>
-                اسم الجيل
-              </label>
-
-              <input
-                id="generationName"
-                placeholder="مثال: جيل 2010"
-                required
-              >
-
+              <label>اسم الجيل</label>
+              <input id="generationName" placeholder="مثال: جيل 2010" required>
             </div>
-
 
             <div class="field">
-
-              <label>
-                رقم الجيل
-              </label>
-
-              <input
-                id="generationYear"
-                placeholder="2010"
-                required
-              >
-
+              <label>رقم الجيل</label>
+              <input id="generationYear" placeholder="2010" required>
             </div>
-
 
             <div class="field full">
-
-              <label>
-                وصف الجيل
-              </label>
-
-              <textarea
-                id="generationDescription"
-                placeholder="وصف مختصر..."
-              ></textarea>
-
+              <label>وصف الجيل</label>
+              <textarea id="generationDescription" placeholder="وصف مختصر..."></textarea>
             </div>
-
 
             <div class="form-actions full">
 
-              <button
-                class="btn btn-primary"
-                id="generationSubmitBtn"
-                type="submit"
-              >
+              <button class="btn btn-primary" id="generationSubmitBtn" type="submit">
                 حفظ الجيل
               </button>
 
-              <button
-                class="btn btn-cancel"
-                type="button"
-                onclick="hideGenerationForm()"
-              >
+              <button class="btn btn-cancel" type="button" onclick="hideGenerationForm()">
                 إلغاء
               </button>
 
@@ -1762,58 +1380,31 @@
 
         </div>
 
-
-        <div
-          id="generationsList"
-          class="table-wrap"
-        ></div>
+        <div id="generationsList" class="table-wrap"></div>
 
       </div>
 
     </main>
 
 
-    <!-- =================================================
-         SUBJECTS
-         ================================================= -->
+    <!-- ================= SUBJECTS ================= -->
 
-    <main
-      class="page"
-      id="page-subjects"
-      style="display:none"
-    >
+    <main class="page" id="page-subjects" style="display:none">
 
       <div class="panel">
 
         <div class="panel-head">
 
           <div>
-
-            <h3>
-              إدارة المواد
-            </h3>
-
-            <p>
-              كل مادة مرتبطة بجيل معين
-            </p>
-
+            <h3>إدارة المواد</h3>
+            <p>كل مادة مرتبطة بجيل معين</p>
           </div>
 
-          <button
-            class="btn btn-primary"
-            onclick="showSubjectForm()"
-          >
+          <button class="btn btn-primary" onclick="showSubjectForm()">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
-
             </svg>
 
             إضافة مادة
@@ -1822,153 +1413,66 @@
 
         </div>
 
+        <div id="subjectForm" class="panel-body" style="display:none">
 
-        <div
-          id="subjectForm"
-          class="panel-body"
-          style="display:none"
-        >
-
-          <div
-            id="subjectEditMode"
-            class="form-mode"
-            style="display:none"
-          >
+          <div id="subjectEditMode" class="form-mode" style="display:none">
 
             <div class="form-mode-content">
 
               <div class="form-mode-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 20h9"/>
                   <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
                 </svg>
-
               </div>
 
               <div>
-
-                <strong>
-                  تعديل المادة
-                </strong>
-
-                <span>
-                  عدّل البيانات ثم اضغط حفظ التعديلات
-                </span>
-
+                <strong>تعديل المادة</strong>
+                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
               </div>
 
             </div>
 
           </div>
 
-
-          <form
-            id="subjectAddForm"
-            class="form-grid"
-          >
+          <form id="subjectAddForm" class="form-grid">
 
             <div class="field">
+              <label>الجيل</label>
 
-              <label>
-                الجيل
-              </label>
-
-              <select
-                id="subjectGeneration"
-                required
-              >
-
-                <option value="">
-                  اختر الجيل
-                </option>
-
+              <select id="subjectGeneration" required>
+                <option value="">اختر الجيل</option>
               </select>
 
             </div>
 
-
             <div class="field">
-
-              <label>
-                اسم المادة
-              </label>
-
-              <input
-                id="subjectName"
-                placeholder="مثال: الرياضيات"
-                required
-              >
-
+              <label>اسم المادة</label>
+              <input id="subjectName" placeholder="مثال: الرياضيات" required>
             </div>
 
-
             <div class="field">
-
-              <label>
-                المعرف
-              </label>
-
-              <input
-                id="subjectSlug"
-                placeholder="math"
-                required
-              >
-
+              <label>المعرف</label>
+              <input id="subjectSlug" placeholder="math" required>
             </div>
 
-
             <div class="field">
-
-              <label>
-                الترتيب
-              </label>
-
-              <input
-                id="subjectOrder"
-                type="number"
-                value="1"
-              >
-
+              <label>الترتيب</label>
+              <input id="subjectOrder" type="number" value="1">
             </div>
-
 
             <div class="field full">
-
-              <label>
-                وصف المادة
-              </label>
-
-              <textarea
-                id="subjectDescription"
-                placeholder="وصف مختصر للمادة..."
-              ></textarea>
-
+              <label>وصف المادة</label>
+              <textarea id="subjectDescription" placeholder="وصف مختصر للمادة..."></textarea>
             </div>
-
 
             <div class="form-actions full">
 
-              <button
-                class="btn btn-primary"
-                id="subjectSubmitBtn"
-                type="submit"
-              >
+              <button class="btn btn-primary" id="subjectSubmitBtn" type="submit">
                 حفظ المادة
               </button>
 
-              <button
-                class="btn btn-cancel"
-                type="button"
-                onclick="hideSubjectForm()"
-              >
+              <button class="btn btn-cancel" type="button" onclick="hideSubjectForm()">
                 إلغاء
               </button>
 
@@ -1978,58 +1482,31 @@
 
         </div>
 
-
-        <div
-          id="subjectsList"
-          class="table-wrap"
-        ></div>
+        <div id="subjectsList" class="table-wrap"></div>
 
       </div>
 
     </main>
 
 
-    <!-- =================================================
-         SECTIONS
-         ================================================= -->
+    <!-- ================= SECTIONS ================= -->
 
-    <main
-      class="page"
-      id="page-sections"
-      style="display:none"
-    >
+    <main class="page" id="page-sections" style="display:none">
 
       <div class="panel">
 
         <div class="panel-head">
 
           <div>
-
-            <h3>
-              أقسام المواد
-            </h3>
-
-            <p>
-              أنشئ أي قسم تريده داخل أي مادة
-            </p>
-
+            <h3>أقسام المواد</h3>
+            <p>أنشئ أي قسم تريده داخل أي مادة</p>
           </div>
 
-          <button
-            class="btn btn-primary"
-            onclick="showSectionForm()"
-          >
+          <button class="btn btn-primary" onclick="showSectionForm()">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
-
             </svg>
 
             إضافة قسم
@@ -2038,84 +1515,43 @@
 
         </div>
 
+        <div id="sectionForm" class="panel-body" style="display:none">
 
-        <div
-          id="sectionForm"
-          class="panel-body"
-          style="display:none"
-        >
-
-          <div
-            id="sectionEditMode"
-            class="form-mode"
-            style="display:none"
-          >
+          <div id="sectionEditMode" class="form-mode" style="display:none">
 
             <div class="form-mode-content">
 
               <div class="form-mode-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 20h9"/>
                   <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
                 </svg>
-
               </div>
 
               <div>
-
-                <strong>
-                  تعديل القسم
-                </strong>
-
-                <span>
-                  عدّل البيانات ثم اضغط حفظ التعديلات
-                </span>
-
+                <strong>تعديل القسم</strong>
+                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
               </div>
 
             </div>
 
           </div>
 
-
-          <form
-            id="sectionAddForm"
-            class="form-grid"
-          >
+          <form id="sectionAddForm" class="form-grid">
 
             <div class="field full">
 
-              <label>
-                المادة
-              </label>
+              <label>المادة</label>
 
-              <select
-                id="sectionSubject"
-                required
-              >
-
-                <option value="">
-                  اختر المادة
-                </option>
-
+              <select id="sectionSubject" required>
+                <option value="">اختر المادة</option>
               </select>
 
             </div>
 
-
             <div class="field">
 
-              <label>
-                اسم القسم
-              </label>
+              <label>اسم القسم</label>
 
               <input
                 id="sectionName"
@@ -2125,51 +1561,29 @@
 
             </div>
 
-
             <div class="field">
 
-              <label>
-                الترتيب
-              </label>
+              <label>الترتيب</label>
 
-              <input
-                id="sectionOrder"
-                type="number"
-                value="1"
-              >
+              <input id="sectionOrder" type="number" value="1">
 
             </div>
-
 
             <div class="field full">
 
-              <label>
-                وصف القسم
-              </label>
+              <label>وصف القسم</label>
 
-              <textarea
-                id="sectionDescription"
-                placeholder="وصف القسم..."
-              ></textarea>
+              <textarea id="sectionDescription" placeholder="وصف القسم..."></textarea>
 
             </div>
 
-
             <div class="form-actions full">
 
-              <button
-                class="btn btn-primary"
-                id="sectionSubmitBtn"
-                type="submit"
-              >
+              <button class="btn btn-primary" id="sectionSubmitBtn" type="submit">
                 حفظ القسم
               </button>
 
-              <button
-                class="btn btn-cancel"
-                type="button"
-                onclick="hideSectionForm()"
-              >
+              <button class="btn btn-cancel" type="button" onclick="hideSectionForm()">
                 إلغاء
               </button>
 
@@ -2179,26 +1593,16 @@
 
         </div>
 
-
-        <div
-          id="sectionsList"
-          class="table-wrap"
-        ></div>
+        <div id="sectionsList" class="table-wrap"></div>
 
       </div>
 
     </main>
 
 
-    <!-- =================================================
-         RESOURCES
-         ================================================= -->
+    <!-- ================= RESOURCES ================= -->
 
-    <main
-      class="page"
-      id="page-resources"
-      style="display:none"
-    >
+    <main class="page" id="page-resources" style="display:none">
 
       <div class="panel">
 
@@ -2206,9 +1610,7 @@
 
           <div>
 
-            <h3>
-              الملفات والروابط
-            </h3>
+            <h3>الملفات والروابط</h3>
 
             <p>
               أضف PDF أو رابط Google Drive أو أي رابط خارجي
@@ -2216,21 +1618,11 @@
 
           </div>
 
-          <button
-            class="btn btn-primary"
-            onclick="showResourceForm()"
-          >
+          <button class="btn btn-primary" onclick="showResourceForm()">
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 5v14"/>
               <path d="M5 12h14"/>
-
             </svg>
 
             إضافة محتوى
@@ -2240,242 +1632,340 @@
         </div>
 
 
-        <div
-          id="resourceForm"
-          class="panel-body"
-          style="display:none"
-        >
+        <div class="panel-body">
 
-          <div
-            id="resourceEditMode"
-            class="form-mode"
-            style="display:none"
-          >
+          <div class="drive-box">
 
-            <div class="form-mode-content">
+            <div class="drive-info">
 
-              <div class="form-mode-icon">
+              <div class="drive-icon">
 
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-
-                  <path d="M12 20h9"/>
-                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m9 3 3-1 3 1 5 8-5 8-3 1-3-1-5-8 5-8Z"/>
+                  <path d="m8 11 4 7 4-7-4-7-4 7Z"/>
                 </svg>
 
               </div>
 
               <div>
 
-                <strong>
-                  تعديل المحتوى
-                </strong>
+                <strong>Google Drive</strong>
 
-                <span>
-                  عدّل البيانات والترتيب ثم اضغط حفظ التعديلات
+                <span id="driveAccountText">
+                  اربط حساب Google لرفع ملفات PDF مباشرة
                 </span>
 
               </div>
 
             </div>
 
-          </div>
+            <div class="actions">
 
-
-          <form
-            id="resourceAddForm"
-            class="form-grid"
-          >
-
-            <div class="field">
-
-              <label>
-                المادة
-              </label>
-
-              <select
-                id="resourceSubject"
-                required
-              >
-
-                <option value="">
-                  اختر المادة
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="field">
-
-              <label>
-                القسم
-              </label>
-
-              <select
-                id="resourceSection"
-                required
-              >
-
-                <option value="">
-                  اختر القسم
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="field">
-
-              <label>
-                اسم المحتوى
-              </label>
-
-              <input
-                id="resourceTitle"
-                placeholder="مثال: ملخص الوحدة الأولى"
-                required
-              >
-
-            </div>
-
-
-            <div class="field">
-
-              <label>
-                نوع المحتوى
-              </label>
-
-              <select id="resourceType">
-
-                <option value="pdf">
-                  PDF
-                </option>
-
-                <option value="drive">
-                  Google Drive
-                </option>
-
-                <option value="link">
-                  رابط خارجي
-                </option>
-
-                <option value="exam">
-                  امتحان إلكتروني
-                </option>
-
-                <option value="book">
-                  كتاب رسمي
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="field full">
-
-              <label>
-                الرابط
-              </label>
-
-              <input
-                id="resourceUrl"
-                type="url"
-                placeholder="https://drive.google.com/..."
-                required
-              >
-
-            </div>
-
-
-            <div class="field full">
-
-              <label>
-                وصف المحتوى
-              </label>
-
-              <textarea
-                id="resourceDescription"
-                placeholder="وصف اختياري..."
-              ></textarea>
-
-            </div>
-
-
-            <div class="field">
-
-              <label>
-                الترتيب
-              </label>
-
-              <input
-                id="resourceOrder"
-                type="number"
-                value="1"
-                min="1"
-              >
-
-            </div>
-
-
-            <div class="field">
-
-              <label>
-                الحالة
-              </label>
-
-              <select id="resourcePublished">
-
-                <option value="true">
-                  منشور
-                </option>
-
-                <option value="false">
-                  مخفي
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-actions full">
+              <span class="drive-status" id="driveStatus">
+                <span class="drive-status-dot"></span>
+                غير متصل
+              </span>
 
               <button
                 class="btn btn-primary"
-                id="resourceSubmitBtn"
-                type="submit"
-              >
-                حفظ المحتوى
-              </button>
-
-              <button
-                class="btn btn-cancel"
+                id="connectDriveBtn"
                 type="button"
-                onclick="hideResourceForm()"
               >
-                إلغاء
+                ربط Google Drive
               </button>
 
             </div>
 
-          </form>
+          </div>
+
+
+          <div
+            id="resourceForm"
+            style="display:none"
+          >
+
+            <div id="resourceEditMode" class="form-mode">
+
+              <div class="form-mode-content">
+
+                <div class="form-mode-icon">
+
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                  </svg>
+
+                </div>
+
+                <div>
+
+                  <strong id="resourceModeTitle">
+                    إضافة محتوى
+                  </strong>
+
+                  <span id="resourceModeText">
+                    أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <form id="resourceAddForm" class="form-grid">
+
+              <div class="field">
+
+                <label>المادة</label>
+
+                <select id="resourceSubject" required>
+
+                  <option value="">
+                    اختر المادة
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="field">
+
+                <label>القسم</label>
+
+                <select id="resourceSection" required>
+
+                  <option value="">
+                    اختر القسم
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="field">
+
+                <label>اسم المحتوى</label>
+
+                <input
+                  id="resourceTitle"
+                  placeholder="مثال: ملخص الوحدة الأولى"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>نوع المحتوى</label>
+
+                <select id="resourceType">
+
+                  <option value="pdf">
+                    PDF
+                  </option>
+
+                  <option value="drive">
+                    Google Drive
+                  </option>
+
+                  <option value="link">
+                    رابط خارجي
+                  </option>
+
+                  <option value="exam">
+                    امتحان إلكتروني
+                  </option>
+
+                  <option value="book">
+                    كتاب رسمي
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- GOOGLE DRIVE UPLOAD -->
+
+              <div class="field full">
+
+                <label>
+                  رفع PDF إلى Google Drive
+                </label>
+
+                <div class="upload-box">
+
+                  <div class="upload-row">
+
+                    <input
+                      class="hidden-file"
+                      id="resourceFile"
+                      type="file"
+                      accept="application/pdf,.pdf"
+                    >
+
+                    <button
+                      class="btn"
+                      id="choosePdfBtn"
+                      type="button"
+                    >
+
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3v12"/>
+                        <path d="m7 10 5 5 5-5"/>
+                        <path d="M4 21h16"/>
+                      </svg>
+
+                      اختيار PDF من الجهاز
+
+                    </button>
+
+                    <span
+                      class="upload-name"
+                      id="selectedFileName"
+                    >
+                      لم يتم اختيار ملف
+                    </span>
+
+                    <button
+                      class="btn btn-primary"
+                      id="uploadPdfBtn"
+                      type="button"
+                    >
+
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 16V4"/>
+                        <path d="m7 9 5-5 5 5"/>
+                        <path d="M5 20h14"/>
+                      </svg>
+
+                      رفع إلى Google Drive
+
+                    </button>
+
+                  </div>
+
+
+                  <div
+                    class="upload-progress"
+                    id="uploadProgress"
+                  >
+
+                    <div class="progress-track">
+
+                      <div
+                        class="progress-bar"
+                        id="uploadProgressBar"
+                      ></div>
+
+                    </div>
+
+                    <div
+                      class="progress-text"
+                      id="uploadProgressText"
+                    >
+                      جاري الرفع...
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="field full">
+
+                <label>الرابط</label>
+
+                <input
+                  id="resourceUrl"
+                  type="url"
+                  placeholder="https://drive.google.com/..."
+                  required
+                >
+
+              </div>
+
+
+              <div class="field full">
+
+                <label>وصف المحتوى</label>
+
+                <textarea
+                  id="resourceDescription"
+                  placeholder="وصف اختياري..."
+                ></textarea>
+
+              </div>
+
+
+              <div class="field">
+
+                <label>الترتيب</label>
+
+                <input
+                  id="resourceOrder"
+                  type="number"
+                  value="1"
+                  min="1"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>الحالة</label>
+
+                <select id="resourcePublished">
+
+                  <option value="true">
+                    منشور
+                  </option>
+
+                  <option value="false">
+                    مخفي
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-actions full">
+
+                <button
+                  class="btn btn-primary"
+                  id="resourceSubmitBtn"
+                  type="submit"
+                >
+                  حفظ المحتوى
+                </button>
+
+                <button
+                  class="btn btn-cancel"
+                  type="button"
+                  onclick="hideResourceForm()"
+                >
+                  إلغاء
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
 
         </div>
 
 
-        <div
-          id="resourcesList"
-          class="table-wrap"
-        ></div>
+        <div id="resourcesList" class="table-wrap"></div>
 
       </div>
 
@@ -2492,14 +1982,11 @@
 <script type="module">
 
   import {
-
     auth,
     db,
-
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
-
     collection,
     addDoc,
     getDocs,
@@ -2507,13 +1994,29 @@
     deleteDoc,
     doc,
     serverTimestamp
-
   } from "./firebase-config.js";
 
 
   /* =====================================================
+     GOOGLE DRIVE CONFIG
+     =====================================================
+
+     ضع Google OAuth Client ID هنا.
+
+     مثال:
+     1234567890-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+  ===================================================== */
+
+  const GOOGLE_CLIENT_ID =
+    "ضع_CLIENT_ID_هنا.apps.googleusercontent.com";
+
+  const GOOGLE_DRIVE_SCOPE =
+    "https://www.googleapis.com/auth/drive.file";
+
+
+  /* =====================================================
      GLOBAL DATA
-     ===================================================== */
+  ===================================================== */
 
   let generations = [];
   let subjects = [];
@@ -2527,8 +2030,19 @@
 
 
   /* =====================================================
+     GOOGLE DRIVE STATE
+  ===================================================== */
+
+  let googleTokenClient = null;
+  let googleAccessToken = null;
+  let googleTokenExpiresAt = 0;
+
+  let selectedPdfFile = null;
+
+
+  /* =====================================================
      ELEMENTS
-     ===================================================== */
+  ===================================================== */
 
   const loginScreen =
     document.getElementById("loginScreen");
@@ -2545,10 +2059,40 @@
   const adminEmail =
     document.getElementById("adminEmail");
 
+  const driveStatus =
+    document.getElementById("driveStatus");
+
+  const driveAccountText =
+    document.getElementById("driveAccountText");
+
+  const connectDriveBtn =
+    document.getElementById("connectDriveBtn");
+
+  const resourceFile =
+    document.getElementById("resourceFile");
+
+  const choosePdfBtn =
+    document.getElementById("choosePdfBtn");
+
+  const uploadPdfBtn =
+    document.getElementById("uploadPdfBtn");
+
+  const selectedFileName =
+    document.getElementById("selectedFileName");
+
+  const uploadProgress =
+    document.getElementById("uploadProgress");
+
+  const uploadProgressBar =
+    document.getElementById("uploadProgressBar");
+
+  const uploadProgressText =
+    document.getElementById("uploadProgressText");
+
 
   /* =====================================================
      AUTH
-     ===================================================== */
+  ===================================================== */
 
   onAuthStateChanged(auth, async (user) => {
 
@@ -2561,6 +2105,8 @@
       adminEmail.textContent =
         user.email || "";
 
+      initializeGoogleDrive();
+
       await loadAll();
 
     } else {
@@ -2568,6 +2114,11 @@
       loginScreen.style.display = "flex";
 
       app.style.display = "none";
+
+      googleAccessToken = null;
+      googleTokenClient = null;
+
+      setDriveStatus(false);
 
     }
 
@@ -2623,6 +2174,8 @@
       "click",
       async () => {
 
+        googleAccessToken = null;
+
         await signOut(auth);
 
       }
@@ -2630,25 +2183,301 @@
 
 
   /* =====================================================
+     GOOGLE DRIVE INITIALIZE
+  ===================================================== */
+
+  function initializeGoogleDrive(){
+
+    if(
+      !GOOGLE_CLIENT_ID ||
+      GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
+    ){
+
+      setDriveStatus(false);
+
+      connectDriveBtn.textContent =
+        "إضافة Client ID";
+
+      return;
+
+    }
+
+    if(
+      !window.google ||
+      !window.google.accounts ||
+      !window.google.accounts.oauth2
+    ){
+
+      setTimeout(
+        initializeGoogleDrive,
+        800
+      );
+
+      return;
+
+    }
+
+    googleTokenClient =
+      window.google.accounts.oauth2.initTokenClient({
+
+        client_id:
+          GOOGLE_CLIENT_ID,
+
+        scope:
+          GOOGLE_DRIVE_SCOPE,
+
+        callback:
+          (response) => {
+
+            if(response.error){
+
+              console.error(
+                "Google OAuth error:",
+                response
+              );
+
+              setDriveStatus(false);
+
+              toast(
+                "تعذر ربط Google Drive",
+                "error"
+              );
+
+              return;
+
+            }
+
+            googleAccessToken =
+              response.access_token;
+
+            googleTokenExpiresAt =
+              Date.now() +
+              ((Number(response.expires_in) || 3600) * 1000);
+
+            setDriveStatus(
+              true,
+              "Google Drive متصل"
+            );
+
+            toast(
+              "تم ربط Google Drive بنجاح",
+              "success"
+            );
+
+          }
+
+      });
+
+    setDriveStatus(false);
+
+  }
+
+
+  /* =====================================================
+     GOOGLE DRIVE CONNECT
+  ===================================================== */
+
+  connectDriveBtn.addEventListener(
+    "click",
+    () => {
+
+      if(
+        !GOOGLE_CLIENT_ID ||
+        GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
+      ){
+
+        toast(
+          "ضع Google Client ID داخل الكود أولاً",
+          "error"
+        );
+
+        return;
+
+      }
+
+      if(!googleTokenClient){
+
+        initializeGoogleDrive();
+
+        setTimeout(() => {
+
+          if(googleTokenClient){
+
+            requestGoogleDriveAccess();
+
+          }else{
+
+            toast(
+              "انتظر تحميل Google ثم حاول مرة أخرى",
+              "error"
+            );
+
+          }
+
+        },1000);
+
+        return;
+
+      }
+
+      requestGoogleDriveAccess();
+
+    }
+  );
+
+
+  function requestGoogleDriveAccess(){
+
+    googleTokenClient.requestAccessToken({
+      prompt:"consent"
+    });
+
+  }
+
+
+  function setDriveStatus(
+    connected,
+    text = ""
+  ){
+
+    if(connected){
+
+      driveStatus.classList.add(
+        "connected"
+      );
+
+      driveStatus.innerHTML = `
+        <span class="drive-status-dot"></span>
+        متصل
+      `;
+
+      driveAccountText.textContent =
+        text ||
+        "Google Drive جاهز لرفع ملفات PDF";
+
+      connectDriveBtn.textContent =
+        "إعادة ربط Google Drive";
+
+    }else{
+
+      driveStatus.classList.remove(
+        "connected"
+      );
+
+      driveStatus.innerHTML = `
+        <span class="drive-status-dot"></span>
+        غير متصل
+      `;
+
+      driveAccountText.textContent =
+        "اربط حساب Google لرفع ملفات PDF مباشرة";
+
+      connectDriveBtn.textContent =
+        "ربط Google Drive";
+
+    }
+
+  }
+
+
+  /* =====================================================
+     GOOGLE TOKEN
+  ===================================================== */
+
+  async function ensureGoogleToken(){
+
+    if(
+      googleAccessToken &&
+      Date.now() <
+        googleTokenExpiresAt - 60000
+    ){
+
+      return googleAccessToken;
+
+    }
+
+    if(!googleTokenClient){
+
+      initializeGoogleDrive();
+
+    }
+
+    if(!googleTokenClient){
+
+      throw new Error(
+        "Google OAuth غير جاهز"
+      );
+
+    }
+
+    return new Promise(
+      (resolve,reject) => {
+
+        const oldCallback =
+          googleTokenClient.callback;
+
+        googleTokenClient.callback =
+          (response) => {
+
+            googleTokenClient.callback =
+              oldCallback;
+
+            if(response.error){
+
+              reject(
+                new Error(
+                  response.error_description ||
+                  response.error
+                )
+              );
+
+              return;
+
+            }
+
+            googleAccessToken =
+              response.access_token;
+
+            googleTokenExpiresAt =
+              Date.now() +
+              ((Number(response.expires_in) || 3600) * 1000);
+
+            setDriveStatus(true);
+
+            resolve(
+              googleAccessToken
+            );
+
+          };
+
+        googleTokenClient.requestAccessToken({
+          prompt:""
+        });
+
+      }
+    );
+
+  }
+
+
+  /* =====================================================
      LOAD ALL
-     ===================================================== */
+  ===================================================== */
 
-  async function loadAll() {
+  async function loadAll(){
 
-    try {
+    try{
 
       await Promise.all([
-
         loadGenerations(),
         loadSubjects(),
         loadSections(),
         loadResources()
-
       ]);
 
       updateStats();
 
-    } catch (error) {
+    }catch(error){
 
       console.error(error);
 
@@ -2664,9 +2493,9 @@
 
   /* =====================================================
      GENERATIONS
-     ===================================================== */
+  ===================================================== */
 
-  async function loadGenerations() {
+  async function loadGenerations(){
 
     const snapshot =
       await getDocs(
@@ -2689,20 +2518,19 @@
     );
 
     renderGenerations();
-
     fillGenerationSelects();
 
   }
 
 
-  function renderGenerations() {
+  function renderGenerations(){
 
     const container =
       document.getElementById(
         "generationsList"
       );
 
-    if (!generations.length) {
+    if(!generations.length){
 
       container.innerHTML =
         `<div class="empty">
@@ -2720,12 +2548,10 @@
         <thead>
 
           <tr>
-
             <th>الاسم</th>
             <th>العام</th>
             <th>الوصف</th>
             <th>الإجراءات</th>
-
           </tr>
 
         </thead>
@@ -2737,33 +2563,19 @@
             <tr>
 
               <td>
-
                 <strong>
-                  ${escapeHtml(
-                    g.name || ""
-                  )}
+                  ${escapeHtml(g.name || "")}
                 </strong>
-
               </td>
 
               <td>
-
                 <span class="badge">
-
-                  ${escapeHtml(
-                    g.year || ""
-                  )}
-
+                  ${escapeHtml(g.year || "")}
                 </span>
-
               </td>
 
               <td>
-
-                ${escapeHtml(
-                  g.description || "—"
-                )}
-
+                ${escapeHtml(g.description || "—")}
               </td>
 
               <td>
@@ -2774,46 +2586,16 @@
                     class="btn btn-edit"
                     onclick="editGeneration('${g.id}')"
                   >
-
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-
-                      <path d="M12 20h9"/>
-                      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
-                    </svg>
-
+                    ${editIcon()}
                     تعديل
-
                   </button>
-
 
                   <button
                     class="btn btn-danger"
                     onclick="deleteGeneration('${g.id}')"
                   >
-
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-
-                      <path d="M3 6h18"/>
-                      <path d="M8 6V4h8v2"/>
-                      <path d="M19 6l-1 15H6L5 6"/>
-                      <path d="M10 11v6"/>
-                      <path d="M14 11v6"/>
-
-                    </svg>
-
+                    ${deleteIcon()}
                     حذف
-
                   </button>
 
                 </div>
@@ -2845,25 +2627,19 @@
 
           name:
             document
-              .getElementById(
-                "generationName"
-              )
+              .getElementById("generationName")
               .value
               .trim(),
 
           year:
             document
-              .getElementById(
-                "generationYear"
-              )
+              .getElementById("generationYear")
               .value
               .trim(),
 
           description:
             document
-              .getElementById(
-                "generationDescription"
-              )
+              .getElementById("generationDescription")
               .value
               .trim(),
 
@@ -2872,9 +2648,12 @@
 
         };
 
-        try {
+        const editing =
+          Boolean(editingGenerationId);
 
-          if (editingGenerationId) {
+        try{
+
+          if(editing){
 
             await updateDoc(
               doc(
@@ -2890,7 +2669,7 @@
               "success"
             );
 
-          } else {
+          }else{
 
             await addDoc(
               collection(
@@ -2911,20 +2690,18 @@
 
           }
 
-          e.target.reset();
-
           hideGenerationForm();
 
           await loadGenerations();
 
           updateStats();
 
-        } catch (error) {
+        }catch(error){
 
           console.error(error);
 
           toast(
-            editingGenerationId
+            editing
               ? "تعذر تعديل الجيل"
               : "تعذر إضافة الجيل",
             "error"
@@ -2937,83 +2714,70 @@
 
 
   window.editGeneration =
-    function(id) {
+    function(id){
 
-      const generation =
+      const item =
         generations.find(
           g => g.id === id
         );
 
-      if (!generation) return;
+      if(!item) return;
 
-      editingGenerationId = id;
+      editingGenerationId =
+        id;
 
-      document
-        .getElementById(
-          "generationName"
-        )
-        .value =
-        generation.name || "";
+      document.getElementById(
+        "generationName"
+      ).value =
+        item.name || "";
 
-      document
-        .getElementById(
-          "generationYear"
-        )
-        .value =
-        generation.year || "";
+      document.getElementById(
+        "generationYear"
+      ).value =
+        item.year || "";
 
-      document
-        .getElementById(
-          "generationDescription"
-        )
-        .value =
-        generation.description || "";
+      document.getElementById(
+        "generationDescription"
+      ).value =
+        item.description || "";
 
-      document
-        .getElementById(
-          "generationSubmitBtn"
-        )
-        .textContent =
+      document.getElementById(
+        "generationSubmitBtn"
+      ).textContent =
         "حفظ التعديلات";
 
-      document
-        .getElementById(
-          "generationEditMode"
-        )
-        .style.display =
+      document.getElementById(
+        "generationEditMode"
+      ).style.display =
         "flex";
 
-      document
-        .getElementById(
-          "generationForm"
-        )
-        .style.display =
+      document.getElementById(
+        "generationForm"
+      ).style.display =
         "block";
 
       openPage("generations");
 
-      document
-        .getElementById(
-          "generationForm"
-        )
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
+      document.getElementById(
+        "generationForm"
+      ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
     };
 
 
   window.deleteGeneration =
-    async function(id) {
+    async function(id){
 
-      if (
+      if(
         !confirm(
           "هل أنت متأكد من حذف هذا الجيل؟"
         )
       ) return;
 
-      try {
+      try{
 
         await deleteDoc(
           doc(
@@ -3032,7 +2796,7 @@
           "success"
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -3048,9 +2812,9 @@
 
   /* =====================================================
      SUBJECTS
-     ===================================================== */
+  ===================================================== */
 
-  async function loadSubjects() {
+  async function loadSubjects(){
 
     const snapshot =
       await getDocs(
@@ -3073,20 +2837,19 @@
     );
 
     renderSubjects();
-
     fillSubjectSelects();
 
   }
 
 
-  function renderSubjects() {
+  function renderSubjects(){
 
     const container =
       document.getElementById(
         "subjectsList"
       );
 
-    if (!subjects.length) {
+    if(!subjects.length){
 
       container.innerHTML =
         `<div class="empty">
@@ -3104,13 +2867,11 @@
         <thead>
 
           <tr>
-
             <th>المادة</th>
             <th>الجيل</th>
             <th>المعرف</th>
             <th>الترتيب</th>
             <th>الإجراءات</th>
-
           </tr>
 
         </thead>
@@ -3121,9 +2882,7 @@
 
             const generation =
               generations.find(
-                g =>
-                  g.id ===
-                  s.generationId
+                g => g.id === s.generationId
               );
 
             return `
@@ -3131,42 +2890,28 @@
               <tr>
 
                 <td>
-
                   <strong>
-                    ${escapeHtml(
-                      s.name || ""
-                    )}
+                    ${escapeHtml(s.name || "")}
                   </strong>
-
                 </td>
 
                 <td>
-
                   ${escapeHtml(
                     generation?.name ||
                     "غير معروف"
                   )}
-
                 </td>
 
                 <td>
-
                   <span class="badge">
-
-                    ${escapeHtml(
-                      s.slug || ""
-                    )}
-
+                    ${escapeHtml(s.slug || "")}
                   </span>
-
                 </td>
 
                 <td>
-
                   <span class="order-badge">
                     ${Number(s.order) || 1}
                   </span>
-
                 </td>
 
                 <td>
@@ -3177,46 +2922,16 @@
                       class="btn btn-edit"
                       onclick="editSubject('${s.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M12 20h9"/>
-                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
-                      </svg>
-
+                      ${editIcon()}
                       تعديل
-
                     </button>
-
 
                     <button
                       class="btn btn-danger"
                       onclick="deleteSubject('${s.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M3 6h18"/>
-                        <path d="M8 6V4h8v2"/>
-                        <path d="M19 6l-1 15H6L5 6"/>
-                        <path d="M10 11v6"/>
-                        <path d="M14 11v6"/>
-
-                      </svg>
-
+                      ${deleteIcon()}
                       حذف
-
                     </button>
 
                   </div>
@@ -3250,41 +2965,31 @@
 
           generationId:
             document
-              .getElementById(
-                "subjectGeneration"
-              )
+              .getElementById("subjectGeneration")
               .value,
 
           name:
             document
-              .getElementById(
-                "subjectName"
-              )
+              .getElementById("subjectName")
               .value
               .trim(),
 
           slug:
             document
-              .getElementById(
-                "subjectSlug"
-              )
+              .getElementById("subjectSlug")
               .value
               .trim(),
 
           description:
             document
-              .getElementById(
-                "subjectDescription"
-              )
+              .getElementById("subjectDescription")
               .value
               .trim(),
 
           order:
             Number(
               document
-                .getElementById(
-                  "subjectOrder"
-                )
+                .getElementById("subjectOrder")
                 .value
             ) || 1,
 
@@ -3293,9 +2998,12 @@
 
         };
 
-        try {
+        const editing =
+          Boolean(editingSubjectId);
 
-          if (editingSubjectId) {
+        try{
+
+          if(editing){
 
             await updateDoc(
               doc(
@@ -3311,7 +3019,7 @@
               "success"
             );
 
-          } else {
+          }else{
 
             await addDoc(
               collection(
@@ -3332,24 +3040,20 @@
 
           }
 
-          e.target.reset();
-
           hideSubjectForm();
 
           await loadSubjects();
-
           await loadSections();
-
           await loadResources();
 
           updateStats();
 
-        } catch (error) {
+        }catch(error){
 
           console.error(error);
 
           toast(
-            editingSubjectId
+            editing
               ? "تعذر تعديل المادة"
               : "تعذر إضافة المادة",
             "error"
@@ -3362,97 +3066,80 @@
 
 
   window.editSubject =
-    function(id) {
+    function(id){
 
-      const subject =
+      const item =
         subjects.find(
           s => s.id === id
         );
 
-      if (!subject) return;
+      if(!item) return;
 
-      editingSubjectId = id;
+      editingSubjectId =
+        id;
 
-      document
-        .getElementById(
-          "subjectGeneration"
-        )
-        .value =
-        subject.generationId || "";
+      document.getElementById(
+        "subjectGeneration"
+      ).value =
+        item.generationId || "";
 
-      document
-        .getElementById(
-          "subjectName"
-        )
-        .value =
-        subject.name || "";
+      document.getElementById(
+        "subjectName"
+      ).value =
+        item.name || "";
 
-      document
-        .getElementById(
-          "subjectSlug"
-        )
-        .value =
-        subject.slug || "";
+      document.getElementById(
+        "subjectSlug"
+      ).value =
+        item.slug || "";
 
-      document
-        .getElementById(
-          "subjectOrder"
-        )
-        .value =
-        subject.order ?? 1;
+      document.getElementById(
+        "subjectOrder"
+      ).value =
+        item.order ?? 1;
 
-      document
-        .getElementById(
-          "subjectDescription"
-        )
-        .value =
-        subject.description || "";
+      document.getElementById(
+        "subjectDescription"
+      ).value =
+        item.description || "";
 
-      document
-        .getElementById(
-          "subjectSubmitBtn"
-        )
-        .textContent =
+      document.getElementById(
+        "subjectSubmitBtn"
+      ).textContent =
         "حفظ التعديلات";
 
-      document
-        .getElementById(
-          "subjectEditMode"
-        )
-        .style.display =
+      document.getElementById(
+        "subjectEditMode"
+      ).style.display =
         "flex";
 
-      document
-        .getElementById(
-          "subjectForm"
-        )
-        .style.display =
+      document.getElementById(
+        "subjectForm"
+      ).style.display =
         "block";
 
       openPage("subjects");
 
-      document
-        .getElementById(
-          "subjectForm"
-        )
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
+      document.getElementById(
+        "subjectForm"
+      ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
     };
 
 
   window.deleteSubject =
-    async function(id) {
+    async function(id){
 
-      if (
+      if(
         !confirm(
           "هل أنت متأكد من حذف هذه المادة؟"
         )
       ) return;
 
-      try {
+      try{
 
         await deleteDoc(
           doc(
@@ -3471,7 +3158,7 @@
           "success"
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -3487,9 +3174,9 @@
 
   /* =====================================================
      SECTIONS
-     ===================================================== */
+  ===================================================== */
 
-  async function loadSections() {
+  async function loadSections(){
 
     const snapshot =
       await getDocs(
@@ -3512,20 +3199,23 @@
     );
 
     renderSections();
-
-    fillSectionSelect();
+    fillResourceSectionSelect(
+      document.getElementById(
+        "resourceSubject"
+      ).value
+    );
 
   }
 
 
-  function renderSections() {
+  function renderSections(){
 
     const container =
       document.getElementById(
         "sectionsList"
       );
 
-    if (!sections.length) {
+    if(!sections.length){
 
       container.innerHTML =
         `<div class="empty">
@@ -3543,13 +3233,11 @@
         <thead>
 
           <tr>
-
             <th>القسم</th>
             <th>المادة</th>
             <th>الترتيب</th>
             <th>الوصف</th>
             <th>الإجراءات</th>
-
           </tr>
 
         </thead>
@@ -3560,9 +3248,7 @@
 
             const subject =
               subjects.find(
-                x =>
-                  x.id ===
-                  s.subjectId
+                x => x.id === s.subjectId
               );
 
             return `
@@ -3570,39 +3256,28 @@
               <tr>
 
                 <td>
-
                   <strong>
-                    ${escapeHtml(
-                      s.name || ""
-                    )}
+                    ${escapeHtml(s.name || "")}
                   </strong>
-
                 </td>
 
                 <td>
-
                   ${escapeHtml(
                     subject?.name ||
                     "غير معروف"
                   )}
-
                 </td>
 
                 <td>
-
                   <span class="order-badge">
                     ${Number(s.order) || 1}
                   </span>
-
                 </td>
 
                 <td>
-
                   ${escapeHtml(
-                    s.description ||
-                    "—"
+                    s.description || "—"
                   )}
-
                 </td>
 
                 <td>
@@ -3613,46 +3288,16 @@
                       class="btn btn-edit"
                       onclick="editSection('${s.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M12 20h9"/>
-                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
-                      </svg>
-
+                      ${editIcon()}
                       تعديل
-
                     </button>
-
 
                     <button
                       class="btn btn-danger"
                       onclick="deleteSection('${s.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M3 6h18"/>
-                        <path d="M8 6V4h8v2"/>
-                        <path d="M19 6l-1 15H6L5 6"/>
-                        <path d="M10 11v6"/>
-                        <path d="M14 11v6"/>
-
-                      </svg>
-
+                      ${deleteIcon()}
                       حذف
-
                     </button>
 
                   </div>
@@ -3686,33 +3331,25 @@
 
           subjectId:
             document
-              .getElementById(
-                "sectionSubject"
-              )
+              .getElementById("sectionSubject")
               .value,
 
           name:
             document
-              .getElementById(
-                "sectionName"
-              )
+              .getElementById("sectionName")
               .value
               .trim(),
 
           description:
             document
-              .getElementById(
-                "sectionDescription"
-              )
+              .getElementById("sectionDescription")
               .value
               .trim(),
 
           order:
             Number(
               document
-                .getElementById(
-                  "sectionOrder"
-                )
+                .getElementById("sectionOrder")
                 .value
             ) || 1,
 
@@ -3721,9 +3358,12 @@
 
         };
 
-        try {
+        const editing =
+          Boolean(editingSectionId);
 
-          if (editingSectionId) {
+        try{
+
+          if(editing){
 
             await updateDoc(
               doc(
@@ -3739,7 +3379,7 @@
               "success"
             );
 
-          } else {
+          }else{
 
             await addDoc(
               collection(
@@ -3760,22 +3400,19 @@
 
           }
 
-          e.target.reset();
-
           hideSectionForm();
 
           await loadSections();
-
           await loadResources();
 
           updateStats();
 
-        } catch (error) {
+        }catch(error){
 
           console.error(error);
 
           toast(
-            editingSectionId
+            editing
               ? "تعذر تعديل القسم"
               : "تعذر إضافة القسم",
             "error"
@@ -3788,90 +3425,75 @@
 
 
   window.editSection =
-    function(id) {
+    function(id){
 
-      const section =
+      const item =
         sections.find(
           s => s.id === id
         );
 
-      if (!section) return;
+      if(!item) return;
 
-      editingSectionId = id;
+      editingSectionId =
+        id;
 
-      document
-        .getElementById(
-          "sectionSubject"
-        )
-        .value =
-        section.subjectId || "";
+      document.getElementById(
+        "sectionSubject"
+      ).value =
+        item.subjectId || "";
 
-      document
-        .getElementById(
-          "sectionName"
-        )
-        .value =
-        section.name || "";
+      document.getElementById(
+        "sectionName"
+      ).value =
+        item.name || "";
 
-      document
-        .getElementById(
-          "sectionOrder"
-        )
-        .value =
-        section.order ?? 1;
+      document.getElementById(
+        "sectionOrder"
+      ).value =
+        item.order ?? 1;
 
-      document
-        .getElementById(
-          "sectionDescription"
-        )
-        .value =
-        section.description || "";
+      document.getElementById(
+        "sectionDescription"
+      ).value =
+        item.description || "";
 
-      document
-        .getElementById(
-          "sectionSubmitBtn"
-        )
-        .textContent =
+      document.getElementById(
+        "sectionSubmitBtn"
+      ).textContent =
         "حفظ التعديلات";
 
-      document
-        .getElementById(
-          "sectionEditMode"
-        )
-        .style.display =
+      document.getElementById(
+        "sectionEditMode"
+      ).style.display =
         "flex";
 
-      document
-        .getElementById(
-          "sectionForm"
-        )
-        .style.display =
+      document.getElementById(
+        "sectionForm"
+      ).style.display =
         "block";
 
       openPage("sections");
 
-      document
-        .getElementById(
-          "sectionForm"
-        )
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
+      document.getElementById(
+        "sectionForm"
+      ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
     };
 
 
   window.deleteSection =
-    async function(id) {
+    async function(id){
 
-      if (
+      if(
         !confirm(
           "هل أنت متأكد من حذف هذا القسم؟"
         )
       ) return;
 
-      try {
+      try{
 
         await deleteDoc(
           doc(
@@ -3890,7 +3512,7 @@
           "success"
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -3906,9 +3528,9 @@
 
   /* =====================================================
      RESOURCES
-     ===================================================== */
+  ===================================================== */
 
-  async function loadResources() {
+  async function loadResources(){
 
     const snapshot =
       await getDocs(
@@ -3925,52 +3547,44 @@
       }));
 
     resources.sort(
-      (a,b) => {
-
-        const orderA =
-          Number.isFinite(
-            Number(a.order)
-          )
-            ? Number(a.order)
-            : 999999;
-
-        const orderB =
-          Number.isFinite(
-            Number(b.order)
-          )
-            ? Number(b.order)
-            : 999999;
-
-        return (
-          orderA - orderB ||
-          Number(
-            b.createdAt?.seconds || 0
-          ) -
-          Number(
-            a.createdAt?.seconds || 0
-          )
-        );
-
-      }
+      (a,b) =>
+        resourceOrderValue(a) -
+        resourceOrderValue(b) ||
+        Number(
+          b.createdAt?.seconds || 0
+        ) -
+        Number(
+          a.createdAt?.seconds || 0
+        )
     );
 
     renderResources();
-
     renderRecentResources();
-
     updateStats();
 
   }
 
 
-  function renderResources() {
+  function resourceOrderValue(r){
+
+    const n =
+      Number(r.order);
+
+    return Number.isFinite(n)
+      ? n
+      : 999999;
+
+  }
+
+
+  function renderResources(){
 
     const container =
       document.getElementById(
         "resourcesList"
       );
 
-    if (!resources.length) {
+    if(!resources.length){
 
       container.innerHTML =
         `<div class="empty">
@@ -3988,7 +3602,6 @@
         <thead>
 
           <tr>
-
             <th>المحتوى</th>
             <th>المادة</th>
             <th>القسم</th>
@@ -3997,7 +3610,6 @@
             <th>الحالة</th>
             <th>الرابط</th>
             <th>الإجراءات</th>
-
           </tr>
 
         </thead>
@@ -4008,16 +3620,12 @@
 
             const subject =
               subjects.find(
-                x =>
-                  x.id ===
-                  r.subjectId
+                x => x.id === r.subjectId
               );
 
             const section =
               sections.find(
-                x =>
-                  x.id ===
-                  r.sectionId
+                x => x.id === r.sectionId
               );
 
             return `
@@ -4025,170 +3633,86 @@
               <tr>
 
                 <td>
-
                   <strong>
-                    ${escapeHtml(
-                      r.title || ""
-                    )}
+                    ${escapeHtml(r.title || "")}
                   </strong>
-
                 </td>
 
-
                 <td>
-
                   ${escapeHtml(
-                    subject?.name ||
-                    "—"
+                    subject?.name || "—"
                   )}
-
                 </td>
 
-
                 <td>
-
                   ${escapeHtml(
-                    section?.name ||
-                    "—"
+                    section?.name || "—"
                   )}
-
                 </td>
 
-
                 <td>
-
                   <span class="order-badge">
                     ${Number(r.order) || 1}
                   </span>
-
                 </td>
-
 
                 <td>
-
                   <span class="badge">
-
                     ${escapeHtml(
-                      resourceTypeName(
-                        r.type
-                      )
+                      resourceTypeName(r.type)
                     )}
-
                   </span>
-
                 </td>
-
 
                 <td>
 
                   ${
                     r.published
-                      ? `
-                        <span class="badge">
-                          منشور
-                        </span>
-                      `
-                      : `
-                        <span
-                          class="badge"
-                          style="
-                            background:#fff7ed;
-                            color:#c2410c;
-                          "
-                        >
-                          مخفي
-                        </span>
-                      `
+                      ? `<span class="badge">منشور</span>`
+                      : `<span class="badge" style="background:#fff7ed;color:#c2410c;">مخفي</span>`
                   }
 
                 </td>
-
 
                 <td>
 
                   <a
                     class="url"
-                    href="${escapeAttribute(
-                      r.url || "#"
-                    )}"
+                    href="${escapeAttribute(r.url || "#")}"
                     target="_blank"
                     rel="noopener"
                   >
-
-                    ${escapeHtml(
-                      r.url || "—"
-                    )}
-
+                    ${escapeHtml(r.url || "—")}
                   </a>
 
                 </td>
-
 
                 <td>
 
                   <div class="actions">
 
-
                     <button
                       class="btn btn-edit"
                       onclick="editResource('${r.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M12 20h9"/>
-                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-
-                      </svg>
-
+                      ${editIcon()}
                       تعديل
-
                     </button>
-
 
                     <button
                       class="btn"
-                      onclick="toggleResource('${r.id}', ${!r.published})"
+                      onclick="toggleResource('${r.id}',${!r.published})"
                     >
-
-                      ${
-                        r.published
-                          ? "إخفاء"
-                          : "نشر"
-                      }
-
+                      ${r.published ? "إخفاء" : "نشر"}
                     </button>
-
 
                     <button
                       class="btn btn-danger"
                       onclick="deleteResource('${r.id}')"
                     >
-
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-
-                        <path d="M3 6h18"/>
-                        <path d="M8 6V4h8v2"/>
-                        <path d="M19 6l-1 15H6L5 6"/>
-                        <path d="M10 11v6"/>
-                        <path d="M14 11v6"/>
-
-                      </svg>
-
+                      ${deleteIcon()}
                       حذف
-
                     </button>
-
 
                   </div>
 
@@ -4209,6 +3733,10 @@
   }
 
 
+  /* =====================================================
+     RESOURCE FORM
+  ===================================================== */
+
   document
     .getElementById("resourceAddForm")
     .addEventListener(
@@ -4221,63 +3749,47 @@
 
           subjectId:
             document
-              .getElementById(
-                "resourceSubject"
-              )
+              .getElementById("resourceSubject")
               .value,
 
           sectionId:
             document
-              .getElementById(
-                "resourceSection"
-              )
+              .getElementById("resourceSection")
               .value,
 
           title:
             document
-              .getElementById(
-                "resourceTitle"
-              )
+              .getElementById("resourceTitle")
               .value
               .trim(),
 
           type:
             document
-              .getElementById(
-                "resourceType"
-              )
+              .getElementById("resourceType")
               .value,
 
           url:
             document
-              .getElementById(
-                "resourceUrl"
-              )
+              .getElementById("resourceUrl")
               .value
               .trim(),
 
           description:
             document
-              .getElementById(
-                "resourceDescription"
-              )
+              .getElementById("resourceDescription")
               .value
               .trim(),
 
           order:
             Number(
               document
-                .getElementById(
-                  "resourceOrder"
-                )
+                .getElementById("resourceOrder")
                 .value
             ) || 1,
 
           published:
             document
-              .getElementById(
-                "resourcePublished"
-              )
+              .getElementById("resourcePublished")
               .value === "true",
 
           updatedAt:
@@ -4285,10 +3797,12 @@
 
         };
 
+        const editing =
+          Boolean(editingResourceId);
 
-        try {
+        try{
 
-          if (editingResourceId) {
+          if(editing){
 
             await updateDoc(
               doc(
@@ -4304,7 +3818,7 @@
               "success"
             );
 
-          } else {
+          }else{
 
             await addDoc(
               collection(
@@ -4313,7 +3827,6 @@
               ),
               {
                 ...data,
-
                 createdAt:
                   serverTimestamp()
               }
@@ -4326,19 +3839,16 @@
 
           }
 
-
-          e.target.reset();
-
           hideResourceForm();
 
           await loadResources();
 
-        } catch (error) {
+        }catch(error){
 
           console.error(error);
 
           toast(
-            editingResourceId
+            editing
               ? "تعذر تعديل المحتوى"
               : "تعذر إضافة المحتوى",
             "error"
@@ -4351,124 +3861,92 @@
 
 
   window.editResource =
-    function(id) {
+    function(id){
 
       const resource =
         resources.find(
           r => r.id === id
         );
 
-      if (!resource) return;
+      if(!resource) return;
 
-      editingResourceId = id;
+      editingResourceId =
+        id;
 
-
-      document
-        .getElementById(
-          "resourceSubject"
-        )
-        .value =
+      document.getElementById(
+        "resourceSubject"
+      ).value =
         resource.subjectId || "";
 
-
       fillResourceSectionSelect(
-        resource.subjectId
+        resource.subjectId || ""
       );
 
-
-      document
-        .getElementById(
-          "resourceSection"
-        )
-        .value =
+      document.getElementById(
+        "resourceSection"
+      ).value =
         resource.sectionId || "";
 
-
-      document
-        .getElementById(
-          "resourceTitle"
-        )
-        .value =
+      document.getElementById(
+        "resourceTitle"
+      ).value =
         resource.title || "";
 
-
-      document
-        .getElementById(
-          "resourceType"
-        )
-        .value =
+      document.getElementById(
+        "resourceType"
+      ).value =
         resource.type || "pdf";
 
-
-      document
-        .getElementById(
-          "resourceUrl"
-        )
-        .value =
+      document.getElementById(
+        "resourceUrl"
+      ).value =
         resource.url || "";
 
-
-      document
-        .getElementById(
-          "resourceDescription"
-        )
-        .value =
+      document.getElementById(
+        "resourceDescription"
+      ).value =
         resource.description || "";
 
-
-      document
-        .getElementById(
-          "resourceOrder"
-        )
-        .value =
+      document.getElementById(
+        "resourceOrder"
+      ).value =
         resource.order ?? 1;
 
-
-      document
-        .getElementById(
-          "resourcePublished"
-        )
-        .value =
+      document.getElementById(
+        "resourcePublished"
+      ).value =
         resource.published === false
           ? "false"
           : "true";
 
-
-      document
-        .getElementById(
-          "resourceSubmitBtn"
-        )
-        .textContent =
+      document.getElementById(
+        "resourceSubmitBtn"
+      ).textContent =
         "حفظ التعديلات";
 
+      document.getElementById(
+        "resourceModeTitle"
+      ).textContent =
+        "تعديل المحتوى";
 
-      document
-        .getElementById(
-          "resourceEditMode"
-        )
-        .style.display =
-        "flex";
+      document.getElementById(
+        "resourceModeText"
+      ).textContent =
+        "عدّل البيانات والترتيب ثم اضغط حفظ التعديلات";
 
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .style.display =
+      document.getElementById(
+        "resourceForm"
+      ).style.display =
         "block";
-
 
       openPage("resources");
 
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
+      document.getElementById(
+        "resourceForm"
+      ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
 
     };
 
@@ -4477,9 +3955,9 @@
     async function(
       id,
       published
-    ) {
+    ){
 
-      try {
+      try{
 
         await updateDoc(
           doc(
@@ -4488,12 +3966,9 @@
             id
           ),
           {
-
             published,
-
             updatedAt:
               serverTimestamp()
-
           }
         );
 
@@ -4503,11 +3978,10 @@
           published
             ? "تم نشر المحتوى"
             : "تم إخفاء المحتوى",
-
           "success"
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -4522,15 +3996,47 @@
 
 
   window.deleteResource =
-    async function(id) {
+    async function(id){
 
-      if (
+      if(
         !confirm(
           "هل أنت متأكد من حذف هذا المحتوى؟"
         )
       ) return;
 
-      try {
+      try{
+
+        const resource =
+          resources.find(
+            r => r.id === id
+          );
+
+        /*
+          إذا كان الملف مرفوعًا عن طريق Google Drive
+          نحاول حذفه من Drive أيضًا.
+        */
+
+        if(
+          resource?.driveFileId &&
+          googleAccessToken
+        ){
+
+          try{
+
+            await deleteDriveFile(
+              resource.driveFileId
+            );
+
+          }catch(driveError){
+
+            console.warn(
+              "تعذر حذف ملف Drive:",
+              driveError
+            );
+
+          }
+
+        }
 
         await deleteDoc(
           doc(
@@ -4547,7 +4053,7 @@
           "success"
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -4562,10 +4068,513 @@
 
 
   /* =====================================================
-     SELECTS
-     ===================================================== */
+     PDF SELECT
+  ===================================================== */
 
-  function fillGenerationSelects() {
+  choosePdfBtn.addEventListener(
+    "click",
+    () => {
+
+      resourceFile.click();
+
+    }
+  );
+
+
+  resourceFile.addEventListener(
+    "change",
+    () => {
+
+      const file =
+        resourceFile.files?.[0];
+
+      if(!file){
+
+        selectedPdfFile =
+          null;
+
+        selectedFileName.textContent =
+          "لم يتم اختيار ملف";
+
+        return;
+
+      }
+
+      if(
+        file.type !== "application/pdf" &&
+        !file.name.toLowerCase().endsWith(".pdf")
+      ){
+
+        selectedPdfFile =
+          null;
+
+        resourceFile.value =
+          "";
+
+        selectedFileName.textContent =
+          "الملف يجب أن يكون PDF";
+
+        toast(
+          "اختر ملف PDF فقط",
+          "error"
+        );
+
+        return;
+
+      }
+
+      selectedPdfFile =
+        file;
+
+      selectedFileName.textContent =
+        `${file.name} — ${formatFileSize(file.size)}`;
+
+    }
+  );
+
+
+  /* =====================================================
+     PDF UPLOAD
+  ===================================================== */
+
+  uploadPdfBtn.addEventListener(
+    "click",
+    async () => {
+
+      if(!selectedPdfFile){
+
+        toast(
+          "اختر ملف PDF أولاً",
+          "error"
+        );
+
+        return;
+
+      }
+
+      try{
+
+        uploadPdfBtn.disabled =
+          true;
+
+        choosePdfBtn.disabled =
+          true;
+
+        uploadProgress.classList.add(
+          "show"
+        );
+
+        setUploadProgress(
+          10,
+          "جاري تجهيز الملف..."
+        );
+
+        const token =
+          await ensureGoogleToken();
+
+        setUploadProgress(
+          25,
+          "جاري رفع الملف إلى Google Drive..."
+        );
+
+        const driveFile =
+          await uploadFileToDrive(
+            selectedPdfFile,
+            token
+          );
+
+        setUploadProgress(
+          70,
+          "جاري إعداد رابط المشاركة..."
+        );
+
+        let publicLink =
+          driveFile.webViewLink ||
+          `https://drive.google.com/file/d/${driveFile.id}/view`;
+
+        try{
+
+          await makeDriveFilePublic(
+            driveFile.id,
+            token
+          );
+
+          publicLink =
+            `https://drive.google.com/file/d/${driveFile.id}/view`;
+
+        }catch(permissionError){
+
+          console.warn(
+            "تعذر جعل الملف عامًا:",
+            permissionError
+          );
+
+          toast(
+            "تم رفع الملف، لكن تعذر جعله عامًا. تأكد من إعدادات مشاركة Google Drive.",
+            "error"
+          );
+
+        }
+
+        setUploadProgress(
+          100,
+          "تم رفع الملف بنجاح"
+        );
+
+        document.getElementById(
+          "resourceUrl"
+        ).value =
+          publicLink;
+
+        /*
+          نضع بيانات Drive مؤقتًا على النموذج
+          حتى تحفظ مع Firestore.
+        */
+
+        document.getElementById(
+          "resourceUrl"
+        ).dataset.driveFileId =
+          driveFile.id;
+
+        document.getElementById(
+          "resourceUrl"
+        ).dataset.driveFileName =
+          driveFile.name || selectedPdfFile.name;
+
+        /*
+          إذا لم يكتب الأدمن اسم المحتوى
+          نستخدم اسم ملف PDF تلقائيًا.
+        */
+
+        const titleInput =
+          document.getElementById(
+            "resourceTitle"
+          );
+
+        if(!titleInput.value.trim()){
+
+          titleInput.value =
+            selectedPdfFile.name
+              .replace(/\.pdf$/i,"");
+
+        }
+
+        document.getElementById(
+          "resourceType"
+        ).value =
+          "pdf";
+
+        toast(
+          "تم رفع PDF وربط الرابط بنجاح",
+          "success"
+        );
+
+      }catch(error){
+
+        console.error(
+          "PDF upload error:",
+          error
+        );
+
+        if(
+          String(error.message || "")
+            .includes("401")
+        ){
+
+          googleAccessToken =
+            null;
+
+        }
+
+        toast(
+          getGoogleDriveErrorMessage(error),
+          "error"
+        );
+
+        setUploadProgress(
+          0,
+          "فشل رفع الملف"
+        );
+
+      }finally{
+
+        uploadPdfBtn.disabled =
+          false;
+
+        choosePdfBtn.disabled =
+          false;
+
+      }
+
+    }
+  );
+
+
+  async function uploadFileToDrive(
+    file,
+    accessToken
+  ){
+
+    const metadata = {
+
+      name:
+        file.name,
+
+      mimeType:
+        "application/pdf"
+
+    };
+
+    const boundary =
+      "tawjihi_drive_boundary_" +
+      Math.random()
+        .toString(36)
+        .slice(2);
+
+    const delimiter =
+      `\r\n--${boundary}\r\n`;
+
+    const closeDelimiter =
+      `\r\n--${boundary}--`;
+
+    const body =
+      new Blob([
+
+        `--${boundary}\r\n`,
+
+        "Content-Type: application/json; charset=UTF-8\r\n\r\n",
+
+        JSON.stringify(metadata),
+
+        delimiter,
+
+        "Content-Type: application/pdf\r\n\r\n",
+
+        file,
+
+        closeDelimiter
+
+      ]);
+
+
+    const response =
+      await fetch(
+        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,mimeType,webViewLink,webContentLink",
+        {
+
+          method:"POST",
+
+          headers:{
+            "Authorization":
+              `Bearer ${accessToken}`,
+
+            "Content-Type":
+              `multipart/related; boundary=${boundary}`
+          },
+
+          body
+
+        }
+      );
+
+
+    if(!response.ok){
+
+      const errorText =
+        await response.text();
+
+      throw new Error(
+        `Google Drive upload failed: ${response.status} ${errorText}`
+      );
+
+    }
+
+    return await response.json();
+
+  }
+
+
+  async function makeDriveFilePublic(
+    fileId,
+    accessToken
+  ){
+
+    const response =
+      await fetch(
+        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}/permissions`,
+        {
+
+          method:"POST",
+
+          headers:{
+            "Authorization":
+              `Bearer ${accessToken}`,
+
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            role:"reader",
+
+            type:"anyone"
+
+          })
+
+        }
+      );
+
+
+    if(!response.ok){
+
+      const text =
+        await response.text();
+
+      throw new Error(
+        `Permission failed: ${response.status} ${text}`
+      );
+
+    }
+
+    return await response.json();
+
+  }
+
+
+  async function deleteDriveFile(
+    fileId
+  ){
+
+    const token =
+      await ensureGoogleToken();
+
+    const response =
+      await fetch(
+        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}`,
+        {
+
+          method:"DELETE",
+
+          headers:{
+            "Authorization":
+              `Bearer ${token}`
+          }
+
+        }
+      );
+
+
+    if(
+      !response.ok &&
+      response.status !== 404
+    ){
+
+      const text =
+        await response.text();
+
+      throw new Error(
+        `Drive delete failed: ${response.status} ${text}`
+      );
+
+    }
+
+  }
+
+
+  function setUploadProgress(
+    percent,
+    text
+  ){
+
+    uploadProgress.classList.add(
+      "show"
+    );
+
+    uploadProgressBar.style.width =
+      `${Math.max(0,Math.min(100,percent))}%`;
+
+    uploadProgressText.textContent =
+      text;
+
+  }
+
+
+  function formatFileSize(bytes){
+
+    if(bytes < 1024){
+
+      return `${bytes} B`;
+
+    }
+
+    if(bytes < 1024 * 1024){
+
+      return `${(
+        bytes / 1024
+      ).toFixed(1)} KB`;
+
+    }
+
+    return `${(
+      bytes / 1024 / 1024
+    ).toFixed(2)} MB`;
+
+  }
+
+
+  function getGoogleDriveErrorMessage(
+    error
+  ){
+
+    const message =
+      String(
+        error?.message || ""
+      );
+
+    if(
+      message.includes("popup") ||
+      message.includes("popup_closed")
+    ){
+
+      return "تم إغلاق نافذة Google قبل إكمال الربط.";
+
+    }
+
+    if(
+      message.includes("access_denied")
+    ){
+
+      return "تم رفض صلاحية الوصول إلى Google Drive.";
+
+    }
+
+    if(
+      message.includes("403")
+    ){
+
+      return "Google رفض العملية. تأكد من تفعيل Drive API وصلاحيات OAuth.";
+
+    }
+
+    if(
+      message.includes("401")
+    ){
+
+      return "انتهت صلاحية Google Drive، أعد ربط الحساب.";
+
+    }
+
+    return "تعذر رفع الملف إلى Google Drive.";
+
+  }
+
+
+  /* =====================================================
+     SELECTS
+  ===================================================== */
+
+  function fillGenerationSelects(){
 
     const select =
       document.getElementById(
@@ -4580,35 +4589,32 @@
         اختر الجيل
       </option>`;
 
-
     generations.forEach(g => {
 
       select.innerHTML += `
-
         <option value="${escapeAttribute(g.id)}">
           ${escapeHtml(g.name)}
         </option>
-
       `;
 
     });
 
-
-    if (
+    if(
       current &&
       generations.some(
         g => g.id === current
       )
-    ) {
+    ){
 
-      select.value = current;
+      select.value =
+        current;
 
     }
 
   }
 
 
-  function fillSubjectSelects() {
+  function fillSubjectSelects(){
 
     const sectionSelect =
       document.getElementById(
@@ -4620,32 +4626,27 @@
         "resourceSubject"
       );
 
-
     const sectionCurrent =
       sectionSelect.value;
 
     const resourceCurrent =
       resourceSelect.value;
 
-
     const html = `
+
       <option value="">
         اختر المادة
       </option>
 
       ${
         subjects.map(s => `
-
-          <option
-            value="${escapeAttribute(s.id)}"
-          >
+          <option value="${escapeAttribute(s.id)}">
             ${escapeHtml(s.name)}
           </option>
-
         `).join("")
       }
-    `;
 
+    `;
 
     sectionSelect.innerHTML =
       html;
@@ -4653,49 +4654,32 @@
     resourceSelect.innerHTML =
       html;
 
-
-    if (
+    if(
       sectionCurrent &&
       subjects.some(
         s => s.id === sectionCurrent
       )
-    ) {
+    ){
 
       sectionSelect.value =
         sectionCurrent;
 
     }
 
-
-    if (
+    if(
       resourceCurrent &&
       subjects.some(
         s => s.id === resourceCurrent
       )
-    ) {
+    ){
 
       resourceSelect.value =
         resourceCurrent;
 
     }
 
-
-    fillSectionSelect();
-
-  }
-
-
-  function fillSectionSelect() {
-
-    const selectedSubject =
-      document
-        .getElementById(
-          "resourceSubject"
-        )
-        .value;
-
     fillResourceSectionSelect(
-      selectedSubject
+      resourceSelect.value
     );
 
   }
@@ -4703,17 +4687,15 @@
 
   function fillResourceSectionSelect(
     subjectId = ""
-  ) {
+  ){
 
     const select =
       document.getElementById(
         "resourceSection"
       );
 
-
     const current =
       select.value;
-
 
     select.innerHTML = `
       <option value="">
@@ -4721,32 +4703,25 @@
       </option>
     `;
 
-
     const filtered =
       subjectId
         ? sections.filter(
             s =>
-              s.subjectId ===
-              subjectId
+              s.subjectId === subjectId
           )
         : sections;
-
 
     filtered.forEach(s => {
 
       const subject =
         subjects.find(
           x =>
-            x.id ===
-            s.subjectId
+            x.id === s.subjectId
         );
-
 
       select.innerHTML += `
 
-        <option
-          value="${escapeAttribute(s.id)}"
-        >
+        <option value="${escapeAttribute(s.id)}">
 
           ${escapeHtml(
             subject?.name || ""
@@ -4764,15 +4739,15 @@
 
     });
 
-
-    if (
+    if(
       current &&
       filtered.some(
         s => s.id === current
       )
-    ) {
+    ){
 
-      select.value = current;
+      select.value =
+        current;
 
     }
 
@@ -4801,10 +4776,10 @@
 
   /* =====================================================
      FORMS
-     ===================================================== */
+  ===================================================== */
 
   window.showGenerationForm =
-    function() {
+    function(){
 
       editingGenerationId =
         null;
@@ -4840,7 +4815,7 @@
 
 
   window.hideGenerationForm =
-    function() {
+    function(){
 
       editingGenerationId =
         null;
@@ -4876,7 +4851,7 @@
 
 
   window.showSubjectForm =
-    function() {
+    function(){
 
       editingSubjectId =
         null;
@@ -4919,7 +4894,7 @@
 
 
   window.hideSubjectForm =
-    function() {
+    function(){
 
       editingSubjectId =
         null;
@@ -4962,7 +4937,7 @@
 
 
   window.showSectionForm =
-    function() {
+    function(){
 
       editingSectionId =
         null;
@@ -5005,7 +4980,7 @@
 
 
   window.hideSectionForm =
-    function() {
+    function(){
 
       editingSectionId =
         null;
@@ -5048,10 +5023,23 @@
 
 
   window.showResourceForm =
-    function() {
+    function(){
 
       editingResourceId =
         null;
+
+      selectedPdfFile =
+        null;
+
+      resourceFile.value =
+        "";
+
+      selectedFileName.textContent =
+        "لم يتم اختيار ملف";
+
+      uploadProgress.classList.remove(
+        "show"
+      );
 
       document
         .getElementById(
@@ -5075,10 +5063,17 @@
 
       document
         .getElementById(
-          "resourceEditMode"
+          "resourceModeTitle"
         )
-        .style.display =
-        "none";
+        .textContent =
+        "إضافة محتوى";
+
+      document
+        .getElementById(
+          "resourceModeText"
+        )
+        .textContent =
+        "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
 
       document
         .getElementById(
@@ -5093,10 +5088,23 @@
 
 
   window.hideResourceForm =
-    function() {
+    function(){
 
       editingResourceId =
         null;
+
+      selectedPdfFile =
+        null;
+
+      resourceFile.value =
+        "";
+
+      selectedFileName.textContent =
+        "لم يتم اختيار ملف";
+
+      uploadProgress.classList.remove(
+        "show"
+      );
 
       document
         .getElementById(
@@ -5120,10 +5128,17 @@
 
       document
         .getElementById(
-          "resourceEditMode"
+          "resourceModeTitle"
         )
-        .style.display =
-        "none";
+        .textContent =
+        "إضافة محتوى";
+
+      document
+        .getElementById(
+          "resourceModeText"
+        )
+        .textContent =
+        "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
 
       document
         .getElementById(
@@ -5139,7 +5154,7 @@
 
   /* =====================================================
      NAVIGATION
-     ===================================================== */
+  ===================================================== */
 
   const pageNames = {
 
@@ -5182,7 +5197,7 @@
 
 
   window.openPage =
-    function(page) {
+    function(page){
 
       document
         .querySelectorAll(".page")
@@ -5193,20 +5208,17 @@
 
         });
 
-
       const target =
         document.getElementById(
           "page-" + page
         );
 
-
-      if (target) {
+      if(target){
 
         target.style.display =
           "block";
 
       }
-
 
       document
         .querySelectorAll(
@@ -5221,7 +5233,6 @@
 
         });
 
-
       document
         .getElementById(
           "pageTitle"
@@ -5229,7 +5240,6 @@
         .textContent =
         pageNames[page] ||
         "لوحة التحكم";
-
 
       document
         .getElementById(
@@ -5244,7 +5254,7 @@
 
   /* =====================================================
      MOBILE
-     ===================================================== */
+  ===================================================== */
 
   document
     .getElementById(
@@ -5268,39 +5278,28 @@
 
   /* =====================================================
      STATS
-     ===================================================== */
+  ===================================================== */
 
-  function updateStats() {
+  function updateStats(){
 
-    document
-      .getElementById(
-        "statGenerations"
-      )
-      .textContent =
+    document.getElementById(
+      "statGenerations"
+    ).textContent =
       generations.length;
 
-
-    document
-      .getElementById(
-        "statSubjects"
-      )
-      .textContent =
+    document.getElementById(
+      "statSubjects"
+    ).textContent =
       subjects.length;
 
-
-    document
-      .getElementById(
-        "statSections"
-      )
-      .textContent =
+    document.getElementById(
+      "statSections"
+    ).textContent =
       sections.length;
 
-
-    document
-      .getElementById(
-        "statResources"
-      )
-      .textContent =
+    document.getElementById(
+      "statResources"
+    ).textContent =
       resources.length;
 
   }
@@ -5308,15 +5307,14 @@
 
   /* =====================================================
      RECENT
-     ===================================================== */
+  ===================================================== */
 
-  function renderRecentResources() {
+  function renderRecentResources(){
 
     const container =
       document.getElementById(
         "recentResources"
       );
-
 
     const recent =
       [...resources]
@@ -5331,8 +5329,7 @@
         )
         .slice(0,8);
 
-
-    if (!recent.length) {
+    if(!recent.length){
 
       container.innerHTML =
         "لا يوجد محتوى حتى الآن.";
@@ -5340,7 +5337,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -5351,13 +5347,11 @@
           <thead>
 
             <tr>
-
               <th>المحتوى</th>
               <th>المادة</th>
               <th>القسم</th>
               <th>الترتيب</th>
               <th>الحالة</th>
-
             </tr>
 
           </thead>
@@ -5368,84 +5362,48 @@
 
               const subject =
                 subjects.find(
-                  s =>
-                    s.id ===
-                    r.subjectId
+                  s => s.id === r.subjectId
                 );
-
 
               const section =
                 sections.find(
-                  s =>
-                    s.id ===
-                    r.sectionId
+                  s => s.id === r.sectionId
                 );
-
 
               return `
 
                 <tr>
 
                   <td>
-
                     <strong>
-                      ${escapeHtml(
-                        r.title || ""
-                      )}
+                      ${escapeHtml(r.title || "")}
                     </strong>
-
                   </td>
 
-
                   <td>
-
                     ${escapeHtml(
-                      subject?.name ||
-                      "—"
+                      subject?.name || "—"
                     )}
-
                   </td>
 
-
                   <td>
-
                     ${escapeHtml(
-                      section?.name ||
-                      "—"
+                      section?.name || "—"
                     )}
-
                   </td>
 
-
                   <td>
-
                     <span class="order-badge">
                       ${Number(r.order) || 1}
                     </span>
-
                   </td>
-
 
                   <td>
 
                     ${
                       r.published
-                        ? `
-                          <span class="badge">
-                            منشور
-                          </span>
-                        `
-                        : `
-                          <span
-                            class="badge"
-                            style="
-                              background:#fff7ed;
-                              color:#c2410c;
-                            "
-                          >
-                            مخفي
-                          </span>
-                        `
+                        ? `<span class="badge">منشور</span>`
+                        : `<span class="badge" style="background:#fff7ed;color:#c2410c;">مخفي</span>`
                     }
 
                   </td>
@@ -5469,72 +5427,95 @@
 
   /* =====================================================
      RESOURCE TYPE
-     ===================================================== */
+  ===================================================== */
 
-  function resourceTypeName(type) {
+  function resourceTypeName(type){
 
     const names = {
 
-      pdf:
-        "PDF",
-
-      drive:
-        "Google Drive",
-
-      link:
-        "رابط",
-
-      exam:
-        "امتحان إلكتروني",
-
-      book:
-        "كتاب رسمي"
+      pdf:"PDF",
+      drive:"Google Drive",
+      link:"رابط",
+      exam:"امتحان إلكتروني",
+      book:"كتاب رسمي"
 
     };
 
+    return names[type] || "محتوى";
 
-    return (
-      names[type] ||
-      "محتوى"
-    );
+  }
+
+
+  /* =====================================================
+     ICONS
+  ===================================================== */
+
+  function editIcon(){
+
+    return `
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 20h9"/>
+        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+      </svg>
+    `;
+
+  }
+
+
+  function deleteIcon(){
+
+    return `
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M3 6h18"/>
+        <path d="M8 6V4h8v2"/>
+        <path d="M19 6l-1 15H6L5 6"/>
+        <path d="M10 11v6"/>
+        <path d="M14 11v6"/>
+      </svg>
+    `;
 
   }
 
 
   /* =====================================================
      TOAST
-     ===================================================== */
+  ===================================================== */
 
   let toastTimer;
-
 
   function toast(
     message,
     type = ""
-  ) {
+  ){
 
     const element =
       document.getElementById(
         "toast"
       );
 
-
     element.textContent =
       message;
 
-
     element.className =
-      "toast";
+      "";
 
-
-    if (type) {
+    if(type){
 
       element.classList.add(
         type
       );
 
     }
-
 
     requestAnimationFrame(
       () => {
@@ -5546,11 +5527,9 @@
       }
     );
 
-
     clearTimeout(
       toastTimer
     );
-
 
     toastTimer =
       setTimeout(
@@ -5561,7 +5540,7 @@
           );
 
         },
-        3000
+        3500
       );
 
   }
@@ -5569,52 +5548,29 @@
 
   /* =====================================================
      SECURITY / HTML
-     ===================================================== */
+  ===================================================== */
 
-  function escapeHtml(value) {
+  function escapeHtml(value){
 
     return String(
       value ?? ""
     )
-
-      .replaceAll(
-        "&",
-        "&amp;"
-      )
-
-      .replaceAll(
-        "<",
-        "&lt;"
-      )
-
-      .replaceAll(
-        ">",
-        "&gt;"
-      )
-
-      .replaceAll(
-        '"',
-        "&quot;"
-      )
-
-      .replaceAll(
-        "'",
-        "&#039;"
-      );
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
 
   }
 
 
-  function escapeAttribute(value) {
+  function escapeAttribute(value){
 
-    return escapeHtml(
-      value
-    );
+    return escapeHtml(value);
 
   }
 
 </script>
 
 </body>
-
 </html>
