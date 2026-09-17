@@ -1411,6 +1411,7 @@ import {
   where
 } from "./admin/firebase-config.js";
 
+
 /* =====================================
    المتغيرات
 ===================================== */
@@ -1483,6 +1484,7 @@ const favoritesBtn =
     "favoritesBtn"
   );
 
+
 /* =====================================
    المفضلة
 ===================================== */
@@ -1554,6 +1556,7 @@ function toggleFavorite(id){
   saveFavorites(favorites);
 
 }
+
 
 /* =====================================
    الوضع الليلي
@@ -1655,6 +1658,7 @@ themeBtn.addEventListener(
 
   }
 );
+
 
 /* =====================================
    Helpers
@@ -1789,6 +1793,7 @@ function getResourceUrl(data){
 
 }
 
+
 /*
   تحويل أي قيمة إلى نص للمقارنة.
 
@@ -1840,6 +1845,7 @@ function valueToString(value){
 
 }
 
+
 function matchesValue(
   value,
   candidates
@@ -1868,6 +1874,7 @@ function matchesValue(
 
 }
 
+
 /*
   التحقق من عدة حقول دفعة واحدة.
 */
@@ -1887,6 +1894,7 @@ function matchesAnyField(
   );
 
 }
+
 
 /* =====================================
    الأيقونات
@@ -1991,6 +1999,7 @@ function externalIcon(){
 
 }
 
+
 /* =====================================
    البيانات
 ===================================== */
@@ -2007,6 +2016,7 @@ let currentSubject = null;
 
 let currentFilter = "all";
 
+
 /*
   حالة تحميل البيانات.
 
@@ -2022,6 +2032,7 @@ const dataStatus = {
   resources:true
 
 };
+
 
 /* =====================================
    تحميل مجموعة Firebase بأمان
@@ -2072,6 +2083,7 @@ async function safeGetCollection(
   }
 
 }
+
 
 /* =====================================
    تحميل الموارد المنشورة فقط
@@ -2146,6 +2158,7 @@ async function getPublishedResources(){
 
 }
 
+
 /* =====================================
    التحقق من الجيل
 ===================================== */
@@ -2180,6 +2193,7 @@ if(!selectedYear){
 
 }
 
+
 /* =====================================
    تحميل الصفحة
 ===================================== */
@@ -2189,6 +2203,7 @@ async function loadPage(){
   if(!selectedYear){
     return;
   }
+
 
   /* =====================================
      Generations
@@ -2201,6 +2216,7 @@ async function loadPage(){
 
   dataStatus.generations =
     generationsResult.ok;
+
 
   if(!generationsResult.ok){
 
@@ -2229,6 +2245,7 @@ async function loadPage(){
 
   }
 
+
   const generations =
     generationsResult.docs.map(
       docSnap => {
@@ -2254,6 +2271,7 @@ async function loadPage(){
       }
     );
 
+
   currentGeneration =
     generations.find(
       generation =>
@@ -2268,6 +2286,7 @@ async function loadPage(){
           ]
         )
     );
+
 
   if(!currentGeneration){
 
@@ -2301,6 +2320,7 @@ async function loadPage(){
 
   }
 
+
   /* =====================================
      معلومات الجيل
   ===================================== */
@@ -2314,6 +2334,7 @@ async function loadPage(){
   generationDescription.textContent =
     "اختر المادة للوصول إلى الملفات والملخصات والموارد الدراسية.";
 
+
   /* =====================================
      Subjects
   ===================================== */
@@ -2325,6 +2346,7 @@ async function loadPage(){
 
   dataStatus.subjects =
     subjectsResult.ok;
+
 
   if(!subjectsResult.ok){
 
@@ -2348,6 +2370,7 @@ async function loadPage(){
     return;
 
   }
+
 
   allSubjects =
     subjectsResult.docs.map(
@@ -2374,6 +2397,7 @@ async function loadPage(){
       }
     );
 
+
   /* =====================================
      Sections
   ===================================== */
@@ -2385,6 +2409,7 @@ async function loadPage(){
 
   dataStatus.sections =
     sectionsResult.ok;
+
 
   if(sectionsResult.ok){
 
@@ -2419,6 +2444,7 @@ async function loadPage(){
 
   }
 
+
   /* =====================================
      Resources
   ===================================== */
@@ -2435,6 +2461,7 @@ async function loadPage(){
 
   dataStatus.resources =
     resourcesResult.ok;
+
 
   if(resourcesResult.ok){
 
@@ -2476,6 +2503,7 @@ async function loadPage(){
 
   }
 
+
   /* =====================================
      ربط المواد بالجيل
   ===================================== */
@@ -2496,6 +2524,7 @@ async function loadPage(){
 
   ];
 
+
   allSubjects =
     allSubjects.filter(
       subject => {
@@ -2510,6 +2539,7 @@ async function loadPage(){
 
         ];
 
+
         const hasGenerationValue =
           values.some(
             value =>
@@ -2519,6 +2549,7 @@ async function loadPage(){
                 valueToString(value)
               ).trim() !== ""
           );
+
 
         if(hasGenerationValue){
 
@@ -2532,10 +2563,12 @@ async function loadPage(){
 
         }
 
+
         return false;
 
       }
     );
+
 
   /* =====================================
      ترتيب المواد
@@ -2563,8 +2596,10 @@ async function loadPage(){
     }
   );
 
+
   subjectCount.textContent =
     `${allSubjects.length} مواد`;
+
 
   if(!allSubjects.length){
 
@@ -2580,9 +2615,11 @@ async function loadPage(){
 
   }
 
+
   renderSubjects();
 
 }
+
 
 /* =====================================
    عرض المواد
@@ -2649,6 +2686,7 @@ function renderSubjects(){
       }
     ).join("");
 
+
   document
     .querySelectorAll(
       ".subject-card"
@@ -2683,6 +2721,7 @@ function renderSubjects(){
 
 }
 
+
 /* =====================================
    عدد ملفات المادة
 ===================================== */
@@ -2699,6 +2738,7 @@ function getSubjectResourceCount(
   return resources.length;
 
 }
+
 
 /* =====================================
    أقسام المادة
@@ -2735,6 +2775,7 @@ function getSubjectSections(
 
 }
 
+
 /* =====================================
    ملفات المادة
 ===================================== */
@@ -2754,6 +2795,7 @@ function getSubjectResources(
     subject.name
 
   ];
+
 
   return allResources.filter(
     resource => {
@@ -2775,6 +2817,7 @@ function getSubjectResources(
           subjectCandidates
         );
 
+
       /* =========================
          ربط عن طريق القسم
       ========================= */
@@ -2788,6 +2831,7 @@ function getSubjectResources(
 
           ]
         );
+
 
       const sectionMatch =
         sectionCandidates.length > 0 &&
@@ -2803,6 +2847,7 @@ function getSubjectResources(
           sectionCandidates
         );
 
+
       return (
         directMatch ||
         sectionMatch
@@ -2812,6 +2857,7 @@ function getSubjectResources(
   );
 
 }
+
 
 /* =====================================
    فتح المادة
@@ -2854,6 +2900,7 @@ function openSubject(
   );
 
 }
+
 
 /* =====================================
    إغلاق
@@ -2910,6 +2957,7 @@ document.addEventListener(
   }
 );
 
+
 /* =====================================
    الفلاتر
 ===================================== */
@@ -2956,6 +3004,7 @@ function renderFilters(){
 
   `;
 
+
   filters
     .querySelectorAll(
       ".filter-btn"
@@ -2995,6 +3044,7 @@ function renderFilters(){
 
 }
 
+
 /* =====================================
    عرض الملفات
 ===================================== */
@@ -3005,15 +3055,18 @@ function renderFiles(){
     return;
   }
 
+
   let resources =
     getSubjectResources(
       currentSubject
     );
 
+
   const search =
     normalize(
       fileSearch.value
     );
+
 
   if(search){
 
@@ -3039,6 +3092,7 @@ function renderFiles(){
           .flat()
           .join(" ");
 
+
           return normalize(
             searchableText
           ).includes(
@@ -3049,6 +3103,7 @@ function renderFiles(){
       );
 
   }
+
 
   if(
     currentFilter ===
@@ -3074,6 +3129,7 @@ function renderFiles(){
           section.id ===
           currentFilter
       );
+
 
     if(selectedSection){
 
@@ -3103,10 +3159,12 @@ function renderFiles(){
 
   }
 
+
   if(!resources.length){
 
     let emptyMessage =
       "لا توجد ملفات متاحة حالياً.";
+
 
     if(
       currentFilter ===
@@ -3130,6 +3188,7 @@ function renderFiles(){
 
     }
 
+
     filesContainer.innerHTML = `
 
       <div class="empty">
@@ -3147,6 +3206,7 @@ function renderFiles(){
     return;
 
   }
+
 
   if(
     currentFilter ===
@@ -3169,6 +3229,7 @@ function renderFiles(){
 
 }
 
+
 /* =====================================
    الملفات حسب الأقسام
 ===================================== */
@@ -3183,6 +3244,7 @@ function renderGroupedFiles(
     );
 
   const groups = [];
+
 
   sections.forEach(
     section => {
@@ -3209,6 +3271,7 @@ function renderGroupedFiles(
           }
         );
 
+
       if(
         sectionResources.length
       ){
@@ -3228,8 +3291,10 @@ function renderGroupedFiles(
     }
   );
 
+
   const groupedIds =
     new Set();
+
 
   groups.forEach(
     group => {
@@ -3244,6 +3309,7 @@ function renderGroupedFiles(
     }
   );
 
+
   const ungrouped =
     resources.filter(
       resource =>
@@ -3251,6 +3317,7 @@ function renderGroupedFiles(
           resource.id
         )
     );
+
 
   if(ungrouped.length){
 
@@ -3266,6 +3333,7 @@ function renderGroupedFiles(
 
   }
 
+
   /*
     إذا ما في أقسام أصلاً،
     نعرض الملفات مباشرة.
@@ -3280,6 +3348,7 @@ function renderGroupedFiles(
     return;
 
   }
+
 
   filesContainer.innerHTML =
     groups.map(
@@ -3323,9 +3392,11 @@ function renderGroupedFiles(
       `
     ).join("");
 
+
   attachFileEvents();
 
 }
+
 
 /* =====================================
    ملفات عادية
@@ -3357,6 +3428,7 @@ function renderSimpleFiles(
 
 }
 
+
 /* =====================================
    كرت الملف
 ===================================== */
@@ -3372,6 +3444,7 @@ function renderFile(
 
   const url =
     resource.url;
+
 
   return `
 
@@ -3450,6 +3523,7 @@ function renderFile(
 
 }
 
+
 /* =====================================
    أحداث الملفات
 ===================================== */
@@ -3481,6 +3555,7 @@ function attachFileEvents(){
 
       }
     );
+
 
   document
     .querySelectorAll(
@@ -3516,6 +3591,7 @@ function attachFileEvents(){
 
 }
 
+
 /* =====================================
    البحث
 ===================================== */
@@ -3526,6 +3602,7 @@ fileSearch.addEventListener(
     renderFiles();
   }
 );
+
 
 /* =====================================
    المفضلة
@@ -3540,6 +3617,7 @@ favoritesBtn.addEventListener(
       const favoriteIds =
         getFavorites();
 
+
       const subject =
         allSubjects.find(
           item =>
@@ -3552,6 +3630,7 @@ favoritesBtn.addEventListener(
                 )
             )
         );
+
 
       if(subject){
 
@@ -3594,6 +3673,7 @@ favoritesBtn.addEventListener(
 
     }
 
+
     currentFilter =
       "favorites";
 
@@ -3619,6 +3699,7 @@ favoritesBtn.addEventListener(
 
   }
 );
+
 
 /* =====================================
    تشغيل
