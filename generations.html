@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -64,7 +63,6 @@
 
     body{
       font-family:"IBM Plex Sans Arabic",sans-serif;
-
       background:
         radial-gradient(
           circle at 10% 0%,
@@ -79,9 +77,7 @@
         var(--bg);
 
       color:var(--text);
-
       min-height:100vh;
-
       transition:.25s ease;
     }
 
@@ -104,16 +100,10 @@
       margin:auto;
     }
 
-
-    /* =====================================
-       HEADER
-    ===================================== */
-
     header{
       position:sticky;
       top:0;
       z-index:100;
-
       padding:14px 0;
 
       background:rgba(245,248,247,.78);
@@ -146,7 +136,6 @@
     .brand-icon{
       width:45px;
       height:45px;
-
       border-radius:15px;
 
       display:grid;
@@ -172,18 +161,14 @@
 
     .brand-text strong{
       display:block;
-
       font-size:17px;
       font-weight:700;
     }
 
     .brand-text span{
       display:block;
-
       color:var(--muted);
-
       font-size:12px;
-
       margin-top:1px;
     }
 
@@ -208,7 +193,6 @@
 
     .theme-btn:hover{
       transform:translateY(-2px);
-
       border-color:var(--primary-2);
     }
 
@@ -217,11 +201,6 @@
       height:20px;
     }
 
-
-    /* =====================================
-       HERO
-    ===================================== */
-
     .hero{
       padding:55px 0 25px;
       text-align:center;
@@ -229,7 +208,6 @@
 
     .hero-badge{
       display:inline-flex;
-
       align-items:center;
       gap:8px;
 
@@ -256,11 +234,8 @@
 
     .hero h1{
       font-size:clamp(30px,6vw,50px);
-
       line-height:1.2;
-
       letter-spacing:-1px;
-
       margin-bottom:15px;
     }
 
@@ -270,26 +245,17 @@
 
     .hero p{
       max-width:650px;
-
       margin:auto;
 
       color:var(--muted);
 
       line-height:1.9;
-
       font-size:15px;
     }
 
-
-    /* =====================================
-       NAVIGATION
-    ===================================== */
-
     .navigation{
       display:flex;
-
       justify-content:center;
-
       gap:10px;
 
       margin:5px 0 42px;
@@ -299,10 +265,8 @@
 
     .nav-btn{
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       gap:8px;
 
       padding:11px 16px;
@@ -316,7 +280,6 @@
       color:var(--text);
 
       font-size:13px;
-
       font-weight:600;
 
       cursor:pointer;
@@ -328,15 +291,12 @@
 
     .nav-btn:hover{
       transform:translateY(-2px);
-
       border-color:var(--primary-2);
     }
 
     .nav-btn.primary{
       background:var(--primary);
-
       color:#fff;
-
       border-color:var(--primary);
     }
 
@@ -345,18 +305,10 @@
       height:18px;
     }
 
-
-    /* =====================================
-       SECTION HEADER
-    ===================================== */
-
     .section-head{
       display:flex;
-
       align-items:end;
-
       justify-content:space-between;
-
       gap:15px;
 
       margin-bottom:20px;
@@ -364,13 +316,11 @@
 
     .section-title h2{
       font-size:25px;
-
       margin-bottom:5px;
     }
 
     .section-title p{
       color:var(--muted);
-
       font-size:13px;
     }
 
@@ -380,50 +330,26 @@
       border-radius:999px;
 
       background:var(--soft);
-
       color:var(--primary);
 
       font-size:12px;
-
       font-weight:600;
 
       white-space:nowrap;
     }
 
-
-    /* =====================================
-       SUBJECTS
-    ===================================== */
-
     .subjects-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
+      grid-template-columns:repeat(3,1fr);
       gap:17px;
-    }
-
-    /*
-      كل مادة أصبحت عبارة عن
-      wrapper يحتوي على الكرت + الملفات الخاصة بها
-    */
-
-    .subject-wrapper{
-      min-width:0;
     }
 
     .subject-card{
       position:relative;
-
       overflow:hidden;
-
       display:block;
 
-      width:100%;
-
       padding:24px;
-
       min-height:175px;
 
       background:var(--surface);
@@ -434,8 +360,7 @@
 
       box-shadow:var(--shadow);
 
-      transition:
-        .25s ease;
+      transition:.25s ease;
 
       cursor:pointer;
     }
@@ -449,24 +374,6 @@
       box-shadow:
         0 20px 45px
         rgba(15,118,110,.14);
-    }
-
-    /*
-      عندما تكون المادة مفتوحة
-    */
-
-    .subject-card.open{
-      border-color:
-        rgba(20,184,166,.45);
-
-      border-bottom-left-radius:10px;
-      border-bottom-right-radius:10px;
-
-      box-shadow:
-        0 12px 35px
-        rgba(15,118,110,.12);
-
-      transform:none;
     }
 
     .subject-card::after{
@@ -483,13 +390,10 @@
 
       left:-35px;
       bottom:-45px;
-
-      pointer-events:none;
     }
 
     .subject-icon{
       position:relative;
-
       z-index:1;
 
       width:50px;
@@ -498,7 +402,6 @@
       border-radius:16px;
 
       display:grid;
-
       place-items:center;
 
       background:
@@ -524,7 +427,6 @@
 
     .subject-card h3{
       position:relative;
-
       z-index:1;
 
       font-size:19px;
@@ -534,7 +436,6 @@
 
     .subject-card p{
       position:relative;
-
       z-index:1;
 
       color:var(--muted);
@@ -556,19 +457,10 @@
       color:var(--muted);
 
       z-index:2;
-
-      transition:.25s ease;
-    }
-
-    .subject-card.open .subject-arrow{
-      transform:rotate(90deg);
-
-      color:var(--primary);
     }
 
     .subject-files-count{
       position:relative;
-
       z-index:2;
 
       display:inline-flex;
@@ -591,59 +483,103 @@
       height:14px;
     }
 
+    .loading{
+      grid-column:1/-1;
 
-    /* =====================================
-       INLINE FILES PANEL
-    ===================================== */
+      text-align:center;
 
-    .subject-files-panel{
-      display:none;
+      padding:50px 20px;
 
-      margin-top:0;
+      color:var(--muted);
 
       background:var(--surface);
 
-      border:
-        1px solid var(--border);
+      border:1px solid var(--border);
 
-      border-top:0;
+      border-radius:23px;
+    }
 
-      border-radius:
-        0 0 22px 22px;
+    .spinner{
+      width:32px;
+      height:32px;
 
-      box-shadow:
-        0 18px 45px
-        rgba(15,118,110,.08);
+      border:3px solid var(--border);
+
+      border-top-color:var(--primary);
+
+      border-radius:50%;
+
+      margin:0 auto 12px;
+
+      animation:spin .8s linear infinite;
+    }
+
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    .modal-overlay{
+      position:fixed;
+
+      inset:0;
+
+      z-index:1000;
+
+      display:none;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:18px;
+
+      background:rgba(0,0,0,.45);
+
+      backdrop-filter:blur(7px);
+      -webkit-backdrop-filter:blur(7px);
+    }
+
+    .modal-overlay.active{
+      display:flex;
+    }
+
+    .modal{
+      width:min(800px,100%);
+
+      max-height:min(850px,90vh);
 
       overflow:hidden;
 
-      animation:
-        filesOpen .25s ease;
+      display:flex;
+      flex-direction:column;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+
+      border-radius:27px;
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.25);
+
+      animation:modalIn .22s ease;
     }
 
-    .subject-files-panel.active{
-      display:block;
-    }
-
-    @keyframes filesOpen{
-
+    @keyframes modalIn{
       from{
         opacity:0;
-        transform:translateY(-8px);
+        transform:translateY(15px) scale(.98);
       }
 
       to{
         opacity:1;
-        transform:translateY(0);
+        transform:translateY(0) scale(1);
       }
-
     }
 
-    .files-panel-inner{
-      padding:20px;
-    }
-
-    .files-panel-head{
+    .modal-header{
       display:flex;
 
       align-items:center;
@@ -652,117 +588,99 @@
 
       gap:15px;
 
-      margin-bottom:15px;
+      padding:21px;
 
-      padding-bottom:15px;
-
-      border-bottom:
-        1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
 
-    .files-panel-title{
+    .modal-title-wrap{
       display:flex;
-
       align-items:center;
-
-      gap:10px;
-
+      gap:12px;
       min-width:0;
     }
 
-    .files-panel-title-icon{
-      width:40px;
-      height:40px;
+    .modal-icon{
+      width:45px;
+      height:45px;
 
-      border-radius:13px;
+      border-radius:14px;
+
+      display:grid;
+      place-items:center;
+
+      flex:none;
 
       background:var(--soft);
 
       color:var(--primary);
-
-      display:grid;
-
-      place-items:center;
-
-      flex:none;
     }
 
-    .files-panel-title-icon svg{
-      width:20px;
-      height:20px;
+    .modal-icon svg{
+      width:22px;
+      height:22px;
     }
 
-    .files-panel-title strong{
-      display:block;
-
-      font-size:15px;
-
-      margin-bottom:2px;
+    .modal-title h2{
+      font-size:19px;
+      margin-bottom:3px;
     }
 
-    .files-panel-title span{
-      display:block;
-
+    .modal-title p{
       color:var(--muted);
-
-      font-size:10px;
+      font-size:11px;
     }
 
-    .files-close{
-      width:36px;
-      height:36px;
+    .close-btn{
+      width:42px;
+      height:42px;
 
-      border-radius:11px;
+      border-radius:13px;
 
       background:var(--surface-2);
 
-      color:var(--muted);
+      color:var(--text);
 
       display:grid;
-
       place-items:center;
 
       cursor:pointer;
 
-      transition:.2s;
-
       flex:none;
+
+      transition:.2s;
     }
 
-    .files-close:hover{
+    .close-btn:hover{
       background:var(--soft);
-
       color:var(--primary);
     }
 
-    .files-close svg{
-      width:17px;
-      height:17px;
+    .close-btn svg{
+      width:19px;
+      height:19px;
     }
 
-
-    /* =====================================
-       SEARCH
-    ===================================== */
+    .modal-body{
+      overflow:auto;
+      padding:20px;
+    }
 
     .search-box{
       position:relative;
-
-      margin-bottom:12px;
+      margin-bottom:15px;
     }
 
     .search-box input{
       width:100%;
 
-      height:46px;
+      height:48px;
 
-      padding:
-        0 43px 0 14px;
+      padding:0 45px 0 15px;
 
-      border-radius:14px;
+      border-radius:15px;
 
-      border:
-        1px solid var(--border);
+      border:1px solid var(--border);
 
       background:var(--surface-2);
 
@@ -770,7 +688,7 @@
 
       outline:none;
 
-      font-size:12px;
+      font-size:13px;
 
       transition:.2s;
     }
@@ -790,37 +708,31 @@
     .search-icon{
       position:absolute;
 
-      right:14px;
+      right:15px;
       top:50%;
 
-      transform:
-        translateY(-50%);
+      transform:translateY(-50%);
 
-      width:17px;
-      height:17px;
+      width:18px;
+      height:18px;
 
       color:var(--muted);
 
       pointer-events:none;
     }
 
-
-    /* =====================================
-       FILTERS
-    ===================================== */
-
     .filters{
       display:flex;
 
       align-items:center;
 
-      gap:7px;
+      gap:8px;
 
       overflow-x:auto;
 
-      padding-bottom:3px;
+      padding-bottom:4px;
 
-      margin-bottom:17px;
+      margin-bottom:18px;
 
       scrollbar-width:none;
     }
@@ -832,18 +744,17 @@
     .filter-btn{
       flex:none;
 
-      padding:7px 12px;
+      padding:8px 13px;
 
       border-radius:999px;
 
       background:var(--surface);
 
-      border:
-        1px solid var(--border);
+      border:1px solid var(--border);
 
       color:var(--muted);
 
-      font-size:10px;
+      font-size:11px;
 
       font-weight:600;
 
@@ -854,25 +765,17 @@
 
     .filter-btn:hover{
       border-color:var(--primary-2);
-
       color:var(--primary);
     }
 
     .filter-btn.active{
       background:var(--primary);
-
       border-color:var(--primary);
-
       color:#fff;
     }
 
-
-    /* =====================================
-       FILE SECTIONS
-    ===================================== */
-
     .file-section{
-      margin-bottom:18px;
+      margin-bottom:22px;
     }
 
     .file-section:last-child{
@@ -888,87 +791,56 @@
 
       gap:10px;
 
-      margin-bottom:9px;
+      margin-bottom:10px;
 
       padding:0 3px;
     }
 
     .file-section-title strong{
-      display:flex;
-
-      align-items:center;
-
-      gap:7px;
-
-      font-size:13px;
-    }
-
-    .file-section-title strong::before{
-      content:"";
-
-      width:6px;
-      height:6px;
-
-      border-radius:50%;
-
-      background:var(--primary);
-
-      flex:none;
+      font-size:14px;
     }
 
     .file-section-title span{
       color:var(--muted);
-
-      font-size:9px;
+      font-size:10px;
     }
 
     .files-list{
       display:flex;
-
       flex-direction:column;
-
-      gap:8px;
+      gap:9px;
     }
-
-
-    /* =====================================
-       FILE ITEM
-    ===================================== */
 
     .file-item{
       display:flex;
 
       align-items:center;
 
-      gap:10px;
+      gap:11px;
 
-      padding:11px;
+      padding:13px;
 
       background:var(--surface-2);
 
-      border:
-        1px solid var(--border);
+      border:1px solid var(--border);
 
-      border-radius:14px;
+      border-radius:16px;
 
       transition:.2s;
     }
 
     .file-item:hover{
-      border-color:
-        rgba(20,184,166,.35);
-
+      border-color:rgba(20,184,166,.35);
       transform:translateY(-1px);
     }
 
     .file-icon{
-      width:38px;
-      height:38px;
+      width:40px;
+      height:40px;
 
-      border-radius:11px;
+      border-radius:12px;
 
       display:grid;
-
       place-items:center;
 
       background:var(--soft);
@@ -979,19 +851,17 @@
     }
 
     .file-icon svg{
-      width:18px;
-      height:18px;
+      width:19px;
+      height:19px;
     }
 
     .file-info{
       min-width:0;
-
       flex:1;
     }
 
     .file-name{
-      font-size:12px;
-
+      font-size:13px;
       font-weight:600;
 
       white-space:nowrap;
@@ -1004,9 +874,9 @@
     .file-type{
       color:var(--muted);
 
-      font-size:9px;
+      font-size:10px;
 
-      margin-top:2px;
+      margin-top:3px;
     }
 
     .file-actions{
@@ -1014,19 +884,18 @@
 
       align-items:center;
 
-      gap:5px;
+      gap:6px;
 
       flex:none;
     }
 
     .file-action{
-      width:34px;
-      height:34px;
+      width:37px;
+      height:37px;
 
-      border-radius:10px;
+      border-radius:11px;
 
       display:grid;
-
       place-items:center;
 
       cursor:pointer;
@@ -1035,22 +904,20 @@
     }
 
     .file-action svg{
-      width:17px;
-      height:17px;
+      width:18px;
+      height:18px;
     }
 
     .favorite-btn{
       background:var(--surface);
 
-      border:
-        1px solid var(--border);
+      border:1px solid var(--border);
 
       color:var(--muted);
     }
 
     .favorite-btn:hover{
       color:var(--primary);
-
       border-color:var(--primary-2);
     }
 
@@ -1059,13 +926,11 @@
 
       background:var(--soft);
 
-      border-color:
-        rgba(20,184,166,.3);
+      border-color:rgba(20,184,166,.3);
     }
 
     .open-btn{
       background:var(--primary);
-
       color:#fff;
     }
 
@@ -1073,108 +938,46 @@
       background:var(--primary-2);
     }
 
-
-    /* =====================================
-       EMPTY
-    ===================================== */
-
     .empty{
-      padding:30px 18px;
+      padding:35px 20px;
 
       text-align:center;
 
       background:var(--surface-2);
 
-      border:
-        1px dashed var(--border);
+      border:1px dashed var(--border);
 
-      border-radius:15px;
+      border-radius:17px;
 
       color:var(--muted);
 
-      font-size:12px;
+      font-size:13px;
 
       line-height:1.8;
     }
 
     .empty svg{
-      width:28px;
-      height:28px;
+      width:30px;
+      height:30px;
 
-      margin-bottom:7px;
+      margin-bottom:9px;
 
       color:var(--primary);
     }
 
-
-    /* =====================================
-       LOADING
-    ===================================== */
-
-    .loading{
-      grid-column:1/-1;
-
-      text-align:center;
-
-      padding:50px 20px;
-
-      color:var(--muted);
-
-      background:var(--surface);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:23px;
-    }
-
-    .spinner{
-      width:32px;
-      height:32px;
-
-      border:
-        3px solid var(--border);
-
-      border-top-color:
-        var(--primary);
-
-      border-radius:50%;
-
-      margin:
-        0 auto 12px;
-
-      animation:
-        spin .8s linear infinite;
-    }
-
-    @keyframes spin{
-      to{
-        transform:rotate(360deg);
-      }
-    }
-
-
-    /* =====================================
-       FOOTER
-    ===================================== */
-
     footer{
       margin-top:70px;
 
-      border-top:
-        1px solid var(--border);
+      border-top:1px solid var(--border);
 
-      padding:
-        30px 0 25px;
+      padding:30px 0 25px;
 
       text-align:center;
     }
 
     .footer-brand{
       font-size:16px;
-
       font-weight:700;
-
       margin-bottom:7px;
     }
 
@@ -1210,37 +1013,21 @@
 
     .developer a:hover{
       color:var(--primary-2);
-
       text-decoration:underline;
     }
-
-
-    /* =====================================
-       TABLET
-    ===================================== */
 
     @media(max-width:850px){
 
       .subjects-grid{
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
     }
 
-
-    /* =====================================
-       MOBILE
-    ===================================== */
-
     @media(max-width:650px){
 
       .container{
-        width:
-          min(
-            100% - 22px,
-            1120px
-          );
+        width:min(100% - 22px,1120px);
       }
 
       header{
@@ -1269,65 +1056,54 @@
 
       .subjects-grid{
         grid-template-columns:1fr;
-
-        gap:13px;
       }
 
       .subject-card{
         min-height:150px;
-
-        padding:21px;
       }
 
-      .subject-files-panel{
-        border-radius:
-          0 0 20px 20px;
-      }
-
-      .files-panel-inner{
-        padding:15px;
-      }
-
-      .files-panel-head{
-        margin-bottom:13px;
-        padding-bottom:13px;
-      }
-
-      .file-item{
+      .modal-overlay{
         padding:10px;
       }
 
+      .modal{
+        max-height:94vh;
+        border-radius:23px;
+      }
+
+      .modal-header{
+        padding:17px;
+      }
+
+      .modal-body{
+        padding:15px;
+      }
+
+      .file-item{
+        padding:11px;
+      }
+
       .file-action{
-        width:33px;
-        height:33px;
+        width:35px;
+        height:35px;
       }
 
       .file-name{
-        font-size:11px;
-      }
-
-      .file-type{
-        font-size:8px;
+        font-size:12px;
       }
 
     }
 
   </style>
-
 </head>
 
-
 <body>
-
 
 <header>
 
   <div class="container header-inner">
 
-    <a
-      href="index.html"
-      class="brand"
-    >
+    <a href="index.html" class="brand">
 
       <div class="brand-icon">
 
@@ -1346,9 +1122,7 @@
 
       <div class="brand-text">
 
-        <strong>
-          مساعد توجيهي
-        </strong>
+        <strong>مساعد توجيهي</strong>
 
         <span>
           رفيقك في طريق التوجيهي
@@ -1357,7 +1131,6 @@
       </div>
 
     </a>
-
 
     <button
       class="theme-btn"
@@ -1369,13 +1142,7 @@
 
 </header>
 
-
 <main>
-
-
-  <!-- =====================================
-       HERO
-  ====================================== -->
 
   <section class="hero">
 
@@ -1392,18 +1159,13 @@
           <path d="M12 2l2.2 6.5L21 11l-6.8 2.5L12 20l-2.2-6.5L3 11l6.8-2.5L12 2Z"/>
         </svg>
 
-        <span>
-          الجيل الدراسي
-        </span>
+        <span>الجيل الدراسي</span>
 
       </div>
 
-
       <h1 id="generationTitle">
-        جاري تحميل
-        <span>الجيل...</span>
+        جاري تحميل <span>الجيل...</span>
       </h1>
-
 
       <p id="generationDescription">
         جاري تحميل المواد الدراسية والملفات...
@@ -1412,11 +1174,6 @@
     </div>
 
   </section>
-
-
-  <!-- =====================================
-       NAVIGATION
-  ====================================== -->
 
   <div class="container">
 
@@ -1441,7 +1198,6 @@
 
       </a>
 
-
       <button
         class="nav-btn"
         id="favoritesBtn"
@@ -1464,11 +1220,6 @@
 
   </div>
 
-
-  <!-- =====================================
-       SUBJECTS
-  ====================================== -->
-
   <section>
 
     <div class="container">
@@ -1487,7 +1238,6 @@
 
         </div>
 
-
         <div
           class="subject-count"
           id="subjectCount"
@@ -1496,7 +1246,6 @@
         </div>
 
       </div>
-
 
       <div
         class="subjects-grid"
@@ -1517,9 +1266,108 @@
 
   </section>
 
-
 </main>
 
+<div
+  class="modal-overlay"
+  id="modalOverlay"
+>
+
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+  >
+
+    <div class="modal-header">
+
+      <div class="modal-title-wrap">
+
+        <div class="modal-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            <path d="M8 6h8M8 10h6"/>
+          </svg>
+
+        </div>
+
+        <div class="modal-title">
+
+          <h2 id="modalTitle">
+            المادة
+          </h2>
+
+          <p id="modalSubtitle">
+            الملفات الدراسية
+          </p>
+
+        </div>
+
+      </div>
+
+      <button
+        class="close-btn"
+        id="closeModal"
+        aria-label="إغلاق"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M6 6l12 12"/>
+          <path d="M18 6L6 18"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <div class="search-box">
+
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-4-4"/>
+        </svg>
+
+        <input
+          type="search"
+          id="fileSearch"
+          placeholder="ابحث عن ملف..."
+          autocomplete="off"
+        >
+
+      </div>
+
+      <div
+        class="filters"
+        id="filters"
+      ></div>
+
+      <div id="filesContainer"></div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <footer>
 
@@ -1553,9 +1401,7 @@
 
 </footer>
 
-
 <script type="module">
-
 
 import {
   db,
@@ -1564,7 +1410,6 @@ import {
   query,
   where
 } from "./admin/firebase-config.js";
-
 
 /* =====================================
    المتغيرات
@@ -1575,46 +1420,68 @@ const params =
     window.location.search
   );
 
-
 const selectedYear =
   params.get("year");
-
 
 const generationTitle =
   document.getElementById(
     "generationTitle"
   );
 
-
 const generationDescription =
   document.getElementById(
     "generationDescription"
   );
-
 
 const subjectsGrid =
   document.getElementById(
     "subjectsGrid"
   );
 
-
 const subjectCount =
   document.getElementById(
     "subjectCount"
   );
 
+const modalOverlay =
+  document.getElementById(
+    "modalOverlay"
+  );
+
+const closeModal =
+  document.getElementById(
+    "closeModal"
+  );
+
+const modalTitle =
+  document.getElementById(
+    "modalTitle"
+  );
+
+const modalSubtitle =
+  document.getElementById(
+    "modalSubtitle"
+  );
+
+const fileSearch =
+  document.getElementById(
+    "fileSearch"
+  );
+
+const filters =
+  document.getElementById(
+    "filters"
+  );
+
+const filesContainer =
+  document.getElementById(
+    "filesContainer"
+  );
 
 const favoritesBtn =
   document.getElementById(
     "favoritesBtn"
   );
-
-
-const themeBtn =
-  document.getElementById(
-    "themeBtn"
-  );
-
 
 /* =====================================
    المفضلة
@@ -1622,7 +1489,6 @@ const themeBtn =
 
 const FAVORITES_KEY =
   "tawjihi-favorite-resources";
-
 
 function getFavorites(){
 
@@ -1652,10 +1518,7 @@ function getFavorites(){
 
 }
 
-
-function saveFavorites(
-  favorites
-){
+function saveFavorites(favorites){
 
   localStorage.setItem(
     FAVORITES_KEY,
@@ -1664,29 +1527,22 @@ function saveFavorites(
 
 }
 
-
 function isFavorite(id){
 
-  return getFavorites()
-    .includes(id);
+  return getFavorites().includes(id);
 
 }
-
 
 function toggleFavorite(id){
 
   let favorites =
     getFavorites();
 
-
-  if(
-    favorites.includes(id)
-  ){
+  if(favorites.includes(id)){
 
     favorites =
       favorites.filter(
-        item =>
-          item !== id
+        item => item !== id
       );
 
   }else{
@@ -1695,75 +1551,56 @@ function toggleFavorite(id){
 
   }
 
-
-  saveFavorites(
-    favorites
-  );
+  saveFavorites(favorites);
 
 }
-
 
 /* =====================================
    الوضع الليلي
 ===================================== */
 
+const themeBtn =
+  document.getElementById(
+    "themeBtn"
+  );
+
 function sunIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
-      <circle
-        cx="12"
-        cy="12"
-        r="4"
-      />
-
+      <circle cx="12" cy="12" r="4"/>
       <path d="M12 2v2"/>
       <path d="M12 20v2"/>
-
       <path d="M4.93 4.93l1.41 1.41"/>
       <path d="M17.66 17.66l1.41 1.41"/>
-
       <path d="M2 12h2"/>
       <path d="M20 12h2"/>
-
       <path d="M4.93 19.07l1.41-1.41"/>
       <path d="M17.66 6.34l1.41-1.41"/>
-
     </svg>
-
   `;
 
 }
-
 
 function moonIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
-      <path
-        d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"
-      />
-
+      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"/>
     </svg>
-
   `;
 
 }
-
 
 function updateThemeButton(){
 
@@ -1772,7 +1609,6 @@ function updateThemeButton(){
       "dark"
     );
 
-
   themeBtn.innerHTML =
     dark
       ? sunIcon()
@@ -1780,16 +1616,12 @@ function updateThemeButton(){
 
 }
 
-
 const savedTheme =
   localStorage.getItem(
     "tawjihi-theme"
   );
 
-
-if(
-  savedTheme === "dark"
-){
+if(savedTheme === "dark"){
 
   document.body.classList.add(
     "dark"
@@ -1797,9 +1629,7 @@ if(
 
 }
 
-
 updateThemeButton();
-
 
 themeBtn.addEventListener(
   "click",
@@ -1809,12 +1639,10 @@ themeBtn.addEventListener(
       "dark"
     );
 
-
     const dark =
       document.body.classList.contains(
         "dark"
       );
-
 
     localStorage.setItem(
       "tawjihi-theme",
@@ -1823,12 +1651,10 @@ themeBtn.addEventListener(
         : "light"
     );
 
-
     updateThemeButton();
 
   }
 );
-
 
 /* =====================================
    Helpers
@@ -1839,29 +1665,13 @@ function escapeHtml(value){
   return String(
     value ?? ""
   )
-  .replaceAll(
-    "&",
-    "&amp;"
-  )
-  .replaceAll(
-    "<",
-    "&lt;"
-  )
-  .replaceAll(
-    ">",
-    "&gt;"
-  )
-  .replaceAll(
-    '"',
-    "&quot;"
-  )
-  .replaceAll(
-    "'",
-    "&#039;"
-  );
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
 
 }
-
 
 function normalize(value){
 
@@ -1872,7 +1682,6 @@ function normalize(value){
   .toLowerCase();
 
 }
-
 
 function getFirstValue(
   data,
@@ -1886,9 +1695,7 @@ function getFirstValue(
     if(
       data[field] !== undefined &&
       data[field] !== null &&
-      String(
-        data[field]
-      ).trim() !== ""
+      String(data[field]).trim() !== ""
     ){
 
       return data[field];
@@ -1900,7 +1707,6 @@ function getFirstValue(
   return "";
 
 }
-
 
 function getGenerationYear(
   data,
@@ -1919,7 +1725,6 @@ function getGenerationYear(
 
 }
 
-
 function getSubjectName(
   data,
   id
@@ -1936,7 +1741,6 @@ function getSubjectName(
   ) || id;
 
 }
-
 
 function getSectionName(
   data,
@@ -1955,7 +1759,6 @@ function getSectionName(
 
 }
 
-
 function getResourceName(
   data,
   id
@@ -1972,10 +1775,7 @@ function getResourceName(
 
 }
 
-
-function getResourceUrl(
-  data
-){
+function getResourceUrl(data){
 
   return getFirstValue(
     data,
@@ -1989,10 +1789,16 @@ function getResourceUrl(
 
 }
 
+/*
+  تحويل أي قيمة إلى نص للمقارنة.
 
-function valueToString(
-  value
-){
+  هذا يساعد إذا كان عندك:
+  - String
+  - Number
+  - DocumentReference
+*/
+
+function valueToString(value){
 
   if(
     value === undefined ||
@@ -2003,7 +1809,6 @@ function valueToString(
 
   }
 
-
   if(
     typeof value === "string" ||
     typeof value === "number"
@@ -2012,7 +1817,6 @@ function valueToString(
     return String(value);
 
   }
-
 
   if(
     typeof value === "object"
@@ -2032,11 +1836,9 @@ function valueToString(
 
   }
 
-
   return String(value);
 
 }
-
 
 function matchesValue(
   value,
@@ -2052,26 +1854,23 @@ function matchesValue(
 
   }
 
-
   const normalized =
     normalize(
-      valueToString(
-        value
-      )
+      valueToString(value)
     );
-
 
   return candidates.some(
     candidate =>
       normalize(
-        valueToString(
-          candidate
-        )
+        valueToString(candidate)
       ) === normalized
   );
 
 }
 
+/*
+  التحقق من عدة حقول دفعة واحدة.
+*/
 
 function matchesAnyField(
   data,
@@ -2089,7 +1888,6 @@ function matchesAnyField(
 
 }
 
-
 /* =====================================
    الأيقونات
 ===================================== */
@@ -2097,224 +1895,136 @@ function matchesAnyField(
 function bookIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-
-      <path
-        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"
-      />
-
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
       <path d="M8 6h8"/>
       <path d="M8 10h6"/>
-
     </svg>
-
   `;
 
 }
-
 
 function arrowIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
       <path d="M9 18l6-6-6-6"/>
-
     </svg>
-
   `;
 
 }
-
 
 function fileIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
-      <path
-        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"
-      />
-
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
       <path d="M14 2v6h6"/>
-
       <path d="M8 13h8"/>
       <path d="M8 17h6"/>
-
     </svg>
-
   `;
 
 }
-
 
 function searchEmptyIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
-      <circle
-        cx="11"
-        cy="11"
-        r="7"
-      />
-
+      <circle cx="11" cy="11" r="7"/>
       <path d="m20 20-4-4"/>
-
     </svg>
-
   `;
 
 }
 
-
-function heartIcon(
-  filled=false
-){
+function heartIcon(filled=false){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
-      fill="${
-        filled
-          ? "currentColor"
-          : "none"
-      }"
+      fill="${filled ? "currentColor" : "none"}"
       stroke="currentColor"
       stroke-width="2"
     >
-
-      <path
-        d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"
-      />
-
+      <path d="M20.8 8.7c0 5.5-8.8 11-8.8 11S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"/>
     </svg>
-
   `;
 
 }
-
 
 function externalIcon(){
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
     >
-
       <path d="M14 4h6v6"/>
       <path d="M10 14L20 4"/>
-
-      <path
-        d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"
-      />
-
+      <path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"/>
     </svg>
-
   `;
 
 }
-
-
-function closeIcon(){
-
-  return `
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-
-      <path d="M6 6l12 12"/>
-      <path d="M18 6L6 18"/>
-
-    </svg>
-
-  `;
-
-}
-
 
 /* =====================================
    البيانات
 ===================================== */
 
-let currentGeneration =
-  null;
+let currentGeneration = null;
 
+let allSubjects = [];
 
-let allSubjects =
-  [];
+let allSections = [];
 
+let allResources = [];
 
-let allSections =
-  [];
+let currentSubject = null;
 
+let currentFilter = "all";
 
-let allResources =
-  [];
+/*
+  حالة تحميل البيانات.
 
-
-let openedSubjectId =
-  null;
-
-
-let currentFilters =
-  {};
-
-
-/* =====================================
-   حالة البيانات
-===================================== */
+  هذه مهمة حتى نعرف إذا كانت الملفات
+  لم توجد فعلاً أو لم نستطع قراءتها.
+*/
 
 const dataStatus = {
 
   generations:true,
-
   subjects:true,
-
   sections:true,
-
   resources:true
 
 };
 
-
 /* =====================================
-   Firebase Collection
+   تحميل مجموعة Firebase بأمان
 ===================================== */
 
 async function safeGetCollection(
@@ -2330,7 +2040,6 @@ async function safeGetCollection(
           collectionName
         )
       );
-
 
     return {
 
@@ -2350,7 +2059,6 @@ async function safeGetCollection(
       error
     );
 
-
     return {
 
       ok:false,
@@ -2365,14 +2073,28 @@ async function safeGetCollection(
 
 }
 
-
 /* =====================================
-   الموارد المنشورة
+   تحميل الموارد المنشورة فقط
 ===================================== */
 
 async function getPublishedResources(){
 
   try{
+
+    /*
+      مهم جداً:
+
+      Rules تسمح للطالب بقراءة:
+
+      published == true
+
+      لذلك لازم يكون الاستعلام نفسه
+      يبحث فقط عن published == true.
+
+      getDocs(collection(db,"resources"))
+      كان يطلب كل الملفات، ولذلك Firestore
+      كان يرجع Permission Denied.
+    */
 
     const resourcesQuery =
       query(
@@ -2387,12 +2109,10 @@ async function getPublishedResources(){
         )
       );
 
-
     const snapshot =
       await getDocs(
         resourcesQuery
       );
-
 
     return {
 
@@ -2412,7 +2132,6 @@ async function getPublishedResources(){
       error
     );
 
-
     return {
 
       ok:false,
@@ -2427,7 +2146,6 @@ async function getPublishedResources(){
 
 }
 
-
 /* =====================================
    التحقق من الجيل
 ===================================== */
@@ -2435,18 +2153,12 @@ async function getPublishedResources(){
 if(!selectedYear){
 
   generationTitle.innerHTML =
-    `
-      لم يتم تحديد
-      <span>الجيل</span>
-    `;
-
+    `لم يتم تحديد <span>الجيل</span>`;
 
   generationDescription.textContent =
     "ارجع إلى صفحة الأجيال واختر الجيل الذي تريده.";
 
-
   subjectsGrid.innerHTML = `
-
     <div class="loading">
 
       لم يتم تحديد جيل.
@@ -2457,21 +2169,16 @@ if(!selectedYear){
         href="index.html"
         class="nav-btn primary"
       >
-
         العودة إلى الأجيال
-
       </a>
 
     </div>
-
   `;
-
 
   subjectCount.textContent =
     "لا يوجد";
 
 }
-
 
 /* =====================================
    تحميل الصفحة
@@ -2483,7 +2190,6 @@ async function loadPage(){
     return;
   }
 
-
   /* =====================================
      Generations
   ===================================== */
@@ -2493,28 +2199,18 @@ async function loadPage(){
       "generations"
     );
 
-
   dataStatus.generations =
     generationsResult.ok;
 
-
-  if(
-    !generationsResult.ok
-  ){
+  if(!generationsResult.ok){
 
     generationTitle.innerHTML =
-      `
-        تعذر تحميل
-        <span>الجيل</span>
-      `;
-
+      `تعذر تحميل <span>الجيل</span>`;
 
     generationDescription.textContent =
       "يوجد خطأ في تحميل بيانات الجيل.";
 
-
     subjectsGrid.innerHTML = `
-
       <div class="loading">
 
         تعذر تحميل بيانات الجيل حالياً.
@@ -2524,18 +2220,14 @@ async function loadPage(){
         حاول تحديث الصفحة مرة أخرى.
 
       </div>
-
     `;
-
 
     subjectCount.textContent =
       "خطأ";
 
-
     return;
 
   }
-
 
   const generations =
     generationsResult.docs.map(
@@ -2543,7 +2235,6 @@ async function loadPage(){
 
         const data =
           docSnap.data();
-
 
         return {
 
@@ -2563,7 +2254,6 @@ async function loadPage(){
       }
     );
 
-
   currentGeneration =
     generations.find(
       generation =>
@@ -2579,28 +2269,15 @@ async function loadPage(){
         )
     );
 
-
-  if(
-    !currentGeneration
-  ){
+  if(!currentGeneration){
 
     generationTitle.innerHTML =
-      `
-        الجيل
-        <span>
-          ${escapeHtml(
-            selectedYear
-          )}
-        </span>
-      `;
-
+      `الجيل <span>${escapeHtml(selectedYear)}</span>`;
 
     generationDescription.textContent =
       "لم يتم العثور على هذا الجيل في المنصة.";
 
-
     subjectsGrid.innerHTML = `
-
       <div class="loading">
 
         لا يوجد جيل بهذا الاسم حالياً.
@@ -2611,24 +2288,18 @@ async function loadPage(){
           href="index.html"
           class="nav-btn primary"
         >
-
           العودة إلى الأجيال
-
         </a>
 
       </div>
-
     `;
-
 
     subjectCount.textContent =
       "0 مادة";
 
-
     return;
 
   }
-
 
   /* =====================================
      معلومات الجيل
@@ -2637,19 +2308,11 @@ async function loadPage(){
   const year =
     currentGeneration.year;
 
-
   generationTitle.innerHTML =
-    `
-      جيل
-      <span>
-        ${escapeHtml(year)}
-      </span>
-    `;
-
+    `جيل <span>${escapeHtml(year)}</span>`;
 
   generationDescription.textContent =
     "اختر المادة للوصول إلى الملفات والملخصات والموارد الدراسية.";
-
 
   /* =====================================
      Subjects
@@ -2660,21 +2323,15 @@ async function loadPage(){
       "subjects"
     );
 
-
   dataStatus.subjects =
     subjectsResult.ok;
 
-
-  if(
-    !subjectsResult.ok
-  ){
+  if(!subjectsResult.ok){
 
     subjectCount.textContent =
       "خطأ";
 
-
     subjectsGrid.innerHTML = `
-
       <div class="loading">
 
         تعذر تحميل المواد حالياً.
@@ -2682,20 +2339,15 @@ async function loadPage(){
         <br>
 
         يرجى التأكد من صلاحيات قراءة
-        <strong>
-          subjects
-        </strong>
+        <strong>subjects</strong>
         في Firebase.
 
       </div>
-
     `;
-
 
     return;
 
   }
-
 
   allSubjects =
     subjectsResult.docs.map(
@@ -2703,7 +2355,6 @@ async function loadPage(){
 
         const data =
           docSnap.data();
-
 
         return {
 
@@ -2723,7 +2374,6 @@ async function loadPage(){
       }
     );
 
-
   /* =====================================
      Sections
   ===================================== */
@@ -2733,14 +2383,10 @@ async function loadPage(){
       "sections"
     );
 
-
   dataStatus.sections =
     sectionsResult.ok;
 
-
-  if(
-    sectionsResult.ok
-  ){
+  if(sectionsResult.ok){
 
     allSections =
       sectionsResult.docs.map(
@@ -2748,7 +2394,6 @@ async function loadPage(){
 
           const data =
             docSnap.data();
-
 
           return {
 
@@ -2774,31 +2419,33 @@ async function loadPage(){
 
   }
 
-
   /* =====================================
      Resources
   ===================================== */
 
+  /*
+    لا نستخدم safeGetCollection هنا.
+
+    نستخدم getPublishedResources()
+    حتى يتوافق الاستعلام مع Firestore Rules.
+  */
+
   const resourcesResult =
     await getPublishedResources();
-
 
   dataStatus.resources =
     resourcesResult.ok;
 
-
-  if(
-    resourcesResult.ok
-  ){
+  if(resourcesResult.ok){
 
     allResources =
       resourcesResult.docs
+
         .map(
           docSnap => {
 
             const data =
               docSnap.data();
-
 
             return {
 
@@ -2829,7 +2476,6 @@ async function loadPage(){
 
   }
 
-
   /* =====================================
      ربط المواد بالجيل
   ===================================== */
@@ -2850,7 +2496,6 @@ async function loadPage(){
 
   ];
 
-
   allSubjects =
     allSubjects.filter(
       subject => {
@@ -2858,17 +2503,12 @@ async function loadPage(){
         const values = [
 
           subject.generationId,
-
           subject.generationID,
-
           subject.generation,
-
           subject.year,
-
           subject.generationYear
 
         ];
-
 
         const hasGenerationValue =
           values.some(
@@ -2876,16 +2516,11 @@ async function loadPage(){
               value !== undefined &&
               value !== null &&
               String(
-                valueToString(
-                  value
-                )
+                valueToString(value)
               ).trim() !== ""
           );
 
-
-        if(
-          hasGenerationValue
-        ){
+        if(hasGenerationValue){
 
           return values.some(
             value =>
@@ -2897,12 +2532,10 @@ async function loadPage(){
 
         }
 
-
         return false;
 
       }
     );
-
 
   /* =====================================
      ترتيب المواد
@@ -2918,7 +2551,6 @@ async function loadPage(){
           999999
         );
 
-
       const orderB =
         Number(
           b.order ??
@@ -2926,178 +2558,31 @@ async function loadPage(){
           999999
         );
 
-
       return orderA - orderB;
 
     }
   );
 
-
   subjectCount.textContent =
     `${allSubjects.length} مواد`;
 
-
-  if(
-    !allSubjects.length
-  ){
+  if(!allSubjects.length){
 
     subjectsGrid.innerHTML = `
-
       <div class="loading">
 
         لا توجد مواد مضافة لهذا الجيل حالياً.
 
       </div>
-
     `;
-
 
     return;
 
   }
 
-
   renderSubjects();
 
 }
-
-
-/* =====================================
-   عدد الملفات
-===================================== */
-
-function getSubjectResourceCount(
-  subject
-){
-
-  return getSubjectResources(
-    subject
-  ).length;
-
-}
-
-
-/* =====================================
-   أقسام المادة
-===================================== */
-
-function getSubjectSections(
-  subject
-){
-
-  const subjectCandidates = [
-
-    subject.id,
-
-    subject.name
-
-  ];
-
-
-  return allSections.filter(
-    section => {
-
-      return matchesAnyField(
-        section,
-
-        [
-          "subjectId",
-          "subjectID",
-          "subject",
-          "subjectRef",
-          "subjectReference"
-        ],
-
-        subjectCandidates
-      );
-
-    }
-  );
-
-}
-
-
-/* =====================================
-   ملفات المادة
-===================================== */
-
-function getSubjectResources(
-  subject
-){
-
-  const sections =
-    getSubjectSections(
-      subject
-    );
-
-
-  const subjectCandidates = [
-
-    subject.id,
-
-    subject.name
-
-  ];
-
-
-  return allResources.filter(
-    resource => {
-
-      const directMatch =
-        matchesAnyField(
-          resource,
-
-          [
-            "subjectId",
-            "subjectID",
-            "subject",
-            "subjectRef",
-            "subjectReference"
-          ],
-
-          subjectCandidates
-        );
-
-
-      const sectionCandidates =
-        sections.flatMap(
-          section => [
-
-            section.id,
-
-            section.name
-
-          ]
-        );
-
-
-      const sectionMatch =
-        sectionCandidates.length > 0 &&
-        matchesAnyField(
-          resource,
-
-          [
-            "sectionId",
-            "sectionID",
-            "section",
-            "sectionRef",
-            "sectionReference"
-          ],
-
-          sectionCandidates
-        );
-
-
-      return (
-        directMatch ||
-        sectionMatch
-      );
-
-    }
-  );
-
-}
-
 
 /* =====================================
    عرض المواد
@@ -3106,203 +2591,63 @@ function getSubjectResources(
 function renderSubjects(){
 
   subjectsGrid.innerHTML =
-    allSubjects
-      .map(
-        subject => {
+    allSubjects.map(
+      subject => {
 
-          const count =
-            getSubjectResourceCount(
-              subject
-            );
+        const count =
+          getSubjectResourceCount(
+            subject
+          );
 
+        return `
 
-          const isOpen =
-            openedSubjectId ===
-            subject.id;
+          <div
+            class="subject-card"
+            data-subject-id="${escapeHtml(subject.id)}"
+          >
 
+            <div class="subject-icon">
 
-          return `
-
-            <div
-              class="subject-wrapper"
-              data-subject-wrapper="${escapeHtml(subject.id)}"
-            >
-
-              <div
-                class="subject-card ${
-                  isOpen
-                    ? "open"
-                    : ""
-                }"
-                data-subject-id="${escapeHtml(subject.id)}"
-              >
-
-                <div class="subject-icon">
-
-                  ${bookIcon()}
-
-                </div>
-
-
-                <h3>
-
-                  ${escapeHtml(
-                    subject.name
-                  )}
-
-                </h3>
-
-
-                <p>
-
-                  عرض الملفات والملخصات
-                  الخاصة بالمادة
-
-                </p>
-
-
-                <div
-                  class="subject-files-count"
-                >
-
-                  ${fileIcon()}
-
-                  ${count}
-                  ملف
-
-                </div>
-
-
-                <div
-                  class="subject-arrow"
-                >
-
-                  ${arrowIcon()}
-
-                </div>
-
-              </div>
-
-
-              <div
-                class="subject-files-panel ${
-                  isOpen
-                    ? "active"
-                    : ""
-                }"
-                id="files-panel-${escapeHtml(subject.id)}"
-              >
-
-                ${
-                  isOpen
-                    ? renderSubjectFilesPanel(
-                        subject
-                      )
-                    : ""
-                }
-
-              </div>
+              ${bookIcon()}
 
             </div>
 
-          `;
+            <h3>
+              ${escapeHtml(
+                subject.name
+              )}
+            </h3>
 
-        }
-      )
-      .join("");
+            <p>
+              عرض الملفات والملخصات
+              الخاصة بالمادة
+            </p>
 
+            <div
+              class="subject-files-count"
+            >
 
-  attachSubjectEvents();
+              ${fileIcon()}
 
-  attachFileEvents();
+              ${count}
+              ملف
 
-}
+            </div>
 
+            <div
+              class="subject-arrow"
+            >
 
-/* =====================================
-   فتح / إغلاق المادة
-===================================== */
+              ${arrowIcon()}
 
-function toggleSubject(
-  subject
-){
+            </div>
 
-  if(
-    openedSubjectId ===
-    subject.id
-  ){
+          </div>
 
-    openedSubjectId =
-      null;
-
-    renderSubjects();
-
-    return;
-
-  }
-
-
-  openedSubjectId =
-    subject.id;
-
-
-  currentFilters[
-    subject.id
-  ] = "all";
-
-
-  renderSubjects();
-
-
-  /*
-    ننتظر قليلاً حتى يصبح
-    القسم موجوداً بالصفحة ثم
-    ننزل إليه بشكل ناعم.
-  */
-
-  setTimeout(
-    ()=>{
-
-      const panel =
-        document.getElementById(
-          `files-panel-${subject.id}`
-        );
-
-
-      if(panel){
-
-        const card =
-          panel.previousElementSibling;
-
-
-        const top =
-          card.getBoundingClientRect().top +
-          window.scrollY -
-          90;
-
-
-        window.scrollTo({
-
-          top,
-
-          behavior:"smooth"
-
-        });
+        `;
 
       }
-
-    },
-    50
-  );
-
-}
-
-
-/* =====================================
-   أحداث المواد
-===================================== */
-
-function attachSubjectEvents(){
+    ).join("");
 
   document
     .querySelectorAll(
@@ -3322,10 +2667,9 @@ function attachSubjectEvents(){
                   card.dataset.subjectId
               );
 
-
             if(subject){
 
-              toggleSubject(
+              openSubject(
                 subject
               );
 
@@ -3337,24 +2681,311 @@ function attachSubjectEvents(){
       }
     );
 
+}
 
-  document
+/* =====================================
+   عدد ملفات المادة
+===================================== */
+
+function getSubjectResourceCount(
+  subject
+){
+
+  const resources =
+    getSubjectResources(
+      subject
+    );
+
+  return resources.length;
+
+}
+
+/* =====================================
+   أقسام المادة
+===================================== */
+
+function getSubjectSections(
+  subject
+){
+
+  const subjectCandidates = [
+
+    subject.id,
+    subject.name
+
+  ];
+
+  return allSections.filter(
+    section => {
+
+      return matchesAnyField(
+        section,
+        [
+          "subjectId",
+          "subjectID",
+          "subject",
+          "subjectRef",
+          "subjectReference"
+        ],
+        subjectCandidates
+      );
+
+    }
+  );
+
+}
+
+/* =====================================
+   ملفات المادة
+===================================== */
+
+function getSubjectResources(
+  subject
+){
+
+  const sections =
+    getSubjectSections(
+      subject
+    );
+
+  const subjectCandidates = [
+
+    subject.id,
+    subject.name
+
+  ];
+
+  return allResources.filter(
+    resource => {
+
+      /* =========================
+         ربط مباشر بالمادة
+      ========================= */
+
+      const directMatch =
+        matchesAnyField(
+          resource,
+          [
+            "subjectId",
+            "subjectID",
+            "subject",
+            "subjectRef",
+            "subjectReference"
+          ],
+          subjectCandidates
+        );
+
+      /* =========================
+         ربط عن طريق القسم
+      ========================= */
+
+      const sectionCandidates =
+        sections.flatMap(
+          section => [
+
+            section.id,
+            section.name
+
+          ]
+        );
+
+      const sectionMatch =
+        sectionCandidates.length > 0 &&
+        matchesAnyField(
+          resource,
+          [
+            "sectionId",
+            "sectionID",
+            "section",
+            "sectionRef",
+            "sectionReference"
+          ],
+          sectionCandidates
+        );
+
+      return (
+        directMatch ||
+        sectionMatch
+      );
+
+    }
+  );
+
+}
+
+/* =====================================
+   فتح المادة
+===================================== */
+
+function openSubject(
+  subject
+){
+
+  currentSubject =
+    subject;
+
+  currentFilter =
+    "all";
+
+  modalTitle.textContent =
+    subject.name;
+
+  modalSubtitle.textContent =
+    `ملفات ${subject.name}`;
+
+  fileSearch.value = "";
+
+  renderFilters();
+
+  renderFiles();
+
+  modalOverlay.classList.add(
+    "active"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+  setTimeout(
+    ()=>{
+      fileSearch.focus();
+    },
+    100
+  );
+
+}
+
+/* =====================================
+   إغلاق
+===================================== */
+
+function closeFilesModal(){
+
+  modalOverlay.classList.remove(
+    "active"
+  );
+
+  document.body.style.overflow =
+    "";
+
+  currentSubject =
+    null;
+
+}
+
+closeModal.addEventListener(
+  "click",
+  closeFilesModal
+);
+
+modalOverlay.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      modalOverlay
+    ){
+
+      closeFilesModal();
+
+    }
+
+  }
+);
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeFilesModal();
+
+    }
+
+  }
+);
+
+/* =====================================
+   الفلاتر
+===================================== */
+
+function renderFilters(){
+
+  if(!currentSubject){
+    return;
+  }
+
+  const sections =
+    getSubjectSections(
+      currentSubject
+    );
+
+  filters.innerHTML = `
+
+    <button
+      class="filter-btn active"
+      data-filter="all"
+    >
+      كل الملفات
+    </button>
+
+    <button
+      class="filter-btn"
+      data-filter="favorites"
+    >
+      المفضلة
+    </button>
+
+    ${
+      sections.map(
+        section => `
+          <button
+            class="filter-btn"
+            data-filter="${escapeHtml(section.id)}"
+          >
+            ${escapeHtml(section.name)}
+          </button>
+        `
+      ).join("")
+    }
+
+  `;
+
+  filters
     .querySelectorAll(
-      ".files-close"
+      ".filter-btn"
     )
     .forEach(
       button => {
 
         button.addEventListener(
           "click",
-          event => {
+          ()=>{
 
-            event.stopPropagation();
+            currentFilter =
+              button.dataset.filter;
 
-            openedSubjectId =
-              null;
+            filters
+              .querySelectorAll(
+                ".filter-btn"
+              )
+              .forEach(
+                item =>
+                  item.classList.remove(
+                    "active"
+                  )
+              );
 
-            renderSubjects();
+            button.classList.add(
+              "active"
+            );
+
+            renderFiles();
 
           }
         );
@@ -3364,235 +2995,25 @@ function attachSubjectEvents(){
 
 }
 
-
 /* =====================================
-   لوحة ملفات المادة
+   عرض الملفات
 ===================================== */
 
-function renderSubjectFilesPanel(
-  subject
-){
+function renderFiles(){
 
-  const currentFilter =
-    currentFilters[
-      subject.id
-    ] || "all";
-
-
-  const sections =
-    getSubjectSections(
-      subject
-    );
-
-
-  return `
-
-    <div class="files-panel-inner">
-
-
-      <div class="files-panel-head">
-
-        <div
-          class="files-panel-title"
-        >
-
-          <div
-            class="files-panel-title-icon"
-          >
-
-            ${bookIcon()}
-
-          </div>
-
-
-          <div>
-
-            <strong>
-
-              ملفات
-              ${escapeHtml(
-                subject.name
-              )}
-
-            </strong>
-
-            <span>
-
-              اختر القسم أو ابحث عن الملف
-
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="files-close"
-          type="button"
-          data-close-subject="${escapeHtml(subject.id)}"
-          aria-label="إغلاق"
-        >
-
-          ${closeIcon()}
-
-        </button>
-
-      </div>
-
-
-      <div class="search-box">
-
-        <svg
-          class="search-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-          />
-
-          <path d="m20 20-4-4"/>
-
-        </svg>
-
-
-        <input
-          type="search"
-          class="subject-file-search"
-          data-subject-search="${escapeHtml(subject.id)}"
-          placeholder="ابحث عن ملف..."
-          autocomplete="off"
-          value=""
-        >
-
-      </div>
-
-
-      <div
-        class="filters"
-        data-subject-filters="${escapeHtml(subject.id)}"
-      >
-
-        <button
-          class="filter-btn ${
-            currentFilter === "all"
-              ? "active"
-              : ""
-          }"
-          data-filter-subject="${escapeHtml(subject.id)}"
-          data-filter="all"
-        >
-
-          كل الملفات
-
-        </button>
-
-
-        <button
-          class="filter-btn ${
-            currentFilter === "favorites"
-              ? "active"
-              : ""
-          }"
-          data-filter-subject="${escapeHtml(subject.id)}"
-          data-filter="favorites"
-        >
-
-          المفضلة
-
-        </button>
-
-
-        ${
-          sections
-            .map(
-              section => `
-
-                <button
-                  class="filter-btn ${
-                    currentFilter === section.id
-                      ? "active"
-                      : ""
-                  }"
-                  data-filter-subject="${escapeHtml(subject.id)}"
-                  data-filter="${escapeHtml(section.id)}"
-                >
-
-                  ${escapeHtml(
-                    section.name
-                  )}
-
-                </button>
-
-              `
-            )
-            .join("")
-        }
-
-      </div>
-
-
-      <div
-        class="subject-files-content"
-        data-files-content="${escapeHtml(subject.id)}"
-      >
-
-        ${renderSubjectFilesContent(
-          subject
-        )}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================
-   ملفات المادة داخل اللوحة
-===================================== */
-
-function renderSubjectFilesContent(
-  subject
-){
+  if(!currentSubject){
+    return;
+  }
 
   let resources =
     getSubjectResources(
-      subject
+      currentSubject
     );
-
-
-  const filter =
-    currentFilters[
-      subject.id
-    ] || "all";
-
-
-  const searchInput =
-    document.querySelector(
-      `[data-subject-search="${CSS.escape(subject.id)}"]`
-    );
-
 
   const search =
     normalize(
-      searchInput
-        ? searchInput.value
-        : ""
+      fileSearch.value
     );
-
-
-  /* =====================================
-     البحث
-  ===================================== */
 
   if(search){
 
@@ -3618,7 +3039,6 @@ function renderSubjectFilesContent(
           .flat()
           .join(" ");
 
-
           return normalize(
             searchableText
           ).includes(
@@ -3630,13 +3050,9 @@ function renderSubjectFilesContent(
 
   }
 
-
-  /* =====================================
-     المفضلة
-  ===================================== */
-
   if(
-    filter === "favorites"
+    currentFilter ===
+    "favorites"
   ){
 
     resources =
@@ -3647,24 +3063,17 @@ function renderSubjectFilesContent(
           )
       );
 
-  }
-
-
-  /* =====================================
-     قسم معين
-  ===================================== */
-
-  else if(
-    filter !== "all"
+  }else if(
+    currentFilter !==
+    "all"
   ){
 
     const selectedSection =
       allSections.find(
         section =>
           section.id ===
-          filter
+          currentFilter
       );
-
 
     if(selectedSection){
 
@@ -3674,7 +3083,6 @@ function renderSubjectFilesContent(
 
             return matchesAnyField(
               resource,
-
               [
                 "sectionId",
                 "sectionID",
@@ -3682,7 +3090,6 @@ function renderSubjectFilesContent(
                 "sectionRef",
                 "sectionReference"
               ],
-
               [
                 selectedSection.id,
                 selectedSection.name
@@ -3696,32 +3103,25 @@ function renderSubjectFilesContent(
 
   }
 
-
-  /* =====================================
-     لا يوجد ملفات
-  ===================================== */
-
   if(!resources.length){
 
     let emptyMessage =
       "لا توجد ملفات متاحة حالياً.";
 
-
     if(
-      filter === "favorites"
+      currentFilter ===
+      "favorites"
     ){
 
       emptyMessage =
-        "لا توجد ملفات مفضلة في هذه المادة حالياً.";
+        "لا توجد ملفات مفضلة حالياً.";
 
-    }
-    else if(search){
+    }else if(search){
 
       emptyMessage =
         "لم نجد أي ملف يطابق بحثك.";
 
-    }
-    else if(
+    }else if(
       !dataStatus.resources
     ){
 
@@ -3730,8 +3130,7 @@ function renderSubjectFilesContent(
 
     }
 
-
-    return `
+    filesContainer.innerHTML = `
 
       <div class="empty">
 
@@ -3745,66 +3144,45 @@ function renderSubjectFilesContent(
 
     `;
 
+    return;
+
   }
 
-
-  /* =====================================
-     كل الملفات / المفضلة
-     تعرض حسب الأقسام
-  ===================================== */
-
   if(
-    filter === "all" ||
-    filter === "favorites"
+    currentFilter ===
+    "all" ||
+    currentFilter ===
+    "favorites"
   ){
 
-    return renderGroupedFiles(
-      resources,
-      subject
+    renderGroupedFiles(
+      resources
+    );
+
+  }else{
+
+    renderSimpleFiles(
+      resources
     );
 
   }
 
-
-  return `
-
-    <div class="files-list">
-
-      ${
-        resources
-          .map(
-            resource =>
-              renderFile(
-                resource
-              )
-          )
-          .join("")
-      }
-
-    </div>
-
-  `;
-
 }
-
 
 /* =====================================
    الملفات حسب الأقسام
 ===================================== */
 
 function renderGroupedFiles(
-  resources,
-  subject
+  resources
 ){
 
   const sections =
     getSubjectSections(
-      subject
+      currentSubject
     );
 
-
   const groups = [];
-
 
   sections.forEach(
     section => {
@@ -3815,7 +3193,6 @@ function renderGroupedFiles(
 
             return matchesAnyField(
               resource,
-
               [
                 "sectionId",
                 "sectionID",
@@ -3823,7 +3200,6 @@ function renderGroupedFiles(
                 "sectionRef",
                 "sectionReference"
               ],
-
               [
                 section.id,
                 section.name
@@ -3832,7 +3208,6 @@ function renderGroupedFiles(
 
           }
         );
-
 
       if(
         sectionResources.length
@@ -3853,27 +3228,21 @@ function renderGroupedFiles(
     }
   );
 
-
   const groupedIds =
     new Set();
-
 
   groups.forEach(
     group => {
 
       group.resources.forEach(
-        resource => {
-
+        resource =>
           groupedIds.add(
             resource.id
-          );
-
-        }
+          )
       );
 
     }
   );
-
 
   const ungrouped =
     resources.filter(
@@ -3883,10 +3252,7 @@ function renderGroupedFiles(
         )
     );
 
-
-  if(
-    ungrouped.length
-  ){
+  if(ungrouped.length){
 
     groups.push({
 
@@ -3900,33 +3266,23 @@ function renderGroupedFiles(
 
   }
 
+  /*
+    إذا ما في أقسام أصلاً،
+    نعرض الملفات مباشرة.
+  */
 
   if(!groups.length){
 
-    return `
+    renderSimpleFiles(
+      resources
+    );
 
-      <div class="files-list">
-
-        ${
-          resources
-            .map(
-              resource =>
-                renderFile(
-                  resource
-                )
-            )
-            .join("")
-        }
-
-      </div>
-
-    `;
+    return;
 
   }
 
-
-  return groups
-    .map(
+  filesContainer.innerHTML =
+    groups.map(
       group => `
 
         <div class="file-section">
@@ -3936,34 +3292,28 @@ function renderGroupedFiles(
           >
 
             <strong>
-
               ${escapeHtml(
                 group.name
               )}
-
             </strong>
 
             <span>
-
               ${group.resources.length}
               ملفات
-
             </span>
 
           </div>
 
-
           <div class="files-list">
 
-            ${
-              group.resources
-                .map(
-                  resource =>
-                    renderFile(
-                      resource
-                    )
-                )
-                .join("")
+            ${group.resources
+              .map(
+                resource =>
+                  renderFile(
+                    resource
+                  )
+              )
+              .join("")
             }
 
           </div>
@@ -3971,11 +3321,41 @@ function renderGroupedFiles(
         </div>
 
       `
-    )
-    .join("");
+    ).join("");
+
+  attachFileEvents();
 
 }
 
+/* =====================================
+   ملفات عادية
+===================================== */
+
+function renderSimpleFiles(
+  resources
+){
+
+  filesContainer.innerHTML = `
+
+    <div class="files-list">
+
+      ${resources
+        .map(
+          resource =>
+            renderFile(
+              resource
+            )
+        )
+        .join("")
+      }
+
+    </div>
+
+  `;
+
+  attachFileEvents();
+
+}
 
 /* =====================================
    كرت الملف
@@ -3990,10 +3370,8 @@ function renderFile(
       resource.id
     );
 
-
   const url =
     resource.url;
-
 
   return `
 
@@ -4008,7 +3386,6 @@ function renderFile(
 
       </div>
 
-
       <div class="file-info">
 
         <div class="file-name">
@@ -4019,7 +3396,6 @@ function renderFile(
 
         </div>
 
-
         <div class="file-type">
 
           ملف دراسي
@@ -4028,9 +3404,7 @@ function renderFile(
 
       </div>
 
-
       <div class="file-actions">
-
 
         <button
           class="file-action favorite-btn ${
@@ -4048,7 +3422,6 @@ function renderFile(
           )}
 
         </button>
-
 
         ${
           url
@@ -4069,7 +3442,6 @@ function renderFile(
             : ""
         }
 
-
       </div>
 
     </div>
@@ -4077,221 +3449,6 @@ function renderFile(
   `;
 
 }
-
-
-/* =====================================
-   تحديث ملفات مادة مفتوحة
-===================================== */
-
-function refreshOpenedSubject(){
-
-  if(!openedSubjectId){
-    return;
-  }
-
-
-  const subject =
-    allSubjects.find(
-      item =>
-        item.id ===
-        openedSubjectId
-    );
-
-
-  if(!subject){
-    return;
-  }
-
-
-  const panel =
-    document.getElementById(
-      `files-panel-${subject.id}`
-    );
-
-
-  if(!panel){
-    return;
-  }
-
-
-  const content =
-    panel.querySelector(
-      `[data-files-content="${CSS.escape(subject.id)}"]`
-    );
-
-
-  if(!content){
-    return;
-  }
-
-
-  content.innerHTML =
-    renderSubjectFilesContent(
-      subject
-    );
-
-
-  attachFileEvents();
-
-}
-
-
-/* =====================================
-   البحث داخل مادة
-===================================== */
-
-function attachSubjectSearchEvents(){
-
-  document
-    .querySelectorAll(
-      ".subject-file-search"
-    )
-    .forEach(
-      input => {
-
-        input.addEventListener(
-          "input",
-          ()=>{
-
-            const subjectId =
-              input.dataset.subjectSearch;
-
-
-            const subject =
-              allSubjects.find(
-                item =>
-                  item.id ===
-                  subjectId
-              );
-
-
-            if(!subject){
-              return;
-            }
-
-
-            const content =
-              document.querySelector(
-                `[data-files-content="${CSS.escape(subjectId)}"]`
-              );
-
-
-            if(!content){
-              return;
-            }
-
-
-            content.innerHTML =
-              renderSubjectFilesContent(
-                subject
-              );
-
-
-            attachFileEvents();
-
-          }
-        );
-
-      }
-    );
-
-}
-
-
-/* =====================================
-   فلاتر المادة
-===================================== */
-
-function attachFilterEvents(){
-
-  document
-    .querySelectorAll(
-      "[data-filter-subject]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          ()=>{
-
-            const subjectId =
-              button.dataset.filterSubject;
-
-
-            const filter =
-              button.dataset.filter;
-
-
-            currentFilters[
-              subjectId
-            ] = filter;
-
-
-            const filtersBox =
-              document.querySelector(
-                `[data-subject-filters="${CSS.escape(subjectId)}"]`
-              );
-
-
-            if(filtersBox){
-
-              filtersBox
-                .querySelectorAll(
-                  ".filter-btn"
-                )
-                .forEach(
-                  item =>
-                    item.classList.toggle(
-                      "active",
-                      item.dataset.filter ===
-                      filter
-                    )
-                );
-
-            }
-
-
-            const subject =
-              allSubjects.find(
-                item =>
-                  item.id ===
-                  subjectId
-              );
-
-
-            if(!subject){
-              return;
-            }
-
-
-            const content =
-              document.querySelector(
-                `[data-files-content="${CSS.escape(subjectId)}"]`
-              );
-
-
-            if(!content){
-              return;
-            }
-
-
-            content.innerHTML =
-              renderSubjectFilesContent(
-                subject
-              );
-
-
-            attachFileEvents();
-
-          }
-        );
-
-      }
-    );
-
-}
-
 
 /* =====================================
    أحداث الملفات
@@ -4306,47 +3463,24 @@ function attachFileEvents(){
     .forEach(
       button => {
 
-        /*
-          منع تكرار الحدث
-        */
-
-        if(
-          button.dataset.bound === "true"
-        ){
-
-          return;
-
-        }
-
-
-        button.dataset.bound =
-          "true";
-
-
         button.addEventListener(
           "click",
           event => {
 
             event.stopPropagation();
 
-
             const id =
               button.dataset.id;
 
+            toggleFavorite(id);
 
-            toggleFavorite(
-              id
-            );
-
-
-            refreshOpenedSubject();
+            renderFiles();
 
           }
         );
 
       }
     );
-
 
   document
     .querySelectorAll(
@@ -4355,34 +3489,18 @@ function attachFileEvents(){
     .forEach(
       button => {
 
-        if(
-          button.dataset.bound === "true"
-        ){
-
-          return;
-
-        }
-
-
-        button.dataset.bound =
-          "true";
-
-
         button.addEventListener(
           "click",
           event => {
 
             event.stopPropagation();
 
-
             const url =
               button.dataset.url;
-
 
             if(!url){
               return;
             }
-
 
             window.open(
               url,
@@ -4398,47 +3516,16 @@ function attachFileEvents(){
 
 }
 
-
 /* =====================================
-   إعادة ربط كل الأحداث
+   البحث
 ===================================== */
 
-function attachAllEvents(){
-
-  attachSubjectEvents();
-
-  attachSubjectSearchEvents();
-
-  attachFilterEvents();
-
-  attachFileEvents();
-
-}
-
-
-/* =====================================
-   Override renderSubjects
-   لإضافة الأحداث بعد كل تحديث
-===================================== */
-
-const originalRenderSubjects =
-  renderSubjects;
-
-
-/*
-  بما أن renderSubjects يعيد
-  بناء الكروت بالكامل، نستخدم
-  هذه الدالة في كل مرة.
-*/
-
-function rerenderSubjects(){
-
-  originalRenderSubjects();
-
-  attachAllEvents();
-
-}
-
+fileSearch.addEventListener(
+  "input",
+  ()=>{
+    renderFiles();
+  }
+);
 
 /* =====================================
    المفضلة
@@ -4448,110 +3535,96 @@ favoritesBtn.addEventListener(
   "click",
   ()=>{
 
-    const favoriteIds =
-      getFavorites();
+    if(!currentSubject){
 
+      const favoriteIds =
+        getFavorites();
 
-    if(
-      !favoriteIds.length
-    ){
+      const subject =
+        allSubjects.find(
+          item =>
+            getSubjectResources(
+              item
+            ).some(
+              resource =>
+                favoriteIds.includes(
+                  resource.id
+                )
+            )
+        );
 
-      alert(
-        "لا توجد ملفات مفضلة حالياً."
-      );
+      if(subject){
 
-      return;
+        openSubject(
+          subject
+        );
 
-    }
+        currentFilter =
+          "favorites";
 
+        renderFilters();
 
-    /*
-      نبحث عن أول مادة فيها
-      ملف مفضل.
-    */
-
-    const subject =
-      allSubjects.find(
-        item =>
-          getSubjectResources(
-            item
-          ).some(
-            resource =>
-              favoriteIds.includes(
-                resource.id
-              )
+        filters
+          .querySelectorAll(
+            ".filter-btn"
           )
-      );
+          .forEach(
+            button => {
 
+              button.classList.toggle(
+                "active",
+                button.dataset.filter ===
+                "favorites"
+              );
 
-    if(!subject){
-
-      alert(
-        "لا توجد ملفات مفضلة حالياً."
-      );
-
-      return;
-
-    }
-
-
-    openedSubjectId =
-      subject.id;
-
-
-    currentFilters[
-      subject.id
-    ] = "favorites";
-
-
-    rerenderSubjects();
-
-
-    setTimeout(
-      ()=>{
-
-        const panel =
-          document.getElementById(
-            `files-panel-${subject.id}`
+            }
           );
 
+        renderFiles();
 
-        if(panel){
+      }else{
 
-          const card =
-            panel.previousElementSibling;
+        alert(
+          "لا توجد ملفات مفضلة حالياً."
+        );
 
+      }
 
-          const top =
-            card.getBoundingClientRect().top +
-            window.scrollY -
-            90;
+      return;
 
+    }
 
-          window.scrollTo({
+    currentFilter =
+      "favorites";
 
-            top,
+    renderFilters();
 
-            behavior:"smooth"
+    filters
+      .querySelectorAll(
+        ".filter-btn"
+      )
+      .forEach(
+        button => {
 
-          });
+          button.classList.toggle(
+            "active",
+            button.dataset.filter ===
+            "favorites"
+          );
 
         }
+      );
 
-      },
-      50
-    );
+    renderFiles();
 
   }
 );
-
 
 /* =====================================
    تشغيل
 ===================================== */
 
 loadPage();
-
 
 </script>
 
