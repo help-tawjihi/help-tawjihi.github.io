@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,165 +18,116 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <style>
+
     :root {
-      --bg: #eef5f3;
-      --surface: rgba(255,255,255,.72);
-      --surface-solid: #ffffff;
-      --surface2: rgba(239,247,245,.82);
-
-      --text: #15221f;
-      --muted: #70817c;
-
-      --primary: #0f766e;
-      --primary2: #14b8a6;
-      --soft: rgba(20,184,166,.10);
-
-      --border: rgba(255,255,255,.70);
-      --border-solid: #dce9e6;
-
-      --danger: #dc2626;
-      --warning: #d97706;
-      --success: #16a34a;
-
-      --shadow:
-        0 20px 55px rgba(15,118,110,.09);
-
-      --glass-shadow:
-        0 24px 70px rgba(15,118,110,.11);
-
-      --radius: 22px;
+      --bg:#eef4f3;
+      --surface:rgba(255,255,255,.72);
+      --surface-solid:#ffffff;
+      --surface2:rgba(240,247,245,.72);
+      --text:#17211f;
+      --muted:#71807c;
+      --primary:#0f766e;
+      --primary2:#14b8a6;
+      --soft:rgba(20,184,166,.10);
+      --border:rgba(15,118,110,.13);
+      --danger:#dc2626;
+      --warning:#d97706;
+      --success:#16a34a;
+      --shadow:0 18px 55px rgba(15,118,110,.09);
+      --glass-shadow:0 25px 80px rgba(15,118,110,.10);
+      --radius:22px;
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior:smooth;
     }
 
     body {
-      font-family: "IBM Plex Sans Arabic", sans-serif;
+      font-family:"IBM Plex Sans Arabic",sans-serif;
       background:
         radial-gradient(
-          circle at 8% 10%,
-          rgba(20,184,166,.13),
-          transparent 25%
+          circle at 100% 0%,
+          rgba(20,184,166,.14),
+          transparent 30%
         ),
         radial-gradient(
-          circle at 90% 90%,
+          circle at 0% 100%,
           rgba(15,118,110,.09),
           transparent 28%
         ),
         var(--bg);
-
-      color: var(--text);
-      min-height: 100vh;
+      color:var(--text);
+      min-height:100vh;
     }
 
     body::before {
-      content: "";
-      position: fixed;
-      width: 330px;
-      height: 330px;
-      border-radius: 50%;
-      background: rgba(20,184,166,.08);
-      filter: blur(90px);
-      top: 100px;
-      left: -100px;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: rgba(15,118,110,.06);
-      filter: blur(90px);
-      bottom: 40px;
-      right: -80px;
-      pointer-events: none;
-      z-index: -1;
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(255,255,255,.25),
+          transparent 40%
+        );
+      z-index:-1;
     }
 
     button,
     input,
     select,
     textarea {
-      font-family: inherit;
+      font-family:inherit;
     }
 
     button,
     a {
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
     }
 
-    button {
-      border: 0;
-    }
-
-    /* =========================
+    /* =====================================================
        LOGIN
-    ========================= */
+    ===================================================== */
 
     #loginScreen {
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 20px;
-
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(20,184,166,.16),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at bottom left,
-          rgba(15,118,110,.12),
-          transparent 35%
-        ),
-        var(--bg);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
     }
 
     .login-card {
-      width: 100%;
-      max-width: 440px;
+      width:100%;
+      max-width:430px;
+      padding:36px;
+      border-radius:32px;
 
-      padding: 36px;
-
-      background: rgba(255,255,255,.70);
-
-      border: 1px solid rgba(255,255,255,.82);
-
-      border-radius: 30px;
-
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      background:rgba(255,255,255,.68);
+      border:1px solid rgba(255,255,255,.85);
 
       box-shadow:
-        0 30px 90px rgba(15,118,110,.14),
+        0 35px 100px rgba(15,118,110,.14),
         inset 0 1px 0 rgba(255,255,255,.8);
+
+      backdrop-filter:blur(28px);
+      -webkit-backdrop-filter:blur(28px);
     }
 
     .login-logo {
-      width: 68px;
-      height: 68px;
-
-      margin: 0 auto 19px;
-
-      display: grid;
-      place-items: center;
-
-      color: white;
+      width:68px;
+      height:68px;
+      border-radius:21px;
+      display:grid;
+      place-items:center;
+      color:white;
 
       background:
         linear-gradient(
@@ -185,94 +136,89 @@
           var(--primary2)
         );
 
-      border-radius: 21px;
+      margin:0 auto 19px;
 
       box-shadow:
-        0 14px 35px rgba(15,118,110,.22);
+        0 15px 35px rgba(15,118,110,.25);
     }
 
     .login-logo svg {
-      width: 34px;
-      height: 34px;
+      width:34px;
+      height:34px;
     }
 
     .login-card h1 {
-      text-align: center;
-      font-size: 23px;
-      margin-bottom: 7px;
+      text-align:center;
+      font-size:23px;
+      margin-bottom:7px;
     }
 
     .login-card > p {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 27px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:27px;
     }
 
-    /* =========================
+    /* =====================================================
        APP
-    ========================= */
+    ===================================================== */
 
     #app {
-      display: none;
-      min-height: 100vh;
+      display:none;
+      min-height:100vh;
     }
 
     .layout {
-      display: flex;
-      min-height: 100vh;
+      display:flex;
+      min-height:100vh;
     }
 
-    /* =========================
+    /* =====================================================
        SIDEBAR
-    ========================= */
+    ===================================================== */
 
     .sidebar {
-      width: 275px;
-      flex-shrink: 0;
+      width:275px;
+      flex-shrink:0;
 
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      bottom: 14px;
+      position:fixed;
+      top:14px;
+      right:14px;
+      bottom:14px;
 
-      z-index: 100;
+      z-index:100;
 
-      display: flex;
-      flex-direction: column;
+      display:flex;
+      flex-direction:column;
 
-      padding: 18px 14px;
+      padding:17px 13px;
 
-      background: rgba(255,255,255,.66);
-
-      border: 1px solid rgba(255,255,255,.82);
-
-      border-radius: 27px;
-
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      background:rgba(255,255,255,.67);
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:26px;
 
       box-shadow:
-        0 20px 65px rgba(15,118,110,.10),
+        0 25px 70px rgba(15,118,110,.10),
         inset 0 1px 0 rgba(255,255,255,.85);
+
+      backdrop-filter:blur(25px);
+      -webkit-backdrop-filter:blur(25px);
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-
-      padding: 7px 8px 24px;
-
-      text-decoration: none;
-      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:11px;
+      padding:7px 8px 23px;
+      text-decoration:none;
+      color:var(--text);
     }
 
     .brand-icon {
-      width: 47px;
-      height: 47px;
-
-      border-radius: 16px;
+      width:47px;
+      height:47px;
+      border-radius:16px;
 
       background:
         linear-gradient(
@@ -281,235 +227,220 @@
           var(--primary2)
         );
 
-      color: #fff;
-
-      display: grid;
-      place-items: center;
-
-      flex-shrink: 0;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
 
       box-shadow:
-        0 10px 27px rgba(15,118,110,.19);
+        0 10px 28px rgba(15,118,110,.20);
     }
 
     .brand-icon svg {
-      width: 24px;
-      height: 24px;
+      width:24px;
+      height:24px;
     }
 
     .brand-text strong {
-      display: block;
-      font-size: 15px;
-      font-weight: 700;
+      display:block;
+      font-size:15px;
+      font-weight:700;
     }
 
     .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 10px;
-      margin-top: 2px;
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:2px;
     }
 
     .nav-title {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 10px 12px 8px;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:700;
+      padding:10px 12px 8px;
     }
 
     .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
     }
 
     .nav-btn {
-      min-height: 46px;
+      border:1px solid transparent;
+      background:transparent;
+      color:var(--muted);
 
-      padding: 0 13px;
+      min-height:46px;
+      padding:0 13px;
 
-      border-radius: 14px;
+      border-radius:14px;
 
-      background: transparent;
-      color: var(--muted);
+      display:flex;
+      align-items:center;
+      gap:11px;
 
-      display: flex;
-      align-items: center;
-      gap: 11px;
+      cursor:pointer;
+      text-align:right;
 
-      cursor: pointer;
+      font-size:13px;
+      font-weight:600;
 
-      text-align: right;
-
-      font-size: 13px;
-      font-weight: 600;
-
-      transition: .18s ease;
+      transition:.18s ease;
     }
 
     .nav-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
+      width:18px;
+      height:18px;
+      flex-shrink:0;
     }
 
     .nav-btn:hover {
-      color: var(--primary);
-      background: var(--soft);
-      transform: translateX(-2px);
+      color:var(--primary);
+      background:rgba(20,184,166,.07);
+      border-color:rgba(20,184,166,.10);
     }
 
     .nav-btn.active {
-      color: var(--primary);
-      background: var(--soft);
-      font-weight: 700;
+      color:var(--primary);
+      background:rgba(20,184,166,.11);
+      border-color:rgba(20,184,166,.12);
+      font-weight:700;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.5);
     }
 
     .sidebar-bottom {
-      margin-top: auto;
-
-      border-top: 1px solid rgba(15,118,110,.10);
-
-      padding-top: 15px;
+      margin-top:auto;
+      border-top:1px solid var(--border);
+      padding-top:15px;
     }
 
     .admin-user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      padding: 9px;
-
-      margin-bottom: 9px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:9px;
+      margin-bottom:9px;
     }
 
     .admin-avatar {
-      width: 39px;
-      height: 39px;
+      width:39px;
+      height:39px;
+      border-radius:13px;
 
-      border-radius: 13px;
+      background:rgba(20,184,166,.10);
+      color:var(--primary);
 
-      background: var(--soft);
-      color: var(--primary);
-
-      display: grid;
-      place-items: center;
-
-      flex-shrink: 0;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
     }
 
     .admin-avatar svg {
-      width: 18px;
+      width:18px;
     }
 
     .admin-email {
-      min-width: 0;
+      min-width:0;
     }
 
     .admin-email strong {
-      display: block;
-      font-size: 11px;
+      display:block;
+      font-size:11px;
     }
 
     .admin-email span {
-      display: block;
-      color: var(--muted);
-      font-size: 9px;
-      margin-top: 2px;
-
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display:block;
+      color:var(--muted);
+      font-size:9px;
+      margin-top:2px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
     }
 
-    /* =========================
+    /* =====================================================
        MAIN
-    ========================= */
+    ===================================================== */
 
     .main {
-      flex: 1;
-      min-width: 0;
-
-      margin-right: 303px;
+      flex:1;
+      margin-right:303px;
+      min-width:0;
     }
 
     .topbar {
-      height: 78px;
+      height:78px;
 
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position:sticky;
+      top:0;
+      z-index:50;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background:rgba(245,250,249,.70);
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
 
-      padding: 0 30px;
+      border-bottom:1px solid rgba(15,118,110,.10);
 
-      background: rgba(255,255,255,.58);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-      border-bottom: 1px solid rgba(255,255,255,.80);
-
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      padding:0 30px;
     }
 
     .topbar-title h2 {
-      font-size: 18px;
+      font-size:18px;
     }
 
     .topbar-title p {
-      color: var(--muted);
-      font-size: 10px;
-      margin-top: 2px;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:2px;
     }
 
     .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
     .mobile-menu {
-      display: none;
+      display:none;
     }
 
     .content {
-      width: 100%;
-      max-width: 1500px;
-
-      margin: auto;
-
-      padding: 28px 30px 50px;
+      max-width:1500px;
+      margin:auto;
+      padding:30px;
     }
 
-    /* =========================
+    /* =====================================================
        BUTTONS
-    ========================= */
+    ===================================================== */
 
     .btn {
-      height: 41px;
-      min-width: 41px;
+      height:41px;
+      min-width:41px;
+      padding:0 14px;
 
-      padding: 0 14px;
+      border:1px solid var(--border);
+      border-radius:13px;
 
-      border: 1px solid var(--border-solid);
+      background:rgba(255,255,255,.65);
+      color:var(--text);
 
-      border-radius: 13px;
+      font-weight:600;
+      font-size:12px;
 
-      background: rgba(255,255,255,.68);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
 
-      color: var(--text);
-
-      font-weight: 600;
-      font-size: 12px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-
-      cursor: pointer;
+      cursor:pointer;
 
       transition:
         transform .18s ease,
@@ -519,29 +450,16 @@
     }
 
     .btn:hover {
-      border-color: var(--primary2);
-
-      transform: translateY(-1px);
-
-      box-shadow:
-        0 8px 22px rgba(15,118,110,.09);
+      border-color:rgba(20,184,166,.35);
+      transform:translateY(-1px);
+      box-shadow:0 8px 22px rgba(15,118,110,.09);
     }
 
     .btn:active {
-      transform: translateY(0) scale(.98);
-    }
-
-    .btn svg {
-      width: 15px;
-      height: 15px;
-      flex: none;
+      transform:translateY(0) scale(.98);
     }
 
     .btn-primary {
-      color: #fff;
-
-      border-color: transparent;
-
       background:
         linear-gradient(
           135deg,
@@ -549,910 +467,886 @@
           var(--primary2)
         );
 
+      color:#fff;
+      border-color:transparent;
+
       box-shadow:
-        0 8px 22px rgba(15,118,110,.16);
+        0 9px 23px rgba(15,118,110,.17);
     }
 
     .btn-primary:hover {
-      border-color: transparent;
-
+      border-color:transparent;
       box-shadow:
-        0 12px 28px rgba(15,118,110,.22);
+        0 12px 28px rgba(15,118,110,.23);
     }
 
     .btn-danger {
-      background: rgba(254,242,242,.80);
-      color: var(--danger);
-      border-color: #fecaca;
+      background:rgba(220,38,38,.06);
+      color:var(--danger);
+      border-color:rgba(220,38,38,.16);
     }
 
     .btn-success {
-      background: rgba(240,253,244,.80);
-      color: var(--success);
-      border-color: #bbf7d0;
+      background:rgba(22,163,74,.07);
+      color:var(--success);
+      border-color:rgba(22,163,74,.18);
     }
 
     .btn-edit {
-      background: rgba(239,252,249,.85);
-      color: var(--primary);
-      border-color: #c8eee7;
-    }
-
-    .btn-soft {
-      background: var(--soft);
-      color: var(--primary);
-      border-color: rgba(20,184,166,.14);
+      background:rgba(20,184,166,.07);
+      color:var(--primary);
+      border-color:rgba(20,184,166,.16);
     }
 
     .actions {
-      display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
-      align-items: center;
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      align-items:center;
     }
 
     .actions .btn {
-      height: 35px;
-      padding: 0 10px;
+      height:35px;
+      padding:0 11px;
     }
 
-    /* =========================
+    .btn svg {
+      width:15px;
+      height:15px;
+      flex:none;
+    }
+
+    /* =====================================================
        PAGES
-    ========================= */
+    ===================================================== */
 
     .page {
-      display: none;
+      display:none;
     }
 
     .page.active {
-      display: block;
-      animation: pageIn .22s ease;
-    }
-
-    @keyframes pageIn {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      display:block;
     }
 
     .page-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 15px;
-
-      margin-bottom: 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      margin-bottom:21px;
     }
 
     .page-head h1 {
-      font-size: 25px;
+      font-size:25px;
     }
 
     .page-head p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 4px;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:4px;
     }
 
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 15px;
-
-      margin-bottom: 22px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,.62);
-
-      border: 1px solid rgba(255,255,255,.82);
-
-      border-radius: 20px;
-
-      padding: 19px;
-
-      box-shadow: var(--shadow);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .stat-icon {
-      width: 46px;
-      height: 46px;
-
-      border-radius: 14px;
-
-      background: var(--soft);
-      color: var(--primary);
-
-      display: grid;
-      place-items: center;
-
-      flex-shrink: 0;
-    }
-
-    .stat-icon svg {
-      width: 21px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 10px;
-      display: block;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      margin-top: 1px;
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
+    /* =====================================================
+       GLASS CARD
+    ===================================================== */
 
     .card {
-      background: rgba(255,255,255,.64);
+      background:rgba(255,255,255,.64);
 
-      border: 1px solid rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.85);
+      border-radius:var(--radius);
 
-      border-radius: var(--radius);
+      box-shadow:
+        var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.75);
 
-      box-shadow: var(--shadow);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
 
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-
-      padding: 20px;
-
-      margin-bottom: 20px;
+      padding:21px;
+      margin-bottom:20px;
     }
 
     .card-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      gap: 10px;
-
-      margin-bottom: 17px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:17px;
     }
 
     .card-head h3 {
-      font-size: 15px;
+      font-size:15px;
     }
 
     .card-head p {
-      color: var(--muted);
-      font-size: 10px;
-      margin-top: 3px;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:3px;
     }
 
-    /* =========================
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+      margin-bottom:22px;
+    }
+
+    .stat {
+      background:rgba(255,255,255,.63);
+      border:1px solid rgba(255,255,255,.86);
+      border-radius:19px;
+
+      padding:19px;
+
+      box-shadow:
+        var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.8);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .stat-icon {
+      width:47px;
+      height:47px;
+      border-radius:15px;
+
+      background:rgba(20,184,166,.10);
+      color:var(--primary);
+
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+
+    .stat-icon svg {
+      width:21px;
+    }
+
+    .stat span {
+      color:var(--muted);
+      font-size:10px;
+      display:block;
+    }
+
+    .stat strong {
+      display:block;
+      font-size:24px;
+      margin-top:1px;
+    }
+
+    /* =====================================================
        FORMS
-    ========================= */
+    ===================================================== */
 
     .form-grid {
-      display: grid;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
 
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 14px;
+    .form-grid.three {
+      grid-template-columns:repeat(3,1fr);
     }
 
     .field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
+      display:flex;
+      flex-direction:column;
+      gap:7px;
     }
 
     .field.full {
-      grid-column: 1 / -1;
+      grid-column:1/-1;
     }
 
     .field label {
-      font-size: 11px;
-      font-weight: 700;
+      font-size:11px;
+      font-weight:700;
     }
 
     .field small {
-      color: var(--muted);
-      font-size: 9px;
-      line-height: 1.7;
+      color:var(--muted);
+      font-size:9px;
+      line-height:1.7;
     }
 
     .field input,
     .field select,
     .field textarea {
-      width: 100%;
+      width:100%;
 
-      border: 1px solid var(--border-solid);
+      border:1px solid rgba(15,118,110,.12);
 
-      background: rgba(255,255,255,.62);
+      background:rgba(255,255,255,.60);
 
-      color: var(--text);
+      color:var(--text);
 
-      outline: none;
+      outline:none;
 
-      border-radius: 13px;
+      border-radius:13px;
 
-      padding: 0 13px;
+      padding:0 13px;
 
-      height: 44px;
+      height:44px;
 
-      font-size: 12px;
+      font-size:12px;
 
-      transition: .18s ease;
+      transition:.18s ease;
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.7);
     }
 
     .field textarea {
-      height: 90px;
-      padding: 11px 13px;
-      resize: vertical;
+      height:90px;
+      padding:11px 13px;
+      resize:vertical;
     }
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color: var(--primary2);
-
+      border-color:var(--primary2);
       box-shadow:
-        0 0 0 4px rgba(20,184,166,.08);
+        0 0 0 3px rgba(20,184,166,.08),
+        inset 0 1px 0 rgba(255,255,255,.8);
     }
 
     .checkbox-field {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
 
-      height: 44px;
+      height:44px;
+      padding:0 12px;
 
-      padding: 0 12px;
+      background:rgba(20,184,166,.06);
 
-      background: var(--surface2);
+      border:1px solid rgba(20,184,166,.13);
 
-      border: 1px solid var(--border-solid);
-
-      border-radius: 13px;
+      border-radius:13px;
     }
 
     .checkbox-field input {
-      width: 17px;
-      height: 17px;
-      accent-color: var(--primary);
+      width:17px;
+      height:17px;
+      accent-color:var(--primary);
     }
 
     .form-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 17px;
+      display:flex;
+      gap:8px;
+      margin-top:17px;
     }
 
-    /* =========================
+    /* =====================================================
        DRIVE
-    ========================= */
+    ===================================================== */
 
     .drive-box {
-      border: 1px solid rgba(20,184,166,.20);
+      border:1px solid rgba(20,184,166,.17);
 
       background:
         linear-gradient(
           135deg,
-          rgba(240,253,251,.80),
-          rgba(255,255,255,.52)
+          rgba(20,184,166,.09),
+          rgba(255,255,255,.55)
         );
 
-      border-radius: 19px;
+      border-radius:19px;
 
-      padding: 16px;
+      padding:16px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-      gap: 15px;
+      gap:15px;
     }
 
     .drive-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      min-width: 0;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
     }
 
     .drive-icon {
-      width: 46px;
-      height: 46px;
+      width:46px;
+      height:46px;
+      border-radius:14px;
 
-      border-radius: 14px;
+      background:rgba(20,184,166,.10);
 
-      background: var(--soft);
+      color:var(--primary);
 
-      color: var(--primary);
+      display:grid;
+      place-items:center;
 
-      display: grid;
-      place-items: center;
-
-      flex-shrink: 0;
+      flex-shrink:0;
     }
 
     .drive-icon svg {
-      width: 23px;
+      width:23px;
     }
 
     .drive-info strong {
-      display: block;
-      font-size: 13px;
+      display:block;
+      font-size:13px;
     }
 
     .drive-info span {
-      display: block;
-      color: var(--muted);
-      font-size: 10px;
-      margin-top: 3px;
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:3px;
     }
 
     .drive-status.connected {
-      color: var(--success);
+      color:var(--success);
     }
 
     .file-picker {
-      border: 1px dashed #9bded5;
-
-      background: var(--soft);
-
-      border-radius: 15px;
-
-      padding: 15px;
+      border:1px dashed rgba(20,184,166,.38);
+      background:rgba(20,184,166,.06);
+      border-radius:15px;
+      padding:15px;
     }
 
     .file-picker input {
-      width: 100%;
-      font-size: 11px;
+      width:100%;
+      font-size:11px;
     }
 
     .selected-file {
-      margin-top: 8px;
-
-      color: var(--primary);
-
-      font-size: 10px;
-
-      font-weight: 600;
-
-      word-break: break-word;
+      margin-top:8px;
+      color:var(--primary);
+      font-size:10px;
+      font-weight:600;
+      word-break:break-word;
     }
 
-    /* =========================
-       RESOURCE FILTERS
-    ========================= */
+    /* =====================================================
+       RESOURCE FILTER
+    ===================================================== */
 
-    .resource-filter-box {
-      padding: 17px;
-
-      margin-bottom: 20px;
-
-      border-radius: 20px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(240,253,251,.72),
-          rgba(255,255,255,.52)
-        );
-
-      border: 1px solid rgba(20,184,166,.14);
+    .resource-filter {
+      display:grid;
+      grid-template-columns:1fr 1fr 1.4fr auto;
+      gap:10px;
+      margin-bottom:17px;
     }
 
-    .filter-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 10px;
-
-      margin-bottom: 13px;
+    .filter-box {
+      position:relative;
     }
 
-    .filter-title strong {
-      font-size: 13px;
+    .filter-box select,
+    .filter-box input {
+      width:100%;
+      height:43px;
+
+      border:1px solid rgba(15,118,110,.12);
+      border-radius:13px;
+
+      background:rgba(255,255,255,.60);
+      color:var(--text);
+
+      outline:none;
+
+      padding:0 13px;
+      font-size:11px;
     }
 
-    .filter-title span {
-      color: var(--muted);
-      font-size: 9px;
+    .filter-box input:focus,
+    .filter-box select:focus {
+      border-color:var(--primary2);
+      box-shadow:0 0 0 3px rgba(20,184,166,.08);
     }
 
-    .resource-filters {
-      display: grid;
+    .resource-order-info {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
 
-      grid-template-columns:
-        1fr 1fr auto;
+      padding:12px 14px;
+      margin-bottom:14px;
 
-      gap: 10px;
+      background:rgba(20,184,166,.06);
+      border:1px solid rgba(20,184,166,.12);
+      border-radius:14px;
+
+      font-size:10px;
+      color:var(--muted);
     }
 
-    .filter-select {
-      height: 43px;
-
-      width: 100%;
-
-      padding: 0 12px;
-
-      border-radius: 12px;
-
-      border: 1px solid var(--border-solid);
-
-      background: rgba(255,255,255,.70);
-
-      color: var(--text);
-
-      outline: none;
-
-      font-family: inherit;
-
-      font-size: 11px;
+    .resource-order-info strong {
+      color:var(--primary);
     }
 
-    .filter-select:focus {
-      border-color: var(--primary2);
-
-      box-shadow:
-        0 0 0 3px rgba(20,184,166,.08);
-    }
-
-    .filter-result {
-      margin-top: 10px;
-
-      color: var(--muted);
-
-      font-size: 10px;
-    }
-
-    .filter-result strong {
-      color: var(--primary);
-    }
-
-    /* =========================
-       DRAG DROP
-    ========================= */
+    /* =====================================================
+       DRAG RESOURCE
+    ===================================================== */
 
     .drag-handle {
-      width: 33px;
-      height: 33px;
+      width:34px;
+      height:34px;
 
-      border-radius: 10px;
+      border-radius:10px;
 
-      display: grid;
-      place-items: center;
+      display:grid;
+      place-items:center;
 
-      background: var(--soft);
+      color:var(--muted);
+      background:rgba(20,184,166,.05);
 
-      color: var(--primary);
+      cursor:grab;
 
-      cursor: grab;
-
-      flex-shrink: 0;
+      border:1px solid rgba(20,184,166,.08);
     }
 
     .drag-handle:active {
-      cursor: grabbing;
+      cursor:grabbing;
     }
 
     .drag-handle svg {
-      width: 16px;
-      height: 16px;
+      width:17px;
+      height:17px;
     }
 
-    tr.resource-row {
+    .resource-row {
       transition:
-        opacity .15s ease,
-        transform .15s ease,
-        background .15s ease;
+        opacity .18s ease,
+        transform .18s ease,
+        background .18s ease;
     }
 
-    tr.resource-row.dragging {
-      opacity: .35;
+    .resource-row.dragging {
+      opacity:.35;
     }
 
-    tr.resource-row.drag-over td {
-      border-top: 2px solid var(--primary2);
-      background: rgba(20,184,166,.055);
+    .resource-row.drag-over td {
+      background:rgba(20,184,166,.08) !important;
+      border-top:2px solid var(--primary2);
     }
 
-    .order-number {
-      min-width: 34px;
-      height: 30px;
+    .resource-number {
+      width:35px;
+      height:35px;
 
-      padding: 0 8px;
+      display:grid;
+      place-items:center;
 
-      display: inline-grid;
-      place-items: center;
+      border-radius:11px;
 
-      border-radius: 9px;
+      background:rgba(20,184,166,.09);
+      color:var(--primary);
 
-      background: var(--soft);
+      font-weight:700;
+      font-size:11px;
 
-      color: var(--primary);
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      border: 1px solid rgba(20,184,166,.12);
-    }
-
-    /* =========================
-       TABLE
-    ========================= */
-
-    .table-wrap {
-      width: 100%;
-      overflow: auto;
-
-      border: 1px solid rgba(220,233,230,.90);
-
-      border-radius: 17px;
-
-      background: rgba(255,255,255,.30);
-    }
-
-    table {
-      width: 100%;
-
-      border-collapse: collapse;
-
-      min-width: 920px;
-    }
-
-    th {
-      background: rgba(240,244,243,.76);
-
-      color: var(--muted);
-
-      font-size: 10px;
-
-      font-weight: 700;
-
-      text-align: right;
-
-      padding: 12px 14px;
-
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 13px 14px;
-
-      border-top: 1px solid rgba(225,232,230,.82);
-
-      font-size: 11px;
-
-      vertical-align: middle;
-    }
-
-    tr:hover td {
-      background: rgba(20,184,166,.025);
-    }
-
-    .empty {
-      padding: 35px;
-
-      text-align: center;
-
-      color: var(--muted);
-
-      font-size: 12px;
-    }
-
-    .badge {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 5px;
-
-      padding: 5px 8px;
-
-      border-radius: 8px;
-
-      font-size: 9px;
-
-      font-weight: 700;
-    }
-
-    .badge.success {
-      background: #f0fdf4;
-      color: var(--success);
-    }
-
-    .badge.warning {
-      background: #fff7ed;
-      color: var(--warning);
-    }
-
-    .badge.gray {
-      background: var(--surface2);
-      color: var(--muted);
+      border:1px solid rgba(20,184,166,.10);
     }
 
     .resource-title {
-      font-weight: 700;
-      max-width: 250px;
+      font-weight:700;
+      max-width:260px;
     }
 
     .resource-desc {
-      color: var(--muted);
-      font-size: 9px;
-      margin-top: 3px;
-      max-width: 260px;
+      color:var(--muted);
+      font-size:9px;
+      margin-top:3px;
+      max-width:280px;
+    }
+
+    /* =====================================================
+       TABLE
+    ===================================================== */
+
+    .table-wrap {
+      width:100%;
+      overflow:auto;
+
+      border:1px solid rgba(15,118,110,.10);
+      border-radius:17px;
+
+      background:rgba(255,255,255,.27);
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+    }
+
+    th {
+      background:rgba(240,247,245,.65);
+      color:var(--muted);
+
+      font-size:10px;
+      font-weight:700;
+
+      text-align:right;
+
+      padding:13px 14px;
+
+      white-space:nowrap;
+    }
+
+    td {
+      padding:13px 14px;
+
+      border-top:1px solid rgba(15,118,110,.08);
+
+      font-size:11px;
+
+      vertical-align:middle;
+    }
+
+    tr:hover td {
+      background:rgba(20,184,166,.025);
+    }
+
+    .empty {
+      padding:38px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .order-badge {
+      display:inline-grid;
+      place-items:center;
+
+      min-width:34px;
+      height:29px;
+
+      padding:0 8px;
+
+      border-radius:9px;
+
+      background:rgba(20,184,166,.09);
+      color:var(--primary);
+
+      font-size:11px;
+      font-weight:700;
+
+      border:1px solid rgba(20,184,166,.11);
+    }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+
+      padding:5px 8px;
+
+      border-radius:8px;
+
+      font-size:9px;
+      font-weight:700;
+    }
+
+    .badge.success {
+      background:rgba(22,163,74,.07);
+      color:var(--success);
+    }
+
+    .badge.warning {
+      background:rgba(217,119,6,.08);
+      color:var(--warning);
+    }
+
+    .badge.gray {
+      background:rgba(113,128,124,.08);
+      color:var(--muted);
     }
 
     .url-cell {
-      max-width: 170px;
+      max-width:170px;
     }
 
     .url-cell a {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 9px;
-      word-break: break-all;
+      color:var(--primary);
+      text-decoration:none;
+      font-size:9px;
+      word-break:break-all;
     }
 
-    /* =========================
-       ORDER NOTICE
-    ========================= */
-
-    .order-notice {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      padding: 12px 14px;
-
-      margin-bottom: 15px;
-
-      background: rgba(20,184,166,.07);
-
-      border: 1px solid rgba(20,184,166,.13);
-
-      border-radius: 14px;
-
-      color: var(--muted);
-
-      font-size: 10px;
-      line-height: 1.7;
-    }
-
-    .order-notice svg {
-      width: 19px;
-      height: 19px;
-
-      color: var(--primary);
-
-      flex-shrink: 0;
-    }
-
-    /* =========================
+    /* =====================================================
        TOAST
-    ========================= */
+    ===================================================== */
 
     #toastContainer {
-      position: fixed;
+      position:fixed;
+      left:20px;
+      bottom:20px;
 
-      left: 20px;
-      bottom: 20px;
+      z-index:9999;
 
-      z-index: 9999;
+      display:flex;
+      flex-direction:column;
+      gap:9px;
 
-      display: flex;
-      flex-direction: column;
-
-      gap: 9px;
-
-      width:
-        min(
-          370px,
-          calc(100vw - 40px)
-        );
+      width:min(380px,calc(100vw - 40px));
     }
 
     .toast {
-      background: #17211f;
+      background:rgba(23,33,31,.93);
+      color:#fff;
 
-      color: #fff;
+      border-radius:15px;
 
-      border-radius: 15px;
+      padding:13px 15px;
 
-      padding: 13px 15px;
+      font-size:11px;
 
-      font-size: 11px;
+      box-shadow:0 15px 40px rgba(0,0,0,.18);
 
-      box-shadow:
-        0 14px 35px rgba(0,0,0,.18);
+      animation:toastIn .25s ease;
 
-      animation:
-        toastIn .25s ease;
+      backdrop-filter:blur(15px);
     }
 
     .toast.success {
-      background: #166534;
+      background:rgba(22,101,52,.94);
     }
 
     .toast.error {
-      background: #991b1b;
+      background:rgba(153,27,27,.94);
     }
 
     @keyframes toastIn {
       from {
-        opacity: 0;
-        transform: translateY(10px);
+        opacity:0;
+        transform:translateY(10px);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity:1;
+        transform:translateY(0);
       }
     }
 
     .loading {
-      opacity: .65;
-      pointer-events: none;
+      opacity:.65;
+      pointer-events:none;
     }
 
-    /* =========================
+    /* =====================================================
+       DARK
+    ===================================================== */
+
+    body.dark {
+      --bg:#07100f;
+      --surface:rgba(16,24,23,.72);
+      --surface-solid:#101817;
+      --surface2:rgba(22,33,31,.72);
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:rgba(45,212,191,.14);
+      --shadow:0 20px 65px rgba(0,0,0,.25);
+    }
+
+    body.dark {
+      background:
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(20,184,166,.09),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          rgba(15,118,110,.08),
+          transparent 28%
+        ),
+        var(--bg);
+    }
+
+    body.dark .sidebar,
+    body.dark .card,
+    body.dark .stat,
+    body.dark .login-card {
+      background:rgba(16,24,23,.70);
+      border-color:rgba(255,255,255,.07);
+    }
+
+    body.dark .topbar {
+      background:rgba(7,16,15,.72);
+    }
+
+    body.dark .field input,
+    body.dark .field select,
+    body.dark .field textarea,
+    body.dark .filter-box input,
+    body.dark .filter-box select,
+    body.dark .btn {
+      background:rgba(16,24,23,.68);
+      color:var(--text);
+      border-color:rgba(45,212,191,.12);
+    }
+
+    body.dark th {
+      background:rgba(22,33,31,.70);
+    }
+
+    body.dark .drive-box {
+      background:rgba(20,184,166,.06);
+      border-color:rgba(20,184,166,.22);
+    }
+
+    /* =====================================================
        MOBILE
-    ========================= */
+    ===================================================== */
 
-    @media(max-width: 1050px) {
+    @media(max-width:1100px) {
+
       .stats {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
-      .resource-filters {
-        grid-template-columns: 1fr 1fr;
+      .form-grid.three {
+        grid-template-columns:repeat(2,1fr);
       }
 
-      .resource-filters .btn {
-        width: 100%;
+      .resource-filter {
+        grid-template-columns:1fr 1fr;
       }
+
     }
 
-    @media(max-width: 800px) {
+    @media(max-width:800px) {
+
       .sidebar {
-        transform: translateX(110%);
+        transform:translateX(110%);
+        transition:.25s ease;
 
-        transition: .25s ease;
+        top:0;
+        right:0;
+        bottom:0;
 
-        box-shadow:
-          0 0 60px rgba(0,0,0,.16);
+        border-radius:0 0 0 24px;
       }
 
       .sidebar.open {
-        transform: translateX(0);
+        transform:translateX(0);
       }
 
       .main {
-        margin-right: 0;
+        margin-right:0;
       }
 
       .mobile-menu {
-        display: inline-flex;
+        display:inline-flex;
       }
 
       .topbar {
-        padding: 0 15px;
+        padding:0 15px;
       }
 
       .content {
-        padding: 18px 15px 35px;
+        padding:18px 15px;
       }
 
       .page-head {
-        align-items: flex-start;
+        align-items:flex-start;
       }
 
       .page-head h1 {
-        font-size: 20px;
+        font-size:20px;
       }
+
     }
 
-    @media(max-width: 600px) {
+    @media(max-width:600px) {
+
       .stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 9px;
+        grid-template-columns:1fr 1fr;
+        gap:9px;
       }
 
       .stat {
-        padding: 13px;
-        gap: 9px;
+        padding:13px;
+        gap:9px;
       }
 
       .stat-icon {
-        width: 38px;
-        height: 38px;
+        width:38px;
+        height:38px;
       }
 
       .stat strong {
-        font-size: 19px;
+        font-size:19px;
       }
 
       .stat span {
-        font-size: 8px;
+        font-size:8px;
       }
 
-      .form-grid {
-        grid-template-columns: 1fr;
+      .form-grid,
+      .form-grid.three {
+        grid-template-columns:1fr;
       }
 
       .field.full {
-        grid-column: auto;
+        grid-column:auto;
       }
 
       .card {
-        padding: 15px;
-        border-radius: 18px;
+        padding:15px;
+        border-radius:17px;
       }
 
       .drive-box {
-        align-items: flex-start;
-        flex-direction: column;
+        align-items:flex-start;
+        flex-direction:column;
       }
 
       .form-actions {
-        flex-direction: column;
+        flex-direction:column;
       }
 
       .form-actions .btn {
-        width: 100%;
+        width:100%;
       }
 
       .topbar-title p {
-        display: none;
+        display:none;
       }
 
       .login-card {
-        padding: 25px 20px;
+        padding:25px 20px;
       }
 
-      .resource-filters {
-        grid-template-columns: 1fr;
+      .resource-filter {
+        grid-template-columns:1fr;
       }
 
-      .filter-title {
-        align-items: flex-start;
-        flex-direction: column;
-      }
     }
+
   </style>
+
 </head>
 
 <body>
 
   <!-- =====================================================
        LOGIN
-  ====================================================== -->
+  ===================================================== -->
 
   <section id="loginScreen">
 
@@ -1475,17 +1369,13 @@
 
       <h1>لوحة تحكم مساعد توجيهي</h1>
 
-      <p>
-        سجّل الدخول لإدارة محتوى المنصة
-      </p>
+      <p>سجّل الدخول لإدارة محتوى المنصة</p>
 
       <form id="loginForm">
 
         <div class="field">
 
-          <label>
-            البريد الإلكتروني
-          </label>
+          <label>البريد الإلكتروني</label>
 
           <input
             id="loginEmail"
@@ -1501,9 +1391,7 @@
           style="margin-top:13px;"
         >
 
-          <label>
-            كلمة المرور
-          </label>
+          <label>كلمة المرور</label>
 
           <input
             id="loginPassword"
@@ -1517,11 +1405,7 @@
         <button
           type="submit"
           class="btn btn-primary"
-          style="
-            width:100%;
-            height:47px;
-            margin-top:17px;
-          "
+          style="width:100%;height:47px;margin-top:17px;"
         >
           تسجيل الدخول
         </button>
@@ -1535,7 +1419,7 @@
 
   <!-- =====================================================
        APP
-  ====================================================== -->
+  ===================================================== -->
 
   <section id="app">
 
@@ -1570,13 +1454,9 @@
 
           <div class="brand-text">
 
-            <strong>
-              مساعد توجيهي
-            </strong>
+            <strong>مساعد توجيهي</strong>
 
-            <span>
-              لوحة التحكم
-            </span>
+            <span>لوحة التحكم</span>
 
           </div>
 
@@ -1714,9 +1594,7 @@
 
             <div class="admin-email">
 
-              <strong>
-                المدير
-              </strong>
+              <strong>المدير</strong>
 
               <span id="adminEmail"></span>
 
@@ -1797,7 +1675,7 @@
 
           <!-- =================================================
                DASHBOARD
-          ================================================== -->
+          ================================================= -->
 
           <section
             class="page active"
@@ -1808,9 +1686,7 @@
 
               <div>
 
-                <h1>
-                  الرئيسية
-                </h1>
+                <h1>الرئيسية</h1>
 
                 <p>
                   نظرة سريعة على محتوى الموقع
@@ -1841,9 +1717,7 @@
 
                 <div>
 
-                  <span>
-                    الأجيال
-                  </span>
+                  <span>الأجيال</span>
 
                   <strong id="statGenerations">
                     0
@@ -1872,9 +1746,7 @@
 
                 <div>
 
-                  <span>
-                    المواد
-                  </span>
+                  <span>المواد</span>
 
                   <strong id="statSubjects">
                     0
@@ -1902,9 +1774,7 @@
 
                 <div>
 
-                  <span>
-                    الأقسام
-                  </span>
+                  <span>الأقسام</span>
 
                   <strong id="statSections">
                     0
@@ -1932,9 +1802,7 @@
 
                 <div>
 
-                  <span>
-                    الملفات والموارد
-                  </span>
+                  <span>الملفات والموارد</span>
 
                   <strong id="statResources">
                     0
@@ -2001,7 +1869,7 @@
 
           <!-- =================================================
                GENERATIONS
-          ================================================== -->
+          ================================================= -->
 
           <section
             class="page"
@@ -2012,9 +1880,7 @@
 
               <div>
 
-                <h1>
-                  الأجيال
-                </h1>
+                <h1>الأجيال</h1>
 
                 <p>
                   إدارة أجيال التوجيهي وترتيبها
@@ -2061,9 +1927,7 @@
 
                   <div class="field">
 
-                    <label>
-                      اسم الجيل
-                    </label>
+                    <label>اسم الجيل</label>
 
                     <input
                       id="generationName"
@@ -2076,9 +1940,7 @@
 
                   <div class="field">
 
-                    <label>
-                      العام
-                    </label>
+                    <label>العام</label>
 
                     <input
                       id="generationYear"
@@ -2092,9 +1954,7 @@
 
                   <div class="field full">
 
-                    <label>
-                      الوصف
-                    </label>
+                    <label>الوصف</label>
 
                     <textarea
                       id="generationDescription"
@@ -2162,7 +2022,7 @@
 
           <!-- =================================================
                SUBJECTS
-          ================================================== -->
+          ================================================= -->
 
           <section
             class="page"
@@ -2173,12 +2033,10 @@
 
               <div>
 
-                <h1>
-                  المواد
-                </h1>
+                <h1>المواد</h1>
 
                 <p>
-                  إدارة المواد وترتيب ظهورها
+                  ترتيب المواد داخل كل جيل
                 </p>
 
               </div>
@@ -2208,7 +2066,7 @@
                   </h3>
 
                   <p>
-                    اربط المادة بالجيل المناسب
+                    المادة تكون مرتبطة بجيل محدد
                   </p>
 
                 </div>
@@ -2222,19 +2080,15 @@
 
                   <div class="field">
 
-                    <label>
-                      الجيل
-                    </label>
+                    <label>الجيل</label>
 
                     <select
                       id="subjectGeneration"
                       required
                     >
-
                       <option value="">
                         اختر الجيل
                       </option>
-
                     </select>
 
                   </div>
@@ -2242,9 +2096,7 @@
 
                   <div class="field">
 
-                    <label>
-                      اسم المادة
-                    </label>
+                    <label>اسم المادة</label>
 
                     <input
                       id="subjectName"
@@ -2257,9 +2109,7 @@
 
                   <div class="field">
 
-                    <label>
-                      المعرف Slug
-                    </label>
+                    <label>المعرف Slug</label>
 
                     <input
                       id="subjectSlug"
@@ -2275,9 +2125,7 @@
 
                   <div class="field">
 
-                    <label>
-                      ترتيب المادة
-                    </label>
+                    <label>الترتيب داخل الجيل</label>
 
                     <input
                       id="subjectOrder"
@@ -2286,14 +2134,16 @@
                       min="1"
                     >
 
+                    <small>
+                      إذا كان الرقم مستخدماً سيُعطى رقم جديد تلقائياً.
+                    </small>
+
                   </div>
 
 
                   <div class="field full">
 
-                    <label>
-                      الوصف
-                    </label>
+                    <label>الوصف</label>
 
                     <textarea
                       id="subjectDescription"
@@ -2311,11 +2161,9 @@
                     type="submit"
                     class="btn btn-primary"
                   >
-
                     <span id="subjectSubmitText">
                       حفظ المادة
                     </span>
-
                   </button>
 
                   <button
@@ -2364,7 +2212,7 @@
 
           <!-- =================================================
                SECTIONS
-          ================================================== -->
+          ================================================= -->
 
           <section
             class="page"
@@ -2375,9 +2223,7 @@
 
               <div>
 
-                <h1>
-                  الأقسام
-                </h1>
+                <h1>الأقسام</h1>
 
                 <p>
                   إدارة أقسام المواد وترتيبها
@@ -2410,7 +2256,7 @@
                   </h3>
 
                   <p>
-                    اختر المادة التابعة للقسم
+                    كل قسم تابع لمادة محددة
                   </p>
 
                 </div>
@@ -2424,19 +2270,15 @@
 
                   <div class="field">
 
-                    <label>
-                      المادة
-                    </label>
+                    <label>المادة</label>
 
                     <select
                       id="sectionSubject"
                       required
                     >
-
                       <option value="">
                         اختر المادة
                       </option>
-
                     </select>
 
                   </div>
@@ -2444,9 +2286,7 @@
 
                   <div class="field">
 
-                    <label>
-                      اسم القسم
-                    </label>
+                    <label>اسم القسم</label>
 
                     <input
                       id="sectionName"
@@ -2459,9 +2299,7 @@
 
                   <div class="field">
 
-                    <label>
-                      الترتيب
-                    </label>
+                    <label>الترتيب</label>
 
                     <input
                       id="sectionOrder"
@@ -2470,14 +2308,16 @@
                       min="1"
                     >
 
+                    <small>
+                      إذا كان الرقم مستخدماً سيُعطى رقم جديد.
+                    </small>
+
                   </div>
 
 
                   <div class="field full">
 
-                    <label>
-                      الوصف
-                    </label>
+                    <label>الوصف</label>
 
                     <textarea
                       id="sectionDescription"
@@ -2495,11 +2335,9 @@
                     type="submit"
                     class="btn btn-primary"
                   >
-
                     <span id="sectionSubmitText">
                       حفظ القسم
                     </span>
-
                   </button>
 
                   <button
@@ -2548,7 +2386,7 @@
 
           <!-- =================================================
                RESOURCES
-          ================================================== -->
+          ================================================= -->
 
           <section
             class="page"
@@ -2559,12 +2397,10 @@
 
               <div>
 
-                <h1>
-                  الملفات والموارد
-                </h1>
+                <h1>الملفات والموارد</h1>
 
                 <p>
-                  إدارة الملفات والروابط التي تظهر للطلاب
+                  الملفات مرتبة حسب الجيل ثم المادة
                 </p>
 
               </div>
@@ -2631,72 +2467,7 @@
             </div>
 
 
-            <!-- FILTER -->
-
-            <div class="card resource-filter-box">
-
-              <div class="filter-title">
-
-                <strong>
-                  ترتيب وإدارة الملفات
-                </strong>
-
-                <span>
-                  الترتيب مستقل لكل مادة
-                </span>
-
-              </div>
-
-
-              <div class="resource-filters">
-
-                <select
-                  id="resourceGenerationFilter"
-                  class="filter-select"
-                >
-
-                  <option value="">
-                    كل الأجيال
-                  </option>
-
-                </select>
-
-
-                <select
-                  id="resourceSubjectFilter"
-                  class="filter-select"
-                  disabled
-                >
-
-                  <option value="">
-                    اختر الجيل أولاً
-                  </option>
-
-                </select>
-
-
-                <button
-                  class="btn btn-soft"
-                  type="button"
-                  onclick="resetResourceFilters()"
-                >
-                  إعادة ضبط
-                </button>
-
-              </div>
-
-
-              <div
-                class="filter-result"
-                id="resourceFilterResult"
-              >
-                اختر الجيل والمادة لإدارة ترتيب الملفات.
-              </div>
-
-            </div>
-
-
-            <!-- FORM -->
+            <!-- RESOURCE FORM -->
 
             <div
               class="card"
@@ -2713,7 +2484,7 @@
                   </h3>
 
                   <p>
-                    يمكنك رفع PDF مباشرة إلى Google Drive
+                    اختر الجيل والمادة ثم أضف الملف
                   </p>
 
                 </div>
@@ -2727,19 +2498,15 @@
 
                   <div class="field">
 
-                    <label>
-                      المادة
-                    </label>
+                    <label>الجيل</label>
 
                     <select
-                      id="resourceSubject"
+                      id="resourceGeneration"
                       required
                     >
-
                       <option value="">
-                        اختر المادة
+                        اختر الجيل
                       </option>
-
                     </select>
 
                   </div>
@@ -2747,9 +2514,24 @@
 
                   <div class="field">
 
-                    <label>
-                      القسم
-                    </label>
+                    <label>المادة</label>
+
+                    <select
+                      id="resourceSubject"
+                      required
+                      disabled
+                    >
+                      <option value="">
+                        اختر الجيل أولاً
+                      </option>
+                    </select>
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>القسم</label>
 
                     <select id="resourceSection">
 
@@ -2764,9 +2546,7 @@
 
                   <div class="field">
 
-                    <label>
-                      عنوان المورد
-                    </label>
+                    <label>عنوان المورد</label>
 
                     <input
                       id="resourceTitle"
@@ -2779,9 +2559,7 @@
 
                   <div class="field">
 
-                    <label>
-                      النوع
-                    </label>
+                    <label>النوع</label>
 
                     <select id="resourceType">
 
@@ -2810,11 +2588,27 @@
                   </div>
 
 
+                  <div class="field">
+
+                    <label>الترتيب داخل المادة</label>
+
+                    <input
+                      id="resourceOrder"
+                      type="number"
+                      value="1"
+                      min="1"
+                    >
+
+                    <small>
+                      إذا كان الرقم مستخدماً، سيتم إنشاء رقم جديد تلقائياً.
+                    </small>
+
+                  </div>
+
+
                   <div class="field full">
 
-                    <label>
-                      ملف PDF
-                    </label>
+                    <label>ملف PDF</label>
 
                     <div class="file-picker">
 
@@ -2832,7 +2626,7 @@
                       </div>
 
                       <small>
-                        عند اختيار PDF سيتم رفعه تلقائياً إلى Google Drive عند حفظ المورد.
+                        عند اختيار PDF سيتم رفعه إلى Google Drive عند حفظ المورد.
                       </small>
 
                     </div>
@@ -2842,9 +2636,7 @@
 
                   <div class="field full">
 
-                    <label>
-                      الرابط
-                    </label>
+                    <label>الرابط</label>
 
                     <input
                       id="resourceUrl"
@@ -2853,7 +2645,7 @@
                     >
 
                     <small>
-                      إذا رفعت PDF سيتم إنشاء الرابط تلقائياً.
+                      عند رفع PDF سيتم إنشاء الرابط تلقائياً.
                     </small>
 
                   </div>
@@ -2861,29 +2653,7 @@
 
                   <div class="field">
 
-                    <label>
-                      رقم الترتيب
-                    </label>
-
-                    <input
-                      id="resourceOrder"
-                      type="number"
-                      value="1"
-                      min="1"
-                    >
-
-                    <small>
-                      الترتيب خاص بهذه المادة فقط. إذا كان الرقم مستخدماً، سيُعطى الرقم التالي تلقائياً.
-                    </small>
-
-                  </div>
-
-
-                  <div class="field">
-
-                    <label>
-                      الحالة
-                    </label>
+                    <label>الحالة</label>
 
                     <label class="checkbox-field">
 
@@ -2904,9 +2674,7 @@
 
                   <div class="field full">
 
-                    <label>
-                      الوصف
-                    </label>
+                    <label>الوصف</label>
 
                     <textarea
                       id="resourceDescription"
@@ -2932,7 +2700,6 @@
 
                   </button>
 
-
                   <button
                     type="button"
                     class="btn"
@@ -2948,7 +2715,7 @@
             </div>
 
 
-            <!-- RESOURCES TABLE -->
+            <!-- RESOURCE LIST -->
 
             <div class="card">
 
@@ -2957,11 +2724,11 @@
                 <div>
 
                   <h3>
-                    ملفات المادة
+                    ترتيب الملفات
                   </h3>
 
                   <p>
-                    اسحب الملفات وأفلتها لتغيير ترتيبها
+                    اسحب الملفات لتغيير ترتيبها داخل المادة المحددة
                   </p>
 
                 </div>
@@ -2969,22 +2736,71 @@
               </div>
 
 
-              <div class="order-notice">
+              <div class="resource-filter">
 
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <div class="filter-box">
+
+                  <select id="resourceFilterGeneration">
+
+                    <option value="">
+                      كل الأجيال
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="filter-box">
+
+                  <select
+                    id="resourceFilterSubject"
+                    disabled
+                  >
+
+                    <option value="">
+                      اختر الجيل أولاً
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="filter-box">
+
+                  <input
+                    id="resourceSearch"
+                    type="search"
+                    placeholder="ابحث باسم الملف..."
+                  >
+
+                </div>
+
+
+                <button
+                  class="btn"
+                  id="clearResourceFilter"
+                  type="button"
                 >
-                  <circle cx="12" cy="12" r="9"/>
-                  <path d="M12 8v4l3 2"/>
-                </svg>
+                  مسح
+                </button>
+
+              </div>
+
+
+              <div
+                class="resource-order-info"
+                id="resourceOrderInfo"
+              >
 
                 <span>
-                  اختر الجيل ثم المادة. ترتيب الملفات هنا منفصل عن باقي المواد.
-                  عند السحب والإفلات سيتم حفظ الترتيب مباشرة في Firestore.
+                  اختر جيلاً ومادة لعرض ترتيب الملفات الخاص بها.
                 </span>
+
+                <strong>
+                  0 ملف
+                </strong>
 
               </div>
 
@@ -2998,11 +2814,11 @@
                     <tr>
 
                       <th>
-                        السحب
+                        سحب
                       </th>
 
                       <th>
-                        الترتيب
+                        #
                       </th>
 
                       <th>
@@ -3033,7 +2849,9 @@
 
                   </thead>
 
-                  <tbody id="resourcesTable"></tbody>
+                  <tbody
+                    id="resourcesTable"
+                  ></tbody>
 
                 </table>
 
@@ -3057,7 +2875,7 @@
 
   <!-- =====================================================
        JAVASCRIPT
-  ====================================================== -->
+  ===================================================== -->
 
   <script type="module">
 
@@ -3067,7 +2885,6 @@
       db,
 
       onAuthStateChanged,
-
       signInWithEmailAndPassword,
       signOut,
 
@@ -3077,9 +2894,6 @@
       updateDoc,
       deleteDoc,
       doc,
-
-      writeBatch,
-
       serverTimestamp
 
     } from "./firebase-config.js";
@@ -3101,7 +2915,7 @@
 
     function waitForGoogleIdentity() {
 
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve,reject) => {
 
         const start = Date.now();
 
@@ -3131,7 +2945,7 @@
 
           }
 
-        }, 100);
+        },100);
 
       });
 
@@ -3153,39 +2967,38 @@
             scope:
               DRIVE_SCOPE,
 
-            callback:
-              (response) => {
+            callback:(response) => {
 
-                if (response.error) {
+              if (response.error) {
 
-                  console.error(response);
-
-                  toast(
-                    "تعذر ربط Google Drive",
-                    "error"
-                  );
-
-                  return;
-
-                }
-
-                driveAccessToken =
-                  response.access_token;
-
-                setDriveConnected(true);
+                console.error(response);
 
                 toast(
-                  "تم ربط Google Drive بنجاح",
-                  "success"
+                  "تعذر ربط Google Drive",
+                  "error"
                 );
 
+                return;
+
               }
+
+              driveAccessToken =
+                response.access_token;
+
+              setDriveConnected(true);
+
+              toast(
+                "تم ربط Google Drive بنجاح",
+                "success"
+              );
+
+            }
 
           });
 
       }
 
-      catch (error) {
+      catch(error) {
 
         console.error(error);
 
@@ -3231,12 +3044,12 @@
           }
 
           driveTokenClient.requestAccessToken({
-            prompt: "consent"
+            prompt:"consent"
           });
 
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -3319,42 +3132,40 @@
 
       }
 
-      return new Promise(
-        (resolve, reject) => {
+      return new Promise((resolve,reject) => {
 
-          driveTokenClient.callback =
-            (response) => {
+        driveTokenClient.callback =
+          (response) => {
 
-              if (response.error) {
+            if (response.error) {
 
-                reject(
-                  new Error(
-                    response.error_description ||
-                    response.error
-                  )
-                );
-
-                return;
-
-              }
-
-              driveAccessToken =
-                response.access_token;
-
-              setDriveConnected(true);
-
-              resolve(
-                driveAccessToken
+              reject(
+                new Error(
+                  response.error_description ||
+                  response.error
+                )
               );
 
-            };
+              return;
 
-          driveTokenClient.requestAccessToken({
-            prompt: ""
-          });
+            }
 
-        }
-      );
+            driveAccessToken =
+              response.access_token;
+
+            setDriveConnected(true);
+
+            resolve(
+              driveAccessToken
+            );
+
+          };
+
+        driveTokenClient.requestAccessToken({
+          prompt:""
+        });
+
+      });
 
     }
 
@@ -3366,11 +3177,9 @@
 
       const metadata = {
 
-        name:
-          file.name,
+        name:file.name,
 
-        mimeType:
-          "application/pdf"
+        mimeType:"application/pdf"
 
       };
 
@@ -3400,12 +3209,14 @@
 
       let response =
         await fetch(
+
           "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,mimeType,webViewLink,webContentLink",
+
           {
 
-            method: "POST",
+            method:"POST",
 
-            headers: {
+            headers:{
 
               Authorization:
                 `Bearer ${token}`,
@@ -3418,6 +3229,7 @@
             body
 
           }
+
         );
 
 
@@ -3427,9 +3239,7 @@
 
         await ensureDriveToken();
 
-        return uploadToGoogleDrive(
-          file
-        );
+        return uploadToGoogleDrive(file);
 
       }
 
@@ -3457,9 +3267,9 @@
 
             {
 
-              method: "POST",
+              method:"POST",
 
-              headers: {
+              headers:{
 
                 Authorization:
                   `Bearer ${driveAccessToken}`,
@@ -3469,10 +3279,11 @@
 
               },
 
-              body: JSON.stringify({
+              body:JSON.stringify({
 
-                type: "anyone",
-                role: "reader"
+                type:"anyone",
+
+                role:"reader"
 
               })
 
@@ -3481,9 +3292,7 @@
           );
 
 
-        if (
-          !permissionResponse.ok
-        ) {
+        if (!permissionResponse.ok) {
 
           console.warn(
             "تعذر جعل الملف عاماً:",
@@ -3494,7 +3303,7 @@
 
       }
 
-      catch (error) {
+      catch(error) {
 
         console.warn(
           "Public permission error:",
@@ -3511,7 +3320,7 @@
 
           {
 
-            headers: {
+            headers:{
 
               Authorization:
                 `Bearer ${driveAccessToken}`
@@ -3529,11 +3338,9 @@
 
       return {
 
-        id:
-          data.id,
+        id:data.id,
 
-        name:
-          data.name,
+        name:data.name,
 
         url:
           meta.webViewLink ||
@@ -3544,9 +3351,7 @@
     }
 
 
-    async function deleteDriveFile(
-      fileId
-    ) {
+    async function deleteDriveFile(fileId) {
 
       if (
         !fileId ||
@@ -3566,9 +3371,9 @@
 
             {
 
-              method: "DELETE",
+              method:"DELETE",
 
-              headers: {
+              headers:{
 
                 Authorization:
                   `Bearer ${driveAccessToken}`
@@ -3586,7 +3391,7 @@
 
       }
 
-      catch (error) {
+      catch(error) {
 
         console.warn(
           "Drive delete error:",
@@ -3625,43 +3430,11 @@
 
       return String(value ?? "")
 
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-    }
-
-
-    function resourceOrderValue(resource) {
-
-      const n =
-        Number(resource.order);
-
-      return Number.isFinite(n)
-        ? n
-        : 999999;
-
-    }
-
-
-    function sortByOrder(array) {
-
-      return array.sort(
-        (a, b) => {
-
-          return (
-            Number(
-              a.order ?? 999999
-            ) -
-            Number(
-              b.order ?? 999999
-            )
-          );
-
-        }
-      );
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
     }
 
@@ -3673,10 +3446,7 @@
           item => item.id === id
         );
 
-      return (
-        generation?.name ||
-        "—"
-      );
+      return generation?.name || "—";
 
     }
 
@@ -3688,10 +3458,7 @@
           item => item.id === id
         );
 
-      return (
-        subject?.name ||
-        "—"
-      );
+      return subject?.name || "—";
 
     }
 
@@ -3703,35 +3470,26 @@
           item => item.id === id
         );
 
-      return (
-        section?.name ||
-        "—"
-      );
+      return section?.name || "—";
 
     }
 
 
-    function getSubjectGenerationId(
-      subjectId
-    ) {
+    function getSubjectGenerationId(subjectId) {
 
       const subject =
         subjects.find(
-          item =>
-            item.id === subjectId
+          item => item.id === subjectId
         );
 
-      return (
-        subject?.generationId ||
-        ""
-      );
+      return subject?.generationId || "";
 
     }
 
 
     function toast(
       message,
-      type = ""
+      type=""
     ) {
 
       const container =
@@ -3740,9 +3498,7 @@
         );
 
       const item =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
       item.className =
         `toast ${type}`;
@@ -3750,128 +3506,25 @@
       item.textContent =
         message;
 
-      container.appendChild(
-        item
-      );
+      container.appendChild(item);
 
-      setTimeout(
-        () => item.remove(),
-        3500
-      );
+      setTimeout(() => {
 
-    }
+        item.remove();
 
-
-    /* =====================================================
-       RESOURCE ORDER LOGIC
-    ===================================================== */
-
-    /*
-     * كل مادة لها ترتيب مستقل.
-     *
-     * مثال:
-     *
-     * رياضيات:
-     * 1,2,3
-     *
-     * فيزياء:
-     * 1,2,3
-     *
-     * هذا طبيعي ومسموح.
-     */
-
-
-    function getResourcesForSubject(
-      subjectId
-    ) {
-
-      return resources
-
-        .filter(
-          resource =>
-            resource.subjectId ===
-            subjectId
-        )
-
-        .sort(
-          (a, b) => {
-
-            return (
-              resourceOrderValue(a) -
-              resourceOrderValue(b)
-            );
-
-          }
-        );
+      },3500);
 
     }
 
 
-    function getNextOrderForSubject(
-      subjectId
-    ) {
+    function sortByOrder(array) {
 
-      const subjectResources =
-        getResourcesForSubject(
-          subjectId
-        );
-
-      if (
-        !subjectResources.length
-      ) {
-
-        return 1;
-
-      }
-
-      const max =
-        Math.max(
-          ...subjectResources.map(
-            resource =>
-              resourceOrderValue(
-                resource
-              )
-          )
-        );
-
-      return max + 1;
-
-    }
-
-
-    function isOrderUsed(
-      subjectId,
-      order,
-      excludeId = null
-    ) {
-
-      return resources.some(
-        resource => {
-
-          if (
-            resource.subjectId !==
-            subjectId
-          ) {
-
-            return false;
-
-          }
-
-          if (
-            excludeId &&
-            resource.id ===
-            excludeId
-          ) {
-
-            return false;
-
-          }
+      return array.sort(
+        (a,b) => {
 
           return (
-            resourceOrderValue(
-              resource
-            ) ===
-            Number(order)
+            Number(a.order ?? 999999) -
+            Number(b.order ?? 999999)
           );
 
         }
@@ -3881,60 +3534,135 @@
 
 
     /*
-     * إذا الرقم مستخدم:
-     * نأخذ الرقم التالي بعد أعلى رقم.
+     * إرجاع ترتيب جديد إذا كان الرقم مستخدماً.
+     *
+     * scopeFilter:
+     * يحدد المجموعة التي يكون الترتيب داخلها.
      */
 
     function getSafeOrder(
-      subjectId,
+      collectionArray,
       requestedOrder,
-      excludeId = null
+      excludeId,
+      scopeFilter
     ) {
 
-      const order =
-        Number(requestedOrder);
+      const requested =
+        Math.max(
+          1,
+          Number(requestedOrder) || 1
+        );
 
-      if (
-        Number.isFinite(order) &&
-        order >= 1 &&
-        !isOrderUsed(
-          subjectId,
-          order,
-          excludeId
-        )
-      ) {
+      const used =
+        collectionArray.some(item => {
 
-        return order;
+          if (
+            excludeId &&
+            item.id === excludeId
+          ) {
+            return false;
+          }
+
+          if (
+            scopeFilter &&
+            !scopeFilter(item)
+          ) {
+            return false;
+          }
+
+          return (
+            Number(item.order) ===
+            requested
+          );
+
+        });
+
+
+      if (!used) {
+
+        return requested;
 
       }
 
-      return getNextOrderForSubject(
-        subjectId
-      );
+
+      const scoped =
+        collectionArray.filter(item => {
+
+          if (
+            excludeId &&
+            item.id === excludeId
+          ) {
+            return false;
+          }
+
+          return scopeFilter
+            ? scopeFilter(item)
+            : true;
+
+        });
+
+
+      const maxOrder =
+        scoped.reduce(
+          (max,item) => {
+
+            const value =
+              Number(item.order) || 0;
+
+            return Math.max(
+              max,
+              value
+            );
+
+          },
+          0
+        );
+
+
+      return maxOrder + 1;
+
+    }
+
+
+    /*
+     * ترتيب الموارد الخاص بمادة محددة.
+     */
+
+    function getResourcesForSubject(
+      subjectId
+    ) {
+
+      return resources
+
+        .filter(
+          item =>
+            item.subjectId === subjectId
+        )
+
+        .sort(
+          (a,b) =>
+            Number(a.order || 999999) -
+            Number(b.order || 999999)
+        );
 
     }
 
 
     /* =====================================================
-       PAGE NAVIGATION
+       NAVIGATION
     ===================================================== */
 
     const pageTitles = {
 
-      dashboard:
-        "الرئيسية",
+      dashboard:"الرئيسية",
 
-      generations:
-        "الأجيال",
+      generations:"الأجيال",
 
-      subjects:
-        "المواد",
+      subjects:"المواد",
 
-      sections:
-        "الأقسام",
+      sections:"الأقسام",
 
-      resources:
-        "الملفات والموارد"
+      resources:"الملفات والموارد"
 
     };
 
@@ -3943,9 +3671,7 @@
       function(page) {
 
         document
-          .querySelectorAll(
-            ".page"
-          )
+          .querySelectorAll(".page")
           .forEach(item => {
 
             item.classList.remove(
@@ -3971,18 +3697,12 @@
 
 
         document
-          .querySelectorAll(
-            ".nav-btn"
-          )
+          .querySelectorAll(".nav-btn")
           .forEach(item => {
 
             item.classList.toggle(
-
               "active",
-
-              item.dataset.page ===
-                page
-
+              item.dataset.page === page
             );
 
           });
@@ -3996,20 +3716,14 @@
 
 
         document
-          .getElementById(
-            "sidebar"
-          )
-          .classList.remove(
-            "open"
-          );
+          .getElementById("sidebar")
+          .classList.remove("open");
 
       };
 
 
     document
-      .querySelectorAll(
-        ".nav-btn"
-      )
+      .querySelectorAll(".nav-btn")
       .forEach(button => {
 
         button.addEventListener(
@@ -4035,12 +3749,8 @@
         () => {
 
           document
-            .getElementById(
-              "sidebar"
-            )
-            .classList.toggle(
-              "open"
-            );
+            .getElementById("sidebar")
+            .classList.toggle("open");
 
         }
       );
@@ -4071,11 +3781,11 @@
 
         renderRecentResources();
 
-        fillResourceGenerationFilter();
+        fillAllResourceFilters();
 
       }
 
-      catch (error) {
+      catch(error) {
 
         console.error(error);
 
@@ -4101,21 +3811,19 @@
 
 
       generations =
-        snapshot.docs.map(
-          item => ({
+        snapshot.docs.map(item => ({
 
-            id:
-              item.id,
+          id:item.id,
 
-            ...item.data()
+          ...item.data()
 
-          })
-        );
+        }));
 
 
       sortByOrder(
         generations
       );
+
 
       renderGenerations();
 
@@ -4138,43 +3846,17 @@
 
 
       subjects =
-        snapshot.docs.map(
-          item => ({
+        snapshot.docs.map(item => ({
 
-            id:
-              item.id,
+          id:item.id,
 
-            ...item.data()
+          ...item.data()
 
-          })
-        );
+        }));
 
 
-      subjects.sort(
-        (a, b) => {
-
-          const genA =
-            getGenerationName(
-              a.generationId
-            );
-
-          const genB =
-            getGenerationName(
-              b.generationId
-            );
-
-          return (
-            genA.localeCompare(
-              genB,
-              "ar"
-            )
-          ) ||
-          (
-            Number(a.order || 999999) -
-            Number(b.order || 999999)
-          );
-
-        }
+      sortByOrder(
+        subjects
       );
 
 
@@ -4199,24 +3881,21 @@
 
 
       sections =
-        snapshot.docs.map(
-          item => ({
+        snapshot.docs.map(item => ({
 
-            id:
-              item.id,
+          id:item.id,
 
-            ...item.data()
+          ...item.data()
 
-          })
-        );
+        }));
 
 
       sortByOrder(
         sections
       );
 
-      renderSections();
 
+      renderSections();
 
       fillSectionSelect(
         document.getElementById(
@@ -4239,37 +3918,17 @@
 
 
       resources =
-        snapshot.docs.map(
-          item => ({
+        snapshot.docs.map(item => ({
 
-            id:
-              item.id,
+          id:item.id,
 
-            ...item.data()
+          ...item.data()
 
-          })
-        );
+        }));
 
 
       resources.sort(
-        (a, b) => {
-
-          const generationA =
-            getGenerationName(
-              a.generationId ||
-              getSubjectGenerationId(
-                a.subjectId
-              )
-            );
-
-          const generationB =
-            getGenerationName(
-              b.generationId ||
-              getSubjectGenerationId(
-                b.subjectId
-              )
-            );
-
+        (a,b) => {
 
           const subjectA =
             getSubjectName(
@@ -4281,22 +3940,20 @@
               b.subjectId
             );
 
+          if (
+            subjectA !== subjectB
+          ) {
+
+            return subjectA.localeCompare(
+              subjectB,
+              "ar"
+            );
+
+          }
 
           return (
-            generationA.localeCompare(
-              generationB,
-              "ar"
-            )
-          ) ||
-
-          subjectA.localeCompare(
-            subjectB,
-            "ar"
-          ) ||
-
-          (
-            resourceOrderValue(a) -
-            resourceOrderValue(b)
+            Number(a.order || 999999) -
+            Number(b.order || 999999)
           );
 
         }
@@ -4306,8 +3963,6 @@
       renderResources();
 
       renderRecentResources();
-
-      renderFilteredResources();
 
     }
 
@@ -4345,7 +4000,7 @@
 
 
     /* =====================================================
-       GENERATION SELECT
+       GENERATIONS
     ===================================================== */
 
     function fillGenerationSelect() {
@@ -4368,28 +4023,26 @@
         </option>`;
 
 
-      generations.forEach(
-        item => {
+      generations.forEach(item => {
 
-          const option =
-            document.createElement(
-              "option"
-            );
-
-          option.value =
-            item.id;
-
-          option.textContent =
-            item.name ||
-            item.year ||
-            "جيل";
-
-          select.appendChild(
-            option
+        const option =
+          document.createElement(
+            "option"
           );
 
-        }
-      );
+        option.value =
+          item.id;
+
+        option.textContent =
+          item.name ||
+          item.year ||
+          "جيل";
+
+        select.appendChild(
+          option
+        );
+
+      });
 
 
       if (current) {
@@ -4402,10 +4055,6 @@
     }
 
 
-    /* =====================================================
-       GENERATIONS
-    ===================================================== */
-
     function renderGenerations() {
 
       const tbody =
@@ -4416,15 +4065,14 @@
 
       if (!generations.length) {
 
-        tbody.innerHTML = `
-          <tr>
+        tbody.innerHTML =
+          `<tr>
             <td colspan="4">
               <div class="empty">
                 لا توجد أجيال حتى الآن
               </div>
             </td>
-          </tr>
-        `;
+          </tr>`;
 
         return;
 
@@ -4432,58 +4080,51 @@
 
 
       tbody.innerHTML =
-        generations.map(
-          item => `
+        generations.map(item => `
 
-            <tr>
+          <tr>
 
-              <td>
-                <strong>
-                  ${escapeHTML(
-                    item.name
-                  )}
-                </strong>
-              </td>
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
 
-              <td>
-                ${escapeHTML(
-                  item.year
-                )}
-              </td>
+            <td>
+              ${escapeHTML(item.year)}
+            </td>
 
-              <td>
-                ${escapeHTML(
-                  item.description ||
-                  "—"
-                )}
-              </td>
+            <td>
+              ${escapeHTML(
+                item.description || "—"
+              )}
+            </td>
 
-              <td>
+            <td>
 
-                <div class="actions">
+              <div class="actions">
 
-                  <button
-                    class="btn btn-edit"
-                    onclick="editGeneration('${item.id}')"
-                  >
-                    تعديل
-                  </button>
+                <button
+                  class="btn btn-edit"
+                  onclick="editGeneration('${item.id}')"
+                >
+                  تعديل
+                </button>
 
-                  <button
-                    class="btn btn-danger"
-                    onclick="deleteGeneration('${item.id}')"
-                  >
-                    حذف
-                  </button>
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteGeneration('${item.id}')"
+                >
+                  حذف
+                </button>
 
-                </div>
+              </div>
 
-              </td>
+            </td>
 
-            </tr>
+          </tr>
 
-          `
-        ).join("");
+        `).join("");
 
     }
 
@@ -4493,7 +4134,6 @@
 
         editingGenerationId =
           null;
-
 
         document
           .getElementById(
@@ -4534,6 +4174,7 @@
           generations.find(
             g => g.id === id
           );
+
 
         if (!item) return;
 
@@ -4587,11 +4228,9 @@
           "generationForm"
         ).scrollIntoView({
 
-          behavior:
-            "smooth",
+          behavior:"smooth",
 
-          block:
-            "start"
+          block:"start"
 
         });
 
@@ -4603,7 +4242,6 @@
 
         editingGenerationId =
           null;
-
 
         document
           .getElementById(
@@ -4731,7 +4369,7 @@
 
           }
 
-          catch (error) {
+          catch(error) {
 
             console.error(error);
 
@@ -4753,6 +4391,7 @@
           generations.find(
             g => g.id === id
           );
+
 
         if (!item) return;
 
@@ -4793,7 +4432,7 @@
 
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -4817,62 +4456,121 @@
 
         document.getElementById(
           "sectionSubject"
-        ),
-
-        document.getElementById(
-          "resourceSubject"
         )
 
       ];
 
 
-      selects.forEach(
-        select => {
+      selects.forEach(select => {
 
-          if (!select) return;
-
-
-          const current =
-            select.value;
+        if (!select) return;
 
 
-          select.innerHTML =
-            `<option value="">
-              اختر المادة
-            </option>`;
+        const current =
+          select.value;
 
 
-          subjects.forEach(
-            item => {
+        select.innerHTML =
+          `<option value="">
+            اختر المادة
+          </option>`;
 
-              const option =
-                document.createElement(
-                  "option"
-                );
 
-              option.value =
-                item.id;
+        subjects.forEach(item => {
 
-              option.textContent =
-                `${item.name} — ${getGenerationName(item.generationId)}`;
+          const option =
+            document.createElement(
+              "option"
+            );
 
-              select.appendChild(
-                option
-              );
+          option.value =
+            item.id;
 
-            }
+          option.textContent =
+            item.name;
+
+          select.appendChild(
+            option
           );
 
+        });
 
-          if (current) {
 
-            select.value =
-              current;
+        if (current) {
 
-          }
+          select.value =
+            current;
 
         }
-      );
+
+      });
+
+    }
+
+
+    function fillSubjectsByGeneration(
+      generationId,
+      selectId
+    ) {
+
+      const select =
+        document.getElementById(
+          selectId
+        );
+
+
+      if (!select) return;
+
+
+      select.innerHTML =
+        `<option value="">
+          ${
+            generationId
+              ? "اختر المادة"
+              : "اختر الجيل أولاً"
+          }
+        </option>`;
+
+
+      select.disabled =
+        !generationId;
+
+
+      if (!generationId) return;
+
+
+      subjects
+
+        .filter(
+          item =>
+            item.generationId ===
+            generationId
+        )
+
+        .sort(
+          (a,b) =>
+            Number(a.order || 999999) -
+            Number(b.order || 999999)
+        )
+
+        .forEach(item => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+          option.value =
+            item.id;
+
+          option.textContent =
+            item.name;
+
+          select.appendChild(
+            option
+          );
+
+        });
 
     }
 
@@ -4887,15 +4585,14 @@
 
       if (!subjects.length) {
 
-        tbody.innerHTML = `
-          <tr>
+        tbody.innerHTML =
+          `<tr>
             <td colspan="5">
               <div class="empty">
                 لا توجد مواد حتى الآن
               </div>
             </td>
-          </tr>
-        `;
+          </tr>`;
 
         return;
 
@@ -4903,67 +4600,65 @@
 
 
       tbody.innerHTML =
-        subjects.map(
-          item => `
+        subjects.map(item => `
 
-            <tr>
+          <tr>
 
-              <td>
-                <strong>
-                  ${escapeHTML(
-                    item.name
-                  )}
-                </strong>
-              </td>
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
 
-              <td>
-                ${escapeHTML(
-                  getGenerationName(
-                    item.generationId
-                  )
+            <td>
+              ${escapeHTML(
+                getGenerationName(
+                  item.generationId
+                )
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(
+                item.slug || "—"
+              )}
+            </td>
+
+            <td>
+
+              <span class="order-badge">
+                ${Number(
+                  item.order || 1
                 )}
-              </td>
+              </span>
 
-              <td>
-                ${escapeHTML(
-                  item.slug || "—"
-                )}
-              </td>
+            </td>
 
-              <td>
-                <span class="order-number">
-                  ${Number(
-                    item.order || 1
-                  )}
-                </span>
-              </td>
+            <td>
 
-              <td>
+              <div class="actions">
 
-                <div class="actions">
+                <button
+                  class="btn btn-edit"
+                  onclick="editSubject('${item.id}')"
+                >
+                  تعديل
+                </button>
 
-                  <button
-                    class="btn btn-edit"
-                    onclick="editSubject('${item.id}')"
-                  >
-                    تعديل
-                  </button>
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteSubject('${item.id}')"
+                >
+                  حذف
+                </button>
 
-                  <button
-                    class="btn btn-danger"
-                    onclick="deleteSubject('${item.id}')"
-                  >
-                    حذف
-                  </button>
+              </div>
 
-                </div>
+            </td>
 
-              </td>
+          </tr>
 
-            </tr>
-
-          `
-        ).join("");
+        `).join("");
 
     }
 
@@ -4973,7 +4668,6 @@
 
         editingSubjectId =
           null;
-
 
         document
           .getElementById(
@@ -5020,6 +4714,7 @@
           subjects.find(
             s => s.id === id
           );
+
 
         if (!item) return;
 
@@ -5079,6 +4774,17 @@
         openPage(
           "subjects"
         );
+
+
+        document.getElementById(
+          "subjectForm"
+        ).scrollIntoView({
+
+          behavior:"smooth",
+
+          block:"start"
+
+        });
 
       };
 
@@ -5142,6 +4848,36 @@
               ).value;
 
 
+            if (!generationId) {
+
+              toast(
+                "اختر الجيل أولاً",
+                "error"
+              );
+
+              return;
+
+            }
+
+
+            const order =
+              getSafeOrder(
+
+                subjects,
+
+                document.getElementById(
+                  "subjectOrder"
+                ).value,
+
+                editingSubjectId,
+
+                item =>
+                  item.generationId ===
+                  generationId
+
+              );
+
+
             const data = {
 
               generationId,
@@ -5156,12 +4892,7 @@
                   "subjectSlug"
                 ).value.trim(),
 
-              order:
-                Number(
-                  document.getElementById(
-                    "subjectOrder"
-                  ).value
-                ) || 1,
+              order,
 
               description:
                 document.getElementById(
@@ -5172,18 +4903,6 @@
                 serverTimestamp()
 
             };
-
-
-            if (!generationId) {
-
-              toast(
-                "اختر الجيل أولاً",
-                "error"
-              );
-
-              return;
-
-            }
 
 
             if (
@@ -5204,7 +4923,7 @@
 
 
               toast(
-                "تم تعديل المادة بنجاح",
+                `تم حفظ المادة — ترتيبها ${order}`,
                 "success"
               );
 
@@ -5232,7 +4951,7 @@
 
 
               toast(
-                "تمت إضافة المادة بنجاح",
+                `تمت إضافة المادة — ترتيبها ${order}`,
                 "success"
               );
 
@@ -5245,9 +4964,11 @@
 
             updateStats();
 
+            fillResourceSubjectFilter();
+
           }
 
-          catch (error) {
+          catch(error) {
 
             console.error(error);
 
@@ -5269,6 +4990,7 @@
           subjects.find(
             s => s.id === id
           );
+
 
         if (!item) return;
 
@@ -5307,9 +5029,11 @@
 
           updateStats();
 
+          fillResourceSubjectFilter();
+
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -5337,15 +5061,14 @@
 
       if (!sections.length) {
 
-        tbody.innerHTML = `
-          <tr>
+        tbody.innerHTML =
+          `<tr>
             <td colspan="5">
               <div class="empty">
                 لا توجد أقسام حتى الآن
               </div>
             </td>
-          </tr>
-        `;
+          </tr>`;
 
         return;
 
@@ -5353,68 +5076,65 @@
 
 
       tbody.innerHTML =
-        sections.map(
-          item => `
+        sections.map(item => `
 
-            <tr>
+          <tr>
 
-              <td>
-                <strong>
-                  ${escapeHTML(
-                    item.name
-                  )}
-                </strong>
-              </td>
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
 
-              <td>
-                ${escapeHTML(
-                  getSubjectName(
-                    item.subjectId
-                  )
+            <td>
+              ${escapeHTML(
+                getSubjectName(
+                  item.subjectId
+                )
+              )}
+            </td>
+
+            <td>
+
+              <span class="order-badge">
+                ${Number(
+                  item.order || 1
                 )}
-              </td>
+              </span>
 
-              <td>
-                <span class="order-number">
-                  ${Number(
-                    item.order || 1
-                  )}
-                </span>
-              </td>
+            </td>
 
-              <td>
-                ${escapeHTML(
-                  item.description ||
-                  "—"
-                )}
-              </td>
+            <td>
+              ${escapeHTML(
+                item.description || "—"
+              )}
+            </td>
 
-              <td>
+            <td>
 
-                <div class="actions">
+              <div class="actions">
 
-                  <button
-                    class="btn btn-edit"
-                    onclick="editSection('${item.id}')"
-                  >
-                    تعديل
-                  </button>
+                <button
+                  class="btn btn-edit"
+                  onclick="editSection('${item.id}')"
+                >
+                  تعديل
+                </button>
 
-                  <button
-                    class="btn btn-danger"
-                    onclick="deleteSection('${item.id}')"
-                  >
-                    حذف
-                  </button>
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteSection('${item.id}')"
+                >
+                  حذف
+                </button>
 
-                </div>
+              </div>
 
-              </td>
+            </td>
 
-            </tr>
+          </tr>
 
-          `
-        ).join("");
+        `).join("");
 
     }
 
@@ -5472,6 +5192,7 @@
             s => s.id === id
           );
 
+
         if (!item) return;
 
 
@@ -5524,6 +5245,17 @@
         openPage(
           "sections"
         );
+
+
+        document.getElementById(
+          "sectionForm"
+        ).scrollIntoView({
+
+          behavior:"smooth",
+
+          block:"start"
+
+        });
 
       };
 
@@ -5587,33 +5319,6 @@
               ).value;
 
 
-            const data = {
-
-              subjectId,
-
-              name:
-                document.getElementById(
-                  "sectionName"
-                ).value.trim(),
-
-              order:
-                Number(
-                  document.getElementById(
-                    "sectionOrder"
-                  ).value
-                ) || 1,
-
-              description:
-                document.getElementById(
-                  "sectionDescription"
-                ).value.trim(),
-
-              updatedAt:
-                serverTimestamp()
-
-            };
-
-
             if (!subjectId) {
 
               toast(
@@ -5624,6 +5329,46 @@
               return;
 
             }
+
+
+            const order =
+              getSafeOrder(
+
+                sections,
+
+                document.getElementById(
+                  "sectionOrder"
+                ).value,
+
+                editingSectionId,
+
+                item =>
+                  item.subjectId ===
+                  subjectId
+
+              );
+
+
+            const data = {
+
+              subjectId,
+
+              name:
+                document.getElementById(
+                  "sectionName"
+                ).value.trim(),
+
+              order,
+
+              description:
+                document.getElementById(
+                  "sectionDescription"
+                ).value.trim(),
+
+              updatedAt:
+                serverTimestamp()
+
+            };
 
 
             if (
@@ -5644,7 +5389,7 @@
 
 
               toast(
-                "تم تعديل القسم بنجاح",
+                `تم حفظ القسم — ترتيبه ${order}`,
                 "success"
               );
 
@@ -5672,7 +5417,7 @@
 
 
               toast(
-                "تمت إضافة القسم بنجاح",
+                `تمت إضافة القسم — ترتيبه ${order}`,
                 "success"
               );
 
@@ -5687,7 +5432,7 @@
 
           }
 
-          catch (error) {
+          catch(error) {
 
             console.error(error);
 
@@ -5709,6 +5454,7 @@
           sections.find(
             s => s.id === id
           );
+
 
         if (!item) return;
 
@@ -5749,7 +5495,7 @@
 
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -5771,8 +5517,9 @@
 
       const select =
         document.getElementById(
-          "resourceGenerationFilter"
+          "resourceFilterGeneration"
         );
+
 
       if (!select) return;
 
@@ -5787,28 +5534,24 @@
         </option>`;
 
 
-      generations.forEach(
-        generation => {
+      generations.forEach(item => {
 
-          const option =
-            document.createElement(
-              "option"
-            );
-
-          option.value =
-            generation.id;
-
-          option.textContent =
-            generation.name ||
-            generation.year ||
-            "جيل";
-
-          select.appendChild(
-            option
+        const option =
+          document.createElement(
+            "option"
           );
 
-        }
-      );
+        option.value =
+          item.id;
+
+        option.textContent =
+          item.name;
+
+        select.appendChild(
+          option
+        );
+
+      });
 
 
       if (current) {
@@ -5818,8 +5561,6 @@
 
       }
 
-      fillResourceSubjectFilter();
-
     }
 
 
@@ -5827,95 +5568,30 @@
 
       const generationId =
         document.getElementById(
-          "resourceGenerationFilter"
-        ).value;
+          "resourceFilterGeneration"
+        )?.value || "";
 
 
-      const select =
-        document.getElementById(
-          "resourceSubjectFilter"
-        );
+      fillSubjectsByGeneration(
+        generationId,
+        "resourceFilterSubject"
+      );
+
+    }
 
 
-      select.innerHTML =
-        "";
+    function fillAllResourceFilters() {
 
+      fillResourceGenerationFilter();
 
-      if (!generationId) {
-
-        select.disabled =
-          true;
-
-        select.innerHTML =
-          `<option value="">
-            اختر الجيل أولاً
-          </option>`;
-
-        renderFilteredResources();
-
-        return;
-
-      }
-
-
-      select.disabled =
-        false;
-
-
-      select.innerHTML =
-        `<option value="">
-          كل مواد الجيل
-        </option>`;
-
-
-      subjects
-
-        .filter(
-          subject =>
-            subject.generationId ===
-            generationId
-        )
-
-        .sort(
-          (a,b) =>
-            Number(
-              a.order || 999999
-            ) -
-            Number(
-              b.order || 999999
-            )
-        )
-
-        .forEach(
-          subject => {
-
-            const option =
-              document.createElement(
-                "option"
-              );
-
-            option.value =
-              subject.id;
-
-            option.textContent =
-              subject.name;
-
-            select.appendChild(
-              option
-            );
-
-          }
-        );
-
-
-      renderFilteredResources();
+      fillResourceSubjectFilter();
 
     }
 
 
     document
       .getElementById(
-        "resourceGenerationFilter"
+        "resourceFilterGeneration"
       )
       .addEventListener(
         "change",
@@ -5923,171 +5599,62 @@
 
           fillResourceSubjectFilter();
 
+          renderResources();
+
         }
       );
 
 
     document
       .getElementById(
-        "resourceSubjectFilter"
+        "resourceFilterSubject"
       )
       .addEventListener(
         "change",
         () => {
 
-          renderFilteredResources();
+          renderResources();
 
         }
       );
 
 
-    window.resetResourceFilters =
-      function() {
+    document
+      .getElementById(
+        "resourceSearch"
+      )
+      .addEventListener(
+        "input",
+        () => {
 
-        document.getElementById(
-          "resourceGenerationFilter"
-        ).value =
-          "";
+          renderResources();
 
-
-        fillResourceSubjectFilter();
-
-        document.getElementById(
-          "resourceSubjectFilter"
-        ).value =
-          "";
-
-        renderFilteredResources();
-
-      };
-
-
-    function getFilteredResources() {
-
-      const generationId =
-        document.getElementById(
-          "resourceGenerationFilter"
-        ).value;
-
-
-      const subjectId =
-        document.getElementById(
-          "resourceSubjectFilter"
-        ).value;
-
-
-      let result =
-        [...resources];
-
-
-      if (generationId) {
-
-        result =
-          result.filter(
-            resource => {
-
-              const resourceGenerationId =
-                resource.generationId ||
-                getSubjectGenerationId(
-                  resource.subjectId
-                );
-
-              return (
-                resourceGenerationId ===
-                generationId
-              );
-
-            }
-          );
-
-      }
-
-
-      if (subjectId) {
-
-        result =
-          result.filter(
-            resource =>
-              resource.subjectId ===
-              subjectId
-          );
-
-      }
-
-
-      result.sort(
-        (a,b) =>
-          resourceOrderValue(a) -
-          resourceOrderValue(b)
+        }
       );
 
 
-      return result;
+    document
+      .getElementById(
+        "clearResourceFilter"
+      )
+      .addEventListener(
+        "click",
+        () => {
 
-    }
+          document.getElementById(
+            "resourceFilterGeneration"
+          ).value = "";
 
+          fillResourceSubjectFilter();
 
-    function updateFilterResult(
-      result
-    ) {
+          document.getElementById(
+            "resourceSearch"
+          ).value = "";
 
-      const element =
-        document.getElementById(
-          "resourceFilterResult"
-        );
+          renderResources();
 
-
-      const generationId =
-        document.getElementById(
-          "resourceGenerationFilter"
-        ).value;
-
-
-      const subjectId =
-        document.getElementById(
-          "resourceSubjectFilter"
-        ).value;
-
-
-      if (
-        generationId &&
-        subjectId
-      ) {
-
-        const subject =
-          subjects.find(
-            item =>
-              item.id === subjectId
-          );
-
-
-        element.innerHTML =
-          `المادة: <strong>${escapeHTML(subject?.name || "—")}</strong>
-           — عدد الملفات: <strong>${result.length}</strong>
-           — اسحب الملفات لتغيير ترتيبها`;
-
-      }
-
-      else if (generationId) {
-
-        element.innerHTML =
-          `عدد الملفات في الجيل:
-           <strong>${result.length}</strong>
-           — اختر مادة لإعادة ترتيب ملفاتها`;
-
-      }
-
-      else {
-
-        element.innerHTML =
-          `يتم عرض:
-           <strong>${result.length}</strong>
-           ملف/مورد
-           — اختر الجيل والمادة لإدارة الترتيب`;
-
-      }
-
-    }
+        }
+      );
 
 
     /* =====================================================
@@ -6095,7 +5662,7 @@
     ===================================================== */
 
     function fillSectionSelect(
-      subjectId = ""
+      subjectId=""
     ) {
 
       const select =
@@ -6119,63 +5686,52 @@
 
       sections
 
-        .filter(
-          item => {
+        .filter(item => {
 
-            if (!subjectId) {
+          if (!subjectId) {
 
-              return true;
-
-            }
-
-            return (
-              item.subjectId ===
-              subjectId
-            );
+            return true;
 
           }
-        )
+
+          return (
+            item.subjectId ===
+            subjectId
+          );
+
+        })
 
         .sort(
           (a,b) =>
-            Number(
-              a.order || 999999
-            ) -
-            Number(
-              b.order || 999999
-            )
+            Number(a.order || 999999) -
+            Number(b.order || 999999)
         )
 
-        .forEach(
-          item => {
+        .forEach(item => {
 
-            const option =
-              document.createElement(
-                "option"
-              );
-
-            option.value =
-              item.id;
-
-            option.textContent =
-              item.name;
-
-            select.appendChild(
-              option
+          const option =
+            document.createElement(
+              "option"
             );
 
-          }
-        );
+          option.value =
+            item.id;
+
+          option.textContent =
+            item.name;
+
+          select.appendChild(
+            option
+          );
+
+        });
 
 
       if (
         current &&
-        [
-          ...select.options
-        ].some(
+        [...select.options].some(
           option =>
-            option.value ===
-            current
+            option.value === current
         )
       ) {
 
@@ -6189,6 +5745,30 @@
 
     document
       .getElementById(
+        "resourceGeneration"
+      )
+      .addEventListener(
+        "change",
+        event => {
+
+          const generationId =
+            event.target.value;
+
+
+          fillSubjectsByGeneration(
+            generationId,
+            "resourceSubject"
+          );
+
+
+          fillSectionSelect("");
+
+        }
+      );
+
+
+    document
+      .getElementById(
         "resourceSubject"
       )
       .addEventListener(
@@ -6198,6 +5778,45 @@
           fillSectionSelect(
             event.target.value
           );
+
+
+          /*
+           * عند اختيار المادة، اقترح
+           * أول ترتيب متاح.
+           */
+
+          const subjectId =
+            event.target.value;
+
+
+          if (subjectId) {
+
+            const currentResourceId =
+              editingResourceId;
+
+
+            const safeOrder =
+              getSafeOrder(
+
+                resources,
+
+                1,
+
+                currentResourceId,
+
+                item =>
+                  item.subjectId ===
+                  subjectId
+
+              );
+
+
+            document.getElementById(
+              "resourceOrder"
+            ).value =
+              safeOrder;
+
+          }
 
         }
       );
@@ -6292,12 +5911,53 @@
           "block";
 
 
+        document.getElementById(
+          "resourceSubject"
+        ).innerHTML =
+          `<option value="">
+            اختر الجيل أولاً
+          </option>`;
+
+
+        document.getElementById(
+          "resourceSubject"
+        ).disabled =
+          true;
+
+
+        document.getElementById(
+          "resourceGeneration"
+        ).innerHTML =
+          `<option value="">
+            اختر الجيل
+          </option>`;
+
+
+        generations.forEach(item => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+          option.value =
+            item.id;
+
+          option.textContent =
+            item.name;
+
+          document.getElementById(
+            "resourceGeneration"
+          ).appendChild(
+            option
+          );
+
+        });
+
+
         fillSectionSelect("");
 
-
-        openPage(
-          "resources"
-        );
+        openPage("resources");
 
       };
 
@@ -6316,6 +5976,54 @@
 
         editingResourceId =
           id;
+
+
+        const generationId =
+          getSubjectGenerationId(
+            item.subjectId
+          );
+
+
+        document.getElementById(
+          "resourceGeneration"
+        ).innerHTML =
+          `<option value="">
+            اختر الجيل
+          </option>`;
+
+
+        generations.forEach(generation => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+          option.value =
+            generation.id;
+
+          option.textContent =
+            generation.name;
+
+          document.getElementById(
+            "resourceGeneration"
+          ).appendChild(
+            option
+          );
+
+        });
+
+
+        document.getElementById(
+          "resourceGeneration"
+        ).value =
+          generationId;
+
+
+        fillSubjectsByGeneration(
+          generationId,
+          "resourceSubject"
+        );
 
 
         document.getElementById(
@@ -6412,11 +6120,9 @@
           "resourceForm"
         ).scrollIntoView({
 
-          behavior:
-            "smooth",
+          behavior:"smooth",
 
-          block:
-            "start"
+          block:"start"
 
         });
 
@@ -6473,6 +6179,20 @@
           "none";
 
 
+        document.getElementById(
+          "resourceSubject"
+        ).innerHTML =
+          `<option value="">
+            اختر الجيل أولاً
+          </option>`;
+
+
+        document.getElementById(
+          "resourceSubject"
+        ).disabled =
+          true;
+
+
         fillSectionSelect("");
 
       };
@@ -6507,6 +6227,12 @@
             button.classList.add(
               "loading"
             );
+
+
+            const generationId =
+              document.getElementById(
+                "resourceGeneration"
+              ).value;
 
 
             const subjectId =
@@ -6550,7 +6276,7 @@
                 document.getElementById(
                   "resourceOrder"
                 ).value
-              );
+              ) || 1;
 
 
             const published =
@@ -6569,6 +6295,18 @@
               fileInput.files[0];
 
 
+            if (!generationId) {
+
+              toast(
+                "اختر الجيل أولاً",
+                "error"
+              );
+
+              return;
+
+            }
+
+
             if (!subjectId) {
 
               toast(
@@ -6582,33 +6320,23 @@
 
 
             /*
-             * تحديد الترتيب بشكل مستقل
-             * داخل المادة فقط.
+             * الترتيب هنا مستقل لكل مادة.
              */
 
-            const safeOrder =
+            const order =
               getSafeOrder(
 
-                subjectId,
+                resources,
 
                 requestedOrder,
 
-                editingResourceId
+                editingResourceId,
+
+                item =>
+                  item.subjectId ===
+                  subjectId
 
               );
-
-
-            if (
-              Number(requestedOrder) !==
-              Number(safeOrder)
-            ) {
-
-              toast(
-                `رقم الترتيب مستخدم، تم إعطاء الملف الترتيب ${safeOrder}`,
-                ""
-              );
-
-            }
 
 
             let driveFileId =
@@ -6623,6 +6351,7 @@
               const isPdf =
                 selectedFile.type ===
                   "application/pdf" ||
+
                 selectedFile.name
                   .toLowerCase()
                   .endsWith(".pdf");
@@ -6667,7 +6396,7 @@
 
 
             /*
-             * عند التعديل بدون رفع ملف جديد:
+             * إذا كان تعديلاً بدون ملف جديد،
              * نحافظ على ملف Drive القديم.
              */
 
@@ -6690,7 +6419,6 @@
                   oldResource.driveFileId ||
                   null;
 
-
                 driveFileName =
                   oldResource.driveFileName ||
                   null;
@@ -6698,17 +6426,6 @@
               }
 
             }
-
-
-            /*
-             * generationId يحفظ داخل المورد
-             * حتى يصبح الفرز أسرع وأسهل مستقبلاً.
-             */
-
-            const generationId =
-              getSubjectGenerationId(
-                subjectId
-              );
 
 
             const data = {
@@ -6728,8 +6445,7 @@
 
               description,
 
-              order:
-                safeOrder,
+              order,
 
               published,
 
@@ -6779,8 +6495,8 @@
 
 
               /*
-               * إذا تغير ملف Drive:
-               * نحاول حذف القديم.
+               * حذف ملف Drive القديم
+               * إذا تم استبداله.
                */
 
               if (
@@ -6802,7 +6518,7 @@
 
 
               toast(
-                `تم تعديل المورد — ترتيبه ${safeOrder} داخل المادة`,
+                `تم تعديل المورد — ترتيبه ${order}`,
                 "success"
               );
 
@@ -6830,7 +6546,7 @@
 
 
               toast(
-                `تمت إضافة المورد بالترتيب ${safeOrder}`,
+                `تمت إضافة المورد — ترتيبه ${order}`,
                 "success"
               );
 
@@ -6843,10 +6559,11 @@
 
             updateStats();
 
+            renderResources();
+
           }
 
-
-          catch (error) {
+          catch(error) {
 
             console.error(
               "RESOURCE ERROR:",
@@ -6855,16 +6572,18 @@
 
 
             toast(
+
               "تعذر حفظ المورد: " +
               (
                 error?.message ||
                 "خطأ غير معروف"
               ).slice(0,160),
+
               "error"
+
             );
 
           }
-
 
           finally {
 
@@ -6895,39 +6614,144 @@
 
     function renderResources() {
 
-      renderFilteredResources();
-
-    }
-
-
-    function renderFilteredResources() {
-
       const tbody =
         document.getElementById(
           "resourcesTable"
         );
 
 
-      const filtered =
-        getFilteredResources();
+      const generationFilter =
+        document.getElementById(
+          "resourceFilterGeneration"
+        )?.value || "";
 
 
-      updateFilterResult(
-        filtered
+      const subjectFilter =
+        document.getElementById(
+          "resourceFilterSubject"
+        )?.value || "";
+
+
+      const search =
+        document.getElementById(
+          "resourceSearch"
+        )?.value
+          .trim()
+          .toLowerCase() || "";
+
+
+      /*
+       * إذا لم يحدد المستخدم مادة،
+       * نعرض رسالة بدل جمع ملفات كل المواد
+       * في ترتيب واحد.
+       */
+
+      if (
+        !subjectFilter
+      ) {
+
+        tbody.innerHTML =
+          `<tr>
+            <td colspan="8">
+              <div class="empty">
+                اختر الجيل ثم المادة لعرض وترتيب الملفات الخاصة بها.
+              </div>
+            </td>
+          </tr>`;
+
+
+        updateResourceOrderInfo(
+          []
+        );
+
+        return;
+
+      }
+
+
+      let list =
+        resources.filter(item => {
+
+          if (
+            item.subjectId !==
+            subjectFilter
+          ) {
+
+            return false;
+
+          }
+
+
+          if (generationFilter) {
+
+            const itemGeneration =
+              getSubjectGenerationId(
+                item.subjectId
+              );
+
+
+            if (
+              itemGeneration !==
+              generationFilter
+            ) {
+
+              return false;
+
+            }
+
+          }
+
+
+          if (search) {
+
+            const text =
+              [
+                item.title,
+                item.description,
+                item.type
+              ]
+                .join(" ")
+                .toLowerCase();
+
+
+            if (
+              !text.includes(search)
+            ) {
+
+              return false;
+
+            }
+
+          }
+
+
+          return true;
+
+        });
+
+
+      list.sort(
+        (a,b) =>
+          Number(a.order || 999999) -
+          Number(b.order || 999999)
       );
 
 
-      if (!filtered.length) {
+      updateResourceOrderInfo(
+        list
+      );
 
-        tbody.innerHTML = `
-          <tr>
+
+      if (!list.length) {
+
+        tbody.innerHTML =
+          `<tr>
             <td colspan="8">
               <div class="empty">
-                لا توجد ملفات ضمن الاختيار الحالي
+                لا توجد ملفات لهذه المادة حتى الآن.
               </div>
             </td>
-          </tr>
-        `;
+          </tr>`;
 
         return;
 
@@ -6935,8 +6759,8 @@
 
 
       tbody.innerHTML =
-        filtered.map(
-          item => `
+        list.map(
+          (item,index) => `
 
             <tr
               class="resource-row"
@@ -6957,7 +6781,7 @@
                     stroke="currentColor"
                     stroke-width="2"
                   >
-                    <path d="M8 6h.01M8 12h.01M8 18h.01M16 6h.01M16 12h.01M16 18h.01"/>
+                    <path d="M8 5h.01M8 12h.01M8 19h.01M16 5h.01M16 12h.01M16 19h.01"/>
                   </svg>
 
                 </div>
@@ -6967,13 +6791,11 @@
 
               <td>
 
-                <span class="order-number">
+                <div class="resource-number">
 
-                  ${resourceOrderValue(
-                    item
-                  )}
+                  ${index + 1}
 
-                </span>
+                </div>
 
               </td>
 
@@ -7011,11 +6833,15 @@
               <td>
 
                 ${escapeHTML(
+
                   item.sectionId
+
                     ? getSectionName(
                         item.sectionId
                       )
+
                     : "بدون قسم"
+
                 )}
 
               </td>
@@ -7068,9 +6894,7 @@
                     ? `
 
                       <a
-                        href="${escapeHTML(
-                          item.url
-                        )}"
+                        href="${escapeHTML(item.url)}"
                         target="_blank"
                         rel="noopener"
                       >
@@ -7080,6 +6904,7 @@
                     `
 
                     : "—"
+
                 }
 
               </td>
@@ -7129,6 +6954,88 @@
 
 
       setupResourceDragDrop();
+
+    }
+
+
+    function updateResourceOrderInfo(
+      list
+    ) {
+
+      const box =
+        document.getElementById(
+          "resourceOrderInfo"
+        );
+
+
+      if (!box) return;
+
+
+      const generationId =
+        document.getElementById(
+          "resourceFilterGeneration"
+        )?.value || "";
+
+
+      const subjectId =
+        document.getElementById(
+          "resourceFilterSubject"
+        )?.value || "";
+
+
+      if (
+        !generationId ||
+        !subjectId
+      ) {
+
+        box.innerHTML = `
+
+          <span>
+            اختر جيلاً ومادة لعرض ترتيب الملفات الخاص بها.
+          </span>
+
+          <strong>
+            0 ملف
+          </strong>
+
+        `;
+
+        return;
+
+      }
+
+
+      box.innerHTML = `
+
+        <span>
+
+          <strong>
+            ${escapeHTML(
+              getGenerationName(
+                generationId
+              )
+            )}
+          </strong>
+
+          ←
+
+          <strong>
+            ${escapeHTML(
+              getSubjectName(
+                subjectId
+              )
+            )}
+          >
+
+          — اسحب الملفات لتغيير ترتيبها
+
+        </span>
+
+        <strong>
+          ${list.length} ملف
+        </strong>
+
+      `;
 
     }
 
@@ -7186,12 +7093,13 @@
               .querySelectorAll(
                 ".resource-row"
               )
-              .forEach(
-                item =>
-                  item.classList.remove(
-                    "drag-over"
-                  )
-              );
+              .forEach(item => {
+
+                item.classList.remove(
+                  "drag-over"
+                );
+
+              });
 
 
             draggedResourceId =
@@ -7208,54 +7116,9 @@
             event.preventDefault();
 
 
-            const targetId =
-              row.dataset.resourceId;
-
-
             if (
-              !draggedResourceId ||
-              targetId ===
-                draggedResourceId
-            ) {
-
-              return;
-
-            }
-
-
-            const dragged =
-              resources.find(
-                item =>
-                  item.id ===
-                  draggedResourceId
-              );
-
-
-            const target =
-              resources.find(
-                item =>
-                  item.id ===
-                  targetId
-              );
-
-
-            if (
-              !dragged ||
-              !target
-            ) {
-
-              return;
-
-            }
-
-
-            /*
-             * منع نقل الملف بين المواد.
-             */
-
-            if (
-              dragged.subjectId !==
-              target.subjectId
+              row.dataset.resourceId ===
+              draggedResourceId
             ) {
 
               return;
@@ -7266,6 +7129,10 @@
             row.classList.add(
               "drag-over"
             );
+
+
+            event.dataTransfer.dropEffect =
+              "move";
 
           }
         );
@@ -7295,21 +7162,20 @@
             );
 
 
-            const draggedId =
+            const fromId =
               event.dataTransfer.getData(
                 "text/plain"
-              ) ||
-              draggedResourceId;
+              );
 
 
-            const targetId =
+            const toId =
               row.dataset.resourceId;
 
 
             if (
-              !draggedId ||
-              draggedId ===
-                targetId
+              !fromId ||
+              !toId ||
+              fromId === toId
             ) {
 
               return;
@@ -7317,9 +7183,9 @@
             }
 
 
-            await reorderResourcesByDrag(
-              draggedId,
-              targetId
+            await reorderResources(
+              fromId,
+              toId
             );
 
           }
@@ -7330,30 +7196,26 @@
     }
 
 
-    async function reorderResourcesByDrag(
-      draggedId,
-      targetId
+    async function reorderResources(
+      fromId,
+      toId
     ) {
 
-      const dragged =
+      const from =
         resources.find(
-          item =>
-            item.id ===
-            draggedId
+          item => item.id === fromId
         );
 
 
-      const target =
+      const to =
         resources.find(
-          item =>
-            item.id ===
-            targetId
+          item => item.id === toId
         );
 
 
       if (
-        !dragged ||
-        !target
+        !from ||
+        !to
       ) {
 
         return;
@@ -7362,16 +7224,17 @@
 
 
       /*
-       * الترتيب مسموح فقط داخل نفس المادة.
+       * حماية مهمة:
+       * لا يمكن سحب ملف إلى مادة مختلفة.
        */
 
       if (
-        dragged.subjectId !==
-        target.subjectId
+        from.subjectId !==
+        to.subjectId
       ) {
 
         toast(
-          "لا يمكن نقل ملف بين مادتين مختلفتين",
+          "يمكن ترتيب الملفات داخل المادة نفسها فقط",
           "error"
         );
 
@@ -7381,34 +7244,32 @@
 
 
       const subjectId =
-        dragged.subjectId;
+        from.subjectId;
 
 
-      const subjectResources =
+      let list =
         getResourcesForSubject(
           subjectId
         );
 
 
-      const oldIndex =
-        subjectResources.findIndex(
+      const fromIndex =
+        list.findIndex(
           item =>
-            item.id ===
-            draggedId
+            item.id === fromId
         );
 
 
-      const targetIndex =
-        subjectResources.findIndex(
+      const toIndex =
+        list.findIndex(
           item =>
-            item.id ===
-            targetId
+            item.id === toId
         );
 
 
       if (
-        oldIndex === -1 ||
-        targetIndex === -1
+        fromIndex === -1 ||
+        toIndex === -1
       ) {
 
         return;
@@ -7416,57 +7277,54 @@
       }
 
 
-      const reordered =
-        [...subjectResources];
-
-
       const [
-        movedItem
+        moved
       ] =
-        reordered.splice(
-          oldIndex,
+        list.splice(
+          fromIndex,
           1
         );
 
 
-      reordered.splice(
-        targetIndex,
+      list.splice(
+        toIndex,
         0,
-        movedItem
-      );
-
-
-      /*
-       * إعادة ترقيم المادة كاملة:
-       *
-       * 1
-       * 2
-       * 3
-       * 4
-       *
-       * بدون التأثير على أي مادة ثانية.
-       */
-
-      reordered.forEach(
-        (item, index) => {
-
-          item.order =
-            index + 1;
-
-        }
+        moved
       );
 
 
       try {
 
-        const batch =
-          writeBatch(db);
+        toast(
+          "جاري حفظ ترتيب الملفات..."
+        );
 
 
-        reordered.forEach(
-          item => {
+        /*
+         * نعيد بناء الترتيب من 1
+         * إلى عدد الملفات.
+         */
 
-            batch.update(
+        for (
+          let index = 0;
+          index < list.length;
+          index++
+        ) {
+
+          const item =
+            list[index];
+
+
+          const newOrder =
+            index + 1;
+
+
+          if (
+            Number(item.order) !==
+            newOrder
+          ) {
+
+            await updateDoc(
 
               doc(
                 db,
@@ -7476,8 +7334,7 @@
 
               {
 
-                order:
-                  item.order,
+                order:newOrder,
 
                 updatedAt:
                   serverTimestamp()
@@ -7486,69 +7343,56 @@
 
             );
 
+
+            item.order =
+              newOrder;
+
           }
-        );
 
-
-        await batch.commit();
+        }
 
 
         /*
-         * تحديث البيانات المحلية.
+         * تحديث النسخة المحلية.
          */
 
-        reordered.forEach(
-          reorderedItem => {
+        resources =
+          resources.map(item => {
 
-            const local =
-              resources.find(
-                item =>
-                  item.id ===
-                  reorderedItem.id
+            const updated =
+              list.find(
+                resource =>
+                  resource.id ===
+                  item.id
               );
 
 
-            if (local) {
+            return updated ||
+              item;
 
-              local.order =
-                reorderedItem.order;
-
-            }
-
-          }
-        );
+          });
 
 
-        resources.sort(
-          (a,b) =>
-            resourceOrderValue(a) -
-            resourceOrderValue(b)
-        );
+        renderResources();
 
-
-        renderFilteredResources();
+        renderRecentResources();
 
 
         toast(
-          `تم حفظ ترتيب ${getSubjectName(subjectId)} بنجاح`,
+          "تم حفظ ترتيب الملفات بنجاح",
           "success"
         );
 
       }
 
-      catch (error) {
+      catch(error) {
 
-        console.error(
-          "DRAG ORDER ERROR:",
-          error
-        );
-
+        console.error(error);
 
         toast(
           "تعذر حفظ ترتيب الملفات",
           "error"
         );
-
 
         await loadResources();
 
@@ -7611,7 +7455,7 @@
 
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -7685,9 +7529,7 @@
           toast(
 
             driveDeleted
-
               ? "تم حذف المورد وملف Google Drive"
-
               : "تم حذف المورد",
 
             "success"
@@ -7701,7 +7543,7 @@
 
         }
 
-        catch (error) {
+        catch(error) {
 
           console.error(error);
 
@@ -7716,7 +7558,7 @@
 
 
     /* =====================================================
-       RECENT
+       RECENT RESOURCES
     ===================================================== */
 
     function renderRecentResources() {
@@ -7739,29 +7581,30 @@
                 b.createdAt?.seconds ||
                 0
               ) -
+
               Number(
                 a.createdAt?.seconds ||
                 0
               )
           )
 
-          .slice(
-            0,
-            8
-          );
+          .slice(0,8);
 
 
       if (!recent.length) {
 
-        tbody.innerHTML = `
-          <tr>
+        tbody.innerHTML =
+          `<tr>
+
             <td colspan="4">
+
               <div class="empty">
                 لا توجد موارد حتى الآن
               </div>
+
             </td>
-          </tr>
-        `;
+
+          </tr>`;
 
         return;
 
@@ -7769,72 +7612,73 @@
 
 
       tbody.innerHTML =
-        recent.map(
-          item => `
+        recent.map(item => `
 
-            <tr>
+          <tr>
 
-              <td>
+            <td>
 
-                <strong>
-                  ${escapeHTML(
-                    item.title
-                  )}
-                </strong>
+              <strong>
+                ${escapeHTML(
+                  item.title
+                )}
+              </strong>
 
-              </td>
+            </td>
 
-              <td>
+
+            <td>
+
+              ${escapeHTML(
+                getSubjectName(
+                  item.subjectId
+                )
+              )}
+
+            </td>
+
+
+            <td>
+
+              <span class="badge gray">
 
                 ${escapeHTML(
-                  getSubjectName(
-                    item.subjectId
-                  )
+                  item.type ||
+                  "رابط"
                 )}
 
-              </td>
+              </span>
 
-              <td>
+            </td>
 
-                <span class="badge gray">
 
-                  ${escapeHTML(
-                    item.type ||
-                    "رابط"
-                  )}
+            <td>
 
-                </span>
+              ${
+                item.published === true
 
-              </td>
+                  ? `
 
-              <td>
+                    <span class="badge success">
+                      منشور
+                    </span>
 
-                ${
-                  item.published === true
+                  `
 
-                    ? `
+                  : `
 
-                      <span class="badge success">
-                        منشور
-                      </span>
+                    <span class="badge warning">
+                      مخفي
+                    </span>
 
-                    `
+                  `
+              }
 
-                    : `
+            </td>
 
-                      <span class="badge warning">
-                        مخفي
-                      </span>
+          </tr>
 
-                    `
-                }
-
-              </td>
-
-            </tr>
-
-          `
-        ).join("");
+        `).join("");
 
     }
 
@@ -7869,11 +7713,9 @@
           try {
 
             await signInWithEmailAndPassword(
-
               auth,
               email,
               password
-
             );
 
 
@@ -7884,7 +7726,7 @@
 
           }
 
-          catch (error) {
+          catch(error) {
 
             console.error(error);
 
@@ -7941,7 +7783,7 @@
 
           }
 
-          catch (error) {
+          catch(error) {
 
             console.error(error);
 
@@ -7976,7 +7818,6 @@
           loginScreen.style.display =
             "none";
 
-
           app.style.display =
             "block";
 
@@ -7995,7 +7836,6 @@
 
           loginScreen.style.display =
             "flex";
-
 
           app.style.display =
             "none";
