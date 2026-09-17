@@ -6,29 +6,61 @@
 
   <title>لوحة التحكم | مساعد توجيهي</title>
 
+  <meta name="theme-color" content="#0f766e">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Google Identity Services -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
+
     :root {
-      --bg:#f5f7f8;
-      --surface:#ffffff;
-      --surface2:#f0f4f3;
-      --text:#17211f;
+      --bg:#eef5f4;
+      --bg2:#e6f0ee;
+
+      --surface:rgba(255,255,255,.72);
+      --surface-solid:#ffffff;
+      --surface2:rgba(241,247,246,.72);
+
+      --text:#14201e;
       --muted:#71807c;
+
       --primary:#0f766e;
       --primary2:#14b8a6;
-      --soft:#e5f6f3;
-      --border:#e1e8e6;
+
+      --soft:rgba(20,184,166,.10);
+
+      --border:rgba(255,255,255,.75);
+      --border2:rgba(15,118,110,.12);
+
       --danger:#dc2626;
       --warning:#d97706;
       --success:#16a34a;
-      --shadow:0 12px 35px rgba(15,118,110,.08);
-      --radius:20px;
+
+      --shadow:
+        0 20px 60px rgba(15,118,110,.10);
+
+      --glass-shadow:
+        0 18px 60px rgba(15,118,110,.09);
+
+      --radius:22px;
     }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
 
     * {
       box-sizing:border-box;
@@ -36,11 +68,53 @@
       padding:0;
     }
 
+    html {
+      scroll-behavior:smooth;
+    }
+
     body {
       font-family:"IBM Plex Sans Arabic",sans-serif;
-      background:var(--bg);
       color:var(--text);
       min-height:100vh;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(20,184,166,.12),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(15,118,110,.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(20,184,166,.08),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg2)
+        );
+
+      background-attachment:fixed;
+    }
+
+    body::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(255,255,255,.28),
+          transparent 45%
+        );
     }
 
     button,
@@ -55,45 +129,85 @@
       -webkit-tap-highlight-color:transparent;
     }
 
-    /* LOGIN */
+    button {
+      border:0;
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
 
     #loginScreen {
       min-height:100vh;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       padding:20px;
+
       background:
-        radial-gradient(circle at top right,rgba(20,184,166,.12),transparent 35%),
-        radial-gradient(circle at bottom left,rgba(15,118,110,.10),transparent 35%),
-        var(--bg);
+        radial-gradient(
+          circle at top right,
+          rgba(20,184,166,.18),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(15,118,110,.13),
+          transparent 35%
+        );
     }
 
     .login-card {
       width:100%;
-      max-width:430px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:28px;
-      padding:34px;
-      box-shadow:0 25px 70px rgba(15,118,110,.12);
+      max-width:440px;
+
+      padding:38px;
+
+      background:rgba(255,255,255,.68);
+
+      border:1px solid rgba(255,255,255,.82);
+
+      border-radius:30px;
+
+      backdrop-filter:blur(28px);
+      -webkit-backdrop-filter:blur(28px);
+
+      box-shadow:
+        0 30px 100px rgba(15,118,110,.14),
+        inset 0 1px 0 rgba(255,255,255,.8);
     }
 
     .login-logo {
-      width:64px;
-      height:64px;
-      border-radius:19px;
+      width:70px;
+      height:70px;
+
+      border-radius:22px;
+
       display:grid;
       place-items:center;
+
       color:white;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      margin:0 auto 18px;
-      box-shadow:0 12px 30px rgba(15,118,110,.22);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      margin:0 auto 19px;
+
+      box-shadow:
+        0 15px 35px rgba(15,118,110,.24),
+        inset 0 1px 0 rgba(255,255,255,.3);
     }
 
     .login-logo svg {
-      width:32px;
-      height:32px;
+      width:34px;
+      height:34px;
     }
 
     .login-card h1 {
@@ -106,10 +220,13 @@
       text-align:center;
       color:var(--muted);
       font-size:13px;
-      margin-bottom:26px;
+      margin-bottom:28px;
     }
 
-    /* APP */
+
+    /* =====================================================
+       APP
+    ===================================================== */
 
     #app {
       display:none;
@@ -121,47 +238,85 @@
       min-height:100vh;
     }
 
-    /* SIDEBAR */
+
+    /* =====================================================
+       SIDEBAR
+    ===================================================== */
 
     .sidebar {
-      width:270px;
+      width:280px;
       flex-shrink:0;
-      background:var(--surface);
-      border-left:1px solid var(--border);
-      padding:20px 15px;
+
       position:fixed;
-      top:0;
-      right:0;
-      bottom:0;
+
+      top:14px;
+      right:14px;
+      bottom:14px;
+
       z-index:100;
+
+      padding:17px 14px;
+
       display:flex;
       flex-direction:column;
+
+      background:rgba(255,255,255,.62);
+
+      border:
+        1px solid
+        rgba(255,255,255,.85);
+
+      border-radius:27px;
+
+      backdrop-filter:blur(25px);
+      -webkit-backdrop-filter:blur(25px);
+
+      box-shadow:
+        0 18px 65px rgba(15,118,110,.11),
+        inset 0 1px 0 rgba(255,255,255,.8);
+
+      overflow:hidden;
     }
 
     .brand {
       display:flex;
       align-items:center;
       gap:11px;
+
       padding:7px 8px 24px;
+
       text-decoration:none;
       color:var(--text);
     }
 
     .brand-icon {
-      width:46px;
-      height:46px;
-      border-radius:15px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      width:47px;
+      height:47px;
+
+      border-radius:16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
       color:#fff;
+
       display:grid;
       place-items:center;
+
       flex-shrink:0;
-      box-shadow:0 9px 25px rgba(15,118,110,.18);
+
+      box-shadow:
+        0 10px 28px rgba(15,118,110,.20),
+        inset 0 1px 0 rgba(255,255,255,.28);
     }
 
     .brand-icon svg {
-      width:23px;
-      height:23px;
+      width:24px;
+      height:24px;
     }
 
     .brand-text strong {
@@ -181,52 +336,101 @@
       color:var(--muted);
       font-size:10px;
       font-weight:700;
+
       padding:10px 12px 8px;
     }
 
     .nav {
       display:flex;
       flex-direction:column;
-      gap:5px;
+      gap:6px;
     }
 
     .nav-btn {
-      border:0;
-      background:transparent;
-      color:var(--muted);
-      min-height:45px;
+      position:relative;
+
+      min-height:46px;
+
       padding:0 13px;
-      border-radius:13px;
+
+      border-radius:14px;
+
       display:flex;
       align-items:center;
+
       gap:11px;
+
       cursor:pointer;
+
+      color:var(--muted);
+      background:transparent;
+
       text-align:right;
+
       font-size:13px;
       font-weight:600;
-      transition:.18s ease;
+
+      transition:
+        .2s ease;
     }
 
     .nav-btn svg {
       width:18px;
       height:18px;
+
       flex-shrink:0;
     }
 
     .nav-btn:hover {
       color:var(--primary);
-      background:var(--soft);
+
+      background:
+        rgba(20,184,166,.08);
+
+      transform:translateX(-2px);
     }
 
     .nav-btn.active {
       color:var(--primary);
-      background:var(--soft);
-      font-weight:700;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20,184,166,.15),
+          rgba(15,118,110,.07)
+        );
+
+      box-shadow:
+        inset 0 0 0 1px
+        rgba(20,184,166,.08);
+    }
+
+    .nav-btn.active::before {
+      content:"";
+
+      position:absolute;
+
+      right:0;
+
+      width:3px;
+      height:22px;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          var(--primary),
+          var(--primary2)
+        );
     }
 
     .sidebar-bottom {
       margin-top:auto;
-      border-top:1px solid var(--border);
+
+      border-top:
+        1px solid
+        rgba(15,118,110,.09);
+
       padding-top:15px;
     }
 
@@ -234,23 +438,34 @@
       display:flex;
       align-items:center;
       gap:10px;
+
       padding:9px;
       margin-bottom:9px;
     }
 
     .admin-avatar {
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      background:var(--soft);
+      width:40px;
+      height:40px;
+
+      border-radius:13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20,184,166,.15),
+          rgba(15,118,110,.07)
+        );
+
       color:var(--primary);
+
       display:grid;
       place-items:center;
+
       flex-shrink:0;
     }
 
     .admin-avatar svg {
-      width:18px;
+      width:19px;
     }
 
     .admin-email {
@@ -264,35 +479,57 @@
 
     .admin-email span {
       display:block;
+
       color:var(--muted);
+
       font-size:9px;
+
       margin-top:2px;
+
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
     }
 
-    /* MAIN */
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
 
     .main {
       flex:1;
-      margin-right:270px;
+
+      margin-right:308px;
+
       min-width:0;
     }
 
     .topbar {
-      height:72px;
+      height:76px;
+
       position:sticky;
       top:0;
+
       z-index:50;
-      background:rgba(255,255,255,.84);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--border);
+
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 28px;
+
+      padding:0 30px;
+
+      background:
+        rgba(245,250,249,.70);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.78);
+
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+
+      box-shadow:
+        0 8px 30px rgba(15,118,110,.04);
     }
 
     .topbar-title h2 {
@@ -316,74 +553,136 @@
     }
 
     .content {
-      max-width:1450px;
+      width:100%;
+      max-width:1500px;
+
       margin:auto;
-      padding:28px;
+
+      padding:30px;
     }
 
-    /* BUTTONS */
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
 
     .btn {
-      height:40px;
-      min-width:40px;
+      min-height:41px;
+      min-width:41px;
+
       padding:0 14px;
-      border:1px solid var(--border);
-      border-radius:12px;
-      background:var(--surface);
+
+      border:
+        1px solid
+        rgba(15,118,110,.10);
+
+      border-radius:13px;
+
+      background:
+        rgba(255,255,255,.68);
+
       color:var(--text);
+
       font-weight:600;
       font-size:12px;
+
       display:inline-flex;
       align-items:center;
       justify-content:center;
+
       gap:7px;
+
       cursor:pointer;
-      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease,
+        background .18s ease;
     }
 
     .btn:hover {
-      border-color:var(--primary2);
+      border-color:
+        rgba(20,184,166,.30);
+
       transform:translateY(-1px);
-      box-shadow:0 7px 18px rgba(15,118,110,.08);
+
+      box-shadow:
+        0 9px 25px
+        rgba(15,118,110,.09);
     }
 
     .btn:active {
-      transform:translateY(0) scale(.98);
+      transform:
+        translateY(0)
+        scale(.98);
     }
 
     .btn-primary {
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
       color:#fff;
+
       border-color:transparent;
-      box-shadow:0 7px 18px rgba(15,118,110,.16);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary2)
+        );
+
+      box-shadow:
+        0 9px 23px
+        rgba(15,118,110,.18);
     }
 
     .btn-primary:hover {
       border-color:transparent;
-      box-shadow:0 10px 23px rgba(15,118,110,.22);
+
+      box-shadow:
+        0 12px 28px
+        rgba(15,118,110,.24);
     }
 
     .btn-danger {
-      background:#fef2f2;
+      background:
+        rgba(254,242,242,.78);
+
       color:var(--danger);
-      border-color:#fecaca;
+
+      border-color:
+        rgba(220,38,38,.15);
     }
 
     .btn-danger:hover {
-      border-color:#fca5a5;
-      background:#fff1f2;
+      background:
+        rgba(254,226,226,.88);
     }
 
     .btn-success {
-      background:#f0fdf4;
+      background:
+        rgba(240,253,244,.80);
+
       color:var(--success);
-      border-color:#bbf7d0;
+
+      border-color:
+        rgba(22,163,74,.16);
     }
 
     .btn-edit {
-      background:#effcf9;
+      background:
+        rgba(239,252,249,.78);
+
       color:var(--primary);
-      border-color:#c8eee7;
+
+      border-color:
+        rgba(20,184,166,.15);
+    }
+
+    .btn-small {
+      min-height:34px;
+      padding:0 10px;
+      font-size:10px;
+      border-radius:10px;
     }
 
     .actions {
@@ -394,8 +693,8 @@
     }
 
     .actions .btn {
-      height:36px;
-      padding:0 11px;
+      min-height:35px;
+      padding:0 10px;
     }
 
     .btn svg {
@@ -404,26 +703,45 @@
       flex:none;
     }
 
-    /* PAGES */
+
+    /* =====================================================
+       PAGES
+    ===================================================== */
 
     .page {
       display:none;
+      animation:
+        pageIn .25s ease;
     }
 
     .page.active {
       display:block;
     }
 
+    @keyframes pageIn {
+      from {
+        opacity:0;
+        transform:translateY(5px);
+      }
+
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
     .page-head {
       display:flex;
       align-items:center;
       justify-content:space-between;
+
       gap:15px;
+
       margin-bottom:20px;
     }
 
     .page-head h1 {
-      font-size:24px;
+      font-size:25px;
     }
 
     .page-head p {
@@ -432,34 +750,83 @@
       margin-top:4px;
     }
 
-    /* STATS */
+
+    /* =====================================================
+       STATS
+    ===================================================== */
 
     .stats {
       display:grid;
-      grid-template-columns:repeat(4,1fr);
+
+      grid-template-columns:
+        repeat(4,1fr);
+
       gap:15px;
+
       margin-bottom:22px;
     }
 
     .stat {
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:18px;
+      position:relative;
+      overflow:hidden;
+
+      background:
+        rgba(255,255,255,.65);
+
+      border:
+        1px solid
+        rgba(255,255,255,.85);
+
+      border-radius:21px;
+
       padding:19px;
-      box-shadow:var(--shadow);
+
+      box-shadow:var(--glass-shadow);
+
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+
       display:flex;
       align-items:center;
+
       gap:14px;
     }
 
+    .stat::after {
+      content:"";
+
+      position:absolute;
+
+      width:90px;
+      height:90px;
+
+      left:-35px;
+      bottom:-45px;
+
+      border-radius:50%;
+
+      background:
+        rgba(20,184,166,.08);
+    }
+
     .stat-icon {
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      background:var(--soft);
+      width:48px;
+      height:48px;
+
+      border-radius:15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20,184,166,.15),
+          rgba(15,118,110,.07)
+        );
+
       color:var(--primary);
+
       display:grid;
       place-items:center;
+
       flex-shrink:0;
     }
 
@@ -479,22 +846,62 @@
       margin-top:1px;
     }
 
-    /* CARDS */
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
 
     .card {
-      background:var(--surface);
-      border:1px solid var(--border);
+      background:
+        rgba(255,255,255,.65);
+
+      border:
+        1px solid
+        rgba(255,255,255,.86);
+
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px;
+
+      box-shadow:var(--glass-shadow);
+
+      padding:21px;
+
       margin-bottom:20px;
+
+      backdrop-filter:blur(22px);
+      -webkit-backdrop-filter:blur(22px);
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before {
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:12%;
+      right:12%;
+
+      height:1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.95),
+          transparent
+        );
     }
 
     .card-head {
       display:flex;
+
       justify-content:space-between;
       align-items:center;
+
       gap:10px;
+
       margin-bottom:17px;
     }
 
@@ -508,16 +915,23 @@
       margin-top:3px;
     }
 
-    /* FORMS */
+
+    /* =====================================================
+       FORMS
+    ===================================================== */
 
     .form-grid {
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+
+      grid-template-columns:
+        repeat(2,1fr);
+
       gap:14px;
     }
 
     .form-grid.three {
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:
+        repeat(3,1fr);
     }
 
     .field {
@@ -541,87 +955,145 @@
       line-height:1.7;
     }
 
-    .input,
     .field input,
     .field select,
     .field textarea {
       width:100%;
-      border:1px solid var(--border);
-      background:var(--surface);
+
+      border:
+        1px solid
+        rgba(15,118,110,.11);
+
+      background:
+        rgba(255,255,255,.60);
+
       color:var(--text);
+
       outline:none;
-      border-radius:12px;
+
+      border-radius:13px;
+
       padding:0 13px;
-      height:43px;
+
+      height:44px;
+
       font-size:12px;
+
       transition:.18s ease;
+
+      backdrop-filter:blur(10px);
     }
 
     .field textarea {
-      height:90px;
+      height:92px;
+
       padding:11px 13px;
+
       resize:vertical;
     }
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color:var(--primary2);
-      box-shadow:0 0 0 3px rgba(20,184,166,.09);
+      border-color:
+        rgba(20,184,166,.65);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(20,184,166,.09);
+
+      background:
+        rgba(255,255,255,.85);
     }
 
     .checkbox-field {
       display:flex;
+
       align-items:center;
+
       gap:8px;
-      height:43px;
+
+      height:44px;
+
       padding:0 12px;
-      background:var(--surface2);
-      border:1px solid var(--border);
-      border-radius:12px;
+
+      background:
+        rgba(241,247,246,.70);
+
+      border:
+        1px solid
+        rgba(15,118,110,.10);
+
+      border-radius:13px;
     }
 
     .checkbox-field input {
       width:17px;
       height:17px;
+
       accent-color:var(--primary);
     }
 
     .form-actions {
       display:flex;
+
       gap:8px;
+
       margin-top:17px;
     }
 
-    /* DRIVE */
+
+    /* =====================================================
+       DRIVE
+    ===================================================== */
 
     .drive-box {
-      border:1px solid #ccece7;
-      background:linear-gradient(135deg,#f0fdfb,#ffffff);
-      border-radius:18px;
+      border:
+        1px solid
+        rgba(20,184,166,.16);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(240,253,251,.78),
+          rgba(255,255,255,.45)
+        );
+
+      border-radius:19px;
+
       padding:16px;
+
       display:flex;
+
       align-items:center;
       justify-content:space-between;
+
       gap:15px;
-      margin-bottom:18px;
     }
 
     .drive-info {
       display:flex;
       align-items:center;
+
       gap:12px;
+
       min-width:0;
     }
 
     .drive-icon {
-      width:45px;
-      height:45px;
-      border-radius:13px;
-      background:#e5f6f3;
+      width:46px;
+      height:46px;
+
+      border-radius:14px;
+
+      background:
+        rgba(20,184,166,.10);
+
       color:var(--primary);
+
       display:grid;
       place-items:center;
+
       flex-shrink:0;
     }
 
@@ -636,8 +1108,11 @@
 
     .drive-info span {
       display:block;
+
       color:var(--muted);
+
       font-size:10px;
+
       margin-top:3px;
     }
 
@@ -646,9 +1121,15 @@
     }
 
     .file-picker {
-      border:1px dashed #9bded5;
-      background:var(--soft);
+      border:
+        1px dashed
+        rgba(20,184,166,.42);
+
+      background:
+        rgba(20,184,166,.06);
+
       border-radius:15px;
+
       padding:15px;
     }
 
@@ -659,91 +1140,299 @@
 
     .selected-file {
       margin-top:8px;
+
       color:var(--primary);
+
       font-size:10px;
+
       font-weight:600;
+
       word-break:break-word;
     }
 
-    /* TABLE */
+
+    /* =====================================================
+       ORDER INFO
+    ===================================================== */
+
+    .order-info {
+      display:flex;
+      align-items:center;
+
+      gap:8px;
+
+      margin-bottom:16px;
+
+      padding:11px 13px;
+
+      border-radius:14px;
+
+      background:
+        rgba(20,184,166,.055);
+
+      border:
+        1px solid
+        rgba(20,184,166,.10);
+
+      color:var(--muted);
+
+      font-size:10px;
+    }
+
+    .order-info svg {
+      width:16px;
+      color:var(--primary);
+      flex-shrink:0;
+    }
+
+
+    /* =====================================================
+       TABLE
+    ===================================================== */
 
     .table-wrap {
       width:100%;
+
       overflow:auto;
-      border:1px solid var(--border);
-      border-radius:16px;
+
+      border:
+        1px solid
+        rgba(15,118,110,.09);
+
+      border-radius:17px;
+
+      background:
+        rgba(255,255,255,.32);
     }
 
     table {
       width:100%;
+
       border-collapse:collapse;
+
       min-width:760px;
     }
 
     th {
-      background:var(--surface2);
+      background:
+        rgba(241,247,246,.72);
+
       color:var(--muted);
+
       font-size:10px;
+
       font-weight:700;
+
       text-align:right;
-      padding:12px 14px;
+
+      padding:13px 14px;
+
       white-space:nowrap;
+
+      border-bottom:
+        1px solid
+        rgba(15,118,110,.08);
     }
 
     td {
       padding:13px 14px;
-      border-top:1px solid var(--border);
+
+      border-top:
+        1px solid
+        rgba(15,118,110,.06);
+
       font-size:11px;
+
       vertical-align:middle;
     }
 
-    tr:hover td {
-      background:rgba(20,184,166,.025);
+    tbody tr {
+      transition:
+        background .18s ease,
+        transform .18s ease,
+        opacity .18s ease;
     }
 
-    .empty {
-      padding:35px;
+    tbody tr:hover td {
+      background:
+        rgba(20,184,166,.025);
+    }
+
+    /* DRAGGING */
+
+    tr.resource-row {
+      cursor:default;
+    }
+
+    tr.resource-row.dragging {
+      opacity:.35;
+
+      background:
+        rgba(20,184,166,.08);
+    }
+
+    tr.resource-row.drag-over td {
+      border-top:
+        2px solid
+        var(--primary2);
+    }
+
+    .drag-cell {
+      width:55px;
+
       text-align:center;
+    }
+
+    .drag-handle {
+      width:34px;
+      height:34px;
+
+      display:inline-grid;
+      place-items:center;
+
+      border-radius:10px;
+
+      background:
+        rgba(20,184,166,.07);
+
       color:var(--muted);
-      font-size:12px;
+
+      cursor:grab;
+
+      user-select:none;
+
+      transition:.18s ease;
+    }
+
+    .drag-handle:hover {
+      color:var(--primary);
+
+      background:
+        rgba(20,184,166,.12);
+    }
+
+    .drag-handle:active {
+      cursor:grabbing;
+    }
+
+    .drag-handle svg {
+      width:17px;
+      height:17px;
+    }
+
+    .order-actions {
+      display:flex;
+
+      align-items:center;
+
+      gap:5px;
     }
 
     .order-badge {
       display:inline-grid;
+
       place-items:center;
-      min-width:32px;
-      height:28px;
+
+      min-width:34px;
+      height:29px;
+
       padding:0 8px;
+
       border-radius:9px;
-      background:var(--soft);
+
+      background:
+        rgba(20,184,166,.09);
+
       color:var(--primary);
+
       font-size:11px;
+
       font-weight:700;
-      border:1px solid rgba(20,184,166,.12);
+
+      border:
+        1px solid
+        rgba(20,184,166,.12);
+    }
+
+    .move-btn {
+      width:28px;
+      height:28px;
+
+      padding:0;
+
+      border-radius:8px;
+
+      display:grid;
+      place-items:center;
+
+      background:
+        rgba(255,255,255,.65);
+
+      color:var(--muted);
+
+      border:
+        1px solid
+        rgba(15,118,110,.08);
+
+      cursor:pointer;
+    }
+
+    .move-btn:hover {
+      color:var(--primary);
+
+      background:
+        rgba(20,184,166,.08);
+    }
+
+    .move-btn svg {
+      width:14px;
+      height:14px;
+    }
+
+    .empty {
+      padding:35px;
+
+      text-align:center;
+
+      color:var(--muted);
+
+      font-size:12px;
     }
 
     .badge {
       display:inline-flex;
+
       align-items:center;
+
       gap:5px;
+
       padding:5px 8px;
+
       border-radius:8px;
+
       font-size:9px;
+
       font-weight:700;
     }
 
     .badge.success {
-      background:#f0fdf4;
+      background:
+        rgba(240,253,244,.80);
+
       color:var(--success);
     }
 
     .badge.warning {
-      background:#fff7ed;
+      background:
+        rgba(255,247,237,.80);
+
       color:var(--warning);
     }
 
     .badge.gray {
-      background:var(--surface2);
+      background:
+        rgba(241,245,244,.80);
+
       color:var(--muted);
     }
 
@@ -765,40 +1454,77 @@
 
     .url-cell a {
       color:var(--primary);
+
       text-decoration:none;
+
       font-size:9px;
+
       word-break:break-all;
     }
 
-    /* TOAST */
+    .url-cell a:hover {
+      text-decoration:underline;
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
 
     #toastContainer {
       position:fixed;
+
       left:20px;
       bottom:20px;
+
       z-index:9999;
+
       display:flex;
+
       flex-direction:column;
+
       gap:9px;
-      width:min(360px,calc(100vw - 40px));
+
+      width:min(
+        380px,
+        calc(100vw - 40px)
+      );
     }
 
     .toast {
-      background:#17211f;
+      background:
+        rgba(23,33,31,.90);
+
       color:#fff;
-      border-radius:14px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius:15px;
+
       padding:13px 15px;
+
       font-size:11px;
-      box-shadow:0 14px 35px rgba(0,0,0,.18);
-      animation:toastIn .25s ease;
+
+      box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.18);
+
+      backdrop-filter:blur(18px);
+
+      animation:
+        toastIn .25s ease;
     }
 
     .toast.success {
-      background:#166534;
+      background:
+        rgba(22,101,52,.92);
     }
 
     .toast.error {
-      background:#991b1b;
+      background:
+        rgba(153,27,27,.92);
     }
 
     @keyframes toastIn {
@@ -806,6 +1532,7 @@
         opacity:0;
         transform:translateY(10px);
       }
+
       to {
         opacity:1;
         transform:translateY(0);
@@ -817,71 +1544,72 @@
       pointer-events:none;
     }
 
-    /* DARK */
 
-    body.dark {
-      --bg:#09100f;
-      --surface:#101817;
-      --surface2:#16211f;
-      --text:#f1f5f4;
-      --muted:#9aa9a5;
-      --primary:#2dd4bf;
-      --primary2:#14b8a6;
-      --soft:rgba(20,184,166,.12);
-      --border:#253430;
-      --shadow:0 18px 55px rgba(0,0,0,.28);
+    /* =====================================================
+       OVERLAY
+    ===================================================== */
+
+    .sidebar-overlay {
+      display:none;
+
+      position:fixed;
+      inset:0;
+
+      background:
+        rgba(0,0,0,.18);
+
+      backdrop-filter:blur(3px);
+
+      z-index:90;
     }
 
-    body.dark .topbar {
-      background:rgba(16,24,23,.84);
-    }
 
-    body.dark .drive-box {
-      background:rgba(20,184,166,.06);
-      border-color:rgba(20,184,166,.25);
-    }
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
 
-    body.dark .drive-icon {
-      background:rgba(20,184,166,.12);
-    }
+    @media(max-width:1100px) {
 
-    body.dark .btn-danger {
-      background:rgba(220,38,38,.10);
-      border-color:rgba(220,38,38,.25);
-    }
-
-    body.dark .btn-success {
-      background:rgba(22,163,74,.10);
-      border-color:rgba(22,163,74,.25);
-    }
-
-    body.dark .btn-edit {
-      background:rgba(20,184,166,.12);
-      color:var(--primary2);
-      border-color:rgba(20,184,166,.25);
-    }
-
-    /* MOBILE */
-
-    @media(max-width:1050px) {
       .stats {
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
 
       .form-grid.three {
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
+
     }
 
+
     @media(max-width:800px) {
+
       .sidebar {
-        transform:translateX(100%);
-        transition:.25s ease;
-        box-shadow:0 0 50px rgba(0,0,0,.15);
+        top:10px;
+        right:10px;
+        bottom:10px;
+
+        transform:
+          translateX(
+            calc(100% + 30px)
+          );
+
+        transition:
+          transform .25s ease;
+
+        box-shadow:
+          0 0 70px
+          rgba(0,0,0,.20);
       }
 
       .sidebar.open {
-        transform:translateX(0);
+        transform:
+          translateX(0);
+      }
+
+      .sidebar-overlay.active {
+        display:block;
       }
 
       .main {
@@ -907,22 +1635,38 @@
       .page-head h1 {
         font-size:20px;
       }
+
+      .stats {
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap:9px;
+      }
+
     }
 
+
     @media(max-width:600px) {
+
       .stats {
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+          1fr 1fr;
+
         gap:9px;
       }
 
       .stat {
         padding:13px;
         gap:9px;
+
+        border-radius:17px;
       }
 
       .stat-icon {
         width:38px;
         height:38px;
+
+        border-radius:11px;
       }
 
       .stat strong {
@@ -944,12 +1688,16 @@
 
       .card {
         padding:15px;
-        border-radius:17px;
+        border-radius:18px;
       }
 
       .drive-box {
         align-items:flex-start;
         flex-direction:column;
+      }
+
+      .drive-box .btn {
+        width:100%;
       }
 
       .form-actions {
@@ -965,46 +1713,103 @@
       }
 
       .login-card {
-        padding:25px 20px;
+        padding:27px 20px;
       }
+
+      .page-head .btn {
+        min-width:auto;
+        padding:0 10px;
+      }
+
+      .order-info {
+        align-items:flex-start;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- LOGIN -->
+
+  <!-- =====================================================
+       LOGIN
+  ===================================================== -->
 
   <section id="loginScreen">
+
     <div class="login-card">
 
       <div class="login-logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
           <path d="M8 6h8M8 10h8"/>
         </svg>
+
       </div>
 
       <h1>لوحة تحكم مساعد توجيهي</h1>
-      <p>سجّل الدخول لإدارة محتوى المنصة</p>
+
+      <p>
+        سجّل الدخول لإدارة محتوى المنصة
+      </p>
 
       <form id="loginForm">
 
         <div class="field">
-          <label>البريد الإلكتروني</label>
-          <input id="loginEmail" type="email" required placeholder="admin@example.com">
+
+          <label>
+            البريد الإلكتروني
+          </label>
+
+          <input
+            id="loginEmail"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="admin@example.com"
+          >
+
         </div>
 
-        <div class="field" style="margin-top:13px;">
-          <label>كلمة المرور</label>
-          <input id="loginPassword" type="password" required placeholder="••••••••">
+
+        <div
+          class="field"
+          style="margin-top:13px;"
+        >
+
+          <label>
+            كلمة المرور
+          </label>
+
+          <input
+            id="loginPassword"
+            type="password"
+            required
+            autocomplete="current-password"
+            placeholder="••••••••"
+          >
+
         </div>
+
 
         <button
           type="submit"
           class="btn btn-primary"
-          style="width:100%;height:46px;margin-top:17px;"
+          style="
+            width:100%;
+            height:47px;
+            margin-top:17px;
+          "
         >
           تسجيل الدخول
         </button>
@@ -1012,133 +1817,283 @@
       </form>
 
     </div>
+
   </section>
 
 
-  <!-- APP -->
+
+  <!-- =====================================================
+       APP
+  ===================================================== -->
 
   <section id="app">
 
     <div class="layout">
 
-      <!-- SIDEBAR -->
 
-      <aside class="sidebar" id="sidebar">
+      <!-- =================================================
+           SIDEBAR
+      ================================================= -->
 
-        <a class="brand" href="../index.html">
+      <aside
+        class="sidebar"
+        id="sidebar"
+      >
+
+        <a
+          class="brand"
+          href="../index.html"
+        >
 
           <div class="brand-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
               <path d="M8 6h8M8 10h8"/>
             </svg>
+
           </div>
 
+
           <div class="brand-text">
-            <strong>مساعد توجيهي</strong>
-            <span>لوحة التحكم</span>
+
+            <strong>
+              مساعد توجيهي
+            </strong>
+
+            <span>
+              لوحة التحكم
+            </span>
+
           </div>
 
         </a>
 
-        <div class="nav-title">الإدارة</div>
+
+        <div class="nav-title">
+          الإدارة
+        </div>
+
 
         <nav class="nav">
 
-          <button class="nav-btn active" data-page="dashboard">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="nav-btn active"
+            data-page="dashboard"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <rect x="3" y="3" width="7" height="7" rx="1"/>
               <rect x="14" y="3" width="7" height="7" rx="1"/>
               <rect x="3" y="14" width="7" height="7" rx="1"/>
               <rect x="14" y="14" width="7" height="7" rx="1"/>
             </svg>
+
             الرئيسية
+
           </button>
 
-          <button class="nav-btn" data-page="generations">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="nav-btn"
+            data-page="generations"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
+
             الأجيال
+
           </button>
 
-          <button class="nav-btn" data-page="subjects">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="nav-btn"
+            data-page="subjects"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
             </svg>
+
             المواد
+
           </button>
 
-          <button class="nav-btn" data-page="sections">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="nav-btn"
+            data-page="sections"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
+
             الأقسام
+
           </button>
 
-          <button class="nav-btn" data-page="resources">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="nav-btn"
+            data-page="resources"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M4 5a2 2 0 0 1 2-2h5l2 3h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
             </svg>
+
             الملفات والموارد
+
           </button>
+
 
         </nav>
 
+
         <div class="sidebar-bottom">
+
 
           <div class="admin-user">
 
             <div class="admin-avatar">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <circle cx="12" cy="8" r="4"/>
                 <path d="M4 21a8 8 0 0 1 16 0"/>
               </svg>
+
             </div>
 
+
             <div class="admin-email">
-              <strong>المدير</strong>
+
+              <strong>
+                المدير
+              </strong>
+
               <span id="adminEmail"></span>
+
             </div>
 
           </div>
 
-          <button class="btn btn-danger" id="logoutBtn" style="width:100%;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+          <button
+            class="btn btn-danger"
+            id="logoutBtn"
+            style="width:100%;"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M10 17l5-5-5-5"/>
               <path d="M15 12H3"/>
               <path d="M21 3v18"/>
             </svg>
+
             تسجيل الخروج
+
           </button>
+
 
         </div>
 
       </aside>
 
 
-      <!-- MAIN -->
+      <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+      ></div>
+
+
+
+      <!-- =================================================
+           MAIN
+      ================================================= -->
 
       <main class="main">
+
 
         <header class="topbar">
 
           <div class="topbar-title">
-            <h2 id="topTitle">الرئيسية</h2>
-            <p>إدارة محتوى منصة مساعد توجيهي</p>
+
+            <h2 id="topTitle">
+              الرئيسية
+            </h2>
+
+            <p>
+              إدارة محتوى منصة مساعد توجيهي
+            </p>
+
           </div>
+
 
           <div class="top-actions">
 
-            <button class="btn mobile-menu" id="mobileMenuBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button
+              class="btn mobile-menu"
+              id="mobileMenuBtn"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M4 6h16M4 12h16M4 18h16"/>
               </svg>
+
             </button>
 
           </div>
@@ -1146,71 +2101,160 @@
         </header>
 
 
+
         <div class="content">
 
 
-          <!-- DASHBOARD -->
+          <!-- =================================================
+               DASHBOARD
+          ================================================= -->
 
-          <section class="page active" id="page-dashboard">
+          <section
+            class="page active"
+            id="page-dashboard"
+          >
 
             <div class="page-head">
+
               <div>
-                <h1>الرئيسية</h1>
-                <p>نظرة سريعة على محتوى الموقع</p>
+
+                <h1>
+                  الرئيسية
+                </h1>
+
+                <p>
+                  نظرة سريعة على محتوى الموقع
+                </p>
+
               </div>
+
             </div>
+
 
             <div class="stats">
 
+
               <div class="stat">
+
                 <div class="stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <circle cx="9" cy="7" r="4"/>
                     <path d="M3 21a6 6 0 0 1 12 0"/>
                   </svg>
+
                 </div>
+
                 <div>
-                  <span>الأجيال</span>
-                  <strong id="statGenerations">0</strong>
+
+                  <span>
+                    الأجيال
+                  </span>
+
+                  <strong id="statGenerations">
+                    0
+                  </strong>
+
                 </div>
+
               </div>
 
+
               <div class="stat">
+
                 <div class="stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
                   </svg>
+
                 </div>
+
                 <div>
-                  <span>المواد</span>
-                  <strong id="statSubjects">0</strong>
+
+                  <span>
+                    المواد
+                  </span>
+
+                  <strong id="statSubjects">
+                    0
+                  </strong>
+
                 </div>
+
               </div>
 
+
               <div class="stat">
+
                 <div class="stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <path d="M4 6h16M4 12h16M4 18h16"/>
                   </svg>
+
                 </div>
+
                 <div>
-                  <span>الأقسام</span>
-                  <strong id="statSections">0</strong>
+
+                  <span>
+                    الأقسام
+                  </span>
+
+                  <strong id="statSections">
+                    0
+                  </strong>
+
                 </div>
+
               </div>
 
+
               <div class="stat">
+
                 <div class="stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <path d="M4 5a2 2 0 0 1 2-2h5l2 3h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
                   </svg>
+
                 </div>
+
                 <div>
-                  <span>الملفات والموارد</span>
-                  <strong id="statResources">0</strong>
+
+                  <span>
+                    الملفات والموارد
+                  </span>
+
+                  <strong id="statResources">
+                    0
+                  </strong>
+
                 </div>
+
               </div>
+
 
             </div>
 
@@ -1218,27 +2262,58 @@
             <div class="card">
 
               <div class="card-head">
+
                 <div>
-                  <h3>آخر الموارد المضافة</h3>
-                  <p>أحدث الملفات والروابط</p>
+
+                  <h3>
+                    آخر الموارد المضافة
+                  </h3>
+
+                  <p>
+                    أحدث الملفات والروابط
+                  </p>
+
                 </div>
 
-                <button class="btn btn-primary" onclick="openPage('resources')">
+
+                <button
+                  class="btn btn-primary"
+                  onclick="openPage('resources')"
+                >
                   عرض الكل
                 </button>
+
               </div>
+
 
               <div class="table-wrap">
 
                 <table>
+
                   <thead>
+
                     <tr>
-                      <th>المحتوى</th>
-                      <th>المادة</th>
-                      <th>النوع</th>
-                      <th>الحالة</th>
+
+                      <th>
+                        المحتوى
+                      </th>
+
+                      <th>
+                        المادة
+                      </th>
+
+                      <th>
+                        النوع
+                      </th>
+
+                      <th>
+                        الحالة
+                      </th>
+
                     </tr>
+
                   </thead>
+
 
                   <tbody id="recentResources"></tbody>
 
@@ -1251,59 +2326,134 @@
           </section>
 
 
-          <!-- GENERATIONS -->
 
-          <section class="page" id="page-generations">
+          <!-- =================================================
+               GENERATIONS
+          ================================================= -->
+
+          <section
+            class="page"
+            id="page-generations"
+          >
 
             <div class="page-head">
+
               <div>
-                <h1>الأجيال</h1>
-                <p>إدارة أجيال التوجيهي وترتيبها</p>
+
+                <h1>
+                  الأجيال
+                </h1>
+
+                <p>
+                  إدارة أجيال التوجيهي وترتيبها
+                </p>
+
               </div>
 
-              <button class="btn btn-primary" onclick="showGenerationForm()">
+
+              <button
+                class="btn btn-primary"
+                onclick="showGenerationForm()"
+              >
                 + إضافة جيل
               </button>
+
             </div>
 
 
-            <div class="card" id="generationForm" style="display:none;">
+            <div
+              class="card"
+              id="generationForm"
+              style="display:none;"
+            >
 
               <div class="card-head">
+
                 <div>
-                  <h3 id="generationFormTitle">إضافة جيل جديد</h3>
-                  <p>أدخل معلومات الجيل</p>
+
+                  <h3 id="generationFormTitle">
+                    إضافة جيل جديد
+                  </h3>
+
+                  <p>
+                    أدخل معلومات الجيل
+                  </p>
+
                 </div>
+
               </div>
+
 
               <form id="generationAddForm">
 
                 <div class="form-grid">
 
-                  <div class="field">
-                    <label>اسم الجيل</label>
-                    <input id="generationName" required placeholder="مثال: جيل 2009">
-                  </div>
 
                   <div class="field">
-                    <label>العام</label>
-                    <input id="generationYear" type="number" required placeholder="2009">
+
+                    <label>
+                      اسم الجيل
+                    </label>
+
+                    <input
+                      id="generationName"
+                      required
+                      placeholder="مثال: جيل 2009"
+                    >
+
                   </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      العام
+                    </label>
+
+                    <input
+                      id="generationYear"
+                      type="number"
+                      required
+                      placeholder="2009"
+                    >
+
+                  </div>
+
 
                   <div class="field full">
-                    <label>الوصف</label>
-                    <textarea id="generationDescription" placeholder="وصف مختصر للجيل"></textarea>
+
+                    <label>
+                      الوصف
+                    </label>
+
+                    <textarea
+                      id="generationDescription"
+                      placeholder="وصف مختصر للجيل"
+                    ></textarea>
+
                   </div>
+
 
                 </div>
 
+
                 <div class="form-actions">
 
-                  <button type="submit" class="btn btn-primary">
-                    <span id="generationSubmitText">حفظ الجيل</span>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    <span id="generationSubmitText">
+                      حفظ الجيل
+                    </span>
                   </button>
 
-                  <button type="button" class="btn" onclick="resetGenerationForm()">
+
+                  <button
+                    type="button"
+                    class="btn"
+                    onclick="resetGenerationForm()"
+                  >
                     إلغاء
                   </button>
 
@@ -1321,13 +2471,29 @@
                 <table>
 
                   <thead>
+
                     <tr>
-                      <th>الاسم</th>
-                      <th>العام</th>
-                      <th>الوصف</th>
-                      <th>الإجراءات</th>
+
+                      <th>
+                        الاسم
+                      </th>
+
+                      <th>
+                        العام
+                      </th>
+
+                      <th>
+                        الوصف
+                      </th>
+
+                      <th>
+                        الإجراءات
+                      </th>
+
                     </tr>
+
                   </thead>
+
 
                   <tbody id="generationsTable"></tbody>
 
@@ -1340,72 +2506,174 @@
           </section>
 
 
-          <!-- SUBJECTS -->
 
-          <section class="page" id="page-subjects">
+          <!-- =================================================
+               SUBJECTS
+          ================================================= -->
+
+          <section
+            class="page"
+            id="page-subjects"
+          >
 
             <div class="page-head">
+
               <div>
-                <h1>المواد</h1>
-                <p>إدارة المواد وترتيب ظهورها</p>
+
+                <h1>
+                  المواد
+                </h1>
+
+                <p>
+                  إدارة المواد وترتيب ظهورها
+                </p>
+
               </div>
 
-              <button class="btn btn-primary" onclick="showSubjectForm()">
+
+              <button
+                class="btn btn-primary"
+                onclick="showSubjectForm()"
+              >
                 + إضافة مادة
               </button>
+
             </div>
 
 
-            <div class="card" id="subjectForm" style="display:none;">
+            <div
+              class="card"
+              id="subjectForm"
+              style="display:none;"
+            >
 
               <div class="card-head">
+
                 <div>
-                  <h3 id="subjectFormTitle">إضافة مادة جديدة</h3>
-                  <p>اربط المادة بالجيل المناسب</p>
+
+                  <h3 id="subjectFormTitle">
+                    إضافة مادة جديدة
+                  </h3>
+
+                  <p>
+                    اربط المادة بالجيل المناسب
+                  </p>
+
                 </div>
+
               </div>
+
 
               <form id="subjectAddForm">
 
                 <div class="form-grid">
 
+
                   <div class="field">
-                    <label>الجيل</label>
-                    <select id="subjectGeneration" required>
-                      <option value="">اختر الجيل</option>
+
+                    <label>
+                      الجيل
+                    </label>
+
+                    <select
+                      id="subjectGeneration"
+                      required
+                    >
+
+                      <option value="">
+                        اختر الجيل
+                      </option>
+
                     </select>
+
                   </div>
 
-                  <div class="field">
-                    <label>اسم المادة</label>
-                    <input id="subjectName" required placeholder="مثال: الرياضيات">
-                  </div>
 
                   <div class="field">
-                    <label>المعرف Slug</label>
-                    <input id="subjectSlug" placeholder="math">
-                    <small>يفضل استخدام حروف إنجليزية بدون مسافات.</small>
+
+                    <label>
+                      اسم المادة
+                    </label>
+
+                    <input
+                      id="subjectName"
+                      required
+                      placeholder="مثال: الرياضيات"
+                    >
+
                   </div>
 
+
                   <div class="field">
-                    <label>الترتيب</label>
-                    <input id="subjectOrder" type="number" value="1" min="1">
+
+                    <label>
+                      المعرف Slug
+                    </label>
+
+                    <input
+                      id="subjectSlug"
+                      placeholder="math"
+                    >
+
+                    <small>
+                      يفضل استخدام حروف إنجليزية بدون مسافات.
+                    </small>
+
                   </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      الترتيب
+                    </label>
+
+                    <input
+                      id="subjectOrder"
+                      type="number"
+                      value="1"
+                      min="1"
+                    >
+
+                  </div>
+
 
                   <div class="field full">
-                    <label>الوصف</label>
-                    <textarea id="subjectDescription" placeholder="وصف المادة"></textarea>
+
+                    <label>
+                      الوصف
+                    </label>
+
+                    <textarea
+                      id="subjectDescription"
+                      placeholder="وصف المادة"
+                    ></textarea>
+
                   </div>
+
 
                 </div>
 
+
                 <div class="form-actions">
 
-                  <button type="submit" class="btn btn-primary">
-                    <span id="subjectSubmitText">حفظ المادة</span>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+
+                    <span id="subjectSubmitText">
+                      حفظ المادة
+                    </span>
+
                   </button>
 
-                  <button type="button" class="btn" onclick="resetSubjectForm()">
+
+                  <button
+                    type="button"
+                    class="btn"
+                    onclick="resetSubjectForm()"
+                  >
                     إلغاء
                   </button>
 
@@ -1423,14 +2691,33 @@
                 <table>
 
                   <thead>
+
                     <tr>
-                      <th>المادة</th>
-                      <th>الجيل</th>
-                      <th>المعرف</th>
-                      <th>الترتيب</th>
-                      <th>الإجراءات</th>
+
+                      <th>
+                        المادة
+                      </th>
+
+                      <th>
+                        الجيل
+                      </th>
+
+                      <th>
+                        المعرف
+                      </th>
+
+                      <th>
+                        الترتيب
+                      </th>
+
+                      <th>
+                        الإجراءات
+                      </th>
+
                     </tr>
+
                   </thead>
+
 
                   <tbody id="subjectsTable"></tbody>
 
@@ -1443,66 +2730,156 @@
           </section>
 
 
-          <!-- SECTIONS -->
 
-          <section class="page" id="page-sections">
+          <!-- =================================================
+               SECTIONS
+          ================================================= -->
+
+          <section
+            class="page"
+            id="page-sections"
+          >
 
             <div class="page-head">
+
               <div>
-                <h1>الأقسام</h1>
-                <p>إدارة أقسام المواد وترتيبها</p>
+
+                <h1>
+                  الأقسام
+                </h1>
+
+                <p>
+                  إدارة أقسام المواد وترتيبها
+                </p>
+
               </div>
 
-              <button class="btn btn-primary" onclick="showSectionForm()">
+
+              <button
+                class="btn btn-primary"
+                onclick="showSectionForm()"
+              >
                 + إضافة قسم
               </button>
+
             </div>
 
 
-            <div class="card" id="sectionForm" style="display:none;">
+            <div
+              class="card"
+              id="sectionForm"
+              style="display:none;"
+            >
 
               <div class="card-head">
+
                 <div>
-                  <h3 id="sectionFormTitle">إضافة قسم جديد</h3>
-                  <p>اختر المادة التابعة للقسم</p>
+
+                  <h3 id="sectionFormTitle">
+                    إضافة قسم جديد
+                  </h3>
+
+                  <p>
+                    اختر المادة التابعة للقسم
+                  </p>
+
                 </div>
+
               </div>
+
 
               <form id="sectionAddForm">
 
                 <div class="form-grid">
 
+
                   <div class="field">
-                    <label>المادة</label>
-                    <select id="sectionSubject" required>
-                      <option value="">اختر المادة</option>
+
+                    <label>
+                      المادة
+                    </label>
+
+                    <select
+                      id="sectionSubject"
+                      required
+                    >
+
+                      <option value="">
+                        اختر المادة
+                      </option>
+
                     </select>
+
                   </div>
 
-                  <div class="field">
-                    <label>اسم القسم</label>
-                    <input id="sectionName" required placeholder="مثال: ملخصات">
-                  </div>
 
                   <div class="field">
-                    <label>الترتيب</label>
-                    <input id="sectionOrder" type="number" value="1" min="1">
+
+                    <label>
+                      اسم القسم
+                    </label>
+
+                    <input
+                      id="sectionName"
+                      required
+                      placeholder="مثال: ملخصات"
+                    >
+
                   </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      الترتيب
+                    </label>
+
+                    <input
+                      id="sectionOrder"
+                      type="number"
+                      value="1"
+                      min="1"
+                    >
+
+                  </div>
+
 
                   <div class="field full">
-                    <label>الوصف</label>
-                    <textarea id="sectionDescription" placeholder="وصف القسم"></textarea>
+
+                    <label>
+                      الوصف
+                    </label>
+
+                    <textarea
+                      id="sectionDescription"
+                      placeholder="وصف القسم"
+                    ></textarea>
+
                   </div>
+
 
                 </div>
 
+
                 <div class="form-actions">
 
-                  <button type="submit" class="btn btn-primary">
-                    <span id="sectionSubmitText">حفظ القسم</span>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+
+                    <span id="sectionSubmitText">
+                      حفظ القسم
+                    </span>
+
                   </button>
 
-                  <button type="button" class="btn" onclick="resetSectionForm()">
+
+                  <button
+                    type="button"
+                    class="btn"
+                    onclick="resetSectionForm()"
+                  >
                     إلغاء
                   </button>
 
@@ -1520,14 +2897,33 @@
                 <table>
 
                   <thead>
+
                     <tr>
-                      <th>القسم</th>
-                      <th>المادة</th>
-                      <th>الترتيب</th>
-                      <th>الوصف</th>
-                      <th>الإجراءات</th>
+
+                      <th>
+                        القسم
+                      </th>
+
+                      <th>
+                        المادة
+                      </th>
+
+                      <th>
+                        الترتيب
+                      </th>
+
+                      <th>
+                        الوصف
+                      </th>
+
+                      <th>
+                        الإجراءات
+                      </th>
+
                     </tr>
+
                   </thead>
+
 
                   <tbody id="sectionsTable"></tbody>
 
@@ -1540,23 +2936,42 @@
           </section>
 
 
-          <!-- RESOURCES -->
 
-          <section class="page" id="page-resources">
+          <!-- =================================================
+               RESOURCES
+          ================================================= -->
+
+          <section
+            class="page"
+            id="page-resources"
+          >
 
             <div class="page-head">
+
               <div>
-                <h1>الملفات والموارد</h1>
-                <p>إدارة الملفات والروابط التي تظهر للطلاب</p>
+
+                <h1>
+                  الملفات والموارد
+                </h1>
+
+                <p>
+                  إدارة الملفات والروابط التي تظهر للطلاب
+                </p>
+
               </div>
 
-              <button class="btn btn-primary" onclick="showResourceForm()">
+
+              <button
+                class="btn btn-primary"
+                onclick="showResourceForm()"
+              >
                 + إضافة مورد
               </button>
+
             </div>
 
 
-            <!-- DRIVE CONNECTION -->
+            <!-- DRIVE -->
 
             <div class="card">
 
@@ -1565,19 +2980,35 @@
                 <div class="drive-info">
 
                   <div class="drive-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
                       <path d="M8.5 3h7l5.5 9.5-3.5 6H10L4.5 9.5 8.5 3Z"/>
                       <path d="M4.5 9.5h6l3.5 6"/>
                       <path d="M21 12.5h-7"/>
                     </svg>
+
                   </div>
 
+
                   <div>
-                    <strong>Google Drive</strong>
-                    <span id="driveStatus">غير مرتبط — اربط حساب Google لرفع ملفات PDF</span>
+
+                    <strong>
+                      Google Drive
+                    </strong>
+
+                    <span id="driveStatus">
+                      غير مرتبط — اربط حساب Google لرفع ملفات PDF
+                    </span>
+
                   </div>
 
                 </div>
+
 
                 <button
                   type="button"
@@ -1593,15 +3024,29 @@
             </div>
 
 
+
             <!-- RESOURCE FORM -->
 
-            <div class="card" id="resourceForm" style="display:none;">
+            <div
+              class="card"
+              id="resourceForm"
+              style="display:none;"
+            >
 
               <div class="card-head">
+
                 <div>
-                  <h3 id="resourceFormTitle">إضافة مورد جديد</h3>
-                  <p>يمكنك رفع PDF مباشرة إلى Google Drive</p>
+
+                  <h3 id="resourceFormTitle">
+                    إضافة مورد جديد
+                  </h3>
+
+                  <p>
+                    يمكنك رفع PDF مباشرة إلى Google Drive
+                  </p>
+
                 </div>
+
               </div>
 
 
@@ -1609,40 +3054,98 @@
 
                 <div class="form-grid">
 
-                  <div class="field">
-                    <label>المادة</label>
-                    <select id="resourceSubject" required>
-                      <option value="">اختر المادة</option>
-                    </select>
-                  </div>
 
                   <div class="field">
-                    <label>القسم</label>
+
+                    <label>
+                      المادة
+                    </label>
+
+                    <select
+                      id="resourceSubject"
+                      required
+                    >
+
+                      <option value="">
+                        اختر المادة
+                      </option>
+
+                    </select>
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      القسم
+                    </label>
+
                     <select id="resourceSection">
-                      <option value="">بدون قسم</option>
+
+                      <option value="">
+                        بدون قسم
+                      </option>
+
                     </select>
+
                   </div>
 
-                  <div class="field">
-                    <label>عنوان المورد</label>
-                    <input id="resourceTitle" required placeholder="مثال: كتاب الرياضيات">
-                  </div>
 
                   <div class="field">
-                    <label>النوع</label>
+
+                    <label>
+                      عنوان المورد
+                    </label>
+
+                    <input
+                      id="resourceTitle"
+                      required
+                      placeholder="مثال: كتاب الرياضيات"
+                    >
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      النوع
+                    </label>
+
                     <select id="resourceType">
 
-                      <option value="pdf">PDF</option>
-                      <option value="drive">Google Drive</option>
-                      <option value="link">رابط</option>
-                      <option value="exam">امتحان</option>
-                      <option value="book">كتاب</option>
+                      <option value="pdf">
+                        PDF
+                      </option>
+
+                      <option value="drive">
+                        Google Drive
+                      </option>
+
+                      <option value="link">
+                        رابط
+                      </option>
+
+                      <option value="exam">
+                        امتحان
+                      </option>
+
+                      <option value="book">
+                        كتاب
+                      </option>
 
                     </select>
+
                   </div>
 
+
                   <div class="field full">
-                    <label>ملف PDF</label>
+
+                    <label>
+                      ملف PDF
+                    </label>
+
 
                     <div class="file-picker">
 
@@ -1652,60 +3155,123 @@
                         accept=".pdf,application/pdf"
                       >
 
-                      <div class="selected-file" id="selectedFileName">
+
+                      <div
+                        class="selected-file"
+                        id="selectedFileName"
+                      >
                         لم يتم اختيار ملف
                       </div>
 
+
                       <small>
-                        عند اختيار PDF سيتم رفعه تلقائياً إلى Google Drive عند حفظ المورد.
+                        عند اختيار PDF سيتم رفعه إلى Google Drive عند حفظ المورد.
                       </small>
 
                     </div>
 
                   </div>
 
+
                   <div class="field full">
-                    <label>الرابط</label>
+
+                    <label>
+                      الرابط
+                    </label>
+
                     <input
                       id="resourceUrl"
                       type="url"
                       placeholder="https://..."
                     >
+
                     <small>
-                      إذا اخترت PDF ورفعت ملفاً، سيتم إنشاء الرابط تلقائياً. لا تحتاج لإدخال رابط يدوياً.
+                      إذا اخترت PDF ورفعت ملفاً، سيتم إنشاء الرابط تلقائياً.
                     </small>
+
                   </div>
 
-                  <div class="field">
-                    <label>الترتيب</label>
-                    <input id="resourceOrder" type="number" value="1" min="1">
-                  </div>
 
                   <div class="field">
-                    <label>الحالة</label>
+
+                    <label>
+                      الترتيب
+                    </label>
+
+                    <input
+                      id="resourceOrder"
+                      type="number"
+                      value="1"
+                      min="1"
+                    >
+
+                    <small>
+                      إذا كان الرقم مستخدمًا، سيتم اختيار أقرب ترتيب متاح تلقائيًا.
+                    </small>
+
+                  </div>
+
+
+                  <div class="field">
+
+                    <label>
+                      الحالة
+                    </label>
 
                     <label class="checkbox-field">
-                      <input type="checkbox" id="resourcePublished" checked>
-                      <span>ظاهر للطلاب</span>
+
+                      <input
+                        type="checkbox"
+                        id="resourcePublished"
+                        checked
+                      >
+
+                      <span>
+                        ظاهر للطلاب
+                      </span>
+
                     </label>
 
                   </div>
 
+
                   <div class="field full">
-                    <label>الوصف</label>
-                    <textarea id="resourceDescription" placeholder="وصف مختصر للمورد"></textarea>
+
+                    <label>
+                      الوصف
+                    </label>
+
+                    <textarea
+                      id="resourceDescription"
+                      placeholder="وصف مختصر للمورد"
+                    ></textarea>
+
                   </div>
+
 
                 </div>
 
 
                 <div class="form-actions">
 
-                  <button type="submit" class="btn btn-primary" id="resourceSubmitBtn">
-                    <span id="resourceSubmitText">حفظ المورد</span>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="resourceSubmitBtn"
+                  >
+
+                    <span id="resourceSubmitText">
+                      حفظ المورد
+                    </span>
+
                   </button>
 
-                  <button type="button" class="btn" onclick="resetResourceForm()">
+
+                  <button
+                    type="button"
+                    class="btn"
+                    onclick="resetResourceForm()"
+                  >
                     إلغاء
                   </button>
 
@@ -1716,35 +3282,97 @@
             </div>
 
 
-            <!-- RESOURCE TABLE -->
+
+            <!-- RESOURCES TABLE -->
 
             <div class="card">
 
               <div class="card-head">
 
                 <div>
-                  <h3>جميع الموارد</h3>
-                  <p>مرتبة حسب رقم الترتيب</p>
+
+                  <h3>
+                    جميع الموارد
+                  </h3>
+
+                  <p>
+                    اسحب الملفات لتغيير ترتيبها
+                  </p>
+
                 </div>
 
               </div>
+
+
+              <div class="order-info">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 8v4l3 2"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+
+                <span>
+                  اسحب أي مورد من علامة
+                  <strong>⠿</strong>
+                  وضعه في المكان الذي تريده. سيتم حفظ الترتيب تلقائيًا.
+                </span>
+
+              </div>
+
 
               <div class="table-wrap">
 
                 <table>
 
                   <thead>
+
                     <tr>
-                      <th>المحتوى</th>
-                      <th>المادة</th>
-                      <th>القسم</th>
-                      <th>النوع</th>
-                      <th>الترتيب</th>
-                      <th>الحالة</th>
-                      <th>الرابط</th>
-                      <th>الإجراءات</th>
+
+                      <th>
+                        سحب
+                      </th>
+
+                      <th>
+                        المحتوى
+                      </th>
+
+                      <th>
+                        المادة
+                      </th>
+
+                      <th>
+                        القسم
+                      </th>
+
+                      <th>
+                        النوع
+                      </th>
+
+                      <th>
+                        الترتيب
+                      </th>
+
+                      <th>
+                        الحالة
+                      </th>
+
+                      <th>
+                        الرابط
+                      </th>
+
+                      <th>
+                        الإجراءات
+                      </th>
+
                     </tr>
+
                   </thead>
+
 
                   <tbody id="resourcesTable"></tbody>
 
@@ -1755,6 +3383,7 @@
             </div>
 
           </section>
+
 
         </div>
 
@@ -1767,6 +3396,11 @@
 
   <div id="toastContainer"></div>
 
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
 
   <script type="module">
 
@@ -1798,32 +3432,43 @@
 
 
     let driveTokenClient = null;
+
     let driveAccessToken = null;
 
 
     function waitForGoogleIdentity() {
 
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve,reject) => {
 
         const start = Date.now();
 
         const timer = setInterval(() => {
 
-          if (window.google?.accounts?.oauth2) {
+          if (
+            window.google?.accounts?.oauth2
+          ) {
 
             clearInterval(timer);
+
             resolve();
 
-          } else if (Date.now() - start > 10000) {
+          }
+
+          else if (
+            Date.now() - start > 10000
+          ) {
 
             clearInterval(timer);
+
             reject(
-              new Error("لم يتم تحميل Google Identity Services")
+              new Error(
+                "لم يتم تحميل Google Identity Services"
+              )
             );
 
           }
 
-        }, 100);
+        },100);
 
       });
 
@@ -1836,42 +3481,51 @@
 
         await waitForGoogleIdentity();
 
+
         driveTokenClient =
           google.accounts.oauth2.initTokenClient({
 
-            client_id: GOOGLE_CLIENT_ID,
+            client_id:
+              GOOGLE_CLIENT_ID,
 
-            scope: DRIVE_SCOPE,
+            scope:
+              DRIVE_SCOPE,
 
-            callback: (response) => {
+            callback:
+              response => {
 
-              if (response.error) {
+                if (response.error) {
 
-                console.error(response);
+                  console.error(response);
+
+                  toast(
+                    "تعذر ربط Google Drive",
+                    "error"
+                  );
+
+                  return;
+
+                }
+
+
+                driveAccessToken =
+                  response.access_token;
+
+                setDriveConnected(true);
+
 
                 toast(
-                  "تعذر ربط Google Drive",
-                  "error"
+                  "تم ربط Google Drive بنجاح",
+                  "success"
                 );
 
-                return;
               }
-
-              driveAccessToken =
-                response.access_token;
-
-              setDriveConnected(true);
-
-              toast(
-                "تم ربط Google Drive بنجاح",
-                "success"
-              );
-
-            }
 
           });
 
-      } catch (error) {
+      }
+
+      catch(error) {
 
         console.error(error);
 
@@ -1880,88 +3534,111 @@
     }
 
 
-    window.connectGoogleDrive = async function() {
+    window.connectGoogleDrive =
+      async function() {
 
-      try {
+        try {
 
-        if (!GOOGLE_CLIENT_ID ||
-            GOOGLE_CLIENT_ID.includes("ضع-")) {
+          if (
+            !GOOGLE_CLIENT_ID ||
+            GOOGLE_CLIENT_ID.includes("ضع-")
+          ) {
+
+            toast(
+              "Client ID غير موجود داخل الكود",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          if (!driveTokenClient) {
+
+            await initGoogleDriveAuth();
+
+          }
+
+
+          if (!driveTokenClient) {
+
+            toast(
+              "Google لم يتم تحميله بعد، حاول مرة ثانية",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          driveTokenClient.requestAccessToken({
+            prompt:"consent"
+          });
+
+        }
+
+        catch(error) {
+
+          console.error(error);
 
           toast(
-            "Client ID غير موجود داخل الكود",
+            "حدث خطأ أثناء ربط Google Drive",
             "error"
           );
 
-          return;
-
         }
 
-        if (!driveTokenClient) {
-
-          await initGoogleDriveAuth();
-
-        }
-
-        if (!driveTokenClient) {
-
-          toast(
-            "Google لم يتم تحميله بعد، حاول مرة ثانية",
-            "error"
-          );
-
-          return;
-
-        }
-
-        driveTokenClient.requestAccessToken({
-          prompt:"consent"
-        });
-
-      } catch (error) {
-
-        console.error(error);
-
-        toast(
-          "حدث خطأ أثناء ربط Google Drive",
-          "error"
-        );
-
-      }
-
-    };
+      };
 
 
     function setDriveConnected(connected) {
 
       const status =
-        document.getElementById("driveStatus");
+        document.getElementById(
+          "driveStatus"
+        );
 
       const button =
-        document.getElementById("driveConnectBtn");
+        document.getElementById(
+          "driveConnectBtn"
+        );
+
 
       if (connected) {
 
         status.textContent =
           "متصل — يمكنك رفع ملفات PDF";
 
-        status.classList.add("connected");
+        status.classList.add(
+          "connected"
+        );
 
         button.textContent =
           "إعادة ربط Google Drive";
 
-        button.classList.add("btn-success");
+        button.classList.add(
+          "btn-success"
+        );
 
-      } else {
+      }
+
+      else {
 
         status.textContent =
           "غير مرتبط — اربط حساب Google لرفع ملفات PDF";
 
-        status.classList.remove("connected");
+        status.classList.remove(
+          "connected"
+        );
 
         button.textContent =
           "ربط Google Drive";
 
-        button.classList.remove("btn-success");
+        button.classList.remove(
+          "btn-success"
+        );
 
       }
 
@@ -1971,10 +3648,14 @@
     async function ensureDriveToken() {
 
       if (driveAccessToken) {
+
         return driveAccessToken;
+
       }
 
+
       await initGoogleDriveAuth();
+
 
       if (!driveTokenClient) {
 
@@ -1984,37 +3665,45 @@
 
       }
 
-      return new Promise((resolve, reject) => {
 
-        driveTokenClient.callback = (response) => {
+      return new Promise(
+        (resolve,reject) => {
 
-          if (response.error) {
+          driveTokenClient.callback =
+            response => {
 
-            reject(
-              new Error(
-                response.error_description ||
-                response.error
-              )
-            );
+              if (response.error) {
 
-            return;
+                reject(
+                  new Error(
+                    response.error_description ||
+                    response.error
+                  )
+                );
 
-          }
+                return;
 
-          driveAccessToken =
-            response.access_token;
+              }
 
-          setDriveConnected(true);
 
-          resolve(driveAccessToken);
+              driveAccessToken =
+                response.access_token;
 
-        };
+              setDriveConnected(true);
 
-        driveTokenClient.requestAccessToken({
-          prompt:""
-        });
+              resolve(
+                driveAccessToken
+              );
 
-      });
+            };
+
+
+          driveTokenClient.requestAccessToken({
+            prompt:""
+          });
+
+        }
+      );
 
     }
 
@@ -2027,9 +3716,11 @@
 
       const metadata = {
 
-        name:file.name,
+        name:
+          file.name,
 
-        mimeType:"application/pdf"
+        mimeType:
+          "application/pdf"
 
       };
 
@@ -2039,23 +3730,24 @@
         Date.now().toString(36);
 
 
-      const body = new Blob([
+      const body =
+        new Blob([
 
-        `--${boundary}\r\n`,
+          `--${boundary}\r\n`,
 
-        `Content-Type: application/json; charset=UTF-8\r\n\r\n`,
+          `Content-Type: application/json; charset=UTF-8\r\n\r\n`,
 
-        JSON.stringify(metadata),
+          JSON.stringify(metadata),
 
-        `\r\n--${boundary}\r\n`,
+          `\r\n--${boundary}\r\n`,
 
-        `Content-Type: application/pdf\r\n\r\n`,
+          `Content-Type: application/pdf\r\n\r\n`,
 
-        file,
+          file,
 
-        `\r\n--${boundary}--`
+          `\r\n--${boundary}--`
 
-      ]);
+        ]);
 
 
       let response =
@@ -2106,10 +3798,6 @@
         await response.json();
 
 
-      /*
-       * نجعل الملف متاحاً للطلاب.
-       */
-
       try {
 
         const permissionResponse =
@@ -2129,15 +3817,17 @@
 
               },
 
-              body:JSON.stringify({
+              body:
+                JSON.stringify({
 
-                type:"anyone",
+                  type:"anyone",
 
-                role:"reader"
+                  role:"reader"
 
-              })
+                })
 
-            }
+              }
+
           );
 
 
@@ -2150,7 +3840,9 @@
 
         }
 
-      } catch (error) {
+      }
+
+      catch(error) {
 
         console.warn(
           "Public permission error:",
@@ -2159,10 +3851,6 @@
 
       }
 
-
-      /*
-       * جلب الرابط النهائي.
-       */
 
       const metaResponse =
         await fetch(
@@ -2186,9 +3874,11 @@
 
       return {
 
-        id:data.id,
+        id:
+          data.id,
 
-        name:data.name,
+        name:
+          data.name,
 
         url:
           meta.webViewLink ||
@@ -2201,9 +3891,15 @@
 
     async function deleteDriveFile(fileId) {
 
-      if (!fileId || !driveAccessToken) {
+      if (
+        !fileId ||
+        !driveAccessToken
+      ) {
+
         return false;
+
       }
+
 
       try {
 
@@ -2225,10 +3921,14 @@
           );
 
 
-        return response.ok ||
-               response.status === 404;
+        return (
+          response.ok ||
+          response.status === 404
+        );
 
-      } catch (error) {
+      }
+
+      catch(error) {
 
         console.warn(
           "Drive delete error:",
@@ -2242,20 +3942,31 @@
     }
 
 
+
     /* =====================================================
        DATA
     ===================================================== */
 
     let generations = [];
+
     let subjects = [];
+
     let sections = [];
+
     let resources = [];
 
 
     let editingGenerationId = null;
+
     let editingSubjectId = null;
+
     let editingSectionId = null;
+
     let editingResourceId = null;
+
+
+    let draggedResourceId = null;
+
 
 
     /* =====================================================
@@ -2288,14 +3999,16 @@
 
     function sortByOrder(array) {
 
-      return array.sort((a,b) => {
+      return array.sort(
+        (a,b) => {
 
-        return (
-          Number(a.order ?? 999999) -
-          Number(b.order ?? 999999)
-        );
+          return (
+            Number(a.order ?? 999999) -
+            Number(b.order ?? 999999)
+          );
 
-      });
+        }
+      );
 
     }
 
@@ -2336,23 +4049,31 @@
     }
 
 
-    function toast(message,type="") {
+    function toast(
+      message,
+      type=""
+    ) {
 
       const container =
         document.getElementById(
           "toastContainer"
         );
 
+
       const item =
         document.createElement("div");
+
 
       item.className =
         `toast ${type}`;
 
+
       item.textContent =
         message;
 
+
       container.appendChild(item);
+
 
       setTimeout(() => {
 
@@ -2363,87 +4084,292 @@
     }
 
 
+
+    /* =====================================================
+       RESOURCE ORDER SYSTEM
+    ===================================================== */
+
+    function getUsedResourceOrders(
+      excludeId = null
+    ) {
+
+      return new Set(
+        resources
+          .filter(
+            resource =>
+              resource.id !== excludeId
+          )
+          .map(
+            resource =>
+              Number(resource.order)
+          )
+          .filter(
+            order =>
+              Number.isFinite(order) &&
+              order > 0
+          )
+      );
+
+    }
+
+
+    function getNextAvailableOrder(
+      requestedOrder = 1,
+      excludeId = null
+    ) {
+
+      const used =
+        getUsedResourceOrders(
+          excludeId
+        );
+
+
+      let order =
+        Math.max(
+          1,
+          Number(requestedOrder) || 1
+        );
+
+
+      while (used.has(order)) {
+
+        order++;
+
+      }
+
+
+      return order;
+
+    }
+
+
+    async function normalizeResourceOrders(
+      showToast = false
+    ) {
+
+      const ordered =
+        [...resources]
+          .sort(
+            (a,b) =>
+              resourceOrderValue(a) -
+              resourceOrderValue(b)
+          );
+
+
+      const changes = [];
+
+
+      ordered.forEach(
+        (resource,index) => {
+
+          const newOrder =
+            index + 1;
+
+          if (
+            Number(resource.order) !==
+            newOrder
+          ) {
+
+            changes.push({
+
+              resource,
+
+              newOrder
+
+            });
+
+          }
+
+        }
+      );
+
+
+      if (!changes.length) {
+
+        resources =
+          ordered;
+
+        return;
+
+      }
+
+
+      await Promise.all(
+        changes.map(
+          change =>
+            updateDoc(
+              doc(
+                db,
+                "resources",
+                change.resource.id
+              ),
+              {
+
+                order:
+                  change.newOrder,
+
+                updatedAt:
+                  serverTimestamp()
+
+              }
+            )
+        )
+      );
+
+
+      resources =
+        ordered.map(
+          resource => {
+
+            const change =
+              changes.find(
+                item =>
+                  item.resource.id ===
+                  resource.id
+              );
+
+            return {
+
+              ...resource,
+
+              order:
+                change
+                  ? change.newOrder
+                  : Number(resource.order)
+
+            };
+
+          }
+        );
+
+
+      if (showToast) {
+
+        toast(
+          "تم ترتيب الملفات وحفظ الترتيب",
+          "success"
+        );
+
+      }
+
+    }
+
+
+
     /* =====================================================
        PAGE NAVIGATION
     ===================================================== */
 
     const pageTitles = {
 
-      dashboard:"الرئيسية",
+      dashboard:
+        "الرئيسية",
 
-      generations:"الأجيال",
+      generations:
+        "الأجيال",
 
-      subjects:"المواد",
+      subjects:
+        "المواد",
 
-      sections:"الأقسام",
+      sections:
+        "الأقسام",
 
-      resources:"الملفات والموارد"
+      resources:
+        "الملفات والموارد"
 
     };
 
 
-    window.openPage = function(page) {
+    window.openPage =
+      function(page) {
 
-      document
-        .querySelectorAll(".page")
-        .forEach(item => {
-
-          item.classList.remove("active");
-
-        });
-
-
-      const target =
-        document.getElementById(
-          `page-${page}`
-        );
-
-      if (target) {
-        target.classList.add("active");
-      }
-
-
-      document
-        .querySelectorAll(".nav-btn")
-        .forEach(item => {
-
-          item.classList.toggle(
-            "active",
-            item.dataset.page === page
+        document
+          .querySelectorAll(".page")
+          .forEach(
+            item =>
+              item.classList.remove(
+                "active"
+              )
           );
 
-        });
+
+        const target =
+          document.getElementById(
+            `page-${page}`
+          );
 
 
-      document.getElementById(
-        "topTitle"
-      ).textContent =
-        pageTitles[page] || "لوحة التحكم";
+        if (target) {
 
+          target.classList.add(
+            "active"
+          );
+
+        }
+
+
+        document
+          .querySelectorAll(".nav-btn")
+          .forEach(
+            item => {
+
+              item.classList.toggle(
+                "active",
+                item.dataset.page === page
+              );
+
+            }
+          );
+
+
+        document.getElementById(
+          "topTitle"
+        ).textContent =
+          pageTitles[page] ||
+          "لوحة التحكم";
+
+
+        closeMobileSidebar();
+
+      };
+
+
+    document
+      .querySelectorAll(".nav-btn")
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              openPage(
+                button.dataset.page
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+
+    /* =====================================================
+       MOBILE SIDEBAR
+    ===================================================== */
+
+    function closeMobileSidebar() {
 
       document
         .getElementById("sidebar")
         .classList.remove("open");
 
-    };
+      document
+        .getElementById("sidebarOverlay")
+        .classList.remove("active");
 
-
-    document
-      .querySelectorAll(".nav-btn")
-      .forEach(button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            openPage(
-              button.dataset.page
-            );
-
-          }
-        );
-
-      });
+    }
 
 
     document
@@ -2456,8 +4382,21 @@
             .getElementById("sidebar")
             .classList.toggle("open");
 
+          document
+            .getElementById("sidebarOverlay")
+            .classList.toggle("active");
+
         }
       );
+
+
+    document
+      .getElementById("sidebarOverlay")
+      .addEventListener(
+        "click",
+        closeMobileSidebar
+      );
+
 
 
     /* =====================================================
@@ -2480,11 +4419,14 @@
 
         ]);
 
+
         updateStats();
 
         renderRecentResources();
 
-      } catch (error) {
+      }
+
+      catch(error) {
 
         console.error(error);
 
@@ -2502,19 +4444,30 @@
 
       const snapshot =
         await getDocs(
-          collection(db,"generations")
+          collection(
+            db,
+            "generations"
+          )
         );
 
+
       generations =
-        snapshot.docs.map(item => ({
+        snapshot.docs.map(
+          item => ({
 
-          id:item.id,
+            id:
+              item.id,
 
-          ...item.data()
+            ...item.data()
 
-        }));
+          })
+        );
 
-      sortByOrder(generations);
+
+      sortByOrder(
+        generations
+      );
+
 
       renderGenerations();
 
@@ -2527,19 +4480,30 @@
 
       const snapshot =
         await getDocs(
-          collection(db,"subjects")
+          collection(
+            db,
+            "subjects"
+          )
         );
 
+
       subjects =
-        snapshot.docs.map(item => ({
+        snapshot.docs.map(
+          item => ({
 
-          id:item.id,
+            id:
+              item.id,
 
-          ...item.data()
+            ...item.data()
 
-        }));
+          })
+        );
 
-      sortByOrder(subjects);
+
+      sortByOrder(
+        subjects
+      );
+
 
       renderSubjects();
 
@@ -2552,21 +4516,33 @@
 
       const snapshot =
         await getDocs(
-          collection(db,"sections")
+          collection(
+            db,
+            "sections"
+          )
         );
 
+
       sections =
-        snapshot.docs.map(item => ({
+        snapshot.docs.map(
+          item => ({
 
-          id:item.id,
+            id:
+              item.id,
 
-          ...item.data()
+            ...item.data()
 
-        }));
+          })
+        );
 
-      sortByOrder(sections);
+
+      sortByOrder(
+        sections
+      );
+
 
       renderSections();
+
 
       fillSectionSelect(
         document.getElementById(
@@ -2581,17 +4557,25 @@
 
       const snapshot =
         await getDocs(
-          collection(db,"resources")
+          collection(
+            db,
+            "resources"
+          )
         );
 
+
       resources =
-        snapshot.docs.map(item => ({
+        snapshot.docs.map(
+          item => ({
 
-          id:item.id,
+            id:
+              item.id,
 
-          ...item.data()
+            ...item.data()
 
-        }));
+          })
+        );
+
 
       resources.sort(
         (a,b) => {
@@ -2600,19 +4584,35 @@
             resourceOrderValue(a) -
             resourceOrderValue(b)
           ) ||
-            (
-              Number(b.createdAt?.seconds || 0) -
-              Number(a.createdAt?.seconds || 0)
-            );
+          (
+            Number(
+              b.createdAt?.seconds || 0
+            ) -
+            Number(
+              a.createdAt?.seconds || 0
+            )
+          );
 
         }
       );
+
+
+      /*
+       * تنظيف الترتيب إذا كانت هناك
+       * أرقام مكررة أو مفقودة.
+       */
+
+      await normalizeResourceOrders(
+        false
+      );
+
 
       renderResources();
 
       renderRecentResources();
 
     }
+
 
 
     /* =====================================================
@@ -2626,15 +4626,18 @@
       ).textContent =
         generations.length;
 
+
       document.getElementById(
         "statSubjects"
       ).textContent =
         subjects.length;
 
+
       document.getElementById(
         "statSections"
       ).textContent =
         sections.length;
+
 
       document.getElementById(
         "statResources"
@@ -2644,8 +4647,9 @@
     }
 
 
+
     /* =====================================================
-       GENERATION
+       GENERATIONS
     ===================================================== */
 
     function fillGenerationSelect() {
@@ -2655,33 +4659,50 @@
           "subjectGeneration"
         );
 
+
       if (!select) return;
+
 
       const current =
         select.value;
 
+
       select.innerHTML =
         `<option value="">اختر الجيل</option>`;
 
-      generations.forEach(item => {
 
-        const option =
-          document.createElement("option");
+      generations.forEach(
+        item => {
 
-        option.value =
-          item.id;
+          const option =
+            document.createElement(
+              "option"
+            );
 
-        option.textContent =
-          item.name ||
-          item.year ||
-          "جيل";
 
-        select.appendChild(option);
+          option.value =
+            item.id;
 
-      });
+
+          option.textContent =
+            item.name ||
+            item.year ||
+            "جيل";
+
+
+          select.appendChild(
+            option
+          );
+
+        }
+      );
+
 
       if (current) {
-        select.value = current;
+
+        select.value =
+          current;
+
       }
 
     }
@@ -2694,12 +4715,19 @@
           "generationsTable"
         );
 
+
       if (!generations.length) {
 
         tbody.innerHTML =
-          `<tr><td colspan="4">
-            <div class="empty">لا توجد أجيال حتى الآن</div>
-          </td></tr>`;
+          `
+            <tr>
+              <td colspan="4">
+                <div class="empty">
+                  لا توجد أجيال حتى الآن
+                </div>
+              </td>
+            </tr>
+          `;
 
         return;
 
@@ -2707,173 +4735,224 @@
 
 
       tbody.innerHTML =
-        generations.map(item => `
+        generations.map(
+          item => `
 
-          <tr>
+            <tr>
 
-            <td>
-              <strong>
-                ${escapeHTML(item.name)}
-              </strong>
-            </td>
+              <td>
+                <strong>
+                  ${escapeHTML(item.name)}
+                </strong>
+              </td>
 
-            <td>
-              ${escapeHTML(item.year)}
-            </td>
+              <td>
+                ${escapeHTML(item.year)}
+              </td>
 
-            <td>
-              ${escapeHTML(item.description || "—")}
-            </td>
+              <td>
+                ${escapeHTML(
+                  item.description || "—"
+                )}
+              </td>
 
-            <td>
+              <td>
 
-              <div class="actions">
+                <div class="actions">
 
-                <button
-                  class="btn btn-edit"
-                  onclick="editGeneration('${item.id}')"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                  </svg>
-                  تعديل
-                </button>
+                  <button
+                    class="btn btn-edit"
+                    onclick="editGeneration('${item.id}')"
+                  >
 
-                <button
-                  class="btn btn-danger"
-                  onclick="deleteGeneration('${item.id}')"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 6h18"/>
-                    <path d="M8 6V4h8v2"/>
-                    <path d="M19 6l-1 14H6L5 6"/>
-                    <path d="M10 11v5M14 11v5"/>
-                  </svg>
-                  حذف
-                </button>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 20h9"/>
+                      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                    </svg>
 
-              </div>
+                    تعديل
 
-            </td>
+                  </button>
 
-          </tr>
 
-        `).join("");
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteGeneration('${item.id}')"
+                  >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M3 6h18"/>
+                      <path d="M8 6V4h8v2"/>
+                      <path d="M19 6l-1 14H6L5 6"/>
+                      <path d="M10 11v5M14 11v5"/>
+                    </svg>
+
+                    حذف
+
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          `
+        ).join("");
 
     }
 
 
-    window.showGenerationForm = function() {
+    window.showGenerationForm =
+      function() {
 
-      editingGenerationId = null;
-
-      document
-        .getElementById("generationAddForm")
-        .reset();
-
-      document.getElementById(
-        "generationSubmitText"
-      ).textContent =
-        "حفظ الجيل";
-
-      document.getElementById(
-        "generationFormTitle"
-      ).textContent =
-        "إضافة جيل جديد";
-
-      document.getElementById(
-        "generationForm"
-      ).style.display =
-        "block";
-
-      openPage("generations");
-
-    };
+        editingGenerationId = null;
 
 
-    window.editGeneration = function(id) {
+        document
+          .getElementById(
+            "generationAddForm"
+          )
+          .reset();
 
-      const item =
-        generations.find(
-          g => g.id === id
+
+        document.getElementById(
+          "generationSubmitText"
+        ).textContent =
+          "حفظ الجيل";
+
+
+        document.getElementById(
+          "generationFormTitle"
+        ).textContent =
+          "إضافة جيل جديد";
+
+
+        document.getElementById(
+          "generationForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "generations"
         );
 
-      if (!item) return;
-
-      editingGenerationId = id;
-
-      document.getElementById(
-        "generationName"
-      ).value =
-        item.name || "";
-
-      document.getElementById(
-        "generationYear"
-      ).value =
-        item.year || "";
-
-      document.getElementById(
-        "generationDescription"
-      ).value =
-        item.description || "";
-
-      document.getElementById(
-        "generationSubmitText"
-      ).textContent =
-        "حفظ التعديلات";
-
-      document.getElementById(
-        "generationFormTitle"
-      ).textContent =
-        "تعديل الجيل";
-
-      document.getElementById(
-        "generationForm"
-      ).style.display =
-        "block";
-
-      openPage("generations");
-
-      document.getElementById(
-        "generationForm"
-      ).scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-      });
-
-    };
+      };
 
 
-    window.resetGenerationForm = function() {
+    window.editGeneration =
+      function(id) {
 
-      editingGenerationId = null;
+        const item =
+          generations.find(
+            g =>
+              g.id === id
+          );
 
-      document
-        .getElementById(
-          "generationAddForm"
-        )
-        .reset();
 
-      document.getElementById(
-        "generationSubmitText"
-      ).textContent =
-        "حفظ الجيل";
+        if (!item) return;
 
-      document.getElementById(
-        "generationFormTitle"
-      ).textContent =
-        "إضافة جيل جديد";
 
-      document.getElementById(
-        "generationForm"
-      ).style.display =
-        "none";
+        editingGenerationId =
+          id;
 
-    };
+
+        document.getElementById(
+          "generationName"
+        ).value =
+          item.name || "";
+
+
+        document.getElementById(
+          "generationYear"
+        ).value =
+          item.year || "";
+
+
+        document.getElementById(
+          "generationDescription"
+        ).value =
+          item.description || "";
+
+
+        document.getElementById(
+          "generationSubmitText"
+        ).textContent =
+          "حفظ التعديلات";
+
+
+        document.getElementById(
+          "generationFormTitle"
+        ).textContent =
+          "تعديل الجيل";
+
+
+        document.getElementById(
+          "generationForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "generations"
+        );
+
+
+        document.getElementById(
+          "generationForm"
+        ).scrollIntoView({
+
+          behavior:"smooth",
+
+          block:"start"
+
+        });
+
+      };
+
+
+    window.resetGenerationForm =
+      function() {
+
+        editingGenerationId = null;
+
+
+        document
+          .getElementById(
+            "generationAddForm"
+          )
+          .reset();
+
+
+        document.getElementById(
+          "generationSubmitText"
+        ).textContent =
+          "حفظ الجيل";
+
+
+        document.getElementById(
+          "generationFormTitle"
+        ).textContent =
+          "إضافة جيل جديد";
+
+
+        document.getElementById(
+          "generationForm"
+        ).style.display =
+          "none";
+
+      };
 
 
     document
@@ -2885,6 +4964,7 @@
         async event => {
 
           event.preventDefault();
+
 
           try {
 
@@ -2913,7 +4993,9 @@
             };
 
 
-            if (editingGenerationId) {
+            if (
+              editingGenerationId
+            ) {
 
               await updateDoc(
                 doc(
@@ -2924,12 +5006,15 @@
                 data
               );
 
+
               toast(
                 "تم تعديل الجيل بنجاح",
                 "success"
               );
 
-            } else {
+            }
+
+            else {
 
               await addDoc(
                 collection(
@@ -2946,6 +5031,7 @@
                 }
               );
 
+
               toast(
                 "تمت إضافة الجيل بنجاح",
                 "success"
@@ -2960,7 +5046,9 @@
 
             updateStats();
 
-          } catch (error) {
+          }
+
+          catch(error) {
 
             console.error(error);
 
@@ -2975,53 +5063,66 @@
       );
 
 
-    window.deleteGeneration = async function(id) {
+    window.deleteGeneration =
+      async function(id) {
 
-      const item =
-        generations.find(
-          g => g.id === id
-        );
-
-      if (!item) return;
-
-      if (!confirm(
-        `هل أنت متأكد من حذف "${item.name}"؟`
-      )) {
-        return;
-      }
+        const item =
+          generations.find(
+            g =>
+              g.id === id
+          );
 
 
-      try {
+        if (!item) return;
 
-        await deleteDoc(
-          doc(
-            db,
-            "generations",
-            id
+
+        if (
+          !confirm(
+            `هل أنت متأكد من حذف "${item.name}"؟`
           )
-        );
+        ) {
 
-        toast(
-          "تم حذف الجيل",
-          "success"
-        );
+          return;
 
-        await loadGenerations();
+        }
 
-        updateStats();
 
-      } catch (error) {
+        try {
 
-        console.error(error);
+          await deleteDoc(
+            doc(
+              db,
+              "generations",
+              id
+            )
+          );
 
-        toast(
-          "تعذر حذف الجيل",
-          "error"
-        );
 
-      }
+          toast(
+            "تم حذف الجيل",
+            "success"
+          );
 
-    };
+
+          await loadGenerations();
+
+          updateStats();
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر حذف الجيل",
+            "error"
+          );
+
+        }
+
+      };
+
 
 
     /* =====================================================
@@ -3043,36 +5144,54 @@
       ];
 
 
-      selects.forEach(select => {
+      selects.forEach(
+        select => {
 
-        if (!select) return;
+          if (!select) return;
 
-        const current =
-          select.value;
 
-        select.innerHTML =
-          `<option value="">اختر المادة</option>`;
+          const current =
+            select.value;
 
-        subjects.forEach(item => {
 
-          const option =
-            document.createElement("option");
+          select.innerHTML =
+            `<option value="">اختر المادة</option>`;
 
-          option.value =
-            item.id;
 
-          option.textContent =
-            item.name;
+          subjects.forEach(
+            item => {
 
-          select.appendChild(option);
+              const option =
+                document.createElement(
+                  "option"
+                );
 
-        });
 
-        if (current) {
-          select.value = current;
+              option.value =
+                item.id;
+
+
+              option.textContent =
+                item.name;
+
+
+              select.appendChild(
+                option
+              );
+
+            }
+          );
+
+
+          if (current) {
+
+            select.value =
+              current;
+
+          }
+
         }
-
-      });
+      );
 
     }
 
@@ -3084,12 +5203,19 @@
           "subjectsTable"
         );
 
+
       if (!subjects.length) {
 
         tbody.innerHTML =
-          `<tr><td colspan="5">
-            <div class="empty">لا توجد مواد حتى الآن</div>
-          </td></tr>`;
+          `
+            <tr>
+              <td colspan="5">
+                <div class="empty">
+                  لا توجد مواد حتى الآن
+                </div>
+              </td>
+            </tr>
+          `;
 
         return;
 
@@ -3097,197 +5223,222 @@
 
 
       tbody.innerHTML =
-        subjects.map(item => `
+        subjects.map(
+          item => `
 
-          <tr>
+            <tr>
 
-            <td>
-              <strong>
-                ${escapeHTML(item.name)}
-              </strong>
-            </td>
+              <td>
+                <strong>
+                  ${escapeHTML(item.name)}
+                </strong>
+              </td>
 
-            <td>
-              ${escapeHTML(
-                getGenerationName(
-                  item.generationId
-                )
-              )}
-            </td>
+              <td>
+                ${escapeHTML(
+                  getGenerationName(
+                    item.generationId
+                  )
+                )}
+              </td>
 
-            <td>
-              ${escapeHTML(item.slug || "—")}
-            </td>
+              <td>
+                ${escapeHTML(
+                  item.slug || "—"
+                )}
+              </td>
 
-            <td>
-              <span class="order-badge">
-                ${Number(item.order || 1)}
-              </span>
-            </td>
+              <td>
 
-            <td>
+                <span class="order-badge">
+                  ${Number(
+                    item.order || 1
+                  )}
+                </span>
 
-              <div class="actions">
+              </td>
 
-                <button
-                  class="btn btn-edit"
-                  onclick="editSubject('${item.id}')"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                  </svg>
-                  تعديل
-                </button>
+              <td>
 
-                <button
-                  class="btn btn-danger"
-                  onclick="deleteSubject('${item.id}')"
-                >
-                  حذف
-                </button>
+                <div class="actions">
 
-              </div>
+                  <button
+                    class="btn btn-edit"
+                    onclick="editSubject('${item.id}')"
+                  >
+                    تعديل
+                  </button>
 
-            </td>
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteSubject('${item.id}')"
+                  >
+                    حذف
+                  </button>
 
-          </tr>
+                </div>
 
-        `).join("");
+              </td>
+
+            </tr>
+
+          `
+        ).join("");
 
     }
 
 
-    window.showSubjectForm = function() {
+    window.showSubjectForm =
+      function() {
 
-      editingSubjectId = null;
-
-      document
-        .getElementById(
-          "subjectAddForm"
-        )
-        .reset();
-
-      document.getElementById(
-        "subjectOrder"
-      ).value = 1;
-
-      document.getElementById(
-        "subjectSubmitText"
-      ).textContent =
-        "حفظ المادة";
-
-      document.getElementById(
-        "subjectFormTitle"
-      ).textContent =
-        "إضافة مادة جديدة";
-
-      document.getElementById(
-        "subjectForm"
-      ).style.display =
-        "block";
-
-      openPage("subjects");
-
-    };
+        editingSubjectId = null;
 
 
-    window.editSubject = function(id) {
+        document
+          .getElementById(
+            "subjectAddForm"
+          )
+          .reset();
 
-      const item =
-        subjects.find(
-          s => s.id === id
+
+        document.getElementById(
+          "subjectOrder"
+        ).value = 1;
+
+
+        document.getElementById(
+          "subjectSubmitText"
+        ).textContent =
+          "حفظ المادة";
+
+
+        document.getElementById(
+          "subjectFormTitle"
+        ).textContent =
+          "إضافة مادة جديدة";
+
+
+        document.getElementById(
+          "subjectForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "subjects"
         );
 
-      if (!item) return;
-
-      editingSubjectId = id;
-
-      document.getElementById(
-        "subjectGeneration"
-      ).value =
-        item.generationId || "";
-
-      document.getElementById(
-        "subjectName"
-      ).value =
-        item.name || "";
-
-      document.getElementById(
-        "subjectSlug"
-      ).value =
-        item.slug || "";
-
-      document.getElementById(
-        "subjectOrder"
-      ).value =
-        item.order || 1;
-
-      document.getElementById(
-        "subjectDescription"
-      ).value =
-        item.description || "";
-
-      document.getElementById(
-        "subjectSubmitText"
-      ).textContent =
-        "حفظ التعديلات";
-
-      document.getElementById(
-        "subjectFormTitle"
-      ).textContent =
-        "تعديل المادة";
-
-      document.getElementById(
-        "subjectForm"
-      ).style.display =
-        "block";
-
-      openPage("subjects");
-
-      document.getElementById(
-        "subjectForm"
-      ).scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-      });
-
-    };
+      };
 
 
-    window.resetSubjectForm = function() {
+    window.editSubject =
+      function(id) {
 
-      editingSubjectId = null;
+        const item =
+          subjects.find(
+            s =>
+              s.id === id
+          );
 
-      document
-        .getElementById(
-          "subjectAddForm"
-        )
-        .reset();
 
-      document.getElementById(
-        "subjectOrder"
-      ).value = 1;
+        if (!item) return;
 
-      document.getElementById(
-        "subjectSubmitText"
-      ).textContent =
-        "حفظ المادة";
 
-      document.getElementById(
-        "subjectFormTitle"
-      ).textContent =
-        "إضافة مادة جديدة";
+        editingSubjectId =
+          id;
 
-      document.getElementById(
-        "subjectForm"
-      ).style.display =
-        "none";
 
-    };
+        document.getElementById(
+          "subjectGeneration"
+        ).value =
+          item.generationId || "";
+
+
+        document.getElementById(
+          "subjectName"
+        ).value =
+          item.name || "";
+
+
+        document.getElementById(
+          "subjectSlug"
+        ).value =
+          item.slug || "";
+
+
+        document.getElementById(
+          "subjectOrder"
+        ).value =
+          item.order || 1;
+
+
+        document.getElementById(
+          "subjectDescription"
+        ).value =
+          item.description || "";
+
+
+        document.getElementById(
+          "subjectSubmitText"
+        ).textContent =
+          "حفظ التعديلات";
+
+
+        document.getElementById(
+          "subjectFormTitle"
+        ).textContent =
+          "تعديل المادة";
+
+
+        document.getElementById(
+          "subjectForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "subjects"
+        );
+
+      };
+
+
+    window.resetSubjectForm =
+      function() {
+
+        editingSubjectId = null;
+
+
+        document
+          .getElementById(
+            "subjectAddForm"
+          )
+          .reset();
+
+
+        document.getElementById(
+          "subjectOrder"
+        ).value = 1;
+
+
+        document.getElementById(
+          "subjectSubmitText"
+        ).textContent =
+          "حفظ المادة";
+
+
+        document.getElementById(
+          "subjectFormTitle"
+        ).textContent =
+          "إضافة مادة جديدة";
+
+
+        document.getElementById(
+          "subjectForm"
+        ).style.display =
+          "none";
+
+      };
 
 
     document
@@ -3299,6 +5450,7 @@
         async event => {
 
           event.preventDefault();
+
 
           try {
 
@@ -3360,12 +5512,15 @@
                 data
               );
 
+
               toast(
                 "تم تعديل المادة بنجاح",
                 "success"
               );
 
-            } else {
+            }
+
+            else {
 
               await addDoc(
                 collection(
@@ -3382,6 +5537,7 @@
                 }
               );
 
+
               toast(
                 "تمت إضافة المادة بنجاح",
                 "success"
@@ -3396,7 +5552,9 @@
 
             updateStats();
 
-          } catch (error) {
+          }
+
+          catch(error) {
 
             console.error(error);
 
@@ -3411,53 +5569,66 @@
       );
 
 
-    window.deleteSubject = async function(id) {
+    window.deleteSubject =
+      async function(id) {
 
-      const item =
-        subjects.find(
-          s => s.id === id
-        );
-
-      if (!item) return;
-
-      if (!confirm(
-        `هل أنت متأكد من حذف "${item.name}"؟`
-      )) {
-        return;
-      }
+        const item =
+          subjects.find(
+            s =>
+              s.id === id
+          );
 
 
-      try {
+        if (!item) return;
 
-        await deleteDoc(
-          doc(
-            db,
-            "subjects",
-            id
+
+        if (
+          !confirm(
+            `هل أنت متأكد من حذف "${item.name}"؟`
           )
-        );
+        ) {
 
-        toast(
-          "تم حذف المادة",
-          "success"
-        );
+          return;
 
-        await loadSubjects();
+        }
 
-        updateStats();
 
-      } catch (error) {
+        try {
 
-        console.error(error);
+          await deleteDoc(
+            doc(
+              db,
+              "subjects",
+              id
+            )
+          );
 
-        toast(
-          "تعذر حذف المادة",
-          "error"
-        );
 
-      }
+          toast(
+            "تم حذف المادة",
+            "success"
+          );
 
-    };
+
+          await loadSubjects();
+
+          updateStats();
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر حذف المادة",
+            "error"
+          );
+
+        }
+
+      };
+
 
 
     /* =====================================================
@@ -3471,12 +5642,19 @@
           "sectionsTable"
         );
 
+
       if (!sections.length) {
 
         tbody.innerHTML =
-          `<tr><td colspan="5">
-            <div class="empty">لا توجد أقسام حتى الآن</div>
-          </td></tr>`;
+          `
+            <tr>
+              <td colspan="5">
+                <div class="empty">
+                  لا توجد أقسام حتى الآن
+                </div>
+              </td>
+            </tr>
+          `;
 
         return;
 
@@ -3484,194 +5662,216 @@
 
 
       tbody.innerHTML =
-        sections.map(item => `
+        sections.map(
+          item => `
 
-          <tr>
+            <tr>
 
-            <td>
-              <strong>
-                ${escapeHTML(item.name)}
-              </strong>
-            </td>
+              <td>
+                <strong>
+                  ${escapeHTML(item.name)}
+                </strong>
+              </td>
 
-            <td>
-              ${escapeHTML(
-                getSubjectName(
-                  item.subjectId
-                )
-              )}
-            </td>
+              <td>
+                ${escapeHTML(
+                  getSubjectName(
+                    item.subjectId
+                  )
+                )}
+              </td>
 
-            <td>
-              <span class="order-badge">
-                ${Number(item.order || 1)}
-              </span>
-            </td>
+              <td>
 
-            <td>
-              ${escapeHTML(
-                item.description || "—"
-              )}
-            </td>
+                <span class="order-badge">
+                  ${Number(
+                    item.order || 1
+                  )}
+                </span>
 
-            <td>
+              </td>
 
-              <div class="actions">
+              <td>
+                ${escapeHTML(
+                  item.description || "—"
+                )}
+              </td>
 
-                <button
-                  class="btn btn-edit"
-                  onclick="editSection('${item.id}')"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                  </svg>
-                  تعديل
-                </button>
+              <td>
 
-                <button
-                  class="btn btn-danger"
-                  onclick="deleteSection('${item.id}')"
-                >
-                  حذف
-                </button>
+                <div class="actions">
 
-              </div>
+                  <button
+                    class="btn btn-edit"
+                    onclick="editSection('${item.id}')"
+                  >
+                    تعديل
+                  </button>
 
-            </td>
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteSection('${item.id}')"
+                  >
+                    حذف
+                  </button>
 
-          </tr>
+                </div>
 
-        `).join("");
+              </td>
+
+            </tr>
+
+          `
+        ).join("");
 
     }
 
 
-    window.showSectionForm = function() {
+    window.showSectionForm =
+      function() {
 
-      editingSectionId = null;
-
-      document
-        .getElementById(
-          "sectionAddForm"
-        )
-        .reset();
-
-      document.getElementById(
-        "sectionOrder"
-      ).value = 1;
-
-      document.getElementById(
-        "sectionSubmitText"
-      ).textContent =
-        "حفظ القسم";
-
-      document.getElementById(
-        "sectionFormTitle"
-      ).textContent =
-        "إضافة قسم جديد";
-
-      document.getElementById(
-        "sectionForm"
-      ).style.display =
-        "block";
-
-      openPage("sections");
-
-    };
+        editingSectionId = null;
 
 
-    window.editSection = function(id) {
+        document
+          .getElementById(
+            "sectionAddForm"
+          )
+          .reset();
 
-      const item =
-        sections.find(
-          s => s.id === id
+
+        document.getElementById(
+          "sectionOrder"
+        ).value = 1;
+
+
+        document.getElementById(
+          "sectionSubmitText"
+        ).textContent =
+          "حفظ القسم";
+
+
+        document.getElementById(
+          "sectionFormTitle"
+        ).textContent =
+          "إضافة قسم جديد";
+
+
+        document.getElementById(
+          "sectionForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "sections"
         );
 
-      if (!item) return;
-
-      editingSectionId = id;
-
-      document.getElementById(
-        "sectionSubject"
-      ).value =
-        item.subjectId || "";
-
-      document.getElementById(
-        "sectionName"
-      ).value =
-        item.name || "";
-
-      document.getElementById(
-        "sectionOrder"
-      ).value =
-        item.order || 1;
-
-      document.getElementById(
-        "sectionDescription"
-      ).value =
-        item.description || "";
-
-      document.getElementById(
-        "sectionSubmitText"
-      ).textContent =
-        "حفظ التعديلات";
-
-      document.getElementById(
-        "sectionFormTitle"
-      ).textContent =
-        "تعديل القسم";
-
-      document.getElementById(
-        "sectionForm"
-      ).style.display =
-        "block";
-
-      openPage("sections");
-
-      document.getElementById(
-        "sectionForm"
-      ).scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-      });
-
-    };
+      };
 
 
-    window.resetSectionForm = function() {
+    window.editSection =
+      function(id) {
 
-      editingSectionId = null;
+        const item =
+          sections.find(
+            s =>
+              s.id === id
+          );
 
-      document
-        .getElementById(
-          "sectionAddForm"
-        )
-        .reset();
 
-      document.getElementById(
-        "sectionOrder"
-      ).value = 1;
+        if (!item) return;
 
-      document.getElementById(
-        "sectionSubmitText"
-      ).textContent =
-        "حفظ القسم";
 
-      document.getElementById(
-        "sectionFormTitle"
-      ).textContent =
-        "إضافة قسم جديد";
+        editingSectionId =
+          id;
 
-      document.getElementById(
-        "sectionForm"
-      ).style.display =
-        "none";
 
-    };
+        document.getElementById(
+          "sectionSubject"
+        ).value =
+          item.subjectId || "";
+
+
+        document.getElementById(
+          "sectionName"
+        ).value =
+          item.name || "";
+
+
+        document.getElementById(
+          "sectionOrder"
+        ).value =
+          item.order || 1;
+
+
+        document.getElementById(
+          "sectionDescription"
+        ).value =
+          item.description || "";
+
+
+        document.getElementById(
+          "sectionSubmitText"
+        ).textContent =
+          "حفظ التعديلات";
+
+
+        document.getElementById(
+          "sectionFormTitle"
+        ).textContent =
+          "تعديل القسم";
+
+
+        document.getElementById(
+          "sectionForm"
+        ).style.display =
+          "block";
+
+
+        openPage(
+          "sections"
+        );
+
+      };
+
+
+    window.resetSectionForm =
+      function() {
+
+        editingSectionId = null;
+
+
+        document
+          .getElementById(
+            "sectionAddForm"
+          )
+          .reset();
+
+
+        document.getElementById(
+          "sectionOrder"
+        ).value = 1;
+
+
+        document.getElementById(
+          "sectionSubmitText"
+        ).textContent =
+          "حفظ القسم";
+
+
+        document.getElementById(
+          "sectionFormTitle"
+        ).textContent =
+          "إضافة قسم جديد";
+
+
+        document.getElementById(
+          "sectionForm"
+        ).style.display =
+          "none";
+
+      };
 
 
     document
@@ -3683,6 +5883,7 @@
         async event => {
 
           event.preventDefault();
+
 
           try {
 
@@ -3739,12 +5940,15 @@
                 data
               );
 
+
               toast(
                 "تم تعديل القسم بنجاح",
                 "success"
               );
 
-            } else {
+            }
+
+            else {
 
               await addDoc(
                 collection(
@@ -3761,6 +5965,7 @@
                 }
               );
 
+
               toast(
                 "تمت إضافة القسم بنجاح",
                 "success"
@@ -3775,7 +5980,9 @@
 
             updateStats();
 
-          } catch (error) {
+          }
+
+          catch(error) {
 
             console.error(error);
 
@@ -3790,111 +5997,151 @@
       );
 
 
-    window.deleteSection = async function(id) {
+    window.deleteSection =
+      async function(id) {
 
-      const item =
-        sections.find(
-          s => s.id === id
-        );
-
-      if (!item) return;
-
-      if (!confirm(
-        `هل أنت متأكد من حذف "${item.name}"؟`
-      )) {
-        return;
-      }
+        const item =
+          sections.find(
+            s =>
+              s.id === id
+          );
 
 
-      try {
+        if (!item) return;
 
-        await deleteDoc(
-          doc(
-            db,
-            "sections",
-            id
+
+        if (
+          !confirm(
+            `هل أنت متأكد من حذف "${item.name}"؟`
           )
-        );
+        ) {
 
-        toast(
-          "تم حذف القسم",
-          "success"
-        );
+          return;
 
-        await loadSections();
+        }
 
-        updateStats();
 
-      } catch (error) {
+        try {
 
-        console.error(error);
+          await deleteDoc(
+            doc(
+              db,
+              "sections",
+              id
+            )
+          );
 
-        toast(
-          "تعذر حذف القسم",
-          "error"
-        );
 
-      }
+          toast(
+            "تم حذف القسم",
+            "success"
+          );
 
-    };
+
+          await loadSections();
+
+          updateStats();
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر حذف القسم",
+            "error"
+          );
+
+        }
+
+      };
+
 
 
     /* =====================================================
        RESOURCE SELECTS
     ===================================================== */
 
-    function fillSectionSelect(subjectId="") {
+    function fillSectionSelect(
+      subjectId=""
+    ) {
 
       const select =
         document.getElementById(
           "resourceSection"
         );
 
+
       if (!select) return;
+
 
       const current =
         select.value;
+
 
       select.innerHTML =
         `<option value="">بدون قسم</option>`;
 
 
       sections
-        .filter(item => {
+        .filter(
+          item => {
 
-          if (!subjectId) {
-            return true;
+            if (!subjectId) {
+
+              return true;
+
+            }
+
+            return (
+              item.subjectId ===
+              subjectId
+            );
+
           }
-
-          return item.subjectId === subjectId;
-
-        })
+        )
         .sort(
           (a,b) =>
-            Number(a.order || 999999) -
-            Number(b.order || 999999)
+            Number(
+              a.order || 999999
+            ) -
+            Number(
+              b.order || 999999
+            )
         )
-        .forEach(item => {
+        .forEach(
+          item => {
 
-          const option =
-            document.createElement("option");
+            const option =
+              document.createElement(
+                "option"
+              );
 
-          option.value =
-            item.id;
 
-          option.textContent =
-            item.name;
+            option.value =
+              item.id;
 
-          select.appendChild(option);
 
-        });
+            option.textContent =
+              item.name;
+
+
+            select.appendChild(
+              option
+            );
+
+          }
+        );
 
 
       if (
         current &&
         [...select.options]
-          .some(option =>
-            option.value === current
+          .some(
+            option =>
+              option.value ===
+              current
           )
       ) {
 
@@ -3933,10 +6180,12 @@
           const file =
             event.target.files[0];
 
+
           const label =
             document.getElementById(
               "selectedFileName"
             );
+
 
           if (!file) {
 
@@ -3947,6 +6196,7 @@
 
           }
 
+
           label.textContent =
             `الملف المحدد: ${file.name}`;
 
@@ -3954,209 +6204,247 @@
       );
 
 
+
     /* =====================================================
-       RESOURCE
+       RESOURCE FORM
     ===================================================== */
 
-    window.showResourceForm = function() {
+    window.showResourceForm =
+      function() {
 
-      editingResourceId = null;
-
-      document
-        .getElementById(
-          "resourceAddForm"
-        )
-        .reset();
-
-      document.getElementById(
-        "resourceOrder"
-      ).value = 1;
-
-      document.getElementById(
-        "resourcePublished"
-      ).checked = true;
-
-      document.getElementById(
-        "selectedFileName"
-      ).textContent =
-        "لم يتم اختيار ملف";
-
-      document.getElementById(
-        "resourceSubmitText"
-      ).textContent =
-        "حفظ المورد";
-
-      document.getElementById(
-        "resourceFormTitle"
-      ).textContent =
-        "إضافة مورد جديد";
-
-      document.getElementById(
-        "resourceForm"
-      ).style.display =
-        "block";
-
-      fillSectionSelect("");
-
-      openPage("resources");
-
-    };
+        editingResourceId = null;
 
 
-    window.editResource = function(id) {
+        document
+          .getElementById(
+            "resourceAddForm"
+          )
+          .reset();
 
-      const item =
-        resources.find(
-          r => r.id === id
+
+        document.getElementById(
+          "resourceOrder"
+        ).value =
+          getNextAvailableOrder(
+            resources.length + 1
+          );
+
+
+        document.getElementById(
+          "resourcePublished"
+        ).checked = true;
+
+
+        document.getElementById(
+          "selectedFileName"
+        ).textContent =
+          "لم يتم اختيار ملف";
+
+
+        document.getElementById(
+          "resourceSubmitText"
+        ).textContent =
+          "حفظ المورد";
+
+
+        document.getElementById(
+          "resourceFormTitle"
+        ).textContent =
+          "إضافة مورد جديد";
+
+
+        document.getElementById(
+          "resourceForm"
+        ).style.display =
+          "block";
+
+
+        fillSectionSelect("");
+
+
+        openPage(
+          "resources"
         );
 
-      if (!item) return;
-
-      editingResourceId = id;
+      };
 
 
-      document.getElementById(
-        "resourceSubject"
-      ).value =
-        item.subjectId || "";
+    window.editResource =
+      function(id) {
+
+        const item =
+          resources.find(
+            r =>
+              r.id === id
+          );
 
 
-      fillSectionSelect(
-        item.subjectId || ""
-      );
+        if (!item) return;
 
 
-      document.getElementById(
-        "resourceSection"
-      ).value =
-        item.sectionId || "";
+        editingResourceId =
+          id;
 
 
-      document.getElementById(
-        "resourceTitle"
-      ).value =
-        item.title || "";
+        document.getElementById(
+          "resourceSubject"
+        ).value =
+          item.subjectId || "";
 
 
-      document.getElementById(
-        "resourceType"
-      ).value =
-        item.type || "pdf";
+        fillSectionSelect(
+          item.subjectId || ""
+        );
 
 
-      document.getElementById(
-        "resourceUrl"
-      ).value =
-        item.url || "";
+        document.getElementById(
+          "resourceSection"
+        ).value =
+          item.sectionId || "";
 
 
-      document.getElementById(
-        "resourceOrder"
-      ).value =
-        item.order || 1;
+        document.getElementById(
+          "resourceTitle"
+        ).value =
+          item.title || "";
 
 
-      document.getElementById(
-        "resourcePublished"
-      ).checked =
-        item.published === true;
+        document.getElementById(
+          "resourceType"
+        ).value =
+          item.type || "pdf";
 
 
-      document.getElementById(
-        "resourceDescription"
-      ).value =
-        item.description || "";
+        document.getElementById(
+          "resourceUrl"
+        ).value =
+          item.url || "";
 
 
-      document.getElementById(
-        "resourceFile"
-      ).value = "";
+        document.getElementById(
+          "resourceOrder"
+        ).value =
+          item.order || 1;
 
 
-      document.getElementById(
-        "selectedFileName"
-      ).textContent =
-        item.driveFileName
-          ? `الملف الحالي: ${item.driveFileName} — اختر ملفاً جديداً لاستبداله`
-          : "لا يوجد ملف جديد محدد";
+        document.getElementById(
+          "resourcePublished"
+        ).checked =
+          item.published === true;
 
 
-      document.getElementById(
-        "resourceSubmitText"
-      ).textContent =
-        "حفظ التعديلات";
+        document.getElementById(
+          "resourceDescription"
+        ).value =
+          item.description || "";
 
 
-      document.getElementById(
-        "resourceFormTitle"
-      ).textContent =
-        "تعديل المورد";
+        document.getElementById(
+          "resourceFile"
+        ).value =
+          "";
 
 
-      document.getElementById(
-        "resourceForm"
-      ).style.display =
-        "block";
+        document.getElementById(
+          "selectedFileName"
+        ).textContent =
+          item.driveFileName
+            ? `الملف الحالي: ${item.driveFileName} — اختر ملفاً جديداً لاستبداله`
+            : "لا يوجد ملف جديد محدد";
 
 
-      openPage("resources");
+        document.getElementById(
+          "resourceSubmitText"
+        ).textContent =
+          "حفظ التعديلات";
 
 
-      document.getElementById(
-        "resourceForm"
-      ).scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-      });
-
-    };
+        document.getElementById(
+          "resourceFormTitle"
+        ).textContent =
+          "تعديل المورد";
 
 
-    window.resetResourceForm = function() {
+        document.getElementById(
+          "resourceForm"
+        ).style.display =
+          "block";
 
-      editingResourceId = null;
 
-      document
-        .getElementById(
-          "resourceAddForm"
-        )
-        .reset();
+        openPage(
+          "resources"
+        );
 
-      document.getElementById(
-        "resourceOrder"
-      ).value = 1;
 
-      document.getElementById(
-        "resourcePublished"
-      ).checked = true;
+        document.getElementById(
+          "resourceForm"
+        ).scrollIntoView({
 
-      document.getElementById(
-        "selectedFileName"
-      ).textContent =
-        "لم يتم اختيار ملف";
+          behavior:"smooth",
 
-      document.getElementById(
-        "resourceSubmitText"
-      ).textContent =
-        "حفظ المورد";
+          block:"start"
 
-      document.getElementById(
-        "resourceFormTitle"
-      ).textContent =
-        "إضافة مورد جديد";
+        });
 
-      document.getElementById(
-        "resourceForm"
-      ).style.display =
-        "none";
+      };
 
-      fillSectionSelect("");
 
-    };
+    window.resetResourceForm =
+      function() {
 
+        editingResourceId = null;
+
+
+        document
+          .getElementById(
+            "resourceAddForm"
+          )
+          .reset();
+
+
+        document.getElementById(
+          "resourceOrder"
+        ).value = 1;
+
+
+        document.getElementById(
+          "resourcePublished"
+        ).checked = true;
+
+
+        document.getElementById(
+          "selectedFileName"
+        ).textContent =
+          "لم يتم اختيار ملف";
+
+
+        document.getElementById(
+          "resourceSubmitText"
+        ).textContent =
+          "حفظ المورد";
+
+
+        document.getElementById(
+          "resourceFormTitle"
+        ).textContent =
+          "إضافة مورد جديد";
+
+
+        document.getElementById(
+          "resourceForm"
+        ).style.display =
+          "none";
+
+
+        fillSectionSelect("");
+
+      };
+
+
+
+    /* =====================================================
+       SAVE RESOURCE
+    ===================================================== */
 
     document
       .getElementById(
@@ -4220,7 +6508,7 @@
               ).value.trim();
 
 
-            const order =
+            const requestedOrder =
               Number(
                 document.getElementById(
                   "resourceOrder"
@@ -4257,11 +6545,34 @@
 
 
             /*
-             * إذا تم اختيار ملف PDF:
-             * ارفعه إلى Google Drive.
+             * ترتيب المورد.
+             *
+             * إذا كان الرقم مستخدمًا:
+             * ننتقل إلى أول رقم متاح.
              */
 
+            const finalOrder =
+              getNextAvailableOrder(
+                requestedOrder,
+                editingResourceId
+              );
+
+
+            if (
+              finalOrder !==
+              requestedOrder
+            ) {
+
+              toast(
+                `الترتيب ${requestedOrder} مستخدم، تم اختيار الترتيب ${finalOrder} تلقائيًا`,
+                ""
+              );
+
+            }
+
+
             let driveFileId = null;
+
             let driveFileName = null;
 
 
@@ -4302,8 +6613,10 @@
               url =
                 driveResult.url;
 
+
               driveFileId =
                 driveResult.id;
+
 
               driveFileName =
                 driveResult.name;
@@ -4312,8 +6625,8 @@
 
 
             /*
-             * إذا لم يتم اختيار ملف أثناء التعديل،
-             * نحافظ على ملف Drive القديم.
+             * عند التعديل بدون ملف جديد:
+             * نحافظ على الملف القديم.
              */
 
             if (
@@ -4335,6 +6648,7 @@
                   oldResource.driveFileId ||
                   null;
 
+
                 driveFileName =
                   oldResource.driveFileName ||
                   null;
@@ -4349,7 +6663,6 @@
               subjectId,
 
               sectionId:
-
                 sectionId || "",
 
               title,
@@ -4360,7 +6673,8 @@
 
               description,
 
-              order,
+              order:
+                finalOrder,
 
               published,
 
@@ -4406,11 +6720,6 @@
               );
 
 
-              /*
-               * إذا استبدلنا ملف Drive بملف جديد،
-               * نحاول حذف الملف القديم.
-               */
-
               if (
                 selectedFile &&
                 oldResource?.driveFileId &&
@@ -4430,7 +6739,9 @@
                 "success"
               );
 
-            } else {
+            }
+
+            else {
 
               await addDoc(
                 collection(
@@ -4458,12 +6769,15 @@
 
             resetResourceForm();
 
+
             await loadResources();
+
 
             updateStats();
 
+          }
 
-          } catch (error) {
+          catch(error) {
 
             console.error(
               "RESOURCE ERROR:",
@@ -4480,13 +6794,16 @@
               "error"
             );
 
-          } finally {
+          }
+
+          finally {
 
             button.disabled = false;
 
             button.classList.remove(
               "loading"
             );
+
 
             document.getElementById(
               "resourceSubmitText"
@@ -4501,6 +6818,11 @@
       );
 
 
+
+    /* =====================================================
+       RESOURCE TABLE
+    ===================================================== */
+
     function renderResources() {
 
       const tbody =
@@ -4512,290 +6834,855 @@
       if (!resources.length) {
 
         tbody.innerHTML =
-          `<tr><td colspan="8">
-            <div class="empty">
-              لا توجد ملفات أو موارد حتى الآن
-            </div>
-          </td></tr>`;
+          `
+            <tr>
+              <td colspan="9">
+                <div class="empty">
+                  لا توجد ملفات أو موارد حتى الآن
+                </div>
+              </td>
+            </tr>
+          `;
 
         return;
 
       }
 
 
+      resources.sort(
+        (a,b) =>
+          resourceOrderValue(a) -
+          resourceOrderValue(b)
+      );
+
+
       tbody.innerHTML =
-        resources.map(item => `
+        resources.map(
+          item => `
 
-          <tr>
+            <tr
+              class="resource-row"
+              draggable="true"
+              data-resource-id="${item.id}"
+            >
 
-            <td>
 
-              <div class="resource-title">
-                ${escapeHTML(item.title)}
-              </div>
+              <!-- DRAG -->
 
-              ${
-                item.description
-                  ? `
-                    <div class="resource-desc">
-                      ${escapeHTML(item.description)}
-                    </div>
-                  `
-                  : ""
-              }
+              <td class="drag-cell">
 
-            </td>
-
-            <td>
-              ${escapeHTML(
-                getSubjectName(
-                  item.subjectId
-                )
-              )}
-            </td>
-
-            <td>
-              ${escapeHTML(
-                item.sectionId
-                  ? getSectionName(
-                      item.sectionId
-                    )
-                  : "بدون قسم"
-              )}
-            </td>
-
-            <td>
-              <span class="badge gray">
-                ${escapeHTML(
-                  item.type || "رابط"
-                )}
-              </span>
-            </td>
-
-            <td>
-              <span class="order-badge">
-                ${Number(
-                  item.order || 1
-                )}
-              </span>
-            </td>
-
-            <td>
-
-              ${
-                item.published === true
-
-                  ? `
-                    <span class="badge success">
-                      منشور
-                    </span>
-                  `
-
-                  : `
-                    <span class="badge warning">
-                      مخفي
-                    </span>
-                  `
-              }
-
-            </td>
-
-            <td class="url-cell">
-
-              ${
-                item.url
-                  ? `
-                    <a
-                      href="${escapeHTML(item.url)}"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      فتح الرابط
-                    </a>
-                  `
-                  : "—"
-              }
-
-            </td>
-
-            <td>
-
-              <div class="actions">
-
-                <button
-                  class="btn btn-edit"
-                  onclick="editResource('${item.id}')"
+                <div
+                  class="drag-handle"
+                  draggable="true"
+                  title="اسحب لترتيب المورد"
                 >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M8 6h8"/>
+                    <path d="M8 12h8"/>
+                    <path d="M8 18h8"/>
+                    <circle cx="5" cy="6" r="1"/>
+                    <circle cx="5" cy="12" r="1"/>
+                    <circle cx="5" cy="18" r="1"/>
                   </svg>
-                  تعديل
-                </button>
 
-                <button
-                  class="btn"
-                  onclick="toggleResource('${item.id}')"
-                >
-                  ${
-                    item.published === true
-                      ? "إخفاء"
-                      : "نشر"
-                  }
-                </button>
+                </div>
 
-                <button
-                  class="btn btn-danger"
-                  onclick="deleteResource('${item.id}')"
-                >
-                  حذف
-                </button>
+              </td>
 
-              </div>
 
-            </td>
+              <!-- TITLE -->
 
-          </tr>
+              <td>
 
-        `).join("");
+                <div class="resource-title">
+                  ${escapeHTML(item.title)}
+                </div>
+
+                ${
+                  item.description
+                    ? `
+                      <div class="resource-desc">
+                        ${escapeHTML(
+                          item.description
+                        )}
+                      </div>
+                    `
+                    : ""
+                }
+
+              </td>
+
+
+              <!-- SUBJECT -->
+
+              <td>
+                ${escapeHTML(
+                  getSubjectName(
+                    item.subjectId
+                  )
+                )}
+              </td>
+
+
+              <!-- SECTION -->
+
+              <td>
+                ${escapeHTML(
+                  item.sectionId
+                    ? getSectionName(
+                        item.sectionId
+                      )
+                    : "بدون قسم"
+                )}
+              </td>
+
+
+              <!-- TYPE -->
+
+              <td>
+
+                <span class="badge gray">
+
+                  ${escapeHTML(
+                    item.type || "رابط"
+                  )}
+
+                </span>
+
+              </td>
+
+
+              <!-- ORDER -->
+
+              <td>
+
+                <div class="order-actions">
+
+                  <span class="order-badge">
+                    ${Number(
+                      item.order || 1
+                    )}
+                  </span>
+
+
+                  <button
+                    class="move-btn"
+                    title="تحريك للأعلى"
+                    onclick="moveResource('${item.id}',-1)"
+                  >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 19V5"/>
+                      <path d="m6 11 6-6 6 6"/>
+                    </svg>
+
+                  </button>
+
+
+                  <button
+                    class="move-btn"
+                    title="تحريك للأسفل"
+                    onclick="moveResource('${item.id}',1)"
+                  >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 5v14"/>
+                      <path d="m18 13-6 6-6-6"/>
+                    </svg>
+
+                  </button>
+
+                </div>
+
+              </td>
+
+
+              <!-- STATUS -->
+
+              <td>
+
+                ${
+                  item.published === true
+
+                    ? `
+                      <span class="badge success">
+                        منشور
+                      </span>
+                    `
+
+                    : `
+                      <span class="badge warning">
+                        مخفي
+                      </span>
+                    `
+                }
+
+              </td>
+
+
+              <!-- URL -->
+
+              <td class="url-cell">
+
+                ${
+                  item.url
+
+                    ? `
+                      <a
+                        href="${escapeHTML(item.url)}"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        فتح الرابط
+                      </a>
+                    `
+
+                    : "—"
+                }
+
+              </td>
+
+
+              <!-- ACTIONS -->
+
+              <td>
+
+                <div class="actions">
+
+
+                  <button
+                    class="btn btn-edit"
+                    onclick="editResource('${item.id}')"
+                  >
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 20h9"/>
+                      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                    </svg>
+
+                    تعديل
+
+                  </button>
+
+
+                  <button
+                    class="btn"
+                    onclick="toggleResource('${item.id}')"
+                  >
+
+                    ${
+                      item.published === true
+                        ? "إخفاء"
+                        : "نشر"
+                    }
+
+                  </button>
+
+
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteResource('${item.id}')"
+                  >
+                    حذف
+                  </button>
+
+
+                </div>
+
+              </td>
+
+
+            </tr>
+
+          `
+        ).join("");
+
+
+      setupResourceDragAndDrop();
 
     }
 
 
-    window.toggleResource = async function(id) {
 
-      const item =
-        resources.find(
-          r => r.id === id
-        );
+    /* =====================================================
+       DRAG & DROP
+    ===================================================== */
 
-      if (!item) return;
+    function setupResourceDragAndDrop() {
 
-
-      try {
-
-        await updateDoc(
-          doc(
-            db,
-            "resources",
-            id
-          ),
-          {
-
-            published:
-              item.published !== true,
-
-            updatedAt:
-              serverTimestamp()
-
-          }
+      const rows =
+        document.querySelectorAll(
+          "#resourcesTable .resource-row"
         );
 
 
-        toast(
-          item.published === true
-            ? "تم إخفاء المورد"
-            : "تم نشر المورد",
-          "success"
+      rows.forEach(
+        row => {
+
+          row.addEventListener(
+            "dragstart",
+            event => {
+
+              draggedResourceId =
+                row.dataset.resourceId;
+
+
+              row.classList.add(
+                "dragging"
+              );
+
+
+              event.dataTransfer.effectAllowed =
+                "move";
+
+
+              event.dataTransfer.setData(
+                "text/plain",
+                draggedResourceId
+              );
+
+            }
+          );
+
+
+          row.addEventListener(
+            "dragend",
+            () => {
+
+              row.classList.remove(
+                "dragging"
+              );
+
+
+              document
+                .querySelectorAll(
+                  "#resourcesTable .resource-row"
+                )
+                .forEach(
+                  item =>
+                    item.classList.remove(
+                      "drag-over"
+                    )
+                );
+
+
+              draggedResourceId =
+                null;
+
+            }
+          );
+
+
+          row.addEventListener(
+            "dragover",
+            event => {
+
+              event.preventDefault();
+
+
+              const targetId =
+                row.dataset.resourceId;
+
+
+              if (
+                !draggedResourceId ||
+                targetId ===
+                  draggedResourceId
+              ) {
+
+                return;
+
+              }
+
+
+              row.classList.add(
+                "drag-over"
+              );
+
+
+              event.dataTransfer.dropEffect =
+                "move";
+
+            }
+          );
+
+
+          row.addEventListener(
+            "dragleave",
+            () => {
+
+              row.classList.remove(
+                "drag-over"
+              );
+
+            }
+          );
+
+
+          row.addEventListener(
+            "drop",
+            async event => {
+
+              event.preventDefault();
+
+
+              row.classList.remove(
+                "drag-over"
+              );
+
+
+              const targetId =
+                row.dataset.resourceId;
+
+
+              if (
+                !draggedResourceId ||
+                targetId ===
+                  draggedResourceId
+              ) {
+
+                return;
+
+              }
+
+
+              await reorderResourcesByDrag(
+                draggedResourceId,
+                targetId
+              );
+
+            }
+          );
+
+        }
+      );
+
+    }
+
+
+
+    async function reorderResourcesByDrag(
+      draggedId,
+      targetId
+    ) {
+
+      const ordered =
+        [...resources]
+          .sort(
+            (a,b) =>
+              resourceOrderValue(a) -
+              resourceOrderValue(b)
+          );
+
+
+      const fromIndex =
+        ordered.findIndex(
+          resource =>
+            resource.id === draggedId
         );
 
 
-        await loadResources();
-
-      } catch (error) {
-
-        console.error(error);
-
-        toast(
-          "تعذر تغيير حالة المورد",
-          "error"
+      const toIndex =
+        ordered.findIndex(
+          resource =>
+            resource.id === targetId
         );
 
-      }
 
-    };
-
-
-    window.deleteResource = async function(id) {
-
-      const item =
-        resources.find(
-          r => r.id === id
-        );
-
-      if (!item) return;
-
-
-      if (!confirm(
-        `هل أنت متأكد من حذف "${item.title}"؟`
-      )) {
+      if (
+        fromIndex < 0 ||
+        toIndex < 0 ||
+        fromIndex === toIndex
+      ) {
 
         return;
 
       }
 
 
+      const [moved] =
+        ordered.splice(
+          fromIndex,
+          1
+        );
+
+
+      ordered.splice(
+        toIndex,
+        0,
+        moved
+      );
+
+
       try {
 
-        /*
-         * نحذف من Firestore أولاً.
-         */
+        document
+          .getElementById(
+            "resourcesTable"
+          )
+          .classList.add(
+            "loading"
+          );
 
-        await deleteDoc(
-          doc(
-            db,
-            "resources",
-            id
+
+        await Promise.all(
+          ordered.map(
+            (resource,index) =>
+              updateDoc(
+                doc(
+                  db,
+                  "resources",
+                  resource.id
+                ),
+                {
+
+                  order:
+                    index + 1,
+
+                  updatedAt:
+                    serverTimestamp()
+
+                }
+              )
           )
         );
 
 
-        /*
-         * ثم نحاول حذف الملف من Drive
-         * إذا كان مرتبطاً وكان التوكن موجوداً.
-         */
+        resources =
+          ordered.map(
+            (resource,index) => ({
 
-        let driveDeleted = false;
+              ...resource,
+
+              order:
+                index + 1
+
+            })
+          );
 
 
-        if (
-          item.driveFileId &&
-          driveAccessToken
-        ) {
-
-          driveDeleted =
-            await deleteDriveFile(
-              item.driveFileId
-            );
-
-        }
+        renderResources();
 
 
         toast(
-          driveDeleted
-            ? "تم حذف المورد وملف Google Drive"
-            : "تم حذف المورد",
+          "تم حفظ ترتيب الملفات",
           "success"
+        );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "DRAG ORDER ERROR:",
+          error
+        );
+
+
+        toast(
+          "تعذر حفظ ترتيب الملفات",
+          "error"
         );
 
 
         await loadResources();
 
-        updateStats();
-
-
-      } catch (error) {
-
-        console.error(error);
-
-        toast(
-          "تعذر حذف المورد",
-          "error"
-        );
-
       }
 
-    };
+    }
+
+
+
+    /* =====================================================
+       MOVE RESOURCE UP / DOWN
+    ===================================================== */
+
+    window.moveResource =
+      async function(
+        id,
+        direction
+      ) {
+
+        const ordered =
+          [...resources]
+            .sort(
+              (a,b) =>
+                resourceOrderValue(a) -
+                resourceOrderValue(b)
+            );
+
+
+        const index =
+          ordered.findIndex(
+            resource =>
+              resource.id === id
+          );
+
+
+        if (index < 0) return;
+
+
+        const newIndex =
+          index + direction;
+
+
+        if (
+          newIndex < 0 ||
+          newIndex >= ordered.length
+        ) {
+
+          return;
+
+        }
+
+
+        [
+          ordered[index],
+          ordered[newIndex]
+        ] =
+        [
+          ordered[newIndex],
+          ordered[index]
+        ];
+
+
+        try {
+
+          await Promise.all(
+            ordered.map(
+              (resource,index) =>
+                updateDoc(
+                  doc(
+                    db,
+                    "resources",
+                    resource.id
+                  ),
+                  {
+
+                    order:
+                      index + 1,
+
+                    updatedAt:
+                      serverTimestamp()
+
+                  }
+                )
+            )
+          );
+
+
+          resources =
+            ordered.map(
+              (resource,index) => ({
+
+                ...resource,
+
+                order:
+                  index + 1
+
+              })
+            );
+
+
+          renderResources();
+
+
+          toast(
+            "تم تحديث ترتيب الملفات",
+            "success"
+          );
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر تحديث الترتيب",
+            "error"
+          );
+
+        }
+
+      };
+
+
+
+    /* =====================================================
+       TOGGLE RESOURCE
+    ===================================================== */
+
+    window.toggleResource =
+      async function(id) {
+
+        const item =
+          resources.find(
+            r =>
+              r.id === id
+          );
+
+
+        if (!item) return;
+
+
+        try {
+
+          await updateDoc(
+            doc(
+              db,
+              "resources",
+              id
+            ),
+            {
+
+              published:
+                item.published !== true,
+
+              updatedAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          toast(
+            item.published === true
+              ? "تم إخفاء المورد"
+              : "تم نشر المورد",
+            "success"
+          );
+
+
+          await loadResources();
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر تغيير حالة المورد",
+            "error"
+          );
+
+        }
+
+      };
+
+
+
+    /* =====================================================
+       DELETE RESOURCE
+    ===================================================== */
+
+    window.deleteResource =
+      async function(id) {
+
+        const item =
+          resources.find(
+            r =>
+              r.id === id
+          );
+
+
+        if (!item) return;
+
+
+        if (
+          !confirm(
+            `هل أنت متأكد من حذف "${item.title}"؟`
+          )
+        ) {
+
+          return;
+
+        }
+
+
+        try {
+
+          await deleteDoc(
+            doc(
+              db,
+              "resources",
+              id
+            )
+          );
+
+
+          let driveDeleted =
+            false;
+
+
+          if (
+            item.driveFileId &&
+            driveAccessToken
+          ) {
+
+            driveDeleted =
+              await deleteDriveFile(
+                item.driveFileId
+              );
+
+          }
+
+
+          /*
+           * إعادة ترتيب باقي الموارد
+           * حتى لا تبقى فجوة في الأرقام.
+           */
+
+          await loadResources();
+
+
+          updateStats();
+
+
+          toast(
+            driveDeleted
+              ? "تم حذف المورد وملف Google Drive"
+              : "تم حذف المورد وإعادة ترتيب الملفات",
+            "success"
+          );
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+          toast(
+            "تعذر حذف المورد",
+            "error"
+          );
+
+        }
+
+      };
+
 
 
     /* =====================================================
@@ -4808,6 +7695,7 @@
         document.getElementById(
           "recentResources"
         );
+
 
       if (!tbody) return;
 
@@ -4823,19 +7711,24 @@
                 a.createdAt?.seconds || 0
               )
           )
-          .slice(0,8);
+          .slice(
+            0,
+            8
+          );
 
 
       if (!recent.length) {
 
         tbody.innerHTML =
-          `<tr>
-            <td colspan="4">
-              <div class="empty">
-                لا توجد موارد حتى الآن
-              </div>
-            </td>
-          </tr>`;
+          `
+            <tr>
+              <td colspan="4">
+                <div class="empty">
+                  لا توجد موارد حتى الآن
+                </div>
+              </td>
+            </tr>
+          `;
 
         return;
 
@@ -4843,57 +7736,71 @@
 
 
       tbody.innerHTML =
-        recent.map(item => `
+        recent.map(
+          item => `
 
-          <tr>
+            <tr>
 
-            <td>
-              <strong>
-                ${escapeHTML(item.title)}
-              </strong>
-            </td>
+              <td>
 
-            <td>
-              ${escapeHTML(
-                getSubjectName(
-                  item.subjectId
-                )
-              )}
-            </td>
+                <strong>
+                  ${escapeHTML(
+                    item.title
+                  )}
+                </strong>
 
-            <td>
-              <span class="badge gray">
+              </td>
+
+              <td>
+
                 ${escapeHTML(
-                  item.type || "رابط"
+                  getSubjectName(
+                    item.subjectId
+                  )
                 )}
-              </span>
-            </td>
 
-            <td>
+              </td>
 
-              ${
-                item.published === true
+              <td>
 
-                  ? `
-                    <span class="badge success">
-                      منشور
-                    </span>
-                  `
+                <span class="badge gray">
 
-                  : `
-                    <span class="badge warning">
-                      مخفي
-                    </span>
-                  `
-              }
+                  ${escapeHTML(
+                    item.type ||
+                    "رابط"
+                  )}
 
-            </td>
+                </span>
 
-          </tr>
+              </td>
 
-        `).join("");
+              <td>
+
+                ${
+                  item.published === true
+
+                    ? `
+                      <span class="badge success">
+                        منشور
+                      </span>
+                    `
+
+                    : `
+                      <span class="badge warning">
+                        مخفي
+                      </span>
+                    `
+                }
+
+              </td>
+
+            </tr>
+
+          `
+        ).join("");
 
     }
+
 
 
     /* =====================================================
@@ -4937,10 +7844,12 @@
               "success"
             );
 
+          }
 
-          } catch (error) {
+          catch(error) {
 
             console.error(error);
+
 
             let message =
               "تعذر تسجيل الدخول";
@@ -4954,7 +7863,9 @@
               message =
                 "البريد الإلكتروني أو كلمة المرور غير صحيحة";
 
-            } else if (
+            }
+
+            else if (
               error.code ===
               "auth/too-many-requests"
             ) {
@@ -4976,6 +7887,11 @@
       );
 
 
+
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+
     document
       .getElementById(
         "logoutBtn"
@@ -4988,7 +7904,9 @@
 
             await signOut(auth);
 
-          } catch (error) {
+          }
+
+          catch(error) {
 
             console.error(error);
 
@@ -4996,6 +7914,7 @@
 
         }
       );
+
 
 
     /* =====================================================
@@ -5011,6 +7930,7 @@
             "loginScreen"
           );
 
+
         const app =
           document.getElementById(
             "app"
@@ -5021,6 +7941,7 @@
 
           loginScreen.style.display =
             "none";
+
 
           app.style.display =
             "block";
@@ -5034,10 +7955,13 @@
 
           await loadAll();
 
-        } else {
+        }
+
+        else {
 
           loginScreen.style.display =
             "flex";
+
 
           app.style.display =
             "none";
@@ -5046,6 +7970,7 @@
 
       }
     );
+
 
 
     /* =====================================================
