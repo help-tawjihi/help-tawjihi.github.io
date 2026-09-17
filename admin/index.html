@@ -64,8 +64,6 @@
       cursor:pointer;
     }
 
-    /* ================= LOGIN ================= */
-
     #loginScreen{
       min-height:100vh;
       display:flex;
@@ -182,14 +180,10 @@
       display:none;
     }
 
-    /* ================= APP ================= */
-
     #app{
       display:none;
       min-height:100vh;
     }
-
-    /* ================= SIDEBAR ================= */
 
     .sidebar{
       position:fixed;
@@ -290,8 +284,6 @@
       color:var(--danger);
     }
 
-    /* ================= CONTENT ================= */
-
     .content{
       margin-right:260px;
       min-height:100vh;
@@ -325,8 +317,6 @@
       max-width:1400px;
       margin:auto;
     }
-
-    /* ================= DASHBOARD ================= */
 
     .stats{
       display:grid;
@@ -381,8 +371,6 @@
       font-size:12px;
     }
 
-    /* ================= PANELS ================= */
-
     .panel{
       background:var(--surface);
       border:1px solid var(--border);
@@ -415,8 +403,6 @@
       padding:20px;
       background:linear-gradient(180deg,rgba(240,244,243,.35),transparent);
     }
-
-    /* ================= BUTTONS ================= */
 
     .btn{
       min-height:40px;
@@ -474,12 +460,6 @@
       border-color:#fca5a5;
     }
 
-    .btn-success{
-      background:#f0fdf4;
-      color:var(--success);
-      border-color:#bbf7d0;
-    }
-
     .btn-edit{
       background:#effcf9;
       color:var(--primary);
@@ -500,8 +480,6 @@
       flex-wrap:wrap;
       align-items:center;
     }
-
-    /* ================= DRIVE ================= */
 
     .drive-box{
       display:flex;
@@ -634,8 +612,6 @@
       margin-top:5px;
     }
 
-    /* ================= EDIT MODE ================= */
-
     .form-mode{
       display:flex;
       align-items:center;
@@ -681,8 +657,6 @@
       gap:10px;
     }
 
-    /* ================= FORMS ================= */
-
     .form-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -699,8 +673,6 @@
       gap:8px;
       margin-top:5px;
     }
-
-    /* ================= TABLE ================= */
 
     .table-wrap{
       overflow-x:auto;
@@ -774,16 +746,12 @@
       text-align:right;
     }
 
-    /* ================= EMPTY ================= */
-
     .empty{
       text-align:center;
       color:var(--muted);
       padding:40px 20px;
       font-size:13px;
     }
-
-    /* ================= TOAST ================= */
 
     #toast{
       position:fixed;
@@ -815,8 +783,6 @@
     #toast.error{
       background:#991b1b;
     }
-
-    /* ================= MOBILE ================= */
 
     .mobile-menu{
       display:none;
@@ -948,10 +914,6 @@
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-     ===================================================== -->
-
 <section id="loginScreen">
 
   <div class="login-card">
@@ -1018,10 +980,6 @@
   </div>
 
 </section>
-
-<!-- =====================================================
-     APP
-     ===================================================== -->
 
 <div id="app">
 
@@ -1162,8 +1120,6 @@
 
     </header>
 
-    <!-- ================= DASHBOARD ================= -->
-
     <main class="page" id="page-dashboard">
 
       <div class="stats">
@@ -1289,8 +1245,6 @@
 
     </main>
 
-    <!-- ================= GENERATIONS ================= -->
-
     <main class="page" id="page-generations" style="display:none">
 
       <div class="panel">
@@ -1380,8 +1334,6 @@
       </div>
 
     </main>
-
-    <!-- ================= SUBJECTS ================= -->
 
     <main class="page" id="page-subjects" style="display:none">
 
@@ -1482,8 +1434,6 @@
 
     </main>
 
-    <!-- ================= SECTIONS ================= -->
-
     <main class="page" id="page-sections" style="display:none">
 
       <div class="panel">
@@ -1491,8 +1441,10 @@
         <div class="panel-head">
 
           <div>
+
             <h3>أقسام المواد</h3>
             <p>أنشئ أي قسم تريده داخل أي مادة</p>
+
           </div>
 
           <button class="btn btn-primary" onclick="showSectionForm()">
@@ -1591,8 +1543,6 @@
       </div>
 
     </main>
-
-    <!-- ================= RESOURCES ================= -->
 
     <main class="page" id="page-resources" style="display:none">
 
@@ -1751,31 +1701,15 @@
 
                 <select id="resourceType">
 
-                  <option value="pdf">
-                    PDF
-                  </option>
-
-                  <option value="drive">
-                    Google Drive
-                  </option>
-
-                  <option value="link">
-                    رابط خارجي
-                  </option>
-
-                  <option value="exam">
-                    امتحان إلكتروني
-                  </option>
-
-                  <option value="book">
-                    كتاب رسمي
-                  </option>
+                  <option value="pdf">PDF</option>
+                  <option value="drive">Google Drive</option>
+                  <option value="link">رابط خارجي</option>
+                  <option value="exam">امتحان إلكتروني</option>
+                  <option value="book">كتاب رسمي</option>
 
                 </select>
 
               </div>
-
-              <!-- GOOGLE DRIVE UPLOAD -->
 
               <div class="field full">
 
@@ -1972,14 +1906,9 @@
     serverTimestamp
   } from "./firebase-config.js";
 
+
   /* =====================================================
      GOOGLE DRIVE CONFIG
-     =====================================================
-
-     ضع Google OAuth Client ID هنا.
-
-     مثال:
-     1234567890-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
   ===================================================== */
 
   const GOOGLE_CLIENT_ID =
@@ -1987,6 +1916,7 @@
 
   const GOOGLE_DRIVE_SCOPE =
     "https://www.googleapis.com/auth/drive.file";
+
 
   /* =====================================================
      GLOBAL DATA
@@ -2002,6 +1932,7 @@
   let editingSectionId = null;
   let editingResourceId = null;
 
+
   /* =====================================================
      GOOGLE DRIVE STATE
   ===================================================== */
@@ -2011,6 +1942,7 @@
   let googleTokenExpiresAt = 0;
 
   let selectedPdfFile = null;
+
 
   /* =====================================================
      ELEMENTS
@@ -2061,13 +1993,14 @@
   const uploadProgressText =
     document.getElementById("uploadProgressText");
 
+
   /* =====================================================
      AUTH
   ===================================================== */
 
   onAuthStateChanged(auth, async (user) => {
 
-    if (user) {
+    if(user){
 
       loginScreen.style.display = "none";
 
@@ -2080,7 +2013,7 @@
 
       await loadAll();
 
-    } else {
+    }else{
 
       loginScreen.style.display = "flex";
 
@@ -2094,6 +2027,7 @@
     }
 
   });
+
 
   loginForm.addEventListener(
     "submit",
@@ -2114,7 +2048,7 @@
           .getElementById("password")
           .value;
 
-      try {
+      try{
 
         await signInWithEmailAndPassword(
           auth,
@@ -2122,7 +2056,7 @@
           password
         );
 
-      } catch (error) {
+      }catch(error){
 
         console.error(error);
 
@@ -2137,6 +2071,7 @@
     }
   );
 
+
   document
     .getElementById("logoutBtn")
     .addEventListener(
@@ -2150,6 +2085,7 @@
       }
     );
 
+
   /* =====================================================
      GOOGLE DRIVE INITIALIZE
   ===================================================== */
@@ -2158,7 +2094,7 @@
 
     if(
       !GOOGLE_CLIENT_ID ||
-      GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID_هنا")
+      GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
     ){
 
       setDriveStatus(false);
@@ -2169,6 +2105,7 @@
       return;
 
     }
+
 
     if(
       !window.google ||
@@ -2184,6 +2121,7 @@
       return;
 
     }
+
 
     googleTokenClient =
       window.google.accounts.oauth2.initTokenClient({
@@ -2240,6 +2178,7 @@
 
   }
 
+
   /* =====================================================
      GOOGLE DRIVE CONNECT
   ===================================================== */
@@ -2250,7 +2189,7 @@
 
       if(
         !GOOGLE_CLIENT_ID ||
-        GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID_هنا")
+        GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
       ){
 
         toast(
@@ -2292,6 +2231,7 @@
     }
   );
 
+
   function requestGoogleDriveAccess(){
 
     googleTokenClient.requestAccessToken({
@@ -2299,6 +2239,7 @@
     });
 
   }
+
 
   function setDriveStatus(
     connected,
@@ -2344,6 +2285,7 @@
 
   }
 
+
   /* =====================================================
      GOOGLE TOKEN
   ===================================================== */
@@ -2360,11 +2302,13 @@
 
     }
 
+
     if(!googleTokenClient){
 
       initializeGoogleDrive();
 
     }
+
 
     if(!googleTokenClient){
 
@@ -2373,6 +2317,7 @@
       );
 
     }
+
 
     return new Promise(
       (resolve,reject) => {
@@ -2414,6 +2359,7 @@
 
           };
 
+
         googleTokenClient.requestAccessToken({
           prompt:""
         });
@@ -2422,6 +2368,7 @@
     );
 
   }
+
 
   /* =====================================================
      LOAD ALL
@@ -2453,6 +2400,7 @@
 
   }
 
+
   /* =====================================================
      GENERATIONS
   ===================================================== */
@@ -2480,9 +2428,11 @@
     );
 
     renderGenerations();
+
     fillGenerationSelects();
 
   }
+
 
   function renderGenerations(){
 
@@ -2501,6 +2451,7 @@
       return;
 
     }
+
 
     container.innerHTML = `
 
@@ -2575,6 +2526,7 @@
 
   }
 
+
   document
     .getElementById("generationAddForm")
     .addEventListener(
@@ -2608,8 +2560,10 @@
 
         };
 
+
         const editing =
           Boolean(editingGenerationId);
+
 
         try{
 
@@ -2650,6 +2604,7 @@
 
           }
 
+
           hideGenerationForm();
 
           await loadGenerations();
@@ -2671,6 +2626,7 @@
 
       }
     );
+
 
   window.editGeneration =
     function(id){
@@ -2726,6 +2682,7 @@
 
     };
 
+
   window.deleteGeneration =
     async function(id){
 
@@ -2767,6 +2724,7 @@
 
     };
 
+
   /* =====================================================
      SUBJECTS
   ===================================================== */
@@ -2794,9 +2752,11 @@
     );
 
     renderSubjects();
+
     fillSubjectSelects();
 
   }
+
 
   function renderSubjects(){
 
@@ -2815,6 +2775,7 @@
       return;
 
     }
+
 
     container.innerHTML = `
 
@@ -2908,6 +2869,7 @@
 
   }
 
+
   document
     .getElementById("subjectAddForm")
     .addEventListener(
@@ -2953,8 +2915,10 @@
 
         };
 
+
         const editing =
           Boolean(editingSubjectId);
+
 
         try{
 
@@ -2995,10 +2959,13 @@
 
           }
 
+
           hideSubjectForm();
 
           await loadSubjects();
+
           await loadSections();
+
           await loadResources();
 
           updateStats();
@@ -3018,6 +2985,7 @@
 
       }
     );
+
 
   window.editSubject =
     function(id){
@@ -3083,6 +3051,7 @@
 
     };
 
+
   window.deleteSubject =
     async function(id){
 
@@ -3124,6 +3093,7 @@
 
     };
 
+
   /* =====================================================
      SECTIONS
   ===================================================== */
@@ -3151,6 +3121,7 @@
     );
 
     renderSections();
+
     fillResourceSectionSelect(
       document.getElementById(
         "resourceSubject"
@@ -3158,6 +3129,7 @@
     );
 
   }
+
 
   function renderSections(){
 
@@ -3176,6 +3148,7 @@
       return;
 
     }
+
 
     container.innerHTML = `
 
@@ -3269,6 +3242,7 @@
 
   }
 
+
   document
     .getElementById("sectionAddForm")
     .addEventListener(
@@ -3308,8 +3282,10 @@
 
         };
 
+
         const editing =
           Boolean(editingSectionId);
+
 
         try{
 
@@ -3350,9 +3326,11 @@
 
           }
 
+
           hideSectionForm();
 
           await loadSections();
+
           await loadResources();
 
           updateStats();
@@ -3372,6 +3350,7 @@
 
       }
     );
+
 
   window.editSection =
     function(id){
@@ -3432,6 +3411,7 @@
 
     };
 
+
   window.deleteSection =
     async function(id){
 
@@ -3473,6 +3453,7 @@
 
     };
 
+
   /* =====================================================
      RESOURCES
   ===================================================== */
@@ -3506,10 +3487,13 @@
     );
 
     renderResources();
+
     renderRecentResources();
+
     updateStats();
 
   }
+
 
   function resourceOrderValue(r){
 
@@ -3521,6 +3505,7 @@
       : 999999;
 
   }
+
 
   function renderResources(){
 
@@ -3539,6 +3524,7 @@
       return;
 
     }
+
 
     container.innerHTML = `
 
@@ -3677,6 +3663,7 @@
 
   }
 
+
   /* =====================================================
      RESOURCE FORM
   ===================================================== */
@@ -3688,6 +3675,11 @@
       async (e) => {
 
         e.preventDefault();
+
+        const resourceUrlInput =
+          document.getElementById(
+            "resourceUrl"
+          );
 
         const data = {
 
@@ -3713,8 +3705,7 @@
               .value,
 
           url:
-            document
-              .getElementById("resourceUrl")
+            resourceUrlInput
               .value
               .trim(),
 
@@ -3741,8 +3732,22 @@
 
         };
 
+
+        if(resourceUrlInput.dataset.driveFileId){
+
+          data.driveFileId =
+            resourceUrlInput.dataset.driveFileId;
+
+          data.driveFileName =
+            resourceUrlInput.dataset.driveFileName ||
+            "";
+
+        }
+
+
         const editing =
           Boolean(editingResourceId);
+
 
         try{
 
@@ -3783,6 +3788,7 @@
 
           }
 
+
           hideResourceForm();
 
           await loadResources();
@@ -3802,6 +3808,7 @@
 
       }
     );
+
 
   window.editResource =
     function(id){
@@ -3840,10 +3847,19 @@
       ).value =
         resource.type || "pdf";
 
-      document.getElementById(
-        "resourceUrl"
-      ).value =
+      const urlInput =
+        document.getElementById(
+          "resourceUrl"
+        );
+
+      urlInput.value =
         resource.url || "";
+
+      urlInput.dataset.driveFileId =
+        resource.driveFileId || "";
+
+      urlInput.dataset.driveFileName =
+        resource.driveFileName || "";
 
       document.getElementById(
         "resourceDescription"
@@ -3893,6 +3909,7 @@
 
     };
 
+
   window.toggleResource =
     async function(
       id,
@@ -3936,6 +3953,7 @@
 
     };
 
+
   window.deleteResource =
     async function(id){
 
@@ -3952,10 +3970,6 @@
             r => r.id === id
           );
 
-        /*
-          إذا كان الملف مرفوعًا عن طريق Google Drive
-          نحاول حذفه من Drive أيضًا.
-        */
 
         if(
           resource?.driveFileId &&
@@ -3979,6 +3993,7 @@
 
         }
 
+
         await deleteDoc(
           doc(
             db,
@@ -3987,7 +4002,9 @@
           )
         );
 
+
         await loadResources();
+
 
         toast(
           "تم حذف المحتوى",
@@ -4007,6 +4024,7 @@
 
     };
 
+
   /* =====================================================
      PDF SELECT
   ===================================================== */
@@ -4019,6 +4037,7 @@
 
     }
   );
+
 
   resourceFile.addEventListener(
     "change",
@@ -4038,6 +4057,7 @@
         return;
 
       }
+
 
       if(
         file.type !== "application/pdf" &&
@@ -4062,6 +4082,7 @@
 
       }
 
+
       selectedPdfFile =
         file;
 
@@ -4070,6 +4091,7 @@
 
     }
   );
+
 
   /* =====================================================
      PDF UPLOAD
@@ -4090,6 +4112,7 @@
 
       }
 
+
       try{
 
         uploadPdfBtn.disabled =
@@ -4107,13 +4130,16 @@
           "جاري تجهيز الملف..."
         );
 
+
         const token =
           await ensureGoogleToken();
+
 
         setUploadProgress(
           25,
           "جاري رفع الملف إلى Google Drive..."
         );
+
 
         const driveFile =
           await uploadFileToDrive(
@@ -4121,14 +4147,17 @@
             token
           );
 
+
         setUploadProgress(
           70,
           "جاري إعداد رابط المشاركة..."
         );
 
+
         let publicLink =
           driveFile.webViewLink ||
           `https://drive.google.com/file/d/${driveFile.id}/view`;
+
 
         try{
 
@@ -4154,40 +4183,37 @@
 
         }
 
+
         setUploadProgress(
           100,
           "تم رفع الملف بنجاح"
         );
 
-        document.getElementById(
-          "resourceUrl"
-        ).value =
+
+        const resourceUrlInput =
+          document.getElementById(
+            "resourceUrl"
+          );
+
+
+        resourceUrlInput.value =
           publicLink;
 
-        /*
-          نضع بيانات Drive مؤقتًا على النموذج
-          حتى تحفظ مع Firestore.
-        */
 
-        document.getElementById(
-          "resourceUrl"
-        ).dataset.driveFileId =
+        resourceUrlInput.dataset.driveFileId =
           driveFile.id;
 
-        document.getElementById(
-          "resourceUrl"
-        ).dataset.driveFileName =
-          driveFile.name || selectedPdfFile.name;
 
-        /*
-          إذا لم يكتب الأدمن اسم المحتوى
-          نستخدم اسم ملف PDF تلقائيًا.
-        */
+        resourceUrlInput.dataset.driveFileName =
+          driveFile.name ||
+          selectedPdfFile.name;
+
 
         const titleInput =
           document.getElementById(
             "resourceTitle"
           );
+
 
         if(!titleInput.value.trim()){
 
@@ -4197,10 +4223,12 @@
 
         }
 
+
         document.getElementById(
           "resourceType"
         ).value =
           "pdf";
+
 
         toast(
           "تم رفع PDF وربط الرابط بنجاح",
@@ -4214,6 +4242,7 @@
           error
         );
 
+
         if(
           String(error.message || "")
             .includes("401")
@@ -4224,10 +4253,12 @@
 
         }
 
+
         toast(
           getGoogleDriveErrorMessage(error),
           "error"
         );
+
 
         setUploadProgress(
           0,
@@ -4247,6 +4278,7 @@
     }
   );
 
+
   async function uploadFileToDrive(
     file,
     accessToken
@@ -4262,17 +4294,21 @@
 
     };
 
+
     const boundary =
       "tawjihi_drive_boundary_" +
       Math.random()
         .toString(36)
         .slice(2);
 
+
     const delimiter =
       `\r\n--${boundary}\r\n`;
 
+
     const closeDelimiter =
       `\r\n--${boundary}--`;
+
 
     const body =
       new Blob([
@@ -4292,6 +4328,7 @@
         closeDelimiter
 
       ]);
+
 
     const response =
       await fetch(
@@ -4313,6 +4350,7 @@
         }
       );
 
+
     if(!response.ok){
 
       const errorText =
@@ -4324,9 +4362,11 @@
 
     }
 
+
     return await response.json();
 
   }
+
 
   async function makeDriveFilePublic(
     fileId,
@@ -4359,6 +4399,7 @@
         }
       );
 
+
     if(!response.ok){
 
       const text =
@@ -4370,9 +4411,11 @@
 
     }
 
+
     return await response.json();
 
   }
+
 
   async function deleteDriveFile(
     fileId
@@ -4380,6 +4423,7 @@
 
     const token =
       await ensureGoogleToken();
+
 
     const response =
       await fetch(
@@ -4395,6 +4439,7 @@
 
         }
       );
+
 
     if(
       !response.ok &&
@@ -4412,6 +4457,7 @@
 
   }
 
+
   function setUploadProgress(
     percent,
     text
@@ -4428,6 +4474,7 @@
       text;
 
   }
+
 
   function formatFileSize(bytes){
 
@@ -4451,6 +4498,7 @@
 
   }
 
+
   function getGoogleDriveErrorMessage(
     error
   ){
@@ -4459,6 +4507,7 @@
       String(
         error?.message || ""
       );
+
 
     if(
       message.includes("popup") ||
@@ -4469,6 +4518,7 @@
 
     }
 
+
     if(
       message.includes("access_denied")
     ){
@@ -4476,6 +4526,7 @@
       return "تم رفض صلاحية الوصول إلى Google Drive.";
 
     }
+
 
     if(
       message.includes("403")
@@ -4485,6 +4536,7 @@
 
     }
 
+
     if(
       message.includes("401")
     ){
@@ -4493,9 +4545,11 @@
 
     }
 
+
     return "تعذر رفع الملف إلى Google Drive.";
 
   }
+
 
   /* =====================================================
      SELECTS
@@ -4511,10 +4565,12 @@
     const current =
       select.value;
 
+
     select.innerHTML =
       `<option value="">
         اختر الجيل
       </option>`;
+
 
     generations.forEach(g => {
 
@@ -4525,6 +4581,7 @@
       `;
 
     });
+
 
     if(
       current &&
@@ -4540,6 +4597,7 @@
 
   }
 
+
   function fillSubjectSelects(){
 
     const sectionSelect =
@@ -4552,11 +4610,13 @@
         "resourceSubject"
       );
 
+
     const sectionCurrent =
       sectionSelect.value;
 
     const resourceCurrent =
       resourceSelect.value;
+
 
     const html = `
 
@@ -4574,11 +4634,13 @@
 
     `;
 
+
     sectionSelect.innerHTML =
       html;
 
     resourceSelect.innerHTML =
       html;
+
 
     if(
       sectionCurrent &&
@@ -4592,6 +4654,7 @@
 
     }
 
+
     if(
       resourceCurrent &&
       subjects.some(
@@ -4604,11 +4667,13 @@
 
     }
 
+
     fillResourceSectionSelect(
       resourceSelect.value
     );
 
   }
+
 
   function fillResourceSectionSelect(
     subjectId = ""
@@ -4619,14 +4684,17 @@
         "resourceSection"
       );
 
+
     const current =
       select.value;
+
 
     select.innerHTML = `
       <option value="">
         اختر القسم
       </option>
     `;
+
 
     const filtered =
       subjectId
@@ -4636,6 +4704,7 @@
           )
         : sections;
 
+
     filtered.forEach(s => {
 
       const subject =
@@ -4643,6 +4712,7 @@
           x =>
             x.id === s.subjectId
         );
+
 
       select.innerHTML += `
 
@@ -4664,6 +4734,7 @@
 
     });
 
+
     if(
       current &&
       filtered.some(
@@ -4677,6 +4748,7 @@
     }
 
   }
+
 
   document
     .getElementById(
@@ -4696,6 +4768,7 @@
 
       }
     );
+
 
   /* =====================================================
      FORMS
@@ -4736,6 +4809,7 @@
 
     };
 
+
   window.hideGenerationForm =
     function(){
 
@@ -4771,6 +4845,7 @@
 
     };
 
+
   window.showSubjectForm =
     function(){
 
@@ -4793,7 +4868,8 @@
       document
         .getElementById(
           "subjectSubmitBtn"
-        ).textContent =
+        )
+        .textContent =
         "حفظ المادة";
 
       document
@@ -4811,6 +4887,7 @@
         "block";
 
     };
+
 
   window.hideSubjectForm =
     function(){
@@ -4854,6 +4931,7 @@
 
     };
 
+
   window.showSectionForm =
     function(){
 
@@ -4876,7 +4954,8 @@
       document
         .getElementById(
           "sectionSubmitBtn"
-        ).textContent =
+        )
+        .textContent =
         "حفظ القسم";
 
       document
@@ -4894,6 +4973,7 @@
         "block";
 
     };
+
 
   window.hideSectionForm =
     function(){
@@ -4937,6 +5017,7 @@
 
     };
 
+
   window.showResourceForm =
     function(){
 
@@ -4956,11 +5037,28 @@
         "show"
       );
 
+
       document
         .getElementById(
           "resourceAddForm"
         )
         .reset();
+
+
+      document
+        .getElementById(
+          "resourceUrl"
+        )
+        .dataset.driveFileId =
+        "";
+
+      document
+        .getElementById(
+          "resourceUrl"
+        )
+        .dataset.driveFileName =
+        "";
+
 
       document
         .getElementById(
@@ -4969,12 +5067,14 @@
         .value =
         "1";
 
+
       document
         .getElementById(
           "resourceSubmitBtn"
         )
         .textContent =
         "حفظ المحتوى";
+
 
       document
         .getElementById(
@@ -4983,12 +5083,14 @@
         .textContent =
         "إضافة محتوى";
 
+
       document
         .getElementById(
           "resourceModeText"
         )
         .textContent =
         "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
+
 
       document
         .getElementById(
@@ -4997,9 +5099,11 @@
         .style.display =
         "block";
 
+
       fillResourceSectionSelect("");
 
     };
+
 
   window.hideResourceForm =
     function(){
@@ -5020,11 +5124,28 @@
         "show"
       );
 
+
       document
         .getElementById(
           "resourceAddForm"
         )
         .reset();
+
+
+      document
+        .getElementById(
+          "resourceUrl"
+        )
+        .dataset.driveFileId =
+        "";
+
+      document
+        .getElementById(
+          "resourceUrl"
+        )
+        .dataset.driveFileName =
+        "";
+
 
       document
         .getElementById(
@@ -5033,12 +5154,14 @@
         .value =
         "1";
 
+
       document
         .getElementById(
           "resourceSubmitBtn"
         )
         .textContent =
         "حفظ المحتوى";
+
 
       document
         .getElementById(
@@ -5047,12 +5170,14 @@
         .textContent =
         "إضافة محتوى";
 
+
       document
         .getElementById(
           "resourceModeText"
         )
         .textContent =
         "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
+
 
       document
         .getElementById(
@@ -5061,9 +5186,11 @@
         .style.display =
         "none";
 
+
       fillResourceSectionSelect("");
 
     };
+
 
   /* =====================================================
      NAVIGATION
@@ -5088,6 +5215,7 @@
 
   };
 
+
   document
     .querySelectorAll(
       ".nav-btn[data-page]"
@@ -5107,6 +5235,7 @@
 
     });
 
+
   window.openPage =
     function(page){
 
@@ -5119,10 +5248,12 @@
 
         });
 
+
       const target =
         document.getElementById(
           "page-" + page
         );
+
 
       if(target){
 
@@ -5130,6 +5261,7 @@
           "block";
 
       }
+
 
       document
         .querySelectorAll(
@@ -5144,6 +5276,7 @@
 
         });
 
+
       document
         .getElementById(
           "pageTitle"
@@ -5151,6 +5284,7 @@
         .textContent =
         pageNames[page] ||
         "لوحة التحكم";
+
 
       document
         .getElementById(
@@ -5161,6 +5295,7 @@
         );
 
     };
+
 
   /* =====================================================
      MOBILE
@@ -5185,6 +5320,7 @@
       }
     );
 
+
   /* =====================================================
      STATS
   ===================================================== */
@@ -5196,15 +5332,18 @@
     ).textContent =
       generations.length;
 
+
     document.getElementById(
       "statSubjects"
     ).textContent =
       subjects.length;
 
+
     document.getElementById(
       "statSections"
     ).textContent =
       sections.length;
+
 
     document.getElementById(
       "statResources"
@@ -5212,6 +5351,7 @@
       resources.length;
 
   }
+
 
   /* =====================================================
      RECENT
@@ -5223,6 +5363,7 @@
       document.getElementById(
         "recentResources"
       );
+
 
     const recent =
       [...resources]
@@ -5237,6 +5378,7 @@
         )
         .slice(0,8);
 
+
     if(!recent.length){
 
       container.innerHTML =
@@ -5245,6 +5387,7 @@
       return;
 
     }
+
 
     container.innerHTML = `
 
@@ -5332,6 +5475,7 @@
 
   }
 
+
   /* =====================================================
      RESOURCE TYPE
   ===================================================== */
@@ -5351,6 +5495,7 @@
     return names[type] || "محتوى";
 
   }
+
 
   /* =====================================================
      ICONS
@@ -5372,6 +5517,7 @@
 
   }
 
+
   function deleteIcon(){
 
     return `
@@ -5391,11 +5537,13 @@
 
   }
 
+
   /* =====================================================
      TOAST
   ===================================================== */
 
   let toastTimer;
+
 
   function toast(
     message,
@@ -5407,11 +5555,14 @@
         "toast"
       );
 
+
     element.textContent =
       message;
 
+
     element.className =
       "";
+
 
     if(type){
 
@@ -5420,6 +5571,7 @@
       );
 
     }
+
 
     requestAnimationFrame(
       () => {
@@ -5431,9 +5583,11 @@
       }
     );
 
+
     clearTimeout(
       toastTimer
     );
+
 
     toastTimer =
       setTimeout(
@@ -5448,6 +5602,7 @@
       );
 
   }
+
 
   /* =====================================================
      SECURITY / HTML
@@ -5465,6 +5620,7 @@
       .replaceAll("'","&#039;");
 
   }
+
 
   function escapeAttribute(value){
 
