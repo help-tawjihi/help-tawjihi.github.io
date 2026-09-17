@@ -64,6 +64,8 @@
       cursor:pointer;
     }
 
+    /* ================= LOGIN ================= */
+
     #loginScreen{
       min-height:100vh;
       display:flex;
@@ -180,10 +182,14 @@
       display:none;
     }
 
+    /* ================= APP ================= */
+
     #app{
       display:none;
       min-height:100vh;
     }
+
+    /* ================= SIDEBAR ================= */
 
     .sidebar{
       position:fixed;
@@ -284,6 +290,8 @@
       color:var(--danger);
     }
 
+    /* ================= CONTENT ================= */
+
     .content{
       margin-right:260px;
       min-height:100vh;
@@ -317,6 +325,8 @@
       max-width:1400px;
       margin:auto;
     }
+
+    /* ================= DASHBOARD ================= */
 
     .stats{
       display:grid;
@@ -371,6 +381,8 @@
       font-size:12px;
     }
 
+    /* ================= PANELS ================= */
+
     .panel{
       background:var(--surface);
       border:1px solid var(--border);
@@ -403,6 +415,8 @@
       padding:20px;
       background:linear-gradient(180deg,rgba(240,244,243,.35),transparent);
     }
+
+    /* ================= BUTTONS ================= */
 
     .btn{
       min-height:40px;
@@ -460,6 +474,12 @@
       border-color:#fca5a5;
     }
 
+    .btn-success{
+      background:#f0fdf4;
+      color:var(--success);
+      border-color:#bbf7d0;
+    }
+
     .btn-edit{
       background:#effcf9;
       color:var(--primary);
@@ -480,6 +500,8 @@
       flex-wrap:wrap;
       align-items:center;
     }
+
+    /* ================= DRIVE ================= */
 
     .drive-box{
       display:flex;
@@ -612,6 +634,8 @@
       margin-top:5px;
     }
 
+    /* ================= EDIT MODE ================= */
+
     .form-mode{
       display:flex;
       align-items:center;
@@ -657,6 +681,8 @@
       gap:10px;
     }
 
+    /* ================= FORMS ================= */
+
     .form-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -673,6 +699,8 @@
       gap:8px;
       margin-top:5px;
     }
+
+    /* ================= TABLE ================= */
 
     .table-wrap{
       overflow-x:auto;
@@ -746,12 +774,16 @@
       text-align:right;
     }
 
+    /* ================= EMPTY ================= */
+
     .empty{
       text-align:center;
       color:var(--muted);
       padding:40px 20px;
       font-size:13px;
     }
+
+    /* ================= TOAST ================= */
 
     #toast{
       position:fixed;
@@ -783,6 +815,8 @@
     #toast.error{
       background:#991b1b;
     }
+
+    /* ================= MOBILE ================= */
 
     .mobile-menu{
       display:none;
@@ -914,6 +948,10 @@
 
 <body>
 
+<!-- =====================================================
+     LOGIN
+     ===================================================== -->
+
 <section id="loginScreen">
 
   <div class="login-card">
@@ -980,6 +1018,11 @@
   </div>
 
 </section>
+
+
+<!-- =====================================================
+     APP
+     ===================================================== -->
 
 <div id="app">
 
@@ -1094,6 +1137,7 @@
 
   </aside>
 
+
   <div class="content">
 
     <header class="topbar">
@@ -1119,6 +1163,9 @@
       <div class="admin-user" id="adminEmail"></div>
 
     </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
 
     <main class="page" id="page-dashboard">
 
@@ -1210,6 +1257,7 @@
 
       </div>
 
+
       <div class="panel">
 
         <div class="panel-head">
@@ -1244,6 +1292,9 @@
       </div>
 
     </main>
+
+
+    <!-- ================= GENERATIONS ================= -->
 
     <main class="page" id="page-generations" style="display:none">
 
@@ -1334,6 +1385,9 @@
       </div>
 
     </main>
+
+
+    <!-- ================= SUBJECTS ================= -->
 
     <main class="page" id="page-subjects" style="display:none">
 
@@ -1434,6 +1488,9 @@
 
     </main>
 
+
+    <!-- ================= SECTIONS ================= -->
+
     <main class="page" id="page-sections" style="display:none">
 
       <div class="panel">
@@ -1441,10 +1498,8 @@
         <div class="panel-head">
 
           <div>
-
             <h3>أقسام المواد</h3>
             <p>أنشئ أي قسم تريده داخل أي مادة</p>
-
           </div>
 
           <button class="btn btn-primary" onclick="showSectionForm()">
@@ -1544,6 +1599,9 @@
 
     </main>
 
+
+    <!-- ================= RESOURCES ================= -->
+
     <main class="page" id="page-resources" style="display:none">
 
       <div class="panel">
@@ -1572,6 +1630,7 @@
           </button>
 
         </div>
+
 
         <div class="panel-body">
 
@@ -1619,6 +1678,7 @@
 
           </div>
 
+
           <div
             id="resourceForm"
             style="display:none"
@@ -1653,6 +1713,7 @@
 
             </div>
 
+
             <form id="resourceAddForm" class="form-grid">
 
               <div class="field">
@@ -1669,6 +1730,7 @@
 
               </div>
 
+
               <div class="field">
 
                 <label>القسم</label>
@@ -1683,6 +1745,7 @@
 
               </div>
 
+
               <div class="field">
 
                 <label>اسم المحتوى</label>
@@ -1695,21 +1758,39 @@
 
               </div>
 
+
               <div class="field">
 
                 <label>نوع المحتوى</label>
 
                 <select id="resourceType">
 
-                  <option value="pdf">PDF</option>
-                  <option value="drive">Google Drive</option>
-                  <option value="link">رابط خارجي</option>
-                  <option value="exam">امتحان إلكتروني</option>
-                  <option value="book">كتاب رسمي</option>
+                  <option value="pdf">
+                    PDF
+                  </option>
+
+                  <option value="drive">
+                    Google Drive
+                  </option>
+
+                  <option value="link">
+                    رابط خارجي
+                  </option>
+
+                  <option value="exam">
+                    امتحان إلكتروني
+                  </option>
+
+                  <option value="book">
+                    كتاب رسمي
+                  </option>
 
                 </select>
 
               </div>
+
+
+              <!-- GOOGLE DRIVE UPLOAD -->
 
               <div class="field full">
 
@@ -1769,6 +1850,7 @@
 
                   </div>
 
+
                   <div
                     class="upload-progress"
                     id="uploadProgress"
@@ -1796,6 +1878,7 @@
 
               </div>
 
+
               <div class="field full">
 
                 <label>الرابط</label>
@@ -1809,6 +1892,7 @@
 
               </div>
 
+
               <div class="field full">
 
                 <label>وصف المحتوى</label>
@@ -1819,6 +1903,7 @@
                 ></textarea>
 
               </div>
+
 
               <div class="field">
 
@@ -1832,6 +1917,7 @@
                 >
 
               </div>
+
 
               <div class="field">
 
@@ -1850,6 +1936,7 @@
                 </select>
 
               </div>
+
 
               <div class="form-actions full">
 
@@ -1877,6 +1964,7 @@
 
         </div>
 
+
         <div id="resourcesList" class="table-wrap"></div>
 
       </div>
@@ -1887,7 +1975,9 @@
 
 </div>
 
+
 <div id="toast"></div>
+
 
 <script type="module">
 
@@ -1909,10 +1999,16 @@
 
   /* =====================================================
      GOOGLE DRIVE CONFIG
+     =====================================================
+
+     ضع Google OAuth Client ID هنا.
+
+     مثال:
+     1234567890-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
   ===================================================== */
 
   const GOOGLE_CLIENT_ID =
-    "562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com";
+    "ضع_CLIENT_ID_هنا.apps.googleusercontent.com";
 
   const GOOGLE_DRIVE_SCOPE =
     "https://www.googleapis.com/auth/drive.file";
@@ -2000,7 +2096,7 @@
 
   onAuthStateChanged(auth, async (user) => {
 
-    if(user){
+    if (user) {
 
       loginScreen.style.display = "none";
 
@@ -2013,7 +2109,7 @@
 
       await loadAll();
 
-    }else{
+    } else {
 
       loginScreen.style.display = "flex";
 
@@ -2048,7 +2144,7 @@
           .getElementById("password")
           .value;
 
-      try{
+      try {
 
         await signInWithEmailAndPassword(
           auth,
@@ -2056,7 +2152,7 @@
           password
         );
 
-      }catch(error){
+      } catch (error) {
 
         console.error(error);
 
@@ -2106,7 +2202,6 @@
 
     }
 
-
     if(
       !window.google ||
       !window.google.accounts ||
@@ -2121,7 +2216,6 @@
       return;
 
     }
-
 
     googleTokenClient =
       window.google.accounts.oauth2.initTokenClient({
@@ -2302,13 +2396,11 @@
 
     }
 
-
     if(!googleTokenClient){
 
       initializeGoogleDrive();
 
     }
-
 
     if(!googleTokenClient){
 
@@ -2317,7 +2409,6 @@
       );
 
     }
-
 
     return new Promise(
       (resolve,reject) => {
@@ -2358,7 +2449,6 @@
             );
 
           };
-
 
         googleTokenClient.requestAccessToken({
           prompt:""
@@ -2428,7 +2518,6 @@
     );
 
     renderGenerations();
-
     fillGenerationSelects();
 
   }
@@ -2451,7 +2540,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -2560,10 +2648,8 @@
 
         };
 
-
         const editing =
           Boolean(editingGenerationId);
-
 
         try{
 
@@ -2603,7 +2689,6 @@
             );
 
           }
-
 
           hideGenerationForm();
 
@@ -2752,7 +2837,6 @@
     );
 
     renderSubjects();
-
     fillSubjectSelects();
 
   }
@@ -2775,7 +2859,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -2915,10 +2998,8 @@
 
         };
 
-
         const editing =
           Boolean(editingSubjectId);
-
 
         try{
 
@@ -2959,13 +3040,10 @@
 
           }
 
-
           hideSubjectForm();
 
           await loadSubjects();
-
           await loadSections();
-
           await loadResources();
 
           updateStats();
@@ -3121,7 +3199,6 @@
     );
 
     renderSections();
-
     fillResourceSectionSelect(
       document.getElementById(
         "resourceSubject"
@@ -3148,7 +3225,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -3282,10 +3358,8 @@
 
         };
 
-
         const editing =
           Boolean(editingSectionId);
-
 
         try{
 
@@ -3326,11 +3400,9 @@
 
           }
 
-
           hideSectionForm();
 
           await loadSections();
-
           await loadResources();
 
           updateStats();
@@ -3487,9 +3559,7 @@
     );
 
     renderResources();
-
     renderRecentResources();
-
     updateStats();
 
   }
@@ -3524,7 +3594,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -3676,11 +3745,6 @@
 
         e.preventDefault();
 
-        const resourceUrlInput =
-          document.getElementById(
-            "resourceUrl"
-          );
-
         const data = {
 
           subjectId:
@@ -3705,7 +3769,8 @@
               .value,
 
           url:
-            resourceUrlInput
+            document
+              .getElementById("resourceUrl")
               .value
               .trim(),
 
@@ -3732,22 +3797,8 @@
 
         };
 
-
-        if(resourceUrlInput.dataset.driveFileId){
-
-          data.driveFileId =
-            resourceUrlInput.dataset.driveFileId;
-
-          data.driveFileName =
-            resourceUrlInput.dataset.driveFileName ||
-            "";
-
-        }
-
-
         const editing =
           Boolean(editingResourceId);
-
 
         try{
 
@@ -3787,7 +3838,6 @@
             );
 
           }
-
 
           hideResourceForm();
 
@@ -3847,19 +3897,10 @@
       ).value =
         resource.type || "pdf";
 
-      const urlInput =
-        document.getElementById(
-          "resourceUrl"
-        );
-
-      urlInput.value =
+      document.getElementById(
+        "resourceUrl"
+      ).value =
         resource.url || "";
-
-      urlInput.dataset.driveFileId =
-        resource.driveFileId || "";
-
-      urlInput.dataset.driveFileName =
-        resource.driveFileName || "";
 
       document.getElementById(
         "resourceDescription"
@@ -3970,6 +4011,10 @@
             r => r.id === id
           );
 
+        /*
+          إذا كان الملف مرفوعًا عن طريق Google Drive
+          نحاول حذفه من Drive أيضًا.
+        */
 
         if(
           resource?.driveFileId &&
@@ -3993,7 +4038,6 @@
 
         }
 
-
         await deleteDoc(
           doc(
             db,
@@ -4002,9 +4046,7 @@
           )
         );
 
-
         await loadResources();
-
 
         toast(
           "تم حذف المحتوى",
@@ -4058,7 +4100,6 @@
 
       }
 
-
       if(
         file.type !== "application/pdf" &&
         !file.name.toLowerCase().endsWith(".pdf")
@@ -4081,7 +4122,6 @@
         return;
 
       }
-
 
       selectedPdfFile =
         file;
@@ -4112,7 +4152,6 @@
 
       }
 
-
       try{
 
         uploadPdfBtn.disabled =
@@ -4130,16 +4169,13 @@
           "جاري تجهيز الملف..."
         );
 
-
         const token =
           await ensureGoogleToken();
-
 
         setUploadProgress(
           25,
           "جاري رفع الملف إلى Google Drive..."
         );
-
 
         const driveFile =
           await uploadFileToDrive(
@@ -4147,17 +4183,14 @@
             token
           );
 
-
         setUploadProgress(
           70,
           "جاري إعداد رابط المشاركة..."
         );
 
-
         let publicLink =
           driveFile.webViewLink ||
           `https://drive.google.com/file/d/${driveFile.id}/view`;
-
 
         try{
 
@@ -4183,37 +4216,40 @@
 
         }
 
-
         setUploadProgress(
           100,
           "تم رفع الملف بنجاح"
         );
 
-
-        const resourceUrlInput =
-          document.getElementById(
-            "resourceUrl"
-          );
-
-
-        resourceUrlInput.value =
+        document.getElementById(
+          "resourceUrl"
+        ).value =
           publicLink;
 
+        /*
+          نضع بيانات Drive مؤقتًا على النموذج
+          حتى تحفظ مع Firestore.
+        */
 
-        resourceUrlInput.dataset.driveFileId =
+        document.getElementById(
+          "resourceUrl"
+        ).dataset.driveFileId =
           driveFile.id;
 
+        document.getElementById(
+          "resourceUrl"
+        ).dataset.driveFileName =
+          driveFile.name || selectedPdfFile.name;
 
-        resourceUrlInput.dataset.driveFileName =
-          driveFile.name ||
-          selectedPdfFile.name;
-
+        /*
+          إذا لم يكتب الأدمن اسم المحتوى
+          نستخدم اسم ملف PDF تلقائيًا.
+        */
 
         const titleInput =
           document.getElementById(
             "resourceTitle"
           );
-
 
         if(!titleInput.value.trim()){
 
@@ -4223,12 +4259,10 @@
 
         }
 
-
         document.getElementById(
           "resourceType"
         ).value =
           "pdf";
-
 
         toast(
           "تم رفع PDF وربط الرابط بنجاح",
@@ -4242,7 +4276,6 @@
           error
         );
 
-
         if(
           String(error.message || "")
             .includes("401")
@@ -4253,12 +4286,10 @@
 
         }
 
-
         toast(
           getGoogleDriveErrorMessage(error),
           "error"
         );
-
 
         setUploadProgress(
           0,
@@ -4294,21 +4325,17 @@
 
     };
 
-
     const boundary =
       "tawjihi_drive_boundary_" +
       Math.random()
         .toString(36)
         .slice(2);
 
-
     const delimiter =
       `\r\n--${boundary}\r\n`;
 
-
     const closeDelimiter =
       `\r\n--${boundary}--`;
-
 
     const body =
       new Blob([
@@ -4362,7 +4389,6 @@
 
     }
 
-
     return await response.json();
 
   }
@@ -4411,7 +4437,6 @@
 
     }
 
-
     return await response.json();
 
   }
@@ -4423,7 +4448,6 @@
 
     const token =
       await ensureGoogleToken();
-
 
     const response =
       await fetch(
@@ -4508,7 +4532,6 @@
         error?.message || ""
       );
 
-
     if(
       message.includes("popup") ||
       message.includes("popup_closed")
@@ -4518,7 +4541,6 @@
 
     }
 
-
     if(
       message.includes("access_denied")
     ){
@@ -4526,7 +4548,6 @@
       return "تم رفض صلاحية الوصول إلى Google Drive.";
 
     }
-
 
     if(
       message.includes("403")
@@ -4536,7 +4557,6 @@
 
     }
 
-
     if(
       message.includes("401")
     ){
@@ -4544,7 +4564,6 @@
       return "انتهت صلاحية Google Drive، أعد ربط الحساب.";
 
     }
-
 
     return "تعذر رفع الملف إلى Google Drive.";
 
@@ -4565,12 +4584,10 @@
     const current =
       select.value;
 
-
     select.innerHTML =
       `<option value="">
         اختر الجيل
       </option>`;
-
 
     generations.forEach(g => {
 
@@ -4581,7 +4598,6 @@
       `;
 
     });
-
 
     if(
       current &&
@@ -4610,13 +4626,11 @@
         "resourceSubject"
       );
 
-
     const sectionCurrent =
       sectionSelect.value;
 
     const resourceCurrent =
       resourceSelect.value;
-
 
     const html = `
 
@@ -4634,13 +4648,11 @@
 
     `;
 
-
     sectionSelect.innerHTML =
       html;
 
     resourceSelect.innerHTML =
       html;
-
 
     if(
       sectionCurrent &&
@@ -4654,7 +4666,6 @@
 
     }
 
-
     if(
       resourceCurrent &&
       subjects.some(
@@ -4666,7 +4677,6 @@
         resourceCurrent;
 
     }
-
 
     fillResourceSectionSelect(
       resourceSelect.value
@@ -4684,17 +4694,14 @@
         "resourceSection"
       );
 
-
     const current =
       select.value;
-
 
     select.innerHTML = `
       <option value="">
         اختر القسم
       </option>
     `;
-
 
     const filtered =
       subjectId
@@ -4704,7 +4711,6 @@
           )
         : sections;
 
-
     filtered.forEach(s => {
 
       const subject =
@@ -4712,7 +4718,6 @@
           x =>
             x.id === s.subjectId
         );
-
 
       select.innerHTML += `
 
@@ -4733,7 +4738,6 @@
       `;
 
     });
-
 
     if(
       current &&
@@ -5037,28 +5041,11 @@
         "show"
       );
 
-
       document
         .getElementById(
           "resourceAddForm"
         )
         .reset();
-
-
-      document
-        .getElementById(
-          "resourceUrl"
-        )
-        .dataset.driveFileId =
-        "";
-
-      document
-        .getElementById(
-          "resourceUrl"
-        )
-        .dataset.driveFileName =
-        "";
-
 
       document
         .getElementById(
@@ -5067,14 +5054,12 @@
         .value =
         "1";
 
-
       document
         .getElementById(
           "resourceSubmitBtn"
         )
         .textContent =
         "حفظ المحتوى";
-
 
       document
         .getElementById(
@@ -5083,7 +5068,6 @@
         .textContent =
         "إضافة محتوى";
 
-
       document
         .getElementById(
           "resourceModeText"
@@ -5091,14 +5075,12 @@
         .textContent =
         "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
 
-
       document
         .getElementById(
           "resourceForm"
         )
         .style.display =
         "block";
-
 
       fillResourceSectionSelect("");
 
@@ -5124,28 +5106,11 @@
         "show"
       );
 
-
       document
         .getElementById(
           "resourceAddForm"
         )
         .reset();
-
-
-      document
-        .getElementById(
-          "resourceUrl"
-        )
-        .dataset.driveFileId =
-        "";
-
-      document
-        .getElementById(
-          "resourceUrl"
-        )
-        .dataset.driveFileName =
-        "";
-
 
       document
         .getElementById(
@@ -5154,14 +5119,12 @@
         .value =
         "1";
 
-
       document
         .getElementById(
           "resourceSubmitBtn"
         )
         .textContent =
         "حفظ المحتوى";
-
 
       document
         .getElementById(
@@ -5170,7 +5133,6 @@
         .textContent =
         "إضافة محتوى";
 
-
       document
         .getElementById(
           "resourceModeText"
@@ -5178,14 +5140,12 @@
         .textContent =
         "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
 
-
       document
         .getElementById(
           "resourceForm"
         )
         .style.display =
         "none";
-
 
       fillResourceSectionSelect("");
 
@@ -5248,12 +5208,10 @@
 
         });
 
-
       const target =
         document.getElementById(
           "page-" + page
         );
-
 
       if(target){
 
@@ -5261,7 +5219,6 @@
           "block";
 
       }
-
 
       document
         .querySelectorAll(
@@ -5276,7 +5233,6 @@
 
         });
 
-
       document
         .getElementById(
           "pageTitle"
@@ -5284,7 +5240,6 @@
         .textContent =
         pageNames[page] ||
         "لوحة التحكم";
-
 
       document
         .getElementById(
@@ -5332,18 +5287,15 @@
     ).textContent =
       generations.length;
 
-
     document.getElementById(
       "statSubjects"
     ).textContent =
       subjects.length;
 
-
     document.getElementById(
       "statSections"
     ).textContent =
       sections.length;
-
 
     document.getElementById(
       "statResources"
@@ -5364,7 +5316,6 @@
         "recentResources"
       );
 
-
     const recent =
       [...resources]
         .sort(
@@ -5378,7 +5329,6 @@
         )
         .slice(0,8);
 
-
     if(!recent.length){
 
       container.innerHTML =
@@ -5387,7 +5337,6 @@
       return;
 
     }
-
 
     container.innerHTML = `
 
@@ -5544,7 +5493,6 @@
 
   let toastTimer;
 
-
   function toast(
     message,
     type = ""
@@ -5555,14 +5503,11 @@
         "toast"
       );
 
-
     element.textContent =
       message;
 
-
     element.className =
       "";
-
 
     if(type){
 
@@ -5571,7 +5516,6 @@
       );
 
     }
-
 
     requestAnimationFrame(
       () => {
@@ -5583,11 +5527,9 @@
       }
     );
 
-
     clearTimeout(
       toastTimer
     );
-
 
     toastTimer =
       setTimeout(
