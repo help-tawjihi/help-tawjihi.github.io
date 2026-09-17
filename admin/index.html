@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>لوحة التحكم | مساعد توجيهي</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Google Identity Services -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <style>
-
-    :root{
+    :root {
       --bg:#f5f7f8;
       --surface:#ffffff;
       --surface2:#f0f4f3;
@@ -43,383 +30,302 @@
       --radius:20px;
     }
 
-    *{
+    * {
       box-sizing:border-box;
       margin:0;
       padding:0;
     }
 
-    body{
+    body {
       font-family:"IBM Plex Sans Arabic",sans-serif;
       background:var(--bg);
       color:var(--text);
       min-height:100vh;
     }
 
-    button,input,select,textarea{
+    button,
+    input,
+    select,
+    textarea {
       font-family:inherit;
     }
 
-    button{
-      cursor:pointer;
+    button,
+    a {
+      -webkit-tap-highlight-color:transparent;
     }
 
-    /* ================= LOGIN ================= */
+    /* LOGIN */
 
-    #loginScreen{
+    #loginScreen {
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:20px;
       background:
-        radial-gradient(circle at 20% 20%,rgba(20,184,166,.13),transparent 30%),
-        radial-gradient(circle at 80% 80%,rgba(15,118,110,.10),transparent 30%),
+        radial-gradient(circle at top right,rgba(20,184,166,.12),transparent 35%),
+        radial-gradient(circle at bottom left,rgba(15,118,110,.10),transparent 35%),
         var(--bg);
     }
 
-    .login-card{
+    .login-card {
       width:100%;
       max-width:430px;
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:28px;
-      padding:32px;
-      box-shadow:0 25px 70px rgba(0,0,0,.08);
+      padding:34px;
+      box-shadow:0 25px 70px rgba(15,118,110,.12);
     }
 
-    .login-logo{
-      width:65px;
-      height:65px;
+    .login-logo {
+      width:64px;
+      height:64px;
       border-radius:19px;
       display:grid;
       place-items:center;
       color:white;
       background:linear-gradient(135deg,var(--primary),var(--primary2));
       margin:0 auto 18px;
-      box-shadow:0 12px 25px rgba(15,118,110,.18);
+      box-shadow:0 12px 30px rgba(15,118,110,.22);
     }
 
-    .login-logo svg{
+    .login-logo svg {
       width:32px;
       height:32px;
     }
 
-    .login-card h1{
+    .login-card h1 {
       text-align:center;
-      font-size:25px;
-      margin-bottom:6px;
-    }
-
-    .login-card>p{
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:25px;
-    }
-
-    .field{
-      margin-bottom:15px;
-    }
-
-    .field label{
-      display:block;
-      font-size:13px;
-      font-weight:600;
+      font-size:23px;
       margin-bottom:7px;
     }
 
-    .field input,
-    .field select,
-    .field textarea{
-      width:100%;
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--text);
-      border-radius:13px;
-      padding:13px 14px;
-      outline:none;
-      transition:.2s;
-      font-size:14px;
-    }
-
-    .field textarea{
-      min-height:100px;
-      resize:vertical;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus{
-      border-color:var(--primary2);
-      box-shadow:0 0 0 3px rgba(20,184,166,.10);
-    }
-
-    .primary-btn{
-      width:100%;
-      height:48px;
-      border:0;
-      border-radius:13px;
-      color:white;
-      font-weight:700;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      transition:.2s;
-    }
-
-    .primary-btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 25px rgba(15,118,110,.18);
-    }
-
-    .error{
-      background:#fef2f2;
-      color:#b91c1c;
-      border:1px solid #fecaca;
-      border-radius:12px;
-      padding:10px;
+    .login-card > p {
+      text-align:center;
+      color:var(--muted);
       font-size:13px;
-      margin-bottom:14px;
-      display:none;
+      margin-bottom:26px;
     }
 
-    /* ================= APP ================= */
+    /* APP */
 
-    #app{
+    #app {
       display:none;
       min-height:100vh;
     }
 
-    /* ================= SIDEBAR ================= */
+    .layout {
+      display:flex;
+      min-height:100vh;
+    }
 
-    .sidebar{
-      position:fixed;
-      right:0;
-      top:0;
-      bottom:0;
-      width:260px;
+    /* SIDEBAR */
+
+    .sidebar {
+      width:270px;
+      flex-shrink:0;
       background:var(--surface);
       border-left:1px solid var(--border);
-      padding:22px 15px;
+      padding:20px 15px;
+      position:fixed;
+      top:0;
+      right:0;
+      bottom:0;
       z-index:100;
-    }
-
-    .side-brand{
       display:flex;
-      align-items:center;
-      gap:10px;
-      padding:5px 8px 25px;
+      flex-direction:column;
     }
 
-    .side-logo{
-      width:43px;
-      height:43px;
-      border-radius:13px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:white;
-      box-shadow:0 8px 20px rgba(15,118,110,.15);
-    }
-
-    .side-logo svg{
-      width:22px;
-      height:22px;
-    }
-
-    .side-brand strong{
-      font-size:15px;
-    }
-
-    .side-brand span{
-      display:block;
-      color:var(--muted);
-      font-size:11px;
-      margin-top:2px;
-    }
-
-    .nav-title{
-      font-size:11px;
-      color:var(--muted);
-      padding:0 10px 8px;
-      margin-top:10px;
-    }
-
-    .nav-btn{
-      width:100%;
+    .brand {
       display:flex;
       align-items:center;
       gap:11px;
-      padding:12px;
+      padding:7px 8px 24px;
+      text-decoration:none;
+      color:var(--text);
+    }
+
+    .brand-icon {
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#fff;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+      box-shadow:0 9px 25px rgba(15,118,110,.18);
+    }
+
+    .brand-icon svg {
+      width:23px;
+      height:23px;
+    }
+
+    .brand-text strong {
+      display:block;
+      font-size:15px;
+      font-weight:700;
+    }
+
+    .brand-text span {
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:2px;
+    }
+
+    .nav-title {
+      color:var(--muted);
+      font-size:10px;
+      font-weight:700;
+      padding:10px 12px 8px;
+    }
+
+    .nav {
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+
+    .nav-btn {
       border:0;
       background:transparent;
       color:var(--muted);
+      min-height:45px;
+      padding:0 13px;
       border-radius:13px;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      cursor:pointer;
       text-align:right;
-      margin-bottom:4px;
       font-size:13px;
       font-weight:600;
-      transition:.2s;
+      transition:.18s ease;
     }
 
-    .nav-btn svg{
-      width:19px;
-      height:19px;
-      flex:none;
+    .nav-btn svg {
+      width:18px;
+      height:18px;
+      flex-shrink:0;
     }
 
-    .nav-btn:hover,
-    .nav-btn.active{
+    .nav-btn:hover {
+      color:var(--primary);
+      background:var(--soft);
+    }
+
+    .nav-btn.active {
+      color:var(--primary);
+      background:var(--soft);
+      font-weight:700;
+    }
+
+    .sidebar-bottom {
+      margin-top:auto;
+      border-top:1px solid var(--border);
+      padding-top:15px;
+    }
+
+    .admin-user {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:9px;
+      margin-bottom:9px;
+    }
+
+    .admin-avatar {
+      width:38px;
+      height:38px;
+      border-radius:12px;
       background:var(--soft);
       color:var(--primary);
-      transform:translateX(-2px);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
     }
 
-    .side-bottom{
-      position:absolute;
-      left:15px;
-      right:15px;
-      bottom:18px;
+    .admin-avatar svg {
+      width:18px;
     }
 
-    .logout{
-      color:var(--danger);
+    .admin-email {
+      min-width:0;
     }
 
-    .logout:hover{
-      background:#fef2f2;
-      color:var(--danger);
+    .admin-email strong {
+      display:block;
+      font-size:11px;
     }
 
-    /* ================= CONTENT ================= */
-
-    .content{
-      margin-right:260px;
-      min-height:100vh;
+    .admin-email span {
+      display:block;
+      color:var(--muted);
+      font-size:9px;
+      margin-top:2px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
     }
 
-    .topbar{
+    /* MAIN */
+
+    .main {
+      flex:1;
+      margin-right:270px;
+      min-width:0;
+    }
+
+    .topbar {
       height:72px;
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--border);
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding:0 28px;
-      background:rgba(255,255,255,.82);
-      backdrop-filter:blur(15px);
-      border-bottom:1px solid var(--border);
-      position:sticky;
-      top:0;
-      z-index:50;
     }
 
-    .topbar h2{
-      font-size:19px;
+    .topbar-title h2 {
+      font-size:18px;
     }
 
-    .admin-user{
+    .topbar-title p {
       color:var(--muted);
-      font-size:12px;
+      font-size:10px;
+      margin-top:2px;
     }
 
-    .page{
-      padding:28px;
-      max-width:1400px;
+    .top-actions {
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .mobile-menu {
+      display:none;
+    }
+
+    .content {
+      max-width:1450px;
       margin:auto;
+      padding:28px;
     }
 
-    /* ================= DASHBOARD ================= */
+    /* BUTTONS */
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:15px;
-      margin-bottom:25px;
-    }
-
-    .stat{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:20px;
-      box-shadow:var(--shadow);
-      transition:.2s;
-    }
-
-    .stat:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 40px rgba(15,118,110,.11);
-    }
-
-    .stat-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-    }
-
-    .stat-icon{
-      width:42px;
-      height:42px;
-      border-radius:13px;
-      background:var(--soft);
-      color:var(--primary);
-      display:grid;
-      place-items:center;
-    }
-
-    .stat-icon svg{
-      width:21px;
-      height:21px;
-    }
-
-    .stat-number{
-      font-size:27px;
-      font-weight:700;
-    }
-
-    .stat-title{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    /* ================= PANELS ================= */
-
-    .panel{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      margin-bottom:20px;
-    }
-
-    .panel-head{
-      padding:18px 20px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:15px;
-    }
-
-    .panel-head h3{
-      font-size:17px;
-    }
-
-    .panel-head p{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:3px;
-    }
-
-    .panel-body{
-      padding:20px;
-      background:linear-gradient(180deg,rgba(240,244,243,.35),transparent);
-    }
-
-    /* ================= BUTTONS ================= */
-
-    .btn{
-      min-height:40px;
+    .btn {
+      height:40px;
+      min-width:40px;
       padding:0 14px;
       border:1px solid var(--border);
       border-radius:12px;
@@ -431,329 +337,382 @@
       align-items:center;
       justify-content:center;
       gap:7px;
-      transition:.18s ease;
+      cursor:pointer;
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
     }
 
-    .btn:hover{
+    .btn:hover {
       border-color:var(--primary2);
       transform:translateY(-1px);
       box-shadow:0 7px 18px rgba(15,118,110,.08);
     }
 
-    .btn:active{
-      transform:scale(.97);
+    .btn:active {
+      transform:translateY(0) scale(.98);
     }
 
-    .btn svg{
-      width:15px;
-      height:15px;
-      flex:none;
-    }
-
-    .btn-primary{
+    .btn-primary {
       background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:white;
+      color:#fff;
       border-color:transparent;
-      box-shadow:0 7px 18px rgba(15,118,110,.15);
+      box-shadow:0 7px 18px rgba(15,118,110,.16);
     }
 
-    .btn-primary:hover{
-      color:white;
+    .btn-primary:hover {
       border-color:transparent;
       box-shadow:0 10px 23px rgba(15,118,110,.22);
     }
 
-    .btn-danger{
+    .btn-danger {
       background:#fef2f2;
       color:var(--danger);
       border-color:#fecaca;
     }
 
-    .btn-danger:hover{
-      background:#fee2e2;
+    .btn-danger:hover {
       border-color:#fca5a5;
+      background:#fff1f2;
     }
 
-    .btn-success{
+    .btn-success {
       background:#f0fdf4;
       color:var(--success);
       border-color:#bbf7d0;
     }
 
-    .btn-edit{
+    .btn-edit {
       background:#effcf9;
       color:var(--primary);
       border-color:#c8eee7;
     }
 
-    .btn-edit:hover{
-      background:#e5f6f3;
-    }
-
-    .btn-cancel{
-      background:var(--surface2);
-    }
-
-    .actions{
+    .actions {
       display:flex;
       gap:7px;
       flex-wrap:wrap;
       align-items:center;
     }
 
-    /* ================= DRIVE ================= */
+    .actions .btn {
+      height:36px;
+      padding:0 11px;
+    }
 
-    .drive-box{
+    .btn svg {
+      width:15px;
+      height:15px;
+      flex:none;
+    }
+
+    /* PAGES */
+
+    .page {
+      display:none;
+    }
+
+    .page.active {
+      display:block;
+    }
+
+    .page-head {
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:15px;
-      padding:14px;
-      border:1px solid var(--border);
-      border-radius:15px;
-      background:var(--surface);
-      margin-bottom:18px;
+      margin-bottom:20px;
     }
 
-    .drive-info{
+    .page-head h1 {
+      font-size:24px;
+    }
+
+    .page-head p {
+      color:var(--muted);
+      font-size:12px;
+      margin-top:4px;
+    }
+
+    /* STATS */
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+      margin-bottom:22px;
+    }
+
+    .stat {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:19px;
+      box-shadow:var(--shadow);
       display:flex;
       align-items:center;
-      gap:11px;
-      min-width:0;
+      gap:14px;
     }
 
-    .drive-icon{
-      width:43px;
-      height:43px;
-      flex:none;
-      border-radius:13px;
-      display:grid;
-      place-items:center;
+    .stat-icon {
+      width:46px;
+      height:46px;
+      border-radius:14px;
       background:var(--soft);
       color:var(--primary);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
     }
 
-    .drive-icon svg{
-      width:22px;
-      height:22px;
+    .stat-icon svg {
+      width:21px;
     }
 
-    .drive-info strong{
-      display:block;
-      font-size:13px;
-    }
-
-    .drive-info span{
-      display:block;
+    .stat span {
       color:var(--muted);
-      font-size:11px;
+      font-size:10px;
+      display:block;
+    }
+
+    .stat strong {
+      display:block;
+      font-size:24px;
+      margin-top:1px;
+    }
+
+    /* CARDS */
+
+    .card {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin-bottom:20px;
+    }
+
+    .card-head {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:17px;
+    }
+
+    .card-head h3 {
+      font-size:15px;
+    }
+
+    .card-head p {
+      color:var(--muted);
+      font-size:10px;
       margin-top:3px;
     }
 
-    .drive-status{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:10px;
+    /* FORMS */
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .form-grid.three {
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .field.full {
+      grid-column:1/-1;
+    }
+
+    .field label {
+      font-size:11px;
       font-weight:700;
-      white-space:nowrap;
-      background:#fef2f2;
-      color:#b91c1c;
     }
 
-    .drive-status.connected{
-      background:#f0fdf4;
-      color:#15803d;
+    .field small {
+      color:var(--muted);
+      font-size:9px;
+      line-height:1.7;
     }
 
-    .drive-status-dot{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:currentColor;
+    .input,
+    .field input,
+    .field select,
+    .field textarea {
+      width:100%;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
+      outline:none;
+      border-radius:12px;
+      padding:0 13px;
+      height:43px;
+      font-size:12px;
+      transition:.18s ease;
     }
 
-    .upload-box{
-      border:1px dashed var(--border);
-      border-radius:15px;
-      padding:15px;
-      margin-bottom:15px;
-      background:var(--surface2);
+    .field textarea {
+      height:90px;
+      padding:11px 13px;
+      resize:vertical;
     }
 
-    .upload-row{
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color:var(--primary2);
+      box-shadow:0 0 0 3px rgba(20,184,166,.09);
+    }
+
+    .checkbox-field {
       display:flex;
       align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
+      gap:8px;
+      height:43px;
+      padding:0 12px;
+      background:var(--surface2);
+      border:1px solid var(--border);
+      border-radius:12px;
     }
 
-    .upload-name{
-      color:var(--muted);
-      font-size:11px;
-      min-width:0;
-      flex:1;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
+    .checkbox-field input {
+      width:17px;
+      height:17px;
+      accent-color:var(--primary);
     }
 
-    .hidden-file{
-      display:none;
+    .form-actions {
+      display:flex;
+      gap:8px;
+      margin-top:17px;
     }
 
-    .upload-progress{
-      display:none;
-      margin-top:11px;
-    }
+    /* DRIVE */
 
-    .upload-progress.show{
-      display:block;
-    }
-
-    .progress-track{
-      height:7px;
-      background:var(--border);
-      border-radius:999px;
-      overflow:hidden;
-    }
-
-    .progress-bar{
-      height:100%;
-      width:0;
-      background:linear-gradient(90deg,var(--primary),var(--primary2));
-      border-radius:999px;
-      transition:width .2s ease;
-    }
-
-    .progress-text{
-      color:var(--muted);
-      font-size:10px;
-      margin-top:5px;
-    }
-
-    /* ================= EDIT MODE ================= */
-
-    .form-mode{
+    .drive-box {
+      border:1px solid #ccece7;
+      background:linear-gradient(135deg,#f0fdfb,#ffffff);
+      border-radius:18px;
+      padding:16px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:15px;
       margin-bottom:18px;
-      padding:13px 15px;
-      background:var(--soft);
-      border:1px solid rgba(20,184,166,.18);
-      border-radius:14px;
     }
 
-    .form-mode strong{
+    .drive-info {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .drive-icon {
+      width:45px;
+      height:45px;
+      border-radius:13px;
+      background:#e5f6f3;
       color:var(--primary);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+
+    .drive-icon svg {
+      width:23px;
+    }
+
+    .drive-info strong {
+      display:block;
       font-size:13px;
     }
 
-    .form-mode span{
-      color:var(--muted);
-      font-size:11px;
+    .drive-info span {
       display:block;
-      margin-top:2px;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:3px;
     }
 
-    .form-mode-icon{
-      width:38px;
-      height:38px;
-      border-radius:11px;
-      display:grid;
-      place-items:center;
-      background:var(--surface);
+    .drive-status.connected {
+      color:var(--success);
+    }
+
+    .file-picker {
+      border:1px dashed #9bded5;
+      background:var(--soft);
+      border-radius:15px;
+      padding:15px;
+    }
+
+    .file-picker input {
+      width:100%;
+      font-size:11px;
+    }
+
+    .selected-file {
+      margin-top:8px;
       color:var(--primary);
+      font-size:10px;
+      font-weight:600;
+      word-break:break-word;
     }
 
-    .form-mode-icon svg{
-      width:18px;
-      height:18px;
+    /* TABLE */
+
+    .table-wrap {
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--border);
+      border-radius:16px;
     }
 
-    .form-mode-content{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    /* ================= FORMS ================= */
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:15px;
-    }
-
-    .full{
-      grid-column:1 / -1;
-    }
-
-    .form-actions{
-      display:flex;
-      justify-content:flex-start;
-      gap:8px;
-      margin-top:5px;
-    }
-
-    /* ================= TABLE ================= */
-
-    .table-wrap{
-      overflow-x:auto;
-    }
-
-    table{
+    table {
       width:100%;
       border-collapse:collapse;
       min-width:760px;
     }
 
-    th{
-      text-align:right;
+    th {
       background:var(--surface2);
       color:var(--muted);
-      font-size:11px;
-      padding:12px;
+      font-size:10px;
+      font-weight:700;
+      text-align:right;
+      padding:12px 14px;
       white-space:nowrap;
     }
 
-    td{
-      padding:13px 12px;
+    td {
+      padding:13px 14px;
       border-top:1px solid var(--border);
-      font-size:12px;
+      font-size:11px;
       vertical-align:middle;
     }
 
-    tbody tr{
-      transition:.15s;
-    }
-
-    tbody tr:hover{
+    tr:hover td {
       background:rgba(20,184,166,.025);
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:5px 9px;
-      border-radius:999px;
-      background:var(--soft);
-      color:var(--primary);
-      font-size:10px;
-      font-weight:700;
-      white-space:nowrap;
+    .empty {
+      padding:35px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
     }
 
-    .order-badge{
+    .order-badge {
       display:inline-grid;
       place-items:center;
-      min-width:34px;
-      height:29px;
+      min-width:32px;
+      height:28px;
       padding:0 8px;
       border-radius:9px;
       background:var(--soft);
@@ -763,1962 +722,2086 @@
       border:1px solid rgba(20,184,166,.12);
     }
 
-    .url{
-      display:block;
-      max-width:250px;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      color:var(--primary);
-      direction:ltr;
-      text-align:right;
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      padding:5px 8px;
+      border-radius:8px;
+      font-size:9px;
+      font-weight:700;
     }
 
-    /* ================= EMPTY ================= */
+    .badge.success {
+      background:#f0fdf4;
+      color:var(--success);
+    }
 
-    .empty{
-      text-align:center;
+    .badge.warning {
+      background:#fff7ed;
+      color:var(--warning);
+    }
+
+    .badge.gray {
+      background:var(--surface2);
       color:var(--muted);
-      padding:40px 20px;
-      font-size:13px;
     }
 
-    /* ================= TOAST ================= */
+    .resource-title {
+      font-weight:700;
+      max-width:250px;
+    }
 
-    #toast{
+    .resource-desc {
+      color:var(--muted);
+      font-size:9px;
+      margin-top:3px;
+      max-width:260px;
+    }
+
+    .url-cell {
+      max-width:170px;
+    }
+
+    .url-cell a {
+      color:var(--primary);
+      text-decoration:none;
+      font-size:9px;
+      word-break:break-all;
+    }
+
+    /* TOAST */
+
+    #toastContainer {
       position:fixed;
-      left:22px;
-      bottom:22px;
-      z-index:1000;
-      min-width:240px;
-      max-width:380px;
-      padding:13px 16px;
-      border-radius:14px;
+      left:20px;
+      bottom:20px;
+      z-index:9999;
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      width:min(360px,calc(100vw - 40px));
+    }
+
+    .toast {
       background:#17211f;
-      color:white;
-      box-shadow:0 15px 40px rgba(0,0,0,.18);
-      font-size:13px;
-      transform:translateY(120px);
-      opacity:0;
-      transition:.25s;
+      color:#fff;
+      border-radius:14px;
+      padding:13px 15px;
+      font-size:11px;
+      box-shadow:0 14px 35px rgba(0,0,0,.18);
+      animation:toastIn .25s ease;
     }
 
-    #toast.show{
-      transform:translateY(0);
-      opacity:1;
-    }
-
-    #toast.success{
+    .toast.success {
       background:#166534;
     }
 
-    #toast.error{
+    .toast.error {
       background:#991b1b;
     }
 
-    /* ================= MOBILE ================= */
-
-    .mobile-menu{
-      display:none;
-      place-items:center;
-      width:40px;
-      height:40px;
-      border:1px solid var(--border);
-      background:var(--surface);
-      border-radius:11px;
+    @keyframes toastIn {
+      from {
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
-    .mobile-menu svg{
-      width:19px;
+    .loading {
+      opacity:.65;
+      pointer-events:none;
     }
 
-    @media(max-width:900px){
+    /* DARK */
 
-      .sidebar{
-        transform:translateX(100%);
-        transition:.25s;
-        box-shadow:-20px 0 50px rgba(0,0,0,.08);
-      }
+    body.dark {
+      --bg:#09100f;
+      --surface:#101817;
+      --surface2:#16211f;
+      --text:#f1f5f4;
+      --muted:#9aa9a5;
+      --primary:#2dd4bf;
+      --primary2:#14b8a6;
+      --soft:rgba(20,184,166,.12);
+      --border:#253430;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
 
-      .sidebar.open{
-        transform:translateX(0);
-      }
+    body.dark .topbar {
+      background:rgba(16,24,23,.84);
+    }
 
-      .content{
-        margin-right:0;
-      }
+    body.dark .drive-box {
+      background:rgba(20,184,166,.06);
+      border-color:rgba(20,184,166,.25);
+    }
 
-      .mobile-menu{
-        display:grid;
-      }
+    body.dark .drive-icon {
+      background:rgba(20,184,166,.12);
+    }
 
-      .stats{
+    body.dark .btn-danger {
+      background:rgba(220,38,38,.10);
+      border-color:rgba(220,38,38,.25);
+    }
+
+    body.dark .btn-success {
+      background:rgba(22,163,74,.10);
+      border-color:rgba(22,163,74,.25);
+    }
+
+    body.dark .btn-edit {
+      background:rgba(20,184,166,.12);
+      color:var(--primary2);
+      border-color:rgba(20,184,166,.25);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1050px) {
+      .stats {
         grid-template-columns:repeat(2,1fr);
       }
 
+      .form-grid.three {
+        grid-template-columns:repeat(2,1fr);
+      }
     }
 
-    @media(max-width:600px){
-
-      .page{
-        padding:18px 14px;
+    @media(max-width:800px) {
+      .sidebar {
+        transform:translateX(100%);
+        transition:.25s ease;
+        box-shadow:0 0 50px rgba(0,0,0,.15);
       }
 
-      .topbar{
-        padding:0 14px;
+      .sidebar.open {
+        transform:translateX(0);
       }
 
-      .topbar h2{
-        font-size:16px;
+      .main {
+        margin-right:0;
       }
 
-      .admin-user{
-        display:none;
+      .mobile-menu {
+        display:inline-flex;
       }
 
-      .stats{
+      .topbar {
+        padding:0 15px;
+      }
+
+      .content {
+        padding:18px 15px;
+      }
+
+      .page-head {
+        align-items:flex-start;
+      }
+
+      .page-head h1 {
+        font-size:20px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .stats {
         grid-template-columns:1fr 1fr;
-        gap:10px;
+        gap:9px;
       }
 
-      .stat{
-        padding:15px;
+      .stat {
+        padding:13px;
+        gap:9px;
       }
 
-      .stat-number{
-        font-size:23px;
+      .stat-icon {
+        width:38px;
+        height:38px;
       }
 
-      .form-grid{
+      .stat strong {
+        font-size:19px;
+      }
+
+      .stat span {
+        font-size:8px;
+      }
+
+      .form-grid,
+      .form-grid.three {
         grid-template-columns:1fr;
       }
 
-      .full{
+      .field.full {
         grid-column:auto;
       }
 
-      .panel-head{
+      .card {
+        padding:15px;
+        border-radius:17px;
+      }
+
+      .drive-box {
         align-items:flex-start;
         flex-direction:column;
       }
 
-      .panel-head>.btn{
+      .form-actions {
+        flex-direction:column;
+      }
+
+      .form-actions .btn {
         width:100%;
       }
 
-      .form-mode{
-        align-items:flex-start;
+      .topbar-title p {
+        display:none;
       }
 
-      .form-mode-content{
-        align-items:flex-start;
+      .login-card {
+        padding:25px 20px;
       }
-
-      .form-actions{
-        flex-direction:column;
-      }
-
-      .form-actions .btn{
-        width:100%;
-      }
-
-      .actions .btn{
-        min-height:35px;
-        padding:0 10px;
-      }
-
-      .drive-box{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      #toast{
-        left:12px;
-        right:12px;
-        min-width:0;
-        max-width:none;
-        bottom:12px;
-      }
-
     }
-
   </style>
-
 </head>
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-     ===================================================== -->
+  <!-- LOGIN -->
 
-<section id="loginScreen">
+  <section id="loginScreen">
+    <div class="login-card">
 
-  <div class="login-card">
-
-    <div class="login-logo">
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-      </svg>
-
-    </div>
-
-    <h1>لوحة إدارة مساعد توجيهي</h1>
-
-    <p>
-      سجل الدخول لإدارة محتوى المنصة
-    </p>
-
-    <div id="loginError" class="error"></div>
-
-    <form id="loginForm">
-
-      <div class="field">
-
-        <label>البريد الإلكتروني</label>
-
-        <input
-          id="email"
-          type="email"
-          placeholder="admin@example.com"
-          required
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label>كلمة المرور</label>
-
-        <input
-          id="password"
-          type="password"
-          placeholder="••••••••"
-          required
-        >
-
-      </div>
-
-      <button
-        class="primary-btn"
-        type="submit"
-      >
-        تسجيل الدخول
-      </button>
-
-    </form>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     APP
-     ===================================================== -->
-
-<div id="app">
-
-  <aside class="sidebar" id="sidebar">
-
-    <div class="side-brand">
-
-      <div class="side-logo">
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
+      <div class="login-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+          <path d="M8 6h8M8 10h8"/>
         </svg>
-
       </div>
 
-      <div>
+      <h1>لوحة تحكم مساعد توجيهي</h1>
+      <p>سجّل الدخول لإدارة محتوى المنصة</p>
 
-        <strong>مساعد توجيهي</strong>
+      <form id="loginForm">
 
-        <span>لوحة الإدارة</span>
+        <div class="field">
+          <label>البريد الإلكتروني</label>
+          <input id="loginEmail" type="email" required placeholder="admin@example.com">
+        </div>
 
-      </div>
+        <div class="field" style="margin-top:13px;">
+          <label>كلمة المرور</label>
+          <input id="loginPassword" type="password" required placeholder="••••••••">
+        </div>
 
-    </div>
-
-    <div class="nav-title">
-      الإدارة
-    </div>
-
-    <button class="nav-btn active" data-page="dashboard">
-
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="3" width="7" height="7"/>
-        <rect x="14" y="3" width="7" height="7"/>
-        <rect x="3" y="14" width="7" height="7"/>
-        <rect x="14" y="14" width="7" height="7"/>
-      </svg>
-
-      لوحة التحكم
-
-    </button>
-
-    <button class="nav-btn" data-page="generations">
-
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
-      </svg>
-
-      الأجيال
-
-    </button>
-
-    <button class="nav-btn" data-page="subjects">
-
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 5h16"/>
-        <path d="M4 12h16"/>
-        <path d="M4 19h16"/>
-      </svg>
-
-      المواد
-
-    </button>
-
-    <button class="nav-btn" data-page="sections">
-
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16"/>
-        <path d="M4 12h16"/>
-        <path d="M4 18h16"/>
-      </svg>
-
-      أقسام المواد
-
-    </button>
-
-    <button class="nav-btn" data-page="resources">
-
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 4h16v16H4z"/>
-        <path d="M8 8h8"/>
-        <path d="M8 12h8"/>
-        <path d="M8 16h5"/>
-      </svg>
-
-      الملفات والروابط
-
-    </button>
-
-    <div class="side-bottom">
-
-      <button class="nav-btn logout" id="logoutBtn">
-
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M10 17l5-5-5-5"/>
-          <path d="M15 12H3"/>
-          <path d="M21 19V5a2 2 0 0 0-2-2h-5"/>
-        </svg>
-
-        تسجيل الخروج
-
-      </button>
-
-    </div>
-
-  </aside>
-
-
-  <div class="content">
-
-    <header class="topbar">
-
-      <div style="display:flex;align-items:center;gap:10px;">
-
-        <button class="mobile-menu" id="mobileMenu">
-
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16"/>
-            <path d="M4 12h16"/>
-            <path d="M4 18h16"/>
-          </svg>
-
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="width:100%;height:46px;margin-top:17px;"
+        >
+          تسجيل الدخول
         </button>
 
-        <h2 id="pageTitle">
-          لوحة التحكم
-        </h2>
+      </form>
 
-      </div>
-
-      <div class="admin-user" id="adminEmail"></div>
-
-    </header>
+    </div>
+  </section>
 
 
-    <!-- ================= DASHBOARD ================= -->
+  <!-- APP -->
 
-    <main class="page" id="page-dashboard">
+  <section id="app">
 
-      <div class="stats">
+    <div class="layout">
 
-        <div class="stat">
+      <!-- SIDEBAR -->
 
-          <div class="stat-top">
+      <aside class="sidebar" id="sidebar">
 
-            <div class="stat-icon">
+        <a class="brand" href="../index.html">
 
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+              <path d="M8 6h8M8 10h8"/>
+            </svg>
+          </div>
+
+          <div class="brand-text">
+            <strong>مساعد توجيهي</strong>
+            <span>لوحة التحكم</span>
+          </div>
+
+        </a>
+
+        <div class="nav-title">الإدارة</div>
+
+        <nav class="nav">
+
+          <button class="nav-btn active" data-page="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            الرئيسية
+          </button>
+
+          <button class="nav-btn" data-page="generations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            الأجيال
+          </button>
+
+          <button class="nav-btn" data-page="subjects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+            </svg>
+            المواد
+          </button>
+
+          <button class="nav-btn" data-page="sections">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            الأقسام
+          </button>
+
+          <button class="nav-btn" data-page="resources">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 5a2 2 0 0 1 2-2h5l2 3h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
+            </svg>
+            الملفات والموارد
+          </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+          <div class="admin-user">
+
+            <div class="admin-avatar">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21a8 8 0 0 1 16 0"/>
               </svg>
+            </div>
 
+            <div class="admin-email">
+              <strong>المدير</strong>
+              <span id="adminEmail"></span>
             </div>
 
           </div>
 
-          <div class="stat-number" id="statGenerations">0</div>
-          <div class="stat-title">الأجيال</div>
+          <button class="btn btn-danger" id="logoutBtn" style="width:100%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 17l5-5-5-5"/>
+              <path d="M15 12H3"/>
+              <path d="M21 3v18"/>
+            </svg>
+            تسجيل الخروج
+          </button>
 
         </div>
 
-        <div class="stat">
+      </aside>
 
-          <div class="stat-top">
 
-            <div class="stat-icon">
+      <!-- MAIN -->
 
+      <main class="main">
+
+        <header class="topbar">
+
+          <div class="topbar-title">
+            <h2 id="topTitle">الرئيسية</h2>
+            <p>إدارة محتوى منصة مساعد توجيهي</p>
+          </div>
+
+          <div class="top-actions">
+
+            <button class="btn mobile-menu" id="mobileMenuBtn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 5h16"/>
-                <path d="M4 12h16"/>
-                <path d="M4 19h16"/>
+                <path d="M4 6h16M4 12h16M4 18h16"/>
               </svg>
-
-            </div>
-
-          </div>
-
-          <div class="stat-number" id="statSubjects">0</div>
-          <div class="stat-title">المواد</div>
-
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-top">
-
-            <div class="stat-icon">
-
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 6h16"/>
-                <path d="M4 12h16"/>
-                <path d="M4 18h16"/>
-              </svg>
-
-            </div>
+            </button>
 
           </div>
 
-          <div class="stat-number" id="statSections">0</div>
-          <div class="stat-title">أقسام المواد</div>
-
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-top">
-
-            <div class="stat-icon">
-
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16v16H4z"/>
-                <path d="M8 8h8"/>
-                <path d="M8 12h8"/>
-                <path d="M8 16h5"/>
-              </svg>
-
-            </div>
-
-          </div>
-
-          <div class="stat-number" id="statResources">0</div>
-          <div class="stat-title">الملفات والروابط</div>
-
-        </div>
-
-      </div>
+        </header>
 
 
-      <div class="panel">
-
-        <div class="panel-head">
-
-          <div>
-
-            <h3>آخر الملفات والروابط</h3>
-
-            <p>
-              آخر المحتويات التي أضافها الأدمن
-            </p>
-
-          </div>
-
-          <button class="btn btn-primary" onclick="openPage('resources')">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14"/>
-              <path d="M5 12h14"/>
-            </svg>
-
-            إدارة المحتوى
-
-          </button>
-
-        </div>
-
-        <div id="recentResources" class="empty">
-          جاري التحميل...
-        </div>
-
-      </div>
-
-    </main>
+        <div class="content">
 
 
-    <!-- ================= GENERATIONS ================= -->
+          <!-- DASHBOARD -->
 
-    <main class="page" id="page-generations" style="display:none">
+          <section class="page active" id="page-dashboard">
 
-      <div class="panel">
-
-        <div class="panel-head">
-
-          <div>
-
-            <h3>إدارة الأجيال</h3>
-
-            <p>
-              أضف أو عدّل الأجيال الموجودة في المنصة
-            </p>
-
-          </div>
-
-          <button class="btn btn-primary" onclick="showGenerationForm()">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14"/>
-              <path d="M5 12h14"/>
-            </svg>
-
-            إضافة جيل
-
-          </button>
-
-        </div>
-
-        <div id="generationForm" class="panel-body" style="display:none">
-
-          <div id="generationEditMode" class="form-mode" style="display:none">
-
-            <div class="form-mode-content">
-
-              <div class="form-mode-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 20h9"/>
-                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                </svg>
-              </div>
-
+            <div class="page-head">
               <div>
-                <strong>تعديل الجيل</strong>
-                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
+                <h1>الرئيسية</h1>
+                <p>نظرة سريعة على محتوى الموقع</p>
               </div>
-
             </div>
 
-          </div>
+            <div class="stats">
 
-          <form id="generationAddForm" class="form-grid">
-
-            <div class="field">
-              <label>اسم الجيل</label>
-              <input id="generationName" placeholder="مثال: جيل 2010" required>
-            </div>
-
-            <div class="field">
-              <label>رقم الجيل</label>
-              <input id="generationYear" placeholder="2010" required>
-            </div>
-
-            <div class="field full">
-              <label>وصف الجيل</label>
-              <textarea id="generationDescription" placeholder="وصف مختصر..."></textarea>
-            </div>
-
-            <div class="form-actions full">
-
-              <button class="btn btn-primary" id="generationSubmitBtn" type="submit">
-                حفظ الجيل
-              </button>
-
-              <button class="btn btn-cancel" type="button" onclick="hideGenerationForm()">
-                إلغاء
-              </button>
-
-            </div>
-
-          </form>
-
-        </div>
-
-        <div id="generationsList" class="table-wrap"></div>
-
-      </div>
-
-    </main>
-
-
-    <!-- ================= SUBJECTS ================= -->
-
-    <main class="page" id="page-subjects" style="display:none">
-
-      <div class="panel">
-
-        <div class="panel-head">
-
-          <div>
-            <h3>إدارة المواد</h3>
-            <p>كل مادة مرتبطة بجيل معين</p>
-          </div>
-
-          <button class="btn btn-primary" onclick="showSubjectForm()">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14"/>
-              <path d="M5 12h14"/>
-            </svg>
-
-            إضافة مادة
-
-          </button>
-
-        </div>
-
-        <div id="subjectForm" class="panel-body" style="display:none">
-
-          <div id="subjectEditMode" class="form-mode" style="display:none">
-
-            <div class="form-mode-content">
-
-              <div class="form-mode-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 20h9"/>
-                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                </svg>
-              </div>
-
-              <div>
-                <strong>تعديل المادة</strong>
-                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <form id="subjectAddForm" class="form-grid">
-
-            <div class="field">
-              <label>الجيل</label>
-
-              <select id="subjectGeneration" required>
-                <option value="">اختر الجيل</option>
-              </select>
-
-            </div>
-
-            <div class="field">
-              <label>اسم المادة</label>
-              <input id="subjectName" placeholder="مثال: الرياضيات" required>
-            </div>
-
-            <div class="field">
-              <label>المعرف</label>
-              <input id="subjectSlug" placeholder="math" required>
-            </div>
-
-            <div class="field">
-              <label>الترتيب</label>
-              <input id="subjectOrder" type="number" value="1">
-            </div>
-
-            <div class="field full">
-              <label>وصف المادة</label>
-              <textarea id="subjectDescription" placeholder="وصف مختصر للمادة..."></textarea>
-            </div>
-
-            <div class="form-actions full">
-
-              <button class="btn btn-primary" id="subjectSubmitBtn" type="submit">
-                حفظ المادة
-              </button>
-
-              <button class="btn btn-cancel" type="button" onclick="hideSubjectForm()">
-                إلغاء
-              </button>
-
-            </div>
-
-          </form>
-
-        </div>
-
-        <div id="subjectsList" class="table-wrap"></div>
-
-      </div>
-
-    </main>
-
-
-    <!-- ================= SECTIONS ================= -->
-
-    <main class="page" id="page-sections" style="display:none">
-
-      <div class="panel">
-
-        <div class="panel-head">
-
-          <div>
-            <h3>أقسام المواد</h3>
-            <p>أنشئ أي قسم تريده داخل أي مادة</p>
-          </div>
-
-          <button class="btn btn-primary" onclick="showSectionForm()">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14"/>
-              <path d="M5 12h14"/>
-            </svg>
-
-            إضافة قسم
-
-          </button>
-
-        </div>
-
-        <div id="sectionForm" class="panel-body" style="display:none">
-
-          <div id="sectionEditMode" class="form-mode" style="display:none">
-
-            <div class="form-mode-content">
-
-              <div class="form-mode-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 20h9"/>
-                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-                </svg>
-              </div>
-
-              <div>
-                <strong>تعديل القسم</strong>
-                <span>عدّل البيانات ثم اضغط حفظ التعديلات</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <form id="sectionAddForm" class="form-grid">
-
-            <div class="field full">
-
-              <label>المادة</label>
-
-              <select id="sectionSubject" required>
-                <option value="">اختر المادة</option>
-              </select>
-
-            </div>
-
-            <div class="field">
-
-              <label>اسم القسم</label>
-
-              <input
-                id="sectionName"
-                placeholder="مثال: أسئلة سنوات سابقة"
-                required
-              >
-
-            </div>
-
-            <div class="field">
-
-              <label>الترتيب</label>
-
-              <input id="sectionOrder" type="number" value="1">
-
-            </div>
-
-            <div class="field full">
-
-              <label>وصف القسم</label>
-
-              <textarea id="sectionDescription" placeholder="وصف القسم..."></textarea>
-
-            </div>
-
-            <div class="form-actions full">
-
-              <button class="btn btn-primary" id="sectionSubmitBtn" type="submit">
-                حفظ القسم
-              </button>
-
-              <button class="btn btn-cancel" type="button" onclick="hideSectionForm()">
-                إلغاء
-              </button>
-
-            </div>
-
-          </form>
-
-        </div>
-
-        <div id="sectionsList" class="table-wrap"></div>
-
-      </div>
-
-    </main>
-
-
-    <!-- ================= RESOURCES ================= -->
-
-    <main class="page" id="page-resources" style="display:none">
-
-      <div class="panel">
-
-        <div class="panel-head">
-
-          <div>
-
-            <h3>الملفات والروابط</h3>
-
-            <p>
-              أضف PDF أو رابط Google Drive أو أي رابط خارجي
-            </p>
-
-          </div>
-
-          <button class="btn btn-primary" onclick="showResourceForm()">
-
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14"/>
-              <path d="M5 12h14"/>
-            </svg>
-
-            إضافة محتوى
-
-          </button>
-
-        </div>
-
-
-        <div class="panel-body">
-
-          <div class="drive-box">
-
-            <div class="drive-info">
-
-              <div class="drive-icon">
-
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="m9 3 3-1 3 1 5 8-5 8-3 1-3-1-5-8 5-8Z"/>
-                  <path d="m8 11 4 7 4-7-4-7-4 7Z"/>
-                </svg>
-
-              </div>
-
-              <div>
-
-                <strong>Google Drive</strong>
-
-                <span id="driveAccountText">
-                  اربط حساب Google لرفع ملفات PDF مباشرة
-                </span>
-
-              </div>
-
-            </div>
-
-            <div class="actions">
-
-              <span class="drive-status" id="driveStatus">
-                <span class="drive-status-dot"></span>
-                غير متصل
-              </span>
-
-              <button
-                class="btn btn-primary"
-                id="connectDriveBtn"
-                type="button"
-              >
-                ربط Google Drive
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <div
-            id="resourceForm"
-            style="display:none"
-          >
-
-            <div id="resourceEditMode" class="form-mode">
-
-              <div class="form-mode-content">
-
-                <div class="form-mode-icon">
-
+              <div class="stat">
+                <div class="stat-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M3 21a6 6 0 0 1 12 0"/>
                   </svg>
+                </div>
+                <div>
+                  <span>الأجيال</span>
+                  <strong id="statGenerations">0</strong>
+                </div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span>المواد</span>
+                  <strong id="statSubjects">0</strong>
+                </div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </div>
+                <div>
+                  <span>الأقسام</span>
+                  <strong id="statSections">0</strong>
+                </div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 5a2 2 0 0 1 2-2h5l2 3h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span>الملفات والموارد</span>
+                  <strong id="statResources">0</strong>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="card">
+
+              <div class="card-head">
+                <div>
+                  <h3>آخر الموارد المضافة</h3>
+                  <p>أحدث الملفات والروابط</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="openPage('resources')">
+                  عرض الكل
+                </button>
+              </div>
+
+              <div class="table-wrap">
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>المحتوى</th>
+                      <th>المادة</th>
+                      <th>النوع</th>
+                      <th>الحالة</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="recentResources"></tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- GENERATIONS -->
+
+          <section class="page" id="page-generations">
+
+            <div class="page-head">
+              <div>
+                <h1>الأجيال</h1>
+                <p>إدارة أجيال التوجيهي وترتيبها</p>
+              </div>
+
+              <button class="btn btn-primary" onclick="showGenerationForm()">
+                + إضافة جيل
+              </button>
+            </div>
+
+
+            <div class="card" id="generationForm" style="display:none;">
+
+              <div class="card-head">
+                <div>
+                  <h3 id="generationFormTitle">إضافة جيل جديد</h3>
+                  <p>أدخل معلومات الجيل</p>
+                </div>
+              </div>
+
+              <form id="generationAddForm">
+
+                <div class="form-grid">
+
+                  <div class="field">
+                    <label>اسم الجيل</label>
+                    <input id="generationName" required placeholder="مثال: جيل 2009">
+                  </div>
+
+                  <div class="field">
+                    <label>العام</label>
+                    <input id="generationYear" type="number" required placeholder="2009">
+                  </div>
+
+                  <div class="field full">
+                    <label>الوصف</label>
+                    <textarea id="generationDescription" placeholder="وصف مختصر للجيل"></textarea>
+                  </div>
 
                 </div>
+
+                <div class="form-actions">
+
+                  <button type="submit" class="btn btn-primary">
+                    <span id="generationSubmitText">حفظ الجيل</span>
+                  </button>
+
+                  <button type="button" class="btn" onclick="resetGenerationForm()">
+                    إلغاء
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+
+            <div class="card">
+
+              <div class="table-wrap">
+
+                <table>
+
+                  <thead>
+                    <tr>
+                      <th>الاسم</th>
+                      <th>العام</th>
+                      <th>الوصف</th>
+                      <th>الإجراءات</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="generationsTable"></tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- SUBJECTS -->
+
+          <section class="page" id="page-subjects">
+
+            <div class="page-head">
+              <div>
+                <h1>المواد</h1>
+                <p>إدارة المواد وترتيب ظهورها</p>
+              </div>
+
+              <button class="btn btn-primary" onclick="showSubjectForm()">
+                + إضافة مادة
+              </button>
+            </div>
+
+
+            <div class="card" id="subjectForm" style="display:none;">
+
+              <div class="card-head">
+                <div>
+                  <h3 id="subjectFormTitle">إضافة مادة جديدة</h3>
+                  <p>اربط المادة بالجيل المناسب</p>
+                </div>
+              </div>
+
+              <form id="subjectAddForm">
+
+                <div class="form-grid">
+
+                  <div class="field">
+                    <label>الجيل</label>
+                    <select id="subjectGeneration" required>
+                      <option value="">اختر الجيل</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label>اسم المادة</label>
+                    <input id="subjectName" required placeholder="مثال: الرياضيات">
+                  </div>
+
+                  <div class="field">
+                    <label>المعرف Slug</label>
+                    <input id="subjectSlug" placeholder="math">
+                    <small>يفضل استخدام حروف إنجليزية بدون مسافات.</small>
+                  </div>
+
+                  <div class="field">
+                    <label>الترتيب</label>
+                    <input id="subjectOrder" type="number" value="1" min="1">
+                  </div>
+
+                  <div class="field full">
+                    <label>الوصف</label>
+                    <textarea id="subjectDescription" placeholder="وصف المادة"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                  <button type="submit" class="btn btn-primary">
+                    <span id="subjectSubmitText">حفظ المادة</span>
+                  </button>
+
+                  <button type="button" class="btn" onclick="resetSubjectForm()">
+                    إلغاء
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+
+            <div class="card">
+
+              <div class="table-wrap">
+
+                <table>
+
+                  <thead>
+                    <tr>
+                      <th>المادة</th>
+                      <th>الجيل</th>
+                      <th>المعرف</th>
+                      <th>الترتيب</th>
+                      <th>الإجراءات</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="subjectsTable"></tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- SECTIONS -->
+
+          <section class="page" id="page-sections">
+
+            <div class="page-head">
+              <div>
+                <h1>الأقسام</h1>
+                <p>إدارة أقسام المواد وترتيبها</p>
+              </div>
+
+              <button class="btn btn-primary" onclick="showSectionForm()">
+                + إضافة قسم
+              </button>
+            </div>
+
+
+            <div class="card" id="sectionForm" style="display:none;">
+
+              <div class="card-head">
+                <div>
+                  <h3 id="sectionFormTitle">إضافة قسم جديد</h3>
+                  <p>اختر المادة التابعة للقسم</p>
+                </div>
+              </div>
+
+              <form id="sectionAddForm">
+
+                <div class="form-grid">
+
+                  <div class="field">
+                    <label>المادة</label>
+                    <select id="sectionSubject" required>
+                      <option value="">اختر المادة</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label>اسم القسم</label>
+                    <input id="sectionName" required placeholder="مثال: ملخصات">
+                  </div>
+
+                  <div class="field">
+                    <label>الترتيب</label>
+                    <input id="sectionOrder" type="number" value="1" min="1">
+                  </div>
+
+                  <div class="field full">
+                    <label>الوصف</label>
+                    <textarea id="sectionDescription" placeholder="وصف القسم"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                  <button type="submit" class="btn btn-primary">
+                    <span id="sectionSubmitText">حفظ القسم</span>
+                  </button>
+
+                  <button type="button" class="btn" onclick="resetSectionForm()">
+                    إلغاء
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+
+            <div class="card">
+
+              <div class="table-wrap">
+
+                <table>
+
+                  <thead>
+                    <tr>
+                      <th>القسم</th>
+                      <th>المادة</th>
+                      <th>الترتيب</th>
+                      <th>الوصف</th>
+                      <th>الإجراءات</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="sectionsTable"></tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- RESOURCES -->
+
+          <section class="page" id="page-resources">
+
+            <div class="page-head">
+              <div>
+                <h1>الملفات والموارد</h1>
+                <p>إدارة الملفات والروابط التي تظهر للطلاب</p>
+              </div>
+
+              <button class="btn btn-primary" onclick="showResourceForm()">
+                + إضافة مورد
+              </button>
+            </div>
+
+
+            <!-- DRIVE CONNECTION -->
+
+            <div class="card">
+
+              <div class="drive-box">
+
+                <div class="drive-info">
+
+                  <div class="drive-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M8.5 3h7l5.5 9.5-3.5 6H10L4.5 9.5 8.5 3Z"/>
+                      <path d="M4.5 9.5h6l3.5 6"/>
+                      <path d="M21 12.5h-7"/>
+                    </svg>
+                  </div>
+
+                  <div>
+                    <strong>Google Drive</strong>
+                    <span id="driveStatus">غير مرتبط — اربط حساب Google لرفع ملفات PDF</span>
+                  </div>
+
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="driveConnectBtn"
+                  onclick="connectGoogleDrive()"
+                >
+                  ربط Google Drive
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- RESOURCE FORM -->
+
+            <div class="card" id="resourceForm" style="display:none;">
+
+              <div class="card-head">
+                <div>
+                  <h3 id="resourceFormTitle">إضافة مورد جديد</h3>
+                  <p>يمكنك رفع PDF مباشرة إلى Google Drive</p>
+                </div>
+              </div>
+
+
+              <form id="resourceAddForm">
+
+                <div class="form-grid">
+
+                  <div class="field">
+                    <label>المادة</label>
+                    <select id="resourceSubject" required>
+                      <option value="">اختر المادة</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label>القسم</label>
+                    <select id="resourceSection">
+                      <option value="">بدون قسم</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label>عنوان المورد</label>
+                    <input id="resourceTitle" required placeholder="مثال: كتاب الرياضيات">
+                  </div>
+
+                  <div class="field">
+                    <label>النوع</label>
+                    <select id="resourceType">
+
+                      <option value="pdf">PDF</option>
+                      <option value="drive">Google Drive</option>
+                      <option value="link">رابط</option>
+                      <option value="exam">امتحان</option>
+                      <option value="book">كتاب</option>
+
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label>ملف PDF</label>
+
+                    <div class="file-picker">
+
+                      <input
+                        id="resourceFile"
+                        type="file"
+                        accept=".pdf,application/pdf"
+                      >
+
+                      <div class="selected-file" id="selectedFileName">
+                        لم يتم اختيار ملف
+                      </div>
+
+                      <small>
+                        عند اختيار PDF سيتم رفعه تلقائياً إلى Google Drive عند حفظ المورد.
+                      </small>
+
+                    </div>
+
+                  </div>
+
+                  <div class="field full">
+                    <label>الرابط</label>
+                    <input
+                      id="resourceUrl"
+                      type="url"
+                      placeholder="https://..."
+                    >
+                    <small>
+                      إذا اخترت PDF ورفعت ملفاً، سيتم إنشاء الرابط تلقائياً. لا تحتاج لإدخال رابط يدوياً.
+                    </small>
+                  </div>
+
+                  <div class="field">
+                    <label>الترتيب</label>
+                    <input id="resourceOrder" type="number" value="1" min="1">
+                  </div>
+
+                  <div class="field">
+                    <label>الحالة</label>
+
+                    <label class="checkbox-field">
+                      <input type="checkbox" id="resourcePublished" checked>
+                      <span>ظاهر للطلاب</span>
+                    </label>
+
+                  </div>
+
+                  <div class="field full">
+                    <label>الوصف</label>
+                    <textarea id="resourceDescription" placeholder="وصف مختصر للمورد"></textarea>
+                  </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                  <button type="submit" class="btn btn-primary" id="resourceSubmitBtn">
+                    <span id="resourceSubmitText">حفظ المورد</span>
+                  </button>
+
+                  <button type="button" class="btn" onclick="resetResourceForm()">
+                    إلغاء
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+
+            <!-- RESOURCE TABLE -->
+
+            <div class="card">
+
+              <div class="card-head">
 
                 <div>
-
-                  <strong id="resourceModeTitle">
-                    إضافة محتوى
-                  </strong>
-
-                  <span id="resourceModeText">
-                    أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا
-                  </span>
-
+                  <h3>جميع الموارد</h3>
+                  <p>مرتبة حسب رقم الترتيب</p>
                 </div>
+
+              </div>
+
+              <div class="table-wrap">
+
+                <table>
+
+                  <thead>
+                    <tr>
+                      <th>المحتوى</th>
+                      <th>المادة</th>
+                      <th>القسم</th>
+                      <th>النوع</th>
+                      <th>الترتيب</th>
+                      <th>الحالة</th>
+                      <th>الرابط</th>
+                      <th>الإجراءات</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="resourcesTable"></tbody>
+
+                </table>
 
               </div>
 
             </div>
 
-
-            <form id="resourceAddForm" class="form-grid">
-
-              <div class="field">
-
-                <label>المادة</label>
-
-                <select id="resourceSubject" required>
-
-                  <option value="">
-                    اختر المادة
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field">
-
-                <label>القسم</label>
-
-                <select id="resourceSection" required>
-
-                  <option value="">
-                    اختر القسم
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field">
-
-                <label>اسم المحتوى</label>
-
-                <input
-                  id="resourceTitle"
-                  placeholder="مثال: ملخص الوحدة الأولى"
-                  required
-                >
-
-              </div>
-
-
-              <div class="field">
-
-                <label>نوع المحتوى</label>
-
-                <select id="resourceType">
-
-                  <option value="pdf">
-                    PDF
-                  </option>
-
-                  <option value="drive">
-                    Google Drive
-                  </option>
-
-                  <option value="link">
-                    رابط خارجي
-                  </option>
-
-                  <option value="exam">
-                    امتحان إلكتروني
-                  </option>
-
-                  <option value="book">
-                    كتاب رسمي
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <!-- GOOGLE DRIVE UPLOAD -->
-
-              <div class="field full">
-
-                <label>
-                  رفع PDF إلى Google Drive
-                </label>
-
-                <div class="upload-box">
-
-                  <div class="upload-row">
-
-                    <input
-                      class="hidden-file"
-                      id="resourceFile"
-                      type="file"
-                      accept="application/pdf,.pdf"
-                    >
-
-                    <button
-                      class="btn"
-                      id="choosePdfBtn"
-                      type="button"
-                    >
-
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 3v12"/>
-                        <path d="m7 10 5 5 5-5"/>
-                        <path d="M4 21h16"/>
-                      </svg>
-
-                      اختيار PDF من الجهاز
-
-                    </button>
-
-                    <span
-                      class="upload-name"
-                      id="selectedFileName"
-                    >
-                      لم يتم اختيار ملف
-                    </span>
-
-                    <button
-                      class="btn btn-primary"
-                      id="uploadPdfBtn"
-                      type="button"
-                    >
-
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 16V4"/>
-                        <path d="m7 9 5-5 5 5"/>
-                        <path d="M5 20h14"/>
-                      </svg>
-
-                      رفع إلى Google Drive
-
-                    </button>
-
-                  </div>
-
-
-                  <div
-                    class="upload-progress"
-                    id="uploadProgress"
-                  >
-
-                    <div class="progress-track">
-
-                      <div
-                        class="progress-bar"
-                        id="uploadProgressBar"
-                      ></div>
-
-                    </div>
-
-                    <div
-                      class="progress-text"
-                      id="uploadProgressText"
-                    >
-                      جاري الرفع...
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div class="field full">
-
-                <label>الرابط</label>
-
-                <input
-                  id="resourceUrl"
-                  type="url"
-                  placeholder="https://drive.google.com/..."
-                  required
-                >
-
-              </div>
-
-
-              <div class="field full">
-
-                <label>وصف المحتوى</label>
-
-                <textarea
-                  id="resourceDescription"
-                  placeholder="وصف اختياري..."
-                ></textarea>
-
-              </div>
-
-
-              <div class="field">
-
-                <label>الترتيب</label>
-
-                <input
-                  id="resourceOrder"
-                  type="number"
-                  value="1"
-                  min="1"
-                >
-
-              </div>
-
-
-              <div class="field">
-
-                <label>الحالة</label>
-
-                <select id="resourcePublished">
-
-                  <option value="true">
-                    منشور
-                  </option>
-
-                  <option value="false">
-                    مخفي
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="form-actions full">
-
-                <button
-                  class="btn btn-primary"
-                  id="resourceSubmitBtn"
-                  type="submit"
-                >
-                  حفظ المحتوى
-                </button>
-
-                <button
-                  class="btn btn-cancel"
-                  type="button"
-                  onclick="hideResourceForm()"
-                >
-                  إلغاء
-                </button>
-
-              </div>
-
-            </form>
-
-          </div>
+          </section>
 
         </div>
 
+      </main>
 
-        <div id="resourcesList" class="table-wrap"></div>
+    </div>
 
-      </div>
-
-    </main>
-
-  </div>
-
-</div>
+  </section>
 
 
-<div id="toast"></div>
+  <div id="toastContainer"></div>
 
 
-<script type="module">
+  <script type="module">
 
-  import {
-    auth,
-    db,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut,
-    collection,
-    addDoc,
-    getDocs,
-    updateDoc,
-    deleteDoc,
-    doc,
-    serverTimestamp
-  } from "./firebase-config.js";
-
-
-  /* =====================================================
-     GOOGLE DRIVE CONFIG
-     ===================================================== */
-
-  const GOOGLE_CLIENT_ID =
-    "562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com";
-
-  const GOOGLE_DRIVE_SCOPE =
-    "https://www.googleapis.com/auth/drive.file";
+    import {
+      auth,
+      db,
+      onAuthStateChanged,
+      signInWithEmailAndPassword,
+      signOut,
+      collection,
+      addDoc,
+      getDocs,
+      updateDoc,
+      deleteDoc,
+      doc,
+      serverTimestamp
+    } from "./firebase-config.js";
 
 
-  /* =====================================================
-     GLOBAL DATA
-  ===================================================== */
+    /* =====================================================
+       GOOGLE DRIVE
+    ===================================================== */
 
-  let generations = [];
-  let subjects = [];
-  let sections = [];
-  let resources = [];
+    const GOOGLE_CLIENT_ID =
+      "562654966865-i2capcs16q0fvg4kqj89d0ij57dklmp2.apps.googleusercontent.com";
 
-  let editingGenerationId = null;
-  let editingSubjectId = null;
-  let editingSectionId = null;
-  let editingResourceId = null;
+    const DRIVE_SCOPE =
+      "https://www.googleapis.com/auth/drive.file";
 
 
-  /* =====================================================
-     GOOGLE DRIVE STATE
-  ===================================================== */
-
-  let googleTokenClient = null;
-  let googleAccessToken = null;
-  let googleTokenExpiresAt = 0;
-
-  let selectedPdfFile = null;
+    let driveTokenClient = null;
+    let driveAccessToken = null;
 
 
-  /* =====================================================
-     ELEMENTS
-  ===================================================== */
+    function waitForGoogleIdentity() {
 
-  const loginScreen =
-    document.getElementById("loginScreen");
+      return new Promise((resolve, reject) => {
 
-  const app =
-    document.getElementById("app");
+        const start = Date.now();
 
-  const loginForm =
-    document.getElementById("loginForm");
+        const timer = setInterval(() => {
 
-  const loginError =
-    document.getElementById("loginError");
+          if (window.google?.accounts?.oauth2) {
 
-  const adminEmail =
-    document.getElementById("adminEmail");
+            clearInterval(timer);
+            resolve();
 
-  const driveStatus =
-    document.getElementById("driveStatus");
+          } else if (Date.now() - start > 10000) {
 
-  const driveAccountText =
-    document.getElementById("driveAccountText");
+            clearInterval(timer);
+            reject(
+              new Error("لم يتم تحميل Google Identity Services")
+            );
 
-  const connectDriveBtn =
-    document.getElementById("connectDriveBtn");
+          }
 
-  const resourceFile =
-    document.getElementById("resourceFile");
+        }, 100);
 
-  const choosePdfBtn =
-    document.getElementById("choosePdfBtn");
-
-  const uploadPdfBtn =
-    document.getElementById("uploadPdfBtn");
-
-  const selectedFileName =
-    document.getElementById("selectedFileName");
-
-  const uploadProgress =
-    document.getElementById("uploadProgress");
-
-  const uploadProgressBar =
-    document.getElementById("uploadProgressBar");
-
-  const uploadProgressText =
-    document.getElementById("uploadProgressText");
-
-
-  /* =====================================================
-     AUTH
-  ===================================================== */
-
-  onAuthStateChanged(auth, async (user) => {
-
-    if (user) {
-
-      loginScreen.style.display = "none";
-
-      app.style.display = "block";
-
-      adminEmail.textContent =
-        user.email || "";
-
-      initializeGoogleDrive();
-
-      await loadAll();
-
-    } else {
-
-      loginScreen.style.display = "flex";
-
-      app.style.display = "none";
-
-      googleAccessToken = null;
-      googleTokenClient = null;
-
-      setDriveStatus(false);
+      });
 
     }
 
-  });
 
-
-  loginForm.addEventListener(
-    "submit",
-    async (e) => {
-
-      e.preventDefault();
-
-      loginError.style.display = "none";
-
-      const email =
-        document
-          .getElementById("email")
-          .value
-          .trim();
-
-      const password =
-        document
-          .getElementById("password")
-          .value;
+    async function initGoogleDriveAuth() {
 
       try {
 
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        await waitForGoogleIdentity();
+
+        driveTokenClient =
+          google.accounts.oauth2.initTokenClient({
+
+            client_id: GOOGLE_CLIENT_ID,
+
+            scope: DRIVE_SCOPE,
+
+            callback: (response) => {
+
+              if (response.error) {
+
+                console.error(response);
+
+                toast(
+                  "تعذر ربط Google Drive",
+                  "error"
+                );
+
+                return;
+              }
+
+              driveAccessToken =
+                response.access_token;
+
+              setDriveConnected(true);
+
+              toast(
+                "تم ربط Google Drive بنجاح",
+                "success"
+              );
+
+            }
+
+          });
 
       } catch (error) {
 
         console.error(error);
 
-        loginError.textContent =
-          "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
-
-        loginError.style.display =
-          "block";
-
       }
 
     }
-  );
 
 
-  document
-    .getElementById("logoutBtn")
-    .addEventListener(
-      "click",
-      async () => {
+    window.connectGoogleDrive = async function() {
 
-        googleAccessToken = null;
+      try {
 
-        await signOut(auth);
+        if (!GOOGLE_CLIENT_ID ||
+            GOOGLE_CLIENT_ID.includes("ضع-")) {
 
-      }
-    );
+          toast(
+            "Client ID غير موجود داخل الكود",
+            "error"
+          );
 
+          return;
 
-  /* =====================================================
-     GOOGLE DRIVE INITIALIZE
-  ===================================================== */
+        }
 
-  function initializeGoogleDrive(){
+        if (!driveTokenClient) {
 
-    if(
-      !GOOGLE_CLIENT_ID ||
-      GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
-    ){
+          await initGoogleDriveAuth();
 
-      setDriveStatus(false);
+        }
 
-      connectDriveBtn.textContent =
-        "إضافة Client ID";
+        if (!driveTokenClient) {
 
-      return;
+          toast(
+            "Google لم يتم تحميله بعد، حاول مرة ثانية",
+            "error"
+          );
 
-    }
+          return;
 
-    if(
-      !window.google ||
-      !window.google.accounts ||
-      !window.google.accounts.oauth2
-    ){
+        }
 
-      setTimeout(
-        initializeGoogleDrive,
-        800
-      );
+        driveTokenClient.requestAccessToken({
+          prompt:"consent"
+        });
 
-      return;
+      } catch (error) {
 
-    }
-
-    googleTokenClient =
-      window.google.accounts.oauth2.initTokenClient({
-
-        client_id:
-          GOOGLE_CLIENT_ID,
-
-        scope:
-          GOOGLE_DRIVE_SCOPE,
-
-        callback:
-          (response) => {
-
-            if(response.error){
-
-              console.error(
-                "Google OAuth error:",
-                response
-              );
-
-              setDriveStatus(false);
-
-              toast(
-                "تعذر ربط Google Drive",
-                "error"
-              );
-
-              return;
-
-            }
-
-            googleAccessToken =
-              response.access_token;
-
-            googleTokenExpiresAt =
-              Date.now() +
-              ((Number(response.expires_in) || 3600) * 1000);
-
-            setDriveStatus(
-              true,
-              "Google Drive متصل"
-            );
-
-            toast(
-              "تم ربط Google Drive بنجاح",
-              "success"
-            );
-
-          }
-
-      });
-
-    setDriveStatus(false);
-
-  }
-
-
-  /* =====================================================
-     GOOGLE DRIVE CONNECT
-  ===================================================== */
-
-  connectDriveBtn.addEventListener(
-    "click",
-    () => {
-
-      if(
-        !GOOGLE_CLIENT_ID ||
-        GOOGLE_CLIENT_ID.includes("ضع_CLIENT_ID")
-      ){
+        console.error(error);
 
         toast(
-          "ضع Google Client ID داخل الكود أولاً",
+          "حدث خطأ أثناء ربط Google Drive",
           "error"
         );
 
-        return;
+      }
+
+    };
+
+
+    function setDriveConnected(connected) {
+
+      const status =
+        document.getElementById("driveStatus");
+
+      const button =
+        document.getElementById("driveConnectBtn");
+
+      if (connected) {
+
+        status.textContent =
+          "متصل — يمكنك رفع ملفات PDF";
+
+        status.classList.add("connected");
+
+        button.textContent =
+          "إعادة ربط Google Drive";
+
+        button.classList.add("btn-success");
+
+      } else {
+
+        status.textContent =
+          "غير مرتبط — اربط حساب Google لرفع ملفات PDF";
+
+        status.classList.remove("connected");
+
+        button.textContent =
+          "ربط Google Drive";
+
+        button.classList.remove("btn-success");
 
       }
 
-      if(!googleTokenClient){
+    }
 
-        initializeGoogleDrive();
 
-        setTimeout(() => {
+    async function ensureDriveToken() {
 
-          if(googleTokenClient){
+      if (driveAccessToken) {
+        return driveAccessToken;
+      }
 
-            requestGoogleDriveAccess();
+      await initGoogleDriveAuth();
 
-          }else{
+      if (!driveTokenClient) {
 
-            toast(
-              "انتظر تحميل Google ثم حاول مرة أخرى",
-              "error"
+        throw new Error(
+          "Google Drive غير جاهز"
+        );
+
+      }
+
+      return new Promise((resolve, reject) => {
+
+        driveTokenClient.callback = (response) => {
+
+          if (response.error) {
+
+            reject(
+              new Error(
+                response.error_description ||
+                response.error
+              )
             );
+
+            return;
 
           }
 
-        },1000);
+          driveAccessToken =
+            response.access_token;
 
-        return;
+          setDriveConnected(true);
 
-      }
-
-      requestGoogleDriveAccess();
-
-    }
-  );
-
-
-  function requestGoogleDriveAccess(){
-
-    googleTokenClient.requestAccessToken({
-      prompt:"consent"
-    });
-
-  }
-
-
-  function setDriveStatus(
-    connected,
-    text = ""
-  ){
-
-    if(connected){
-
-      driveStatus.classList.add(
-        "connected"
-      );
-
-      driveStatus.innerHTML = `
-        <span class="drive-status-dot"></span>
-        متصل
-      `;
-
-      driveAccountText.textContent =
-        text ||
-        "Google Drive جاهز لرفع ملفات PDF";
-
-      connectDriveBtn.textContent =
-        "إعادة ربط Google Drive";
-
-    }else{
-
-      driveStatus.classList.remove(
-        "connected"
-      );
-
-      driveStatus.innerHTML = `
-        <span class="drive-status-dot"></span>
-        غير متصل
-      `;
-
-      driveAccountText.textContent =
-        "اربط حساب Google لرفع ملفات PDF مباشرة";
-
-      connectDriveBtn.textContent =
-        "ربط Google Drive";
-
-    }
-
-  }
-
-
-  /* =====================================================
-     GOOGLE TOKEN
-  ===================================================== */
-
-  async function ensureGoogleToken(){
-
-    if(
-      googleAccessToken &&
-      Date.now() <
-        googleTokenExpiresAt - 60000
-    ){
-
-      return googleAccessToken;
-
-    }
-
-    if(!googleTokenClient){
-
-      initializeGoogleDrive();
-
-    }
-
-    if(!googleTokenClient){
-
-      throw new Error(
-        "Google OAuth غير جاهز"
-      );
-
-    }
-
-    return new Promise(
-      (resolve,reject) => {
-
-        const oldCallback =
-          googleTokenClient.callback;
-
-        googleTokenClient.callback =
-          (response) => {
-
-            googleTokenClient.callback =
-              oldCallback;
-
-            if(response.error){
-
-              reject(
-                new Error(
-                  response.error_description ||
-                  response.error
-                )
-              );
-
-              return;
-
-            }
-
-            googleAccessToken =
-              response.access_token;
-
-            googleTokenExpiresAt =
-              Date.now() +
-              ((Number(response.expires_in) || 3600) * 1000);
-
-            setDriveStatus(true);
-
-            resolve(
-              googleAccessToken
-            );
-
-          };
-
-        googleTokenClient.requestAccessToken({
-          prompt:""
-        });
-
-      }
-    );
-
-  }
-
-
-  /* =====================================================
-     LOAD ALL
-  ===================================================== */
-
-  async function loadAll(){
-
-    try{
-
-      await Promise.all([
-        loadGenerations(),
-        loadSubjects(),
-        loadSections(),
-        loadResources()
-      ]);
-
-      updateStats();
-
-    }catch(error){
-
-      console.error(error);
-
-      toast(
-        "حدث خطأ أثناء تحميل البيانات",
-        "error"
-      );
-
-    }
-
-  }
-
-
-  /* =====================================================
-     GENERATIONS
-  ===================================================== */
-
-  async function loadGenerations(){
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "generations"
-        )
-      );
-
-    generations =
-      snapshot.docs.map(d => ({
-        id:d.id,
-        ...d.data()
-      }));
-
-    generations.sort(
-      (a,b) =>
-        Number(a.year || 0) -
-        Number(b.year || 0)
-    );
-
-    renderGenerations();
-    fillGenerationSelects();
-
-  }
-
-
-  function renderGenerations(){
-
-    const container =
-      document.getElementById(
-        "generationsList"
-      );
-
-    if(!generations.length){
-
-      container.innerHTML =
-        `<div class="empty">
-          لا يوجد أجيال حتى الآن.
-        </div>`;
-
-      return;
-
-    }
-
-    container.innerHTML = `
-
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>الاسم</th>
-            <th>العام</th>
-            <th>الوصف</th>
-            <th>الإجراءات</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          ${generations.map(g => `
-
-            <tr>
-
-              <td>
-                <strong>
-                  ${escapeHtml(g.name || "")}
-                </strong>
-              </td>
-
-              <td>
-                <span class="badge">
-                  ${escapeHtml(g.year || "")}
-                </span>
-              </td>
-
-              <td>
-                ${escapeHtml(g.description || "—")}
-              </td>
-
-              <td>
-
-                <div class="actions">
-
-                  <button
-                    class="btn btn-edit"
-                    onclick="editGeneration('${g.id}')"
-                  >
-                    ${editIcon()}
-                    تعديل
-                  </button>
-
-                  <button
-                    class="btn btn-danger"
-                    onclick="deleteGeneration('${g.id}')"
-                  >
-                    ${deleteIcon()}
-                    حذف
-                  </button>
-
-                </div>
-
-              </td>
-
-            </tr>
-
-          `).join("")}
-
-        </tbody>
-
-      </table>
-
-    `;
-
-  }
-
-
-  document
-    .getElementById("generationAddForm")
-    .addEventListener(
-      "submit",
-      async (e) => {
-
-        e.preventDefault();
-
-        const data = {
-
-          name:
-            document
-              .getElementById("generationName")
-              .value
-              .trim(),
-
-          year:
-            document
-              .getElementById("generationYear")
-              .value
-              .trim(),
-
-          description:
-            document
-              .getElementById("generationDescription")
-              .value
-              .trim(),
-
-          updatedAt:
-            serverTimestamp()
+          resolve(driveAccessToken);
 
         };
 
-        const editing =
-          Boolean(editingGenerationId);
+        driveTokenClient.requestAccessToken({
+          prompt:""
+        });
 
-        try{
+      });
 
-          if(editing){
+    }
 
-            await updateDoc(
-              doc(
-                db,
-                "generations",
-                editingGenerationId
-              ),
-              data
-            );
 
-            toast(
-              "تم تعديل الجيل بنجاح",
-              "success"
-            );
+    async function uploadToGoogleDrive(file) {
 
-          }else{
+      const token =
+        await ensureDriveToken();
 
-            await addDoc(
-              collection(
-                db,
-                "generations"
-              ),
-              {
-                ...data,
-                createdAt:
-                  serverTimestamp()
-              }
-            );
 
-            toast(
-              "تمت إضافة الجيل بنجاح",
-              "success"
-            );
+      const metadata = {
+
+        name:file.name,
+
+        mimeType:"application/pdf"
+
+      };
+
+
+      const boundary =
+        "-------tawjihi_" +
+        Date.now().toString(36);
+
+
+      const body = new Blob([
+
+        `--${boundary}\r\n`,
+
+        `Content-Type: application/json; charset=UTF-8\r\n\r\n`,
+
+        JSON.stringify(metadata),
+
+        `\r\n--${boundary}\r\n`,
+
+        `Content-Type: application/pdf\r\n\r\n`,
+
+        file,
+
+        `\r\n--${boundary}--`
+
+      ]);
+
+
+      let response =
+        await fetch(
+          "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,mimeType,webViewLink,webContentLink",
+          {
+
+            method:"POST",
+
+            headers:{
+
+              Authorization:
+                `Bearer ${token}`,
+
+              "Content-Type":
+                `multipart/related; boundary=${boundary}`
+
+            },
+
+            body
 
           }
+        );
 
-          hideGenerationForm();
 
-          await loadGenerations();
+      if (response.status === 401) {
 
-          updateStats();
+        driveAccessToken = null;
 
-        }catch(error){
+        await ensureDriveToken();
 
-          console.error(error);
+        return uploadToGoogleDrive(file);
 
-          toast(
-            editing
-              ? "تعذر تعديل الجيل"
-              : "تعذر إضافة الجيل",
-            "error"
+      }
+
+
+      if (!response.ok) {
+
+        const text =
+          await response.text();
+
+        throw new Error(text);
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      /*
+       * نجعل الملف متاحاً للطلاب.
+       */
+
+      try {
+
+        const permissionResponse =
+          await fetch(
+            `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(data.id)}/permissions`,
+            {
+
+              method:"POST",
+
+              headers:{
+
+                Authorization:
+                  `Bearer ${driveAccessToken}`,
+
+                "Content-Type":
+                  "application/json"
+
+              },
+
+              body:JSON.stringify({
+
+                type:"anyone",
+
+                role:"reader"
+
+              })
+
+            }
+          );
+
+
+        if (!permissionResponse.ok) {
+
+          console.warn(
+            "تعذر جعل الملف عاماً:",
+            await permissionResponse.text()
           );
 
         }
 
+      } catch (error) {
+
+        console.warn(
+          "Public permission error:",
+          error
+        );
+
       }
-    );
 
 
-  window.editGeneration =
-    function(id){
+      /*
+       * جلب الرابط النهائي.
+       */
+
+      const metaResponse =
+        await fetch(
+          `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(data.id)}?fields=id,name,mimeType,webViewLink,webContentLink`,
+          {
+
+            headers:{
+
+              Authorization:
+                `Bearer ${driveAccessToken}`
+
+            }
+
+          }
+        );
+
+
+      const meta =
+        await metaResponse.json();
+
+
+      return {
+
+        id:data.id,
+
+        name:data.name,
+
+        url:
+          meta.webViewLink ||
+          `https://drive.google.com/file/d/${data.id}/view`
+
+      };
+
+    }
+
+
+    async function deleteDriveFile(fileId) {
+
+      if (!fileId || !driveAccessToken) {
+        return false;
+      }
+
+      try {
+
+        const response =
+          await fetch(
+            `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}`,
+            {
+
+              method:"DELETE",
+
+              headers:{
+
+                Authorization:
+                  `Bearer ${driveAccessToken}`
+
+              }
+
+            }
+          );
+
+
+        return response.ok ||
+               response.status === 404;
+
+      } catch (error) {
+
+        console.warn(
+          "Drive delete error:",
+          error
+        );
+
+        return false;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       DATA
+    ===================================================== */
+
+    let generations = [];
+    let subjects = [];
+    let sections = [];
+    let resources = [];
+
+
+    let editingGenerationId = null;
+    let editingSubjectId = null;
+    let editingSectionId = null;
+    let editingResourceId = null;
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+    }
+
+
+    function resourceOrderValue(resource) {
+
+      const n =
+        Number(resource.order);
+
+      return Number.isFinite(n)
+        ? n
+        : 999999;
+
+    }
+
+
+    function sortByOrder(array) {
+
+      return array.sort((a,b) => {
+
+        return (
+          Number(a.order ?? 999999) -
+          Number(b.order ?? 999999)
+        );
+
+      });
+
+    }
+
+
+    function getGenerationName(id) {
+
+      const generation =
+        generations.find(
+          item => item.id === id
+        );
+
+      return generation?.name || "—";
+
+    }
+
+
+    function getSubjectName(id) {
+
+      const subject =
+        subjects.find(
+          item => item.id === id
+        );
+
+      return subject?.name || "—";
+
+    }
+
+
+    function getSectionName(id) {
+
+      const section =
+        sections.find(
+          item => item.id === id
+        );
+
+      return section?.name || "—";
+
+    }
+
+
+    function toast(message,type="") {
+
+      const container =
+        document.getElementById(
+          "toastContainer"
+        );
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        `toast ${type}`;
+
+      item.textContent =
+        message;
+
+      container.appendChild(item);
+
+      setTimeout(() => {
+
+        item.remove();
+
+      },3500);
+
+    }
+
+
+    /* =====================================================
+       PAGE NAVIGATION
+    ===================================================== */
+
+    const pageTitles = {
+
+      dashboard:"الرئيسية",
+
+      generations:"الأجيال",
+
+      subjects:"المواد",
+
+      sections:"الأقسام",
+
+      resources:"الملفات والموارد"
+
+    };
+
+
+    window.openPage = function(page) {
+
+      document
+        .querySelectorAll(".page")
+        .forEach(item => {
+
+          item.classList.remove("active");
+
+        });
+
+
+      const target =
+        document.getElementById(
+          `page-${page}`
+        );
+
+      if (target) {
+        target.classList.add("active");
+      }
+
+
+      document
+        .querySelectorAll(".nav-btn")
+        .forEach(item => {
+
+          item.classList.toggle(
+            "active",
+            item.dataset.page === page
+          );
+
+        });
+
+
+      document.getElementById(
+        "topTitle"
+      ).textContent =
+        pageTitles[page] || "لوحة التحكم";
+
+
+      document
+        .getElementById("sidebar")
+        .classList.remove("open");
+
+    };
+
+
+    document
+      .querySelectorAll(".nav-btn")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            openPage(
+              button.dataset.page
+            );
+
+          }
+        );
+
+      });
+
+
+    document
+      .getElementById("mobileMenuBtn")
+      .addEventListener(
+        "click",
+        () => {
+
+          document
+            .getElementById("sidebar")
+            .classList.toggle("open");
+
+        }
+      );
+
+
+    /* =====================================================
+       LOAD ALL
+    ===================================================== */
+
+    async function loadAll() {
+
+      try {
+
+        await Promise.all([
+
+          loadGenerations(),
+
+          loadSubjects(),
+
+          loadSections(),
+
+          loadResources()
+
+        ]);
+
+        updateStats();
+
+        renderRecentResources();
+
+      } catch (error) {
+
+        console.error(error);
+
+        toast(
+          "حدث خطأ أثناء تحميل البيانات",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    async function loadGenerations() {
+
+      const snapshot =
+        await getDocs(
+          collection(db,"generations")
+        );
+
+      generations =
+        snapshot.docs.map(item => ({
+
+          id:item.id,
+
+          ...item.data()
+
+        }));
+
+      sortByOrder(generations);
+
+      renderGenerations();
+
+      fillGenerationSelect();
+
+    }
+
+
+    async function loadSubjects() {
+
+      const snapshot =
+        await getDocs(
+          collection(db,"subjects")
+        );
+
+      subjects =
+        snapshot.docs.map(item => ({
+
+          id:item.id,
+
+          ...item.data()
+
+        }));
+
+      sortByOrder(subjects);
+
+      renderSubjects();
+
+      fillSubjectSelects();
+
+    }
+
+
+    async function loadSections() {
+
+      const snapshot =
+        await getDocs(
+          collection(db,"sections")
+        );
+
+      sections =
+        snapshot.docs.map(item => ({
+
+          id:item.id,
+
+          ...item.data()
+
+        }));
+
+      sortByOrder(sections);
+
+      renderSections();
+
+      fillSectionSelect(
+        document.getElementById(
+          "resourceSubject"
+        )?.value || ""
+      );
+
+    }
+
+
+    async function loadResources() {
+
+      const snapshot =
+        await getDocs(
+          collection(db,"resources")
+        );
+
+      resources =
+        snapshot.docs.map(item => ({
+
+          id:item.id,
+
+          ...item.data()
+
+        }));
+
+      resources.sort(
+        (a,b) => {
+
+          return (
+            resourceOrderValue(a) -
+            resourceOrderValue(b)
+          ) ||
+            (
+              Number(b.createdAt?.seconds || 0) -
+              Number(a.createdAt?.seconds || 0)
+            );
+
+        }
+      );
+
+      renderResources();
+
+      renderRecentResources();
+
+    }
+
+
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    function updateStats() {
+
+      document.getElementById(
+        "statGenerations"
+      ).textContent =
+        generations.length;
+
+      document.getElementById(
+        "statSubjects"
+      ).textContent =
+        subjects.length;
+
+      document.getElementById(
+        "statSections"
+      ).textContent =
+        sections.length;
+
+      document.getElementById(
+        "statResources"
+      ).textContent =
+        resources.length;
+
+    }
+
+
+    /* =====================================================
+       GENERATION
+    ===================================================== */
+
+    function fillGenerationSelect() {
+
+      const select =
+        document.getElementById(
+          "subjectGeneration"
+        );
+
+      if (!select) return;
+
+      const current =
+        select.value;
+
+      select.innerHTML =
+        `<option value="">اختر الجيل</option>`;
+
+      generations.forEach(item => {
+
+        const option =
+          document.createElement("option");
+
+        option.value =
+          item.id;
+
+        option.textContent =
+          item.name ||
+          item.year ||
+          "جيل";
+
+        select.appendChild(option);
+
+      });
+
+      if (current) {
+        select.value = current;
+      }
+
+    }
+
+
+    function renderGenerations() {
+
+      const tbody =
+        document.getElementById(
+          "generationsTable"
+        );
+
+      if (!generations.length) {
+
+        tbody.innerHTML =
+          `<tr><td colspan="4">
+            <div class="empty">لا توجد أجيال حتى الآن</div>
+          </td></tr>`;
+
+        return;
+
+      }
+
+
+      tbody.innerHTML =
+        generations.map(item => `
+
+          <tr>
+
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
+
+            <td>
+              ${escapeHTML(item.year)}
+            </td>
+
+            <td>
+              ${escapeHTML(item.description || "—")}
+            </td>
+
+            <td>
+
+              <div class="actions">
+
+                <button
+                  class="btn btn-edit"
+                  onclick="editGeneration('${item.id}')"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                  </svg>
+                  تعديل
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteGeneration('${item.id}')"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18"/>
+                    <path d="M8 6V4h8v2"/>
+                    <path d="M19 6l-1 14H6L5 6"/>
+                    <path d="M10 11v5M14 11v5"/>
+                  </svg>
+                  حذف
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `).join("");
+
+    }
+
+
+    window.showGenerationForm = function() {
+
+      editingGenerationId = null;
+
+      document
+        .getElementById("generationAddForm")
+        .reset();
+
+      document.getElementById(
+        "generationSubmitText"
+      ).textContent =
+        "حفظ الجيل";
+
+      document.getElementById(
+        "generationFormTitle"
+      ).textContent =
+        "إضافة جيل جديد";
+
+      document.getElementById(
+        "generationForm"
+      ).style.display =
+        "block";
+
+      openPage("generations");
+
+    };
+
+
+    window.editGeneration = function(id) {
 
       const item =
         generations.find(
           g => g.id === id
         );
 
-      if(!item) return;
+      if (!item) return;
 
-      editingGenerationId =
-        id;
+      editingGenerationId = id;
 
       document.getElementById(
         "generationName"
@@ -2736,14 +2819,14 @@
         item.description || "";
 
       document.getElementById(
-        "generationSubmitBtn"
+        "generationSubmitText"
       ).textContent =
         "حفظ التعديلات";
 
       document.getElementById(
-        "generationEditMode"
-      ).style.display =
-        "flex";
+        "generationFormTitle"
+      ).textContent =
+        "تعديل الجيل";
 
       document.getElementById(
         "generationForm"
@@ -2755,23 +2838,160 @@
       document.getElementById(
         "generationForm"
       ).scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
       });
 
     };
 
 
-  window.deleteGeneration =
-    async function(id){
+    window.resetGenerationForm = function() {
 
-      if(
-        !confirm(
-          "هل أنت متأكد من حذف هذا الجيل؟"
+      editingGenerationId = null;
+
+      document
+        .getElementById(
+          "generationAddForm"
         )
-      ) return;
+        .reset();
 
-      try{
+      document.getElementById(
+        "generationSubmitText"
+      ).textContent =
+        "حفظ الجيل";
+
+      document.getElementById(
+        "generationFormTitle"
+      ).textContent =
+        "إضافة جيل جديد";
+
+      document.getElementById(
+        "generationForm"
+      ).style.display =
+        "none";
+
+    };
+
+
+    document
+      .getElementById(
+        "generationAddForm"
+      )
+      .addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+          try {
+
+            const data = {
+
+              name:
+                document.getElementById(
+                  "generationName"
+                ).value.trim(),
+
+              year:
+                Number(
+                  document.getElementById(
+                    "generationYear"
+                  ).value
+                ),
+
+              description:
+                document.getElementById(
+                  "generationDescription"
+                ).value.trim(),
+
+              updatedAt:
+                serverTimestamp()
+
+            };
+
+
+            if (editingGenerationId) {
+
+              await updateDoc(
+                doc(
+                  db,
+                  "generations",
+                  editingGenerationId
+                ),
+                data
+              );
+
+              toast(
+                "تم تعديل الجيل بنجاح",
+                "success"
+              );
+
+            } else {
+
+              await addDoc(
+                collection(
+                  db,
+                  "generations"
+                ),
+                {
+
+                  ...data,
+
+                  createdAt:
+                    serverTimestamp()
+
+                }
+              );
+
+              toast(
+                "تمت إضافة الجيل بنجاح",
+                "success"
+              );
+
+            }
+
+
+            resetGenerationForm();
+
+            await loadGenerations();
+
+            updateStats();
+
+          } catch (error) {
+
+            console.error(error);
+
+            toast(
+              "تعذر حفظ الجيل",
+              "error"
+            );
+
+          }
+
+        }
+      );
+
+
+    window.deleteGeneration = async function(id) {
+
+      const item =
+        generations.find(
+          g => g.id === id
+        );
+
+      if (!item) return;
+
+      if (!confirm(
+        `هل أنت متأكد من حذف "${item.name}"؟`
+      )) {
+        return;
+      }
+
+
+      try {
 
         await deleteDoc(
           doc(
@@ -2781,16 +3001,16 @@
           )
         );
 
-        await loadGenerations();
-
-        updateStats();
-
         toast(
           "تم حذف الجيل",
           "success"
         );
 
-      }catch(error){
+        await loadGenerations();
+
+        updateStats();
+
+      } catch (error) {
 
         console.error(error);
 
@@ -2804,273 +3024,184 @@
     };
 
 
-  /* =====================================================
-     SUBJECTS
-  ===================================================== */
+    /* =====================================================
+       SUBJECTS
+    ===================================================== */
 
-  async function loadSubjects(){
+    function fillSubjectSelects() {
 
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "subjects"
+      const selects = [
+
+        document.getElementById(
+          "sectionSubject"
+        ),
+
+        document.getElementById(
+          "resourceSubject"
         )
-      );
 
-    subjects =
-      snapshot.docs.map(d => ({
-        id:d.id,
-        ...d.data()
-      }));
-
-    subjects.sort(
-      (a,b) =>
-        Number(a.order || 0) -
-        Number(b.order || 0)
-    );
-
-    renderSubjects();
-    fillSubjectSelects();
-
-  }
+      ];
 
 
-  function renderSubjects(){
+      selects.forEach(select => {
 
-    const container =
-      document.getElementById(
-        "subjectsList"
-      );
+        if (!select) return;
 
-    if(!subjects.length){
+        const current =
+          select.value;
 
-      container.innerHTML =
-        `<div class="empty">
-          لا توجد مواد حتى الآن.
-        </div>`;
+        select.innerHTML =
+          `<option value="">اختر المادة</option>`;
 
-      return;
+        subjects.forEach(item => {
+
+          const option =
+            document.createElement("option");
+
+          option.value =
+            item.id;
+
+          option.textContent =
+            item.name;
+
+          select.appendChild(option);
+
+        });
+
+        if (current) {
+          select.value = current;
+        }
+
+      });
 
     }
 
-    container.innerHTML = `
 
-      <table>
+    function renderSubjects() {
 
-        <thead>
+      const tbody =
+        document.getElementById(
+          "subjectsTable"
+        );
 
-          <tr>
-            <th>المادة</th>
-            <th>الجيل</th>
-            <th>المعرف</th>
-            <th>الترتيب</th>
-            <th>الإجراءات</th>
-          </tr>
+      if (!subjects.length) {
 
-        </thead>
+        tbody.innerHTML =
+          `<tr><td colspan="5">
+            <div class="empty">لا توجد مواد حتى الآن</div>
+          </td></tr>`;
 
-        <tbody>
-
-          ${subjects.map(s => {
-
-            const generation =
-              generations.find(
-                g => g.id === s.generationId
-              );
-
-            return `
-
-              <tr>
-
-                <td>
-                  <strong>
-                    ${escapeHtml(s.name || "")}
-                  </strong>
-                </td>
-
-                <td>
-                  ${escapeHtml(
-                    generation?.name ||
-                    "غير معروف"
-                  )}
-                </td>
-
-                <td>
-                  <span class="badge">
-                    ${escapeHtml(s.slug || "")}
-                  </span>
-                </td>
-
-                <td>
-                  <span class="order-badge">
-                    ${Number(s.order) || 1}
-                  </span>
-                </td>
-
-                <td>
-
-                  <div class="actions">
-
-                    <button
-                      class="btn btn-edit"
-                      onclick="editSubject('${s.id}')"
-                    >
-                      ${editIcon()}
-                      تعديل
-                    </button>
-
-                    <button
-                      class="btn btn-danger"
-                      onclick="deleteSubject('${s.id}')"
-                    >
-                      ${deleteIcon()}
-                      حذف
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-            `;
-
-          }).join("")}
-
-        </tbody>
-
-      </table>
-
-    `;
-
-  }
-
-
-  document
-    .getElementById("subjectAddForm")
-    .addEventListener(
-      "submit",
-      async (e) => {
-
-        e.preventDefault();
-
-        const data = {
-
-          generationId:
-            document
-              .getElementById("subjectGeneration")
-              .value,
-
-          name:
-            document
-              .getElementById("subjectName")
-              .value
-              .trim(),
-
-          slug:
-            document
-              .getElementById("subjectSlug")
-              .value
-              .trim(),
-
-          description:
-            document
-              .getElementById("subjectDescription")
-              .value
-              .trim(),
-
-          order:
-            Number(
-              document
-                .getElementById("subjectOrder")
-                .value
-            ) || 1,
-
-          updatedAt:
-            serverTimestamp()
-
-        };
-
-        const editing =
-          Boolean(editingSubjectId);
-
-        try{
-
-          if(editing){
-
-            await updateDoc(
-              doc(
-                db,
-                "subjects",
-                editingSubjectId
-              ),
-              data
-            );
-
-            toast(
-              "تم تعديل المادة بنجاح",
-              "success"
-            );
-
-          }else{
-
-            await addDoc(
-              collection(
-                db,
-                "subjects"
-              ),
-              {
-                ...data,
-                createdAt:
-                  serverTimestamp()
-              }
-            );
-
-            toast(
-              "تمت إضافة المادة بنجاح",
-              "success"
-            );
-
-          }
-
-          hideSubjectForm();
-
-          await loadSubjects();
-          await loadSections();
-          await loadResources();
-
-          updateStats();
-
-        }catch(error){
-
-          console.error(error);
-
-          toast(
-            editing
-              ? "تعذر تعديل المادة"
-              : "تعذر إضافة المادة",
-            "error"
-          );
-
-        }
+        return;
 
       }
-    );
 
 
-  window.editSubject =
-    function(id){
+      tbody.innerHTML =
+        subjects.map(item => `
+
+          <tr>
+
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
+
+            <td>
+              ${escapeHTML(
+                getGenerationName(
+                  item.generationId
+                )
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(item.slug || "—")}
+            </td>
+
+            <td>
+              <span class="order-badge">
+                ${Number(item.order || 1)}
+              </span>
+            </td>
+
+            <td>
+
+              <div class="actions">
+
+                <button
+                  class="btn btn-edit"
+                  onclick="editSubject('${item.id}')"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                  </svg>
+                  تعديل
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteSubject('${item.id}')"
+                >
+                  حذف
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `).join("");
+
+    }
+
+
+    window.showSubjectForm = function() {
+
+      editingSubjectId = null;
+
+      document
+        .getElementById(
+          "subjectAddForm"
+        )
+        .reset();
+
+      document.getElementById(
+        "subjectOrder"
+      ).value = 1;
+
+      document.getElementById(
+        "subjectSubmitText"
+      ).textContent =
+        "حفظ المادة";
+
+      document.getElementById(
+        "subjectFormTitle"
+      ).textContent =
+        "إضافة مادة جديدة";
+
+      document.getElementById(
+        "subjectForm"
+      ).style.display =
+        "block";
+
+      openPage("subjects");
+
+    };
+
+
+    window.editSubject = function(id) {
 
       const item =
         subjects.find(
           s => s.id === id
         );
 
-      if(!item) return;
+      if (!item) return;
 
-      editingSubjectId =
-        id;
+      editingSubjectId = id;
 
       document.getElementById(
         "subjectGeneration"
@@ -3090,7 +3221,7 @@
       document.getElementById(
         "subjectOrder"
       ).value =
-        item.order ?? 1;
+        item.order || 1;
 
       document.getElementById(
         "subjectDescription"
@@ -3098,14 +3229,14 @@
         item.description || "";
 
       document.getElementById(
-        "subjectSubmitBtn"
+        "subjectSubmitText"
       ).textContent =
         "حفظ التعديلات";
 
       document.getElementById(
-        "subjectEditMode"
-      ).style.display =
-        "flex";
+        "subjectFormTitle"
+      ).textContent =
+        "تعديل المادة";
 
       document.getElementById(
         "subjectForm"
@@ -3117,23 +3248,186 @@
       document.getElementById(
         "subjectForm"
       ).scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
       });
 
     };
 
 
-  window.deleteSubject =
-    async function(id){
+    window.resetSubjectForm = function() {
 
-      if(
-        !confirm(
-          "هل أنت متأكد من حذف هذه المادة؟"
+      editingSubjectId = null;
+
+      document
+        .getElementById(
+          "subjectAddForm"
         )
-      ) return;
+        .reset();
 
-      try{
+      document.getElementById(
+        "subjectOrder"
+      ).value = 1;
+
+      document.getElementById(
+        "subjectSubmitText"
+      ).textContent =
+        "حفظ المادة";
+
+      document.getElementById(
+        "subjectFormTitle"
+      ).textContent =
+        "إضافة مادة جديدة";
+
+      document.getElementById(
+        "subjectForm"
+      ).style.display =
+        "none";
+
+    };
+
+
+    document
+      .getElementById(
+        "subjectAddForm"
+      )
+      .addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+          try {
+
+            const data = {
+
+              generationId:
+                document.getElementById(
+                  "subjectGeneration"
+                ).value,
+
+              name:
+                document.getElementById(
+                  "subjectName"
+                ).value.trim(),
+
+              slug:
+                document.getElementById(
+                  "subjectSlug"
+                ).value.trim(),
+
+              order:
+                Number(
+                  document.getElementById(
+                    "subjectOrder"
+                  ).value
+                ) || 1,
+
+              description:
+                document.getElementById(
+                  "subjectDescription"
+                ).value.trim(),
+
+              updatedAt:
+                serverTimestamp()
+
+            };
+
+
+            if (!data.generationId) {
+
+              toast(
+                "اختر الجيل أولاً",
+                "error"
+              );
+
+              return;
+
+            }
+
+
+            if (editingSubjectId) {
+
+              await updateDoc(
+                doc(
+                  db,
+                  "subjects",
+                  editingSubjectId
+                ),
+                data
+              );
+
+              toast(
+                "تم تعديل المادة بنجاح",
+                "success"
+              );
+
+            } else {
+
+              await addDoc(
+                collection(
+                  db,
+                  "subjects"
+                ),
+                {
+
+                  ...data,
+
+                  createdAt:
+                    serverTimestamp()
+
+                }
+              );
+
+              toast(
+                "تمت إضافة المادة بنجاح",
+                "success"
+              );
+
+            }
+
+
+            resetSubjectForm();
+
+            await loadSubjects();
+
+            updateStats();
+
+          } catch (error) {
+
+            console.error(error);
+
+            toast(
+              "تعذر حفظ المادة",
+              "error"
+            );
+
+          }
+
+        }
+      );
+
+
+    window.deleteSubject = async function(id) {
+
+      const item =
+        subjects.find(
+          s => s.id === id
+        );
+
+      if (!item) return;
+
+      if (!confirm(
+        `هل أنت متأكد من حذف "${item.name}"؟`
+      )) {
+        return;
+      }
+
+
+      try {
 
         await deleteDoc(
           doc(
@@ -3143,16 +3437,16 @@
           )
         );
 
-        await loadSubjects();
-
-        updateStats();
-
         toast(
           "تم حذف المادة",
           "success"
         );
 
-      }catch(error){
+        await loadSubjects();
+
+        updateStats();
+
+      } catch (error) {
 
         console.error(error);
 
@@ -3166,270 +3460,137 @@
     };
 
 
-  /* =====================================================
-     SECTIONS
-  ===================================================== */
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
 
-  async function loadSections(){
+    function renderSections() {
 
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "sections"
-        )
-      );
+      const tbody =
+        document.getElementById(
+          "sectionsTable"
+        );
 
-    sections =
-      snapshot.docs.map(d => ({
-        id:d.id,
-        ...d.data()
-      }));
+      if (!sections.length) {
 
-    sections.sort(
-      (a,b) =>
-        Number(a.order || 0) -
-        Number(b.order || 0)
-    );
+        tbody.innerHTML =
+          `<tr><td colspan="5">
+            <div class="empty">لا توجد أقسام حتى الآن</div>
+          </td></tr>`;
 
-    renderSections();
-    fillResourceSectionSelect(
-      document.getElementById(
-        "resourceSubject"
-      ).value
-    );
+        return;
 
-  }
+      }
 
 
-  function renderSections(){
+      tbody.innerHTML =
+        sections.map(item => `
 
-    const container =
-      document.getElementById(
-        "sectionsList"
-      );
+          <tr>
 
-    if(!sections.length){
+            <td>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+            </td>
 
-      container.innerHTML =
-        `<div class="empty">
-          لا توجد أقسام حتى الآن.
-        </div>`;
+            <td>
+              ${escapeHTML(
+                getSubjectName(
+                  item.subjectId
+                )
+              )}
+            </td>
 
-      return;
+            <td>
+              <span class="order-badge">
+                ${Number(item.order || 1)}
+              </span>
+            </td>
+
+            <td>
+              ${escapeHTML(
+                item.description || "—"
+              )}
+            </td>
+
+            <td>
+
+              <div class="actions">
+
+                <button
+                  class="btn btn-edit"
+                  onclick="editSection('${item.id}')"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                  </svg>
+                  تعديل
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteSection('${item.id}')"
+                >
+                  حذف
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `).join("");
 
     }
 
-    container.innerHTML = `
 
-      <table>
+    window.showSectionForm = function() {
 
-        <thead>
+      editingSectionId = null;
 
-          <tr>
-            <th>القسم</th>
-            <th>المادة</th>
-            <th>الترتيب</th>
-            <th>الوصف</th>
-            <th>الإجراءات</th>
-          </tr>
+      document
+        .getElementById(
+          "sectionAddForm"
+        )
+        .reset();
 
-        </thead>
+      document.getElementById(
+        "sectionOrder"
+      ).value = 1;
 
-        <tbody>
+      document.getElementById(
+        "sectionSubmitText"
+      ).textContent =
+        "حفظ القسم";
 
-          ${sections.map(s => {
+      document.getElementById(
+        "sectionFormTitle"
+      ).textContent =
+        "إضافة قسم جديد";
 
-            const subject =
-              subjects.find(
-                x => x.id === s.subjectId
-              );
+      document.getElementById(
+        "sectionForm"
+      ).style.display =
+        "block";
 
-            return `
+      openPage("sections");
 
-              <tr>
-
-                <td>
-                  <strong>
-                    ${escapeHtml(s.name || "")}
-                  </strong>
-                </td>
-
-                <td>
-                  ${escapeHtml(
-                    subject?.name ||
-                    "غير معروف"
-                  )}
-                </td>
-
-                <td>
-                  <span class="order-badge">
-                    ${Number(s.order) || 1}
-                  </span>
-                </td>
-
-                <td>
-                  ${escapeHtml(
-                    s.description || "—"
-                  )}
-                </td>
-
-                <td>
-
-                  <div class="actions">
-
-                    <button
-                      class="btn btn-edit"
-                      onclick="editSection('${s.id}')"
-                    >
-                      ${editIcon()}
-                      تعديل
-                    </button>
-
-                    <button
-                      class="btn btn-danger"
-                      onclick="deleteSection('${s.id}')"
-                    >
-                      ${deleteIcon()}
-                      حذف
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-            `;
-
-          }).join("")}
-
-        </tbody>
-
-      </table>
-
-    `;
-
-  }
+    };
 
 
-  document
-    .getElementById("sectionAddForm")
-    .addEventListener(
-      "submit",
-      async (e) => {
-
-        e.preventDefault();
-
-        const data = {
-
-          subjectId:
-            document
-              .getElementById("sectionSubject")
-              .value,
-
-          name:
-            document
-              .getElementById("sectionName")
-              .value
-              .trim(),
-
-          description:
-            document
-              .getElementById("sectionDescription")
-              .value
-              .trim(),
-
-          order:
-            Number(
-              document
-                .getElementById("sectionOrder")
-                .value
-            ) || 1,
-
-          updatedAt:
-            serverTimestamp()
-
-        };
-
-        const editing =
-          Boolean(editingSectionId);
-
-        try{
-
-          if(editing){
-
-            await updateDoc(
-              doc(
-                db,
-                "sections",
-                editingSectionId
-              ),
-              data
-            );
-
-            toast(
-              "تم تعديل القسم بنجاح",
-              "success"
-            );
-
-          }else{
-
-            await addDoc(
-              collection(
-                db,
-                "sections"
-              ),
-              {
-                ...data,
-                createdAt:
-                  serverTimestamp()
-              }
-            );
-
-            toast(
-              "تمت إضافة القسم بنجاح",
-              "success"
-            );
-
-          }
-
-          hideSectionForm();
-
-          await loadSections();
-          await loadResources();
-
-          updateStats();
-
-        }catch(error){
-
-          console.error(error);
-
-          toast(
-            editing
-              ? "تعذر تعديل القسم"
-              : "تعذر إضافة القسم",
-            "error"
-          );
-
-        }
-
-      }
-    );
-
-
-  window.editSection =
-    function(id){
+    window.editSection = function(id) {
 
       const item =
         sections.find(
           s => s.id === id
         );
 
-      if(!item) return;
+      if (!item) return;
 
-      editingSectionId =
-        id;
+      editingSectionId = id;
 
       document.getElementById(
         "sectionSubject"
@@ -3444,7 +3605,7 @@
       document.getElementById(
         "sectionOrder"
       ).value =
-        item.order ?? 1;
+        item.order || 1;
 
       document.getElementById(
         "sectionDescription"
@@ -3452,14 +3613,14 @@
         item.description || "";
 
       document.getElementById(
-        "sectionSubmitBtn"
+        "sectionSubmitText"
       ).textContent =
         "حفظ التعديلات";
 
       document.getElementById(
-        "sectionEditMode"
-      ).style.display =
-        "flex";
+        "sectionFormTitle"
+      ).textContent =
+        "تعديل القسم";
 
       document.getElementById(
         "sectionForm"
@@ -3471,23 +3632,181 @@
       document.getElementById(
         "sectionForm"
       ).scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
       });
 
     };
 
 
-  window.deleteSection =
-    async function(id){
+    window.resetSectionForm = function() {
 
-      if(
-        !confirm(
-          "هل أنت متأكد من حذف هذا القسم؟"
+      editingSectionId = null;
+
+      document
+        .getElementById(
+          "sectionAddForm"
         )
-      ) return;
+        .reset();
 
-      try{
+      document.getElementById(
+        "sectionOrder"
+      ).value = 1;
+
+      document.getElementById(
+        "sectionSubmitText"
+      ).textContent =
+        "حفظ القسم";
+
+      document.getElementById(
+        "sectionFormTitle"
+      ).textContent =
+        "إضافة قسم جديد";
+
+      document.getElementById(
+        "sectionForm"
+      ).style.display =
+        "none";
+
+    };
+
+
+    document
+      .getElementById(
+        "sectionAddForm"
+      )
+      .addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+          try {
+
+            const data = {
+
+              subjectId:
+                document.getElementById(
+                  "sectionSubject"
+                ).value,
+
+              name:
+                document.getElementById(
+                  "sectionName"
+                ).value.trim(),
+
+              order:
+                Number(
+                  document.getElementById(
+                    "sectionOrder"
+                  ).value
+                ) || 1,
+
+              description:
+                document.getElementById(
+                  "sectionDescription"
+                ).value.trim(),
+
+              updatedAt:
+                serverTimestamp()
+
+            };
+
+
+            if (!data.subjectId) {
+
+              toast(
+                "اختر المادة أولاً",
+                "error"
+              );
+
+              return;
+
+            }
+
+
+            if (editingSectionId) {
+
+              await updateDoc(
+                doc(
+                  db,
+                  "sections",
+                  editingSectionId
+                ),
+                data
+              );
+
+              toast(
+                "تم تعديل القسم بنجاح",
+                "success"
+              );
+
+            } else {
+
+              await addDoc(
+                collection(
+                  db,
+                  "sections"
+                ),
+                {
+
+                  ...data,
+
+                  createdAt:
+                    serverTimestamp()
+
+                }
+              );
+
+              toast(
+                "تمت إضافة القسم بنجاح",
+                "success"
+              );
+
+            }
+
+
+            resetSectionForm();
+
+            await loadSections();
+
+            updateStats();
+
+          } catch (error) {
+
+            console.error(error);
+
+            toast(
+              "تعذر حفظ القسم",
+              "error"
+            );
+
+          }
+
+        }
+      );
+
+
+    window.deleteSection = async function(id) {
+
+      const item =
+        sections.find(
+          s => s.id === id
+        );
+
+      if (!item) return;
+
+      if (!confirm(
+        `هل أنت متأكد من حذف "${item.name}"؟`
+      )) {
+        return;
+      }
+
+
+      try {
 
         await deleteDoc(
           doc(
@@ -3497,16 +3816,16 @@
           )
         );
 
-        await loadSections();
-
-        updateStats();
-
         toast(
           "تم حذف القسم",
           "success"
         );
 
-      }catch(error){
+        await loadSections();
+
+        updateStats();
+
+      } catch (error) {
 
         console.error(error);
 
@@ -3520,438 +3839,840 @@
     };
 
 
-  /* =====================================================
-     RESOURCES
-  ===================================================== */
+    /* =====================================================
+       RESOURCE SELECTS
+    ===================================================== */
 
-  async function loadResources(){
+    function fillSectionSelect(subjectId="") {
 
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "resources"
+      const select =
+        document.getElementById(
+          "resourceSection"
+        );
+
+      if (!select) return;
+
+      const current =
+        select.value;
+
+      select.innerHTML =
+        `<option value="">بدون قسم</option>`;
+
+
+      sections
+        .filter(item => {
+
+          if (!subjectId) {
+            return true;
+          }
+
+          return item.subjectId === subjectId;
+
+        })
+        .sort(
+          (a,b) =>
+            Number(a.order || 999999) -
+            Number(b.order || 999999)
         )
-      );
+        .forEach(item => {
 
-    resources =
-      snapshot.docs.map(d => ({
-        id:d.id,
-        ...d.data()
-      }));
+          const option =
+            document.createElement("option");
 
-    resources.sort(
-      (a,b) =>
-        resourceOrderValue(a) -
-        resourceOrderValue(b) ||
-        Number(
-          b.createdAt?.seconds || 0
-        ) -
-        Number(
-          a.createdAt?.seconds || 0
-        )
-    );
+          option.value =
+            item.id;
 
-    renderResources();
-    renderRecentResources();
-    updateStats();
+          option.textContent =
+            item.name;
 
-  }
+          select.appendChild(option);
+
+        });
 
 
-  function resourceOrderValue(r){
+      if (
+        current &&
+        [...select.options]
+          .some(option =>
+            option.value === current
+          )
+      ) {
 
-    const n =
-      Number(r.order);
+        select.value =
+          current;
 
-    return Number.isFinite(n)
-      ? n
-      : 999999;
-
-  }
-
-
-  function renderResources(){
-
-    const container =
-      document.getElementById(
-        "resourcesList"
-      );
-
-    if(!resources.length){
-
-      container.innerHTML =
-        `<div class="empty">
-          لا توجد ملفات أو روابط حتى الآن.
-        </div>`;
-
-      return;
+      }
 
     }
 
-    container.innerHTML = `
 
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>المحتوى</th>
-            <th>المادة</th>
-            <th>القسم</th>
-            <th>الترتيب</th>
-            <th>النوع</th>
-            <th>الحالة</th>
-            <th>الرابط</th>
-            <th>الإجراءات</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          ${resources.map(r => {
-
-            const subject =
-              subjects.find(
-                x => x.id === r.subjectId
-              );
-
-            const section =
-              sections.find(
-                x => x.id === r.sectionId
-              );
-
-            return `
-
-              <tr>
-
-                <td>
-                  <strong>
-                    ${escapeHtml(r.title || "")}
-                  </strong>
-                </td>
-
-                <td>
-                  ${escapeHtml(
-                    subject?.name || "—"
-                  )}
-                </td>
-
-                <td>
-                  ${escapeHtml(
-                    section?.name || "—"
-                  )}
-                </td>
-
-                <td>
-                  <span class="order-badge">
-                    ${Number(r.order) || 1}
-                  </span>
-                </td>
-
-                <td>
-                  <span class="badge">
-                    ${escapeHtml(
-                      resourceTypeName(r.type)
-                    )}
-                  </span>
-                </td>
-
-                <td>
-
-                  ${
-                    r.published
-                      ? `<span class="badge">منشور</span>`
-                      : `<span class="badge" style="background:#fff7ed;color:#c2410c;">مخفي</span>`
-                  }
-
-                </td>
-
-                <td>
-
-                  <a
-                    class="url"
-                    href="${escapeAttribute(r.url || "#")}"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ${escapeHtml(r.url || "—")}
-                  </a>
-
-                </td>
-
-                <td>
-
-                  <div class="actions">
-
-                    <button
-                      class="btn btn-edit"
-                      onclick="editResource('${r.id}')"
-                    >
-                      ${editIcon()}
-                      تعديل
-                    </button>
-
-                    <button
-                      class="btn"
-                      onclick="toggleResource('${r.id}',${!r.published})"
-                    >
-                      ${r.published ? "إخفاء" : "نشر"}
-                    </button>
-
-                    <button
-                      class="btn btn-danger"
-                      onclick="deleteResource('${r.id}')"
-                    >
-                      ${deleteIcon()}
-                      حذف
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-            `;
-
-          }).join("")}
-
-        </tbody>
-
-      </table>
-
-    `;
-
-  }
-
-
-  /* =====================================================
-     RESOURCE FORM
-  ===================================================== */
-
-  document
-    .getElementById("resourceAddForm")
-    .addEventListener(
-      "submit",
-      async (e) => {
-
-        e.preventDefault();
-
-        const data = {
-
-          subjectId:
-            document
-              .getElementById("resourceSubject")
-              .value,
-
-          sectionId:
-            document
-              .getElementById("resourceSection")
-              .value,
-
-          title:
-            document
-              .getElementById("resourceTitle")
-              .value
-              .trim(),
-
-          type:
-            document
-              .getElementById("resourceType")
-              .value,
-
-          url:
-            document
-              .getElementById("resourceUrl")
-              .value
-              .trim(),
-
-          description:
-            document
-              .getElementById("resourceDescription")
-              .value
-              .trim(),
-
-          order:
-            Number(
-              document
-                .getElementById("resourceOrder")
-                .value
-            ) || 1,
-
-          published:
-            document
-              .getElementById("resourcePublished")
-              .value === "true",
-
-          updatedAt:
-            serverTimestamp()
-
-        };
-
-        const editing =
-          Boolean(editingResourceId);
-
-        try{
-
-          if(editing){
-
-            await updateDoc(
-              doc(
-                db,
-                "resources",
-                editingResourceId
-              ),
-              data
-            );
-
-            toast(
-              "تم تعديل المحتوى بنجاح",
-              "success"
-            );
-
-          }else{
-
-            await addDoc(
-              collection(
-                db,
-                "resources"
-              ),
-              {
-                ...data,
-                createdAt:
-                  serverTimestamp()
-              }
-            );
-
-            toast(
-              "تمت إضافة المحتوى بنجاح",
-              "success"
-            );
-
-          }
-
-          hideResourceForm();
-
-          await loadResources();
-
-        }catch(error){
-
-          console.error(error);
-
-          toast(
-            editing
-              ? "تعذر تعديل المحتوى"
-              : "تعذر إضافة المحتوى",
-            "error"
+    document
+      .getElementById(
+        "resourceSubject"
+      )
+      .addEventListener(
+        "change",
+        event => {
+
+          fillSectionSelect(
+            event.target.value
           );
 
         }
-
-      }
-    );
-
-
-  window.editResource =
-    function(id){
-
-      const resource =
-        resources.find(
-          r => r.id === id
-        );
-
-      if(!resource) return;
-
-      editingResourceId =
-        id;
-
-      document.getElementById(
-        "resourceSubject"
-      ).value =
-        resource.subjectId || "";
-
-      fillResourceSectionSelect(
-        resource.subjectId || ""
       );
 
-      document.getElementById(
-        "resourceSection"
-      ).value =
-        resource.sectionId || "";
 
-      document.getElementById(
-        "resourceTitle"
-      ).value =
-        resource.title || "";
+    document
+      .getElementById(
+        "resourceFile"
+      )
+      .addEventListener(
+        "change",
+        event => {
 
-      document.getElementById(
-        "resourceType"
-      ).value =
-        resource.type || "pdf";
+          const file =
+            event.target.files[0];
 
-      document.getElementById(
-        "resourceUrl"
-      ).value =
-        resource.url || "";
+          const label =
+            document.getElementById(
+              "selectedFileName"
+            );
 
-      document.getElementById(
-        "resourceDescription"
-      ).value =
-        resource.description || "";
+          if (!file) {
+
+            label.textContent =
+              "لم يتم اختيار ملف";
+
+            return;
+
+          }
+
+          label.textContent =
+            `الملف المحدد: ${file.name}`;
+
+        }
+      );
+
+
+    /* =====================================================
+       RESOURCE
+    ===================================================== */
+
+    window.showResourceForm = function() {
+
+      editingResourceId = null;
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
 
       document.getElementById(
         "resourceOrder"
-      ).value =
-        resource.order ?? 1;
+      ).value = 1;
 
       document.getElementById(
         "resourcePublished"
-      ).value =
-        resource.published === false
-          ? "false"
-          : "true";
+      ).checked = true;
 
       document.getElementById(
-        "resourceSubmitBtn"
+        "selectedFileName"
       ).textContent =
-        "حفظ التعديلات";
+        "لم يتم اختيار ملف";
 
       document.getElementById(
-        "resourceModeTitle"
+        "resourceSubmitText"
       ).textContent =
-        "تعديل المحتوى";
+        "حفظ المورد";
 
       document.getElementById(
-        "resourceModeText"
+        "resourceFormTitle"
       ).textContent =
-        "عدّل البيانات والترتيب ثم اضغط حفظ التعديلات";
+        "إضافة مورد جديد";
 
       document.getElementById(
         "resourceForm"
       ).style.display =
         "block";
 
+      fillSectionSelect("");
+
       openPage("resources");
+
+    };
+
+
+    window.editResource = function(id) {
+
+      const item =
+        resources.find(
+          r => r.id === id
+        );
+
+      if (!item) return;
+
+      editingResourceId = id;
+
+
+      document.getElementById(
+        "resourceSubject"
+      ).value =
+        item.subjectId || "";
+
+
+      fillSectionSelect(
+        item.subjectId || ""
+      );
+
+
+      document.getElementById(
+        "resourceSection"
+      ).value =
+        item.sectionId || "";
+
+
+      document.getElementById(
+        "resourceTitle"
+      ).value =
+        item.title || "";
+
+
+      document.getElementById(
+        "resourceType"
+      ).value =
+        item.type || "pdf";
+
+
+      document.getElementById(
+        "resourceUrl"
+      ).value =
+        item.url || "";
+
+
+      document.getElementById(
+        "resourceOrder"
+      ).value =
+        item.order || 1;
+
+
+      document.getElementById(
+        "resourcePublished"
+      ).checked =
+        item.published === true;
+
+
+      document.getElementById(
+        "resourceDescription"
+      ).value =
+        item.description || "";
+
+
+      document.getElementById(
+        "resourceFile"
+      ).value = "";
+
+
+      document.getElementById(
+        "selectedFileName"
+      ).textContent =
+        item.driveFileName
+          ? `الملف الحالي: ${item.driveFileName} — اختر ملفاً جديداً لاستبداله`
+          : "لا يوجد ملف جديد محدد";
+
+
+      document.getElementById(
+        "resourceSubmitText"
+      ).textContent =
+        "حفظ التعديلات";
+
+
+      document.getElementById(
+        "resourceFormTitle"
+      ).textContent =
+        "تعديل المورد";
+
+
+      document.getElementById(
+        "resourceForm"
+      ).style.display =
+        "block";
+
+
+      openPage("resources");
+
 
       document.getElementById(
         "resourceForm"
       ).scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
       });
 
     };
 
 
-  window.toggleResource =
-    async function(
-      id,
-      published
-    ){
+    window.resetResourceForm = function() {
 
-      try{
+      editingResourceId = null;
+
+      document
+        .getElementById(
+          "resourceAddForm"
+        )
+        .reset();
+
+      document.getElementById(
+        "resourceOrder"
+      ).value = 1;
+
+      document.getElementById(
+        "resourcePublished"
+      ).checked = true;
+
+      document.getElementById(
+        "selectedFileName"
+      ).textContent =
+        "لم يتم اختيار ملف";
+
+      document.getElementById(
+        "resourceSubmitText"
+      ).textContent =
+        "حفظ المورد";
+
+      document.getElementById(
+        "resourceFormTitle"
+      ).textContent =
+        "إضافة مورد جديد";
+
+      document.getElementById(
+        "resourceForm"
+      ).style.display =
+        "none";
+
+      fillSectionSelect("");
+
+    };
+
+
+    document
+      .getElementById(
+        "resourceAddForm"
+      )
+      .addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+
+          const button =
+            document.getElementById(
+              "resourceSubmitBtn"
+            );
+
+
+          try {
+
+            button.disabled = true;
+
+            button.classList.add(
+              "loading"
+            );
+
+
+            const subjectId =
+              document.getElementById(
+                "resourceSubject"
+              ).value;
+
+
+            const sectionId =
+              document.getElementById(
+                "resourceSection"
+              ).value;
+
+
+            const title =
+              document.getElementById(
+                "resourceTitle"
+              ).value.trim();
+
+
+            const type =
+              document.getElementById(
+                "resourceType"
+              ).value;
+
+
+            let url =
+              document.getElementById(
+                "resourceUrl"
+              ).value.trim();
+
+
+            const description =
+              document.getElementById(
+                "resourceDescription"
+              ).value.trim();
+
+
+            const order =
+              Number(
+                document.getElementById(
+                  "resourceOrder"
+                ).value
+              ) || 1;
+
+
+            const published =
+              document.getElementById(
+                "resourcePublished"
+              ).checked;
+
+
+            const fileInput =
+              document.getElementById(
+                "resourceFile"
+              );
+
+
+            const selectedFile =
+              fileInput.files[0];
+
+
+            if (!subjectId) {
+
+              toast(
+                "اختر المادة أولاً",
+                "error"
+              );
+
+              return;
+
+            }
+
+
+            /*
+             * إذا تم اختيار ملف PDF:
+             * ارفعه إلى Google Drive.
+             */
+
+            let driveFileId = null;
+            let driveFileName = null;
+
+
+            if (selectedFile) {
+
+              const isPdf =
+                selectedFile.type ===
+                  "application/pdf" ||
+                selectedFile.name
+                  .toLowerCase()
+                  .endsWith(".pdf");
+
+
+              if (!isPdf) {
+
+                toast(
+                  "الملف يجب أن يكون PDF",
+                  "error"
+                );
+
+                return;
+
+              }
+
+
+              button.querySelector(
+                "span"
+              ).textContent =
+                "جاري رفع PDF...";
+
+
+              const driveResult =
+                await uploadToGoogleDrive(
+                  selectedFile
+                );
+
+
+              url =
+                driveResult.url;
+
+              driveFileId =
+                driveResult.id;
+
+              driveFileName =
+                driveResult.name;
+
+            }
+
+
+            /*
+             * إذا لم يتم اختيار ملف أثناء التعديل،
+             * نحافظ على ملف Drive القديم.
+             */
+
+            if (
+              editingResourceId &&
+              !selectedFile
+            ) {
+
+              const oldResource =
+                resources.find(
+                  r =>
+                    r.id ===
+                    editingResourceId
+                );
+
+
+              if (oldResource) {
+
+                driveFileId =
+                  oldResource.driveFileId ||
+                  null;
+
+                driveFileName =
+                  oldResource.driveFileName ||
+                  null;
+
+              }
+
+            }
+
+
+            const data = {
+
+              subjectId,
+
+              sectionId:
+
+                sectionId || "",
+
+              title,
+
+              type,
+
+              url,
+
+              description,
+
+              order,
+
+              published,
+
+              updatedAt:
+                serverTimestamp()
+
+            };
+
+
+            if (driveFileId) {
+
+              data.driveFileId =
+                driveFileId;
+
+            }
+
+
+            if (driveFileName) {
+
+              data.driveFileName =
+                driveFileName;
+
+            }
+
+
+            if (editingResourceId) {
+
+              const oldResource =
+                resources.find(
+                  r =>
+                    r.id ===
+                    editingResourceId
+                );
+
+
+              await updateDoc(
+                doc(
+                  db,
+                  "resources",
+                  editingResourceId
+                ),
+                data
+              );
+
+
+              /*
+               * إذا استبدلنا ملف Drive بملف جديد،
+               * نحاول حذف الملف القديم.
+               */
+
+              if (
+                selectedFile &&
+                oldResource?.driveFileId &&
+                oldResource.driveFileId !==
+                  driveFileId
+              ) {
+
+                await deleteDriveFile(
+                  oldResource.driveFileId
+                );
+
+              }
+
+
+              toast(
+                "تم تعديل المورد بنجاح",
+                "success"
+              );
+
+            } else {
+
+              await addDoc(
+                collection(
+                  db,
+                  "resources"
+                ),
+                {
+
+                  ...data,
+
+                  createdAt:
+                    serverTimestamp()
+
+                }
+              );
+
+
+              toast(
+                "تمت إضافة المورد بنجاح",
+                "success"
+              );
+
+            }
+
+
+            resetResourceForm();
+
+            await loadResources();
+
+            updateStats();
+
+
+          } catch (error) {
+
+            console.error(
+              "RESOURCE ERROR:",
+              error
+            );
+
+
+            toast(
+              "تعذر حفظ المورد: " +
+              (
+                error?.message ||
+                "خطأ غير معروف"
+              ).slice(0,160),
+              "error"
+            );
+
+          } finally {
+
+            button.disabled = false;
+
+            button.classList.remove(
+              "loading"
+            );
+
+            document.getElementById(
+              "resourceSubmitText"
+            ).textContent =
+              editingResourceId
+                ? "حفظ التعديلات"
+                : "حفظ المورد";
+
+          }
+
+        }
+      );
+
+
+    function renderResources() {
+
+      const tbody =
+        document.getElementById(
+          "resourcesTable"
+        );
+
+
+      if (!resources.length) {
+
+        tbody.innerHTML =
+          `<tr><td colspan="8">
+            <div class="empty">
+              لا توجد ملفات أو موارد حتى الآن
+            </div>
+          </td></tr>`;
+
+        return;
+
+      }
+
+
+      tbody.innerHTML =
+        resources.map(item => `
+
+          <tr>
+
+            <td>
+
+              <div class="resource-title">
+                ${escapeHTML(item.title)}
+              </div>
+
+              ${
+                item.description
+                  ? `
+                    <div class="resource-desc">
+                      ${escapeHTML(item.description)}
+                    </div>
+                  `
+                  : ""
+              }
+
+            </td>
+
+            <td>
+              ${escapeHTML(
+                getSubjectName(
+                  item.subjectId
+                )
+              )}
+            </td>
+
+            <td>
+              ${escapeHTML(
+                item.sectionId
+                  ? getSectionName(
+                      item.sectionId
+                    )
+                  : "بدون قسم"
+              )}
+            </td>
+
+            <td>
+              <span class="badge gray">
+                ${escapeHTML(
+                  item.type || "رابط"
+                )}
+              </span>
+            </td>
+
+            <td>
+              <span class="order-badge">
+                ${Number(
+                  item.order || 1
+                )}
+              </span>
+            </td>
+
+            <td>
+
+              ${
+                item.published === true
+
+                  ? `
+                    <span class="badge success">
+                      منشور
+                    </span>
+                  `
+
+                  : `
+                    <span class="badge warning">
+                      مخفي
+                    </span>
+                  `
+              }
+
+            </td>
+
+            <td class="url-cell">
+
+              ${
+                item.url
+                  ? `
+                    <a
+                      href="${escapeHTML(item.url)}"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      فتح الرابط
+                    </a>
+                  `
+                  : "—"
+              }
+
+            </td>
+
+            <td>
+
+              <div class="actions">
+
+                <button
+                  class="btn btn-edit"
+                  onclick="editResource('${item.id}')"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                  </svg>
+                  تعديل
+                </button>
+
+                <button
+                  class="btn"
+                  onclick="toggleResource('${item.id}')"
+                >
+                  ${
+                    item.published === true
+                      ? "إخفاء"
+                      : "نشر"
+                  }
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  onclick="deleteResource('${item.id}')"
+                >
+                  حذف
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `).join("");
+
+    }
+
+
+    window.toggleResource = async function(id) {
+
+      const item =
+        resources.find(
+          r => r.id === id
+        );
+
+      if (!item) return;
+
+
+      try {
 
         await updateDoc(
           doc(
@@ -3960,27 +4681,33 @@
             id
           ),
           {
-            published,
+
+            published:
+              item.published !== true,
+
             updatedAt:
               serverTimestamp()
+
           }
         );
 
-        await loadResources();
 
         toast(
-          published
-            ? "تم نشر المحتوى"
-            : "تم إخفاء المحتوى",
+          item.published === true
+            ? "تم إخفاء المورد"
+            : "تم نشر المورد",
           "success"
         );
 
-      }catch(error){
+
+        await loadResources();
+
+      } catch (error) {
 
         console.error(error);
 
         toast(
-          "تعذر تعديل الحالة",
+          "تعذر تغيير حالة المورد",
           "error"
         );
 
@@ -3989,48 +4716,30 @@
     };
 
 
-  window.deleteResource =
-    async function(id){
+    window.deleteResource = async function(id) {
 
-      if(
-        !confirm(
-          "هل أنت متأكد من حذف هذا المحتوى؟"
-        )
-      ) return;
+      const item =
+        resources.find(
+          r => r.id === id
+        );
 
-      try{
+      if (!item) return;
 
-        const resource =
-          resources.find(
-            r => r.id === id
-          );
+
+      if (!confirm(
+        `هل أنت متأكد من حذف "${item.title}"؟`
+      )) {
+
+        return;
+
+      }
+
+
+      try {
 
         /*
-          إذا كان الملف مرفوعًا عن طريق Google Drive
-          نحاول حذفه من Drive أيضًا.
-        */
-
-        if(
-          resource?.driveFileId &&
-          googleAccessToken
-        ){
-
-          try{
-
-            await deleteDriveFile(
-              resource.driveFileId
-            );
-
-          }catch(driveError){
-
-            console.warn(
-              "تعذر حذف ملف Drive:",
-              driveError
-            );
-
-          }
-
-        }
+         * نحذف من Firestore أولاً.
+         */
 
         await deleteDoc(
           doc(
@@ -4040,19 +4749,47 @@
           )
         );
 
-        await loadResources();
+
+        /*
+         * ثم نحاول حذف الملف من Drive
+         * إذا كان مرتبطاً وكان التوكن موجوداً.
+         */
+
+        let driveDeleted = false;
+
+
+        if (
+          item.driveFileId &&
+          driveAccessToken
+        ) {
+
+          driveDeleted =
+            await deleteDriveFile(
+              item.driveFileId
+            );
+
+        }
+
 
         toast(
-          "تم حذف المحتوى",
+          driveDeleted
+            ? "تم حذف المورد وملف Google Drive"
+            : "تم حذف المورد",
           "success"
         );
 
-      }catch(error){
+
+        await loadResources();
+
+        updateStats();
+
+
+      } catch (error) {
 
         console.error(error);
 
         toast(
-          "تعذر حذف المحتوى",
+          "تعذر حذف المورد",
           "error"
         );
 
@@ -4061,1510 +4798,270 @@
     };
 
 
-  /* =====================================================
-     PDF SELECT
-  ===================================================== */
+    /* =====================================================
+       RECENT
+    ===================================================== */
 
-  choosePdfBtn.addEventListener(
-    "click",
-    () => {
+    function renderRecentResources() {
 
-      resourceFile.click();
+      const tbody =
+        document.getElementById(
+          "recentResources"
+        );
 
-    }
-  );
+      if (!tbody) return;
 
 
-  resourceFile.addEventListener(
-    "change",
-    () => {
+      const recent =
+        [...resources]
+          .sort(
+            (a,b) =>
+              Number(
+                b.createdAt?.seconds || 0
+              ) -
+              Number(
+                a.createdAt?.seconds || 0
+              )
+          )
+          .slice(0,8);
 
-      const file =
-        resourceFile.files?.[0];
 
-      if(!file){
+      if (!recent.length) {
 
-        selectedPdfFile =
-          null;
-
-        selectedFileName.textContent =
-          "لم يتم اختيار ملف";
+        tbody.innerHTML =
+          `<tr>
+            <td colspan="4">
+              <div class="empty">
+                لا توجد موارد حتى الآن
+              </div>
+            </td>
+          </tr>`;
 
         return;
 
       }
 
-      if(
-        file.type !== "application/pdf" &&
-        !file.name.toLowerCase().endsWith(".pdf")
-      ){
 
-        selectedPdfFile =
-          null;
+      tbody.innerHTML =
+        recent.map(item => `
 
-        resourceFile.value =
-          "";
+          <tr>
 
-        selectedFileName.textContent =
-          "الملف يجب أن يكون PDF";
+            <td>
+              <strong>
+                ${escapeHTML(item.title)}
+              </strong>
+            </td>
 
-        toast(
-          "اختر ملف PDF فقط",
-          "error"
-        );
+            <td>
+              ${escapeHTML(
+                getSubjectName(
+                  item.subjectId
+                )
+              )}
+            </td>
 
-        return;
+            <td>
+              <span class="badge gray">
+                ${escapeHTML(
+                  item.type || "رابط"
+                )}
+              </span>
+            </td>
 
-      }
+            <td>
 
-      selectedPdfFile =
-        file;
+              ${
+                item.published === true
 
-      selectedFileName.textContent =
-        `${file.name} — ${formatFileSize(file.size)}`;
+                  ? `
+                    <span class="badge success">
+                      منشور
+                    </span>
+                  `
 
-    }
-  );
+                  : `
+                    <span class="badge warning">
+                      مخفي
+                    </span>
+                  `
+              }
 
+            </td>
 
-  /* =====================================================
-     PDF UPLOAD
-  ===================================================== */
+          </tr>
 
-  uploadPdfBtn.addEventListener(
-    "click",
-    async () => {
-
-      if(!selectedPdfFile){
-
-        toast(
-          "اختر ملف PDF أولاً",
-          "error"
-        );
-
-        return;
-
-      }
-
-      try{
-
-        uploadPdfBtn.disabled =
-          true;
-
-        choosePdfBtn.disabled =
-          true;
-
-        uploadProgress.classList.add(
-          "show"
-        );
-
-        setUploadProgress(
-          10,
-          "جاري تجهيز الملف..."
-        );
-
-        const token =
-          await ensureGoogleToken();
-
-        setUploadProgress(
-          25,
-          "جاري رفع الملف إلى Google Drive..."
-        );
-
-        const driveFile =
-          await uploadFileToDrive(
-            selectedPdfFile,
-            token
-          );
-
-        setUploadProgress(
-          70,
-          "جاري إعداد رابط المشاركة..."
-        );
-
-        let publicLink =
-          driveFile.webViewLink ||
-          `https://drive.google.com/file/d/${driveFile.id}/view`;
-
-        try{
-
-          await makeDriveFilePublic(
-            driveFile.id,
-            token
-          );
-
-          publicLink =
-            `https://drive.google.com/file/d/${driveFile.id}/view`;
-
-        }catch(permissionError){
-
-          console.warn(
-            "تعذر جعل الملف عامًا:",
-            permissionError
-          );
-
-          toast(
-            "تم رفع الملف، لكن تعذر جعله عامًا. تأكد من إعدادات مشاركة Google Drive.",
-            "error"
-          );
-
-        }
-
-        setUploadProgress(
-          100,
-          "تم رفع الملف بنجاح"
-        );
-
-        document.getElementById(
-          "resourceUrl"
-        ).value =
-          publicLink;
-
-        /*
-          نضع بيانات Drive مؤقتًا على النموذج
-          حتى تحفظ مع Firestore.
-        */
-
-        document.getElementById(
-          "resourceUrl"
-        ).dataset.driveFileId =
-          driveFile.id;
-
-        document.getElementById(
-          "resourceUrl"
-        ).dataset.driveFileName =
-          driveFile.name || selectedPdfFile.name;
-
-        /*
-          إذا لم يكتب الأدمن اسم المحتوى
-          نستخدم اسم ملف PDF تلقائيًا.
-        */
-
-        const titleInput =
-          document.getElementById(
-            "resourceTitle"
-          );
-
-        if(!titleInput.value.trim()){
-
-          titleInput.value =
-            selectedPdfFile.name
-              .replace(/\.pdf$/i,"");
-
-        }
-
-        document.getElementById(
-          "resourceType"
-        ).value =
-          "pdf";
-
-        toast(
-          "تم رفع PDF وربط الرابط بنجاح",
-          "success"
-        );
-
-      }catch(error){
-
-        console.error(
-          "PDF upload error:",
-          error
-        );
-
-        if(
-          String(error.message || "")
-            .includes("401")
-        ){
-
-          googleAccessToken =
-            null;
-
-        }
-
-        toast(
-          getGoogleDriveErrorMessage(error),
-          "error"
-        );
-
-        setUploadProgress(
-          0,
-          "فشل رفع الملف"
-        );
-
-      }finally{
-
-        uploadPdfBtn.disabled =
-          false;
-
-        choosePdfBtn.disabled =
-          false;
-
-      }
+        `).join("");
 
     }
-  );
 
 
-  async function uploadFileToDrive(
-    file,
-    accessToken
-  ){
+    /* =====================================================
+       LOGIN
+    ===================================================== */
 
-    const metadata = {
+    document
+      .getElementById(
+        "loginForm"
+      )
+      .addEventListener(
+        "submit",
+        async event => {
 
-      name:
-        file.name,
-
-      mimeType:
-        "application/pdf"
-
-    };
-
-    const boundary =
-      "tawjihi_drive_boundary_" +
-      Math.random()
-        .toString(36)
-        .slice(2);
-
-    const delimiter =
-      `\r\n--${boundary}\r\n`;
-
-    const closeDelimiter =
-      `\r\n--${boundary}--`;
-
-    const body =
-      new Blob([
-
-        `--${boundary}\r\n`,
-
-        "Content-Type: application/json; charset=UTF-8\r\n\r\n",
-
-        JSON.stringify(metadata),
-
-        delimiter,
-
-        "Content-Type: application/pdf\r\n\r\n",
-
-        file,
-
-        closeDelimiter
-
-      ]);
+          event.preventDefault();
 
 
-    const response =
-      await fetch(
-        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,mimeType,webViewLink,webContentLink",
-        {
-
-          method:"POST",
-
-          headers:{
-            "Authorization":
-              `Bearer ${accessToken}`,
-
-            "Content-Type":
-              `multipart/related; boundary=${boundary}`
-          },
-
-          body
-
-        }
-      );
+          const email =
+            document.getElementById(
+              "loginEmail"
+            ).value.trim();
 
 
-    if(!response.ok){
-
-      const errorText =
-        await response.text();
-
-      throw new Error(
-        `Google Drive upload failed: ${response.status} ${errorText}`
-      );
-
-    }
-
-    return await response.json();
-
-  }
+          const password =
+            document.getElementById(
+              "loginPassword"
+            ).value;
 
 
-  async function makeDriveFilePublic(
-    fileId,
-    accessToken
-  ){
+          try {
 
-    const response =
-      await fetch(
-        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}/permissions`,
-        {
-
-          method:"POST",
-
-          headers:{
-            "Authorization":
-              `Bearer ${accessToken}`,
-
-            "Content-Type":
-              "application/json"
-          },
-
-          body:JSON.stringify({
-
-            role:"reader",
-
-            type:"anyone"
-
-          })
-
-        }
-      );
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
 
 
-    if(!response.ok){
-
-      const text =
-        await response.text();
-
-      throw new Error(
-        `Permission failed: ${response.status} ${text}`
-      );
-
-    }
-
-    return await response.json();
-
-  }
+            toast(
+              "تم تسجيل الدخول",
+              "success"
+            );
 
 
-  async function deleteDriveFile(
-    fileId
-  ){
+          } catch (error) {
 
-    const token =
-      await ensureGoogleToken();
+            console.error(error);
 
-    const response =
-      await fetch(
-        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}`,
-        {
+            let message =
+              "تعذر تسجيل الدخول";
 
-          method:"DELETE",
 
-          headers:{
-            "Authorization":
-              `Bearer ${token}`
+            if (
+              error.code ===
+              "auth/invalid-credential"
+            ) {
+
+              message =
+                "البريد الإلكتروني أو كلمة المرور غير صحيحة";
+
+            } else if (
+              error.code ===
+              "auth/too-many-requests"
+            ) {
+
+              message =
+                "تمت محاولات كثيرة، حاول لاحقاً";
+
+            }
+
+
+            toast(
+              message,
+              "error"
+            );
+
           }
 
         }
       );
 
 
-    if(
-      !response.ok &&
-      response.status !== 404
-    ){
-
-      const text =
-        await response.text();
-
-      throw new Error(
-        `Drive delete failed: ${response.status} ${text}`
-      );
-
-    }
-
-  }
-
-
-  function setUploadProgress(
-    percent,
-    text
-  ){
-
-    uploadProgress.classList.add(
-      "show"
-    );
-
-    uploadProgressBar.style.width =
-      `${Math.max(0,Math.min(100,percent))}%`;
-
-    uploadProgressText.textContent =
-      text;
-
-  }
-
-
-  function formatFileSize(bytes){
-
-    if(bytes < 1024){
-
-      return `${bytes} B`;
-
-    }
-
-    if(bytes < 1024 * 1024){
-
-      return `${(
-        bytes / 1024
-      ).toFixed(1)} KB`;
-
-    }
-
-    return `${(
-      bytes / 1024 / 1024
-    ).toFixed(2)} MB`;
-
-  }
-
-
-  function getGoogleDriveErrorMessage(
-    error
-  ){
-
-    const message =
-      String(
-        error?.message || ""
-      );
-
-    if(
-      message.includes("popup") ||
-      message.includes("popup_closed")
-    ){
-
-      return "تم إغلاق نافذة Google قبل إكمال الربط.";
-
-    }
-
-    if(
-      message.includes("access_denied")
-    ){
-
-      return "تم رفض صلاحية الوصول إلى Google Drive.";
-
-    }
-
-    if(
-      message.includes("403")
-    ){
-
-      return "Google رفض العملية. تأكد من تفعيل Drive API وصلاحيات OAuth.";
-
-    }
-
-    if(
-      message.includes("401")
-    ){
-
-      return "انتهت صلاحية Google Drive، أعد ربط الحساب.";
-
-    }
-
-    return "تعذر رفع الملف إلى Google Drive.";
-
-  }
-
-
-  /* =====================================================
-     SELECTS
-  ===================================================== */
-
-  function fillGenerationSelects(){
-
-    const select =
-      document.getElementById(
-        "subjectGeneration"
-      );
-
-    const current =
-      select.value;
-
-    select.innerHTML =
-      `<option value="">
-        اختر الجيل
-      </option>`;
-
-    generations.forEach(g => {
-
-      select.innerHTML += `
-        <option value="${escapeAttribute(g.id)}">
-          ${escapeHtml(g.name)}
-        </option>
-      `;
-
-    });
-
-    if(
-      current &&
-      generations.some(
-        g => g.id === current
+    document
+      .getElementById(
+        "logoutBtn"
       )
-    ){
-
-      select.value =
-        current;
-
-    }
-
-  }
-
-
-  function fillSubjectSelects(){
-
-    const sectionSelect =
-      document.getElementById(
-        "sectionSubject"
-      );
-
-    const resourceSelect =
-      document.getElementById(
-        "resourceSubject"
-      );
-
-    const sectionCurrent =
-      sectionSelect.value;
-
-    const resourceCurrent =
-      resourceSelect.value;
-
-    const html = `
-
-      <option value="">
-        اختر المادة
-      </option>
-
-      ${
-        subjects.map(s => `
-          <option value="${escapeAttribute(s.id)}">
-            ${escapeHtml(s.name)}
-          </option>
-        `).join("")
-      }
-
-    `;
-
-    sectionSelect.innerHTML =
-      html;
-
-    resourceSelect.innerHTML =
-      html;
-
-    if(
-      sectionCurrent &&
-      subjects.some(
-        s => s.id === sectionCurrent
-      )
-    ){
-
-      sectionSelect.value =
-        sectionCurrent;
-
-    }
-
-    if(
-      resourceCurrent &&
-      subjects.some(
-        s => s.id === resourceCurrent
-      )
-    ){
-
-      resourceSelect.value =
-        resourceCurrent;
-
-    }
-
-    fillResourceSectionSelect(
-      resourceSelect.value
-    );
-
-  }
-
-
-  function fillResourceSectionSelect(
-    subjectId = ""
-  ){
-
-    const select =
-      document.getElementById(
-        "resourceSection"
-      );
-
-    const current =
-      select.value;
-
-    select.innerHTML = `
-      <option value="">
-        اختر القسم
-      </option>
-    `;
-
-    const filtered =
-      subjectId
-        ? sections.filter(
-            s =>
-              s.subjectId === subjectId
-          )
-        : sections;
-
-    filtered.forEach(s => {
-
-      const subject =
-        subjects.find(
-          x =>
-            x.id === s.subjectId
-        );
-
-      select.innerHTML += `
-
-        <option value="${escapeAttribute(s.id)}">
-
-          ${escapeHtml(
-            subject?.name || ""
-          )}
-
-          —
-
-          ${escapeHtml(
-            s.name || ""
-          )}
-
-        </option>
-
-      `;
-
-    });
-
-    if(
-      current &&
-      filtered.some(
-        s => s.id === current
-      )
-    ){
-
-      select.value =
-        current;
-
-    }
-
-  }
-
-
-  document
-    .getElementById(
-      "resourceSubject"
-    )
-    .addEventListener(
-      "change",
-      () => {
-
-        fillResourceSectionSelect(
-          document
-            .getElementById(
-              "resourceSubject"
-            )
-            .value
-        );
-
-      }
-    );
-
-
-  /* =====================================================
-     FORMS
-  ===================================================== */
-
-  window.showGenerationForm =
-    function(){
-
-      editingGenerationId =
-        null;
-
-      document
-        .getElementById(
-          "generationAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "generationSubmitBtn"
-        )
-        .textContent =
-        "حفظ الجيل";
-
-      document
-        .getElementById(
-          "generationEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "generationForm"
-        )
-        .style.display =
-        "block";
-
-    };
-
-
-  window.hideGenerationForm =
-    function(){
-
-      editingGenerationId =
-        null;
-
-      document
-        .getElementById(
-          "generationAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "generationSubmitBtn"
-        )
-        .textContent =
-        "حفظ الجيل";
-
-      document
-        .getElementById(
-          "generationEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "generationForm"
-        )
-        .style.display =
-        "none";
-
-    };
-
-
-  window.showSubjectForm =
-    function(){
-
-      editingSubjectId =
-        null;
-
-      document
-        .getElementById(
-          "subjectAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "subjectOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "subjectSubmitBtn"
-        )
-        .textContent =
-        "حفظ المادة";
-
-      document
-        .getElementById(
-          "subjectEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "subjectForm"
-        )
-        .style.display =
-        "block";
-
-    };
-
-
-  window.hideSubjectForm =
-    function(){
-
-      editingSubjectId =
-        null;
-
-      document
-        .getElementById(
-          "subjectAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "subjectOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "subjectSubmitBtn"
-        )
-        .textContent =
-        "حفظ المادة";
-
-      document
-        .getElementById(
-          "subjectEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "subjectForm"
-        )
-        .style.display =
-        "none";
-
-    };
-
-
-  window.showSectionForm =
-    function(){
-
-      editingSectionId =
-        null;
-
-      document
-        .getElementById(
-          "sectionAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "sectionOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "sectionSubmitBtn"
-        )
-        .textContent =
-        "حفظ القسم";
-
-      document
-        .getElementById(
-          "sectionEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "sectionForm"
-        )
-        .style.display =
-        "block";
-
-    };
-
-
-  window.hideSectionForm =
-    function(){
-
-      editingSectionId =
-        null;
-
-      document
-        .getElementById(
-          "sectionAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "sectionOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "sectionSubmitBtn"
-        )
-        .textContent =
-        "حفظ القسم";
-
-      document
-        .getElementById(
-          "sectionEditMode"
-        )
-        .style.display =
-        "none";
-
-      document
-        .getElementById(
-          "sectionForm"
-        )
-        .style.display =
-        "none";
-
-    };
-
-
-  window.showResourceForm =
-    function(){
-
-      editingResourceId =
-        null;
-
-      selectedPdfFile =
-        null;
-
-      resourceFile.value =
-        "";
-
-      selectedFileName.textContent =
-        "لم يتم اختيار ملف";
-
-      uploadProgress.classList.remove(
-        "show"
-      );
-
-      document
-        .getElementById(
-          "resourceAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "resourceOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "resourceSubmitBtn"
-        )
-        .textContent =
-        "حفظ المحتوى";
-
-      document
-        .getElementById(
-          "resourceModeTitle"
-        )
-        .textContent =
-        "إضافة محتوى";
-
-      document
-        .getElementById(
-          "resourceModeText"
-        )
-        .textContent =
-        "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .style.display =
-        "block";
-
-      fillResourceSectionSelect("");
-
-    };
-
-
-  window.hideResourceForm =
-    function(){
-
-      editingResourceId =
-        null;
-
-      selectedPdfFile =
-        null;
-
-      resourceFile.value =
-        "";
-
-      selectedFileName.textContent =
-        "لم يتم اختيار ملف";
-
-      uploadProgress.classList.remove(
-        "show"
-      );
-
-      document
-        .getElementById(
-          "resourceAddForm"
-        )
-        .reset();
-
-      document
-        .getElementById(
-          "resourceOrder"
-        )
-        .value =
-        "1";
-
-      document
-        .getElementById(
-          "resourceSubmitBtn"
-        )
-        .textContent =
-        "حفظ المحتوى";
-
-      document
-        .getElementById(
-          "resourceModeTitle"
-        )
-        .textContent =
-        "إضافة محتوى";
-
-      document
-        .getElementById(
-          "resourceModeText"
-        )
-        .textContent =
-        "أضف ملف PDF من جهازك أو ضع رابطًا مباشرًا";
-
-      document
-        .getElementById(
-          "resourceForm"
-        )
-        .style.display =
-        "none";
-
-      fillResourceSectionSelect("");
-
-    };
-
-
-  /* =====================================================
-     NAVIGATION
-  ===================================================== */
-
-  const pageNames = {
-
-    dashboard:
-      "لوحة التحكم",
-
-    generations:
-      "الأجيال",
-
-    subjects:
-      "المواد",
-
-    sections:
-      "أقسام المواد",
-
-    resources:
-      "الملفات والروابط"
-
-  };
-
-
-  document
-    .querySelectorAll(
-      ".nav-btn[data-page]"
-    )
-    .forEach(button => {
-
-      button.addEventListener(
+      .addEventListener(
         "click",
-        () => {
+        async () => {
 
-          openPage(
-            button.dataset.page
-          );
+          try {
+
+            await signOut(auth);
+
+          } catch (error) {
+
+            console.error(error);
+
+          }
 
         }
       );
 
-    });
+
+    /* =====================================================
+       AUTH STATE
+    ===================================================== */
+
+    onAuthStateChanged(
+      auth,
+      async user => {
+
+        const loginScreen =
+          document.getElementById(
+            "loginScreen"
+          );
+
+        const app =
+          document.getElementById(
+            "app"
+          );
 
 
-  window.openPage =
-    function(page){
+        if (user) {
 
-      document
-        .querySelectorAll(".page")
-        .forEach(p => {
-
-          p.style.display =
+          loginScreen.style.display =
             "none";
 
-        });
+          app.style.display =
+            "block";
 
-      const target =
-        document.getElementById(
-          "page-" + page
-        );
 
-      if(target){
+          document.getElementById(
+            "adminEmail"
+          ).textContent =
+            user.email || "";
 
-        target.style.display =
-          "block";
+
+          await loadAll();
+
+        } else {
+
+          loginScreen.style.display =
+            "flex";
+
+          app.style.display =
+            "none";
+
+        }
 
       }
-
-      document
-        .querySelectorAll(
-          ".nav-btn[data-page]"
-        )
-        .forEach(btn => {
-
-          btn.classList.toggle(
-            "active",
-            btn.dataset.page === page
-          );
-
-        });
-
-      document
-        .getElementById(
-          "pageTitle"
-        )
-        .textContent =
-        pageNames[page] ||
-        "لوحة التحكم";
-
-      document
-        .getElementById(
-          "sidebar"
-        )
-        .classList.remove(
-          "open"
-        );
-
-    };
+    );
 
 
-  /* =====================================================
-     MOBILE
-  ===================================================== */
+    /* =====================================================
+       START GOOGLE
+    ===================================================== */
 
-  document
-    .getElementById(
-      "mobileMenu"
-    )
-    .addEventListener(
-      "click",
+    window.addEventListener(
+      "load",
       () => {
 
-        document
-          .getElementById(
-            "sidebar"
-          )
-          .classList.toggle(
-            "open"
-          );
+        initGoogleDriveAuth();
 
       }
     );
 
-
-  /* =====================================================
-     STATS
-  ===================================================== */
-
-  function updateStats(){
-
-    document.getElementById(
-      "statGenerations"
-    ).textContent =
-      generations.length;
-
-    document.getElementById(
-      "statSubjects"
-    ).textContent =
-      subjects.length;
-
-    document.getElementById(
-      "statSections"
-    ).textContent =
-      sections.length;
-
-    document.getElementById(
-      "statResources"
-    ).textContent =
-      resources.length;
-
-  }
-
-
-  /* =====================================================
-     RECENT
-  ===================================================== */
-
-  function renderRecentResources(){
-
-    const container =
-      document.getElementById(
-        "recentResources"
-      );
-
-    const recent =
-      [...resources]
-        .sort(
-          (a,b) =>
-            Number(
-              b.createdAt?.seconds || 0
-            ) -
-            Number(
-              a.createdAt?.seconds || 0
-            )
-        )
-        .slice(0,8);
-
-    if(!recent.length){
-
-      container.innerHTML =
-        "لا يوجد محتوى حتى الآن.";
-
-      return;
-
-    }
-
-    container.innerHTML = `
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-              <th>المحتوى</th>
-              <th>المادة</th>
-              <th>القسم</th>
-              <th>الترتيب</th>
-              <th>الحالة</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            ${recent.map(r => {
-
-              const subject =
-                subjects.find(
-                  s => s.id === r.subjectId
-                );
-
-              const section =
-                sections.find(
-                  s => s.id === r.sectionId
-                );
-
-              return `
-
-                <tr>
-
-                  <td>
-                    <strong>
-                      ${escapeHtml(r.title || "")}
-                    </strong>
-                  </td>
-
-                  <td>
-                    ${escapeHtml(
-                      subject?.name || "—"
-                    )}
-                  </td>
-
-                  <td>
-                    ${escapeHtml(
-                      section?.name || "—"
-                    )}
-                  </td>
-
-                  <td>
-                    <span class="order-badge">
-                      ${Number(r.order) || 1}
-                    </span>
-                  </td>
-
-                  <td>
-
-                    ${
-                      r.published
-                        ? `<span class="badge">منشور</span>`
-                        : `<span class="badge" style="background:#fff7ed;color:#c2410c;">مخفي</span>`
-                    }
-
-                  </td>
-
-                </tr>
-
-              `;
-
-            }).join("")}
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    `;
-
-  }
-
-
-  /* =====================================================
-     RESOURCE TYPE
-  ===================================================== */
-
-  function resourceTypeName(type){
-
-    const names = {
-
-      pdf:"PDF",
-      drive:"Google Drive",
-      link:"رابط",
-      exam:"امتحان إلكتروني",
-      book:"كتاب رسمي"
-
-    };
-
-    return names[type] || "محتوى";
-
-  }
-
-
-  /* =====================================================
-     ICONS
-  ===================================================== */
-
-  function editIcon(){
-
-    return `
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M12 20h9"/>
-        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
-      </svg>
-    `;
-
-  }
-
-
-  function deleteIcon(){
-
-    return `
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M3 6h18"/>
-        <path d="M8 6V4h8v2"/>
-        <path d="M19 6l-1 15H6L5 6"/>
-        <path d="M10 11v6"/>
-        <path d="M14 11v6"/>
-      </svg>
-    `;
-
-  }
-
-
-  /* =====================================================
-     TOAST
-  ===================================================== */
-
-  let toastTimer;
-
-  function toast(
-    message,
-    type = ""
-  ){
-
-    const element =
-      document.getElementById(
-        "toast"
-      );
-
-    element.textContent =
-      message;
-
-    element.className =
-      "";
-
-    if(type){
-
-      element.classList.add(
-        type
-      );
-
-    }
-
-    requestAnimationFrame(
-      () => {
-
-        element.classList.add(
-          "show"
-        );
-
-      }
-    );
-
-    clearTimeout(
-      toastTimer
-    );
-
-    toastTimer =
-      setTimeout(
-        () => {
-
-          element.classList.remove(
-            "show"
-          );
-
-        },
-        3500
-      );
-
-  }
-
-
-  /* =====================================================
-     SECURITY / HTML
-  ===================================================== */
-
-  function escapeHtml(value){
-
-    return String(
-      value ?? ""
-    )
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-
-  }
-
-
-  function escapeAttribute(value){
-
-    return escapeHtml(value);
-
-  }
-
-</script>
+  </script>
 
 </body>
 </html>
